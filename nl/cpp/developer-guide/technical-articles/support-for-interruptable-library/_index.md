@@ -1,93 +1,216 @@
 ---
-title: Ondersteuning voor onderbreekbare bibliotheek
+title: Onderbreek langlopende presentatiebewerkingen in C++
+linktitle: Onderbreek presentatiebewerkingen
 type: docs
 weight: 150
 url: /nl/cpp/support-for-interruptable-library/
 keywords:
-- onderbreekbare bibliotheek
+- onderbreekbare bewerkingen
 - onderbrekingstoken
 - annuleringstoken
-- langdurige taak
+- langlopende taak
 - onderbreekbare taak
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Maak langdurige taken annuleerbaar met Aspose.Slides voor C++. Onderbreek veilig het renderen en de conversies voor PowerPoint en OpenDocument, met voorbeelden."
+description: "Leer hoe u langlopende presentatiebewerkingen in Aspose.Slides voor C++ kunt annuleren en een gedeeltelijk resultaat kunt retourneren bij het exporteren van dia's in een lus."
 ---
 ## **Overzicht**
 
-Aspose.Slides biedt een onderbreekbare verwerkingsmechanisme voor langdurige presentatietaken, zoals deserialisatie, serialisatie en rendering. Dit mechanisme is gebaseerd op de klassen `InterruptionToken` en `InterruptionTokenSource`.
+Aspose.Slides voor C++ kan lange bewerkingen zoals het laden, opslaan en renderen van presentaties onderbreken. Uw toepassing kan dezelfde interruption‑token gebruiken om een lus te stoppen voordat deze de volgende dia verwerkt.
 
-`InterruptionToken` kan worden toegewezen aan `LoadOptions` en doorgegeven aan de constructor van `Presentation`. Wanneer `InterruptionTokenSource::Interrupt()` wordt aangeroepen, wordt de bijbehorende langdurige taak onderbroken.
+## **Onderbreek een presentatie‑operatie**
 
-## **Onderbreekbare bibliotheek**
+Maak een [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/), haal zijn token op met [get_Token](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/get_token/), geef het token door aan [LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/), en geef de laadopties door aan de [Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/). Om annulering aan te vragen, roep [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) aan op de bron. Een onderbreekbare bewerking stopt wanneer deze het verzoek opmerkt.
 
-In [Aspose.Slides 18.4](https://releases.aspose.com/slides/nl/cpp/release-notes/2018/aspose-slides-for-cpp-18-4-release-notes/), hebben we de klassen [InterruptionToken](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontoken/) en [InterruptionTokenSource](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontokensource/) geïntroduceerd. Ze stellen u in staat om langdurige taken zoals deserialisatie, serialisatie en rendering te onderbreken.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontokensource/) is de bron van het token of de tokens die worden doorgegeven aan [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_interruptiontoken/).
-- Wanneer [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_interruptiontoken/) is ingesteld en de [LoadOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/)‑instantie wordt doorgegeven aan de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑constructor, onderbreekt het aanroepen van [InterruptionTokenSource::Interrupt()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontokensource/interrupt/) elke langdurige taak die aan die [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) is gekoppeld.
-
-De volgende code‑fragment toont hoe een draaiende taak kan worden onderbroken:
+Het voorbeeld start met het converteren van `sample.pptx` naar `sample.ppt` in een achtergrondtaak en vraagt om annulering als de taak na 10 seconden nog steeds loopt. Als de conversie eerder voltooid is, is de uitvoer al compleet.
 
 ```cpp
-void Run(Action<SharedPtr<IInterruptionToken>> action, SharedPtr<IInterruptionToken> token)
-{
-    auto threadFunction = std::function<void()>([&action, &token]() -> void
-    {
-        action(token);
-    });
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <chrono>
+#include <future>
+#include <iostream>
 
-    auto thread = System::MakeObject<Threading::Thread>(threadFunction);
-    thread->Start();
+using namespace Aspose::Slides;
+using namespace System;
+
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto conversion = std::async(std::launch::async, [token]()
+{
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.ppt", Export::SaveFormat::Ppt);
+});
+
+if (conversion.wait_for(std::chrono::seconds(10)) == std::future_status::timeout)
+    source->Interrupt();
+
+try
+{
+    conversion.get();
 }
-
-void Run()
+catch (const OperationCanceledException&)
 {
-    String dataDir = GetDataPath();
-
-    auto function = std::function<void(SharedPtr<IInterruptionToken> token)> ([&dataDir](SharedPtr<IInterruptionToken> token) -> void
-    {
-        auto options = System::MakeObject<LoadOptions>();
-        options->set_InterruptionToken(token);
-
-        auto presentation = System::MakeObject<Presentation>(dataDir + u"sample.pptx", options);
-        presentation->Save(dataDir + u"sample.ppt", Export::SaveFormat::Ppt);
-    });
-
-    auto action = System::Action<SharedPtr<IInterruptionToken>>(function);
-    auto tokenSource = System::MakeObject<InterruptionTokenSource>();
-    
-    Run(action, tokenSource->get_Token()); // voer de actie uit in een aparte thread
-    Threading::Thread::Sleep(10000);       // time‑out
-    tokenSource->Interrupt();              // stop de conversie
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
 }
 ```
 
+## **Koppel applicatie‑annulering aan Aspose.Slides**
+
+Als uw toepassing een [System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/) gebruikt, gebruik dan [Register](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/register/) om annuleringsverzoeken door te sturen naar [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/). Het voorbeeld exporteert `sample.pptx` naar `sample.pdf` in een achtergrondtaak. Als de export na 20 seconden nog steeds loopt, roept de toepassing [CancellationTokenSource::Cancel](https://reference.aspose.com/slides/cpp/system.threading/cancellationtokensource/cancel/) aan, waardoor de geregistreerde callback wordt uitgevoerd.
+
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <system/threading/cancellation_token.h>
+#include <system/threading/cancellation_token_source.h>
+#include <chrono>
+#include <future>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto cancellation = MakeObject<Threading::CancellationTokenSource>();
+auto cancellationToken = cancellation->get_Token();
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto interrupt = Action<>([source]() { source->Interrupt(); });
+auto registration = cancellationToken.Register(interrupt);
+
+auto conversion = std::async(std::launch::async, [token]()
+{
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.pdf", Export::SaveFormat::Pdf);
+});
+
+if (conversion.wait_for(std::chrono::seconds(20)) == std::future_status::timeout)
+    cancellation->Cancel();
+
+try
+{
+    conversion.get();
+}
+catch (const OperationCanceledException&)
+{
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
+}
+registration.Dispose();
+```
+
+## **Stop voordat de volgende dia wordt verwerkt**
+
+Gebruik dezelfde [IInterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/) voor zowel de presentatie als de lus die de dia's exporteert. Controleer [get_IsInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/get_isinterruptionrequested/) voordat u elke export start. Als de aanroeper een gedeeltelijk resultaat kan gebruiken, geef dan de dianummers terug van de export die succesvol voltooid is.
+
+Gebruik een presentatie met de naam `sample.pptx` met ten minste twee dia's. Het voorbeeld vraagt om annulering direct nadat het de eerste succesvolle export heeft geregistreerd.
+
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <DOM/ISlideCollection.h>
+#include <system/array.h>
+#include <iostream>
+#include <vector>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto exportSlides = [](String path, SharedPtr<InterruptionTokenSource> source)
+{
+    std::vector<int32_t> completed;
+    auto token = source->get_Token();
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(path, options);
+    auto slideCount = presentation->get_Slides()->get_Count();
+
+    for (auto number = 1; number <= slideCount; ++number)
+    {
+        if (token->get_IsInterruptionRequested())
+            break;
+
+        std::cout << "Starting slide " << number << '\n';
+        auto filename = String::Format(u"slide-{0}.pdf", number);
+        auto slides = MakeArray<int32_t>({number});
+        try
+        {
+            presentation->Save(filename, slides, Export::SaveFormat::Pdf);
+        }
+        catch (const OperationCanceledException&)
+        {
+            if (!token->get_IsInterruptionRequested())
+                throw;
+            break;
+        }
+
+        completed.push_back(number);
+        if (number == 1)
+            source->Interrupt();
+    }
+    return completed;
+};
+
+auto source = MakeObject<InterruptionTokenSource>();
+auto completed = exportSlides(u"sample.pptx", source);
+std::cout << "Completed: [";
+for (size_t i = 0; i < completed.size(); ++i)
+    std::cout << (i == 0 ? "" : ", ") << completed[i];
+std::cout << "]\n";
+```
+
+Het voorbeeld schrijft `slide-1.pdf` en print `Starting slide 1` gevolgd door `Completed: [1]`. De lus ziet het verzoek voordat hij dia 2 start. Als annulering in plaats daarvan [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) onderbreekt tijdens een export, verlaat het `catch`‑blok de lus voordat de code de huidige dia als voltooid registreert.
+
+Als de aanroeper annulering moet afhandelen, vervangt u de `if`‑controle en de bijbehorende `break` aan het begin van de lus door een oproep naar [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) op het token. Verwijder de `try`/`catch`‑blokken rond de export zodat annulering tijdens een opslaan ook bij de aanroeper terechtkomt. Met dezelfde invoer print het voorbeeld alleen `Starting slide 1` en schrijft `slide-1.pdf`. Aan het begin van de tweede iteratie ontvangt de aanroeper een [System::OperationCanceledException](https://reference.aspose.com/slides/cpp/system/details_operationcanceledexception/) voordat de export start. De aanroeper ontvangt geen lijst van voltooide dia's.
+
 ## **FAQ**
 
-**Wat is het doel van de Aspose.Slides-interruptiebibliotheek?**
+**Wanneer moet ik annulering aanvragen?**
 
-Het biedt een mechanisme om langdurige bewerkingen—zoals het laden, opslaan of renderen van presentaties—onder te breken voordat ze voltooid zijn. Dit is nuttig wanneer de verwerkingstijd beperkt moet worden of de taak niet meer nodig is.
+Vraag om annulering wanneer een bewerking uw tijdslimiet overschrijdt of wanneer uw toepassing het resultaat niet meer nodig heeft.
 
-**Wat is het verschil tussen [InterruptionToken](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontoken/) en [InterruptionTokenSource](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontokensource/)?**
+**Wat is het verschil tussen [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) en [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/)?**
 
-- `InterruptionToken` wordt doorgegeven aan de Aspose.Slides‑API en gecontroleerd tijdens langdurige bewerkingen.
-- `InterruptionTokenSource` wordt in uw code gebruikt om tokens te maken en onderbrekingen te activeren door `Interrupt()` aan te roepen.
+De bron stelt uw toepassing in staat om annulering aan te vragen. Het token laat Aspose.Slides en uw toepassing controleren op dat verzoek.
 
-**Welke taken kunnen worden onderbroken?**
+**Kan ik een [System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/) gebruiken met Aspose.Slides?**
 
-Elke Aspose.Slides‑taak die een [InterruptionToken](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontoken/) accepteert—bijvoorbeeld het laden van een presentatie met `Presentation(path, loadOptions)` of het opslaan met `Presentation::Save(...)`—kan worden onderbroken.
+Ja. Wanneer het token van uw toepassing annulering signaleert, roept u [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) aan op de bron die bij de presentatie hoort.
 
-**Gebeuren onderbrekingen onmiddellijk?**
+**Welke bewerkingen kan ik onderbreken?**
 
-Nee. Onderbreking is coöperatief: de bewerking controleert periodiek het token en stopt zodra wordt gedetecteerd dat [Interrupt()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontokensource/interrupt/) is aangeroepen.
+U kunt het laden, opslaan en renderen onderbreken. Geef het token door aan de [Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/) via [LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/). De presentatie kan vervolgens annulering waarnemen tijdens latere bewerkingen zoals [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/).
 
-**Wat gebeurt er als ik [Interrupt()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontokensource/interrupt/) aanroep nadat een taak al voltooid is?**
+**Stopt een bewerking onmiddellijk?**
 
-Geen effect—de aanroep heeft geen invloed als de betreffende taak al voltooid is.
+Annulering gebeurt coöperatief. Een bewerking controleert periodiek het token en stopt wanneer het het verzoek opmerkt.
 
-**Kan ik dezelfde [InterruptionTokenSource](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontokensource/) opnieuw gebruiken voor meerdere taken?**
+**Wat gebeurt er als ik [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) aanroep nadat een bewerking is voltooid?**
 
-Ja—maar nadat u [Interrupt()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/interruptiontokensource/interrupt/) op die bron hebt aangeroepen, worden alle taken die haar tokens gebruiken onderbroken. Gebruik aparte token‑bronnen om taken onafhankelijk te beheren.
+De voltooide bewerking behoudt zijn resultaat.
+
+**Kunnen meerdere bewerkingen eenzelfde [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) delen?**
+
+Ja. Het aanroepen van [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) vraagt annulering aan voor elke bewerking die een token van die bron gebruikt. Gebruik een aparte bron voor elke bewerking die u onafhankelijk wilt annuleren.

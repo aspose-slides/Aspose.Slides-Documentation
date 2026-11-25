@@ -1,40 +1,35 @@
 ---
-title: Поддержка прерываемой библиотеки
+title: Прерывание длительных операций с презентациями в Python
+linktitle: Прерывание операций с презентациями
 type: docs
 weight: 120
 url: /ru/python-java/support-for-interruptable-library/
 keywords:
-- прерываемая библиотека
+- прерываемые операции
 - токен прерывания
 - токен отмены
 - длительная задача
-- прерывание задачи
+- прервать задачу
 - PowerPoint
 - OpenDocument
 - презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Сделайте длительные задачи отменяемыми с помощью Aspose.Slides for Python via Java. Прерывайте рендеринг и конвертацию PowerPoint и OpenDocument безопасно, с примерами."
+description: "Узнайте, как отменять длительные операции с презентациями в Aspose.Slides for Python via Java и получать частичный результат при экспорте слайдов в цикле."
 ---
 ## **Обзор**
 
-Aspose.Slides предоставляет механизм прерываемой обработки для длительных задач, связанных с презентациями, таких как десериализация, сериализация и рендеринг. Этот механизм основан на классах [InterruptionToken](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontoken/) и [InterruptionTokenSource](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/).
+Aspose.Slides for Python via Java может прерывать длительные операции, такие как загрузка, сохранение и рендеринг презентаций. Ваше приложение может использовать тот же токен прерывания, чтобы остановить цикл до начала обработки следующего слайда.
 
-[InterruptionToken](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontoken/) может быть назначен объекту [LoadOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/loadoptions/) и передан в конструктор [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/). Когда вызывается [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/#interrupt), связанная длительная задача прерывается.
+## **Прервать операцию с презентацией**
 
-## **Прерываемая библиотека**
+Создайте [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/), получите его токен с помощью [getToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#getToken), и передайте токен в метод [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken). Передайте параметры загрузки в [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). Чтобы запросить отмену, вызовите [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) у источника. Прерываемая операция останавливается, когда обнаруживает запрос. Используйте `jpype.JClass`, чтобы отловить в Python Java‑исключение `com.aspose.slides.exceptions.OperationCanceledException`.
 
-Aspose.Slides for Python via Java предоставляет классы [InterruptionToken](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontoken/) и [InterruptionTokenSource](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/). Они позволяют прерывать длительные задачи, такие как десериализация, сериализация и рендеринг.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/) является источником токена(ов), передаваемых в [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/ru/python-java/aspose.slides/loadoptions/#setInterruptionToken).
-- Когда вызывается [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/ru/python-java/aspose.slides/loadoptions/#setInterruptionToken) и экземпляр [LoadOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/loadoptions/) передаётся в конструктор [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/), вызов [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/#interrupt) прерывает любую длительную задачу, связанную с этой [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-
-Следующий фрагмент кода демонстрирует прерывание выполняющейся задачи:
+Пример преобразует `sample.pptx` в `sample.ppt` в фоновом потоке. Вызывающий поток ждёт до 10 секунд завершения конвертации. Если конвертация всё ещё работает, он запрашивает отмену и ждёт завершения рабочего потока.
 
 ```python
-from concurrent.futures import ThreadPoolExecutor
-import time
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 import jpype
 import asposeslides
@@ -44,51 +39,142 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
 
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
 
-token_source = InterruptionTokenSource()
 
-
-def convert_presentation():
-    load_options = LoadOptions()
-    load_options.setInterruptionToken(token_source.getToken())
-
-    presentation = Presentation("sample.pptx", load_options)
+def convert_presentation(source):
+    options = LoadOptions()
+    options.setInterruptionToken(source.getToken())
     try:
-        presentation.save("sample.ppt", SaveFormat.Ppt)
+        presentation = Presentation("sample.pptx", options)
+        try:
+            presentation.save("sample.ppt", SaveFormat.Ppt)
+        finally:
+            presentation.dispose()
+    except OperationCanceledException:
+        print("Conversion canceled")
+
+
+source = InterruptionTokenSource()
+with ThreadPoolExecutor(max_workers=1) as executor:
+    conversion = executor.submit(convert_presentation, source)
+    try:
+        conversion.result(timeout=10)
+    except TimeoutError:
+        source.interrupt()
+        conversion.result()
+```
+
+## **Подключить тайм‑аут Python к Aspose.Slides**
+
+Чтобы установить ограничение времени для операции с презентацией, используйте [threading.Timer](https://docs.python.org/3/library/threading.html#threading.Timer), чтобы вызвать [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) по истечении тайм‑аута. В примере отводится 20 секунд на загрузку `sample.pptx` и экспорт в `sample.pdf`. Если экспорт завершается раньше, приложение отменяет запланированный запрос.
+
+```python
+from threading import Timer
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+source = InterruptionTokenSource()
+options = LoadOptions()
+options.setInterruptionToken(source.getToken())
+
+timer = Timer(20, source.interrupt)
+timer.start()
+try:
+    presentation = Presentation("sample.pptx", options)
+    try:
+        presentation.save("sample.pdf", SaveFormat.Pdf)
+    finally:
+        presentation.dispose()
+except OperationCanceledException:
+    print("Presentation processing was canceled")
+finally:
+    timer.cancel()
+    timer.join()
+```
+
+## **Остановить перед обработкой следующего слайда**
+
+Используйте тот же [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) как для презентации, так и для цикла, который экспортирует её слайды. Перед каждым экспортом проверяйте [isInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#isInterruptionRequested). Если вызывающий может использовать частичный результат, возвращайте номера слайдов, успешно экспортированных.
+
+Используйте презентацию с именем `sample.pptx`, содержащую как минимум два слайда. Перегрузка [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save), принимающая Java `int[]`, использует нумерацию слайдов, начинающуюся с 1. Используйте `jpype.JArray(jpype.JInt)`, чтобы построить массив в Python. Пример сохраняет каждый слайд в отдельный PDF и запрашивает отмену сразу после записи первого успешного экспорта.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+
+def export_slides(path, source):
+    completed = []
+    token = source.getToken()
+    options = LoadOptions()
+    options.setInterruptionToken(token)
+    presentation = Presentation(path, options)
+    try:
+        for number in range(1, presentation.getSlides().size() + 1):
+            if token.isInterruptionRequested():
+                break
+
+            print(f"Starting slide {number}")
+            slide_numbers = jpype.JArray(jpype.JInt)([number])
+            try:
+                presentation.save(f"slide-{number}.pdf", slide_numbers, SaveFormat.Pdf)
+            except OperationCanceledException:
+                if token.isInterruptionRequested():
+                    break
+                raise
+
+            completed.append(number)
+            if number == 1:
+                source.interrupt()
+        return completed
     finally:
         presentation.dispose()
 
 
-with ThreadPoolExecutor(max_workers=1) as executor:
-    conversion_task = executor.submit(convert_presentation)  # Запустить действие в отдельном потоке.
-    time.sleep(10)  # Тайм-аут.
-    token_source.interrupt()  # Остановить конвертацию.
-    conversion_task.result()
+source = InterruptionTokenSource()
+completed = export_slides("sample.pptx", source)
+print(f"Completed: {completed}")
 ```
 
-## **Часто задаваемые вопросы**
+Пример записывает `slide-1.pdf` и выводит `Starting slide 1`, затем `Completed: [1]`. Цикл обнаруживает запрос перед началом слайда 2. Если отмена происходит во время сохранения, цикл выходит до того, как отметит этот слайд как завершённый.
 
-**Какова цель библиотеки прерывания Aspose.Slides?**
+Если вызывающему необходимо обработать отмену, замените проверку и её `break` в начале цикла на `token.throwIfInterruptionRequested()`. Удалите `try`/`except` вокруг сохранения, чтобы отмена во время экспорта тоже доходила до вызывающего. При том же вводе пример выводит только `Starting slide 1` и записывает `slide-1.pdf`. В начале второй итерации [throwIfInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#throwIfInterruptionRequested) вызывает `com.aspose.slides.exceptions.OperationCanceledException` до начала следующего экспорта. Исключение распространяется на вызывающего до того, как функция сможет вернуть список.
 
-Она предоставляет механизм прерывания длительных операций — таких как загрузка, сохранение или рендеринг презентаций — до их завершения. Это полезно, когда время обработки должно быть ограничено или задача более не нужна.
+## **FAQ**
 
-**В чём разница между [InterruptionToken](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontoken/) и [InterruptionTokenSource](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/)?**
+**Когда следует запрашивать отмену?**  
+Запрашивайте отмену, когда операция превышает ваш лимит времени или когда приложению больше не нужен результат.
 
-- [InterruptionToken](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontoken/) передаётся в API Aspose.Slides и проверяется во время длительных операций.
-- [InterruptionTokenSource](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/) используется в вашем коде для создания токенов и инициирования прерываний вызовом [interrupt](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/#interrupt).
+**В чём разница между [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) и [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/)?**  
+Источник позволяет вашему приложению запросить отмену. Токен позволяет Aspose.Slides и вашему приложению проверять наличие такого запроса.
 
-**Какие задачи можно прерывать?**
+**Могу ли я отменить операцию из таймера Python?**  
+Да. Запланируйте вызов [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) у источника, связанного с презентацией.
 
-Любая задача Aspose.Slides, принимающая [InterruptionToken](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontoken/) — например, загрузка презентации с помощью [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) или сохранение через [Presentation.save](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#save) — может быть прервана.
+**Какие операции я могу прервать?**  
+Вы можете прерывать загрузку, сохранение и рендеринг. Передайте токен в [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) через [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken). Затем презентация может наблюдать отмену во время последующих операций, таких как сохранение в PDF.
 
-**Прерывание происходит мгновенно?**
+**Останавливается ли операция сразу?**  
+Отмена кооперативна. Операция периодически проверяет токен и останавливается, когда обнаруживает запрос.
 
-Нет. Прерывание является кооперативным: операция периодически проверяет токен и останавливается, как только обнаруживает, что был вызван [interrupt](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/#interrupt).
+**Что происходит, если я вызову [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) после завершения операции?**  
+Завершённая операция сохраняет свой результат.
 
-**Что происходит, если вызвать [interrupt](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/#interrupt) после завершения задачи?**
-
-Ничего — вызов не имеет эффекта, если соответствующая задача уже завершена.
-
-**Можно ли повторно использовать один и тот же [InterruptionTokenSource](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/) для нескольких задач?**
-
-Да — но после вызова [interrupt](https://reference.aspose.com/slides/ru/python-java/aspose.slides/interruptiontokensource/#interrupt) для этого источника все задачи, использующие его токены, будут прерваны. Используйте отдельные источники токенов для независимого управления задачами.
+**Могут ли несколько операций использовать один [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/)?**  
+Да. Вызов [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) запрашивает отмену для каждой операции, использующей токен из этого источника. Используйте отдельный источник для каждой операции, которую хотите отменять независимо.

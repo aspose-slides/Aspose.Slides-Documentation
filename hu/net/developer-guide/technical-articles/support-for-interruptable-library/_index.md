@@ -1,13 +1,14 @@
 ---
-title: Megszakítható könyvtár támogatása
+title: Hosszú futású prezentációs műveletek megszakítása .NET-ben
+linktitle: Prezentációs műveletek megszakítása
 type: docs
 weight: 150
 url: /hu/net/support-for-interruptable-library/
 keywords:
-- megszakítható könyvtár
-- megszakítási token
+- megszakítható műveletek
+- interrupciós token
 - leállítási token
-- hosszú ideig futó feladat
+- hosszú futású feladat
 - feladat megszakítása
 - PowerPoint
 - OpenDocument
@@ -15,24 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tegye megszakíthatóvá a hosszú ideig futó feladatokat az Aspose.Slides for .NET használatával. Biztonságosan szakítsa meg a PowerPoint és OpenDocument megjelenítést és konverziókat, példákkal."
+description: "Ismerje meg, hogyan lehet megszakítani a hosszú futású prezentációs műveleteket az Aspose.Slides for .NET-ben, és hogyan adhat vissza részleges eredményt a dia exportálásakor egy ciklusban."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for .NET egy megszakítható feldolgozási mechanizmust biztosít a hosszú ideig futó prezentációs feladatokhoz, például a deszerializációhoz, sorosításhoz és megjelenítéshez. Ez a mechanizmus a `InterruptionToken` és a `InterruptionTokenSource` osztályokon alapul.
+Az Aspose.Slides for .NET képes megszakítani a hosszú futású műveleteket, például a prezentációk betöltését, mentését és renderelését. Az alkalmazása ugyanazt az interrupciós tokent használhatja a ciklus leállításához, mielőtt a következő diát feldolgozná.
 
-Egy `InterruptionToken` hozzárendelhető a `LoadOptions`-hez, és átadható a `Presentation` konstruktorának. Amikor a `InterruptionTokenSource.Interrupt()` meghívásra kerül, a kapcsolódó hosszú ideig futó feladat megszakad. A cikk bemutatja, hogyan lehet ezt a mechanizmust együtt használni a szabványos .NET `CancellationToken`-nel a leállítási kérések figyelésével, és a `Interrupt()` meghívásával, amikor a leállítás kérése érkezik.
+## **Megszakítani egy prezentáció műveletét**
 
-## **Megszakítható Könyvtár**
+Hozzon létre egy [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/), rendelje a [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) értékét a [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/)-hez, és adja át a betöltési beállításokat a [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/)‑nek. A leállítás kéréséhez hívja meg a [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) metódust a forráson. Egy megszakítható művelet leáll, amikor észleli a kérést.
 
-Az [Aspose.Slides 18.4](https://releases.aspose.com/slides/hu/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/) bevezetésével felvettük a [InterruptionToken](https://reference.aspose.com/slides/hu/net/aspose.slides/interruptiontoken/) és a [InterruptionTokenSource](https://reference.aspose.com/slides/hu/net/aspose.slides/interruptiontokensource/) osztályokat. Ezek lehetővé teszik a hosszú ideig futó feladatok, például a deszerializáció, sorosítás és megjelenítés megszakítását.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/hu/net/aspose.slides/interruptiontokensource/) a token(ek) forrása, amely(ek)et a [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/hu/net/aspose.slides/iloadoptions/interruptiontoken/) kapja.
-- Amikor a [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/hu/net/aspose.slides/iloadoptions/interruptiontoken/) be van állítva, és a [LoadOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/) példány átadásra kerül a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) konstruktorába, a [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/hu/net/aspose.slides/interruptiontokensource/interrupt/) meghívása megszakítja a hozzá kapcsolódó hosszú ideig futó feladatot.
-
-A következő kódrészlet bemutatja egy futó feladat megszakítását:
+A példa a `sample.pptx` fájlt háttérfeladatban `sample.ppt`‑re konvertálja, és 10 másodperc után kéri a leállítást. Ha a konvertálás korábban befejeződik, a kimenet már készen van.
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -45,9 +45,9 @@ public static void Run()
     };
 
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Run(action, tokenSource.Token); // a művelet futtatása külön szálon
+    Run(action, tokenSource.Token); // futtassa a műveletet egy külön szálon
     Thread.Sleep(10000);            // időkorlát
-    tokenSource.Interrupt();        // a konverzió leállítása
+    tokenSource.Interrupt();        // állítsa le a konverziót
 }
 
 private static void Run(Action<IInterruptionToken> action, IInterruptionToken token)
@@ -56,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **.NET CancellationToken és Megszakítható Könyvtár**
+## **A .NET leállítás összekapcsolása az Aspose.Slides‑szal**
 
-Amikor egy [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) használata szükséges az Aspose.Slides Megszakítható könyvtárral együtt, csomagolja be a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) feldolgozást, és szakítsa meg a [InterruptionToken](https://reference.aspose.com/slides/hu/net/aspose.slides/interruptiontoken/), ha a [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) értéke `true`.
-
-Ez a C# kód bemutatja a működést:
+Ha az alkalmazása .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken)‑t használ, továbbítsa annak leállítási kérését az Aspose.Slides felé. A példa a `sample.pptx`‑et `sample.pdf`‑re exportálja, és 20 másodperces időkorlátot állít be. Az exportálás közben 500 milliszekundumonként ellenőrzi a [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) értékét. Amikor a tulajdonság `true`‑ra vált, meghívja a [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) metódust.
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -81,14 +83,14 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     };
     
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Task task = Run(action, tokenSource.Token); // a művelet futtatása külön szálon
+    Task task = Run(action, tokenSource.Token); // futtassa a műveletet egy külön szálon
 
-    while (!task.Wait(500)) // várakozik és figyeli, hogy a cancellationToken.IsCancellationRequested be legyen állítva
+    while (!task.Wait(500)) // várjon és figyelje, hogy a cancellationToken.IsCancellationRequested be van-e állítva
     {
         if (cancellationToken.IsCancellationRequested)
         {
             Console.WriteLine("Presentation processing was canceled");
-            tokenSource.Interrupt(); // a Presentation feldolgozásának megszakítása
+            tokenSource.Interrupt(); // szakítsa meg a Presentation feldolgozását
         }
     }
 }
@@ -102,33 +104,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **GYIK**
+## **Megállás a következő dia feldolgozása előtt**
 
-**Mi a célja az Aspose.Slides megszakítási könyvtárnak?**
+Használja ugyanazt a [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/)‑t a prezentációhoz és a diaexportáló ciklushoz. Minden exportálás előtt ellenőrizze a [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) állapotot. Ha a hívó részleges eredményt is elfogadhat, adja vissza azoknak az exportálásoknak a dia számait, amelyek sikeresen befejeződtek.
 
-Ez egy mechanizmust biztosít a hosszú ideig futó műveletek — például a prezentációk betöltése, mentése vagy renderelése — megszakítására, mielőtt befejeződnek. Hasznos, ha a feldolgozási időt korlátozni kell, vagy a feladat már nem szükséges.
+A példa egy legalább két dia‑val rendelkező `sample.pptx` prezentációt használ. A leállítási kérés már az első sikeres exportálás után azonnal megtörténik.
 
-**Mi a különbség a [InterruptionToken](https://reference.aspose.com/slides/hu/net/aspose.slides/interruptiontoken/) és a [InterruptionTokenSource](https://reference.aspose.com/slides/hu/net/aspose.slides/iinterruptiontokensource/)?**
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- `InterruptionToken` átadásra kerül az Aspose.Slides API-nak, és a hosszú ideig futó műveletek során ellenőrzésre kerül.
-- `InterruptionTokenSource` a kódban használatos tokenek létrehozására és a megszakítások kiváltására a `Interrupt()` meghívásával.
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
 
-**Használhatom a .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken)-t a megszakítási könyvtárral?**
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
 
-Igen. Figyelheti a [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken)-t az alkalmazás logikájában, és a leállítás kérésére meghívhatja a [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/hu/net/aspose.slides/iinterruptiontokensource/interrupt/)-t. Ez lehetővé teszi, hogy az Aspose.Slides integrálódjon a szabványos .NET leállítási munkafolyamatokkal.
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
 
-**Milyen feladatok szakíthatók meg?**
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
 
-Bármely Aspose.Slides feladat, amely elfogad egy [InterruptionToken](https://reference.aspose.com/slides/hu/net/aspose.slides/interruptiontoken/)-t — például egy prezentáció betöltése a `Presentation(path, loadOptions)` vagy mentése a `Presentation.Save(...)` segítségével — megszakítható.
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
 
-**A megszakítás azonnal megtörténik?**
+    return completed;
+}
+```
 
-Nem. A megszakítás együttműködésen alapul: a művelet időről‑időre ellenőrzi a tokent, és akkor áll le, amikor észleli, hogy a [Interrupt()](https://reference.aspose.com/slides/hu/net/aspose.slides/iinterruptiontokensource/interrupt/) meghívásra került.
+A példa a `slide-1.pdf`‑t írja, és a `Starting slide 1` után kiírja a `Completed: [1]` üzenetet. A ciklus a második dia előtt észleli a leállítási kérést. Ha a leállítás a [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) közben történik, a `catch` blokk kilép a ciklusból, mielőtt a jelenlegi dia befejezettként lenne rögzítve.
 
-**Mi történik, ha a [Interrupt()](https://reference.aspose.com/slides/hu/net/aspose.slides/iinterruptiontokensource/interrupt/) meghívását egy már befejezett feladat után hajtom végre?**
+Ha a hívónak kezelnije kell a leállítást, cserélje le a `if` ellenőrzést és a `break`‑et a ciklus tetején egy [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) hívásra a tokenen. Távolítsa el a `try`/`catch`‑et az export körül, hogy a mentés közbeni leállítás is eljusson a hívóhoz. Ugyanazzal a bemenettel a példa csak a `Starting slide 1` üzenetet írja ki, és csak a `slide-1.pdf`‑t hozza létre. A második iteráció elején a hívó egy [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception)‑t kap, mielőtt az exportálás elkezdődne. A metódus ilyenkor nem ad vissza listát.
 
-Semmi — a hívás nem lesz hatással, ha a kapcsolódó feladat már befejeződött.
+## **Gyakran Ismételt Kérdések**
 
-**Újra felhasználhatom ugyanazt a [InterruptionTokenSource](https://reference.aspose.com/slides/hu/net/aspose.slides/iinterruptiontokensource/)‑t több feladathoz?**
+**Mikor kell kérni a leállítást?**
 
-Igen — de miután a [Interrupt()](https://reference.aspose.com/slides/hu/net/aspose.slides/iinterruptiontokensource/interrupt/) meghívásra került azon a forráson, az összes, a tokenjeit használó feladat megszakad. Használjon külön tokenforrásokat a feladatok független kezeléséhez.
+A leállítást akkor kérje, ha egy művelet meghaladja az időkorlátját, vagy ha az alkalmazása már nem igényli az eredményt.
+
+**Mi a különbség a [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) és a [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) között?**
+
+A forrás teszi lehetővé, hogy az alkalmazása leállítási kérést indítson. A token pedig azt biztosítja, hogy az Aspose.Slides és az alkalmazása ellenőrizhesse ezt a kérést.
+
+**Használhatok .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken)‑t az Aspose.Slides‑szel?**
+
+Igen. Amikor a .NET token leállítást jelez, hívja meg a [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) metódust a prezentációval összekapcsolt forráson.
+
+**Milyen műveleteket szakíthatok meg?**
+
+A betöltést, mentést és renderelést szakíthatja meg. Adja át a tokent a [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/)‑nek a [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/) segítségével. A prezentáció ezután leállítási kérelmet észlelhet olyan későbbi műveletek során, mint a [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/).
+
+**Azonnal leáll a művelet?**
+
+A leállítás együttműködésen alapul. A művelet időközönként ellenőrzi a tokent, és akkor áll le, amikor észleli a kérést.
+
+**Mi történik, ha a [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) hívását a művelet befejezése után hajtom végre?**
+
+A már befejeződött művelet megtartja az eredményét.
+
+**Több művelet is használhatja ugyanazt az [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)-t?**
+
+Igen. A [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) hívása minden olyan művelet leállítását kéri, amely az adott forrás tokenjét használja. Ha külön-külön szeretne műveleteket leállítani, használjon külön forrást minden egyes művelethez.

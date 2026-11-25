@@ -1,10 +1,11 @@
 ---
-title: Podpora přerušitelné knihovny
+title: Přerušení dlouho běžících operací prezentace v .NET
+linktitle: Přerušení operací prezentace
 type: docs
 weight: 150
 url: /cs/net/support-for-interruptable-library/
 keywords:
-- přerušitelná knihovna
+- přerušitelné operace
 - token přerušení
 - token zrušení
 - dlouho běžící úloha
@@ -15,24 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Umožněte zrušení dlouho běžících úloh pomocí Aspose.Slides pro .NET. Bezpečně přerušte vykreslování a konverze pro PowerPoint a OpenDocument s příklady."
+description: "Zjistěte, jak zrušit dlouho běžící operace prezentace v Aspose.Slides pro .NET a vrátit částečný výsledek při exportu snímků v smyčce."
 ---
 ## **Přehled**
 
-Aspose.Slides for .NET poskytuje přerušitelný mechanismus zpracování pro dlouho běžící úlohy prezentací, jako jsou deserializace, serializace a vykreslování. Tento mechanismus je založen na třídách `InterruptionToken` a `InterruptionTokenSource`.
+Aspose.Slides pro .NET může přerušovat dlouho běžící operace, jako je načítání, ukládání a vykreslování prezentací. Vaše aplikace může použít stejný token přerušení k zastavení smyčky předtím, než začne zpracovávat další snímek.
 
-`InterruptionToken` může být přiřazen k `LoadOptions` a předán konstruktoru `Presentation`. Když je zavoláno `InterruptionTokenSource.Interrupt()`, přidružená dlouho běžící úloha je přerušena. Článek také ukazuje, jak použít tento mechanismus spolu se standardním .NET `CancellationToken` sledováním požadavků na zrušení a voláním `Interrupt()`, když je zrušení požadováno.
+## **Přerušení operace prezentace**
 
-## **Přerušitelná knihovna**
+Vytvořte [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/), přiřaďte jeho [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) k [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/), a předajte možnosti načítání konstruktoru [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Chcete‑li požádat o zrušení, zavolejte [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) na zdroj. Přerušitelná operace se zastaví, jakmile zaznamená požadavek.
 
-V [Aspose.Slides 18.4](https://releases.aspose.com/slides/cs/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/) jsme představili třídy [InterruptionToken](https://reference.aspose.com/slides/cs/net/aspose.slides/interruptiontoken/) a [InterruptionTokenSource](https://reference.aspose.com/slides/cs/net/aspose.slides/interruptiontokensource/). Umožňují přerušit dlouho běžící úlohy jako deserializaci, serializaci a vykreslování.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/cs/net/aspose.slides/interruptiontokensource/) je zdrojem tokenu(ů) předávaných do [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/cs/net/aspose.slides/iloadoptions/interruptiontoken/).
-- Když je [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/cs/net/aspose.slides/iloadoptions/interruptiontoken/) nastaven a instance [LoadOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/) je předána konstruktoru [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/), zavolání [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/cs/net/aspose.slides/interruptiontokensource/interrupt/) přeruší jakoukoli dlouho běžící úlohu spojenou s touto [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-
-Následující úryvek kódu ukazuje přerušení běžící úlohy:
+Příklad spustí konverzi `sample.pptx` na `sample.ppt` v úkolu na pozadí a po 10 sekundách požádá o zrušení. Pokud konverze skončí dříve, výstup je již kompletní.
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -45,9 +45,9 @@ public static void Run()
     };
 
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Run(action, tokenSource.Token); // spusťte akci v samostatném vlákně
+    Run(action, tokenSource.Token); // spustí akci v samostatném vlákně
     Thread.Sleep(10000);            // časový limit
-    tokenSource.Interrupt();        // zastavte konverzi
+    tokenSource.Interrupt();        // zastaví konverzi
 }
 
 private static void Run(Action<IInterruptionToken> action, IInterruptionToken token)
@@ -56,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **.NET CancellationToken a přerušitelná knihovna**
+## **Propojení zrušení .NET s Aspose.Slides**
 
-Když potřebujete použít [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) společně s přerušitelnou knihovnou Aspose.Slides, zabalte zpracování [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) a přerušte [InterruptionToken](https://reference.aspose.com/slides/cs/net/aspose.slides/interruptiontoken/), když je [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) nastaven na `true`.
-
-Tento C# kód demonstruje operaci:
+Pokud vaše aplikace používá .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken), předejte její požadavek na zrušení Aspose.Slides. Příklad spustí export `sample.pptx` do `sample.pdf` a nastaví časový limit 20 sekund. Během exportu kontroluje [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) každých 500 milisekund. Když se vlastnost změní na `true`, zavolá [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/).
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -81,14 +83,14 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     };
     
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Task task = Run(action, tokenSource.Token); // spusťte akci v samostatném vlákně
+    Task task = Run(action, tokenSource.Token); // spustí akci v samostatném vlákně
 
-    while (!task.Wait(500)) // čekejte a sledujte, zda je nastaveno cancellationToken.IsCancellationRequested
+    while (!task.Wait(500)) // čeká a monitoruje, zda je nastaveno cancellationToken.IsCancellationRequested
     {
         if (cancellationToken.IsCancellationRequested)
         {
             Console.WriteLine("Presentation processing was canceled");
-            tokenSource.Interrupt(); // přerušte zpracování prezentace
+            tokenSource.Interrupt(); // přeruší zpracování prezentace
         }
     }
 }
@@ -102,33 +104,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
+## **Zastavit před zpracováním dalšího snímku**
+
+Použijte stejný [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) pro prezentaci i smyčku, která exportuje její snímky. Před zahájením každého exportu zkontrolujte [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/). Pokud volající může použít částečný výsledek, vraťte čísla snímků pro exporty, které byly úspěšně dokončeny.
+
+Použijte prezentaci pojmenovanou `sample.pptx` s alespoň dvěma snímky. Příklad požádá o zrušení okamžitě po zaznamenání prvního úspěšného exportu.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
+
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
+
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
+
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
+
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
+
+    return completed;
+}
+```
+
+Příklad zapíše `slide-1.pdf` a vytiskne `Starting slide 1` následované `Completed: [1]`. Smyčka zaznamená požadavek před zahájením snímku 2. Pokud by zrušení místo toho přerušilo [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) během exportu, blok `catch` ukončí smyčku předtím, než kód zaznamená aktuální snímek jako dokončený.
+
+Pokud volající potřebuje zrušení ošetřit, nahraďte kontrolu `if` a jeho `break` na začátku smyčky voláním [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) na tokenu. Odstraňte blok `try`/`catch` okolo exportu, aby zrušení během ukládání také dosáhlo volajícího. Se stejným vstupem příklad vytiskne pouze `Starting slide 1` a zapíše `slide-1.pdf`. Na začátku druhé iterace volající obdrží [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) před zahájením exportu. Metoda nevrací žádný seznam.
+
 ## **Často kladené otázky**
 
-**Jaký je účel přerušitelné knihovny Aspose.Slides?**
+**Kdy bych měl požádat o zrušení?**
 
-Poskytuje mechanismus pro přerušení dlouho běžících operací — například načítání, ukládání nebo vykreslování prezentací — před jejich dokončením. To je užitečné, když je nutné omezit čas zpracování nebo už úloha není potřeba.
+Požádejte o zrušení, když operace překročí váš časový limit nebo když vaše aplikace již výsledek nepotřebuje.
 
-**Jaký je rozdíl mezi [InterruptionToken](https://reference.aspose.com/slides/cs/net/aspose.slides/interruptiontoken/) a [InterruptionTokenSource](https://reference.aspose.com/slides/cs/net/aspose.slides/iinterruptiontokensource/)?**
+**Jaký je rozdíl mezi [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) a [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
 
-- `InterruptionToken` je předáván API Aspose.Slides a kontrolován během dlouho běžících operací.  
-- `InterruptionTokenSource` se používá ve vašem kódu k vytvoření tokenů a vyvolání přerušení voláním `Interrupt()`.
+Zdroj umožňuje vaší aplikaci požádat o zrušení. Token umožňuje Aspose.Slides i vaší aplikaci kontrolovat tento požadavek.
 
-**Mohu použít .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) s přerušitelnou knihovnou?**
+**Mohu použít .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) s Aspose.Slides?**
 
-Ano. Můžete sledovat [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) ve své aplikační logice a zavolat [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/cs/net/aspose.slides/iinterruptiontokensource/interrupt/), když je zrušení požadováno. To umožňuje Aspose.Slides integrovat se se standardními .NET workflow pro zrušení.
+Ano. Když váš .NET token signalizuje zrušení, zavolejte [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) na zdroj spojený s prezentací.
 
-**Jaké úlohy lze přerušit?**
+**Které operace mohu přerušit?**
 
-Jakákoli úloha Aspose.Slides, která přijímá [InterruptionToken](https://reference.aspose.com/slides/cs/net/aspose.slides/interruptiontoken/) — například načtení prezentace pomocí `Presentation(path, loadOptions)` nebo ukládání pomocí `Presentation.Save(...)` — může být přerušena.
+Můžete přerušit načítání, ukládání a vykreslování. Předajte token konstruktoru [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) přes [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/). Prezentace pak může během následujících operací, například [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/), sledovat zrušení.
 
-**Probíhá přerušení okamžitě?**
+**Zastaví se operace okamžitě?**
 
-Ne. Přerušení je kooperativní: operace periodicky kontroluje token a zastaví se, jakmile zjistí, že bylo zavoláno [Interrupt()](https://reference.aspose.com/slides/cs/net/aspose.slides/iinterruptiontokensource/interrupt/).
+Zrušení je kooperativní. Operace periodicky kontroluje token a zastaví se, jakmile zaznamená požadavek.
 
-**Co se stane, když zavolám [Interrupt()](https://reference.aspose.com/slides/cs/net/aspose.slides/iinterruptiontokensource/interrupt/) po dokončení úlohy?**
+**Co se stane, když zavolám [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) po dokončení operace?**
 
-Nic — volání nemá žádný účinek, pokud již byla příslušná úloha dokončena.
+Dokončená operace si uchová svůj výsledek.
 
-**Mohu znovu použít stejný [InterruptionTokenSource](https://reference.aspose.com/slides/cs/net/aspose.slides/iinterruptiontokensource/) pro více úloh?**
+**Mohou více operací sdílet [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
 
-Ano — ale po zavolání [Interrupt()](https://reference.aspose.com/slides/cs/net/aspose.slides/iinterruptiontokensource/interrupt/) na tomto zdroji budou všechny úlohy používající jeho tokeny přerušeny. Používejte samostatné zdroje tokenů pro nezávislé řízení úloh.
+Ano. Zavolání [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) požaduje zrušení pro každou operaci, která používá token z tohoto zdroje. Použijte samostatný zdroj pro každou operaci, kterou chcete rušit nezávisle.

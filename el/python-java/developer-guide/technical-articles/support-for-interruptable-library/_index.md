@@ -1,13 +1,14 @@
 ---
-title: Υποστήριξη για Βιβλιοθήκη με Δυνατότητα Διακοπής
+title: Διακοπή μακροχρόνιων λειτουργιών παρουσίασης σε Python
+linktitle: Διακοπή λειτουργιών παρουσίασης
 type: docs
 weight: 120
 url: /el/python-java/support-for-interruptable-library/
 keywords:
-- βιβλιοθήκη με δυνατότητα διακοπής
-- διακριτικό διακοπής
-- διακριτικό ακύρωσης
-- εργασία μεγάλης διάρκειας
+- λειτουργίες με δυνατότητα διακοπής
+- token διακοπής
+- token ακύρωσης
+- μακροχρόνια εργασία
 - διακοπή εργασίας
 - PowerPoint
 - OpenDocument
@@ -15,26 +16,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Καθιστά τις εργασίες μεγάλης διάρκειας ακυρώσιμες με το Aspose.Slides για Python μέσω Java. Διακόψτε την απόδοση και τις μετατροπές για PowerPoint και OpenDocument με ασφάλεια, με παραδείγματα."
+description: "Μάθετε πώς να ακυρώνετε μακροχρόνιες λειτουργίες παρουσίασης στο Aspose.Slides για Python μέσω Java και να επιστρέφετε μερικό αποτέλεσμα κατά την εξαγωγή διαφάνειων σε βρόχο."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides παρέχει έναν μηχανισμό επεξεργασίας με δυνατότητα διακοπής για ενέργειες παρουσίασης μεγάλης διάρκειας, όπως απο-σειριοποίηση, σειριοποίηση και απόδοση. Αυτός ο μηχανισμός βασίζεται στις κλάσεις [InterruptionToken](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontoken/) και [InterruptionTokenSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/).
+Το Aspose.Slides for Python μέσω Java μπορεί να διακόψει μακροχρόνιες λειτουργίες, όπως η φόρτωση, η αποθήκευση και η απόδοση παρουσιάσεων. Η εφαρμογή σας μπορεί να χρησιμοποιήσει το ίδιο token διακοπής για να σταματήσει έναν βρόχο πριν αρχίσει η επεξεργασία της επόμενης διαφάνειας.
 
-Ένα [InterruptionToken](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontoken/) μπορεί να εκχωρηθεί στο [LoadOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/) και να περαστεί στον κατασκευαστή της [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/). Όταν κληθεί η μέθοδος [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/#interrupt), η συσχετισμένη εργασία μεγάλης διάρκειας διακόπτεται.
+## **Διακοπή λειτουργίας παρουσίασης**
 
-## **Βιβλιοθήκη με Δυνατότητα Διακοπής**
+Δημιουργήστε ένα [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/), λάβετε το token του με [getToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#getToken), και περάστε το token στο [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken). Περάστε τις επιλογές φόρτωσης στον [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). Για να ζητήσετε ακύρωση, καλέστε το [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) στην πηγή. Μια διακοπτόμενη λειτουργία σταματά όταν παρατηρήσει το αίτημα. Χρησιμοποιήστε `jpype.JClass` για να πιάσετε την εξαίρεση Java `com.aspose.slides.exceptions.OperationCanceledException` στην Python.
 
-Το Aspose.Slides for Python via Java παρέχει τις κλάσεις [InterruptionToken](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontoken/) και [InterruptionTokenSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/). Επιτρέπουν τη διακοπή εργασιών μεγάλης διάρκειας όπως απο-σειριοποίηση, σειριοποίηση και απόδοση.
-
-- Το [InterruptionTokenSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/) είναι η πηγή του (των) token(s) που περνιούνται στο [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/#setInterruptionToken).
-- Όταν κληθεί το [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/#setInterruptionToken) και το αντίστοιχο αντικείμενο [LoadOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/) περαστεί στον κατασκευαστή της [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/), η κλήση του [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/#interrupt) διακόπτει οποιαδήποτε εργασία μεγάλης διάρκειας που σχετίζεται με εκείνη τη [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-
-Το παρακάτω απόσπασμα κώδικα δείχνει πώς να διακόψετε μια εκτελούμενη εργασία:
+Το παράδειγμα μετατρέπει το `sample.pptx` σε `sample.ppt` σε ένα νήμα στο παρασκήνιο. Το νήμα που καλεί περιμένει έως 10 δευτερόλεπτα για να ολοκληρωθεί η μετατροπή. Αν η μετατροπή συνεχίζει να εκτελείται, ζητά ακύρωση και περιμένει το νήμα εργασίας να τερματιστεί.
 
 ```python
-from concurrent.futures import ThreadPoolExecutor
-import time
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 import jpype
 import asposeslides
@@ -44,51 +39,149 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
 
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
 
-token_source = InterruptionTokenSource()
 
-
-def convert_presentation():
-    load_options = LoadOptions()
-    load_options.setInterruptionToken(token_source.getToken())
-
-    presentation = Presentation("sample.pptx", load_options)
+def convert_presentation(source):
+    options = LoadOptions()
+    options.setInterruptionToken(source.getToken())
     try:
-        presentation.save("sample.ppt", SaveFormat.Ppt)
+        presentation = Presentation("sample.pptx", options)
+        try:
+            presentation.save("sample.ppt", SaveFormat.Ppt)
+        finally:
+            presentation.dispose()
+    except OperationCanceledException:
+        print("Conversion canceled")
+
+
+source = InterruptionTokenSource()
+with ThreadPoolExecutor(max_workers=1) as executor:
+    conversion = executor.submit(convert_presentation, source)
+    try:
+        conversion.result(timeout=10)
+    except TimeoutError:
+        source.interrupt()
+        conversion.result()
+```
+
+## **Σύνδεση Χρονικού Ορίου Python με Aspose.Slides**
+
+Για να ορίσετε χρονικό όριο σε μια λειτουργία παρουσίασης, χρησιμοποιήστε ένα [threading.Timer](https://docs.python.org/3/library/threading.html#threading.Timer) για να καλέσετε το [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) όταν λήξει το χρονικό όριο. Το παράδειγμα επιτρέπει 20 δευτερόλεπτα για να φορτώσετε το `sample.pptx` και να το εξάγετε σε `sample.pdf`. Αν η εξαγωγή ολοκληρωθεί νωρίτερα, η εφαρμογή ακυρώνει το προγραμματισμένο αίτημα.
+
+```python
+from threading import Timer
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+source = InterruptionTokenSource()
+options = LoadOptions()
+options.setInterruptionToken(source.getToken())
+
+timer = Timer(20, source.interrupt)
+timer.start()
+try:
+    presentation = Presentation("sample.pptx", options)
+    try:
+        presentation.save("sample.pdf", SaveFormat.Pdf)
+    finally:
+        presentation.dispose()
+except OperationCanceledException:
+    print("Presentation processing was canceled")
+finally:
+    timer.cancel()
+    timer.join()
+```
+
+## **Διακοπή Πριν από την Επεξεργασία της Επόμενης Διαφάνειας**
+
+Χρησιμοποιήστε το ίδιο [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) για την παρουσίαση και τον βρόχο που εξάγει τις διαφάνειές της. Ελέγξτε το [isInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#isInterruptionRequested) πριν από κάθε εξαγωγή. Εάν ο καλών μπορεί να χρησιμοποιήσει ένα μερικό αποτέλεσμα, επιστρέψτε τους αριθμούς διαφάνειας για τις εξαγωγές που ολοκληρώθηκαν επιτυχώς.
+
+Χρησιμοποιήστε μια παρουσίαση με όνομα `sample.pptx` που περιέχει τουλάχιστον δύο διαφάνειες. Η υπερφόρτωση [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) που δέχεται ένα Java `int[]` χρησιμοποιεί αριθμούς διαφάνειας ξεκινώντας από το 1. Χρησιμοποιήστε `jpype.JArray(jpype.JInt)` για να δημιουργήσετε αυτό το σύστημα σε Python. Το παράδειγμα αποθηκεύει κάθε διαφάνεια σε ξεχωριστό PDF και ζητά ακύρωση αμέσως μετά την καταγραφή της πρώτης επιτυχημένης εξαγωγής.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+
+def export_slides(path, source):
+    completed = []
+    token = source.getToken()
+    options = LoadOptions()
+    options.setInterruptionToken(token)
+    presentation = Presentation(path, options)
+    try:
+        for number in range(1, presentation.getSlides().size() + 1):
+            if token.isInterruptionRequested():
+                break
+
+            print(f"Starting slide {number}")
+            slide_numbers = jpype.JArray(jpype.JInt)([number])
+            try:
+                presentation.save(f"slide-{number}.pdf", slide_numbers, SaveFormat.Pdf)
+            except OperationCanceledException:
+                if token.isInterruptionRequested():
+                    break
+                raise
+
+            completed.append(number)
+            if number == 1:
+                source.interrupt()
+        return completed
     finally:
         presentation.dispose()
 
 
-with ThreadPoolExecutor(max_workers=1) as executor:
-    conversion_task = executor.submit(convert_presentation)  # Εκτελέστε τη δράση σε ξεχωριστό νήμα.
-    time.sleep(10)  # Λήξη χρονικού ορίου.
-    token_source.interrupt()  # Διακοπή της μετατροπής.
-    conversion_task.result()
+source = InterruptionTokenSource()
+completed = export_slides("sample.pptx", source)
+print(f"Completed: {completed}")
 ```
+
+Το παράδειγμα γράφει το `slide-1.pdf` και εκτυπώνει το `Starting slide 1` ακολουθούμενο από `Completed: [1]`. Ο βρόχος παρατηρεί το αίτημα πριν ξεκινήσει τη διαφάνεια 2. Αν η ακύρωση φτάσει κατά τη διάρκεια μιας αποθήκευσης, ο βρόχος εξέρχεται πριν καταγράψει αυτή τη διαφάνεια ως ολοκληρωμένη.
+
+Εάν ο καλών χρειάζεται να χειριστεί την ακύρωση, αντικαταστήστε τον έλεγχο και το `break` στην αρχή του βρόχου με `token.throwIfInterruptionRequested()`. Αφαιρέστε το `try`/`except` γύρω από την αποθήκευση ώστε η ακύρωση κατά τη διάρκεια μιας εξαγωγής να φθάνει επίσης στον καλούντα. Με τα ίδια δεδομένα εισόδου, το παράδειγμα εκτυπώνει μόνο `Starting slide 1` και γράφει το `slide-1.pdf`. Στην αρχή της δεύτερης επανάληψης, το [throwIfInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#throwIfInterruptionRequested) προκαλεί εξαίρεση `com.aspose.slides.exceptions.OperationCanceledException` πριν ξεκινήσει η επόμενη εξαγωγή. Η εξαίρεση διαδίδεται στον καλούντα πριν η συνάρτηση μπορέσει να επιστρέψει τη λίστα.
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποιος είναι ο σκοπός της βιβλιοθήκης διακοπής του Aspose.Slides;**
+**Πότε πρέπει να ζητήσω ακύρωση;**
 
-Παρέχει έναν μηχανισμό για τη διακοπή λειτουργιών μεγάλης διάρκειας — όπως η φόρτωση, η αποθήκευση ή η απόδοση παρουσιάσεων — προτού ολοκληρωθούν. Αυτό είναι χρήσιμο όταν ο χρόνος επεξεργασίας πρέπει να περιοριστεί ή η εργασία δεν χρειάζεται πλέον.
+Ζητήστε ακύρωση όταν μια λειτουργία υπερβαίνει το χρονικό όριο ή όταν η εφαρμογή σας δεν χρειάζεται πλέον το αποτέλεσμα.
 
-**Ποια είναι η διαφορά μεταξύ [InterruptionToken](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontoken/) και [InterruptionTokenSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/);**
+**Ποια είναι η διαφορά μεταξύ [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) και [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/);**
 
-- Το [InterruptionToken](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontoken/) περνιέται στο API του Aspose.Slides και ελέγχεται κατά τη διάρκεια λειτουργιών μεγάλης διάρκειας.
-- Το [InterruptionTokenSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/) χρησιμοποιείται στον κώδικά σας για τη δημιουργία token και την ενεργοποίηση διακοπών καλώντας τη μέθοδο [interrupt](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/#interrupt).
+Η πηγή επιτρέπει στην εφαρμογή σας να ζητήσει ακύρωση. Το token επιτρέπει στο Aspose.Slides και στην εφαρμογή σας να ελέγξουν αν έχει γίνει το αίτημα.
 
-**Ποιες εργασίες μπορούν να διακοπούν;**
+**Μπορώ να ακυρώσω μια λειτουργία από χρονοδιακόπτη Python;**
 
-Οποιαδήποτε εργασία του Aspose.Slides που δέχεται ένα [InterruptionToken](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontoken/) — όπως η φόρτωση μιας παρουσίασης με τη [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) ή η αποθήκευση με τη [Presentation.save](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#save) — μπορεί να διακοπεί.
+Ναι. Προγραμματίστε κλήση του [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) στην πηγή που σχετίζεται με την παρουσίαση.
 
-**Συμβαίνει η διακοπή αμέσως;**
+**Ποιες λειτουργίες μπορώ να διακόψω;**
 
-Όχι. Η διακοπή είναι συνεργατική: η λειτουργία ελέγχει περιοδικά το token και σταματά αμέσως μόλις διαπιστώσει ότι το [interrupt](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/#interrupt) έχει κληθεί.
+Μπορείτε να διακόψετε τη φόρτωση, την αποθήκευση και την απόδοση. Περάστε το token στον [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) μέσω του [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken). Η παρουσίαση μπορεί τότε να παρατηρήσει την ακύρωση κατά τις επόμενες λειτουργίες, όπως η αποθήκευση σε PDF.
 
-**Τι συμβαίνει αν καλέσω το [interrupt](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/#interrupt) αφού η εργασία έχει ήδη ολοκληρωθεί;**
+**Σταματάει η λειτουργία αμέσως;**
 
-Τίποτα — η κλήση δεν έχει καμία επίδραση αν η αντίστοιχη εργασία έχει ήδη τελειώσει.
+Η ακύρωση είναι συνεργατική. Μια λειτουργία ελέγχει το token περιοδικά και σταματά όταν παρατηρήσει το αίτημα.
 
-**Μπορώ να ξαναχρησιμοποιήσω το ίδιο [InterruptionTokenSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/) για πολλές εργασίες;**
+**Τι συμβαίνει αν καλέσω το [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) μετά το τέλος μιας λειτουργίας;**
 
-Ναι — αλλά αφού καλέσετε το [interrupt](https://reference.aspose.com/slides/el/python-java/aspose.slides/interruptiontokensource/#interrupt) σε αυτήν την πηγή, όλες οι εργασίες που χρησιμοποιούν τα tokens της θα διακοπούν. Χρησιμοποιήστε ξεχωριστές πηγές token για ανεξάρτητη διαχείριση των εργασιών.
+Η ολοκληρωμένη λειτουργία διατηρεί το αποτέλεσμα της.
+
+**Μπορούν πολλές λειτουργίες να μοιράζονται ένα [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/);**
+
+Ναι. Καλώντας το [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) ζητάται ακύρωση για κάθε λειτουργία που χρησιμοποιεί token από αυτήν την πηγή. Χρησιμοποιήστε ξεχωριστή πηγή για κάθε λειτουργία που θέλετε να ακυρώσετε ανεξάρτητα.

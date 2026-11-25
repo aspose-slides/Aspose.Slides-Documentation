@@ -1,88 +1,216 @@
 ---
-title: 可中断库支持
+title: 中断 C++ 中的长时间运行的演示文稿操作
+linktitle: 中断演示文稿操作
 type: docs
 weight: 150
 url: /zh/cpp/support-for-interruptable-library/
 keywords:
-- 可中断库
+- 可中断的操作
 - 中断令牌
 - 取消令牌
-- 长时间运行任务
+- 长时间任务
 - 中断任务
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 使长时间运行的任务可取消。安全地中断 PowerPoint 和 OpenDocument 的渲染和转换，并提供示例。"
+description: "了解如何在 Aspose.Slides for C++ 中取消长时间运行的演示文稿操作，并在循环导出幻灯片时返回部分结果。"
 ---
+## **概述**
 
-## **可中断库**
+Aspose.Slides for C++ 可以中断长时间运行的操作，例如加载、保存和呈现演示文稿。您的应用程序可以使用相同的 interruption token 在循环开始处理下一张幻灯片之前停止它。
 
-在 [Aspose.Slides 18.4](https://releases.aspose.com/slides/cpp/release-notes/2018/aspose-slides-for-cpp-18-4-release-notes/) 中，我们引入了 [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) 和 [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) 类。它们允许您中断诸如反序列化、序列化和渲染等长时间运行的任务。
+## **中断演示文稿操作**
 
-- [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) 是传递给 [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/) 的令牌的来源。
-- 当设置了 [ILoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/) 并将 [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) 实例传递给 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 构造函数时，调用 [InterruptionTokenSource::Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) 会中断与该 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 关联的任何长时间运行的任务。
+创建一个[InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/)，使用[get_Token](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/get_token/) 获取其 token，将 token 传递给[LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/)，并将加载选项传递给[Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/)。要请求取消，请在源上调用[InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/)。可中断的操作会在检测到请求后停止。
 
-以下代码片段演示了如何中断正在运行的任务：
+示例在后台任务中开始将 `sample.pptx` 转换为 `sample.ppt`，并在任务运行超过 10 秒后请求取消。如果转换更早完成，输出已经完成。
+
 ```cpp
-void Run(Action<SharedPtr<IInterruptionToken>> action, SharedPtr<IInterruptionToken> token)
-{
-    auto threadFunction = std::function<void()>([&action, &token]() -> void
-    {
-        action(token);
-    });
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <chrono>
+#include <future>
+#include <iostream>
 
-    auto thread = System::MakeObject<Threading::Thread>(threadFunction);
-    thread->Start();
+using namespace Aspose::Slides;
+using namespace System;
+
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto conversion = std::async(std::launch::async, [token]()
+{
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.ppt", Export::SaveFormat::Ppt);
+});
+
+if (conversion.wait_for(std::chrono::seconds(10)) == std::future_status::timeout)
+    source->Interrupt();
+
+try
+{
+    conversion.get();
 }
-
-void Run()
+catch (const OperationCanceledException&)
 {
-    String dataDir = GetDataPath();
-
-    auto function = std::function<void(SharedPtr<IInterruptionToken> token)> ([&dataDir](SharedPtr<IInterruptionToken> token) -> void
-    {
-        auto options = System::MakeObject<LoadOptions>();
-        options->set_InterruptionToken(token);
-
-        auto presentation = System::MakeObject<Presentation>(dataDir + u"sample.pptx", options);
-        presentation->Save(dataDir + u"sample.ppt", Export::SaveFormat::Ppt);
-    });
-
-    auto action = System::Action<SharedPtr<IInterruptionToken>>(function);
-    auto tokenSource = System::MakeObject<InterruptionTokenSource>();
-    
-    Run(action, tokenSource->get_Token()); // 在单独的线程中运行操作
-    Threading::Thread::Sleep(10000);       // 超时
-    tokenSource->Interrupt();              // 停止转换
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
 }
 ```
 
+## **将应用程序取消连接到 Aspose.Slides**
+
+如果您的应用程序使用[System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/)，请使用[Register](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/register/) 将取消请求转发给[InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/)。示例在后台任务中将 `sample.pptx` 导出为 `sample.pdf`。如果导出在 20 秒后仍在运行，应用程序调用[CancellationTokenSource::Cancel](https://reference.aspose.com/slides/cpp/system.threading/cancellationtokensource/cancel/)，从而触发已注册的回调。
+
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <system/threading/cancellation_token.h>
+#include <system/threading/cancellation_token_source.h>
+#include <chrono>
+#include <future>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto cancellation = MakeObject<Threading::CancellationTokenSource>();
+auto cancellationToken = cancellation->get_Token();
+auto source = MakeObject<InterruptionTokenSource>();
+auto token = source->get_Token();
+auto interrupt = Action<>([source]() { source->Interrupt(); });
+auto registration = cancellationToken.Register(interrupt);
+
+auto conversion = std::async(std::launch::async, [token]()
+{
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx", options);
+    presentation->Save(u"sample.pdf", Export::SaveFormat::Pdf);
+});
+
+if (conversion.wait_for(std::chrono::seconds(20)) == std::future_status::timeout)
+    cancellation->Cancel();
+
+try
+{
+    conversion.get();
+}
+catch (const OperationCanceledException&)
+{
+    if (!token->get_IsInterruptionRequested())
+        throw;
+    std::cout << "Conversion canceled\n";
+}
+registration.Dispose();
+```
+
+## **在处理下一张幻灯片前停止**
+
+在演示文稿和导出幻灯片的循环中使用相同的[IInterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/)。在开始每个导出之前检查[get_IsInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/get_isinterruptionrequested/)。如果调用方可以使用部分结果，则返回已成功完成导出的幻灯片编号。
+
+使用名为 `sample.pptx` 且至少包含两张幻灯片的演示文稿。示例在记录第一次成功导出后立即请求取消。
+
+```cpp
+#include <DOM/InterruptionTokenSource.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IInterruptionToken.h>
+#include <system/exceptions.h>
+#include <DOM/ISlideCollection.h>
+#include <system/array.h>
+#include <iostream>
+#include <vector>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto exportSlides = [](String path, SharedPtr<InterruptionTokenSource> source)
+{
+    std::vector<int32_t> completed;
+    auto token = source->get_Token();
+    auto options = MakeObject<LoadOptions>();
+    options->set_InterruptionToken(token);
+    auto presentation = MakeObject<Presentation>(path, options);
+    auto slideCount = presentation->get_Slides()->get_Count();
+
+    for (auto number = 1; number <= slideCount; ++number)
+    {
+        if (token->get_IsInterruptionRequested())
+            break;
+
+        std::cout << "Starting slide " << number << '\n';
+        auto filename = String::Format(u"slide-{0}.pdf", number);
+        auto slides = MakeArray<int32_t>({number});
+        try
+        {
+            presentation->Save(filename, slides, Export::SaveFormat::Pdf);
+        }
+        catch (const OperationCanceledException&)
+        {
+            if (!token->get_IsInterruptionRequested())
+                throw;
+            break;
+        }
+
+        completed.push_back(number);
+        if (number == 1)
+            source->Interrupt();
+    }
+    return completed;
+};
+
+auto source = MakeObject<InterruptionTokenSource>();
+auto completed = exportSlides(u"sample.pptx", source);
+std::cout << "Completed: [";
+for (size_t i = 0; i < completed.size(); ++i)
+    std::cout << (i == 0 ? "" : ", ") << completed[i];
+std::cout << "]\n";
+```
+
+示例写入 `slide-1.pdf` 并打印 `Starting slide 1`，随后是 `Completed: [1]`。循环在开始第 2 张幻灯片之前看到取消请求。如果取消在导出期间中断[Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/)，`catch` 块将在代码将当前幻灯片记录为完成之前退出循环。
+
+如果调用方需要处理取消，请将循环顶部的 `if` 检查及其 `break` 替换为对 token 调用[ThrowIfInterruptionRequested](https://reference.aspose.com/slides/cpp/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/)。移除导出周围的 `try`/`catch`，使在保存期间的取消也能传递给调用方。使用相同的输入，示例仅打印 `Starting slide 1` 并写入 `slide-1.pdf`。在第二次迭代开始时，调用方在导出开始前收到一个[System::OperationCanceledException](https://reference.aspose.com/slides/cpp/system/details_operationcanceledexception/)。调用方不会收到已完成幻灯片的列表。
 
 ## **常见问题**
 
-**Aspose.Slides 中断库的目的是什么？**
+**何时应请求取消？**
 
-它提供了一种机制，可在加载、保存或渲染演示文稿等长时间运行的操作完成之前中断它们。当处理时间必须受限或任务已不再需要时，这非常有用。
+当操作超过您的时间限制或当您的应用程序不再需要结果时，请求取消。
 
-**[InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) 与 [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) 有何区别？**
+**[InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) 与 [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) 有什么区别？**
 
-- `InterruptionToken` 被传递给 Aspose.Slides API 并在长时间运行的操作期间进行检查。
-- `InterruptionTokenSource` 在您的代码中用于创建令牌，并通过调用 `Interrupt()` 来触发中断。
+源允许您的应用程序请求取消。token 允许 Aspose.Slides 和您的应用程序检查该请求。
 
-**哪些任务可以被中断？**
+**可以在 Aspose.Slides 中使用 [System::Threading::CancellationToken](https://reference.aspose.com/slides/cpp/system.threading/cancellationtoken/) 吗？**
 
-任何接受 [InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontoken/) 的 Aspose.Slides 任务——例如使用 `Presentation(path, loadOptions)` 加载演示文稿或使用 `Presentation::Save(...)` 保存——都可以被中断。
+可以。当您的应用程序 token 发出取消信号时，调用与演示文稿关联的源的[InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/)。
 
-**中断会立即发生吗？**
+**我可以中断哪些操作？**
 
-不会。中断是协作式的：操作会定期检查令牌，并在检测到已调用 [Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) 时立即停止。
+您可以中断加载、保存和渲染。通过[LoadOptions::set_InterruptionToken](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_interruptiontoken/)将 token 传递给[Presentation constructor](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/presentation/)。随后，演示文稿在后续操作（例如[Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/)）期间即可观察到取消请求。
 
-**如果在任务已经完成后调用 [Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/)，会发生什么？**
+**操作会立即停止吗？**
 
-没有任何影响——如果相应的任务已经完成，调用将不起作用。
+取消是合作式的。操作会定期检查 token，并在检测到请求时停止。
 
-**我可以在多个任务中复用同一个 [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) 吗？**
+**如果在操作完成后调用 [InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) 会怎样？**
 
-可以——但在对该源调用 [Interrupt()](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/) 后，使用其令牌的所有任务都会被中断。请使用不同的令牌源来独立管理任务。
+已完成的操作会保留其结果。
+
+**多个操作可以共享一个 [InterruptionTokenSource](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/) 吗？**
+
+可以。调用[InterruptionTokenSource::Interrupt](https://reference.aspose.com/slides/cpp/aspose.slides/interruptiontokensource/interrupt/)会请求取消所有使用该源 token 的操作。对于希望独立取消的每个操作，请使用单独的源。

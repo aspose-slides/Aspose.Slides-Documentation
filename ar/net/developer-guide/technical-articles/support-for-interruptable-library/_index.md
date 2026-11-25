@@ -1,32 +1,38 @@
 ---
-title: دعم مكتبة القابلة للمقاطعة
+title: إلغاء عمليات العرض التقديمي طويلة الأمد في .NET
+linktitle: إلغاء عمليات العرض التقديمي
 type: docs
 weight: 150
 url: /ar/net/support-for-interruptable-library/
 keywords:
-- مكتبة القابلة للمقاطعة
-- رمز المقاطعة
+- عمليات قابلة للإلغاء
+- رمز الإيقاف
 - رمز الإلغاء
-- مهمة طويلة التنفيذ
-- مهمة مقاطعة
+- مهمة طويلة الأمد
+- إلغاء المهمة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "اجعل المهام الطويلة قابلة للإلغاء باستخدام Aspose.Slides لـ .NET. مقاطعة عملية العرض والتحويل لـ PowerPoint و OpenDocument بأمان، مع أمثلة."
+description: "تعلم كيفية إلغاء عمليات العرض التقديمي طويلة الأمد في Aspose.Slides for .NET وإرجاع نتيجة جزئية عند تصدير الشرائح في حلقة."
 ---
+## **نظرة عامة**
 
-## **مكتبة القابلة للمقاطعة**
+يمكن لـ Aspose.Slides for .NET إلغاء عمليات طويلة الأمد مثل التحميل والحفظ وعرض العروض التقديمية. يمكن لتطبيقك استخدام نفس رمز الإيقاف لإيقاف حلقة قبل أن تبدأ بمعالجة الشريحة التالية.
 
-في [Aspose.Slides 18.4](https://releases.aspose.com/slides/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/)، قدمنا الفئات [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) و[InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/). تسمح لك بمقاطعة المهام الطويلة مثل فك التسلسل، التسلسل، وعرض الشرائح.
+## **إلغاء عملية عرض تقديمي**
 
-- [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/) هو مصدر الرمز(الرموز) الممررة إلى [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/interruptiontoken/).
-- عندما يتم تعيين [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/interruptiontoken/) وتمرير كائن [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) إلى مُنشئ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)، يستدعي استدعاء [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) مقاطعة أي مهمة طويلة مرتبطة بهذا [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
+أنشئ [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)، عيّن الـ[Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) إلى [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/)، ومرّر خيارات التحميل إلى [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). لطلب الإلغاء، استدعِ [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) على المصدر. تتوقف العملية القابلة للإلغاء عندما تلاحظ الطلب.
 
-الجزء التالي من التعليمات البرمجية يوضح مقاطعة مهمة جارية:
+يبدأ المثال بتحويل `sample.pptx` إلى `sample.ppt` في مهمة خلفية ويطلب الإلغاء بعد 10 ثوانٍ. إذا انتهى التحويل قبل ذلك، يكون الناتج جاهزًا بالفعل.
+
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -50,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
+## **ربط إلغاء .NET بـ Aspose.Slides**
 
-## **.NET CancellationToken ومكتبة القابلة للمقاطعة**
+إذا كان تطبيقك يستخدم [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken)، قم بتمرير طلب إلغائه إلى Aspose.Slides. يبدأ المثال بتصدير `sample.pptx` إلى `sample.pdf` ويحدد مهلة 20 ثانية. أثناء التصدير، يتحقق كل 500 مللي ثانية من [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested). عندما تصبح الخاصية `true`، يستدعي [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/).
 
-عند الحاجة إلى استخدام [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) إلى جانب مكتبة Aspose.Slides القابلة للمقاطعة، قم بلف معالجة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) ومقاطعة [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) عندما تكون [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) `true`.
-
-هذا الكود C# يوضح العملية:
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -77,12 +85,12 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
     Task task = Run(action, tokenSource.Token); // تشغيل الإجراء في خيط منفصل
 
-    while (!task.Wait(500)) // انتظر وراقب ما إذا كان cancellationToken.IsCancellationRequested قد تم تعيينه
+    while (!task.Wait(500)) // انتظار ومراقبة ما إذا تم تعيين cancellationToken.IsCancellationRequested
     {
         if (cancellationToken.IsCancellationRequested)
         {
             Console.WriteLine("Presentation processing was canceled");
-            tokenSource.Interrupt(); // مقاطعة معالجة العرض التقديمي
+            tokenSource.Interrupt(); // إيقاف معالجة العرض التقديمي
         }
     }
 }
@@ -96,34 +104,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
+## **التوقف قبل معالجة الشريحة التالية**
 
-## **الأسئلة المتكررة**
+استخدم نفس [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) لكل من العرض التقديمي والحلقة التي تصدر شرائحه. تحقق من [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) قبل بدء كل عملية تصدير. إذا كان المتصل يمكنه الاستفادة من نتيجة جزئية، أعد أرقام الشرائح التي اكتملت تصديراتها بنجاح.
 
-**ما هو هدف مكتبة المقاطعة في Aspose.Slides؟**
+استخدم عرضًا تقديميًا باسم `sample.pptx` يحتوي على شريحتين على الأقل. يطلب المثال الإلغاء فور تسجيل أول تصدير ناجح.
 
-توفر آلية لمقاطعة العمليات الطويلة—مثل تحميل أو حفظ أو عرض العروض التقديمية—قبل إكمالها. وهذا مفيد عندما يجب تقييد وقت المعالجة أو لم تعد الحاجة إلى المهمة.
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**ما الفرق بين [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) و[InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/)?**
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
 
-- `InterruptionToken` يتم تمريره إلى واجهة برمجة تطبيقات Aspose.Slides ويتم التحقق منه أثناء العمليات الطويلة.
-- `InterruptionTokenSource` يُستخدم في الكود الخاص بك لإنشاء الرموز وتفعيل المقاطعات عبر استدعاء `Interrupt()`.
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
 
-**هل يمكنني استخدام .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) مع مكتبة المقاطعة؟**
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
 
-نعم. يمكنك مراقبة [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) في منطق تطبيقك والاستدعاء [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) عندما يتم طلب الإلغاء. وهذا يمكّن Aspose.Slides من الاندماج مع سير عمل الإلغاء القياسي في .NET.
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
 
-**ما هي المهام التي يمكن مقاطعتها؟**
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
 
-أي مهمة في Aspose.Slides تقبل [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/)—مثل تحميل عرض تقديمي باستخدام `Presentation(path, loadOptions)` أو حفظه عبر `Presentation.Save(...)`—يمكن مقاطعتها.
+    return completed;
+}
+```
 
-**هل تحدث المقاطعة فورًا؟**
+يكتب المثال `slide-1.pdf` ويطبع `Starting slide 1` متبوعًا بـ `Completed: [1]`. ترى الحلقة الطلب قبل بدء الشريحة 2. إذا قاطع الإلغاء [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) أثناء تصدير، يخرج كتلة `catch` من الحلقة قبل تسجيل الشريحة الحالية كمكتملة.
 
-لا. المقاطعة تعاونية: العملية تتحقق دوريًا من الرمز وتتوقف فور اكتشاف أنها تم استدعاء [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/).
+إذا كان المتصل بحاجة إلى معالجة الإلغاء، استبدل فحص `if` وعبارة `break` في أعلى الحلقة باستدعاء [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) على الرمز. احذف كتلة `try`/`catch` حول التصدير بحيث يصل الإلغاء أثناء الحفظ إلى المتصل. باستخدام نفس المدخلات، يطبع المثال فقط `Starting slide 1` ويكتب `slide-1.pdf`. عند بدء التكرار الثاني، يتلقى المتصل استثناء [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) قبل بدء التصدير. لا تُرجع الطريقة أي قائمة.
 
-**ماذا سيحدث إذا استدعيت [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) بعد أن تكمل المهمة بالفعل؟**
+## **الأسئلة الشائعة**
 
-لا شيء—الاستدعاء لا يؤثر إذا كانت المهمة المقابلة قد اكتملت بالفعل.
+**متى يجب طلب الإلغاء؟**
 
-**هل يمكنني إعادة استخدام نفس [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/) لمهام متعددة؟**
+اطلب الإلغاء عندما تتجاوز العملية حدود الوقت المحدد أو عندما لا يحتاج تطبيقك إلى النتيجة بعد الآن.
 
-نعم—ولكن بعد استدعاء [Interrupt()](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) على ذلك المصدر، ستُقاطع جميع المهام التي تستخدم رموزه. استخدم مصادر رموز منفصلة لإدارة المهام بشكل مستقل.
+**ما الفرق بين [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) و[InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
+
+المصدر يتيح لتطبيقك طلب الإلغاء. الرمز يتيح لـ Aspose.Slides وتطبيقك التحقق من وجود هذا الطلب.
+
+**هل يمكنني استخدام [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) الخاص بـ .NET مع Aspose.Slides؟**
+
+نعم. عندما يشير رمز .NET الخاص بك إلى الإلغاء، استدعِ [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) على المصدر المرتبط بالعرض التقديمي.
+
+**ما العمليات التي يمكنني إلغاؤها؟**
+
+يمكنك إلغاء التحميل والحفظ والعرض. مرّر الرمز إلى [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) عبر [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/). بعد ذلك يمكن للعرض التقديمي ملاحظة الإلغاء أثناء العمليات اللاحقة مثل [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/).
+
+**هل تتوقف العملية فورًا؟**
+
+الإلغاء تعاوني. تتحقق العملية من الرمز دوريًا وتتوقف عندما تلاحظ الطلب.
+
+**ماذا يحدث إذا استدعيت [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) بعد انتهاء العملية؟**
+
+تظل نتيجة العملية المكتملة كما هي.
+
+**هل يمكن لعدة عمليات مشاركة نفس [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
+
+نعم. استدعاء [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) يطلب الإلغاء لكل عملية تستخدم رمزًا من ذلك المصدر. استخدم مصدرًا منفصلاً لكل عملية تريد إلغاؤها بشكل مستقل.

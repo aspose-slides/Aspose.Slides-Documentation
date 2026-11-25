@@ -1,12 +1,13 @@
 ---
-title: Stöd för avbrytbart bibliotek
+title: Avbryt långvariga presentationsoperationer i .NET
+linktitle: Avbryt presentationsoperationer
 type: docs
 weight: 150
 url: /sv/net/support-for-interruptable-library/
 keywords:
-- avbrytbart bibliotek
+- avbrytbara operationer
 - avbrottstoken
-- avbokningstoken
+- avbrytningstoken
 - långvarig uppgift
 - avbryt uppgift
 - PowerPoint
@@ -15,24 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Gör långvariga uppgifter avbrytbara med Aspose.Slides för .NET. Avbryt rendering och konverteringar för PowerPoint och OpenDocument på ett säkert sätt, med exempel."
+description: "Lär dig hur du avbryter långvariga presentationsoperationer i Aspose.Slides för .NET och returnerar ett partiellt resultat vid export av bilder i en loop."
 ---
 ## **Översikt**
 
-Aspose.Slides för .NET tillhandahåller en avbrytbar bearbetningsmekanism för långvariga presentationsuppgifter, såsom deserialisering, serialisering och rendering. Denna mekanism är baserad på klasserna `InterruptionToken` och `InterruptionTokenSource`.
+Aspose.Slides för .NET kan avbryta långvariga operationer såsom inläsning, sparande och rendering av presentationer. Din applikation kan använda samma avbrottstoken för att stoppa en loop innan den påbörjar bearbetning av nästa bild.
 
-Ett `InterruptionToken` kan tilldelas `LoadOptions` och skickas till `Presentation`‑konstruktorn. När `InterruptionTokenSource.Interrupt()` anropas avbryts den associerade långvariga uppgiften. Artikeln visar också hur man använder denna mekanism tillsammans med standard‑.NET `CancellationToken` genom att övervaka avbokningsförfrågningar och anropa `Interrupt()` när avbokning begärs.
+## **Avbryt en presentationsoperation**
 
-## **Avbrytbar Bibliotek**
+Skapa en [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/), tilldela dess [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) till [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/), och skicka inlastningsalternativen till [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). För att begära avbrytning, anropa [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) på källan. En avbrytbar operation stoppas när den observerar begäran.
 
-I [Aspose.Slides 18.4](https://releases.aspose.com/slides/sv/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/), introducerade vi klasserna [InterruptionToken](https://reference.aspose.com/slides/sv/net/aspose.slides/interruptiontoken/) och [InterruptionTokenSource](https://reference.aspose.com/slides/sv/net/aspose.slides/interruptiontokensource/). De låter dig avbryta långvariga uppgifter som deserialisering, serialisering och rendering.
-
-- [InterruptionTokenSource] är källan till token(en) som skickas till [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/sv/net/aspose.slides/iloadoptions/interruptiontoken/).
-- När [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/sv/net/aspose.slides/iloadoptions/interruptiontoken/) är satt och instansen av [LoadOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/) skickas till [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑konstruktorn, avbryter ett anrop av [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/sv/net/aspose.slides/interruptiontokensource/interrupt/) alla långvariga uppgifter som är associerade med den [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/).
-
-Följande kodsnutt demonstrerar hur man avbryter en pågående uppgift:
+Exemplet startar konverteringen av `sample.pptx` till `sample.ppt` i en bakgrundsuppgift och begär avbrytning efter 10 sekunder. Om konverteringen slutförs tidigare, är resultatet redan komplett.
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -56,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **.NET CancellationToken och avbrytbar Bibliotek**
+## **Koppla .NET‑avbrytning till Aspose.Slides**
 
-När du behöver använda en [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) tillsammans med Aspose.Slides avbrytbara bibliotek, omslut [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑bearbetningen och avbryt [InterruptionToken](https://reference.aspose.com/slides/sv/net/aspose.slides/interruptiontoken/) när [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) är `true`.
-
-Den här C#‑koden demonstrerar operationen:
+Om din applikation använder en .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken), vidarebefordra dess avbrytningsbegäran till Aspose.Slides. Exemplet startar export av `sample.pptx` till `sample.pdf` och sätter en tidsgräns på 20 sekunder. Medan exporten körs, kontrollerar den [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) var 500 millisekunder. När egenskapen blir `true` anropas [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/).
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -88,7 +90,7 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
         if (cancellationToken.IsCancellationRequested)
         {
             Console.WriteLine("Presentation processing was canceled");
-            tokenSource.Interrupt(); // avbryt Presentation-bearbetning
+            tokenSource.Interrupt(); // avbryt presentationsbearbetning
         }
     }
 }
@@ -102,33 +104,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
+## **Stoppa innan nästa bild bearbetas**
+
+Använd samma [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) för både presentationen och loopen som exporterar dess bilder. Kontrollera [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) innan varje export startas. Om anroparen kan använda ett partiellt resultat, returnera bildnumren för de exporter som slutförts framgångsrikt.
+
+Använd en presentation med namnet `sample.pptx` som har minst två bilder. Exemplet begär avbrytning omedelbart efter att det registrerat den första lyckade exporten.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
+
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
+
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
+
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
+
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
+
+    return completed;
+}
+```
+
+Exemplet skriver `slide-1.pdf` och skriver ut `Starting slide 1` följt av `Completed: [1]`. Loopen ser begäran innan den påbörjar bild 2. Om avbrytning istället avbryter [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) under en export, lämnar `catch`‑blocket loopen innan koden registrerar den aktuella bilden som slutförd.
+
+Om anroparen behöver hantera avbrytning, ersätt `if`‑kontrollen och dess `break` högst upp i loopen med ett anrop till [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) på tokenen. Ta bort `try`/`catch`‑blocket runt exporten så att avbrytning under en sparning också når anroparen. Med samma indata skriver exemplet endast ut `Starting slide 1` och skriver `slide-1.pdf`. I början av den andra iterationen får anroparen ett [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) innan exporten påbörjas. Metoden returnerar ingen lista.
+
 ## **Vanliga frågor**
 
-**Vad är syftet med Aspose.Slides avbrytbiblioteket?**
+**När bör jag begära avbrytning?**
 
-Det tillhandahåller en mekanism för att avbryta långvariga operationer — såsom inläsning, sparande eller rendering av presentationer — innan de slutförs. Detta är användbart när bearbetningstiden måste begränsas eller uppgiften inte längre behövs.
+Begär avbrytning när en operation överskrider din tidsgräns eller när din applikation inte längre behöver resultatet.
 
-**Vad är skillnaden mellan [InterruptionToken](https://reference.aspose.com/slides/sv/net/aspose.slides/interruptiontoken/) och [InterruptionTokenSource](https://reference.aspose.com/slides/sv/net/aspose.slides/iinterruptiontokensource/)?**
+**Vad är skillnaden mellan [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) och [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
 
-- `InterruptionToken` skickas till Aspose.Slides‑API:et och kontrolleras under långvariga operationer.
-- `InterruptionTokenSource` används i din kod för att skapa token och utlösa avbrott genom att anropa `Interrupt()`.
+Källan låter din applikation begära avbrytning. Tokenen låter Aspose.Slides och din applikation kontrollera den begäran.
 
-**Kan jag använda .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) med avbrytbiblioteket?**
+**Kan jag använda en .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) med Aspose.Slides?**
 
-Ja. Du kan övervaka [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) i din applikationslogik och anropa [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/sv/net/aspose.slides/iinterruptiontokensource/interrupt/) när avbokning begärs. Detta gör att Aspose.Slides kan integreras med standard‑.NET avbokningsarbetsflöden.
+Ja. När din .NET‑token signalerar avbrytning, anropa [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) på källan som är associerad med presentationen.
 
-**Vilka uppgifter kan avbrytas?**
+**Vilka operationer kan jag avbryta?**
 
-Alla Aspose.Slides‑uppgifter som accepterar ett [InterruptionToken](https://reference.aspose.com/slides/sv/net/aspose.slides/interruptiontoken/) — exempelvis inläsning av en presentation med `Presentation(path, loadOptions)` eller sparande med `Presentation.Save(...)` — kan avbrytas.
+Du kan avbryta inläsning, sparning och rendering. Skicka tokenen till [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) via [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/). Presentationen kan sedan observera avbrytning under efterföljande operationer såsom [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/).
 
-**Sker avbrottet omedelbart?**
+**Stannar en operation omedelbart?**
 
-Nej. Avbrott är samarbetsbaserat: operationen kontrollerar token periodiskt och stoppar så snart den upptäcker att [Interrupt()](https://reference.aspose.com/slides/sv/net/aspose.slides/iinterruptiontokensource/interrupt/) har anropats.
+Avbrytning är samarbetsbaserad. En operation kontrollerar tokenen periodiskt och stoppar när den observerar begäran.
 
-**Vad händer om jag anropar [Interrupt()](https://reference.aspose.com/slides/sv/net/aspose.slides/iinterruptiontokensource/interrupt/) efter att en uppgift redan har slutförts?**
+**Vad händer om jag anropar [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) efter att en operation har avslutats?**
 
-Ingenting — anropet har ingen effekt om den motsvarande uppgiften redan har slutförts.
+Den avslutade operationen behåller sitt resultat.
 
-**Kan jag återanvända samma [InterruptionTokenSource](https://reference.aspose.com/slides/sv/net/aspose.slides/iinterruptiontokensource/) för flera uppgifter?**
+**Kan flera operationer dela en [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
 
-Ja — men efter att du har anropat [Interrupt()](https://reference.aspose.com/slides/sv/net/aspose.slides/iinterruptiontokensource/interrupt/) på den källan kommer alla uppgifter som använder dess token att avbrytas. Använd separata token‑källor för att hantera uppgifter oberoende.
+Ja. Att anropa [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) begär avbrytning för varje operation som använder en token från den källan. Använd en separat källa för varje operation du vill avbryta oberoende.

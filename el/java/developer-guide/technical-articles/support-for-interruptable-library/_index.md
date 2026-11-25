@@ -1,81 +1,173 @@
 ---
-title: Υποστήριξη για τη Διακόψιμη βιβλιοθήκη
+title: Διακοπή λειτουργιών παρουσίασης μεγάλης διάρκειας σε Java
+linktitle: Διακοπή λειτουργιών παρουσίασης
 type: docs
 weight: 120
 url: /el/java/support-for-interruptable-library/
 keywords:
-- διακόψιμη βιβλιοθήκη
-- token διακοπής
+- λειτουργίες με δυνατότητα διακοπής
+- διακοπτικό token
 - token ακύρωσης
-- μακροχρόνια εργασία
-- εργασία διακοπής
+- εργασία μεγάλης διάρκειας
+- διακοπή εργασίας
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Καθιστά τις μακροχρόνιες εργασίες ακυρώσιμες με το Aspose.Slides για Java. Διακόπτετε με ασφάλεια την απόδοση και τις μετατροπές για PowerPoint και OpenDocument, με παραδείγματα."
+description: "Μάθετε πώς να ακυρώνετε λειτουργίες παρουσίασης μεγάλης διάρκειας στο Aspose.Slides for Java και να επιστρέφετε μερικό αποτέλεσμα κατά την εξαγωγή διαφανειών σε βρόχο."
 ---
 ## **Επισκόπηση**
 
-Aspose.Slides παρέχει έναν μη διακοπτόμενο μηχανισμό επεξεργασίας για μακροχρόνιες εργασίες παρουσίασης, όπως αποσειροποίηση, σειροποίηση και απόδοση. Αυτός ο μηχανισμός βασίζεται στις κλάσεις `InterruptionToken` και `InterruptionTokenSource`.
+Aspose.Slides for Java μπορεί να διακόψει λειτουργίες μεγάλης διάρκειας, όπως τη φόρτωση, την αποθήκευση και την απόδοση παρουσιάσεων. Η εφαρμογή σας μπορεί να χρησιμοποιήσει το ίδιο διακοπτικό token για να σταματήσει έναν βρόχο πριν ξεκινήσει την επεξεργασία της επόμενης διαφάνειας.
 
-Ένα `InterruptionToken` μπορεί να εκχωρηθεί στο `LoadOptions` και να περαστεί στον κατασκευαστή `Presentation`. Όταν κληθεί το `InterruptionTokenSource.interrupt()`, η σχετική μακροχρόνια εργασία διακόπτεται.
+## **Διακοπή λειτουργίας παρουσίασης**
 
-## **Διακόψιμη βιβλιοθήκη**
+Δημιουργήστε ένα [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/), αποκτήστε το token του με [getToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#getToken--), και περάστε το token στο [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-). Περνείμετε τις επιλογές φόρτωσης στον [Presentation constructor](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#Presentation-java.lang.String-com.aspose.slides.LoadOptions-). Για να ζητήσετε ακύρωση, καλέστε [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) στον πηγαίο αντικείμενο. Μια λειτουργία που μπορεί να διακοπεί σταματά όταν παρατηρεί το αίτημα.
 
-Στο [Aspose.Slides 18.4](https://releases.aspose.com/slides/el/java/release-notes/2018/aspose-slides-for-java-18-4-release-notes/), εισάγαμε τις κλάσεις [InterruptionToken](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontoken/) και [InterruptionTokenSource](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontokensource/). Σας επιτρέπουν να διακόπτετε μακροχρόνιες εργασίες όπως αποσειροποίηση, σειροποίηση και απόδοση.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontokensource/) είναι η πηγή των token(s) που περνιούνται στο [ILoadOptions.setInterruptionToken](https://reference.aspose.com/slides/el/java/com.aspose.slides/iloadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-).
-- Όταν ο [ILoadOptions.setInterruptionToken](https://reference.aspose.com/slides/el/java/com.aspose.slides/iloadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-) ορίζεται και το αντικείμενο [LoadOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/) περνιέται στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/), η κλήση του [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontokensource/#interrupt--) διακόπτει οποιαδήποτε μακροχρόνια εργασία που σχετίζεται με αυτό το [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/).
+Το παράδειγμα μετατρέπει το `sample.pptx` σε `sample.ppt` σε ένα νήμα παρασκηνίου. Το νήμα που καλεί περιμένει έως 10 δευτερόλεπτα για την ολοκλήρωση της μετατροπής. Εάν η μετατροπή εξακολουθεί να εκτελείται, ζητά ακύρωση και περιμένει να κλείσει ο εργαζόμενος.
 
 ```java
-final InterruptionTokenSource tokenSource = new InterruptionTokenSource();
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
 
-Runnable interruption = new Runnable() {
-    public void run() {
-        LoadOptions loadOptions = new LoadOptions();
-        loadOptions.setInterruptionToken(tokenSource.getToken());
-
-        Presentation presentation = new Presentation("sample.pptx", loadOptions);
-        try{
+InterruptionTokenSource source = new InterruptionTokenSource();
+Thread worker = new Thread(() -> {
+    LoadOptions options = new LoadOptions();
+    options.setInterruptionToken(source.getToken());
+    try {
+        Presentation presentation = new Presentation("sample.pptx", options);
+        try {
             presentation.save("sample.ppt", SaveFormat.Ppt);
+        } finally {
+            presentation.dispose();
         }
-        finally {
+    } catch (OperationCanceledException canceled) {
+        System.out.println("Conversion canceled");
+    }
+});
+
+worker.start();
+worker.join(10000);
+if (worker.isAlive()) {
+    source.interrupt();
+    worker.join();
+}
+```
+
+## **Σύνδεση χρονοπεριορισμού Java με Aspose.Slides**
+
+Για να ορίσετε χρονικό όριο σε μια λειτουργία παρουσίασης, χρησιμοποιήστε ένα [ScheduledExecutorService](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html) για να καλέσετε [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) όταν λήξει το χρονικό όριο. Το παράδειγμα επιτρέπει 20 δευτερόλεπτα για τη φόρτωση του `sample.pptx` και την εξαγωγή του σε `sample.pdf`. Εάν η εξαγωγή ολοκληρωθεί νωρίς, η εφαρμογή ακυρώνει το προγραμματισμένο αίτημα.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
+import java.util.concurrent.*;
+
+InterruptionTokenSource source = new InterruptionTokenSource();
+LoadOptions options = new LoadOptions();
+options.setInterruptionToken(source.getToken());
+
+ScheduledExecutorService timer = Executors.newSingleThreadScheduledExecutor();
+ScheduledFuture<?> timeout = timer.schedule(source::interrupt, 20, TimeUnit.SECONDS);
+try {
+    Presentation presentation = new Presentation("sample.pptx", options);
+    try {
+        presentation.save("sample.pdf", SaveFormat.Pdf);
+    } finally {
+        presentation.dispose();
+    }
+} catch (OperationCanceledException canceled) {
+    System.out.println("Presentation processing was canceled");
+} finally {
+    timeout.cancel(false);
+    timer.shutdown();
+}
+```
+
+## **Διακοπή πριν από την επεξεργασία της επόμενης διαφάνειας**
+
+Χρησιμοποιήστε το ίδιο [IInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/) για την παρουσίαση και τον βρόχο που εξάγει τις διαφάνειες της. Ελέγξτε το [isInterruptionRequested](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/#isInterruptionRequested--) πριν από κάθε εξαγωγή. Εάν ο καλούντας μπορεί να χρησιμοποιήσει μερικό αποτέλεσμα, επιστρέψτε τους αριθμούς διαφανειών για τις εξαγορές που ολοκληρώθηκαν επιτυχώς.
+
+Χρησιμοποιήστε μια παρουσίαση με όνομα `sample.pptx` που περιέχει τουλάχιστον δύο διαφάνειες. Η υπερφόρτωση του [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int---int-) που δέχεται έναν πίνακα αριθμών διαφανειών μετράει από το 1. Το παράδειγμα αποθηκεύει κάθε διαφάνεια σε ξεχωριστό PDF και ζητά ακύρωση αμέσως μετά την καταγραφή της πρώτης επιτυχούς εξαγωγής.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
+import java.util.ArrayList;
+import java.util.List;
+
+class SlideExporter {
+    List<Integer> exportSlides(String path, InterruptionTokenSource source) {
+        List<Integer> completed = new ArrayList<>();
+        IInterruptionToken token = source.getToken();
+        LoadOptions options = new LoadOptions();
+        options.setInterruptionToken(token);
+        Presentation presentation = new Presentation(path, options);
+        try {
+            for (int number = 1; number <= presentation.getSlides().size(); number++) {
+                if (token.isInterruptionRequested()) {
+                    break;
+                }
+
+                System.out.println("Starting slide " + number);
+                try {
+                    presentation.save("slide-" + number + ".pdf", new int[] { number }, SaveFormat.Pdf);
+                } catch (OperationCanceledException canceled) {
+                    if (token.isInterruptionRequested()) {
+                        break;
+                    }
+                    throw canceled;
+                }
+
+                completed.add(number);
+                if (number == 1) {
+                    source.interrupt();
+                }
+            }
+            return completed;
+        } finally {
             presentation.dispose();
         }
     }
-};
+}
 
-Thread thread = new Thread(interruption);
-thread.start();          // εκτελέστε τη δράση σε ξεχωριστό νήμα
-Thread.sleep(10000);     // χρονικό όριο
-tokenSource.interrupt(); // διακόψτε τη μετατροπή
+InterruptionTokenSource source = new InterruptionTokenSource();
+SlideExporter exporter = new SlideExporter();
+List<Integer> completed = exporter.exportSlides("sample.pptx", source);
+System.out.println("Completed: " + completed);
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+Το παράδειγμα γράφει το `slide-1.pdf` και εκτυπώνει `Starting slide 1` ακολουθούμενο από `Completed: [1]`. Ο βρόχος παρατηρεί το αίτημα πριν ξεκινήσει τη διαφάνεια 2. Εάν η ακύρωση φτάσει κατά τη διάρκεια μιας αποθήκευσης, ο βρόχος εξέρχεται πριν καταγράψει αυτή τη διαφάνεια ως ολοκληρωμένη.
 
-**Ποιος είναι ο σκοπός της βιβλιοθήκης διακοπής του Aspose.Slides;**
+Εάν ο καλούντας χρειάζεται να διαχειριστεί την ακύρωση, αντικαταστήστε τον έλεγχο και το `break` στην αρχή του βρόχου με `token.throwIfInterruptionRequested()`. Αφαιρέστε το `try`/`catch` γύρω από την αποθήκευση ώστε η ακύρωση κατά τη διάρκεια μιας εξαγωγής να φτάσει επίσης στον καλούντα. Με την ίδια είσοδο, το παράδειγμα εκτυπώνει μόνο `Starting slide 1` και γράφει `slide-1.pdf`. Στην αρχή της δεύτερης επανάληψης, το [throwIfInterruptionRequested](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/#throwIfInterruptionRequested--) ρίχνει το `com.aspose.slides.exceptions.OperationCanceledException` πριν αρχίσει η επόμενη εξαγωγή. Η μέθοδος δεν επιστρέφει λίστα.
 
-Παρέχει έναν μηχανισμό για τη διακοπή μακροχρόνιων λειτουργιών — όπως η φόρτωση, η αποθήκευση ή η απόδοση παρουσιάσεων — προτού ολοκληρωθούν. Αυτό είναι χρήσιμο όταν πρέπει να περιοριστεί ο χρόνος επεξεργασίας ή όταν η εργασία δεν χρειάζεται πια.
+## **FAQ**
 
-**Ποια είναι η διαφορά μεταξύ του [InterruptionToken](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontoken/) και του [InterruptionTokenSource](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontokensource/);**
+**Πότε πρέπει να ζητήσω ακύρωση;**
 
-- `InterruptionToken` περνιέται στο API του Aspose.Slides και ελέγχεται κατά τη διάρκεια των μακροχρόνιων λειτουργιών.
-- `InterruptionTokenSource` χρησιμοποιείται στον κώδικά σας για τη δημιουργία tokens και την έναυση διακοπών καλώντας `Interrupt()`.
+Ζητήστε ακύρωση όταν μια λειτουργία υπερβαίνει το χρονικό σας όριο ή όταν η εφαρμογή σας δεν χρειάζεται πλέον το αποτέλεσμα.
 
-**Ποιες εργασίες μπορούν να διακοπούν;**
+**What is the difference between [InterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/)?**
 
-Οποιαδήποτε εργασία Aspose.Slides που δέχεται ένα [InterruptionToken](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontoken/) — όπως η φόρτωση μιας παρουσίασης με `Presentation(path, loadOptions)` ή η αποθήκευση με `Presentation.save(...)` — μπορεί να διακοπεί.
+Η πηγή επιτρέπει στην εφαρμογή σας να ζητήσει ακύρωση. Το token επιτρέπει στο Aspose.Slides και στην εφαρμογή σας να ελέγχουν για αυτό το αίτημα.
 
-**Συμβαίνει η διακοπή άμεσα;**
+**Μπορώ να ακυρώσω μια λειτουργία από χρονόμετρο Java;**
 
-Όχι. Η διακοπή είναι συνεργατική: η λειτουργία ελέγχει περιοδικά το token και σταματά αμέσως μόλις εντοπίσει ότι το [Interrupt()](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontokensource/#interrupt--) έχει κληθεί.
+Ναι. Προγραμματίστε μια κλήση στο [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) στην πηγή που σχετίζεται με την παρουσίαση.
 
-**Τι συμβαίνει αν καλέσω το [Interrupt()](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontokensource/#interrupt--) μετά την ολοκλήρωση μιας εργασίας;**
+**Ποιες λειτουργίες μπορώ να διακόψω;**
 
-Τίποτα — η κλήση δεν έχει καμία επίδραση εάν η αντίστοιχη εργασία έχει ήδη ολοκληρωθεί.
+Μπορείτε να διακόψετε τη φόρτωση, την αποθήκευση και την απόδοση. Περνείμετε το token στον [Presentation constructor](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#Presentation-java.lang.String-com.aspose.slides.LoadOptions-) μέσω του [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-). Η παρουσίαση μπορεί τότε να παρατηρήσει την ακύρωση κατά τη διάρκεια επόμενων λειτουργιών, όπως η αποθήκευση σε PDF.
 
-**Μπορώ να επαναχρησιμοποιήσω το ίδιο [InterruptionTokenSource](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontokensource/) για πολλαπλές εργασίες;**
+**Σταματάει η λειτουργία αμέσως;**
 
-Ναι — αλλά αφού καλέσετε το [Interrupt()](https://reference.aspose.com/slides/el/java/com.aspose.slides/interruptiontokensource/#interrupt--) σε αυτήν την πηγή, όλες οι εργασίες που χρησιμοποιούν τα tokens της θα διακοπούν. Χρησιμοποιήστε ξεχωριστές πηγές token για να διαχειριστείτε τις εργασίες ανεξάρτητα.
+Η ακύρωση είναι συνεργατική. Μια λειτουργία ελέγχει το token περιοδικά και σταματά όταν παρατηρεί το αίτημα.
+
+**What happens if I call [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) after an operation finishes?**
+
+Η ολοκληρωμένη λειτουργία διατηρεί το αποτέλεσμα της.
+
+**Μπορείσαν πολλαπλές λειτουργίες να μοιραστούν ένα [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/);**
+
+Ναι. Καλώντας το [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) ζητάται ακύρωση για κάθε λειτουργία που χρησιμοποιεί ένα token από εκείνη την πηγή. Χρησιμοποιήστε ξεχωριστή πηγή για κάθε λειτουργία που θέλετε να ακυρώσετε ανεξάρτητα.

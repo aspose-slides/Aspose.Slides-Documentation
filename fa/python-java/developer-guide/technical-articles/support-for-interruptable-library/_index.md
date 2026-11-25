@@ -1,38 +1,35 @@
 ---
-title: پشتیبانی از کتابخانه قابل قطع
+title: متوقف کردن عملیات طولانی‌مدت ارائه در پایتون
+linktitle: متوقف کردن عملیات ارائه
 type: docs
 weight: 120
 url: /fa/python-java/support-for-interruptable-library/
 keywords:
-- کتابخانه قابل قطع
+- عملیات‌های قابل قطع
 - توکن قطع
 - توکن لغو
-- کار طولانی‌مدت
-- قطع کار
+- وظیفه طولانی‌مدت
+- وظیفه توقف
 - PowerPoint
 - OpenDocument
 - ارائه
 - Python
 - Java
 - Aspose.Slides
-description: "کارهای طولانی‌مدت را با Aspose.Slides برای Python از طریق Java قابل لغو کنید. رندرینگ و تبدیل‌ها برای PowerPoint و OpenDocument را به‌صورت ایمن قطع کنید، به همراه مثال‌ها."
+description: "یاد بگیرید چگونه عملیات طولانی‌مدت ارائه را در Aspose.Slides برای پایتون از طریق جاوا لغو کنید و هنگام استخراج اسلایدها در یک حلقه، نتیجه جزئی برگردانید."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-Aspose.Slides یک مکانیزم پردازش قابل قطع برای وظایف ارائه‌ایی طولانی‌مدت فراهم می‌کند، مانند جداسازی، سریال‌سازی و رندرینگ. این مکانیزم بر پایهٔ کلاس‌های [InterruptionToken](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontoken/) و [InterruptionTokenSource](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/) استوار است.
+Aspose.Slides برای Python از طریق Java می‌تواند عملیات‌های طولانی‌مدت مانند بارگذاری، ذخیره‌سازی و رندر کردن ارائه‌ها را متوقف کند. برنامه شما می‌تواند از توکن قطع‌شدن یکسان برای توقف یک حلقه قبل از پردازش اسلاید بعدی استفاده کند.
 
-یک [InterruptionToken] می‌تواند به [LoadOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/) اختصاص داده شود و به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) پاس داده شود. هنگامی که [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/#interrupt) فراخوانی می‌شود، وظیفهٔ طولانی‌مدت مرتبط متوقف می‌شود.
+## **متوقف کردن یک عملیات ارائه**
 
-## **کتابخانه قابل قطع**
+یک [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) ایجاد کنید، توکن آن را با [getToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#getToken) دریافت کنید و توکن را به [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken) پاس دهید. گزینه‌های بارگذاری را به [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) پاس دهید. برای درخواست لغو، روی منبع متد [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) را صدا بزنید. یک عملیات قابل قطع زمانی که درخواست را ببیند متوقف می‌شود. برای گرفتن استثنای جاوا `com.aspose.slides.exceptions.OperationCanceledException` در پایتون از `jpype.JClass` استفاده کنید.
 
-Aspose.Slides برای Python از طریق Java کلاس‌های [InterruptionToken](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontoken/) و [InterruptionTokenSource](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/) را فراهم می‌کند. این کلاس‌ها به شما امکان می‌دهند وظایف طولانی‌مدت مانند جداسازی، سریال‌سازی و رندرینگ را متوقف کنید.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/) منبع توکن(های) پاس‑داده‌شده به [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#setInterruptionToken) است.
-- هنگامی که [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#setInterruptionToken) فراخوانی می‌شود و نمونهٔ [LoadOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/) به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) پاس داده می‌شود، فراخوانی [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/#interrupt) هر وظیفهٔ طولانی‌مدتی که با آن [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) مرتبط است را متوقف می‌کند.
+در مثال `sample.pptx` به `sample.ppt` در یک رشته پس‌زمینه تبدیل می‌شود. رشته فراخوانی تا ۱۰ ثانیه برای اتمام تبدیل صبر می‌کند. اگر تبدیل هنوز در حال اجرا باشد، درخواست لغو می‌کند و تا خروج کارگر صبر می‌کند.
 
 ```python
-from concurrent.futures import ThreadPoolExecutor
-import time
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 import jpype
 import asposeslides
@@ -42,51 +39,149 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
 
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
 
-token_source = InterruptionTokenSource()
 
-
-def convert_presentation():
-    load_options = LoadOptions()
-    load_options.setInterruptionToken(token_source.getToken())
-
-    presentation = Presentation("sample.pptx", load_options)
+def convert_presentation(source):
+    options = LoadOptions()
+    options.setInterruptionToken(source.getToken())
     try:
-        presentation.save("sample.ppt", SaveFormat.Ppt)
+        presentation = Presentation("sample.pptx", options)
+        try:
+            presentation.save("sample.ppt", SaveFormat.Ppt)
+        finally:
+            presentation.dispose()
+    except OperationCanceledException:
+        print("Conversion canceled")
+
+
+source = InterruptionTokenSource()
+with ThreadPoolExecutor(max_workers=1) as executor:
+    conversion = executor.submit(convert_presentation, source)
+    try:
+        conversion.result(timeout=10)
+    except TimeoutError:
+        source.interrupt()
+        conversion.result()
+```
+
+## **اتصال زمان‌سنج پایتون به Aspose.Slides**
+
+برای تعیین محدودیت زمانی بر یک عملیات ارائه، از یک [threading.Timer](https://docs.python.org/3/library/threading.html#threading.Timer) استفاده کنید تا هنگام انقضای زمان‌سنج متد [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) را صدا بزنید. در مثال ۲۰ ثانیه برای بارگذاری `sample.pptx` و خروجی گرفتن آن به `sample.pdf` اجازه داده می‌شود. اگر خروجی زودتر تمام شد، برنامه درخواست زمان‌بندی‌شده را لغو می‌کند.
+
+```python
+from threading import Timer
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+source = InterruptionTokenSource()
+options = LoadOptions()
+options.setInterruptionToken(source.getToken())
+
+timer = Timer(20, source.interrupt)
+timer.start()
+try:
+    presentation = Presentation("sample.pptx", options)
+    try:
+        presentation.save("sample.pdf", SaveFormat.Pdf)
+    finally:
+        presentation.dispose()
+except OperationCanceledException:
+    print("Presentation processing was canceled")
+finally:
+    timer.cancel()
+    timer.join()
+```
+
+## **توقف قبل از پردازش اسلاید بعدی**
+
+از همان [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) برای ارائه و حلقه‌ای که اسلایدهای آن را صادر می‌کند استفاده کنید. قبل از هر صادرات، [isInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#isInterruptionRequested) را بررسی کنید. اگر فراخوانی می‌تواند از نتیجه جزئی استفاده کند، شماره اسلایدهای صادرات موفق را برگردانید.
+
+یک ارائه با نام `sample.pptx` که حداقل دو اسلاید دارد استفاده کنید. overload [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) که یک `int[]` جاوا می‌گیرد، از شماره اسلایدها از ۱ شروع می‌کند. برای ساخت این آرایه در پایتون از `jpype.JArray(jpype.JInt)` استفاده کنید. در مثال هر اسلاید را به یک PDF جداگانه ذخیره می‌کند و بلافاصله پس از ثبت اولین صادرات موفق، درخواست لغو می‌کند.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import InterruptionTokenSource, LoadOptions, Presentation, SaveFormat
+
+OperationCanceledException = jpype.JClass("com.aspose.slides.exceptions.OperationCanceledException")
+
+
+def export_slides(path, source):
+    completed = []
+    token = source.getToken()
+    options = LoadOptions()
+    options.setInterruptionToken(token)
+    presentation = Presentation(path, options)
+    try:
+        for number in range(1, presentation.getSlides().size() + 1):
+            if token.isInterruptionRequested():
+                break
+
+            print(f"Starting slide {number}")
+            slide_numbers = jpype.JArray(jpype.JInt)([number])
+            try:
+                presentation.save(f"slide-{number}.pdf", slide_numbers, SaveFormat.Pdf)
+            except OperationCanceledException:
+                if token.isInterruptionRequested():
+                    break
+                raise
+
+            completed.append(number)
+            if number == 1:
+                source.interrupt()
+        return completed
     finally:
         presentation.dispose()
 
 
-with ThreadPoolExecutor(max_workers=1) as executor:
-    conversion_task = executor.submit(convert_presentation)  # اقدام را در یک رشتهٔ جداگانه اجرا کنید.
-    time.sleep(10)  # زمان‌انتظار.
-    token_source.interrupt()  # تبدیل را متوقف کنید.
-    conversion_task.result()
+source = InterruptionTokenSource()
+completed = export_slides("sample.pptx", source)
+print(f"Completed: {completed}")
 ```
 
-## **سوالات متداول**
+در مثال `slide-1.pdf` نوشته می‌شود و `Starting slide 1` چاپ می‌شود و سپس `Completed: [1]`. حلقه قبل از شروع اسلاید ۲ درخواست را می‌بیند. اگر لغو در حین ذخیره رخ دهد، حلقه قبل از ثبت تکمیل آن اسلاید خارج می‌شود.
 
-**هدف کتابخانهٔ قطع Aspose.Slides چیست؟**
+اگر فراخوانی نیاز به مدیریت لغو داشته باشد، بررسی و `break` در ابتدای حلقه را با `token.throwIfInterruptionRequested()` جایگزین کنید. `try`/`except` اطراف ذخیره را حذف کنید تا لغو در حین صادرات نیز به فراخوانی برسد. با همان ورودی، مثال فقط `Starting slide 1` چاپ می‌کند و `slide-1.pdf` می‌نویسد. در شروع دور دوم، [throwIfInterruptionRequested](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/#throwIfInterruptionRequested) قبل از شروع صادرات بعدی `com.aspose.slides.exceptions.OperationCanceledException` را پرتاب می‌کند. استثنا قبل از اینکه تابع بتواند لیست را برگرداند، به فراخوانی‌گر منتقل می‌شود.
 
-این مکانیزم برای قطع عملیات طولانی‌مدت—مانند بارگذاری، ذخیره‌سازی یا رندرینگ ارائه‌ها—قبل از اتمام آن‌ها فراهم می‌کند. این زمانی مفید است که زمان پردازش باید محدود شود یا وظیفه دیگر نیازی به آن ندارد.
+## **سؤالات متداول**
 
-**تفاوت بین [InterruptionToken](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontoken/) و [InterruptionTokenSource](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/) چیست؟**
+**چه زمانی باید درخواست لغو کنم؟**
 
-- [InterruptionToken](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontoken/) به API Aspose.Slides پاس داده می‌شود و در طول عملیات طولانی‌مدت بررسی می‌شود.
-- [InterruptionTokenSource](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/) در کد شما برای ایجاد توکن‌ها و ایجاد قطع با فراخوانی [interrupt](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/#interrupt) استفاده می‌شود.
+زمانی که یک عملیات از محدودیت زمانی شما تجاوز کند یا برنامه شما دیگر به نتیجه نیاز نداشته باشد، درخواست لغو کنید.
 
-**کدام وظایف می‌توانند قطع شوند؟**
+**تفاوت بین [InterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontoken/) و [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) چیست؟**
 
-هر وظیفهٔ Aspose.Slides که یک [InterruptionToken](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontoken/) می‌پذیرد—مانند بارگذاری یک ارائه با [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) یا ذخیره‌سازی با [Presentation.save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save)—قابل قطع است.
+منبع به برنامه شما امکان درخواست لغو را می‌دهد. توکن به Aspose.Slides و برنامه شما اجازه می‌دهد تا آن درخواست را بررسی کنند.
 
-**آیا قطع بلافاصله انجام می‌شود؟**
+**آیا می‌توانم یک عملیات را از طریق زمان‌سنج پایتون لغو کنم؟**
 
-خیر. قطع به صورت تعاونی است: عملیات به‌صورت دوره‌ای توکن را بررسی می‌کند و به محض این که مشاهده کند [interrupt](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/#interrupt) فراخوانی شده است، متوقف می‌شود.
+بله. یک تماس به [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) روی منبع مرتبط با ارائه زمان‌بندی کنید.
 
-**اگر پس از اتمام یک وظیفه، [interrupt](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/#interrupt) را فراخوانی کنم چه اتفاقی می‌افتد؟**
+**کدام عملیات‌ها را می‌توانم متوقف کنم؟**
 
-هیچ‌چیز—اگر وظیفهٔ مربوطه قبلاً تمام شده باشد، فراخوانی اثری ندارد.
+می‌توانید بارگذاری، ذخیره‌سازی و رندر کردن را متوقف کنید. توکن را از طریق [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setInterruptionToken) به [Presentation constructor](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) پاس دهید. سپس ارائه می‌تواند در عملیات‌های بعدی مانند ذخیره به PDF، لغو را مشاهده کند.
 
-**آیا می‌توانم همان [InterruptionTokenSource](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/) را برای چندین وظیفه استفاده مجدد کنم؟**
+**آیا یک عملیات بلافاصله متوقف می‌شود؟**
 
-بله—اما پس از فراخوانی [interrupt](https://reference.aspose.com/slides/fa/python-java/aspose.slides/interruptiontokensource/#interrupt) بر روی آن منبع، تمام وظایفی که از توکن‌های آن استفاده می‌کنند قطع می‌شوند. برای مدیریت مستقل وظایف از منابع توکن جداگانه استفاده کنید.
+لغو به صورت تعاملی است. یک عملیات به‌صورت دوره‌ای توکن را بررسی می‌کند و زمانی که درخواست را ببیند متوقف می‌شود.
+
+**اگر پس از اتمام یک عملیات، [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) را صدا بزنم چه می‌شود؟**
+
+عملیات تکمیل‌شده نتیجه خود را حفظ می‌کند.
+
+**آیا چندین عملیات می‌توانند یک [InterruptionTokenSource](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/) را به اشتراک بگذارند؟**
+
+بله. صدا زدن [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/python-java/aspose.slides/interruptiontokensource/#interrupt) درخواست لغو برای هر عملیاتی که از توکن آن منبع استفاده می‌کند را می‌دهد. برای هر عملیاتی که می‌خواهید به‌صورت مستقل لغو کنید، یک منبع جداگانه استفاده کنید.

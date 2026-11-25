@@ -1,38 +1,38 @@
 ---
-title: Dukungan Untuk Perpustakaan yang Dapat Diinterupsi
+title: Menginterupsi Operasi Presentasi yang Berjalan Lama di .NET
+linktitle: Interupsi Operasi Presentasi
 type: docs
 weight: 150
 url: /id/net/support-for-interruptable-library/
 keywords:
-- perpustakaan yang dapat diinterupsi
+- operasi yang dapat diinterupsi
 - token interupsi
 - token pembatalan
 - tugas yang berjalan lama
-- tugas interupsi
+- interupsi tugas
 - PowerPoint
 - OpenDocument
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Buat tugas yang berjalan lama dapat dibatalkan dengan Aspose.Slides untuk .NET. Interupsi proses rendering dan konversi untuk PowerPoint dan OpenDocument secara aman, dengan contoh."
+description: "Pelajari cara membatalkan operasi presentasi yang berjalan lama di Aspose.Slides untuk .NET dan mengembalikan hasil parsial saat mengekspor slide dalam sebuah loop."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Aspose.Slides untuk .NET menyediakan mekanisme pemrosesan yang dapat diinterupsi untuk tugas presentasi yang memakan waktu lama, seperti deserialisasi, serialisasi, dan rendering. Mekanisme ini didasarkan pada kelas `InterruptionToken` dan `InterruptionTokenSource`.
+Aspose.Slides for .NET dapat menghentikan operasi yang berjalan lama seperti memuat, menyimpan, dan merender presentasi. Aplikasi Anda dapat menggunakan token interupsi yang sama untuk menghentikan sebuah loop sebelum memulai pemrosesan slide berikutnya.
 
-`InterruptionToken` dapat ditetapkan ke `LoadOptions` dan diteruskan ke konstruktor `Presentation`. Ketika `InterruptionTokenSource.Interrupt()` dipanggil, tugas yang berjalan lama terkait akan diinterupsi. Artikel ini juga menunjukkan cara menggunakan mekanisme ini bersamaan dengan `CancellationToken` standar .NET dengan memantau permintaan pembatalan dan memanggil `Interrupt()` ketika pembatalan diminta.
+## **Menginterupsi Operasi Presentasi**
 
-## **Perpustakaan yang Dapat Diinterupsi**
+Buat sebuah [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/), tetapkan [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) ke [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/), dan berikan opsi pemuatan ke [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Untuk meminta pembatalan, panggil [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) pada sumber tersebut. Operasi yang dapat diinterupsi akan berhenti ketika mendeteksi permintaan.
 
-Di [Aspose.Slides 18.4](https://releases.aspose.com/slides/id/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/), kami memperkenalkan kelas [InterruptionToken](https://reference.aspose.com/slides/id/net/aspose.slides/interruptiontoken/) dan [InterruptionTokenSource](https://reference.aspose.com/slides/id/net/aspose.slides/interruptiontokensource/). Mereka memungkinkan Anda menginterupsi tugas yang berjalan lama seperti deserialisasi, serialisasi, dan rendering.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/id/net/aspose.slides/interruptiontokensource/) adalah sumber token yang diteruskan ke [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/id/net/aspose.slides/iloadoptions/interruptiontoken/).
-- Ketika [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/id/net/aspose.slides/iloadoptions/interruptiontoken/) diatur dan instance [LoadOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/) diteruskan ke konstruktor [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/), pemanggilan [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/id/net/aspose.slides/interruptiontokensource/interrupt/) menginterupsi semua tugas yang berjalan lama yang terkait dengan [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-
-Potongan kode berikut menunjukkan cara menginterupsi tugas yang sedang berjalan:
+Contoh ini memulai konversi `sample.pptx` menjadi `sample.ppt` dalam tugas latar belakang dan meminta pembatalan setelah 10 detik. Jika konversi selesai lebih cepat, output sudah lengkap.
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -45,7 +45,7 @@ public static void Run()
     };
 
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Run(action, tokenSource.Token); // jalankan aksi dalam thread terpisah
+    Run(action, tokenSource.Token); // jalankan aksi pada thread terpisah
     Thread.Sleep(10000);            // batas waktu
     tokenSource.Interrupt();        // hentikan konversi
 }
@@ -56,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **CancellationToken .NET dan Perpustakaan yang Dapat Diinterupsi**
+## **Hubungkan Pembatalan .NET ke Aspose.Slides**
 
-Ketika Anda perlu menggunakan [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) bersama dengan perpustakaan Interupsi Aspose.Slides, bungkus pemrosesan [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) dan interupsi [InterruptionToken](https://reference.aspose.com/slides/id/net/aspose.slides/interruptiontoken/) ketika [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) bernilai `true`.
-
-Kode C# berikut menunjukkan operasinya:
+Jika aplikasi Anda menggunakan .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken), teruskan permintaan pembatalannya ke Aspose.Slides. Contoh ini memulai mengekspor `sample.pptx` ke `sample.pdf` dan menetapkan batas waktu 20 detik. Selama proses ekspor berjalan, ia memeriksa [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) setiap 500 milidetik. Ketika properti menjadi `true`, ia memanggil [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/).
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -81,14 +83,14 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     };
     
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Task task = Run(action, tokenSource.Token); // jalankan aksi dalam thread terpisah
+    Task task = Run(action, tokenSource.Token); // jalankan aksi pada thread terpisah
 
-    while (!task.Wait(500)) // tunggu dan pantau apakah cancellationToken.IsCancellationRequested telah diatur
+    while (!task.Wait(500)) // menunggu dan memantau apakah cancellationToken.IsCancellationRequested sudah diatur
     {
         if (cancellationToken.IsCancellationRequested)
         {
             Console.WriteLine("Presentation processing was canceled");
-            tokenSource.Interrupt(); // hentikan pemrosesan Presentation
+            tokenSource.Interrupt(); // menginterupsi pemrosesan Presentation
         }
     }
 }
@@ -102,33 +104,83 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
+## **Berhenti Sebelum Memproses Slide Berikutnya**
+
+Gunakan [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) yang sama untuk presentasi dan loop yang mengekspor slide-nya. Periksa [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) sebelum memulai setiap ekspor. Jika pemanggil dapat menggunakan hasil parsial, kembalikan nomor slide untuk ekspor yang selesai berhasil.
+
+Gunakan presentasi bernama `sample.pptx` dengan minimal dua slide. Contoh ini meminta pembatalan segera setelah mencatat ekspor pertama yang berhasil.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
+
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
+
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
+
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
+
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
+
+    return completed;
+}
+```
+
+Contoh ini menulis `slide-1.pdf` dan mencetak `Starting slide 1` diikuti dengan `Completed: [1]`. Loop melihat permintaan sebelum memulai slide 2. Jika pembatalan malah menginterupsi [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) selama ekspor, blok `catch` keluar dari loop sebelum kode mencatat slide saat ini sebagai selesai.
+
+Jika pemanggil perlu menangani pembatalan, gantikan pemeriksaan `if` dan `break` di bagian atas loop dengan panggilan ke [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) pada token. Hapus `try`/`catch` di sekitar ekspor sehingga pembatalan selama penyimpanan juga mencapai pemanggil. Dengan input yang sama, contoh ini hanya mencetak `Starting slide 1` dan menulis `slide-1.pdf`. Pada awal iterasi kedua, pemanggil menerima [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) sebelum ekspor dimulai. Metode tidak mengembalikan daftar.
+
 ## **FAQ**
 
-**Apa tujuan perpustakaan interupsi Aspose.Slides?**
+**Kapan saya harus meminta pembatalan?**
 
-Ia menyediakan mekanisme untuk menginterupsi operasi yang memakan waktu lama—seperti memuat, menyimpan, atau merender presentasi—sebelum selesai. Hal ini berguna ketika waktu pemrosesan harus dibatasi atau tugas tidak lagi diperlukan.
+Minta pembatalan ketika suatu operasi melebihi batas waktu Anda atau ketika aplikasi Anda tidak lagi memerlukan hasilnya.
 
-**Apa perbedaan antara [InterruptionToken](https://reference.aspose.com/slides/id/net/aspose.slides/interruptiontoken/) dan [InterruptionTokenSource](https://reference.aspose.com/slides/id/net/aspose.slides/iinterruptiontokensource/)?**
+**Apa perbedaan antara [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) dan [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
 
-- `InterruptionToken` diteruskan ke API Aspose.Slides dan diperiksa selama operasi yang memakan waktu lama.
-- `InterruptionTokenSource` digunakan dalam kode Anda untuk membuat token dan memicu interupsi dengan memanggil `Interrupt()`.
+Sumber memungkinkan aplikasi Anda meminta pembatalan. Token memungkinkan Aspose.Slides dan aplikasi Anda memeriksa permintaan tersebut.
 
-**Bisakah saya menggunakan .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) dengan perpustakaan interupsi?**
+**Apakah saya dapat menggunakan .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) dengan Aspose.Slides?**
 
-Ya. Anda dapat memantau [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) dalam logika aplikasi Anda dan memanggil [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/id/net/aspose.slides/iinterruptiontokensource/interrupt/) ketika pembatalan diminta. Ini memungkinkan Aspose.Slides untuk berintegrasi dengan alur kerja pembatalan standar .NET.
+Ya. Ketika token .NET Anda memberi sinyal pembatalan, panggil [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) pada sumber yang terkait dengan presentasi.
 
-**Tugas apa yang dapat diinterupsi?**
+**Operasi apa yang dapat saya interupsi?**
 
-Setiap tugas Aspose.Slides yang menerima [InterruptionToken](https://reference.aspose.com/slides/id/net/aspose.slides/interruptiontoken/)—seperti memuat presentasi dengan `Presentation(path, loadOptions)` atau menyimpan dengan `Presentation.Save(...)`—dapat diinterupsi.
+Anda dapat menginterupsi pemuatan, penyimpanan, dan perenderan. Berikan token ke [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) melalui [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/). Presentasi kemudian dapat mendeteksi pembatalan selama operasi selanjutnya seperti [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/).
 
-**Apakah interupsi terjadi segera?**
+**Apakah operasi berhenti segera?**
 
-Tidak. Interupsi bersifat kooperatif: operasi secara berkala memeriksa token dan berhenti segera setelah mendeteksi bahwa [Interrupt()](https://reference.aspose.com/slides/id/net/aspose.slides/iinterruptiontokensource/interrupt/) telah dipanggil.
+Pembatalan bersifat kooperatif. Sebuah operasi memeriksa token secara berkala dan berhenti ketika mendeteksi permintaan.
 
-**Apa yang terjadi jika saya memanggil [Interrupt()](https://reference.aspose.com/slides/id/net/aspose.slides/iinterruptiontokensource/interrupt/) setelah tugas selesai?**
+**Apa yang terjadi jika saya memanggil [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) setelah operasi selesai?**
 
-Tidak ada apa‑apa—pemanggilan tidak berpengaruh jika tugas yang bersangkutan sudah selesai.
+Operasi yang selesai tetap mempertahankan hasilnya.
 
-**Bisakah saya menggunakan kembali [InterruptionTokenSource](https://reference.aspose.com/slides/id/net/aspose.slides/iinterruptiontokensource/) yang sama untuk beberapa tugas?**
+**Dapatkah beberapa operasi berbagi [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**
 
-Ya—tetapi setelah Anda memanggil [Interrupt()](https://reference.aspose.com/slides/id/net/aspose.slides/iinterruptiontokensource/interrupt/) pada sumber tersebut, semua tugas yang menggunakan tokennya akan diinterupsi. Gunakan sumber token terpisah untuk mengelola tugas secara independen.
+Ya. Memanggil [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) meminta pembatalan untuk setiap operasi yang menggunakan token dari sumber tersebut. Gunakan sumber terpisah untuk setiap operasi yang ingin Anda batalkan secara independen.

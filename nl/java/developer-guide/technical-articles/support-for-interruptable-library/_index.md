@@ -1,83 +1,173 @@
 ---
-title: Ondersteuning voor onderbreekbare bibliotheek
+title: Onderbreek langdurige presentatiebewerkingen in Java
+linktitle: Onderbreek presentatiebewerkingen
 type: docs
 weight: 120
 url: /nl/java/support-for-interruptable-library/
 keywords:
-- onderbreekbare bibliotheek
+- onderbreekbare bewerkingen
 - onderbrekingstoken
-- annuleringstoken
+- annulerings‑token
 - langdurige taak
-- taak onderbreken
+- onderbreek taak
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Maak langlopende taken annuleerbaar met Aspose.Slides voor Java. Onderbreek het renderen en de conversies voor PowerPoint en OpenDocument veilig, met voorbeelden."
+description: "Leer hoe u langdurige presentatiebewerkingen kunt annuleren in Aspose.Slides for Java en een gedeeltelijk resultaat kunt retourneren bij het exporteren van dia's in een lus."
 ---
 ## **Overzicht**
 
-Aspose.Slides biedt een onderbreekbare verwerkingsmechanisme voor langdurige presentatietaken, zoals deserialisatie, serialisatie en rendering. Dit mechanisme is gebaseerd op de `InterruptionToken`- en `InterruptionTokenSource`-klassen.
+Aspose.Slides for Java kan langdurige bewerkingen onderbreken, zoals het laden, opslaan en renderen van presentaties. Uw toepassing kan dezelfde onderbrekingstoken gebruiken om een lus te stoppen voordat deze de volgende dia verwerkt.
 
-Een `InterruptionToken` kan toegewezen worden aan `LoadOptions` en doorgegeven aan de `Presentation`‑constructor. Wanneer `InterruptionTokenSource.interrupt()` wordt aangeroepen, wordt de bijbehorende langdurige taak onderbroken.
+## **Onderbreek een presentatiebewerking**
 
-## **Onderbreekbare bibliotheek**
+Maak een [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/), verkrijg zijn token met [getToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#getToken--), en geef het token door aan [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-). Geef de load‑opties door aan de [Presentation constructor](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#Presentation-java.lang.String-com.aspose.slides.LoadOptions-). Om annulering aan te vragen, roep [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) aan op de bron. Een onderbreekbare bewerking stopt wanneer zij het verzoek opmerkt.
 
-In [Aspose.Slides 18.4](https://releases.aspose.com/slides/nl/java/release-notes/2018/aspose-slides-for-java-18-4-release-notes/), hebben we de klassen [InterruptionToken](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontoken/) en [InterruptionTokenSource](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontokensource/) geïntroduceerd. Ze stellen u in staat om langdurige taken, zoals deserialisatie, serialisatie en rendering, te onderbreken.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontokensource/) is de bron van de token(s) die worden doorgegeven aan [ILoadOptions.setInterruptionToken](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iloadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-).
-- Wanneer [ILoadOptions.setInterruptionToken](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iloadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-) is ingesteld en de [LoadOptions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/loadoptions/)‑instantie wordt doorgegeven aan de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑constructor, onderbreekt het aanroepen van [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontokensource/#interrupt--) elke langdurige taak die aan die [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/) is gekoppeld.
-
-De volgende codefragment toont hoe een lopende taak onderbroken kan worden:
+Het voorbeeld converteert `sample.pptx` naar `sample.ppt` op een achtergrondthread. De aanroepende thread wacht tot 10 seconden op het voltooien van de conversie. Als de conversie nog steeds draait, vraagt het om annulering en wacht het tot de worker afsluit.
 
 ```java
-final InterruptionTokenSource tokenSource = new InterruptionTokenSource();
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
 
-Runnable interruption = new Runnable() {
-    public void run() {
-        LoadOptions loadOptions = new LoadOptions();
-        loadOptions.setInterruptionToken(tokenSource.getToken());
-
-        Presentation presentation = new Presentation("sample.pptx", loadOptions);
-        try{
+InterruptionTokenSource source = new InterruptionTokenSource();
+Thread worker = new Thread(() -> {
+    LoadOptions options = new LoadOptions();
+    options.setInterruptionToken(source.getToken());
+    try {
+        Presentation presentation = new Presentation("sample.pptx", options);
+        try {
             presentation.save("sample.ppt", SaveFormat.Ppt);
+        } finally {
+            presentation.dispose();
         }
-        finally {
+    } catch (OperationCanceledException canceled) {
+        System.out.println("Conversion canceled");
+    }
+});
+
+worker.start();
+worker.join(10000);
+if (worker.isAlive()) {
+    source.interrupt();
+    worker.join();
+}
+```
+
+## **Koppel een Java‑time‑out aan Aspose.Slides**
+
+Om een tijdslimiet in te stellen voor een presentatiebewerking, gebruik een [ScheduledExecutorService](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html) om [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) aan te roepen wanneer de time‑out verloopt. Het voorbeeld staat 20 seconden toe om `sample.pptx` te laden en te exporteren naar `sample.pdf`. Als de export vroegtijdig voltooid is, annuleert de toepassing het geplande verzoek.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
+import java.util.concurrent.*;
+
+InterruptionTokenSource source = new InterruptionTokenSource();
+LoadOptions options = new LoadOptions();
+options.setInterruptionToken(source.getToken());
+
+ScheduledExecutorService timer = Executors.newSingleThreadScheduledExecutor();
+ScheduledFuture<?> timeout = timer.schedule(source::interrupt, 20, TimeUnit.SECONDS);
+try {
+    Presentation presentation = new Presentation("sample.pptx", options);
+    try {
+        presentation.save("sample.pdf", SaveFormat.Pdf);
+    } finally {
+        presentation.dispose();
+    }
+} catch (OperationCanceledException canceled) {
+    System.out.println("Presentation processing was canceled");
+} finally {
+    timeout.cancel(false);
+    timer.shutdown();
+}
+```
+
+## **Stop vóór het verwerken van de volgende dia**
+
+Gebruik dezelfde [IInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/) voor de presentatie en de lus die haar dia's exporteert. Controleer [isInterruptionRequested](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/#isInterruptionRequested--) vóór elke export. Als de aanroeper een gedeeltelijk resultaat kan gebruiken, retourneer dan de dianummers van de exporten die succesvol voltooid zijn.
+
+Gebruik een presentatie met de naam `sample.pptx` met ten minste twee dia's. De [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int---int-) overload die een array van dianummers accepteert telt vanaf 1. Het voorbeeld slaat elke dia op in een afzonderlijke PDF en vraagt direct na de eerste succesvolle export om annulering.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
+import java.util.ArrayList;
+import java.util.List;
+
+class SlideExporter {
+    List<Integer> exportSlides(String path, InterruptionTokenSource source) {
+        List<Integer> completed = new ArrayList<>();
+        IInterruptionToken token = source.getToken();
+        LoadOptions options = new LoadOptions();
+        options.setInterruptionToken(token);
+        Presentation presentation = new Presentation(path, options);
+        try {
+            for (int number = 1; number <= presentation.getSlides().size(); number++) {
+                if (token.isInterruptionRequested()) {
+                    break;
+                }
+
+                System.out.println("Starting slide " + number);
+                try {
+                    presentation.save("slide-" + number + ".pdf", new int[] { number }, SaveFormat.Pdf);
+                } catch (OperationCanceledException canceled) {
+                    if (token.isInterruptionRequested()) {
+                        break;
+                    }
+                    throw canceled;
+                }
+
+                completed.add(number);
+                if (number == 1) {
+                    source.interrupt();
+                }
+            }
+            return completed;
+        } finally {
             presentation.dispose();
         }
     }
-};
+}
 
-Thread thread = new Thread(interruption);
-thread.start();          // voer de actie uit in een aparte thread
-Thread.sleep(10000);     // tijdslimiet
-tokenSource.interrupt(); // stop de conversie
+InterruptionTokenSource source = new InterruptionTokenSource();
+SlideExporter exporter = new SlideExporter();
+List<Integer> completed = exporter.exportSlides("sample.pptx", source);
+System.out.println("Completed: " + completed);
 ```
 
-## **FAQ**
+Het voorbeeld schrijft `slide-1.pdf` en drukt `Starting slide 1` af, gevolgd door `Completed: [1]`. De lus merkt het verzoek op vóór het starten van dia 2. Als annulering plaatsvindt tijdens het opslaan, verlaat de lus deze voordat de dia als voltooid wordt geregistreerd.
 
-**Wat is het doel van de Aspose.Slides onderbreekbibliotheek?**
+Als de aanroeper annulering moet afhandelen, vervang dan de controle en de bijbehorende `break` bovenaan de lus door `token.throwIfInterruptionRequested()`. Verwijder de `try`/`catch` rond het opslaan zodat annulering tijdens een export ook bij de aanroeper terechtkomt. Met dezelfde invoer drukt het voorbeeld alleen `Starting slide 1` af en schrijft `slide-1.pdf`. Aan het begin van de tweede iteratie gooit [throwIfInterruptionRequested](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/#throwIfInterruptionRequested--) `com.aspose.slides.exceptions.OperationCanceledException` voordat de volgende export begint. De methode retourneert geen lijst.
 
-Het biedt een mechanisme om langdurige bewerkingen—zoals het laden, opslaan of renderen van presentaties—onder te breken voordat ze voltooid zijn. Dit is handig wanneer de verwerkingstijd beperkt moet worden of de taak niet langer nodig is.
+## **Veelgestelde vragen**
 
-**Wat is het verschil tussen [InterruptionToken](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontoken/) en [InterruptionTokenSource](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontokensource/)?**
+**Wanneer moet ik annulering aanvragen?**
 
-- `InterruptionToken` wordt doorgegeven aan de Aspose.Slides‑API en tijdens langdurige bewerkingen gecontroleerd.
-- `InterruptionTokenSource` wordt in uw code gebruikt om tokens aan te maken en onderbrekingen te activeren door `Interrupt()` aan te roepen.
+Vraag annulering aan wanneer een bewerking uw tijdslimiet overschrijdt of wanneer uw toepassing het resultaat niet meer nodig heeft.
 
-**Welke taken kunnen worden onderbroken?**
+**Wat is het verschil tussen [InterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontoken/) en [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/)?**
 
-Elke Aspose.Slides‑taak die een [InterruptionToken](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontoken/) accepteert—zoals het laden van een presentatie met `Presentation(path, loadOptions)` of opslaan met `Presentation.save(...)`—kan onderbroken worden.
+De bron stelt uw toepassing in staat om annulering aan te vragen. Het token stelt Aspose.Slides en uw toepassing in staat om dat verzoek te controleren.
 
-**Wordt onderbreking direct uitgevoerd?**
+**Kan ik een bewerking annuleren vanaf een Java‑timer?**
 
-Nee. Onderbreking is coöperatief: de bewerking controleert periodiek de token en stopt zodra wordt geconstateerd dat [Interrupt()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontokensource/#interrupt--) is aangeroepen.
+Ja. Plan een aanroep van [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) op de bron die aan de presentatie is gekoppeld.
 
-**Wat gebeurt er als ik [Interrupt()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontokensource/#interrupt--) aanroep nadat een taak al voltooid is?**
+**Welke bewerkingen kan ik onderbreken?**
 
-Niets—de aanroep heeft geen effect als de betreffende taak al voltooid is.
+U kunt het laden, opslaan en renderen onderbreken. Geef het token door aan de [Presentation constructor](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#Presentation-java.lang.String-com.aspose.slides.LoadOptions-) via [LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-). De presentatie kan vervolgens annulering waarnemen tijdens opvolgende bewerkingen, zoals opslaan naar PDF.
 
-**Kan ik dezelfde [InterruptionTokenSource](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontokensource/) hergebruiken voor meerdere taken?**
+**Stopt een bewerking onmiddellijk?**
 
-Ja—maar nadat u [Interrupt()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/interruptiontokensource/#interrupt--) op die bron hebt aangeroepen, zullen alle taken die zijn tokens gebruiken worden onderbroken. Gebruik afzonderlijke token‑bronnen om taken onafhankelijk te beheren.
+Annulering is coöperatief. Een bewerking controleert periodiek het token en stopt wanneer ze het verzoek opmerkt.
+
+**Wat gebeurt er als ik [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) aanroep nadat een bewerking is voltooid?**
+
+De voltooide bewerking behoudt haar resultaat.
+
+**Kunnen meerdere bewerkingen een [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/) delen?**
+
+Ja. Het aanroepen van [InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) vraagt annulering aan voor elke bewerking die een token van die bron gebruikt. Gebruik een aparte bron voor elke bewerking die u onafhankelijk wilt annuleren.

@@ -1,10 +1,11 @@
 ---
-title: Suporte para Biblioteca Interruptável
+title: Interromper Operações de Apresentação de Longa Duração em .NET
+linktitle: Interromper Operações de Apresentação
 type: docs
 weight: 150
 url: /pt/net/support-for-interruptable-library/
 keywords:
-- biblioteca interruptável
+- operações interrompíveis
 - token de interrupção
 - token de cancelamento
 - tarefa de longa duração
@@ -15,24 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Torne tarefas de longa duração canceláveis com Aspose.Slides para .NET. Interrompa a renderização e as conversões de PowerPoint e OpenDocument com segurança, com exemplos."
+description: "Aprenda como cancelar operações de apresentação de longa duração no Aspose.Slides for .NET e retornar um resultado parcial ao exportar slides em um loop."
 ---
 ## **Visão geral**
 
-Aspose.Slides for .NET fornece um mecanismo de processamento interrompível para tarefas de apresentação de longa duração, como desserialização, serialização e renderização. Esse mecanismo baseia‑se nas classes `InterruptionToken` e `InterruptionTokenSource`.
+Aspose.Slides for .NET pode interromper operações de longa duração, como carregamento, gravação e renderização de apresentações. Seu aplicativo pode usar o mesmo token de interrupção para parar um loop antes que ele comece a processar o próximo slide.
 
-`InterruptionToken` pode ser atribuído a `LoadOptions` e passado ao construtor `Presentation`. Quando `InterruptionTokenSource.Interrupt()` é chamado, a tarefa de longa duração associada é interrompida. O artigo também mostra como usar esse mecanismo juntamente com o `CancellationToken` padrão do .NET, monitorando solicitações de cancelamento e chamando `Interrupt()` quando o cancelamento é solicitado.
+## **Interromper uma Operação de Apresentação**
 
-## **Biblioteca Interrompível**
+Crie um [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/), atribua seu [Token](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/token/) a [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/) e passe as opções de carregamento para o [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/). Para solicitar cancelamento, chame [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) na origem. Uma operação interrompível para quando observa a solicitação.
 
-Em [Aspose.Slides 18.4](https://releases.aspose.com/slides/pt/net/release-notes/2018/aspose-slides-for-net-18-4-release-notes/), introduzimos as classes [InterruptionToken](https://reference.aspose.com/slides/pt/net/aspose.slides/interruptiontoken/) e [InterruptionTokenSource](https://reference.aspose.com/slides/pt/net/aspose.slides/interruptiontokensource/). Elas permitem interromper tarefas de longa duração, como desserialização, serialização e renderização.
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/pt/net/aspose.slides/interruptiontokensource/) é a fonte do(s) token(s) passado(s) para [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/pt/net/aspose.slides/iloadoptions/interruptiontoken/).
-- Quando [ILoadOptions.InterruptionToken](https://reference.aspose.com/slides/pt/net/aspose.slides/iloadoptions/interruptiontoken/) está definido e a instância [LoadOptions](https://reference.aspose.com/slides/pt/net/aspose.slides/loadoptions/) é passada ao construtor [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/), invocar [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/pt/net/aspose.slides/interruptiontokensource/interrupt/) interrompe qualquer tarefa de longa duração associada a esse [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/).
-
-O trecho de código a seguir demonstra a interrupção de uma tarefa em execução:
+O exemplo inicia a conversão de `sample.pptx` para `sample.ppt` em uma tarefa em segundo plano e solicita cancelamento após 10 segundos. Se a conversão terminar antes, a saída já está completa.
 
 ```c#
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Run()
 {
     Action<IInterruptionToken> action = (IInterruptionToken token) =>
@@ -45,9 +45,9 @@ public static void Run()
     };
 
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Run(action, tokenSource.Token); // executa a ação em uma thread separada
+    Run(action, tokenSource.Token); // executar a ação em uma thread separada
     Thread.Sleep(10000);            // tempo limite
-    tokenSource.Interrupt();        // interrompe a conversão
+    tokenSource.Interrupt();        // parar a conversão
 }
 
 private static void Run(Action<IInterruptionToken> action, IInterruptionToken token)
@@ -56,13 +56,15 @@ private static void Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **CancellationToken .NET e Biblioteca Interrompível**
+## **Conectar Cancelamento .NET ao Aspose.Slides**
 
-Quando for necessário usar um [CancellationToken](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) juntamente com a biblioteca Interruptible do Aspose.Slides, envolva o processamento do [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) e interrompa o [InterruptionToken](https://reference.aspose.com/slides/pt/net/aspose.slides/interruptiontoken/) quando [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) for `true`.
-
-Este código C# demonstra a operação:
+Se seu aplicativo usa um .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken), encaminhe sua solicitação de cancelamento para o Aspose.Slides. O exemplo inicia a exportação de `sample.pptx` para `sample.pdf` e define um tempo limite de 20 segundos. Enquanto a exportação está em execução, ele verifica [CancellationToken.IsCancellationRequested](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.iscancellationrequested) a cada 500 milissegundos. Quando a propriedade passa a `true`, ele chama [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/).
 
 ```cs
+using System.Threading;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 public static void Main()
 {
     CancellationTokenSource tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -81,14 +83,14 @@ static void ProcessPresentation(string path, string outPath, CancellationToken c
     };
     
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
-    Task task = Run(action, tokenSource.Token); // execute a ação em uma thread separada
+    Task task = Run(action, tokenSource.Token); // executar a ação em uma thread separada
 
-    while (!task.Wait(500)) // espera e monitora se cancellationToken.IsCancellationRequested está definido
+    while (!task.Wait(500)) // esperar e monitorar se cancellationToken.IsCancellationRequested está definido
     {
         if (cancellationToken.IsCancellationRequested)
         {
             Console.WriteLine("Presentation processing was canceled");
-            tokenSource.Interrupt(); // interrompe o processamento de Presentation
+            tokenSource.Interrupt(); // interromper o processamento da apresentação
         }
     }
 }
@@ -102,33 +104,76 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
 }
 ```
 
-## **FAQ**
+## **Parar Antes de Processar o Próximo Slide**
 
-**Qual é o objetivo da biblioteca de interrupção do Aspose.Slides?**
+Use o mesmo [IInterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/) tanto para a apresentação quanto para o loop que exporta seus slides. Verifique [IsInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/isinterruptionrequested/) antes de iniciar cada exportação. Se o chamador puder usar um resultado parcial, retorne os números dos slides cujas exportações foram concluídas com sucesso.
 
-Ela fornece um mecanismo para interromper operações de longa duração — como carregar, salvar ou renderizar apresentações — antes que sejam concluídas. Isso é útil quando o tempo de processamento deve ser limitado ou a tarefa não é mais necessária.
+Use uma apresentação chamada `sample.pptx` com pelo menos dois slides. O exemplo solicita cancelamento imediatamente após registrar a primeira exportação bem-sucedida.
 
-**Qual é a diferença entre [InterruptionToken](https://reference.aspose.com/slides/pt/net/aspose.slides/interruptiontoken/) e [InterruptionTokenSource](https://reference.aspose.com/slides/pt/net/aspose.slides/iinterruptiontokensource/)?**
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-- `InterruptionToken` é passado para a API Aspose.Slides e verificado durante operações de longa duração.
-- `InterruptionTokenSource` é usado no seu código para criar tokens e disparar interrupções chamando `Interrupt()`.
+var source = new InterruptionTokenSource();
+var completed = ExportSlides("sample.pptx", source);
+Console.WriteLine($"Completed: [{string.Join(", ", completed)}]");
 
-**Posso usar o .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) com a biblioteca de interrupção?**
+static List<int> ExportSlides(string path, IInterruptionTokenSource source)
+{
+    var completed = new List<int>();
+    IInterruptionToken token = source.Token;
+    var options = new LoadOptions { InterruptionToken = token };
+    using var presentation = new Presentation(path, options);
 
-Sim. Você pode monitorar o [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) na lógica da sua aplicação e chamar [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/pt/net/aspose.slides/iinterruptiontokensource/interrupt/) quando o cancelamento for solicitado. Isso permite que o Aspose.Slides se integre aos fluxos de cancelamento padrão do .NET.
+    for (var number = 1; number <= presentation.Slides.Count; number++)
+    {
+        if (token.IsInterruptionRequested)
+            break;
 
-**Quais tarefas podem ser interrompidas?**
+        Console.WriteLine($"Starting slide {number}");
+        try
+        {
+            presentation.Save($"slide-{number}.pdf", new[] { number }, SaveFormat.Pdf);
+        }
+        catch (OperationCanceledException) when (token.IsInterruptionRequested)
+        {
+            break;
+        }
 
-Qualquer tarefa do Aspose.Slides que aceite um [InterruptionToken](https://reference.aspose.com/slides/pt/net/aspose.slides/interruptiontoken/) — como carregar uma apresentação com `Presentation(path, loadOptions)` ou salvar com `Presentation.Save(...)` — pode ser interrompida.
+        completed.Add(number);
+        if (number == 1)
+            source.Interrupt();
+    }
 
-**A interrupção ocorre imediatamente?**
+    return completed;
+}
+```
 
-Não. A interrupção é cooperativa: a operação verifica periodicamente o token e para assim que detecta que [Interrupt()](https://reference.aspose.com/slides/pt/net/aspose.slides/iinterruptiontokensource/interrupt/) foi chamado.
+O exemplo grava `slide-1.pdf` e imprime `Starting slide 1` seguido de `Completed: [1]`. O loop vê a solicitação antes de iniciar o slide 2. Se o cancelamento interromper [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) durante uma exportação, o bloco `catch` sai do loop antes que o código registre o slide atual como concluído.
 
-**O que acontece se eu chamar [Interrupt()](https://reference.aspose.com/slides/pt/net/aspose.slides/iinterruptiontokensource/interrupt/) após uma tarefa já ter sido concluída?**
+Se o chamador precisar lidar com o cancelamento, substitua a verificação `if` e seu `break` no início do loop por uma chamada a [ThrowIfInterruptionRequested](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontoken/throwifinterruptionrequested/) no token. Remova o `try`/`catch` ao redor da exportação para que o cancelamento durante uma gravação também chegue ao chamador. Com a mesma entrada, o exemplo imprime apenas `Starting slide 1` e grava `slide-1.pdf`. No início da segunda iteração, o chamador recebe uma [OperationCanceledException](https://learn.microsoft.com/en-us/dotnet/api/system.operationcanceledexception) antes que a exportação inicie. O método não retorna lista.
 
-Nada — a chamada não tem efeito se a tarefa correspondente já foi concluída.
+## **Perguntas Frequentes**
 
-**Posso reutilizar o mesmo [InterruptionTokenSource](https://reference.aspose.com/slides/pt/net/aspose.slides/iinterruptiontokensource/) para várias tarefas?**
+**When should I request cancellation?**  
+Solicite o cancelamento quando uma operação exceder seu limite de tempo ou quando seu aplicativo não precisar mais do resultado.
 
-Sim — mas depois de chamar [Interrupt()](https://reference.aspose.com/slides/pt/net/aspose.slides/iinterruptiontokensource/interrupt/) nesse source, todas as tarefas que utilizam seus tokens serão interrompidas. Use fontes de token separadas para gerenciar tarefas de forma independente.
+**What is the difference between [InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) and [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**  
+A origem permite que seu aplicativo solicite o cancelamento. O token permite que o Aspose.Slides e seu aplicativo verifiquem essa solicitação.
+
+**Can I use a .NET [CancellationToken](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) with Aspose.Slides?**  
+Sim. Quando seu token .NET sinaliza cancelamento, chame [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) na origem associada à apresentação.
+
+**Which operations can I interrupt?**  
+Você pode interromper o carregamento, a gravação e a renderização. Passe o token para o [Presentation constructor](https://reference.aspose.com/slides/net/aspose.slides/presentation/presentation/) através de [LoadOptions.InterruptionToken](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/interruptiontoken/). A apresentação então pode observar o cancelamento durante operações subsequentes, como [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/).
+
+**Does an operation stop immediately?**  
+O cancelamento é cooperativo. Uma operação verifica o token periodicamente e para quando observa a solicitação.
+
+**What happens if I call [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) after an operation finishes?**  
+A operação concluída mantém seu resultado.
+
+**Can multiple operations share an [InterruptionTokenSource](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/)?**  
+Sim. Chamar [InterruptionTokenSource.Interrupt](https://reference.aspose.com/slides/net/aspose.slides/interruptiontokensource/interrupt/) solicita cancelamento para todas as operações que usam um token daquela origem. Use uma origem separada para cada operação que você deseja cancelar de forma independente.

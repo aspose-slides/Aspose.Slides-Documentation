@@ -1,10 +1,11 @@
 ---
-title: 可中斷函式庫支援
+title: 在 Java 中中斷長時間執行的簡報操作
+linktitle: 中斷簡報操作
 type: docs
 weight: 120
 url: /zh-hant/java/support-for-interruptable-library/
 keywords:
-- 可中斷函式庫
+- 可中斷的操作
 - 中斷令牌
 - 取消令牌
 - 長時間執行的任務
@@ -14,70 +15,159 @@ keywords:
 - 簡報
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 使長時間執行的任務可取消。安全地中斷 PowerPoint 與 OpenDocument 的算繪和轉換，並提供範例。"
+description: "了解如何在 Aspose.Slides for Java 中取消長時間執行的簡報操作，並在迴圈匯出投影片時返回部分結果。"
 ---
-## **概觀**
+## **概述**
 
-Aspose.Slides 提供可中斷的處理機制，用於長時間執行的簡報任務，例如反序列化、序列化和算繪。此機制基於 `InterruptionToken` 與 `InterruptionTokenSource` 類別。
+Aspose.Slides for Java 能夠中斷長時間執行的操作，例如載入、儲存和算繪投影片。您的應用程式可以使用相同的 interruption token 於下個投影片處理之前停止迴圈。
 
-`InterruptionToken` 可指派給 `LoadOptions`，並傳遞至 `Presentation` 建構式。當呼叫 `InterruptionTokenSource.interrupt()` 時，相關的長時間任務將被中斷。
+## **中斷投影片操作**
 
-## **可中斷函式庫**
+建立一個[InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/)，使用[getToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#getToken--)取得其 token，並將 token 傳遞給[LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-)。將載入選項傳遞給[Presentation constructor](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#Presentation-java.lang.String-com.aspose.slides.LoadOptions-)。若要請求取消，對來源呼叫[InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--)。可中斷的操作會在偵測到請求時停止。
 
-在 [Aspose.Slides 18.4](https://releases.aspose.com/slides/zh-hant/java/release-notes/2018/aspose-slides-for-java-18-4-release-notes/) 中，我們引入了 [InterruptionToken](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontoken/) 與 [InterruptionTokenSource](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontokensource/) 類別。它們允許您中斷長時間執行的任務，例如反序列化、序列化和算繪。
-
-- [InterruptionTokenSource](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontokensource/) 是傳遞給 [ILoadOptions.setInterruptionToken](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iloadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-) 的 token（或 tokens）的來源。
-- 當設定了 [ILoadOptions.setInterruptionToken](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iloadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-) 且將 [LoadOptions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/) 實例傳遞給 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 建構式時，呼叫 [InterruptionTokenSource.Interrupt()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontokensource/#interrupt--) 會中斷與該 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 相關的任何長時間任務。
-
-下列程式碼片段示範了如何中斷執行中的任務：
+此範例在背景執行緒中將 `sample.pptx` 轉換為 `sample.ppt`。呼叫執行緒最多等待 10 秒以完成轉換。如果轉換仍在執行，則請求取消並等待工作執行緒結束。
 
 ```java
-final InterruptionTokenSource tokenSource = new InterruptionTokenSource();
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
 
-Runnable interruption = new Runnable() {
-    public void run() {
-        LoadOptions loadOptions = new LoadOptions();
-        loadOptions.setInterruptionToken(tokenSource.getToken());
-
-        Presentation presentation = new Presentation("sample.pptx", loadOptions);
-        try{
+InterruptionTokenSource source = new InterruptionTokenSource();
+Thread worker = new Thread(() -> {
+    LoadOptions options = new LoadOptions();
+    options.setInterruptionToken(source.getToken());
+    try {
+        Presentation presentation = new Presentation("sample.pptx", options);
+        try {
             presentation.save("sample.ppt", SaveFormat.Ppt);
+        } finally {
+            presentation.dispose();
         }
-        finally {
+    } catch (OperationCanceledException canceled) {
+        System.out.println("Conversion canceled");
+    }
+});
+
+worker.start();
+worker.join(10000);
+if (worker.isAlive()) {
+    source.interrupt();
+    worker.join();
+}
+```
+
+## **將 Java 超時連接至 Aspose.Slides**
+
+若要為投影片操作設定時間上限，請使用[ScheduledExecutorService](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html)在逾時時呼叫[InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--)。此範例允許 20 秒載入 `sample.pptx` 並匯出為 `sample.pdf`。若匯出提前完成，應用程式會取消已排程的請求。
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
+import java.util.concurrent.*;
+
+InterruptionTokenSource source = new InterruptionTokenSource();
+LoadOptions options = new LoadOptions();
+options.setInterruptionToken(source.getToken());
+
+ScheduledExecutorService timer = Executors.newSingleThreadScheduledExecutor();
+ScheduledFuture<?> timeout = timer.schedule(source::interrupt, 20, TimeUnit.SECONDS);
+try {
+    Presentation presentation = new Presentation("sample.pptx", options);
+    try {
+        presentation.save("sample.pdf", SaveFormat.Pdf);
+    } finally {
+        presentation.dispose();
+    }
+} catch (OperationCanceledException canceled) {
+    System.out.println("Presentation processing was canceled");
+} finally {
+    timeout.cancel(false);
+    timer.shutdown();
+}
+```
+
+## **在處理下一張投影片前停止**
+
+對投影片與匯出其投影片的迴圈使用相同的[IInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/)。在每次匯出前檢查[isInterruptionRequested](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/#isInterruptionRequested--)。如果呼叫端可以接受部分結果，則回傳已成功匯出的投影片編號。
+
+使用名為 `sample.pptx` 且至少包含兩張投影片的簡報。[Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int---int-)接受投影片編號陣列的重載以 1 為起始編號。此範例將每張投影片儲存為單獨的 PDF，並在記錄第一個成功匯出後立即請求取消。
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.exceptions.OperationCanceledException;
+import java.util.ArrayList;
+import java.util.List;
+
+class SlideExporter {
+    List<Integer> exportSlides(String path, InterruptionTokenSource source) {
+        List<Integer> completed = new ArrayList<>();
+        IInterruptionToken token = source.getToken();
+        LoadOptions options = new LoadOptions();
+        options.setInterruptionToken(token);
+        Presentation presentation = new Presentation(path, options);
+        try {
+            for (int number = 1; number <= presentation.getSlides().size(); number++) {
+                if (token.isInterruptionRequested()) {
+                    break;
+                }
+
+                System.out.println("Starting slide " + number);
+                try {
+                    presentation.save("slide-" + number + ".pdf", new int[] { number }, SaveFormat.Pdf);
+                } catch (OperationCanceledException canceled) {
+                    if (token.isInterruptionRequested()) {
+                        break;
+                    }
+                    throw canceled;
+                }
+
+                completed.add(number);
+                if (number == 1) {
+                    source.interrupt();
+                }
+            }
+            return completed;
+        } finally {
             presentation.dispose();
         }
     }
-};
+}
 
-Thread thread = new Thread(interruption);
-thread.start();          // 在單獨的執行緒中執行動作
-Thread.sleep(10000);     // 逾時
-tokenSource.interrupt(); // 停止轉換
+InterruptionTokenSource source = new InterruptionTokenSource();
+SlideExporter exporter = new SlideExporter();
+List<Integer> completed = exporter.exportSlides("sample.pptx", source);
+System.out.println("Completed: " + completed);
 ```
+
+此範例寫入 `slide-1.pdf`，並印出 `Starting slide 1`，接著是 `Completed: [1]`。迴圈在開始投影片 2 前偵測到請求。如果在儲存期間收到取消，迴圈會在將該投影片標記為完成之前退出。
+
+如果呼叫端需要處理取消，請將迴圈頂部的檢查及其 `break` 改為 `token.throwIfInterruptionRequested()`。移除儲存周圍的 `try`/`catch`，使匯出期間的取消也能傳遞給呼叫端。使用相同的輸入，範例只會印出 `Starting slide 1` 並寫入 `slide-1.pdf`。在第二次迭代開始時，[throwIfInterruptionRequested](https://reference.aspose.com/slides/java/com.aspose.slides/iinterruptiontoken/#throwIfInterruptionRequested--) 會拋出 `com.aspose.slides.exceptions.OperationCanceledException`，在下一次匯出開始前。此方法不會返回列表。
 
 ## **常見問題**
 
-**Aspose.Slides 中斷函式庫的目的為何？**
+**何時應該請求取消？**
 
-它提供了一種機制，可在長時間操作（例如載入、儲存或算繪簡報）完成之前中斷它們。當必須限制處理時間或任務已不再需要時，此功能相當有用。
+當操作超過您的時間限制或您的應用程式不再需要結果時，請求取消。
 
-**[InterruptionToken](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontoken/) 與 [InterruptionTokenSource](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontokensource/) 有何不同？**
+**[InterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontoken/) 與 [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/) 之間的差異是什麼？**
 
-- `InterruptionToken` 會傳遞給 Aspose.Slides API，並在長時間操作期間被檢查。
-- `InterruptionTokenSource` 用於您的程式碼中以建立 token，並透過呼叫 `Interrupt()` 觸發中斷。
+來源允許您的應用程式請求取消。token 讓 Aspose.Slides 與您的應用程式檢查此請求。
 
-**哪些任務可以被中斷？**
+**我可以從 Java 計時器取消操作嗎？**
 
-任何接受 [InterruptionToken](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontoken/) 的 Aspose.Slides 任務——例如使用 `Presentation(path, loadOptions)` 載入簡報或使用 `Presentation.save(...)` 儲存——都可以被中斷。
+可以。排程對與簡報關聯的來源呼叫[InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--)。
 
-**中斷會立即發生嗎？**
+**我可以中斷哪些操作？**
 
-不會。中斷是合作式的：操作會定期檢查 token，並在偵測到已呼叫 [Interrupt()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontokensource/#interrupt--) 時立即停止。
+您可以中斷載入、儲存與算繪。透過[LoadOptions.setInterruptionToken](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setInterruptionToken-com.aspose.slides.IInterruptionToken-)將 token 傳遞給[Presentation constructor](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#Presentation-java.lang.String-com.aspose.slides.LoadOptions-)。之後的操作（例如儲存為 PDF）中，簡報即可偵測到取消。
 
-**如果在任務已完成後呼叫 [Interrupt()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontokensource/#interrupt--) 會發生什麼情況？**
+**操作會立即停止嗎？**
 
-不會有任何作用——如果相對的任務已完成，呼叫將不會產生影響。
+取消是合作式的。操作會定期檢查 token，並在偵測到請求時停止。
 
-**我可以在多個任務中重複使用相同的 [InterruptionTokenSource](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontokensource/) 嗎？**
+**如果在操作完成後呼叫[InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--)會發生什麼？**
 
-可以——但在對該來源呼叫 [Interrupt()](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/interruptiontokensource/#interrupt--) 後，所有使用其 token 的任務都會被中斷。請使用不同的 token 來源以獨立管理任務。
+已完成的操作會保留其結果。
+
+**多個操作可以共用一個 [InterruptionTokenSource](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/) 嗎？**
+
+可以。呼叫[InterruptionTokenSource.interrupt](https://reference.aspose.com/slides/java/com.aspose.slides/interruptiontokensource/#interrupt--) 會為所有使用該來源 token 的操作請求取消。若想獨立取消每個操作，請為每個操作使用獨立的來源。
