@@ -272,6 +272,93 @@ presentation->Dispose();
 
 `DiagramLocked.pptx` stores the ungrouping lock as `true`. In PowerPoint, the **Ungroup** command is disabled when the whole diagram is selected.
 
+### **Report Existing Shape Locks**
+
+To review a template, open it and read the lock object for each shape. [get_NoLocks](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseshapelock/get_nolocks/) returns `true` when all flags on that object are disabled and `false` when at least one is enabled. A group and its children have separate lock objects, so inspect the children even when the group has no locks.
+
+This example checks movement for autoshapes, picture frames, and groups, cropping for pictures, and ungrouping for groups. It reports the flags it recognizes and marks shape types it does not inspect.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IAutoShapeLock.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IGroupShapeLock.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPictureFrameLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/list.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+#include <functional>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+std::function<void(SharedPtr<IShapeCollection>, int, String)> inspect;
+inspect = [&inspect](SharedPtr<IShapeCollection> shapes, int slideNumber, String prefix)
+{
+    for (auto&& shape : IterateOver(shapes))
+    {
+        auto path = prefix + shape->get_Name();
+        auto label = String::Format(u"Slide {0} | {1} | {2}", slideNumber, path, shape->GetType().get_Name());
+        auto flags = MakeObject<List<String>>();
+        auto group = AsCast<IGroupShape>(shape);
+
+        if (group)
+        {
+            auto locks = group->get_GroupShapeLock();
+            if (locks->get_UngroupingLocked()) flags->Add(u"UngroupingLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto picture = AsCast<IPictureFrame>(shape))
+        {
+            auto locks = picture->get_PictureFrameLock();
+            if (locks->get_CropLocked()) flags->Add(u"CropLocked");
+            if (locks->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else if (auto autoShape = AsCast<IAutoShape>(shape))
+        {
+            if (autoShape->get_AutoShapeLock()->get_PositionLocked()) flags->Add(u"PositionLocked");
+        }
+        else
+        {
+            Console::WriteLine(label + u" | Uninspected");
+            continue;
+        }
+
+        if (!shape->get_ShapeLock()->get_NoLocks())
+        {
+            auto restrictions = flags->get_Count() ? String::Join(u", ", flags->ToArray()) : String(u"Active flag not identified");
+            Console::WriteLine(label + u" | " + restrictions);
+        }
+
+        if (group)
+            inspect(group->get_Shapes(), slideNumber, path + u"/");
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+for (auto&& slide : IterateOver(presentation->get_Slides()))
+{
+    inspect(slide->get_Shapes(), slide->get_SlideNumber(), u"");
+}
+presentation->Dispose();
+```
+
+Suppose slide 1 of `Sample.pptx` contains a group named `Layout` with ungrouping locked, a picture named `Photo` inside it with cropping locked, and an unlocked rectangle named `Free`. The report skips `Free` and prints these two lines:
+
+```text
+Slide 1 | Layout | GroupShape | UngroupingLocked
+Slide 1 | Layout/Photo | PictureFrame | CropLocked
+```
+
+The report reads stored shape-level editing flags without changing them or saving the presentation. Document-level write protection is a separate setting, and enforcement of each flag depends on the editor.
+
 ### **Conclusion**
 
 Aspose.Slides for C++ lets you restrict specific editing operations on individual shapes or apply the same restrictions across slides. Choose the locks supported by each shape type, and set their values to `false` when you need to remove those restrictions.
@@ -288,4 +375,4 @@ Yes. Apply locks only to shapes on the selected slides. This does not change the
 
 **How can I apply locks to individual shapes inside a group?**
 
-Iterate through the collection returned by the group's [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) method and apply the appropriate locks to each child shape. Repeat this for any nested groups. The examples above process only the slide's shape collection, so they do not set locks on individual group members.
+Iterate through the collection returned by the group's [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) method and apply the appropriate locks to each child shape. Repeat this for any nested groups, following the traversal in the reporting example.
