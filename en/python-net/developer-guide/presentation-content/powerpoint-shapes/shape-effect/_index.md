@@ -91,6 +91,54 @@ with slides.Presentation() as presentation:
 
 To remove the inner shadow, call [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/) on the shape's effect format.
 
+### **Apply, Change, and Remove a Preset Shadow**
+
+Call [enable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_preset_shadow_effect/) and set the shadow’s [preset](https://reference.aspose.com/slides/python-net/aspose.slides.effects/presetshadow/preset/) property to a [PresetShadowType](https://reference.aspose.com/slides/python-net/aspose.slides/presetshadowtype/) value. To switch styles, change the preset on the same shape. Call [disable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_preset_shadow_effect/) to remove the shadow while preserving the fill and outline.
+
+This example shows four stages side by side on one slide. It clones the rectangle before each change so you can compare the results. Both shadows are offset by 10 points. A direction of 225° places the first shadow above and to the left of the rectangle, and 45° places the second below and to the right.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(800, 120, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    shapes = presentation.slides[0].shapes
+
+    shape = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 15, 30, 170, 60)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = slides.Color.steel_blue
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = slides.Color.dark_blue
+    shape.text_frame.text = "No shadow"
+    shape.text_frame.paragraphs[0].paragraph_format.default_portion_format.font_height = 14
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.enable_preset_shadow_effect()
+    shadow = shape.effect_format.preset_shadow_effect
+    shadow.preset = slides.PresetShadowType.TOP_LEFT_DROP_SHADOW
+    shadow.distance = 10
+    shadow.direction = 225
+    shape.text_frame.text = "TopLeftDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shadow.preset = slides.PresetShadowType.BOTTOM_RIGHT_DROP_SHADOW
+    shadow.direction = 45
+    shape.text_frame.text = "BottomRightDropShadow"
+    shapes.add_clone(shape)
+
+    shape.x += 200
+    shape.effect_format.disable_preset_shadow_effect()
+    shape.text_frame.text = "No shadow"
+
+    presentation.save("preset_shadows.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| Original | First preset | Second preset | After removal |
+| :---: | :---: | :---: | :---: |
+| ![No shadow](preset_shadow_original.png) | ![Top-left drop shadow](preset_shadow_top_left.png) | ![Bottom-right drop shadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
+
 ## **Apply a Reflection Effect**
 
 To apply a reflection effect in Aspose.Slides for Python via .NET, you can add a mirror-like reflection to shapes, adjusting parameters such as distance, transparency, and size. This effect enhances the aesthetic of your presentations by giving shapes a more polished and sophisticated look. It’s easy to implement with simple code, enabling quick application across multiple elements for a consistent design.
