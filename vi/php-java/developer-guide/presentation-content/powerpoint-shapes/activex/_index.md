@@ -1,172 +1,183 @@
 ---
-title: Quản lý các điều khiển ActiveX trong bản trình chiếu bằng PHP
-linktitle: ActiveX
+title: "Quản lý Điều khiển ActiveX trong Bản Trình chiếu bằng PHP"
+linktitle: "ActiveX"
 type: docs
 weight: 80
 url: /vi/php-java/activex/
 keywords:
-- ActiveX
-- điều khiển ActiveX
-- quản lý ActiveX
-- thêm ActiveX
-- sửa đổi ActiveX
-- trình phát media
-- PowerPoint
-- bản trình chiếu
-- PHP
-- Aspose.Slides
-description: "Tìm hiểu cách Aspose.Slides for PHP via Java sử dụng ActiveX để tự động hoá và nâng cao các bản trình chiếu PowerPoint, cung cấp cho nhà phát triển khả năng kiểm soát mạnh mẽ trên các slide."
+- "ActiveX"
+- "Điều khiển ActiveX"
+- "quản lý ActiveX"
+- "thêm ActiveX"
+- "sửa đổi ActiveX"
+- "trình phát media"
+- "PowerPoint"
+- "bản trình chiếu"
+- "PHP"
+- "Aspose.Slides"
+description: "Chỉnh sửa ô văn bản và nút ActiveX, cập nhật bản xem trước điều khiển, và tái sử dụng một điều khiển Windows Media Player trong các bản trình chiếu PowerPoint với Aspose.Slides cho PHP qua Java."
 ---
 ## **Giới thiệu**
 
-Các điều khiển ActiveX được sử dụng trong bản trình chiếu. Aspose.Slides for PHP via Java cho phép bạn thêm và quản lý các điều khiển ActiveX, nhưng chúng hơi khó quản lý hơn so với các hình dạng bình thường trong bản trình chiếu. Chúng tôi đã triển khai hỗ trợ thêm điều khiển Media Player Active trong Aspose.Slides. Lưu ý rằng các điều khiển ActiveX không phải là hình dạng; chúng không phải là một phần của bản trình chiếu's [ShapeCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/). Chúng là một phần của [ControlCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/controlcollection/) riêng biệt. Trong chủ đề này, chúng tôi sẽ chỉ cho bạn cách làm việc với chúng.
+Các điều khiển ActiveX cung cấp cho một slide PowerPoint các yếu tố tương tác như ô văn bản, nút lệnh và trình phát media. Aspose.Slides cho PHP qua Java cung cấp các điều khiển của slide thông qua [BaseSlide::getControls](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getControls). Sử dụng tập hợp này để chỉnh sửa một điều khiển, di chuyển nó trên slide hoặc xóa nó.
 
-## **Thêm Điều Khiển ActiveX Media Player vào Slide**
-Để thêm điều khiển ActiveX Media Player, thực hiện các bước sau:
+## **Liệt kê các điều khiển ActiveX và các thuộc tính đã lưu của chúng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation) và tạo một bản trình chiếu trống.
-1. Truy cập slide mục tiêu trong [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation).
-1. Thêm điều khiển Media Player ActiveX bằng phương thức [addControl](https://reference.aspose.com/slides/vi/php-java/aspose.slides/controlcollection/addcontrol/) được cung cấp bởi [ControlCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/controlcollection/).
-1. Truy cập điều khiển Media Player ActiveX và đặt đường dẫn video bằng cách sử dụng các thuộc tính của nó.
-1. Lưu bản trình chiếu dưới dạng tệp PPTX.
-
-Đoạn mã mẫu này, dựa trên các bước trên, cho thấy cách thêm Điều Khiển ActiveX Media Player vào một slide:
+Để kiểm tra một mẫu chưa quen, mở nó để đọc và lặp qua các điều khiển trên mỗi slide. Ví dụ báo cáo số slide, tên điều khiển, [getClassId](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getClassId) và mỗi cặp khóa-giá trị trong [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties). Nó đọc bản trình chiếu mà không kích hoạt các điều khiển, không gọi sự kiện hay macro, không thay đổi giá trị và không lưu tệp.
 
 ```php
-  # Tạo thể hiện bản trình chiếu trống
-  $pres = new Presentation();
-  try {
-    # Thêm điều khiển ActiveX Media Player
-    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    # Truy cập điều khiển ActiveX Media Player và đặt đường dẫn video
-    $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
-    # Lưu bản trình chiếu
-    $pres->save("Output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $slides = $presentation->getSlides();
+    for ($i = 0; $i < java_values($slides->size()); $i++) {
+        $controls = $slides->get_Item($i)->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            printf("Slide %d | %s | %s\n", $i + 1, $control->getName(), $control->getClassId());
+            $properties = $control->getProperties();
+            if (java_is_null($properties)) {
+                echo "  Properties unavailable\n";
+                continue;
+            }
+            if (java_values($properties->getCount()) === 0) {
+                echo "  []\n";
+                continue;
+            }
+            $names = $properties->getNamesOfProperties()->iterator();
+            while (java_values($names->hasNext())) {
+                $name = $names->next();
+                printf("  %s = %s\n", $name, $properties->get_Item($name));
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Sửa đổi Điều Khiển ActiveX**
-{{% alert color="primary" %}} 
+Kết quả được chọn từ `ActiveX.pptm` hiển thị một ô văn bản và một nút lệnh.
 
-Aspose.Slides for PHP via Java 7.1.0 và các phiên bản mới hơn được trang bị các thành phần để quản lý các điều khiển ActiveX. Bạn có thể truy cập vào điều khiển ActiveX đã được thêm vào bản trình chiếu của mình và sửa đổi hoặc xóa nó thông qua các thuộc tính của nó.
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-{{% /alert %}} 
+Một bộ sưu tập thuộc tính trống xuất hiện dưới dạng `[]`. Đối với các điều khiển sử dụng lưu trữ nhị phân, [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties) có thể trả về `null`, được hiển thị là `Properties unavailable`. Nếu bạn chỉ cần tên, hãy sử dụng [getNamesOfProperties](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) sau khi kiểm tra null. Báo cáo liệt kê các thuộc tính có sẵn từ bản trình chiếu. Một điều khiển có thể hỗ trợ các thuộc tính bổ sung tại thời gian chạy.
 
-Để quản lý một điều khiển ActiveX đơn giản như hộp văn bản và nút lệnh đơn giản trên một slide, thực hiện các bước sau:
+## **Chỉnh sửa các điều khiển ActiveX**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation) và tải bản trình chiếu có chứa các điều khiển ActiveX.
-1. Lấy tham chiếu slide bằng chỉ mục của nó.
-1. Truy cập các điều khiển ActiveX trong slide bằng cách truy cập [ControlCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/controlcollection/).
-1. Truy cập điều khiển ActiveX TextBox1 bằng đối tượng [Control](https://reference.aspose.com/slides/vi/php-java/aspose.slides/control/).
-1. Thay đổi các thuộc tính của điều khiển ActiveX TextBox1 bao gồm văn bản, phông chữ, chiều cao phông và vị trí khung.
-1. Truy cập điều khiển thứ hai có tên CommandButton1.
-1. Thay đổi tiêu đề nút, phông chữ và vị trí.
-1. Dịch chuyển vị trí của các khung điều khiển ActiveX.
-1. Ghi bản trình chiếu đã sửa đổi vào tệp PPTX.
+Ví dụ yêu cầu một bản trình chiếu có macro với một ô văn bản tên `TextBox1` và một nút lệnh tên `CommandButton1` trên slide đầu tiên. Nó sử dụng [tập hợp thuộc tính điều khiển](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) để thay đổi giá trị ô văn bản và chú thích nút. Mỗi điều khiển cũng có một bản xem trước tĩnh mà PowerPoint có thể hiển thị trước khi kích hoạt. Cung cấp tệp PNG cho mỗi điều khiển để hiển thị văn bản và giao diện đã cập nhật. Ví dụ gán các hình ảnh này thông qua [Control::getSubstitutePictureFormat](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getSubstitutePictureFormat).
 
-Đoạn mã mẫu này, dựa trên các bước trên, cho thấy cách quản lý một điều khiển ActiveX đơn giản: 
+Ví dụ di chuyển mọi điều khiển trên slide đầu tiên xuống 100 điểm bằng cách đặt khung của chúng với [Control::setFrame](https://reference.aspose.com/slides/php-java/aspose.slides/control/#setFrame). Nó lưu bản trình chiếu đã chỉnh sửa ở định dạng PPTM, sau đó sử dụng [ControlCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/#clear) để lưu một bản sao thứ hai với tất cả các điều khiển ActiveX bị loại bỏ khỏi slide đó.
 
 ```php
-  # Truy cập bản trình chiếu có các điều khiển ActiveX
-  $pres = new Presentation("ActiveX.pptm");
-  try {
-    # Truy cập slide đầu tiên trong bản trình chiếu
-    $slide = $pres->getSlides()->get_Item(0);
-    # thay đổi văn bản của TextBox text
-    $control = $slide->getControls()->get_Item(0);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
-      $newText = "Changed text";
-      $control->getProperties()->set_Item("Value", $newText);
-      # Thay đổi hình ảnh thay thế. PowerPoint sẽ thay thế hình ảnh này khi kích hoạt activeX,
-      # vì vậy đôi khi có thể để nguyên hình ảnh.
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->window);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $graphics->drawString($newText, 10, 20);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $controls = $presentation->getSlides()->get_Item(0)->getControls();
+    $textBox = null;
+    $button = null;
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $name = (string) $control->getName();
+        if ($name === "TextBox1") {
+            $textBox = $control;
+        } elseif ($name === "CommandButton1") {
+            $button = $control;
+        }
     }
-    # Thay đổi nhãn nút
-    $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
-      $newCaption = "Show MessageBox";
-      $control->getProperties()->set_Item("Caption", $newCaption);
-      # Thay đổi hình ảnh thay thế
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->control);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $metrics = $graphics->getFontMetrics($font);
-      $graphics->drawString($newCaption, $image->getWidth() - $metrics->stringWidth($newCaption) / 2, 20);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
+    if ($textBox === null || $button === null || java_is_null($textBox->getProperties()) || java_is_null($button->getProperties())) {
+        echo "The first slide must contain both named controls with editable properties.\n";
+        return;
     }
-    # Di chuyển xuống 100 điểm
-    foreach($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
-      $frame = $ctl->getFrame();
-      $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
+
+    foreach ([[$textBox, "text-box-preview.png"], [$button, "button-preview.png"]] as [$control, $path]) {
+        $image = Images::fromFile($path);
+        try {
+            $preview = $presentation->getImages()->addImage($image);
+            $control->getSubstitutePictureFormat()->getPicture()->setImage($preview);
+        } finally {
+            $image->dispose();
+        }
     }
-    $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
-    # xóa các điều khiển
-    $pres->getSlides()->get_Item(0)->getControls()->clear();
-    $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $textBox->getProperties()->set_Item("Value", "Changed text");
+    $button->getProperties()->set_Item("Caption", "Show message");
+
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $frame = $control->getFrame();
+        $newY = java_values($frame->getY()) + 100;
+        $moved = new ShapeFrame($frame->getX(), $newY, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation());
+        $control->setFrame($moved);
     }
-  }
+    $presentation->save("edited-controls.pptm", SaveFormat::Pptm);
+
+    $controls->clear();
+    $presentation->save("removed-controls.pptm", SaveFormat::Pptm);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Câu hỏi thường gặp**
+## **Thêm một điều khiển Trình phát Media ActiveX**
 
-**Aspose.Slides có giữ nguyên các điều khiển ActiveX khi đọc và lưu lại nếu chúng không thể thực thi trong môi trường Java runtime không?**
+Để tái sử dụng một điều khiển Windows Media Player đã cấu hình, bắt đầu với một mẫu mà slide đầu tiên chứa một trình phát tên `WindowsMediaPlayer1`. [SlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) sao chép toàn bộ slide vào một bản trình chiếu mới. Ví dụ đặt `URL` của trình phát trong [bộ sưu tập thuộc tính](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) và lưu slide sao chép làm slide duy nhất trong kết quả. Video vẫn ở bên ngoài, vì vậy hãy chọn một đường dẫn mà trình phát có thể truy cập trong quá trình phát.
 
-Có. Aspose.Slides coi chúng là một phần của bản trình chiếu và có thể đọc/điều chỉnh các thuộc tính và khung của chúng; không cần thực thi các điều khiển để giữ chúng lại.
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-**Các điều khiển ActiveX khác gì so với đối tượng OLE trong bản trình chiếu?**
+$template = new Presentation("template.pptx");
+try {
+    $presentation = new Presentation();
+    try {
+        $slides = $presentation->getSlides();
+        $sourceSlide = $template->getSlides()->get_Item(0);
+        $slide = $slides->addClone($sourceSlide);
+        $player = null;
+        $controls = $slide->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            if ((string) $control->getName() === "WindowsMediaPlayer1") {
+                $player = $control;
+                break;
+            }
+        }
+        if ($player === null || java_is_null($player->getProperties())) {
+            echo "The template slide must contain a named media player with editable properties.\n";
+            return;
+        }
+        $player->getProperties()->set_Item("URL", "Wildlife.mp4");
+        $slides->removeAt(0);
+        $presentation->save("linked-video.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+} finally {
+    $template->dispose();
+}
+```
 
-Các điều khiển ActiveX là các điều khiển tương tác được quản lý (nút, hộp văn bản, trình phát media), trong khi [OLE](/slides/vi/php-java/manage-ole/) đề cập đến các đối tượng ứng dụng nhúng (ví dụ, một bảng tính Excel). Chúng được lưu trữ và xử lý khác nhau và có các mô hình thuộc tính khác nhau.
+## **FAQ**
 
-**Các sự kiện ActiveX và macro VBA có hoạt động nếu tệp đã được Aspose.Slides chỉnh sửa không?**
+**Có thể Aspose.Slides bảo tồn các điều khiển ActiveX mà không chạy chúng không?**
 
-Aspose.Slides giữ nguyên mã đánh dấu và siêu dữ liệu hiện có; tuy nhiên, các sự kiện và macro chỉ chạy trong PowerPoint trên Windows khi bảo mật cho phép. Thư viện không thực thi VBA.
+Có. Aspose.Slides có thể đọc và lưu các điều khiển, bao gồm thuộc tính và vị trí của chúng, mà không kích hoạt chúng.
+
+**Các điều khiển ActiveX khác gì so với đối tượng OLE?**
+
+Các điều khiển ActiveX cho phép người dùng tương tác với slide, ví dụ nhập văn bản hoặc nhấn nút. Một [OLE object](/slides/vi/php-java/manage-ole/) cho phép slide chứa hoặc liên kết tới nội dung được quản lý bởi một ứng dụng khác, chẳng hạn như bảng tính Excel.
+
+**Các sự kiện ActiveX có vẫn kích hoạt macro VBA sau khi tôi lưu bản trình chiếu bằng Aspose.Slides không?**
+
+Lưu bản trình chiếu ở định dạng hỗ trợ macro như PPTM để giữ lại dự án VBA. PowerPoint cho Windows có thể chạy các trình xử lý sự kiện hiện có khi cài đặt bảo mật cho phép cả điều khiển ActiveX và macro.

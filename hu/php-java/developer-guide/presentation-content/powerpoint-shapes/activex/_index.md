@@ -1,172 +1,181 @@
 ---
-title: "ActiveX vezérlők kezelése prezentációkban PHP használatával"
-linktitle: "ActiveX"
+title: ActiveX vezérlők kezelése prezentációkban PHP használatával
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /hu/php-java/activex/
 keywords:
-- "ActiveX"
-- "ActiveX vezérlő"
-- "ActiveX kezelése"
-- "ActiveX hozzáadása"
-- "ActiveX módosítása"
-- "média lejátszó"
-- "PowerPoint"
-- "prezentáció"
-- "PHP"
-- "Aspose.Slides"
-description: "Ismerje meg, hogyan használja az Aspose.Slides for PHP via Java az ActiveX-et a PowerPoint prezentációk automatizálására és fejlesztésére, lehetővé téve a fejlesztők számára a diák hatékony irányítását."
+- ActiveX
+- ActiveX vezérlő
+- ActiveX kezelése
+- ActiveX hozzáadása
+- ActiveX módosítása
+- médialejátszó
+- PowerPoint
+- prezentáció
+- PHP
+- Aspose.Slides
+description: "Szerkessze az ActiveX szövegmezőket és gombokat, frissítse a vezérlő előnézeteket, és használja újra a Windows Media Player vezérlőt PowerPoint prezentációkban az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Bevezetés**
 
-Az ActiveX vezérlőket prezentációkban használják. Az Aspose.Slides for PHP via Java lehetővé teszi ActiveX vezérlők hozzáadását és kezelését, de ezek kicsit bonyolultabbak a szokásos prezentációs alakzatokhoz képest. Implementáltuk a Média lejátszó Active vezérlő hozzáadásának támogatását az Aspose.Slides-ban. Vegye figyelembe, hogy az ActiveX vezérlők nem alakzatok; nem részei a prezentáció [ShapeCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/). A [ControlCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/controlcollection/) részeként vannak jelen. Ebben a témában megmutatjuk, hogyan dolgozhat velük.
+ActiveX controls give a PowerPoint slide interactive elements such as text boxes, command buttons, and media players. Aspose.Slides for PHP via Java exposes a slide's controls through [BaseSlide::getControls](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getControls). Use this collection to edit a control, move it on the slide, or remove it.
 
-## **Média lejátszó ActiveX vezérlő hozzáadása egy diára**
-ActiveX média lejátszó vezérlő hozzáadásához tegye a következőket:
+## **Az ActiveX vezérlők listája és tárolt tulajdonságaik**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation) osztályból, és generáljon egy üres prezentációt.
-1. Érje el a céldit a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation) osztályban.
-1. Adja hozzá a Média lejátszó ActiveX vezérlőt a [ControlCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/controlcollection/) által biztosított [addControl](https://reference.aspose.com/slides/hu/php-java/aspose.slides/controlcollection/addcontrol/) metódussal.
-1. Érje el a Média lejátszó ActiveX vezérlőt, és állítsa be a videó útvonalát a tulajdonságai segítségével.
-1. Mentse a prezentációt PPTX fájlként.
-
-Ez a mintakód, a fenti lépések alapján, bemutatja, hogyan adhat hozzá Média lejátszó ActiveX vezérlőt egy diához:
+To inspect an unfamiliar template, open it for reading and iterate through the controls on each slide. The example reports the slide number, control name, [getClassId](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getClassId), and each key-value pair in [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties). It reads the presentation without activating controls, invoking events or macros, changing values, or saving the file.
 
 ```php
-  # Üres prezentációpéldány létrehozása
-  $pres = new Presentation();
-  try {
-    # Media Player ActiveX vezérlő hozzáadása
-    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    # A Media Player ActiveX vezérlő elérése és a videó útvonal beállítása
-    $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
-    # Prezentáció mentése
-    $pres->save("Output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $slides = $presentation->getSlides();
+    for ($i = 0; $i < java_values($slides->size()); $i++) {
+        $controls = $slides->get_Item($i)->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            printf("Slide %d | %s | %s\n", $i + 1, $control->getName(), $control->getClassId());
+            $properties = $control->getProperties();
+            if (java_is_null($properties)) {
+                echo "  Properties unavailable\n";
+                continue;
+            }
+            if (java_values($properties->getCount()) === 0) {
+                echo "  []\n";
+                continue;
+            }
+            $names = $properties->getNamesOfProperties()->iterator();
+            while (java_values($names->hasNext())) {
+                $name = $names->next();
+                printf("  %s = %s\n", $name, $properties->get_Item($name));
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ActiveX vezérlő módosítása**
-{{% alert color="primary" %}} 
+A `ActiveX.pptm` kiválasztott kimenete egy szövegmezőt és egy parancsgombot mutat.
 
-Az Aspose.Slides for PHP via Java 7.1.0 és újabb verziói tartalmaznak komponenseket az ActiveX vezérlők kezeléséhez. Elérheti a már hozzáadott ActiveX vezérlőt a prezentációjában, és módosíthatja vagy törölheti a tulajdonságai segítségével.
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-{{% /alert %}} 
+Üres tulajdonsággyűjtemény `[]` formában jelenik meg. Azoknál a vezérlőknél, amelyek bináris tárolást használnak, a [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties) `null` értéket is visszaadhat, amely `Properties unavailable`‑ként jelenik meg. Ha csak a nevekre van szüksége, a `null` ellenőrzés után használja a [getNamesOfProperties](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties). A jelentés felsorolja a prezentációból elérhető tulajdonságokat. Egy vezérlő futásidőben további tulajdonságok támogatására is képes lehet.
 
-Egyszerű ActiveX vezérlő, például szövegdoboz és egyszerű parancsgomb kezelése egy dián a következő módon történik:
+## **ActiveX vezérlők módosítása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation) osztályból, és töltse be a prezentációt, amelyben ActiveX vezérlők vannak.
-1. Szerezzen meg egy dia referenciát az indexe alapján.
-1. Érje el a dia ActiveX vezérlőit a [ControlCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/controlcollection/) elérésével.
-1. A [Control](https://reference.aspose.com/slides/hu/php-java/aspose.slides/control/) objektum segítségével érje el a TextBox1 ActiveX vezérlőt.
-1. Módosítsa a TextBox1 ActiveX vezérlő tulajdonságait, amelyek a szöveget, betűtípust, betűméretet és a keret helyzetét tartalmazzák.
-1. Érje el a második vezérlőt, amely CommandButton1 néven van.
-1. Módosítsa a gomb feliratát, betűtípust és helyzetét.
-1. Módosítsa az ActiveX vezérlők kereteinek pozícióját.
-1. Írja ki a módosított prezentációt PPTX fájlba.
+The example expects a macro-enabled presentation with a text box named `TextBox1` and a command button named `CommandButton1` on the first slide. It uses the [control properties collection](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) to change the text box value and the button caption. Each control also has a static preview that PowerPoint can display before activation. Supply a PNG for each control showing its updated text and appearance. The example assigns these images through [Control::getSubstitutePictureFormat](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getSubstitutePictureFormat).
 
-Ez a mintakód, a fenti lépések alapján, bemutatja, hogyan kezelhet egy egyszerű ActiveX vezérlőt:
+The example moves every control on the first slide down by 100 points by setting its frame with [Control::setFrame](https://reference.aspose.com/slides/php-java/aspose.slides/control/#setFrame). It saves the edited presentation in PPTM format, then uses [ControlCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/#clear) to save a second copy with all ActiveX controls removed from that slide.
 
 ```php
-  # ActiveX vezérlőkkel rendelkező prezentáció elérése
-  $pres = new Presentation("ActiveX.pptm");
-  try {
-    # Prezentáció első diajának elérése
-    $slide = $pres->getSlides()->get_Item(0);
-    # Szövegdoboz szövegének módosítása
-    $control = $slide->getControls()->get_Item(0);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
-      $newText = "Changed text";
-      $control->getProperties()->set_Item("Value", $newText);
-      # Helyettesítő kép módosítása. A PowerPoint ezt a képet az ActiveX aktiválásakor cseréli le,
-      # ezért néha rendben van, ha a kép változatlan marad.
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->window);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $graphics->drawString($newText, 10, 20);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
-    }
-    # Gomb feliratának módosítása
-    $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
-      $newCaption = "Show MessageBox";
-      $control->getProperties()->set_Item("Caption", $newCaption);
-      # Helyettesítő módosítása
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->control);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $metrics = $graphics->getFontMetrics($font);
-      $graphics->drawString($newCaption, $image->getWidth() - $metrics->stringWidth($newCaption) / 2, 20);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
-    }
-    # 100 ponttal lefelé mozgatás
-    foreach($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
-      $frame = $ctl->getFrame();
-      $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
-    }
-    $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
-    # vezérlők eltávolítása
-    $pres->getSlides()->get_Item(0)->getControls()->clear();
-    $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
 
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $controls = $presentation->getSlides()->get_Item(0)->getControls();
+    $textBox = null;
+    $button = null;
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $name = (string) $control->getName();
+        if ($name === "TextBox1") {
+            $textBox = $control;
+        } elseif ($name === "CommandButton1") {
+            $button = $control;
+        }
+    }
+    if ($textBox === null || $button === null || java_is_null($textBox->getProperties()) || java_is_null($button->getProperties())) {
+        echo "The first slide must contain both named controls with editable properties.\n";
+        return;
+    }
+
+    foreach ([[$textBox, "text-box-preview.png"], [$button, "button-preview.png"]] as [$control, $path]) {
+        $image = Images::fromFile($path);
+        try {
+            $preview = $presentation->getImages()->addImage($image);
+            $control->getSubstitutePictureFormat()->getPicture()->setImage($preview);
+        } finally {
+            $image->dispose();
+        }
+    }
+    $textBox->getProperties()->set_Item("Value", "Changed text");
+    $button->getProperties()->set_Item("Caption", "Show message");
+
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $frame = $control->getFrame();
+        $newY = java_values($frame->getY()) + 100;
+        $moved = new ShapeFrame($frame->getX(), $newY, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation());
+        $control->setFrame($moved);
+    }
+    $presentation->save("edited-controls.pptm", SaveFormat::Pptm);
+
+    $controls->clear();
+    $presentation->save("removed-controls.pptm", SaveFormat::Pptm);
+} finally {
+    $presentation->dispose();
+}
+```
+## **ActiveX médialejátszó vezérlő hozzáadása**
+
+To reuse a configured Windows Media Player control, start with a template whose first slide contains a player named `WindowsMediaPlayer1`. [SlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) copies the entire slide into a new presentation. The example sets the player's `URL` in its [properties collection](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) and saves the cloned slide as the only slide in the output. The video stays external, so choose a path the player can access during playback.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$template = new Presentation("template.pptx");
+try {
+    $presentation = new Presentation();
+    try {
+        $slides = $presentation->getSlides();
+        $sourceSlide = $template->getSlides()->get_Item(0);
+        $slide = $slides->addClone($sourceSlide);
+        $player = null;
+        $controls = $slide->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            if ((string) $control->getName() === "WindowsMediaPlayer1") {
+                $player = $control;
+                break;
+            }
+        }
+        if ($player === null || java_is_null($player->getProperties())) {
+            echo "The template slide must contain a named media player with editable properties.\n";
+            return;
+        }
+        $player->getProperties()->set_Item("URL", "Wildlife.mp4");
+        $slides->removeAt(0);
+        $presentation->save("linked-video.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+} finally {
+    $template->dispose();
+}
+```
 ## **GYIK**
 
-**Az Aspose.Slides megőrzi az ActiveX vezérlőket olvasás és újramentés során, ha azok nem futtathatók a Java futtatókörnyezetben?**
+**Meg tudja őrizni az Aspose.Slides az ActiveX vezérlőket anélkül, hogy futtatná őket?**
 
-Igen. Az Aspose.Slides úgy kezeli őket, mint a prezentáció részét, és képes olvasni/modifikálni a tulajdonságaikat és kereteiket; a vezérlők végrehajtása nem szükséges a megőrzésükhöz.
+Igen. Az Aspose.Slides képes a vezérlőket, beleértve azok tulajdonságait és pozícióit, aktiválás nélkül beolvasni és menteni.
 
-**Miben különböznek az ActiveX vezérlők az OLE objektumoktól a prezentációban?**
+**Miben különböznek az ActiveX vezérlők az OLE objektumoktól?**
 
-Az ActiveX vezérlők interaktív, menedzselt elemek (gombok, szövegdobozok, média lejátszó), míg az [OLE](/slides/hu/php-java/manage-ole/) beágyazott alkalmazásobjektumokra (például Excel munkalapra) utal. Ezeket más módon tárolják és kezelik, és különböző tulajdonságmodellel rendelkeznek.
+Az ActiveX vezérlők lehetővé teszik a felhasználók számára, hogy interakcióba lépjenek egy diával, például szöveget adjanak meg vagy gombra kattintsanak. Egy [OLE objektum](/slides/hu/php-java/manage-ole/) lehetővé teszi, hogy egy dia tartalmat tartalmazzon vagy hivatkozzon egy másik alkalmazás által kezelt tartalomra, például egy Excel munkafüzetre.
 
-**Működnek az ActiveX események és VBA makrók, ha a fájlt az Aspose.Slides módosította?**
+**Az ActiveX események továbbra is elindítják a VBA makrókat, miután elmentem egy prezentációt az Aspose.Slides segítségével?**
 
-Az Aspose.Slides megőrzi a meglévő jelölőnyelvet és metaadatokat; azonban az események és makrók csak a Windows‑os PowerPointben futnak, ha a biztonsági beállítások engedik. A könyvtár nem hajtja végre a VBA‑t.
+Mentse a prezentációt makró‑engedélyezett formátumban, például PPTM‑ben, hogy megőrizze a VBA projektet. A Windows‑ra telepített PowerPoint képes futtatni a meglévő eseménykezelőket, ha a biztonsági beállítások engedélyezik mind az ActiveX vezérlőket, mind a makrókat.

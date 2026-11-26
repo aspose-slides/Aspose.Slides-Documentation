@@ -1,5 +1,5 @@
 ---
-title: ActiveX vezérlők kezelése prezentációkban .NET-ben
+title: ActiveX vezérlők kezelése PowerPoint prezentációkban .NET környezetben
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -16,175 +16,145 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, hogyan használja ki az Aspose.Slides for .NET az ActiveX-et a PowerPoint prezentációk automatizálásához és fejlesztéséhez, erőteljes vezérlést biztosítva a fejlesztőknek a diák felett."
+description: "Szerkessze az ActiveX szövegdobozokat és gombokat, frissítse a vezérlő előnézeteket, és használja újra a Windows Media Player vezérlőt PowerPoint prezentációkban az Aspose.Slides for .NET segítségével."
 ---
 ## **Bevezetés**
 
-Az ActiveX vezérlőket prezentációkban használják. Az Aspose.Slides for .NET lehetővé teszi az ActiveX vezérlők kezelését, de ezek kezelése valamivel trükkösebb és eltér a szokásos prezentációs alakzatoktól. Az Aspose.Slides for .NET 6.9.0‑tól a komponens támogatja az ActiveX vezérlők kezelését. Jelenleg hozzáférhet a már hozzáadott ActiveX vezérlőhöz a prezentációban, és módosíthatja vagy törölheti azt különböző tulajdonságainak használatával. Ne feledje, az ActiveX vezérlők nem alakzatok, és nem részei a prezentáció IShapeCollection‑ének, hanem a különálló IControlCollection‑nek. Ez a cikk bemutatja, hogyan dolgozzunk velük.
+Az ActiveX vezérlők interaktív elemeket adnak a PowerPoint diákhoz, például szövegdobozokat, parancsgombokat és médiaszereplőket. Az Aspose.Slides for .NET a dia vezérlőit a [IBaseSlide.Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/controls/) révén teszi elérhetővé. Használja ezt a gyűjteményt egy vezérlő szerkesztéséhez, áthelyezéséhez a dián vagy eltávolításához.
+
+## **Az ActiveX vezérlők listázása és tárolt tulajdonságaik**
+
+Egy ismeretlen sablon megvizsgálásához nyissa meg olvasásra, és iteráljon végig a dia minden vezérlőjén. A példa jelentést készít a dia számáról, a vezérlő nevéről, a [ClassId](https://reference.aspose.com/slides/net/aspose.slides/icontrol/classid/) címkéről, valamint a [Properties](https://reference.aspose.com/slides/net/aspose.slides/icontrol/#properties) kulcs‑érték párokról. A prezentációt úgy olvassa be, hogy nem aktiválja a vezérlőket, nem hív meg eseményeket vagy makrókat, nem változtatja meg az értékeket, és nem menti a fájlt.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("ActiveX.pptm");
+
+for (var i = 0; i < presentation.Slides.Count; i++)
+{
+    foreach (var control in presentation.Slides[i].Controls)
+    {
+        Console.WriteLine($"Slide {i + 1} | {control.Name} | {control.ClassId}");
+        var properties = control.Properties;
+
+        if (properties == null)
+        {
+            Console.WriteLine("  Properties unavailable");
+            continue;
+        }
+
+        if (properties.Count == 0)
+            Console.WriteLine("  []");
+
+        foreach (var property in properties)
+            Console.WriteLine($"  {property.Key} = {property.Value}");
+    }
+}
+```
+
+A `ActiveX.pptm` kiválasztott kimenete egy szövegdobozt és egy parancsgombot mutat.
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+Üres tulajdonsággyűjtemény `[]`ként jelenik meg. Az olyan vezérlőknél, amelyek bináris tárolást használnak, a `Properties` `null` értéket adhat vissza, ami a `Properties unavailable` üzenettel jelenik meg. Ha csak a nevekre van szükség, a `null` ellenőrzés után használja a [NamesOfProperties](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/namesofproperties/) metódust. A jelentés felsorolja a prezentációban elérhető tulajdonságokat. Egy vezérlő futásidőben további tulajdonságokat is támogathat.
 
 ## **ActiveX vezérlők módosítása**
-Egy egyszerű ActiveX vezérlő, például egy szövegdoboz és egy egyszerű parancsgomb kezelése egy dián:
 
-1. Hozzon létre egy Presentation példányt, és töltse be a benne lévő ActiveX vezérlőkkel rendelkező prezentációt.
-1. Szerezze meg a dia hivatkozását az indexe alapján.
-1. A dián lévő ActiveX vezérlőkhöz a IControlCollection elérésével férjen hozzá.
-1. A TextBox1 ActiveX vezérlőhöz a ControlEx objektum használatával férjen hozzá.
-1. Módosítsa a TextBox1 ActiveX vezérlő különböző tulajdonságait, beleértve a szöveget, betűtípust, betűmagasságot és a keret pozícióját.
-1. Szerezze meg a második hozzáférési vezérlőt, amelynek neve CommandButton1.
-1. Módosítsa a gomb feliratát, betűtípust és pozíciót.
-1. Tolja el az ActiveX vezérlők keretének pozícióját.
-1. Írja ki a módosított prezentációt egy PPTX fájlba.
+A példa egy makrókkal engedélyezett prezentációt vár, amelyen az első dián egy `TextBox1` nevű szövegdoboz és egy `CommandButton1` nevű parancsgomb található. A [control properties collection](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) segítségével módosítja a szövegdoboz értékét és a gomb feliratát. Minden vezérlőnek van egy statikus előnézete is, amelyet a PowerPoint az aktiválás előtt megjeleníthet. Adjon meg egy PNG‑t minden vezérlőhöz, amely az új szöveget és megjelenést mutatja. A példa ezeket a képeket az [IControl.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/icontrol/substitutepictureformat/) segítségével rendeli hozzá.
 
-Az alábbi kódrészlet frissíti a prezentáció diáin lévő ActiveX vezérlőket, ahogy az alább látható.
+A példa az első dián lévő összes vezérlőt 100 ponttal lefelé mozgatja a [Frame](https://reference.aspose.com/slides/net/aspose.slides/icontrol/frame/) módosításával. A szerkesztett prezentációt PPTM formátumban menti, majd az [IControlCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icontrolcollection/clear/) használatával elment egy második példányt, amelyből az összes ActiveX vezérlő el lett távolítva az adott diáról.
 
-```c#
-// A prezentáció elérése ActiveX vezérlőkkel
-Presentation presentation = new Presentation("ActiveX.pptm");
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Accessing the first slide in presentation
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation("ActiveX.pptm");
 
-// szövegmező szövegének módosítása
-IControl control = slide.Controls[0];
+var controls = presentation.Slides[0].Controls;
+var textBox = controls.FirstOrDefault(control => control.Name == "TextBox1");
+var button = controls.FirstOrDefault(control => control.Name == "CommandButton1");
 
-if (control.Name == "TextBox1" && control.Properties != null)
+if (textBox?.Properties == null || button?.Properties == null)
 {
-    string newText = "Changed text";
-    control.Properties["Value"] = newText;
-
-    // helyettesítő kép módosítása. A PowerPoint ez a képet az ActiveX aktiválásakor cseréli, ezért néha rendben van, ha a képet változatlanul hagyjuk.
-
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Window));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    graphics.DrawString(newText, font, brush, 10, 4);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(
-        pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[]
-    {
-            new System.Drawing.Point(1, image.Height - 1), new System.Drawing.Point(image.Width - 1, image.Height - 1),
-            new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("The first slide must contain both named controls with editable properties.");
+    return;
 }
 
-// gomb feliratának módosítása
-control = slide.Controls[1];
-
-if (control.Name == "CommandButton1" && control.Properties != null)
+if (!File.Exists("text-box-preview.png") || !File.Exists("button-preview.png"))
 {
-    String newCaption = "MessageBox";
-    control.Properties["Caption"] = newCaption;
-
-    // helyettesítő módosítása
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    SizeF textSize = graphics.MeasureString(newCaption, font, int.MaxValue);
-    graphics.DrawString(newCaption, font, brush, (image.Width - textSize.Width) / 2, (image.Height - textSize.Height) / 2);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[]
-    {
-        new System.Drawing.Point(1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("Supply both preview images before updating the controls.");
+    return;
 }
 
-// ActiveX keretek 100 ponttal lefelé mozgatása
-foreach (Control ctl in slide.Controls)
+textBox.Properties["Value"] = "Changed text";
+button.Properties["Caption"] = "Show message";
+
+using var textBoxPreview = File.OpenRead("text-box-preview.png");
+using var buttonPreview = File.OpenRead("button-preview.png");
+textBox.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(textBoxPreview);
+button.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(buttonPreview);
+
+foreach (var control in controls)
 {
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
-        frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
+    var frame = control.Frame;
+    control.Frame = new ShapeFrame(frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// A prezentáció mentése módosított ActiveX vezérlőkkel
-presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+presentation.Save("edited-controls.pptm", SaveFormat.Pptm);
 
-
-// Most a vezérlők eltávolítása
-slide.Controls.Clear();
-
-// A prezentáció mentése törölt ActiveX vezérlőkkel
-presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+controls.Clear();
+presentation.Save("removed-controls.pptm", SaveFormat.Pptm);
 ```
+## **ActiveX médiaplayer vezérlő hozzáadása**
 
-## **ActiveX Media Player vezérlő hozzáadása**
-ActiveX Media Player vezérlő hozzáadásához hajtsa végre a következő lépéseket:
+Egy konfigurált Windows Media Player vezérlő újrahasználatához kezdjen egy olyan sablonnal, amelynek első diája egy `WindowsMediaPlayer1` nevű lejátszót tartalmaz. Az [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) lemásolja az egész diát egy új prezentációba. A példa beállítja a lejátszó `URL`‑jét a [properties collection](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) segítségével, és a klónozott diát az egyetlen diaként menti a kimenetbe. A videó külső marad, ezért válasszon olyan útvonalat, amelyhez a lejátszó a lejátszás során hozzáférhet.
 
-1. Hozzon létre egy Presentation példányt, és töltse be a Media Player ActiveX vezérlőkkel rendelkező minta prezentációt.
-1. Hozzon létre egy cél Presentation példányt, és generáljon egy üres prezentációt.
-1. Klónozza a sablon prezentációban található Media Player ActiveX vezérlővel rendelkező diát a cél Presentation-be.
-1. Szerezze meg a klónozott diát a cél Presentation-ben.
-1. A dián lévő ActiveX vezérlőkhöz a IControlCollection elérésével férjen hozzá.
-1. A Media Player ActiveX vezérlőhöz férjen hozzá, és a tulajdonságainak segítségével állítsa be a videó útvonalát.
-1. Mentse a prezentációt egy PPTX fájlba.
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
- // PPTX fájlt reprezentáló Presentation osztály példányosítása
- Presentation presentation = new Presentation("template.pptx");
+using var template = new Presentation("template.pptx");
+using var presentation = new Presentation();
 
- // Üres prezentáció példányának létrehozása
- Presentation newPresentation = new Presentation();
+var slide = presentation.Slides.AddClone(template.Slides[0]);
+var player = slide.Controls.FirstOrDefault(control => control.Name == "WindowsMediaPlayer1");
 
- // Alapértelmezett dia eltávolítása
- newPresentation.Slides.RemoveAt(0);
+if (player?.Properties == null)
+{
+    Console.WriteLine("The template slide must contain a named media player with editable properties.");
+    return;
+}
 
- // Dia klónozása Media Player ActiveX vezérlővel
- newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
+player.Properties["URL"] = "Wildlife.mp4";
 
- // A Media Player ActiveX vezérlő elérése és a videó útvonalának beállítása
- newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
-
- // A prezentáció mentése
- newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Slides.RemoveAt(0);
+presentation.Save("linked-video.pptx", SaveFormat.Pptx);
 ```
-
 ## **GYIK**
 
-**Megőrzi-e az Aspose.Slides az ActiveX vezérlőket olvasáskor és újra mentéskor, ha azok nem futtathatók a .NET futtatókörnyezetben?**
+**Meg tudja őrizni az Aspose.Slides az ActiveX vezérlőket anélkül, hogy futtatná őket?**
 
-Igen. Az Aspose.Slides a vezérlőket a prezentáció részeként kezeli, és képes olvasni/modosítani azok tulajdonságait és kereteit; a vezérlők tényleges végrehajtása nem szükséges a megőrzésükhöz.
+Igen. Az Aspose.Slides képes beolvasni és menteni a vezérlőket, beleértve azok tulajdonságait és pozícióit, anélkül, hogy aktiválná azokat.
 
-**Miben különböznek az ActiveX vezérlők az OLE objektumoktól egy prezentációban?**
+**Hogyan különböznek az ActiveX vezérlők az OLE objektumoktól?**
 
-Az ActiveX vezérlők interaktív, kezelt vezérlők (gombok, szövegdobozok, médialejátszó), míg az [OLE](/slides/hu/net/manage-ole/) beágyazott alkalmazásobjektumokra (például egy Excel munkalapra) utal. Másként tárolódnak és kezelődnek, valamint eltérő tulajdonságmodelljük van.
+Az ActiveX vezérlők lehetővé teszik a felhasználók számára, hogy interakcióba lépjenek a diával, például szöveget adjanak meg vagy gombot nyomjanak meg. Egy [OLE objektum](/slides/hu/net/manage-ole/) lehetővé teszi, hogy a dia tartalmazzon vagy hivatkozzon egy másik alkalmazás által kezelt tartalomra, például egy Excel munkalapra.
 
-**Működnek-e az ActiveX események és a VBA makrók, ha a fájlt az Aspose.Slides módosította?**
+**Kiváltják-e az ActiveX események a VBA makrókat, miután a prezentációt az Aspose.Slides‑szel mentem?**
 
-Az Aspose.Slides megőrzi a meglévő jelölőket és metaadatokat; azonban az események és makrók csak a Windows-on futó PowerPointban működnek, ha a biztonsági beállítások engedélyezik. A könyvtár nem hajtja végre a VBA‑t.
+Mentse a prezentációt makrókkal engedélyezett formátumban, például PPTM‑ben, hogy megőrizze a VBA projektet. A Windows PowerPoint képes végrehajtani a meglévő eseménykezelőket, ha a biztonsági beállítások engedélyezik az ActiveX vezérlőket és a makrókat egyaránt.

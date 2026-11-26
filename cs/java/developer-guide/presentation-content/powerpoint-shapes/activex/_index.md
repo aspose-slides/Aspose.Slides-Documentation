@@ -1,5 +1,5 @@
 ---
-title: Správa ActiveX ovládacích prvků v prezentacích pomocí Javy
+title: Správa ActiveX ovládacích prvků v prezentacích v jazyce Java
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -10,188 +10,162 @@ keywords:
 - správa ActiveX
 - přidání ActiveX
 - úprava ActiveX
-- multimediální přehrávač
+- mediální přehrávač
 - PowerPoint
 - prezentace
 - Java
 - Aspose.Slides
-description: "Naučte se, jak Aspose.Slides for Java využívá ActiveX k automatizaci a vylepšení PowerPoint prezentací, což vývojářům poskytuje silnou kontrolu nad snímky."
+description: "Upravujte textová pole a tlačítka ActiveX, aktualizujte náhledy ovládacích prvků a znovu použijte ovládací prvek Windows Media Player v prezentacích PowerPoint s Aspose.Slides pro Java."
 ---
 ## **Úvod**
 
-ActiveX ovládací prvky se používají v prezentacích. Aspose.Slides for Java vám umožňuje přidávat a spravovat ActiveX ovládací prvky, ale jsou o něco obtížnější na správu ve srovnání s běžnými tvary prezentace. Implementovali jsme podporu pro přidání ActiveX ovládacího prvku Media Player v Aspose.Slides. Všimněte si, že ActiveX ovládací prvky nejsou tvary; nejsou součástí [IShapeCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/) prezentace. Patří místo toho do samostatné [IControlCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrolcollection/). V tomto tématu vám ukážeme, jak s nimi pracovat. 
+ActiveX ovládací prvky poskytují snímku PowerPointu interaktivní prvky jako textová pole, tlačítka příkazů a mediální přehrávače. Aspose.Slides for Java zpřístupňuje ovládací prvky snímku prostřednictvím [IBaseSlide.getControls](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getControls--). Použijte tuto kolekci k úpravě ovládacího prvku, jeho přesunu na snímku nebo odebrání.
 
-## **Přidání ActiveX ovládacího prvku Media Player na snímek**
-Chcete‑li přidat ActiveX ovládací prvek Media Player, postupujte takto:
+## **Seznam ActiveX ovládacích prvků a jejich uložených vlastností**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a vygenerujte prázdnou prezentaci.  
-2. Získejte cílový snímek v [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).  
-3. Přidejte ActiveX ovládací prvek Media Player pomocí metody [addControl](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) vystavené rozhraním [IControlCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrolcollection/).  
-4. Získejte přístup k ovládacímu prvku Media Player a nastavte cestu k videu pomocí jeho vlastností.  
-5. Uložte prezentaci jako soubor PPTX.
-
-Tento ukázkový kód, založený na výše uvedených krocích, ukazuje, jak přidat ActiveX ovládací prvek Media Player na snímek:
+Pro prozkoumání neznámé šablony ji otevřete pro čtení a iterujte přes ovládací prvky na každém snímku. Příklad uvádí číslo snímku, název ovládacího prvku, [getClassId](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getClassId--), a každý pár klíč‑hodnota v [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--). Načte prezentaci, aniž by aktivoval ovládací prvky, spouštěl události nebo makra, měnil hodnoty nebo ukládal soubor.
 
 ```java
-// Vytvořte prázdnou instanci prezentace
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // Přidání ActiveX ovládacího prvku Media Player
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // Získání přístupu k ActiveX ovládacímu prvku Media Player a nastavení cesty k videu
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // Uložení prezentace
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Úprava ActiveX ovládacího prvku**
-{{% alert color="primary" %}} 
+Vybraný výstup ze souboru `ActiveX.pptm` ukazuje textové pole a tlačítko příkazu.
 
-Aspose.Slides for Java 7.1.0 a novější verze jsou vybaveny komponentami pro správu ActiveX ovládacích prvků. Můžete získat přístup k již přidanému ActiveX ovládacímu prvku ve své prezentaci a upravit jej nebo smazat pomocí jeho vlastností.
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-{{% /alert %}} 
+Prázdná kolekce vlastností se zobrazuje jako `[]`. Pro ovládací prvky používající binární úložiště může [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--) vrátit `null`, zobrazené jako `Properties unavailable`. Pokud potřebujete jen názvy, použijte [getNamesOfProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--) po kontrole na null. Zpráva uvádí vlastnosti dostupné z prezentace. Ovládací prvek může během běhu podporovat další vlastnosti.
 
-Chcete‑li spravovat jednoduchý ActiveX ovládací prvek, například textové pole a jednoduché tlačítko příkazu na snímku, postupujte takto:
+## **Úprava ActiveX ovládacích prvků**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) a načtěte prezentaci s ActiveX ovládacími prvky.  
-2. Získejte referenci na snímek podle jeho indexu.  
-3. Přístup k ActiveX ovládacím prvkům na snímku získáte přes [IControlCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrolcollection/).  
-4. Získejte ActiveX ovládací prvek TextBox1 pomocí objektu [IControl](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrol/).  
-5. Změňte vlastnosti ActiveX ovládacího prvku TextBox1, které zahrnují text, písmo, velikost písma a pozici rámce.  
-6. Přístup k druhému ovládacímu prvku nazvanému CommandButton1.  
-7. Změňte popisek tlačítka, písmo a pozici.  
-8. Posuňte pozice rámců ActiveX ovládacích prvků.  
-9. Zapište upravenou prezentaci do souboru PPTX.
+Příklad očekává prezentaci povolenou pro makra s textovým polem pojmenovaným `TextBox1` a tlačítkem příkazu pojmenovaným `CommandButton1` na prvním snímku. Používá [control properties collection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) k změně hodnoty textového pole a popisku tlačítka. Každý ovládací prvek má také statický náhled, který PowerPoint může zobrazit před aktivací. Poskytněte PNG pro každý ovládací prvek zobrazující aktualizovaný text a vzhled. Příklad přiřazuje tyto obrázky pomocí [IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getSubstitutePictureFormat--).
 
-Tento ukázkový kód, založený na výše uvedených krocích, ukazuje, jak spravovat jednoduchý ActiveX ovládací prvek: 
+Příklad přesune každý ovládací prvek na prvním snímku dolů o 100 bodů nastavením jeho rámce pomocí [IControl.setFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-). Uloží upravenou prezentaci ve formátu PPTM a poté použije [IControlCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/#clear--) k uložení druhé kopie se všemi ActiveX ovládacími prvky odstraněnými z tohoto snímku.
 
 ```java
-// Přístup k prezentaci s ActiveX ovládacími prvky
-Presentation pres = new Presentation("ActiveX.pptm");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // Přístup k prvnímu snímku v prezentaci
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // změna textu TextBoxu
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // Změna náhradního obrázku. PowerPoint tento obrázek nahradí během aktivace ActiveX,
-        // takže někdy je v pořádku nechat obrázek beze změny.
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
     }
 
-    // Změna popisku tlačítka
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
+    Path textBoxPath = Paths.get("text-box-preview.png");
+    Path buttonPath = Paths.get("button-preview.png");
+    byte[] textBoxBytes = Files.readAllBytes(textBoxPath);
+    byte[] buttonBytes = Files.readAllBytes(buttonPath);
+    IPPImage textBoxPreview = presentation.getImages().addImage(textBoxBytes);
+    IPPImage buttonPreview = presentation.getImages().addImage(buttonBytes);
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
 
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // Změna náhrady
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
+    }
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
 
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
 
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
+## **Přidání ActiveX ovládacího prvku Media Player**
 
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
+Pro opakované použití nakonfigurovaného ovládacího prvku Windows Media Player začněte šablonou, jejíž první snímek obsahuje přehrávač pojmenovaný `WindowsMediaPlayer1`. [ISlideCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) zkopíruje celý snímek do nové prezentace. Příklad nastaví `URL` přehrávače v jeho [properties collection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) a uloží zkopírovaný snímek jako jediný snímek ve výstupu. Video zůstává externí, proto zvolte cestu, kterou může přehrávač během přehrávání přistupovat.
 
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
+```java
+import com.aspose.slides.*;
 
-        graphics.setColor(SystemColor.controlDkShadow);
-                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-                graphics.dispose();
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "PNG", baos);
-
-                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
             }
-
-            // posunutí o 100 bodů dolů
-            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-                IShapeFrame frame = ctl.getFrame();
-                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-            }
-            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
-
-            // odstranění ovládacích prvků
-            pres.getSlides().get_Item(0).getControls().clear();
-            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-        } catch(IOException e) {
-        } finally {
-            if (pres != null) pres.dispose();
         }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+        
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
+}
 ```
 
 ## **Často kladené otázky**
 
-**Zachovává Aspose.Slides ActiveX ovládací prvky při čtení a opětovném uložení, pokud nemohou být spuštěny v Java runtime?**
+**Může Aspose.Slides zachovat ActiveX ovládací prvky, aniž by je spouštěl?**
 
-Ano. Aspose.Slides s nimi zachází jako s částí prezentace a může číst/upravovat jejich vlastnosti a rámce; není nutné samotné ovládací prvky spouštět, aby byly zachovány.
+Ano. Aspose.Slides může číst a ukládat ovládací prvky, včetně jejich vlastností a pozic, aniž by je aktivoval.
 
-**Jak se ActiveX ovládací prvky liší od OLE objektů v prezentaci?**
+**Jak se ActiveX ovládací prvky liší od OLE objektů?**
 
-ActiveX ovládací prvky jsou interaktivní řízené prvky (tlačítka, textová pole, přehrávač médií), zatímco [OLE](/slides/cs/java/manage-ole/) odkazuje na vložené aplikační objekty (například list Excelu). Jsou ukládány a zpracovávány odlišně a mají odlišné modely vlastností.
+ActiveX ovládací prvky umožňují uživatelům interagovat se snímkem, např. zadáním textu nebo kliknutím na tlačítko. [OLE objekt](/slides/cs/java/manage-ole/) umožňuje, aby snímek obsahoval nebo odkazoval na obsah spravovaný jinou aplikací, jako je list Excelu.
 
-**Fungují události ActiveX a VBA makra, pokud byl soubor upraven pomocí Aspose.Slides?**
+**Spustí se po uložení prezentace s Aspose.Slides VBA makra pomocí ActiveX událostí?**
 
-Aspose.Slides zachovává existující značky a metadata; události a makra však běží pouze v PowerPointu na Windows, pokud to bezpečnostní nastavení dovolí. Knihovna neprovádí VBA.
+Uložte prezentaci do formátu povoleného pro makra, např. PPTM, aby byl zachován její projekt VBA. PowerPoint pro Windows může spouštět stávající obslužné rutiny událostí, pokud jeho bezpečnostní nastavení dovolí jak ActiveX ovládací prvky, tak makra.

@@ -1,5 +1,5 @@
 ---
-title: Java を使用してプレゼンテーション内の ActiveX コントロールを管理する
+title: Java でプレゼンテーションの ActiveX コントロールを管理する
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,186 +15,155 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java が ActiveX を活用して PowerPoint プレゼンテーションを自動化および強化し、開発者にスライドの強力な制御を提供する方法を学びます。"
+description: "Aspose.Slides for Java を使用して、PowerPoint プレゼンテーション内の ActiveX テキストボックスとボタンを編集し、コントロールのプレビューを更新し、Windows Media Player コントロールを再利用します。"
 ---
+## **導入**
 
-{{% alert color="primary" %}} 
+ActiveX コントロールは、テキスト ボックス、コマンド ボタン、メディア プレーヤーなどのインタラクティブ要素を PowerPoint スライドに提供します。Aspose.Slides for Java は、スライドのコントロールを [IBaseSlide.getControls](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getControls--) を介して公開します。このコレクションを使用してコントロールを編集したり、スライド上で移動したり、削除したりします。
 
-ActiveX コントロールはプレゼンテーションで使用されます。Aspose.Slides for Java は ActiveX コントロールの追加と管理を可能にしますが、通常のスライドシェイプに比べてやや扱いが難しくなります。Aspose.Slides では Media Player ActiveX コントロールの追加サポートを実装しました。ActiveX コントロールはシェイプではなく、プレゼンテーションの[IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/)の一部ではありません。代わりに別の[IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/)に属します。本トピックでは、これらの操作方法を示します。 
+## **ActiveX コントロールとその格納プロパティの一覧**
 
-{{% /alert %}} 
+不慣れなテンプレートを調査するには、読み取りモードで開き、各スライド上のコントロールを反復処理します。この例は、スライド番号、コントロール名、[getClassId](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getClassId--)、および [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--) の各キー・バリュー ペアを報告します。コントロールをアクティブ化したり、イベントやマクロを呼び出したり、値を変更したり、ファイルを保存したりせずにプレゼンテーションを読み取ります。
 
-## **スライドに Media Player ActiveX コントロールを追加する**
-ActiveX Media Player コントロールを追加するには、以下を実行します。
-
-1. 空のプレゼンテーション インスタンスを生成するために、[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。
-2. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) から対象スライドにアクセスします。
-3. [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/) が提供する [addControl](https://reference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) メソッドを使用して Media Player ActiveX コントロールを追加します。
-4. Media Player ActiveX コントロールにアクセスし、そのプロパティで動画パスを設定します。
-5. プレゼンテーションを PPTX ファイルとして保存します。
-
-上記の手順に基づくサンプルコードは、スライドに Media Player ActiveX コントロールを追加する方法を示しています:
 ```java
-// 空のプレゼンテーション インスタンスを作成する
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // Media Player ActiveX コントロールを追加する
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // Media Player ActiveX コントロールにアクセスし、動画パスを設定する
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // プレゼンテーションを保存する
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+`ActiveX.pptm` の選択された出力は、テキスト ボックスとコマンド ボタンを示しています。
 
-## **ActiveX コントロールの変更**
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Java 7.1.0 以降では、ActiveX コントロールを管理するコンポーネントが用意されています。プレゼンテーションに既に追加された ActiveX コントロールにアクセスし、そのプロパティを介して変更または削除できます。
-
-{{% /alert %}} 
-
-スライド上のテキスト ボックスや単純なコマンド ボタンなど、シンプルな ActiveX コントロールを管理するには、以下を実行します。
-
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成し、ActiveX コントロールが含まれるプレゼンテーションを読み込みます。
-2. インデックスでスライド参照を取得します。
-3. スライド内の ActiveX コントロールに [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/) を介してアクセスします。
-4. [IControl](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/) オブジェクトを使用して TextBox1 ActiveX コントロールにアクセスします。
-5. TextBox1 のテキスト、フォント、フォント サイズ、フレーム位置などのプロパティを変更します。
-6. 2 番目のコントロールである CommandButton1 にアクセスします。
-7. ボタンのキャプション、フォント、位置を変更します。
-8. ActiveX コントロールのフレーム位置をシフトします。
-9. 変更したプレゼンテーションを PPTX ファイルに書き出します。
-
-上記の手順に基づくサンプルコードは、シンプルな ActiveX コントロールを管理する方法を示しています: 
-```java
-// ActiveX コントロールがあるプレゼンテーションにアクセス
-Presentation pres = new Presentation("ActiveX.pptm");
-try {
-    // プレゼンテーションの最初のスライドにアクセス
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // TextBox のテキストを変更
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // 代替画像を変更。PowerPoint は ActiveX 有効化時にこの画像を置き換えます、
-        // そのため、画像を変更しないままにしておくことも時々問題ありません。
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-    }
-
-    // ボタンのキャプションを変更
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // 代替画像を変更
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-                graphics.dispose();
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "PNG", baos);
-
-                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-            }
-
-            // 100 ポイント下に移動
-            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-                IShapeFrame frame = ctl.getFrame();
-                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-            }
-            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
-
-            // コントロールを削除
-            pres.getSlides().get_Item(0).getControls().clear();
-            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-        } catch(IOException e) {
-        } finally {
-            if (pres != null) pres.dispose();
-        }
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
+空のプロパティ コレクションは `[]` として表示されます。バイナリ ストレージを使用するコントロールの場合、[getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--) は `null` を返すことがあり、`Properties unavailable` と表示されます。名前だけが必要な場合は、null チェック後に [getNamesOfProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--) を使用します。レポートはプレゼンテーションから取得可能なプロパティを一覧表示します。コントロールは実行時に追加のプロパティをサポートすることがあります。
 
-## **FAQ**
+## **ActiveX コントロールの変更**
 
-**Aspose.Slides は、Java ランタイムで実行できない場合でも、読み取りおよび再保存時に ActiveX コントロールを保持しますか？**
+この例は、最初のスライドに `TextBox1` という名前のテキスト ボックスと `CommandButton1` という名前のコマンド ボタンがあるマクロ対応プレゼンテーションを前提としています。テキスト ボックスの値とボタンのキャプションを変更するために、[control properties collection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) を使用します。各コントロールには、アクティブ化前に PowerPoint が表示できる静的プレビューもあります。更新されたテキストと外観を示す PNG を各コントロールに提供してください。例ではこれらの画像を [IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getSubstitutePictureFormat--) を介して割り当てています。
 
-はい。Aspose.Slides はそれらをプレゼンテーションの一部として扱い、プロパティやフレームを読み取り/変更できます。コントロール自体を実行する必要はありません。
+例では、[IControl.setFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-) を使用して最初のスライド上のすべてのコントロールのフレームを下方向に 100 ポイント移動させます。編集されたプレゼンテーションを PPTM 形式で保存した後、[IControlCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/#clear--) を使用して、そのスライドからすべての ActiveX コントロールを除去した 2 番目のコピーを保存します。
 
-**ActiveX コントロールはプレゼンテーション内の OLE オブジェクトとどのように異なりますか？**
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-ActiveX コントロールはインタラクティブな管理コントロール（ボタン、テキスト ボックス、メディア プレーヤー）です。一方、[OLE](/slides/ja/java/manage-ole/) は埋め込まれたアプリケーション オブジェクト（例: Excel ワークシート）を指します。保存方法や取り扱いが異なり、プロパティ モデルも異なります。
+Presentation presentation = new Presentation("ActiveX.pptm");
+try {
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
+    }
 
-**ファイルが Aspose.Slides によって変更された場合、ActiveX イベントや VBA マクロは機能しますか？**
+    Path textBoxPath = Paths.get("text-box-preview.png");
+    Path buttonPath = Paths.get("button-preview.png");
+    byte[] textBoxBytes = Files.readAllBytes(textBoxPath);
+    byte[] buttonBytes = Files.readAllBytes(buttonPath);
+    IPPImage textBoxPreview = presentation.getImages().addImage(textBoxBytes);
+    IPPImage buttonPreview = presentation.getImages().addImage(buttonBytes);
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
 
-Aspose.Slides は既存のマークアップとメタデータを保持しますが、イベントやマクロは Windows 上の PowerPoint でセキュリティが許可された場合にのみ実行されます。ライブラリ自体は VBA を実行しません。
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
+    }
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
+
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
+## **ActiveX メディア プレーヤー コントロールの追加**
+
+構成済みの Windows Media Player コントロールを再利用するには、最初のスライドに `WindowsMediaPlayer1` という名前のプレーヤーが含まれるテンプレートから開始します。[ISlideCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) はスライド全体を新しいプレゼンテーションにコピーします。例では、プレーヤーの `URL` をその [properties collection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) に設定し、クローンしたスライドを出力の唯一のスライドとして保存します。ビデオは外部に保持されるため、再生時にプレーヤーがアクセスできるパスを選択してください。
+
+```java
+import com.aspose.slides.*;
+
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
+            }
+        }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+        
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
+}
+```
+## **よくある質問**
+
+**Aspose.Slides は ActiveX コントロールを実行せずに保持できますか？**
+
+はい。Aspose.Slides はコントロールをアクティブ化せずに、プロパティや位置を含めて読み取りおよび保存できます。
+
+**ActiveX コントロールは OLE オブジェクトとどのように異なりますか？**
+
+ActiveX コントロールはユーザーがテキストを入力したりボタンをクリックしたりしてスライドと対話できるようにします。[OLE オブジェクト](/slides/ja/java/manage-ole/) は、スライドが別のアプリケーションで管理されているコンテンツ（たとえば Excel ワークシート）を含むかリンクできるようにします。
+
+**プレゼンテーションを Aspose.Slides で保存した後、ActiveX イベントは VBA マクロを引き続きトリガーしますか？**
+
+プレゼンテーションを PPTM などのマクロ対応形式で保存して VBA プロジェクトを保持してください。PowerPoint for Windows は、セキュリティ設定で ActiveX コントロールとマクロの両方が許可されている場合に、既存のイベントハンドラーを実行できます。

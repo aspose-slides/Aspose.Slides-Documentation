@@ -5,186 +5,158 @@ type: docs
 weight: 80
 url: /tr/net/activex/
 keywords:
-- ActiveX
-- ActiveX denetimi
-- ActiveX yönetimi
-- ActiveX ekleme
-- ActiveX değiştirme
-- medya oynatıcı
-- PowerPoint
-- sunum
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET'in ActiveX'i nasıl kullandığını öğrenin; PowerPoint sunumlarını otomatikleştirir ve geliştirir, geliştiricilere slaytlar üzerinde güçlü kontrol sağlar."
+  - ActiveX
+  - ActiveX denetimi
+  - ActiveX yönetimi
+  - ActiveX ekleme
+  - ActiveX değiştirme
+  - medya oynatıcı
+  - PowerPoint
+  - sunum
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Aspose.Slides for .NET ile PowerPoint sunumlarında ActiveX metin kutularını ve düğmelerini düzenleyin, denetim ön izlemelerini güncelleyin ve Windows Media Player denetimini yeniden kullanın."
 ---
-## **Introduction**
+## **Giriş**
 
-ActiveX denetimleri sunumlarda kullanılır. Aspose.Slides for .NET, ActiveX denetimlerini yönetmenizi sağlar, ancak bunları yönetmek biraz daha zor ve normal sunum şekillerinden farklıdır. Aspose.Slides for .NET 6.9.0 sürümünden itibaren bileşen, ActiveX denetimlerini yönetmeyi destekler. Şu anda, sunumunuza önceden eklenmiş bir ActiveX denetimine erişebilir ve çeşitli özelliklerini kullanarak öğeyi değiştirebilir veya silebilirsiniz. Unutmayın, ActiveX denetimleri şekil değildir ve sunumun IShapeCollection koleksiyonunun bir parçası değil, ayrı bir IControlCollection koleksiyonunun içindedir. Bu makale, onlarla nasıl çalışılacağını göstermektedir.
-## **Modify ActiveX Controls**
-Bir slaytta metin kutusu ve basit komut düğmesi gibi basit bir ActiveX denetimini yönetmek için:
+ActiveX denetimleri, bir PowerPoint slaydına metin kutuları, komut düğmeleri ve medya oynatıcıları gibi etkileşimli öğeler ekler. Aspose.Slides for .NET, bir slaydın denetimlerini [IBaseSlide.Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/controls/). Bu koleksiyonu bir denetimi düzenlemek, slaytta taşımak veya kaldırmak için kullanın.
 
-1. Presentation sınıfının bir örneğini oluşturun ve içinde ActiveX denetimleri bulunan sunumu yükleyin.
-1. İndeksine göre bir slayt referansı alın.
-1. IControlCollection koleksiyonuna erişerek slayttaki ActiveX denetimlerine ulaşın.
-1. ControlEx nesnesini kullanarak TextBox1 ActiveX denetimine erişin.
-1. TextBox1 ActiveX denetiminin metin, yazı tipi, yazı tipi yüksekliği ve çerçeve konumu gibi farklı özelliklerini değiştirin.
-1. CommandButton1 adlı ikinci erişim denetimine erişin.
-1. Düğme başlığını, yazı tipini ve konumunu değiştirin.
-1. ActiveX denetimlerinin çerçeve konumlarını kaydırın.
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+## **ActiveX Denetimlerini ve Depolanan Özelliklerini Listele**
 
-Aşağıdaki kod parçacığı, sunum slaytlarındaki ActiveX denetimlerini aşağıda gösterildiği gibi günceller.
+Bilgisiz bir şablonu incelemek için, onu okuma amaçlı açın ve her slayttaki denetimler üzerinde döngü yapın. Örnek, slayt numarasını, denetim adını, [ClassId](https://reference.aspose.com/slides/net/aspose.slides/icontrol/classid/), ve [Properties](https://reference.aspose.com/slides/net/aspose.slides/icontrol/#properties) içindeki her anahtar‑değer çiftini raporlar. Sunumu denetimleri etkinleştirmeden, olayları veya makroları çağırmadan, değerleri değiştirmeden ya da dosyayı kaydetmeden okur.
 
-```c#
-// ActiveX denetimleri içeren sunuma erişiliyor
-Presentation presentation = new Presentation("ActiveX.pptm");
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-// Sunumdaki ilk slayta erişiliyor
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation("ActiveX.pptm");
 
-// Metin Kutusu metni değiştiriliyor
-IControl control = slide.Controls[0];
-
-if (control.Name == "TextBox1" && control.Properties != null)
+for (var i = 0; i < presentation.Slides.Count; i++)
 {
-    string newText = "Changed text";
-    control.Properties["Value"] = newText;
-
-    // Yer tutucu resmi değiştiriliyor. PowerPoint, ActiveX etkinleştirilirken bu resmi değiştirecek, bu yüzden bazen resmi değiştirmeden bırakmak da uygun olur.
-
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Window));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    graphics.DrawString(newText, font, brush, 10, 4);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(
-        pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[]
+    foreach (var control in presentation.Slides[i].Controls)
     {
-            new System.Drawing.Point(1, image.Height - 1), new System.Drawing.Point(image.Width - 1, image.Height - 1),
-            new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+        Console.WriteLine($"Slide {i + 1} | {control.Name} | {control.ClassId}");
+        var properties = control.Properties;
+
+        if (properties == null)
+        {
+            Console.WriteLine("  Properties unavailable");
+            continue;
+        }
+
+        if (properties.Count == 0)
+            Console.WriteLine("  []");
+
+        foreach (var property in properties)
+            Console.WriteLine($"  {property.Key} = {property.Value}");
+    }
 }
-
-// Düğme başlığı değiştiriliyor
-control = slide.Controls[1];
-
-if (control.Name == "CommandButton1" && control.Properties != null)
-{
-    String newCaption = "MessageBox";
-    control.Properties["Caption"] = newCaption;
-
-    // Yer tutucuyu değiştiriliyor
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    SizeF textSize = graphics.MeasureString(newCaption, font, int.MaxValue);
-    graphics.DrawString(newCaption, font, brush, (image.Width - textSize.Width) / 2, (image.Height - textSize.Height) / 2);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[]
-    {
-        new System.Drawing.Point(1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
-}
-
-// ActiveX çerçeveleri 100 puan aşağı kaydırılıyor
-foreach (Control ctl in slide.Controls)
-{
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
-        frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
-}
-
-// Düzenlenmiş ActiveX denetimleriyle sunumu kaydet
-presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
-
-
-// Şimdi denetimler kaldırılıyor
-slide.Controls.Clear();
-
-// Temizlenmiş ActiveX denetimleriyle sunumu kaydediyor
-presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 ```
 
+`ActiveX.pptm` dosyasından seçilen çıktı bir metin kutusu ve bir komut düğmesi gösterir.
 
-## **Add an ActiveX Media Player Control**
-ActiveX Medya Oynatıcı denetimini eklemek için aşağıdaki adımları izleyin:
-
-1. Presentation sınıfının bir örneğini oluşturun ve içinde Media Player ActiveX denetimleri bulunan örnek sunumu yükleyin.
-1. Hedef Presentation sınıfının bir örneğini oluşturun ve boş bir sunum örneği oluşturun.
-1. Şablon sunumdaki Media Player ActiveX denetimine sahip slaytı hedef Presentation'a kopyalayın.
-1. Hedef Presentation'daki kopyalanan slayta erişin.
-1. IControlCollection koleksiyonuna erişerek slayttaki ActiveX denetimlerine ulaşın.
-1. Media Player ActiveX denetimine erişin ve özelliklerini kullanarak video yolunu ayarlayın.
-1. Sunumu bir PPTX dosyasına kaydedin.
-
-```c#
-// PPTX dosyasını temsil eden Presentation sınıfını örnekle
-Presentation presentation = new Presentation("template.pptx");
-
-// Boş bir sunum örneği oluştur
-Presentation newPresentation = new Presentation();
-
-// Varsayılan slaytı kaldır
-newPresentation.Slides.RemoveAt(0);
-
-// Media Player ActiveX denetimli slaytı kopyala
-newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
-
-// Media Player ActiveX denetimine eriş ve video yolunu ayarla
-newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
-
-// Sunumu kaydet
-newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
-## **FAQ**
+Boş bir özellik koleksiyonu `[]` olarak görünür. İkili depolama kullanan denetimler için `Properties` `null` dönebilir ve bu `Properties unavailable` olarak gösterilir. Sadece adlara ihtiyacınız varsa, null kontrolünden sonra [NamesOfProperties](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/namesofproperties/) kullanın. Rapor, sunumdan elde edilebilen özellikleri listeler. Bir denetim çalışma zamanında ek özellikleri destekleyebilir.
 
-**Aspose.Slides, .NET çalışma zamanında çalıştırılamayan ActiveX denetimlerini okuma ve yeniden kaydetme sırasında korur mu?**
+## **ActiveX Denetimlerini Değiştir**
 
-Evet. Aspose.Slides, bunları sunumun bir parçası olarak ele alır ve özelliklerini ve çerçevelerini okuyup/ değiştirebilir; denetimlerin kendisinin çalıştırılması, korunmaları için gerekli değildir.
+Örnek, ilk slaytta `TextBox1` adlı bir metin kutusu ve `CommandButton1` adlı bir komut düğmesi içeren makro‑etkin bir sunum bekler. Metin kutusu değerini ve düğme başlığını değiştirmek için [denetim özellikleri koleksiyonu](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) kullanır. Her denetimin ayrıca PowerPoint'in etkinleştirmeden önce gösterebileceği statik bir ön izleme vardır. Güncellenmiş metin ve görünümü gösteren bir PNG dosyasını her denetim için sağlayın. Örnek, bu görüntüleri [IControl.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/icontrol/substitutepictureformat/) aracılığıyla atar.
 
-**ActiveX denetimleri, bir sunumdaki OLE nesnelerinden nasıl farklıdır?**
+Örnek, ilk slayttaki tüm denetimleri [Frame](https://reference.aspose.com/slides/net/aspose.slides/icontrol/frame/) özelliğini değiştirerek 100 puan aşağı kaydırır. Düzenlenmiş sunumu PPTM formatında kaydeder, ardından [IControlCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icontrolcollection/clear/) kullanarak o slayttan tüm ActiveX denetimlerini kaldırılmış ikinci bir kopya kaydeder.
 
-ActiveX denetimleri, etkileşimli yönetilen denetimlerdir (düğmeler, metin kutuları, medya oynatıcı), oysa [OLE](/slides/tr/net/manage-ole/) gömülü uygulama nesnelerini (örneğin bir Excel çalışma sayfası) ifade eder. Farklı biçimlerde depolanır ve işlenir ve farklı özellik modellerine sahiptir.
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**Dosya Aspose.Slides tarafından değiştirilmişse ActiveX olayları ve VBA makroları çalışır mı?**
+using var presentation = new Presentation("ActiveX.pptm");
 
-Aspose.Slides mevcut işaretlemeyi ve meta verileri korur; ancak olaylar ve makrolar, güvenlik izin verdiğinde yalnızca Windows'taki PowerPoint içinde çalışır. Kütüphane VBA'yı çalıştırmaz.
+var controls = presentation.Slides[0].Controls;
+var textBox = controls.FirstOrDefault(control => control.Name == "TextBox1");
+var button = controls.FirstOrDefault(control => control.Name == "CommandButton1");
+
+if (textBox?.Properties == null || button?.Properties == null)
+{
+    Console.WriteLine("The first slide must contain both named controls with editable properties.");
+    return;
+}
+
+if (!File.Exists("text-box-preview.png") || !File.Exists("button-preview.png"))
+{
+    Console.WriteLine("Supply both preview images before updating the controls.");
+    return;
+}
+
+textBox.Properties["Value"] = "Changed text";
+button.Properties["Caption"] = "Show message";
+
+using var textBoxPreview = File.OpenRead("text-box-preview.png");
+using var buttonPreview = File.OpenRead("button-preview.png");
+textBox.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(textBoxPreview);
+button.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(buttonPreview);
+
+foreach (var control in controls)
+{
+    var frame = control.Frame;
+    control.Frame = new ShapeFrame(frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
+}
+
+presentation.Save("edited-controls.pptm", SaveFormat.Pptm);
+
+controls.Clear();
+presentation.Save("removed-controls.pptm", SaveFormat.Pptm);
+```
+
+## **ActiveX Medya Oynatıcı Denetimi Ekle**
+
+Yapılandırılmış bir Windows Media Player denetimini yeniden kullanmak için, ilk slaytında `WindowsMediaPlayer1` adlı bir oynatıcı bulunan bir şablonla başlayın. [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) tüm slaytı yeni bir sunuma kopyalar. Örnek, oynatıcının `URL`’sini [özellikler koleksiyonu](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) içinde ayarlar ve klonlanan slaytı çıkışta tek slayt olarak kaydeder. Video harici kalır, bu yüzden oynatıcı oynatma sırasında erişebileceği bir yol seçin.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var template = new Presentation("template.pptx");
+using var presentation = new Presentation();
+
+var slide = presentation.Slides.AddClone(template.Slides[0]);
+var player = slide.Controls.FirstOrDefault(control => control.Name == "WindowsMediaPlayer1");
+
+if (player?.Properties == null)
+{
+    Console.WriteLine("The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player.Properties["URL"] = "Wildlife.mp4";
+
+presentation.Slides.RemoveAt(0);
+presentation.Save("linked-video.pptx", SaveFormat.Pptx);
+```
+
+## **SSS**
+
+**Aspose.Slides ActiveX denetimlerini çalıştırmadan koruyabilir mi?**
+
+Evet. Aspose.Slides, denetimlerin özellikleri ve konumları dahil olmak üzere, onları etkinleştirmeden okuyup kaydedebilir.
+
+**ActiveX denetimleri OLE nesnelerinden nasıl farklıdır?**
+
+ActiveX denetimleri, kullanıcıların slayt ile etkileşime girmesini sağlar; örneğin metin girişi yapabilir veya bir düğmeye tıklayabilir. Bir [OLE nesnesi](/slides/tr/net/manage-ole/) ise bir slaydın başka bir uygulama tarafından yönetilen içeriği (örneğin bir Excel çalışma sayfasını) barındırmasına veya ona bağlanmasına izin verir.
+
+**Aspose.Slides ile bir sunumu kaydettikten sonra ActiveX olayları VBA makrolarını tetiklemeye devam edecek mi?**
+
+Sunumu, VBA projesini korumak için PPTM gibi makro‑etkin bir formatta kaydedin. Windows için PowerPoint, güvenlik ayarları hem ActiveX denetimlerine hem de makrolara izin verdiğinde mevcut olay işleyicilerini çalıştırabilir.

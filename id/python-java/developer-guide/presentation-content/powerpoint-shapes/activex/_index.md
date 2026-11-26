@@ -1,37 +1,29 @@
 ---
-title: Kelola Kontrol ActiveX dalam Presentasi Menggunakan Python
-linktitle: ActiveX
+title: "Kelola Kontrol ActiveX dalam Presentasi Menggunakan Python"
+linktitle: "ActiveX"
 type: docs
 weight: 80
 url: /id/python-java/activex/
 keywords:
 - ActiveX
 - kontrol ActiveX
-- mengelola ActiveX
-- menambahkan ActiveX
-- memodifikasi ActiveX
+- kelola ActiveX
+- tambahkan ActiveX
+- modifikasi ActiveX
 - pemutar media
 - PowerPoint
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari bagaimana Aspose.Slides for Python via Java menggunakan ActiveX untuk mengotomatiskan dan meningkatkan presentasi PowerPoint, memberikan pengembang kontrol yang kuat atas slide."
+description: "Edit kotak teks dan tombol ActiveX, perbarui pratinjau kontrol, dan gunakan kembali kontrol Windows Media Player dalam presentasi PowerPoint dengan Aspose.Slides untuk Python via Java."
 ---
-## **Pendahuluan**
+## **Introduction**
 
-Kontrol ActiveX digunakan dalam presentasi. Aspose.Slides for Python via Java memungkinkan Anda menambahkan dan mengelola kontrol ActiveX, tetapi kontrol ini sedikit lebih sulit dikelola dibandingkan dengan bentuk bawaan presentasi. Aspose.Slides mendukung penambahan kontrol ActiveX Media Player. Perhatikan bahwa kontrol ActiveX bukanlah shape; mereka tidak termasuk dalam presentasi's [ShapeCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/). Mereka merupakan bagian dari [ControlCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/controlcollection/) terpisah. Pada topik ini, kami akan menunjukkan cara bekerja dengan mereka.
+ActiveX controls memberikan elemen interaktif pada slide PowerPoint seperti kotak teks, tombol perintah, dan pemutar media. Aspose.Slides untuk Python via Java mengekspor kontrol slide melalui [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls). Gunakan koleksi ini untuk mengedit kontrol, memindahkannya pada slide, atau menghapusnya.
 
-## **Menambahkan Kontrol ActiveX Media Player ke Slide**
+## **List ActiveX Controls and Their Stored Properties**
 
-Untuk menambahkan kontrol Media Player ActiveX, lakukan hal berikut:
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) dan hasilkan sebuah presentasi kosong.
-1. Akses slide target dalam [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
-1. Tambahkan kontrol Media Player ActiveX menggunakan metode [addControl](https://reference.aspose.com/slides/id/python-java/aspose.slides/controlcollection/#addControl) yang disediakan oleh [ControlCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/controlcollection/).
-1. Akses kontrol Media Player ActiveX dan tetapkan jalur video dengan menggunakan propertinya.
-1. Simpan presentasi sebagai file PPTX.
-
-Contoh kode ini, berdasarkan langkah-langkah di atas, menunjukkan cara menambahkan kontrol ActiveX Media Player ke slide:
+Untuk memeriksa templat yang tidak dikenal, buka untuk dibaca dan iterasi melalui kontrol pada tiap slide. Contoh melaporkan nomor slide, nama kontrol, [getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId), dan setiap pasangan kunci-nilai dalam [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties). Ia membaca presentasi tanpa mengaktifkan kontrol, memanggil event atau makro, mengubah nilai, atau menyimpan file.
 
 ```python
 import jpype
@@ -40,47 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# Buat presentasi kosong.
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # Tambahkan kontrol ActiveX Media Player.
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # Tetapkan jalur video.
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # Simpan presentasi.
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
-## **Memodifikasi Kontrol ActiveX**
+Output terpilih dari `ActiveX.pptm` menunjukkan kotak teks dan tombol perintah.
 
-{{% alert color="info" title="Note" %}}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-Aspose.Slides for Python via Java menyediakan komponen untuk mengelola kontrol ActiveX. Anda dapat mengakses kontrol ActiveX yang sudah ditambahkan dalam presentasi Anda dan memodifikasi atau menghapusnya melalui propertinya.
+Koleksi properti kosong muncul sebagai `[]`. Untuk kontrol yang menggunakan penyimpanan biner, [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) dapat mengembalikan `None`, yang ditampilkan sebagai `Properties unavailable`. Jika Anda hanya memerlukan nama-nama, gunakan [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) setelah memeriksa bahwa koleksi tersedia. Laporan mencantumkan properti yang tersedia dari presentasi. Sebuah kontrol mungkin mendukung properti tambahan pada runtime.
 
-{{% /alert %}}
+## **Modify ActiveX Controls**
 
-Untuk mengelola kontrol ActiveX sederhana seperti kotak teks dan tombol perintah sederhana pada slide, lakukan hal berikut:
+Contoh mengharapkan presentasi yang mendukung makro dengan kotak teks bernama `TextBox1` dan tombol perintah bernama `CommandButton1` pada slide pertama. Ia menggunakan [koleksi properti kontrol](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) untuk mengubah nilai kotak teks dan caption tombol. Setiap kontrol juga memiliki pratinjau statis yang dapat ditampilkan PowerPoint sebelum aktivasi. Sediakan file PNG untuk setiap kontrol yang menunjukkan teks dan tampilan yang telah diperbarui. Contoh menetapkan gambar ini melalui [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat).
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) dan muat presentasi yang berisi kontrol ActiveX.
-1. Dapatkan referensi slide berdasarkan indeksnya.
-1. Akses kontrol ActiveX dalam slide dengan mengakses [ControlCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/controlcollection/).
-1. Akses kontrol ActiveX TextBox1 menggunakan objek [Control](https://reference.aspose.com/slides/id/python-java/aspose.slides/control/).
-1. Ubah properti kontrol ActiveX TextBox1 yang mencakup teks, font, tinggi font, dan posisi frame.
-1. Akses kontrol ActiveX kedua yang disebut CommandButton1.
-1. Ubah caption tombol, font, dan posisinya.
-1. Geser posisi frame kontrol ActiveX.
-1. Tuliskan presentasi yang telah dimodifikasi ke file PPTM.
-
-Contoh kode ini, berdasarkan langkah-langkah di atas, menunjukkan cara mengelola kontrol ActiveX sederhana:
+Contoh memindahkan setiap kontrol pada slide pertama ke bawah sebesar 100 poin dengan mengatur frame-nya menggunakan [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame). Ia menyimpan presentasi yang telah diedit dalam format PPTM, kemudian menggunakan [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) untuk menyimpan salinan kedua dengan semua kontrol ActiveX dihapus dari slide tersebut.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -88,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# Muat presentasi dengan kontrol ActiveX.
 presentation = Presentation("ActiveX.pptm")
 try:
-    if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-        # Akses slide pertama.
-        slide = presentation.getSlides().get_Item(0)
-
-        # Ubah teks kotak teks.
-        control = slide.getControls().get_Item(0)
-
-        if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-            new_text = "Changed text"
-            control.getProperties().set_Item("Value", new_text)
-
-            # Ubah gambar pengganti. PowerPoint menggantinya selama aktivasi ActiveX,
-            # sehingga terkadang dapat dibiarkan tidak berubah.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.window)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            graphics.drawString(new_text, 10, 20)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Ubah caption tombol.
-        control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-        if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-            new_caption = "Show MessageBox"
-            control.getProperties().set_Item("Caption", new_caption)
-            # Ubah gambar pengganti.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.control)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            metrics = graphics.getFontMetrics(font)
-            graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Pindahkan kontrol ke bawah sebanyak 100 poin.
-        for control in slide.getControls():
-            frame = control.getFrame()
-            new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-            control.setFrame(new_frame)
-        presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-        # Hapus kontrol.
-        presentation.getSlides().get_Item(0).getControls().clear()
-        presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
     else:
-        print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
+
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
+
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
     presentation.dispose()
 ```
 
+## **Add an ActiveX Media Player Control**
+
+Untuk menggunakan kembali kontrol Windows Media Player yang sudah dikonfigurasi, mulailah dengan templat yang slide pertamanya berisi pemutar bernama `WindowsMediaPlayer1`. [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) menyalin seluruh slide ke dalam presentasi baru. Contoh mengatur `URL` pemutar dalam [koleksi properti](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) dan menyimpan slide yang di‑kloning sebagai satu‑satunya slide dalam output. Video tetap eksternal, sehingga pilih jalur yang dapat diakses pemutar selama pemutaran.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
+
 ## **FAQ**
 
-**Apakah Aspose.Slides mempertahankan kontrol ActiveX saat membaca dan menyimpan kembali jika kontrol tersebut tidak dapat dijalankan di runtime Python?**
+**Apakah Aspose.Slides dapat mempertahankan kontrol ActiveX tanpa menjalankannya?**
 
-Ya. Aspose.Slides memperlakukan mereka sebagai bagian dari presentasi dan dapat membaca/mengubah properti serta frame mereka; mengeksekusi kontrol itu sendiri tidak diperlukan untuk mempertahankannya.
+Ya. Aspose.Slides dapat membaca dan menyimpan kontrol, termasuk properti dan posisinya, tanpa mengaktifkannya.
 
-**Bagaimana perbedaan kontrol ActiveX dengan objek OLE dalam presentasi?**
+**Bagaimana perbedaan kontrol ActiveX dengan objek OLE?**
 
-Kontrol ActiveX adalah kontrol interaktif yang dikelola (tombol, kotak teks, pemutar media), sedangkan [OLE](/slides/id/python-java/manage-ole/) merujuk pada objek aplikasi tersemat (misalnya, lembar kerja Excel). Mereka disimpan dan diproses secara berbeda serta memiliki model properti yang berbeda.
+Kontrol ActiveX memungkinkan pengguna berinteraksi dengan slide, misalnya dengan memasukkan teks atau mengklik tombol. Sebuah [OLE object](/slides/id/python-java/manage-ole/) memungkinkan slide berisi atau menautkan ke konten yang dikelola oleh **aplikasi** lain, seperti lembar kerja **Excel**.
 
-**Apakah event ActiveX dan makro VBA berfungsi jika file telah dimodifikasi oleh Aspose.Slides?**
+**Apakah peristiwa ActiveX masih akan memicu makro VBA setelah saya menyimpan presentasi dengan Aspose.Slides?**
 
-Aspose.Slides mempertahankan markup dan metadata yang ada; namun, event dan makro hanya berjalan di dalam PowerPoint pada Windows ketika keamanan mengizinkannya. Perpustakaan ini tidak mengeksekusi VBA.
+Simpan presentasi dalam format yang mendukung makro seperti PPTM untuk mempertahankan proyek VBA-nya. PowerPoint untuk Windows dapat menjalankan penangan peristiwa yang ada bila pengaturan keamanannya memperbolehkan baik kontrol ActiveX maupun makro.

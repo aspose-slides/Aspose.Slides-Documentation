@@ -1,5 +1,5 @@
 ---
-title: مدیریت کنترل‌های ActiveX در ارائه‌ها بر روی اندروید
+title: مدیریت کنترل‌های ActiveX در ارائه‌ها در Android
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -10,189 +10,162 @@ keywords:
 - مدیریت ActiveX
 - افزودن ActiveX
 - ویرایش ActiveX
-- پخش‌کننده رسانه
+- پخش‌کننده رسانه‌ای
 - PowerPoint
 - ارائه
 - Android
 - Java
 - Aspose.Slides
-description: "یادگیری اینکه چگونه Aspose.Slides برای اندروید از طریق Java از ActiveX استفاده می‌کند تا ارائه‌های PowerPoint را خودکار و بهبود بخشد و به توسعه‌دهندگان کنترل قدرتمندی بر اسلایدها ارائه دهد."
+description: "ویرایش جعبه‌های متن و دکمه‌های ActiveX، به‌روزرسانی پیش‌نمایش کنترل‌ها، و استفاده مجدد از کنترل Windows Media Player در ارائه‌های PowerPoint با Aspose.Slides برای Android از طریق Java."
 ---
 ## **مقدمه**
 
-کنترل‌های ActiveX در ارائه‌ها استفاده می‌شوند. Aspose.Slides برای Android از طریق Java به شما امکان افزودن و مدیریت کنترل‌های ActiveX را می‌دهد، اما نسبت به اشکال معمولی ارائه، مدیریت آن‌ها کمی پیچیده‌تر است. ما پشتیبانی از افزودن کنترل Active Media Player را در Aspose.Slides پیاده‌سازی کرده‌ایم. توجه داشته باشید که کنترل‌های ActiveX شکل نیستند؛ آن‌ها بخشی از [IShapeCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/) نیستند. بلکه بخشی از [IControlCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icontrolcollection/) جداگانه هستند. در این موضوع، نحوه کار با آن‌ها را به شما نشان می‌دهیم.
+کنترل‌های ActiveX عناصر تعاملی مانند جعبه‌های متن، دکمه‌های فرمان و پخش‌کننده‌های رسانه‌ای را به اسلایدهای PowerPoint می‌افزایند. Aspose.Slides for Android via Java کنترل‌های یک اسلاید را از طریق [IBaseSlide.getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getControls--) در دسترس می‌گذارد. از این مجموعه برای ویرایش یک کنترل، جابجا کردن آن در اسلاید یا حذف آن استفاده کنید. در مثال‌های زیر، مسیرهای فایلی را که برنامهٔ Android شما می‌تواند بخواند انتخاب کنید و برای هر ارائهٔ خروجی مکان قابل نوشتن تعیین کنید.
 
-## **افزودن کنترل ActiveX پلیر رسانه‌ای به اسلاید**
-برای افزودن کنترل ActiveX Media Player، این کارها را انجام دهید:
+## **فهرست کنترل‌های ActiveX و ویژگی‌های ذخیره‌شده‌شان**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation) ایجاد کنید و یک ارائه خالی تولید کنید.
-2. اسلاید هدف را در [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation) دسترسی پیدا کنید.
-3. کنترل ActiveX Media Player را با استفاده از متد [addControl](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) که توسط [IControlCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icontrolcollection/) ارائه می‌شود، اضافه کنید.
-4. به کنترل ActiveX Media Player دسترسی پیدا کنید و مسیر ویدیو را با استفاده از ویژگی‌های آن تنظیم کنید.
-5. ارائه را به عنوان فایل PPTX ذخیره کنید.
-
-این کد نمونه، بر اساس مراحل فوق، نحوه افزودن کنترل ActiveX Media Player به یک اسلاید را نشان می‌دهد:
+برای بررسی یک قالب ناشناخته، آن را برای خواندن باز کنید و در هر اسلاید از طریق کنترل‌ها مرور کنید. مثال شمارهٔ اسلاید، نام کنترل، [getClassId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getClassId--) و هر جفت کلید‑مقدار در [getProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getProperties--) را گزارش می‌دهد. این کار ارائه را بدون فعال‌سازی کنترل‌ها، فراخوانی رویدادها یا ماکروها، تغییر مقادیر یا ذخیرهٔ فایل می‌خواند.
 
 ```java
-// یک نمونه ارائه خالی ایجاد کنید
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // افزودن کنترل ActiveX پخش‌کننده رسانه
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // دسترسی به کنترل ActiveX پخش‌کننده رسانه و تنظیم مسیر ویدیو
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // ذخیره ارائه
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ویرایش یک کنترل ActiveX**
-{{% alert color="primary" %}} 
+خروجی منتخب از `ActiveX.pptm` یک جعبهٔ متن و یک دکمهٔ فرمان را نشان می‌دهد.
 
-نسخه‌های Aspose.Slides برای Android از طریق Java 7.1.0 و بالاتر با مؤلفه‌هایی برای مدیریت کنترل‌های ActiveX مجهز هستند. شما می‌توانید به کنترل ActiveX که قبلاً به ارائه‌تان اضافه شده دسترسی پیدا کنید و از طریق ویژگی‌های آن آن را ویرایش یا حذف کنید.
-
-{{% /alert %}} 
-
-برای مدیریت یک کنترل ساده ActiveX مانند جعبه متن و دکمه فرمان ساده در یک اسلاید، این کارها را انجام دهید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation) ایجاد کنید و ارائه را که شامل کنترل‌های ActiveX است، بارگذاری کنید.
-2. یک مرجع اسلاید را بر اساس شاخص آن دریافت کنید.
-3. کنترل‌های ActiveX موجود در اسلاید را با دسترسی به [IControlCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icontrolcollection/) بدست آورید.
-4. کنترل ActiveX TextBox1 را با استفاده از شیء [IControl](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icontrol/) دسترسی پیدا کنید.
-5. ویژگی‌های کنترل ActiveX TextBox1 که شامل متن، قلم، ارتفاع قلم و موقعیت فریم است را تغییر دهید.
-6. کنترل دسترسی دوم به نام CommandButton1 را دسترسی پیدا کنید.
-7. عنوان دکمه، قلم و موقعیت آن را تغییر دهید.
-8. موقعیت فریم‌های کنترل‌های ActiveX را جابه‌جا کنید.
-9. ارائه اصلاح‌شده را به یک فایل PPTX بنویسید.
-
-این کد نمونه، بر اساس مراحل فوق، نحوه مدیریت یک کنترل ساده ActiveX را نشان می‌دهد:
-
-```java
-// دسترسی به ارائه با کنترل‌های ActiveX
-Presentation pres = new Presentation("ActiveX.pptm");
-try {
-    // دسترسی به اولین اسلاید در ارائه
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // تغییر متن TextBox
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // تغییر تصویر جایگزین. PowerPoint این تصویر را هنگام فعال‌سازی ActiveX جایگزین می‌کند،
-        // بنابراین گاهی‌اوقات می‌توان تصویر را بدون تغییر باقی گذاشت.
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-    }
-
-    // تغییر عنوان دکمه
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // تغییر جایگزین
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-                graphics.dispose();
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "PNG", baos);
-
-                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-            }
-
-            // جابه‌جایی 100 پوینت به سمت پایین
-            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-                IShapeFrame frame = ctl.getFrame();
-                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-            }
-            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
-
-            // حذف کنترل‌ها
-            pres.getSlides().get_Item(0).getControls().clear();
-            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-        } catch(IOException e) {
-        } finally {
-            if (pres != null) pres.dispose();
-        }
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
-## **سؤالات متداول**
+یک مجموعهٔ ویژگی خالی به صورت `[]` نمایش داده می‌شود. برای کنترل‌هایی که از ذخیره‌سازی باینری استفاده می‌کنند، [getProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getProperties--) می‌تواند `null` برگرداند که به شکل `Properties unavailable` نشان داده می‌شود. اگر فقط به نام‌ها نیاز دارید، پس از بررسی مقدار null از [getNamesOfProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--) استفاده کنید. گزارش ویژگی‌های موجود در ارائه را فهرست می‌کند. یک کنترل ممکن است در زمان اجرا ویژگی‌های اضافی داشته باشد.
 
-**آیا Aspose.Slides کنترل‌های ActiveX را هنگام خواندن و ذخیره مجدد حفظ می‌کند اگر نتوانند در زمان اجرا Java اجرا شوند؟**
+## **تغییر کنترل‌های ActiveX**
 
-بله. Aspose.Slides آن‌ها را به عنوان بخشی از ارائه در نظر می‌گیرد و می‌تواند ویژگی‌ها و فریم‌های آن‌ها را بخواند/ویرایش کند؛ اجرای خود کنترل‌ها برای حفظ آن‌ها لازم نیست.
+این مثال یک ارائهٔ دارای ماکرو با یک جعبهٔ متن به نام `TextBox1` و یک دکمهٔ فرمان به نام `CommandButton1` در اسلاید اول انتظار دارد. از [control properties collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolpropertiescollection/) برای تغییر مقدار جعبهٔ متن و کپشن دکمه استفاده می‌کند. هر کنترل همچنین یک پیش‌نمایش ثابت دارد که PowerPoint می‌تواند قبل از فعال‌سازی نمایش دهد. برای هر کنترل یک تصویر PNG حاوی متن و ظاهر به‌روز شده عرضه کنید. مثال این تصاویر را از طریق [IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getSubstitutePictureFormat--) تعیین می‌کند.
 
-**کنترل‌های ActiveX چگونه با اشیاء OLE در یک ارائه متفاوت هستند؟**
+مثال همهٔ کنترل‌های اسلاید اول را با تنظیم فریم آنها از طریق [IControl.setFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-) به سمت پایین ۱۰۰ نقطه جابجا می‌کند. پس از ذخیرهٔ ارائه ویرایش‌شده در قالب PPTM، از [IControlCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/#clear--) برای ذخیرهٔ نسخهٔ دوم بدون هیچ‌یک از کنترل‌های ActiveX استفاده می‌کند.
 
-کنترل‌های ActiveX کنترل‌های تعاملی مدیریت‌شده هستند (دکمه‌ها، جعبه‌های متن، پخش‌کننده رسانه)، در حالی که [OLE](/slides/fa/androidjava/manage-ole/) به اشیاء برنامه‌نویسی داخلی (مثلاً یک شیت کاری Excel) اشاره دارد. این‌ها به‌صورت متفاوتی ذخیره و مدیریت می‌شوند و مدل ویژگی‌های متفاوتی دارند.
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.io.FileInputStream;
 
-**آیا رویدادهای ActiveX و ماکروهای VBA در صورتی که فایل توسط Aspose.Slides اصلاح شود، کار می‌کنند؟**
+Presentation presentation = new Presentation("ActiveX.pptm");
+try {
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
+    }
 
-Aspose.Slides نشان‌گذاری و متادیتای موجود را حفظ می‌کند؛ با این حال، رویدادها و ماکروها فقط در PowerPoint در ویندوز و زمانی که امنیت اجازه دهد اجرا می‌شوند. این کتابخانه VBA را اجرا نمی‌کند.
+    IPPImage textBoxPreview;
+    IPPImage buttonPreview;
+    try (FileInputStream textBoxStream = new FileInputStream("text-box-preview.png");
+         FileInputStream buttonStream = new FileInputStream("button-preview.png")) {
+        textBoxPreview = presentation.getImages().addImage(textBoxStream);
+        buttonPreview = presentation.getImages().addImage(buttonStream);
+    }
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
+
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
+    }
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
+
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
+
+## **افزودن کنترل پخش‌کننده رسانه‌ای ActiveX**
+
+برای استفاده مجدد از کنترل Windows Media Player پیکربندی‌شده، از قالبی که اسلاید اول آن شامل یک پخش‌کننده به نام `WindowsMediaPlayer1` است آغاز کنید. [ISlideCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) کل اسلاید را به ارائهٔ جدید کپی می‌کند. مثال آدرس `URL` پخش‌کننده را در [properties collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolpropertiescollection/) تنظیم می‌کند و اسلاید کپی‌شده را به‌عنوان تنها اسلاید در خروجی ذخیره می‌دارد. ویدئو به‌صورت خارجی باقی می‌ماند، بنابراین مسیر دسترسی پخش‌کننده در زمان پخش را انتخاب کنید.
+
+```java
+import com.aspose.slides.*;
+
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
+            }
+        }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
+}
+```
+
+## **پرسش‌های متداول**
+
+**آیا Aspose.Slides می‌تواند کنترل‌های ActiveX را بدون اجرا کردن آنها حفظ کند؟**
+
+بله. Aspose.Slides می‌تواند کنترل‌ها را به همراه ویژگی‌ها و موقعیت‌هایشان بخواند و ذخیره کند بدون اینکه آنها را فعال کند.
+
+**کنترل‌های ActiveX چطور با اشیاء OLE متفاوت هستند؟**
+
+کنترل‌های ActiveX به کاربران اجازه می‌دهند با اسلاید تعامل داشته باشند، برای مثال متن وارد کنند یا روی دکمه کلیک کنند. یک [شی OLE](/slides/fa/androidjava/manage-ole/) به اسلاید این امکان را می‌دهد که محتوای مدیریت‌شده توسط برنامهٔ دیگری مانند یک کاربرگ Excel را شامل یا به آن لینک کند.
+
+**آیا پس از ذخیرهٔ ارائه با Aspose.Slides، رویدادهای ActiveX هنوز ماکروهای VBA را اجرا می‌کنند؟**
+
+برای حفظ پروژهٔ VBA، ارائه را در قالبی با پشتیبانی از ماکروها مثل PPTM ذخیره کنید. PowerPoint برای Windows می‌تواند هندلرهای رویداد موجود را اجرا کند هنگامی که تنظیمات امنیتی اجازهٔ استفاده از هر دو کنترل ActiveX و ماکروها را می‌دهند.

@@ -1,5 +1,5 @@
 ---
-title: Python을 사용하여 프레젠테이션에서 ActiveX 컨트롤 관리
+title: Python을 사용한 프레젠테이션의 ActiveX 컨트롤 관리
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,23 +15,15 @@ keywords:
 - 프레젠테이션
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java가 ActiveX를 사용하여 PowerPoint 프레젠테이션을 자동화하고 향상시키는 방법을 배우고, 개발자에게 슬라이드에 대한 강력한 제어 기능을 제공합니다."
+description: "Aspose.Slides for Python via Java를 사용하여 PowerPoint 프레젠테이션에서 ActiveX 텍스트 상자와 버튼을 편집하고, 컨트롤 미리보기를 업데이트하며, Windows Media Player 컨트롤을 재사용합니다."
 ---
 ## **소개**
 
-ActiveX 컨트롤은 프레젠테이션에서 사용됩니다. Aspose.Slides for Python via Java를 사용하면 ActiveX 컨트롤을 추가하고 관리할 수 있지만 일반 프레젠테이션 도형에 비해 다루기가 다소 까다롭습니다. Aspose.Slides는 Media Player ActiveX 컨트롤 추가를 지원합니다. ActiveX 컨트롤은 도형이 아니며 프레젠테이션의 [ShapeCollection](https://reference.aspose.com/slides/ko/python-java/aspose.slides/shapecollection/)에 포함되지 않습니다. 대신 별도의 [ControlCollection](https://reference.aspose.com/slides/ko/python-java/aspose.slides/controlcollection/)에 포함됩니다. 이 항목에서는 해당 컨트롤을 사용하는 방법을 보여드리겠습니다.
+ActiveX 컨트롤은 텍스트 상자, 명령 단추 및 미디어 플레이어와 같은 대화형 요소를 PowerPoint 슬라이드에 제공합니다. Aspose.Slides for Python via Java는 슬라이드의 컨트롤을 [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls) 를 통해 노출합니다. 이 컬렉션을 사용하여 컨트롤을 편집하거나 슬라이드에서 이동하거나 제거할 수 있습니다.
 
-## **슬라이드에 Media Player ActiveX 컨트롤 추가**
+## **ActiveX 컨트롤 및 저장된 속성 목록**
 
-Media Player ActiveX 컨트롤을 추가하려면 다음을 수행합니다:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스를 인스턴스화하고 빈 프레젠테이션을 생성합니다.
-2. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/)에서 대상 슬라이드에 접근합니다.
-3. [ControlCollection](https://reference.aspose.com/slides/ko/python-java/aspose.slides/controlcollection/)이 제공하는 [addControl](https://reference.aspose.com/slides/ko/python-java/aspose.slides/controlcollection/#addControl) 메서드를 사용해 Media Player ActiveX 컨트롤을 추가합니다.
-4. Media Player ActiveX 컨트롤에 접근하고 해당 속성을 사용해 비디오 경로를 설정합니다.
-5. 프레젠테이션을 PPTX 파일로 저장합니다.
-
-위 단계에 따라 슬라이드에 Media Player ActiveX 컨트롤을 추가하는 예제 코드입니다:
+익숙하지 않은 템플릿을 검사하려면 읽기 전용으로 열고 각 슬라이드의 컨트롤을 반복합니다. 예제는 슬라이드 번호, 컨트롤 이름, [getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId), 및 [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties)에서 각 키-값 쌍을 보고합니다. 컨트롤을 활성화하거나 이벤트 또는 매크로를 호출하거나 값을 변경하거나 파일을 저장하지 않고 프레젠테이션을 읽습니다.
 
 ```python
 import jpype
@@ -40,45 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# 빈 프레젠테이션을 생성합니다.
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # Media Player ActiveX 컨트롤을 추가합니다.
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # 비디오 경로를 설정합니다.
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # 프레젠테이션을 저장합니다.
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
+`ActiveX.pptm`의 선택된 출력은 텍스트 상자와 명령 단추를 보여 줍니다.
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+`[]` 로 빈 속성 컬렉션이 표시됩니다. 바이너리 저장소를 사용하는 컨트롤의 경우 [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) 은 `None` 을 반환할 수 있으며, 이는 `Properties unavailable` 로 표시됩니다. 이름만 필요하면 컬렉션이 사용 가능한지 확인한 후 [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) 를 사용하십시오. 보고서는 프레젠테이션에서 사용할 수 있는 속성을 나열합니다. 컨트롤은 런타임에 추가 속성을 지원할 수 있습니다.
+
 ## **ActiveX 컨트롤 수정**
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java는 ActiveX 컨트롤 관리를 위한 구성 요소를 제공합니다. 프레젠테이션에 이미 추가된 ActiveX 컨트롤에 접근하여 해당 속성을 통해 수정하거나 삭제할 수 있습니다.
-{{% /alert %}}
+예제는 첫 번째 슬라이드에 `TextBox1`이라는 텍스트 상자와 `CommandButton1`이라는 명령 단추가 있는 매크로 사용 프레젠테이션을 기대합니다. 텍스트 상자 값과 단추 캡션을 변경하기 위해 [control properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) 을 사용합니다. 각 컨트롤은 활성화 전에 PowerPoint가 표시할 수 있는 정적 미리보기도 가집니다. 업데이트된 텍스트와 모양을 보여 주는 PNG를 각 컨트롤에 제공하십시오. 예제는 이러한 이미지를 [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat) 을 통해 할당합니다.
 
-슬라이드에서 텍스트 상자와 단순 명령 버튼과 같은 기본 ActiveX 컨트롤을 관리하려면 다음을 수행합니다:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/) 클래스를 인스턴스화하고 ActiveX 컨트롤이 포함된 프레젠테이션을 로드합니다.
-2. 인덱스로 슬라이드 참조를 얻습니다.
-3. 슬라이드의 [ControlCollection](https://reference.aspose.com/slides/ko/python-java/aspose.slides/controlcollection/)에 접근합니다.
-4. [Control](https://reference.aspose.com/slides/ko/python-java/aspose.slides/control/) 객체를 사용해 TextBox1 ActiveX 컨트롤에 접근합니다.
-5. 텍스트, 글꼴, 글꼴 높이 및 프레임 위치를 포함한 TextBox1 ActiveX 컨트롤의 속성을 변경합니다.
-6. 두 번째 ActiveX 컨트롤인 CommandButton1에 접근합니다.
-7. 버튼 캡션, 글꼴 및 위치를 변경합니다.
-8. ActiveX 컨트롤 프레임의 위치를 이동합니다.
-9. 수정된 프레젠테이션을 PPTM 파일로 저장합니다.
-
-위 단계에 따라 간단한 ActiveX 컨트롤을 관리하는 샘플 코드입니다:
+예제는 [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame) 으로 프레임을 설정하여 첫 번째 슬라이드의 모든 컨트롤을 100 포인트 아래로 이동시킵니다. 편집된 프레젠테이션을 PPTM 형식으로 저장하고, 그 후 [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) 을 사용하여 해당 슬라이드에서 모든 ActiveX 컨트롤이 제거된 두 번째 사본을 저장합니다.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -86,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# ActiveX 컨트롤이 포함된 프레젠테이션을 로드합니다.
 presentation = Presentation("ActiveX.pptm")
 try:
-    if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-        # 첫 번째 슬라이드에 접근합니다.
-        slide = presentation.getSlides().get_Item(0)
-
-        # 텍스트 상자 텍스트를 변경합니다.
-        control = slide.getControls().get_Item(0)
-
-        if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-            new_text = "Changed text"
-            control.getProperties().set_Item("Value", new_text)
-
-            # 대체 이미지를 변경합니다. PowerPoint는 ActiveX 활성화 중에 이를 교체하므로,
-            # 따라서 때때로 변경되지 않을 수 있습니다.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.window)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            graphics.drawString(new_text, 10, 20)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # 버튼 캡션을 변경합니다.
-        control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-        if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-            new_caption = "Show MessageBox"
-            control.getProperties().set_Item("Caption", new_caption)
-            # 대체 이미지를 변경합니다.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.control)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            metrics = graphics.getFontMetrics(font)
-            graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # 컨트롤을 아래쪽으로 100 포인트 이동합니다.
-        for control in slide.getControls():
-            frame = control.getFrame()
-            new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-            control.setFrame(new_frame)
-        presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-        # 컨트롤을 제거합니다.
-        presentation.getSlides().get_Item(0).getControls().clear()
-        presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
     else:
-        print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
+
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
+
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
     presentation.dispose()
 ```
 
+## **ActiveX 미디어 플레이어 컨트롤 추가**
+
+구성된 Windows Media Player 컨트롤을 재사용하려면 첫 번째 슬라이드에 `WindowsMediaPlayer1`이라는 플레이어가 포함된 템플릿으로 시작합니다. [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) 은 전체 슬라이드를 새 프레젠테이션으로 복사합니다. 예제는 플레이어의 `URL`을 [properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) 에 설정하고 복제된 슬라이드를 출력의 유일한 슬라이드로 저장합니다. 비디오 파일은 외부에 남아 있으므로 재생 중에 플레이어가 접근할 수 있는 경로를 선택하십시오.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
+
 ## **FAQ**
 
-**Aspose.Slides가 Python 런타임에서 실행될 수 없을 경우에도 ActiveX 컨트롤을 읽고 다시 저장할 때 보존합니까?**
+**Aspose.Slides가 ActiveX 컨트롤을 실행하지 않고 보존할 수 있나요?**
 
-예. Aspose.Slides는 이를 프레젠테이션의 일부로 취급하며 해당 속성과 프레임을 읽고 수정할 수 있습니다. 컨트롤 자체를 실행할 필요는 없습니다.
+예. Aspose.Slides는 컨트롤을 활성화하지 않고도 해당 속성과 위치를 포함하여 읽고 저장할 수 있습니다.
 
-**ActiveX 컨트롤과 프레젠테이션의 OLE 객체는 어떻게 다릅니까?**
+**ActiveX 컨트롤은 OLE 개체와 어떻게 다릅니까?**
 
-ActiveX 컨트롤은 인터랙티브하게 관리되는 컨트롤(버튼, 텍스트 박스, 미디어 플레이어)이며, [OLE](/slides/ko/python-java/manage-ole/)는 임베드된 응용 프로그램 객체(예: Excel 워크시트)를 의미합니다. 저장 및 처리 방식과 속성 모델이 다릅니다.
+ActiveX 컨트롤은 사용자가 텍스트를 입력하거나 버튼을 클릭하는 등 슬라이드와 상호 작용할 수 있게 합니다. [OLE 개체](/slides/ko/python-java/manage-ole/) 는 슬라이드가 다른 애플리케이션에서 관리되는 콘텐츠(예: Excel 워크시트)를 포함하거나 연결하도록 합니다.
 
-**파일이 Aspose.Slides에 의해 수정된 경우 ActiveX 이벤트 및 VBA 매크로가 작동합니까?**
+**Aspose.Slides로 프레젠테이션을 저장한 후에도 ActiveX 이벤트가 VBA 매크로를 계속 트리거합니까?**
 
-Aspose.Slides는 기존 마크업과 메타데이터를 보존하지만, 이벤트와 매크로는 보안이 허용되는 Windows 환경의 PowerPoint에서만 실행됩니다. 이 라이브러리는 VBA를 실행하지 않습니다.
+PPTM과 같은 매크로 사용 형식으로 프레젠테이션을 저장하여 VBA 프로젝트를 유지하십시오. Windows용 PowerPoint는 보안 설정에서 ActiveX 컨트롤과 매크로 모두를 허용할 때 기존 이벤트 처리기를 실행할 수 있습니다.

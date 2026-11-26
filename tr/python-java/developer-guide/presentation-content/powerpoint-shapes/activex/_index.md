@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda Python ile ActiveX Denetimlerini Yönetme
+title: Python ile Sunumlarda ActiveX Kontrollerini Yönet
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -8,30 +8,22 @@ keywords:
 - ActiveX
 - ActiveX denetimi
 - ActiveX yönetimi
-- ActiveX ekleme
-- ActiveX değiştirme
+- ActiveX ekle
+- ActiveX değiştir
 - medya oynatıcı
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java'ın ActiveX kullanarak PowerPoint sunumlarını otomatikleştirme ve geliştirme, geliştiricilere slaytlar üzerinde güçlü kontrol sağlayan yollarını öğrenin."
+description: "Aspose.Slides for Python via Java ile PowerPoint sunumlarında ActiveX metin kutularını ve düğmelerini düzenleyin, denetim önizlemelerini güncelleyin ve Windows Media Player denetimini yeniden kullanın."
 ---
 ## **Giriş**
 
-ActiveX denetimleri sunumlarda kullanılır. Aspose.Slides for Python via Java, ActiveX denetimlerini eklemenize ve yönetmenize olanak tanır, ancak normal sunum şekilleriyle karşılaştırıldığında yönetimi biraz daha zordur. Aspose.Slides, Medya Oynatıcı ActiveX denetimlerinin eklenmesini destekler. ActiveX denetimlerinin şekil olmadığına dikkat edin; bunlar sunumun [ShapeCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapecollection/) kısmının bir parçası değildir. Bunun yerine ayrı bir [ControlCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/controlcollection/) bölümünün parçasıdır. Bu konuda, bunlarla nasıl çalışılacağını göstereceğiz.
+ActiveX denetimleri, bir PowerPoint slaytına metin kutuları, komut düğmeleri ve medya oynatıcıları gibi etkileşimli öğeler ekler. Aspose.Slides for Python via Java, bir slaydın denetimlerini [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls) aracılığıyla ortaya çıkarır. Bu koleksiyonu bir denetimi düzenlemek, slayt üzerinde taşımak veya kaldırmak için kullanın.
 
-## **Bir Slayta Medya Oynatıcı ActiveX Denetimi Ekleme**
+## **ActiveX Kontrollerini ve Saklanan Özelliklerini Listele**
 
-Bir ActiveX Medya Oynatıcı denetimi eklemek için şu adımları izleyin:
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının örneğini oluşturun ve boş bir sunum örneği oluşturun.  
-2. Hedef slayta, [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) içinde erişin.  
-3. [ControlCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/controlcollection/) tarafından sunulan [addControl](https://reference.aspose.com/slides/tr/python-java/aspose.slides/controlcollection/#addControl) metodunu kullanarak Medya Oynatıcı ActiveX denetimini ekleyin.  
-4. Medya Oynatıcı ActiveX denetimine erişin ve özelliklerini kullanarak video yolunu ayarlayın.  
-5. Sunumu PPTX dosyası olarak kaydedin.
-
-Yukarıdaki adımlara dayanan bu örnek kod, bir slayta Medya Oynatıcı ActiveX denetimi eklemeyi gösterir:
+Tanıdık olmayan bir şablonu incelemek için, dosyayı okuma modunda açın ve her slayttaki denetimler üzerinde döngü yapın. Örnek, slayt numarasını, denetim adını, [getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId) ve [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) içindeki her anahtar-değer çiftini rapor eder. Sunumu, denetimleri etkinleştirmeden, olayları veya makroları çalıştırmadan, değerleri değiştirmeden veya dosyayı kaydetmeden okur.
 
 ```python
 import jpype
@@ -40,43 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# Boş bir sunum oluştur.
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # Medya Oynatıcı ActiveX denetimini ekle.
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # Video yolunu ayarla.
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # Sunumu kaydet.
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
-## **ActiveX Denetimini Değiştirme**
+`ActiveX.pptm` dosyasından seçilen çıktı bir metin kutusunu ve bir komut düğmesini gösterir.
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java, ActiveX denetimlerini yönetmek için bileşenler sağlar. Sunumunuzda zaten eklenmiş olan ActiveX denetimine erişebilir ve özellikleri aracılığıyla onu değiştirebilir veya silebilirsiniz.
-{{% /alert %}}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-Bir slaytta metin kutusu ve basit bir komut düğmesi gibi basit bir ActiveX denetimini yönetmek için şu adımları izleyin:
+Boş bir özellik koleksiyonu `[]` olarak görüntülenir. İkili depolama kullanan denetimler için, [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) `None` döndürebilir; bu da `Properties unavailable` olarak gösterilir. Yalnızca adlara ihtiyacınız varsa, koleksiyonun mevcut olduğunu kontrol ettikten sonra [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) kullanın. Rapor, sunumda mevcut olan özellikleri listeler. Bir denetim, çalışma zamanında ek özellikleri destekleyebilir.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının örneğini oluşturun ve içinde ActiveX denetimleri bulunan sunumu yükleyin.  
-2. İndeksine göre bir slayt referansı alın.  
-3. Slayttaki ActiveX denetimlerine, [ControlCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/controlcollection/)’a erişerek ulaşın.  
-4. [Control](https://reference.aspose.com/slides/tr/python-java/aspose.slides/control/) nesnesini kullanarak TextBox1 ActiveX denetimine erişin.  
-5. Metin, yazı tipi, yazı tipi yüksekliği ve çerçeve konumunu içeren TextBox1 ActiveX denetiminin özelliklerini değiştirin.  
-6. CommandButton1 adlı ikinci ActiveX denetimine erişin.  
-7. Düğme başlığını, yazı tipini ve konumunu değiştirin.  
-8. ActiveX denetimlerinin çerçeve konumlarını kaydırın.  
-9. Değiştirilen sunumu bir PPTM dosyasına yazın.
+## **ActiveX Kontrollerini Değiştir**
+
+Örnek, birinci slaytta `TextBox1` adlı bir metin kutusu ve `CommandButton1` adlı bir komut düğmesi içeren makro etkin bir sunum bekler. Metin kutusu değerini ve düğme başlığını değiştirmek için [control properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) kullanır. Her denetimin, PowerPoint'in etkinleştirmeden önce görüntüleyebileceği statik bir önizlemesi de vardır. Güncellenmiş metin ve görünümünü gösteren bir PNG dosyasını her denetim için sağlayın. Örnek, bu görselleri [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat) aracılığıyla atar.
+
+Örnek, birinci slayttaki tüm denetimleri [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame) kullanarak çerçevesini ayarlayarak 100 puan aşağı kaydırır. Düzenlenmiş sunumu PPTM formatında kaydeder, ardından [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) kullanarak o slayttan tüm ActiveX denetimlerini kaldırılmış ikinci bir kopya kaydeder.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -84,129 +80,78 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# ActiveX denetimlerini içeren sunumu yükle.
 presentation = Presentation("ActiveX.pptm")
 try:
-    if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-        # İlk slayta eriş.
-        slide = presentation.getSlides().get_Item(0)
-
-        # Metin kutusunun metnini değiştir.
-        control = slide.getControls().get_Item(0)
-
-        if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-            new_text = "Changed text"
-            control.getProperties().set_Item("Value", new_text)
-
-            # Yedek resmi değiştir. PowerPoint, ActiveX etkinleştirilirken resmi değiştirir,
-            # bu yüzden bazen değişmeden bırakılabilir.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.window)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            graphics.drawString(new_text, 10, 20)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Düğme başlığını değiştir.
-        control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-        if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-            new_caption = "Show MessageBox"
-            control.getProperties().set_Item("Caption", new_caption)
-            # Yedek resmi değiştir.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.control)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            metrics = graphics.getFontMetrics(font)
-            graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Denetimleri 100 puan aşağı kaydır.
-        for control in slide.getControls():
-            frame = control.getFrame()
-            new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-            control.setFrame(new_frame)
-        presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-        # Denetimleri kaldır.
-        presentation.getSlides().get_Item(0).getControls().clear()
-        presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
     else:
-        print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
+
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
+
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
     presentation.dispose()
 ```
 
+## **Bir ActiveX Medya Oynatıcı Denetimi Ekle**
+
+Yapılandırılmış bir Windows Media Player denetimini yeniden kullanmak için, birinci slaytında `WindowsMediaPlayer1` adlı bir oynatıcı bulunan bir şablonla başlayın. [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) tüm slaytı yeni bir sunuma kopyalar. Örnek, oynatıcının `URL`'sini [properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) içinde ayarlar ve kopyalanan slaytı çıktının tek slaytı olarak kaydeder. Video harici kalır, bu yüzden oynatıcı oynatma sırasında erişebileceği bir yol seçin.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
+
 ## **SSS**
 
-**Aspose.Slides, Python çalışma zamanında çalıştırılamazsa, okuma ve yeniden kaydetme sırasında ActiveX denetimlerini korur mu?**  
-**Evet. Aspose.Slides, bunları sunumun bir parçası olarak ele alır ve özelliklerini ve çerçevelerini okuyup/değiştirebilir; denetimlerin kendisini çalıştırmak, onları korumak için gerekli değildir.**
+**Aspose.Slides ActiveX denetimlerini çalıştırmadan koruyabilir mi?**  
+Evet. Aspose.Slides, denetimlerin özellikleri ve konumları dahil olmak üzere, denetimleri etkinleştirmeden okuyabilir ve kaydedebilir.
 
-**ActiveX denetimleri, bir sunumdaki OLE nesnelerinden nasıl farklıdır?**  
-ActiveX denetimleri, (düğmeler, metin kutuları, medya oynatıcı gibi) etkileşimli yönetilen denetimlerdir, oysa [OLE](/slides/tr/python-java/manage-ole/) gömülü uygulama nesnelerini (örneğin bir Excel çalışma sayfası) ifade eder. Bunlar farklı şekilde depolanır ve işlenir ve farklı özellik modellerine sahiptir.
+**ActiveX denetimleri OLE nesnelerinden nasıl farklıdır?**  
+ActiveX denetimleri, kullanıcıların bir slayt ile etkileşime girmesini sağlar; örneğin metin girme veya bir düğmeye tıklama gibi. Bir [OLE object](/slides/tr/python-java/manage-ole/) ise bir slaydın, başka bir uygulama tarafından yönetilen bir içeriği (örneğin bir Excel çalışma sayfası) içermesine veya ona bağlanmasına olanak tanır.
 
-**Dosya Aspose.Slides tarafından değiştirilmişse, ActiveX olayları ve VBA makroları çalışır mı?**  
-Aspose.Slides mevcut işaretlemeyi ve meta verileri korur; ancak olaylar ve makrolar, güvenlik izin verdiğinde yalnızca Windows'taki PowerPoint içinde çalışır. Kütüphane VBA'yı çalıştırmaz.
+**AktifX olayları, bir sunumu Aspose.Slides ile kaydettikten sonra VBA makrolarını tetiklemeye devam eder mi?**  
+VBA projesini korumak için sunumu PPTM gibi makro etkin bir formatta kaydedin. Windows için PowerPoint, güvenlik ayarları hem ActiveX denetimlerine hem de makrolara izin verdiğinde mevcut olay işleyicilerini çalıştırabilir.

@@ -1,197 +1,171 @@
 ---
-title: Beheer ActiveX-besturingselementen in presentaties met Java
+title: Beheer ActiveX-controls in presentaties in Java
 linktitle: ActiveX
 type: docs
 weight: 80
 url: /nl/java/activex/
 keywords:
 - ActiveX
-- ActiveX-besturingselement
+- ActiveX-control
 - ActiveX beheren
 - ActiveX toevoegen
-- ActiveX aanpassen
+- ActiveX wijzigen
 - mediaspeler
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Leer hoe Aspose.Slides for Java ActiveX benut om PowerPoint-presentaties te automatiseren en te verbeteren, waardoor ontwikkelaars krachtige controle over dia's krijgen."
+description: "Bewerk ActiveX-tekstvakken en -knoppen, werk de voorbeeldweergaven van controls bij, en hergebruik een Windows Media Player-control in PowerPoint-presentaties met Aspose.Slides voor Java."
 ---
-## **Introductie**
+## **Inleiding**
 
-ActiveX‑besturingselementen worden gebruikt in presentaties. Aspose.Slides for Java stelt u in staat om ActiveX‑besturingselementen toe te voegen en te beheren, maar ze zijn wat lastiger te beheren in vergelijking met normale presentatievormen. We hebben ondersteuning geïmplementeerd voor het toevoegen van een Media Player Active control in Aspose.Slides. Merk op dat ActiveX‑besturingselementen geen vormen zijn; ze maken geen deel uit van de presentatie‑[IShapeCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/). Ze behoren in plaats daarvan tot de aparte [IControlCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icontrolcollection/) . In dit onderwerp laten we zien hoe u ermee kunt werken. 
+ActiveX-controls geven een PowerPoint-dia interactieve elementen zoals tekstvakken, opdrachtknoppen en mediaplayers. Aspose.Slides for Java maakt de controls van een dia toegankelijk via [IBaseSlide.getControls](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getControls--). Gebruik deze collectie om een control te bewerken, te verplaatsen op de dia, of te verwijderen.
 
-## **Een Media Player ActiveX‑besturingselement toevoegen aan een dia**
-Om een ActiveX Media Player‑besturingselement toe te voegen, doet u het volgende:
+## **Lijst van ActiveX-controls en hun opgeslagen eigenschappen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation) klasse en genereer een lege presentatie‑instantie.
-2. Open de doel‑dia in de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation).
-3. Voeg het Media Player ActiveX‑besturingselement toe met behulp van de [addControl](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) methode die wordt aangeboden door [IControlCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icontrolcollection/).
-4. Open het Media Player ActiveX‑besturingselement en stel het videopad in via zijn eigenschappen.
-5. Sla de presentatie op als een PPTX‑bestand.
-
-Deze voorbeeldcode, gebaseerd op de bovenstaande stappen, toont hoe u een Media Player ActiveX‑besturingselement aan een dia kunt toevoegen:
+Om een onbekende template te inspecteren, open je deze voor lezen en itereren door de controls op elke dia. Het voorbeeld rapporteert het diapnummer, de controlnaam, [getClassId](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getClassId--), en elk sleutel-waarde-paar in [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--). Het leest de presentatie zonder de controls te activeren, gebeurtenissen of macro's aan te roepen, waarden te wijzigen, of het bestand op te slaan.
 
 ```java
-// Maak lege presentatie‑instantie
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // Voeg het Media Player ActiveX‑besturingselement toe
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // Open het Media Player ActiveX‑besturingselement en stel het videopad in
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // Sla de presentatie op
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Een ActiveX‑besturingselement aanpassen**
-{{% alert color="primary" %}} 
+Geselecteerde output van `ActiveX.pptm` toont een tekstvak en een opdrachtknop.
 
-Aspose.Slides for Java 7.1.0 en nieuwere versies zijn uitgerust met componenten voor het beheren van ActiveX‑besturingselementen. U kunt het reeds toegevoegde ActiveX‑besturingselement in uw presentatie benaderen en via de eigenschappen aanpassen of verwijderen.
-
-{{% /alert %}} 
-
-Om een eenvoudig ActiveX‑besturingselement zoals een tekstvak en een eenvoudige commandoknop op een dia te beheren, doet u het volgende:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation) klasse en laad de presentatie met ActiveX‑besturingselementen.
-2. Verkrijg een dia‑referentie aan de hand van de index.
-3. Benader de ActiveX‑besturingselementen op de dia via de [IControlCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icontrolcollection/).
-4. Open het TextBox1 ActiveX‑besturingselement met behulp van het [IControl](https://reference.aspose.com/slides/nl/java/com.aspose.slides/icontrol/) object.
-5. Wijzig de eigenschappen van het TextBox1 ActiveX‑besturingselement, waaronder tekst, lettertype, lettergrootte en positie van het frame.
-6. Open het tweede besturingselement genaamd CommandButton1.
-7. Wijzig de knopbijschrift, het lettertype en de positie.
-8. Verschuif de positie van de frames van de ActiveX‑besturingselementen.
-9. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-Deze voorbeeldcode, gebaseerd op de bovenstaande stappen, laat zien hoe u een eenvoudig ActiveX‑besturingselement kunt beheren: 
-
-```java
-// Toegang tot de presentatie met ActiveX‑besturingselementen
-Presentation pres = new Presentation("ActiveX.pptm");
-try {
-    // Toegang tot de eerste dia in de presentatie
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // tekstvaktekst wijzigen
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // Vervangende afbeelding wijzigen. PowerPoint zal deze afbeelding vervangen tijdens ActiveX‑activatie,
-        // dus soms is het OK om de afbeelding ongewijzigd te laten.
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-    }
-
-    // Knopbijschrift wijzigen
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // Vervangende afbeelding wijzigen
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-                graphics.dispose();
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "PNG", baos);
-
-                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-            }
-
-            // 100 punten naar beneden verplaatsen
-            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-                IShapeFrame frame = ctl.getFrame();
-                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-            }
-            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
-
-            // besturingselementen verwijderen
-            pres.getSlides().get_Item(0).getControls().clear();
-            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-        } catch(IOException e) {
-        } finally {
-            if (pres != null) pres.dispose();
-        }
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
-## **FAQ**
+Een lege eigenschapencollectie verschijnt als `[]`. Voor controls die binaire opslag gebruiken, kan [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--) `null` retourneren, weergegeven als `Properties unavailable`. Als je alleen de namen nodig hebt, gebruik dan [getNamesOfProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--) na de null-check. Het rapport geeft de beschikbare eigenschappen weer uit de presentatie. Een control kan tijdens runtime extra eigenschappen ondersteunen.
 
-**Behoudt Aspose.Slides ActiveX‑besturingselementen bij het lezen en opnieuw opslaan als ze niet uitgevoerd kunnen worden in de Java‑runtime?**
+## **ActiveX-controls wijzigen**
 
-Ja. Aspose.Slides beschouwt ze als onderdeel van de presentatie en kan hun eigenschappen en frames lezen/wijzigen; het uitvoeren van de besturingselementen zelf is niet vereist om ze te behouden.
+Het voorbeeld verwacht een macro-ingeschakelde presentatie met een tekstvak genaamd `TextBox1` en een opdrachtknop genaamd `CommandButton1` op de eerste dia. Het gebruikt de [collectie van control‑eigenschappen](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) om de waarde van het tekstvak en de bijschrift van de knop te wijzigen. Elke control heeft ook een statische voorbeeldweergave die PowerPoint kan tonen vóór activatie. Lever een PNG voor elke control die de bijgewerkte tekst en weergave toont. Het voorbeeld kent deze afbeeldingen toe via [IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getSubstitutePictureFormat--).
 
-**Hoe verschillen ActiveX‑besturingselementen van OLE‑objecten in een presentatie?**
+Het voorbeeld verplaatst elke control op de eerste dia 100 punten naar beneden door het frame in te stellen met [IControl.setFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-). Het slaat de bewerkte presentatie op in PPTM‑formaat, en gebruikt vervolgens [IControlCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/#clear--) om een tweede kopie op te slaan waarbij alle ActiveX-controls van die dia zijn verwijderd.
 
-ActiveX‑besturingselementen zijn interactieve beheerde besturingselementen (knoppen, tekstvakken, mediaspeler), terwijl [OLE](/slides/nl/java/manage-ole/) verwijst naar ingesloten toepassingsobjecten (bijvoorbeeld een Excel‑werkblad). Ze worden op een andere manier opgeslagen en behandeld en hebben verschillende eigenschapsmodellen.
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-**Werken ActiveX‑gebeurtenissen en VBA‑macro's als het bestand is aangepast door Aspose.Slides?**
+Presentation presentation = new Presentation("ActiveX.pptm");
+try {
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
+    }
 
-Aspose.Slides behoudt de bestaande markup en metadata; echter, gebeurtenissen en macro's worden alleen uitgevoerd binnen PowerPoint op Windows wanneer de beveiliging dit toestaat. De bibliotheek voert geen VBA uit.
+    Path textBoxPath = Paths.get("text-box-preview.png");
+    Path buttonPath = Paths.get("button-preview.png");
+    byte[] textBoxBytes = Files.readAllBytes(textBoxPath);
+    byte[] buttonBytes = Files.readAllBytes(buttonPath);
+    IPPImage textBoxPreview = presentation.getImages().addImage(textBoxBytes);
+    IPPImage buttonPreview = presentation.getImages().addImage(buttonBytes);
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
+
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
+    }
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
+
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ActiveX‑mediaplayer‑control toevoegen**
+
+Om een geconfigureerde Windows Media Player‑control opnieuw te gebruiken, begin met een template waarvan de eerste dia een speler bevat genaamd `WindowsMediaPlayer1`. [ISlideCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) kopieert de volledige dia naar een nieuwe presentatie. Het voorbeeld stelt de `URL` van de speler in in zijn [eigenschappen‑collectie](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) en slaat de gekloonde dia op als de enige dia in de output. De video blijft extern, kies daarom een pad dat de speler tijdens het afspelen kan bereiken.
+
+```java
+import com.aspose.slides.*;
+
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
+            }
+        }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+        
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
+}
+```
+
+## **Veelgestelde vragen**
+
+**Kan Aspose.Slides ActiveX-controls behouden zonder ze uit te voeren?**
+
+Ja. Aspose.Slides kan controls lezen en opslaan, inclusief hun eigenschappen en posities, zonder ze te activeren.
+
+**Hoe verschillen ActiveX-controls van OLE‑objecten?**
+
+ActiveX-controls laten gebruikers met een dia interageren, bijvoorbeeld door tekst in te voeren of op een knop te klikken. Een [OLE‑object](/slides/nl/java/manage-ole/) laat een dia inhoud bevatten of koppelen die wordt beheerd door een andere applicatie, zoals een Excel-werkblad.
+
+**Zullen ActiveX‑gebeurtenissen nog steeds VBA‑macro’s activeren nadat ik een presentatie met Aspose.Slides heb opgeslagen?**
+
+Sla de presentatie op in een macro-ingeschakeld formaat zoals PPTM om het VBA-project te behouden. PowerPoint voor Windows kan de bestaande gebeurtenishandlers uitvoeren wanneer de beveiligingsinstellingen zowel ActiveX-controls als macro’s toestaan.

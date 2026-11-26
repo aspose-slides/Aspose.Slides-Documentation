@@ -6,7 +6,7 @@ weight: 80
 url: /ar/php-java/activex/
 keywords:
 - ActiveX
-- تحكم ActiveX
+- عنصر تحكم ActiveX
 - إدارة ActiveX
 - إضافة ActiveX
 - تعديل ActiveX
@@ -15,158 +15,169 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعرف على كيفية استفادة Aspose.Slides لـ PHP عبر Java من ActiveX لأتمتة وتحسين عروض PowerPoint التقديمية، مما يمنح المطورين تحكمًا قويًا في الشرائح."
+description: "تحرير مربعات النص وأزرار ActiveX، وتحديث معاينات عناصر التحكم، وإعادة استخدام عنصر تحكم Windows Media Player في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ PHP عبر Java."
 ---
+## **المقدمة**
 
-{{% alert color="primary" %}} 
+تمنح عناصر التحكم ActiveX شريحة PowerPoint عناصر تفاعلية مثل مربعي النص وأزرار الأوامر ومشغلات الوسائط. تتيح Aspose.Slides for PHP عبر Java وصول عناصر التحكم في الشريحة من خلال [BaseSlide::getControls](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getControls). استخدم هذا التجميع لتحرير عنصر تحكم أو تحريكه على الشريحة أو إزالته.
 
-تُستخدم عناصر التحكم ActiveX في العروض التقديمية. يتيح لك Aspose.Slides لـ PHP عبر Java إضافة وإدارة عناصر التحكم ActiveX، لكنها أصعب قليلاً في الإدارة مقارنةً بأشكال العرض العادية. لقد نفّذنا دعمًا لإضافة عنصر تحكم Media Player Active في Aspose.Slides. لاحظ أن عناصر التحكم ActiveX ليست أشكالًا؛ فهي ليست جزءًا من [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/). بل هي جزء من [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/) بدلاً من ذلك. في هذا الموضوع، سنُظهر لك كيفية العمل معها.
+## **قائمة عناصر التحكم ActiveX وخصائصها المخزنة**
 
-{{% /alert %}} 
+لتفحص قالب غير مألوف، افتحه للقراءة وتكرّر عبر عناصر التحكم في كل شريحة. التقرير المثال يعرض رقم الشريحة، اسم عنصر التحكم، [getClassId](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getClassId)، وكل زوج مفتاح‑قيمة في [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties). يقرأ العرض التقديمي دون تفعيل عناصر التحكم أو استدعاء الأحداث أو الماكرو أو تغيير القيم أو حفظ الملف.
 
-## **إضافة عنصر تحكم Media Player ActiveX إلى شريحة**
-لإضافة عنصر تحكم Media Player ActiveX، اتبع الخطوات التالية:
-
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وأنشئ عرضًا تقديميًا فارغًا.  
-2. الوصول إلى الشريحة المستهدفة في [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).  
-3. أضف عنصر تحكم Media Player ActiveX باستخدام الطريقة [addControl](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/addcontrol/) المعروضة من قبل [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/).  
-4. الوصول إلى عنصر تحكم Media Player ActiveX وتحديد مسار الفيديو باستخدام خصائصه.  
-5. احفظ العرض التقديمي كملف PPTX.  
-
-يُظهر رمز العينة هذا، بناءً على الخطوات السابقة، كيفية إضافة عنصر تحكم Media Player ActiveX إلى شريحة:
 ```php
-  # إنشاء مثيل عرض تقديمي فارغ
-  $pres = new Presentation();
-  try {
-    # إضافة عنصر تحكم Media Player ActiveX
-    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    # الوصول إلى عنصر تحكم Media Player ActiveX وتحديد مسار الفيديو
-    $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
-    # حفظ العرض التقديمي
-    $pres->save("Output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $slides = $presentation->getSlides();
+    for ($i = 0; $i < java_values($slides->size()); $i++) {
+        $controls = $slides->get_Item($i)->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            printf("Slide %d | %s | %s\n", $i + 1, $control->getName(), $control->getClassId());
+            $properties = $control->getProperties();
+            if (java_is_null($properties)) {
+                echo "  Properties unavailable\n";
+                continue;
+            }
+            if (java_values($properties->getCount()) === 0) {
+                echo "  []\n";
+                continue;
+            }
+            $names = $properties->getNamesOfProperties()->iterator();
+            while (java_values($names->hasNext())) {
+                $name = $names->next();
+                printf("  %s = %s\n", $name, $properties->get_Item($name));
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+يعرض الناتج المختار من `ActiveX.pptm` مربع نص وزر أمر.
 
-## **تعديل عنصر تحكم ActiveX**
-{{% alert color="primary" %}} 
-
-يتم تزويد Aspose.Slides لـ PHP عبر Java الإصدار 7.1.0 والإصدارات الأ newer بمكونات لإدارة عناصر التحكم ActiveX. يمكنك الوصول إلى عنصر التحكم ActiveX المضاف مسبقًا في عرضك التقديمي وتعديل أو حذف ذلك عبر خصائصه.
-
-{{% /alert %}} 
-
-لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط في شريحة، اتبع الخطوات التالية:
-
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وحمّل العرض التقديمي الذي يحتوي على عناصر التحكم ActiveX.  
-2. احصل على مرجع الشريحة باستخدام الفهرس الخاص بها.  
-3. الوصول إلى عناصر التحكم ActiveX في الشريحة عبر الوصول إلى [ControlCollection](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/).  
-4. الوصول إلى عنصر التحكم TextBox1 ActiveX باستخدام كائن [Control](https://reference.aspose.com/slides/php-java/aspose.slides/control/).  
-5. تغيير خصائص عنصر التحكم TextBox1 ActiveX التي تشمل النص، الخط، ارتفاع الخط، وموقع الإطار.  
-6. الوصول إلى عنصر التحكم الثاني المسمى CommandButton1.  
-7. تغيير تسمية الزر، الخط، والموقع.  
-8. تحريك موضع إطارات عناصر التحكم ActiveX.  
-9. اكتب العرض التقديمي المعدل إلى ملف PPTX.  
-
-يُظهر رمز العينة هذا، بناءً على الخطوات السابقة، كيفية إدارة عنصر تحكم ActiveX بسيط: 
-```php
-  # الوصول إلى العرض التقديمي مع عناصر تحكم ActiveX
-  $pres = new Presentation("ActiveX.pptm");
-  try {
-    # الوصول إلى الشريحة الأولى في العرض التقديمي
-    $slide = $pres->getSlides()->get_Item(0);
-    # تغيير نص مربع النص
-    $control = $slide->getControls()->get_Item(0);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
-      $newText = "Changed text";
-      $control->getProperties()->set_Item("Value", $newText);
-      # تغيير صورة البديل. سيستبدل PowerPoint هذه الصورة أثناء تنشيط ActiveX،
-      # لذلك في بعض الأحيان يمكن ترك الصورة دون تعديل.
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->window);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $graphics->drawString($newText, 10, 20);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
-    }
-    # تغيير تسمية الزر
-    $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
-      $newCaption = "Show MessageBox";
-      $control->getProperties()->set_Item("Caption", $newCaption);
-      # تغيير البديل
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->control);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $metrics = $graphics->getFontMetrics($font);
-      $graphics->drawString($newCaption, $image->getWidth() - $metrics->stringWidth($newCaption) / 2, 20);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
-    }
-    # تحريك 100 نقطة إلى الأسفل
-    foreach($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
-      $frame = $ctl->getFrame();
-      $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
-    }
-    $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
-    # إزالة عناصر التحكم
-    $pres->getSlides()->get_Item(0)->getControls()->clear();
-    $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
+تظهر مجموعة الخصائص الفارغة كـ `[]`. بالنسبة لعناصر التحكم التي تستخدم التخزين الثنائي، يمكن أن تُعيد [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties) قيمة `null`، وتُعرض كـ `Properties unavailable`. إذا كنت تحتاج فقط إلى الأسماء، استخدم [getNamesOfProperties](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) بعد فحص الـ `null`. يسرد التقرير الخصائص المتوفرة من العرض التقديمي. قد يدعم عنصر التحكم خصائص إضافية في وقت التشغيل.
 
-## **الأسئلة الشائعة**
+## **تعديل عناصر التحكم ActiveX**
 
-**هل يحتفظ Aspose.Slides بعناصر التحكم ActiveX عند القراءة وإعادة الحفظ إذا لم يمكن تنفيذها في بيئة تشغيل Java؟**  
-نعم. يتعامل Aspose.Slides معها كجزء من العرض التقديمي ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ لا يلزم تنفيذ العناصر نفسها لحفظها.
+يتوقع المثال عرضًا تقديميًا مُمكّنًا للماكرو يحتوي على مربع نص يُدعى `TextBox1` وزر أمر يُدعى `CommandButton1` في الشريحة الأولى. يستخدم [control properties collection](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) لتغيير قيمة مربع النص وعنوان الزر. كل عنصر تحكم لديه أيضًا معاينة ثابتة يمكن لـ PowerPoint عرضها قبل التفعيل. زوّد كل عنصر PNG يُظهر النص والمظهر المحدّث. يَعيّن المثال هذه الصور عبر [Control::getSubstitutePictureFormat](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getSubstitutePictureFormat).
 
-**كيف تختلف عناصر التحكم ActiveX عن كائنات OLE في العرض التقديمي؟**  
-عناصر التحكم ActiveX هي عناصر تحكم تفاعلية مُدارة (أزرار، مربعات نص، مشغل وسائط)، بينما تشير [OLE](/slides/ar/php-java/manage-ole/) إلى كائنات تطبيق مدمجة (مثل ورقة عمل Excel). تُخزن وتُدار بشكل مختلف وتملك نماذج خصائص مختلفة.
+يُنقل المثال كل عنصر تحكم في الشريحة الأولى إلى الأسفل بمقدار 100 نقطة عن طريق ضبط إطاره باستخدام [Control::setFrame](https://reference.aspose.com/slides/php-java/aspose.slides/control/#setFrame). يحفظ العرض المُحرّر بتنسيق PPTM، ثم يستخدم [ControlCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/#clear) لحفظ نسخة ثانية بإزالة جميع عناصر التحكم ActiveX من تلك الشريحة.
 
-**هل تعمل أحداث ActiveX والماكروهات VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**  
-يحافظ Aspose.Slides على العلامات الوصفية والبيانات الوصفية الحالية؛ ومع ذلك، تُنفّذ الأحداث والماكروهات فقط داخل PowerPoint على Windows عندما تسمح الأمان بذلك. المكتبة لا تقوم بتنفيذ VBA.
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $controls = $presentation->getSlides()->get_Item(0)->getControls();
+    $textBox = null;
+    $button = null;
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $name = (string) $control->getName();
+        if ($name === "TextBox1") {
+            $textBox = $control;
+        } elseif ($name === "CommandButton1") {
+            $button = $control;
+        }
+    }
+    if ($textBox === null || $button === null || java_is_null($textBox->getProperties()) || java_is_null($button->getProperties())) {
+        echo "The first slide must contain both named controls with editable properties.\n";
+        return;
+    }
+
+    foreach ([[$textBox, "text-box-preview.png"], [$button, "button-preview.png"]] as [$control, $path]) {
+        $image = Images::fromFile($path);
+        try {
+            $preview = $presentation->getImages()->addImage($image);
+            $control->getSubstitutePictureFormat()->getPicture()->setImage($preview);
+        } finally {
+            $image->dispose();
+        }
+    }
+    $textBox->getProperties()->set_Item("Value", "Changed text");
+    $button->getProperties()->set_Item("Caption", "Show message");
+
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $frame = $control->getFrame();
+        $newY = java_values($frame->getY()) + 100;
+        $moved = new ShapeFrame($frame->getX(), $newY, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation());
+        $control->setFrame($moved);
+    }
+    $presentation->save("edited-controls.pptm", SaveFormat::Pptm);
+
+    $controls->clear();
+    $presentation->save("removed-controls.pptm", SaveFormat::Pptm);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **إضافة عنصر تحكم ActiveX مشغل وسائط**
+
+لإعادة استخدام مشغل Windows Media Player مُكوّن، ابدأ بقالب يحتوي الشريحة الأولى على مشغل يُدعى `WindowsMediaPlayer1`. ينسخ [SlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) الشريحة بالكامل إلى عرض تقديمي جديد. يحدد المثال عنوان `URL` للمشغل في [properties collection](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) ويحفظ الشريحة المستنسخة كالشريحة الوحيدة في النتيجة. يبقى الفيديو خارجيًا، لذا اختر مسارًا يمكن للمشغل الوصول إليه أثناء التشغيل.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$template = new Presentation("template.pptx");
+try {
+    $presentation = new Presentation();
+    try {
+        $slides = $presentation->getSlides();
+        $sourceSlide = $template->getSlides()->get_Item(0);
+        $slide = $slides->addClone($sourceSlide);
+        $player = null;
+        $controls = $slide->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            if ((string) $control->getName() === "WindowsMediaPlayer1") {
+                $player = $control;
+                break;
+            }
+        }
+        if ($player === null || java_is_null($player->getProperties())) {
+            echo "The template slide must contain a named media player with editable properties.\n";
+            return;
+        }
+        $player->getProperties()->set_Item("URL", "Wildlife.mp4");
+        $slides->removeAt(0);
+        $presentation->save("linked-video.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+} finally {
+    $template->dispose();
+}
+```
+
+## **الأسئلة المتكررة**
+
+**هل يمكن لـ Aspose.Slides حفظ عناصر التحكم ActiveX دون تشغيلها؟**
+
+نعم. يمكن لـ Aspose.Slides قراءة وحفظ عناصر التحكم، بما في ذلك خصائصها ومواقعها، دون تفعيلها.
+
+**كيف تختلف عناصر التحكم ActiveX عن كائنات OLE؟**
+
+تسمح عناصر التحكم ActiveX للمستخدمين بالتفاعل مع الشريحة، مثل إدخال نص أو النقر على زر. يتيح [كائن OLE](/slides/ar/php-java/manage-ole/) للشريحة احتواء أو ربط محتوى تُديره تطبيقات أخرى، مثل ورقة عمل Excel.
+
+**هل ستظل أحداث ActiveX تُطلق ماكرو VBA بعد أن أحفظ عرضًا تقديميًا باستخدام Aspose.Slides؟**
+
+احفظ العرض التقديمي بتنسيق يدعم الماكرو مثل PPTM للاحتفاظ بمشروع VBA الخاص به. يمكن لـ PowerPoint لنظام Windows تشغيل معالجات الأحداث الحالية عندما تسمح إعدادات الأمان بتمكين كل من عناصر التحكم ActiveX والماكرو.

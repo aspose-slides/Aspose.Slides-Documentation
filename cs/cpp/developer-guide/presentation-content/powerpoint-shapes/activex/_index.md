@@ -10,168 +10,207 @@ keywords:
 - správa ActiveX
 - přidání ActiveX
 - úprava ActiveX
-- multimediální přehrávač
+- přehrávač médií
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Zjistěte, jak Aspose.Slides pro C++ využívá ActiveX k automatizaci a vylepšení prezentací PowerPoint, a poskytuje vývojářům silnou kontrolu nad snímky."
+description: "Upravujte textová pole a tlačítka ActiveX, aktualizujte náhledy ovládacích prvků a znovu použijte ovládací prvek Windows Media Player v prezentacích PowerPoint s Aspose.Slides pro C++."
 ---
 ## **Úvod**
 
-ActiveX ovládací prvky se používají v prezentacích. Aspose.Slides pro C++ vám umožňuje spravovat ActiveX ovládací prvky, ale jejich správa je o něco složitější a liší se od běžných tvarů v prezentaci. Od Aspose.Slides pro C++ 18.1 komponenta podporuje správu ActiveX ovládacích prvků. V současné době můžete přistupovat k již přidanému ActiveX ovládacímu prvku v prezentaci a upravovat jej nebo jej smazat pomocí jeho různých vlastností. Pamatujte, že ActiveX ovládací prvky nejsou tvary a nejsou součástí IShapeCollection prezentace, ale samostatné IControlCollection. Tento článek ukazuje, jak s nimi pracovat.
+ActiveX ovládací prvky poskytují snímku PowerPointu interaktivní prvky, jako jsou textová pole, tlačítka příkazů a přehrávače médií. Aspose.Slides for C++ zpřístupňuje ovládací prvky snímku prostřednictvím [IBaseSlide::get_Controls](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_controls/). Použijte tuto kolekci k úpravě ovládacího prvku, jeho přesunu na snímku nebo odebrání.
 
-## **Upravit ActiveX ovládací prvek**
+## **Seznam ActiveX ovládacích prvků a jejich uložených vlastností**
 
-1. Vytvořte instanci třídy Presentation a načtěte prezentaci, která obsahuje ActiveX ovládací prvky.  
-2. Získejte referenci na snímek podle jeho indexu.  
-3. Přistupujte k ActiveX ovládacím prvkům na snímku pomocí IControlCollection.  
-4. Získejte ActiveX ovládací prvek TextBox1 pomocí objektu ControlEx.  
-5. Změňte různé vlastnosti ActiveX ovládacího prvku TextBox1, včetně textu, písma, výšky písma a pozice rámce.  
-6. Získejte druhý ovládací prvek nazvaný CommandButton1.  
-7. Změňte popisek tlačítka, písmo a pozici.  
-8. Posuňte pozici rámců ActiveX ovládacích prvků.  
-9. Uložte upravenou prezentaci do souboru PPTX.
-
-Níže uvedený úryvek kódu aktualizuje ActiveX ovládací prvky na snímcích prezentace podle snímku zobrazeného níže.
+Chcete-li prozkoumat neznámou šablonu, otevřete ji pro čtení a projděte ovládací prvky na každém snímku. Příklad uvádí číslo snímku, název ovládacího prvku, [class ID](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_classid/), a každý pár klíč‑hodnota v [uložené vlastnosti](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_properties/). Načte prezentaci bez aktivace ovládacích prvků, spouštění událostí nebo maker, změny hodnot či ukládání souboru.
 
 ```cpp
-// Přístup k prezentaci s ActiveX ovládacími prvky
-auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/guid.h>
 
-// Přístup k prvnímu snímku v prezentaci
-auto slide = presentation->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace System;
 
-// Změna textu TextBoxu
-auto control = slide->get_Controls()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
 
-if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
+for (auto i = 0; i < presentation->get_Slides()->get_Count(); ++i)
 {
-    String newText = u"Changed text";
-    control->get_Properties()->idx_set(u"Value", newText);
+    auto controls = presentation->get_Slide(i)->get_Controls();
+    for (auto j = 0; j < controls->get_Count(); ++j)
+    {
+        auto control = controls->idx_get(j);
+        Console::WriteLine(u"Slide {0} | {1} | {2}", i + 1, control->get_Name(), control->get_ClassId().ToString());
+        auto properties = control->get_Properties();
+        if (!properties)
+        {
+            Console::WriteLine(u"  Properties unavailable");
+            continue;
+        }
 
-    // Změna náhradního obrázku. PowerPoint tento obrázek nahradí během aktivace ActiveX, takže je někdy v pořádku nechat obrázek beze změny.
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
+        if (properties->get_Count() == 0)
+            Console::WriteLine(u"  []");
 
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    graphics->DrawString(newText, font, brush, 10.0f, 4.0f);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
+        auto entries = properties->GetEnumerator();
+        while (entries->MoveNext())
+        {
+            auto property = entries->get_Current();
+            Console::WriteLine(u"  {0} = {1}", property.get_Key(), property.get_Value());
+        }
+    }
 }
-
-// Změna popisku tlačítka
-control = slide->get_Controls()->idx_get(1);
-
-if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
-{
-    String newCaption = u"MessageBox";
-    control->get_Properties()->idx_set(u"Caption", newCaption);
-
-    // Změna náhrady
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
-
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    SizeF textSize = graphics->MeasureString(newCaption, font, std::numeric_limits<int32_t>::max());
-    graphics->DrawString(newCaption, font, brush, (image->get_Width() - textSize.get_Width()) / 2, (image->get_Height() - textSize.get_Height()) / 2);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
-}
-
-// Posunutí rámců ActiveX o 100 bodů dolů
-for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
-{
-    SharedPtr<IShapeFrame> frame = control->get_Frame();
-    control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
-}
-
-// Uložení prezentace s upravenými ActiveX ovládacími prvky
-presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
-
-// Nyní odstraňování ovládacích prvků
-slide->get_Controls()->Clear();
-
-// Ukládání prezentace s vymazanými ActiveX ovládacími prvky
-presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
-## **Přidat Media Player ActiveX ovládací prvek**
+Vybraný výstup ze souboru `ActiveX.pptm` zobrazuje textové pole a tlačítko příkazu.
 
-ActiveX ovládací prvky se používají v prezentacích. Aspose.Slides pro C++ vám umožňuje přidávat a spravovat ActiveX ovládací prvky, ale jejich správa je o něco složitější a liší se od běžných tvarů v prezentaci. Od Aspose.Slides pro C++ 18.1 byla do Aspose.Slides přidána podpora pro přidání Media Player ActiveX ovládacího prvku. Pamatujte, že ActiveX ovládací prvky nejsou tvary a nejsou součástí IShapeCollection prezentace, ale samostatné IControlExCollection. Tento článek ukazuje, jak s nimi pracovat. Pro správu Media Player ActiveX ovládacího prvku postupujte podle následujících kroků:
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-1. Vytvořte instanci třídy Presentation a načtěte ukázkovou prezentaci, která obsahuje Media Player ActiveX ovládací prvky.  
-2. Vytvořte instanci cílové třídy Presentation a vytvořte prázdnou prezentaci.  
-3. Naklonujte snímek s Media Player ActiveX ovládacím prvkem z šablonové prezentace do cílové prezentace.  
-4. Získejte přístup ke klonovanému snímku v cílové prezentaci.  
-5. Přistupujte k ActiveX ovládacím prvkům na snímku pomocí IControlCollection.  
-6. Získejte Media Player ActiveX ovládací prvek a nastavte cestu k videu pomocí jeho vlastností.  
-7. Uložte prezentaci do souboru PPTX.
+Prázdná kolekce vlastností se zobrazuje jako `[]`. U ovládacích prvků, které používají binární úložiště, může `get_Properties` vrátit `nullptr`, což je zobrazeno jako `Properties unavailable`. Pokud potřebujete jen názvy, použijte [get_NamesOfProperties](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/get_namesofproperties/) po ověření existence kolekce. Zpráva vypisuje vlastnosti dostupné v prezentaci. Ovládací prvek může za běhu podporovat další vlastnosti.
 
 ```cpp
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/io/file.h>
 
-// Vytvořte prázdnou instanci prezentace
-auto newPresentation = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
-// Odstraňte výchozí snímek
-newPresentation->get_Slides()->RemoveAt(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
+auto controls = presentation->get_Slide(0)->get_Controls();
+SharedPtr<IControl> textBox;
+SharedPtr<IControl> button;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"TextBox1")
+        textBox = control;
+    else if (control->get_Name() == u"CommandButton1")
+        button = control;
+}
 
-// Naklonujte snímek s Media Player ActiveX ovládacím prvkem
-newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
+if (!textBox || !button || !textBox->get_Properties() || !button->get_Properties())
+{
+    Console::WriteLine(u"The first slide must contain both named controls with editable properties.");
+    return;
+}
 
-// Získejte přístup k Media Player ActiveX ovládacímu prvku a nastavte cestu k videu
-newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+if (!File::Exists(u"text-box-preview.png") || !File::Exists(u"button-preview.png"))
+{
+    Console::WriteLine(u"Supply both preview images before updating the controls.");
+    return;
+}
 
-// Uložte prezentaci
-newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
+textBox->get_Properties()->idx_set(u"Value", u"Changed text");
+button->get_Properties()->idx_set(u"Caption", u"Show message");
+
+auto textBoxBytes = File::ReadAllBytes(u"text-box-preview.png");
+auto buttonBytes = File::ReadAllBytes(u"button-preview.png");
+auto textBoxPreview = presentation->get_Images()->AddImage(textBoxBytes);
+auto buttonPreview = presentation->get_Images()->AddImage(buttonBytes);
+textBox->get_SubstitutePictureFormat()->get_Picture()->set_Image(textBoxPreview);
+button->get_SubstitutePictureFormat()->get_Picture()->set_Image(buttonPreview);
+
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    auto frame = control->get_Frame();
+    auto movedFrame = MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation());
+    control->set_Frame(movedFrame);
+}
+
+presentation->Save(u"edited-controls.pptm", SaveFormat::Pptm);
+
+controls->Clear();
+presentation->Save(u"removed-controls.pptm", SaveFormat::Pptm);
 ```
+
+## **Upravit ActiveX ovládací prvky**
+
+Příklad předpokládá prezentaci s povolenými makry, která na prvním snímku obsahuje textové pole pojmenované `TextBox1` a tlačítko příkazu pojmenované `CommandButton1`. Používá [control properties collection](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) k změně hodnoty textového pole a popisku tlačítka. Každý ovládací prvek má také statický náhled, který PowerPoint může zobrazit před aktivací. Poskytněte PNG pro každý ovládací prvek zobrazující aktuální text a vzhled. Příklad přiřadí tyto obrázky pomocí [IControl::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_substitutepictureformat/).
+
+Příklad přesune každý ovládací prvek na prvním snímku dolů o 100 bodů změnou jeho [frame](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/set_frame/). Uloží upravenou prezentaci ve formátu PPTM a poté použije [IControlCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolcollection/clear/), aby uložil druhou kopii s odstraněnými všemi ActiveX ovládacími prvky z tohoto snímku.
+
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+
+auto source = MakeObject<Presentation>(u"template.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->AddClone(source->get_Slide(0));
+auto controls = slide->get_Controls();
+
+SharedPtr<IControl> player;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"WindowsMediaPlayer1")
+    {
+        player = control;
+        break;
+    }
+}
+
+if (!player || !player->get_Properties())
+{
+    Console::WriteLine(u"The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+
+presentation->get_Slides()->RemoveAt(0);
+presentation->Save(u"linked-video.pptx", SaveFormat::Pptx);
+```
+
+## **Přidat ActiveX Media Player ovládací prvek**
+
+Aby bylo možné znovu použít nakonfigurovaný ovládací prvek Windows Media Player, začněte šablonou, jejíž první snímek obsahuje přehrávač pojmenovaný `WindowsMediaPlayer1`. [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) zkopíruje celý snímek do nové prezentace. Příklad nastaví `URL` přehrávače v jeho [properties collection](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) a uloží klonovaný snímek jako jediný snímek ve výstupu. Video zůstane externí, takže zvolte cestu, ke které může přehrávač během přehrávání přistupovat.
 
 ## **Často kladené otázky**
 
-**Zachovává Aspose.Slides ActiveX ovládací prvky při načítání a opětovném ukládání, pokud není možné je spustit v runtime C++?**  
-Ano. Aspose.Slides je považuje za součást prezentace a může číst/upravovat jejich vlastnosti a rámce; není vyžadováno spouštění samotných ovládacích prvků pro jejich zachování.
+**Může Aspose.Slides zachovat ActiveX ovládací prvky bez jejich spouštění?**
 
-**Jak se ActiveX ovládací prvky liší od OLE objektů v prezentaci?**  
-ActiveX ovládací prvky jsou interaktivní řízené prvky (tlačítka, textová pole, media player), zatímco [OLE](/slides/cs/cpp/manage-ole/) odkazuje na vložené objekty aplikací (například list Excel). Jsou ukládány a zpracovávány odlišně a mají odlišné modely vlastností.
+Ano. Aspose.Slides může číst a ukládat ovládací prvky, včetně jejich vlastností a umístění, aniž by je aktivovalo.
 
-**Fungují ActiveX události a VBA makra, pokud byl soubor upraven pomocí Aspose.Slides?**  
-Aspose.Slides zachovává existující značkování a metadata; nicméně události a makra se spouští pouze v PowerPointu na Windows, pokud to bezpečnostní nastavení povolí. Knihovna nespouští VBA.
+**Jak se liší ActiveX ovládací prvky od OLE objektů?**
+
+ActiveX ovládací prvky umožňují uživatelům interagovat se snímkem, například zadávat text nebo kliknout na tlačítko. [OLE objekt](/slides/cs/cpp/manage-ole/) umožňuje snímku obsahovat nebo odkazovat na obsah spravovaný jinou aplikací, jako je list Excel.
+
+**Spustí události ActiveX stále VBA makra po uložení prezentace pomocí Aspose.Slides?**
+
+Uložte prezentaci v makry podporujícím formátu, například PPTM, aby byl zachován její VBA projekt. PowerPoint pro Windows může spouštět existující obslužné programy událostí, pokud jsou v nastavení zabezpečení povoleny jak ActiveX ovládací prvky, tak makra.

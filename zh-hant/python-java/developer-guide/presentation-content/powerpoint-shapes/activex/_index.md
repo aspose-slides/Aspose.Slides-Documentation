@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 管理簡報中的 ActiveX 控制項
+title: 使用 Python 在簡報中管理 ActiveX 控制項
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,23 +15,15 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-description: "了解 Aspose.Slides for Python via Java 如何使用 ActiveX 來自動化並增強 PowerPoint 簡報，為開發人員提供對投影片的強大控制。"
+description: "編輯 ActiveX 文字方塊與按鈕、更新控制項預覽，並在 PowerPoint 簡報中使用 Aspose.Slides for Python via Java 重複使用 Windows Media Player 控制項。"
 ---
 ## **簡介**
 
-ActiveX 控制項在簡報中使用。Aspose.Slides for Python via Java 允許您新增與管理 ActiveX 控制項，但相較於一般簡報圖形，其管理方式稍微複雜。Aspose.Slides 支援新增 Media Player ActiveX 控制項。請注意，ActiveX 控制項並非圖形；它們不屬於簡報的[ShapeCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shapecollection/)。它們屬於獨立的[ControlCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/controlcollection/)。本主題將示範如何使用它們。
+ActiveX 控制項為 PowerPoint 投影片提供互動元素，例如文字方塊、指令按鈕和媒體播放器。Aspose.Slides for Python via Java 透過 [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls) 讓您存取投影片的控制項。使用此集合可編輯控制項、在投影片上移動或移除它。
 
-## **將 Media Player ActiveX 控制項新增至投影片**
+## **列出 ActiveX 控制項及其儲存的屬性**
 
-若要新增 ActiveX Media Player 控制項，請執行以下步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例，產生空白簡報。
-1. 在 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 中存取目標投影片。
-1. 使用由 [ControlCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/controlcollection/) 提供的 [addControl](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/controlcollection/#addControl) 方法新增 Media Player ActiveX 控制項。
-1. 取得 Media Player ActiveX 控制項並透過其屬性設定影片路徑。
-1. 將簡報另存為 PPTX 檔案。
-
-以下範例程式碼依上述步驟示範如何將 Media Player ActiveX 控制項新增至投影片：
+若要檢查不熟悉的樣本檔，請以唯讀模式開啟並遍歷每張投影片上的控制項。範例會報告投影片編號、控制項名稱、[getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId)，以及 [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) 中的每個鍵值對。它會在不啟動控制項、觸發事件或巨集、改變值或儲存檔案的情況下讀取簡報。
 
 ```python
 import jpype
@@ -40,47 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# 建立一個空白簡報。
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # 新增 Media Player ActiveX 控制項。
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # 設定影片路徑。
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # 儲存簡報。
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
+從 `ActiveX.pptm` 的選取輸出顯示了一個文字方塊和一個指令按鈕。
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+空的屬性集合會顯示為 `[]`。對於使用二進位儲存的控制項，[getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) 可能會傳回 `None`，顯示為 `Properties unavailable`。如果只需要名稱，可在確認集合可用後使用 [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties)。報告列出簡報中可用的屬性。控制項在執行時可能支援其他屬性。
+
 ## **修改 ActiveX 控制項**
 
-{{% alert color="info" title="Note" %}}
+此範例假設第一張投影片上有一個名為 `TextBox1` 的文字方塊以及一個名為 `CommandButton1` 的指令按鈕，且簡報為啟用巨集的格式。它使用[控制項屬性集合](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/)來變更文字方塊的值與按鈕的標題。每個控制項亦有 PowerPoint 在啟動前可顯示的靜態預覽。為每個控制項提供顯示更新文字與外觀的 PNG。範例透過 [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat) 指派這些影像。
 
-Aspose.Slides for Python via Java 提供管理 ActiveX 控制項的元件。您可以存取簡報中已新增的 ActiveX 控制項，並透過其屬性進行修改或刪除。
-
-{{% /alert %}}
-
-若要在投影片上管理簡單的 ActiveX 控制項（如文字方塊與簡易指令按鈕），請執行以下動作：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例，載入含有 ActiveX 控制項的簡報。
-1. 依索引取得投影片參考。
-1. 透過存取 [ControlCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/controlcollection/) 取得投影片上的 ActiveX 控制項。
-1. 使用 [Control](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/control/) 物件取得 TextBox1 ActiveX 控制項。
-1. 更改 TextBox1 ActiveX 控制項的屬性，包括文字、字型、字型高度與框架位置。
-1. 取得第二個名為 CommandButton1 的 ActiveX 控制項。
-1. 更改按鈕的標題、字型與位置。
-1. 調整 ActiveX 控制項框架的位置。
-1. 將修改後的簡報寫入 PPTM 檔案。
-
-以下範例程式碼依上述步驟示範如何管理簡單的 ActiveX 控制項：
+此範例透過使用 [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame) 將第一張投影片上所有控制項的框架向下移動 100 點。它以 PPTM 格式儲存編輯後的簡報，然後使用 [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) 產生第二個副本，將該投影片上的所有 ActiveX 控制項全部移除。
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -88,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# 載入包含 ActiveX 控制項的簡報。
 presentation = Presentation("ActiveX.pptm")
 try:
-    if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-        # 存取第一張投影片。
-        slide = presentation.getSlides().get_Item(0)
-
-        # 變更文字方塊的文字。
-        control = slide.getControls().get_Item(0)
-
-        if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-            new_text = "Changed text"
-            control.getProperties().set_Item("Value", new_text)
-
-            # 變更替代圖像。PowerPoint 在 ActiveX 啟用期間會取代它，
-            # 因此有時可以保持不變。
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.window)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            graphics.drawString(new_text, 10, 20)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # 變更按鈕的標題。
-        control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-        if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-            new_caption = "Show MessageBox"
-            control.getProperties().set_Item("Caption", new_caption)
-            # 變更替代圖像。
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.control)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            metrics = graphics.getFontMetrics(font)
-            graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # 將控制項向下移動 100 點。
-        for control in slide.getControls():
-            frame = control.getFrame()
-            new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-            control.setFrame(new_frame)
-        presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-        # 移除控制項。
-        presentation.getSlides().get_Item(0).getControls().clear()
-        presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
     else:
-        print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
+
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
+
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
     presentation.dispose()
 ```
 
+## **新增 ActiveX 媒體播放器控制項**
+
+若要重複使用已設定好的 Windows Media Player 控制項，請以第一張投影片包含名為 `WindowsMediaPlayer1` 的播放器的樣本檔為起點。[SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) 將整張投影片複製到新簡報。範例在其[屬性集合](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) 中設定播放器的 `URL`，並將複製的投影片儲存為輸出唯一的投影片。影片仍維持外部檔案，因此請選擇播放器在播放時可存取的路徑。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
+
 ## **常見問題**
 
-**Aspose.Slides 在讀取並重新儲存時，若 ActiveX 控制項無法在 Python 執行階段執行，是否仍會保留它們？**
+**Aspose.Slides 能在不執行的情況下保留 ActiveX 控制項嗎？**
 
-是的。Aspose.Slides 將它們視為簡報的一部分，能讀取/修改其屬性與框架；不需要執行控制項本身即能保留。
+可以。Aspose.Slides 能在不啟動控制項的情況下讀取並儲存控制項，包括其屬性與位置。
 
-**ActiveX 控制項與簡報中的 OLE 物件有何不同？**
+**ActiveX 控制項與 OLE 物件有何不同？**
 
-ActiveX 控制項是互動式受管理的控制項（按鈕、文字方塊、媒體播放器），而 [OLE](/slides/zh-hant/python-java/manage-ole/) 指的是嵌入的應用程式物件（例如 Excel 工作表）。它們的儲存與處理方式不同，且具有不同的屬性模型。
+ActiveX 控制項允許使用者與投影片互動，例如輸入文字或點擊按鈕。 [OLE 物件](/slides/zh-hant/python-java/manage-ole/) 則讓投影片可包含或連結至由其他應用程式管理的內容，例如 Excel 工作表。
 
-**如果檔案已由 Aspose.Slides 修改，ActiveX 事件與 VBA 巨集是否仍會運作？**
+**在使用 Aspose.Slides 儲存簡報後，ActiveX 事件仍會觸發 VBA 巨集嗎？**
 
-Aspose.Slides 會保留現有的標記與中繼資料；然而，事件與巨集只能在 Windows 上的 PowerPoint 中執行，且需符合安全設定。此函式庫不會執行 VBA。
+請將簡報儲存為支援巨集的格式（例如 PPTM）以保留其 VBA 專案。當 Windows 版 PowerPoint 的安全性設定允許 ActiveX 控制項與巨集時，便會執行現有的事件處理常式。

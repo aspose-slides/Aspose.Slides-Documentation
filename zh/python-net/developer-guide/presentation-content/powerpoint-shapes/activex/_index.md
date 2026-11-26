@@ -1,5 +1,5 @@
 ---
-title: 管理演示文稿中的 ActiveX 控件（Python）
+title: 在演示文稿中使用 Python 管理 ActiveX 控件
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,208 +15,118 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "了解 Aspose.Slides for Python via .NET 如何利用 ActiveX 自动化并增强 PowerPoint 演示文稿，为开发人员提供对幻灯片的强大控制。"
+description: "使用 Aspose.Slides for Python via .NET 编辑 ActiveX 文本框和按钮，更新控件预览，并在 PowerPoint 演示文稿中重复使用 Windows Media Player 控件。"
 ---
+## **介绍**
 
-ActiveX 控件在演示文稿中使用。Aspose.Slides for Python via .NET 允许您管理 ActiveX 控件，但管理它们稍微有些棘手，并且不同于普通的演示文稿形状。从 Aspose.Slides for Python via .NET 6.9.0 开始，该组件支持管理 ActiveX 控件。目前，您可以访问演示文稿中已经添加的 ActiveX 控件，并通过其各种属性对其进行修改或删除。请记住，ActiveX 控件不是形状，也不是演示文稿的 IShapeCollection 的一部分，而是单独的 IControlCollection。本篇文章展示了如何使用它们。
+ActiveX 控件为 PowerPoint 幻灯片提供交互式元素，例如文本框、命令按钮和媒体播放器。Aspose.Slides for Python via .NET 通过 [Slide.controls](https://reference.aspose.com/slides/python-net/aspose.slides/slide/controls/) 公开幻灯片的控件。使用此集合来编辑控件、在幻灯片上移动它或将其删除。
+
+## **列出 ActiveX 控件及其存储属性**
+
+要检查不熟悉的模板，请以读取模式打开并遍历每张幻灯片上的控件。示例报告幻灯片编号、控件名称、[class_id](https://reference.aspose.com/slides/python-net/aspose.slides/control/class_id/)以及 [properties](https://reference.aspose.com/slides/python-net/aspose.slides/control/#properties) 中的每个键值对。它在不激活控件、调用事件或宏、更改数值或保存文件的情况下读取演示文稿。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("ActiveX.pptm") as presentation:
+    for slide_number, slide in enumerate(presentation.slides, start=1):
+        for control in slide.controls:
+            print(f"Slide {slide_number} | {control.name} | {control.class_id}")
+            properties = control.properties
+            if properties is None:
+                print("  Properties unavailable")
+                continue
+
+            if properties.count == 0:
+                print("  []")
+            for entry in properties:
+                print(f"  {entry.key} = {entry.value}")
+```
+
+`ActiveX.pptm` 的选定输出显示了一个文本框和一个命令按钮。
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+空属性集合显示为 `[]`。对于使用二进制存储的控件，`properties` 可能返回 `None`，显示为 `Properties unavailable`。如果只需要名称，请在检查 `None` 之后使用 [names_of_properties](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/names_of_properties/)。报告列出了演示文稿中可用的属性。控件在运行时可能支持其他属性。
 
 ## **修改 ActiveX 控件**
-要在幻灯片上管理诸如文本框和简单命令按钮等简单的 ActiveX 控件，请执行以下操作：
 
-1. 创建 Presentation 类的实例并加载其中包含 ActiveX 控件的演示文稿。
-1. 通过索引获取幻灯片的引用。
-1. 通过访问 IControlCollection 来获取幻灯片中的 ActiveX 控件。
-1. 使用 ControlEx 对象访问 TextBox1 ActiveX 控件。
-1. 更改 TextBox1 ActiveX 控件的各项属性，包括文本、字体、字体高度和框架位置。
-1. 访问名为 CommandButton1 的第二个控件。
-1. 更改按钮的标题、字体和位置。
-1. 移动 ActiveX 控件框架的位置。
-1. 将修改后的演示文稿写入 PPTX 文件。
+示例假设宏启用的演示文稿的第一张幻灯片上有一个名为 `TextBox1` 的文本框和一个名为 `CommandButton1` 的命令按钮。它使用 [控件属性集合](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) 来更改文本框的值和按钮的标题。每个控件还有 PowerPoint 在激活前可以显示的静态预览。为每个控件提供显示其更新后文本和外观的 PNG。示例通过 [Control.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/control/substitute_picture_format/) 分配这些图像。
 
-下面的代码片段将演示文稿幻灯片上的 ActiveX 控件更新为如下所示的幻灯片。
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-import io
+示例通过更改其 [frame](https://reference.aspose.com/slides/python-net/aspose.slides/control/frame/) 将第一张幻灯片上的每个控件下移 100 点。它以 PPTM 格式保存编辑后的演示文稿，然后使用 [ControlCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/controlcollection/clear/) 保存第二个副本，其中该幻灯片的所有 ActiveX 控件均已移除。
 
-# 访问包含 ActiveX 控件的演示文稿
-with slides.Presentation(path + "ActiveX.pptm") as presentation:
-    # 访问演示文稿中的第一张幻灯片
-    slide = presentation.slides[0]
+```python
+from pathlib import Path
 
-    # 更改 TextBox 文本
-    control = slide.controls[0]
-
-    if control.name == "TextBox1" and control.properties != None:
-        newText = "Changed text"
-        control.properties.remove("Value")
-        control.properties.add("Value", newText)
-
-        # 更改替代图像。Powerpoint 将在 activeX activation 期间替换此图像，因此有时可以保持图像不变。
-
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            # font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                graphics.draw_string(newText, font, brush, 10, 4)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, [
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [
-                        draw.PointF(1, bmp.height - 1), 
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1)])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen,
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-
-    # 更改按钮标题
-    control = slide.controls[1]
-
-    if control.name == "CommandButton1" and control.properties != None:
-        newCaption = "MessageBox"
-        control.properties.remove("Caption")
-        control.properties.add("Caption", newCaption)
-
-        # 更改替代图像
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            #font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                textSize = graphics.measure_string(newCaption, font, 65535)
-                graphics.draw_string(newCaption, font, brush, 
-                    (bmp.width - textSize.width) / 2, 
-                    (bmp.height - textSize.height) / 2)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-    
-    # 将 ActiveX 框向下移动 100 点
-    for ctl in slide.controls:
-        frame = control.frame
-        control.frame = slides.ShapeFrame(
-            frame.x, 
-            frame.y + 100, 
-            frame.width, 
-            frame.height, 
-            frame.flip_h, 
-            frame.flip_v, 
-            frame.rotation)
-
-    # 保存已编辑 ActiveX 控件的演示文稿
-    presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
-
-
-    # 现在移除控件
-    slide.controls.clear()
-
-    # 保存已清除 ActiveX 控件的演示文稿
-    presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
-```
-
-
-## **添加 ActiveX Media Player 控件**
-要添加 ActiveX Media Player 控件，请执行以下步骤：
-
-1. 创建 Presentation 类的实例并加载其中包含 Media Player ActiveX 控件的示例演示文稿。
-1. 创建目标 Presentation 类的实例并生成空的演示文稿实例。
-1. 将模板演示文稿中包含 Media Player ActiveX 控件的幻灯片克隆到目标 Presentation。
-1. 访问目标 Presentation 中克隆的幻灯片。
-1. 通过访问 IControlCollection 来获取幻灯片中的 ActiveX 控件。
-1. 访问 Media Player ActiveX 控件并使用其属性设置视频路径。
-1. 将演示文稿保存为 PPTX 文件。
-```py
 import aspose.slides as slides
 
-# 实例化表示 PPTX 文件的 Presentation 类
-with slides.Presentation(path + "template.pptx") as presentation:
+with slides.Presentation("ActiveX.pptm") as presentation:
+    controls = presentation.slides[0].controls
+    text_box = next((control for control in controls if control.name == "TextBox1"), None)
+    button = next((control for control in controls if control.name == "CommandButton1"), None)
+    text_box_preview = Path("text-box-preview.png")
+    button_preview = Path("button-preview.png")
 
-    # 创建空的演示文稿实例
-    with slides.Presentation() as newPresentation:
+    if text_box is None or button is None or text_box.properties is None or button.properties is None:
+        print("The first slide must contain both named controls with editable properties.")
+    elif not text_box_preview.is_file() or not button_preview.is_file():
+        print("Supply both preview images before updating the controls.")
+    else:
+        text_box.properties.remove("Value")
+        text_box.properties.add("Value", "Changed text")
+        button.properties.remove("Caption")
+        button.properties.add("Caption", "Show message")
 
-        # 删除默认幻灯片
-        newPresentation.slides.remove_at(0)
+        for control, preview in [(text_box, text_box_preview), (button, button_preview)]:
+            image_data = preview.read_bytes()
+            control.substitute_picture_format.picture.image = presentation.images.add_image(image_data)
 
-        # 克隆包含 Media Player ActiveX 控件的幻灯片
-        newPresentation.slides.insert_clone(0, presentation.slides[0])
+        for control in controls:
+            frame = control.frame
+            control.frame = slides.ShapeFrame(frame.x, frame.y + 100, frame.width, frame.height, frame.flip_h, frame.flip_v, frame.rotation)
 
-        # 访问 Media Player ActiveX 控件并设置视频路径
-        prop = newPresentation.slides[0].controls[0].properties
-
-        prop.remove("URL")
-        prop.add("URL", "Wildlife.mp4")
-
-        # 保存演示文稿
-        newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("edited-controls.pptm", slides.export.SaveFormat.PPTM)
+        controls.clear()
+        presentation.save("removed-controls.pptm", slides.export.SaveFormat.PPTM)
 ```
 
+## **添加 ActiveX 媒体播放器控件**
+
+要重用已经配置好的 Windows Media Player 控件，请使用第一张幻灯片包含名为 `WindowsMediaPlayer1` 的播放器的模板。[SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) 将整张幻灯片复制到新演示文稿中。示例在其 [属性集合](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) 中设置播放器的 `URL`，并将克隆的幻灯片保存为输出中的唯一幻灯片。视频保持为外部文件，请选择播放器在播放期间能够访问的路径。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as template, slides.Presentation() as presentation:
+    slide = presentation.slides.add_clone(template.slides[0])
+    player = next((control for control in slide.controls if control.name == "WindowsMediaPlayer1"), None)
+
+    if player is None or player.properties is None:
+        print("The template slide must contain a named media player with editable properties.")
+    else:
+        player.properties.remove("URL")
+        player.properties.add("URL", "Wildlife.mp4")
+        presentation.slides.remove_at(0)
+        presentation.save("linked-video.pptx", slides.export.SaveFormat.PPTX)
+```
 
 ## **常见问题**
 
-**Aspose.Slides 在读取并重新保存时，如果 ActiveX 控件无法在 Python 运行时执行，是否仍会保留这些控件？**
+**Aspose.Slides 能否在不运行它们的情况下保留 ActiveX 控件？**
 
-是的。Aspose.Slides 将它们视为演示文稿的一部分，能够读取/修改其属性和框架；并不需要执行这些控件本身即可保留它们。
+是的。Aspose.Slides 可以读取并保存控件，包括它们的属性和位置，而无需激活它们。
 
-**ActiveX 控件与演示文稿中的 OLE 对象有何区别？**
+**ActiveX 控件与 OLE 对象有何区别？**
 
-ActiveX 控件是交互式受管理的控件（按钮、文本框、媒体播放器），而 [OLE](/slides/zh/python-net/manage-ole/) 指的是嵌入的应用程序对象（例如 Excel 工作表）。它们的存储和处理方式不同，属性模型也不同。
+ActiveX 控件允许用户与幻灯片交互，例如输入文本或单击按钮。[OLE object](/slides/zh/python-net/manage-ole/) 使幻灯片能够包含或链接到由其他应用程序管理的内容，例如 Excel 工作表。
 
-**如果文件已被 Aspose.Slides 修改，ActiveX 事件和 VBA 宏还能工作吗？**
+**使用 Aspose.Slides 保存演示文稿后，ActiveX 事件仍会触发 VBA 宏吗？**
 
-Aspose.Slides 会保留现有的标记和元数据；但是，事件和宏只能在 Windows 上的 PowerPoint 中且安全设置允许时运行。该库不会执行 VBA。
+将演示文稿保存为宏启用的格式（如 PPTM）以保留其 VBA 项目。当 Windows 版 PowerPoint 的安全设置同时允许 ActiveX 控件和宏时，它可以运行现有的事件处理程序。

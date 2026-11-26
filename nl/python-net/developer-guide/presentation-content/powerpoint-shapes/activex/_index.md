@@ -1,12 +1,12 @@
 ---
-title: Beheren van ActiveX‑besturingselementen in presentaties met Python
+title: Beheer ActiveX-besturingselementen in presentaties met Python
 linktitle: ActiveX
 type: docs
 weight: 80
 url: /nl/python-net/activex/
 keywords:
 - ActiveX
-- ActiveX‑besturingselement
+- ActiveX-besturingselement
 - ActiveX beheren
 - ActiveX toevoegen
 - ActiveX wijzigen
@@ -15,210 +15,118 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe Aspose.Slides for Python via .NET ActiveX gebruikt om PowerPoint‑presentaties te automatiseren en te verbeteren, waardoor ontwikkelaars krachtige controle over dia's krijgen."
+description: "Bewerk ActiveX-tekstvakken en -knoppen, update de voorbeeldweergave van besturingselementen, en hergebruik een Windows Media Player-besturingselement in PowerPoint-presentaties met Aspose.Slides for Python via .NET."
 ---
-## **Inleiding**
+## **Introductie**
 
-ActiveX‑besturingselementen worden gebruikt in presentaties. Aspose.Slides for Python via .NET stelt u in staat om ActiveX‑besturingselementen te beheren, maar het beheer daarvan is wat lastiger en verschilt van normale presentatie‑vormen. Vanaf Aspose.Slides for Python via .NET 6.9.0 ondersteunt de component het beheer van ActiveX‑besturingselementen. Op dit moment kunt u een reeds toegevoegd ActiveX‑besturingselement in uw presentatie benaderen en modificeren of verwijderen met behulp van de verschillende eigenschappen. Onthoud dat ActiveX‑besturingselementen geen vormen zijn en geen deel uitmaken van de IShapeCollection van de presentatie, maar van de aparte IControlCollection. Dit artikel laat zien hoe u ermee kunt werken.
+ActiveX‑besturingselementen geven een PowerPoint‑dia interactieve elementen zoals tekstvakken, opdrachtknoppen en mediaspelers. Aspose.Slides for Python via .NET maakt de besturingselementen van een dia toegankelijk via [Slide.controls](https://reference.aspose.com/slides/python-net/aspose.slides/slide/controls/). Gebruik deze collectie om een besturingselement te bewerken, het op de dia te verplaatsen of te verwijderen.
 
-## **ActiveX‑besturingselementen wijzigen**
-Om een eenvoudig ActiveX‑besturingselement zoals een tekstvak en een eenvoudige opdrachtknop op een dia te beheren:
+## **Lijst van ActiveX‑besturingselementen en hun opgeslagen eigenschappen**
 
-1. Maak een instantie van de Presentation‑klasse en laad de presentatie die ActiveX‑besturingselementen bevat.
-2. Haal een dia‑referentie op via de index.
-3. Benader de ActiveX‑besturingselementen in de dia via de IControlCollection.
-4. Benader het TextBox1‑ActiveX‑besturingselement met behulp van het ControlEx‑object.
-5. Wijzig de verschillende eigenschappen van het TextBox1‑ActiveX‑besturingselement, waaronder tekst, lettertype, lettergrootte en positie van het kader.
-6. Benader het tweede besturingselement genoemd CommandButton1.
-7. Wijzig de knopbijschrift, het lettertype en de positie.
-8. Verplaats de positie van de kaders van de ActiveX‑besturingselementen.
-9. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
+Om een onbekende sjabloon te inspecteren, open je deze leestoestand en loop je de besturingselementen op elke dia door. Het voorbeeld meldt het dianummer, de naam van het besturingselement, [class_id](https://reference.aspose.com/slides/python-net/aspose.slides/control/class_id/), en elk sleutel‑waarde‑paar in [properties](https://reference.aspose.com/slides/python-net/aspose.slides/control/#properties). Het leest de presentatie zonder de besturingselementen te activeren, zonder gebeurtenissen of macro's uit te voeren, zonder waarden te wijzigen of het bestand op te slaan.
 
-Het onderstaande code‑fragment werkt de ActiveX‑besturingselementen op de presentatiedia’s bij volgens de dia zoals hieronder getoond.
-
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
-import io
 
-# Toegang tot de presentatie met ActiveX‑besturingselementen
-with slides.Presentation(path + "ActiveX.pptm") as presentation:
-    # Toegang tot de eerste dia in de presentatie
-    slide = presentation.slides[0]
+with slides.Presentation("ActiveX.pptm") as presentation:
+    for slide_number, slide in enumerate(presentation.slides, start=1):
+        for control in slide.controls:
+            print(f"Slide {slide_number} | {control.name} | {control.class_id}")
+            properties = control.properties
+            if properties is None:
+                print("  Properties unavailable")
+                continue
 
-    # tekst van TextBox wijzigen
-    control = slide.controls[0]
-
-    if control.name == "TextBox1" and control.properties != None:
-        newText = "Changed text"
-        control.properties.remove("Value")
-        control.properties.add("Value", newText)
-
-        # vervangende afbeelding wijzigen. PowerPoint zal deze afbeelding vervangen tijdens ActiveX‑activatie, dus soms mag de afbeelding ongewijzigd blijven.
-
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            # font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                graphics.draw_string(newText, font, brush, 10, 4)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, [
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [
-                        draw.PointF(1, bmp.height - 1), 
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1)])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen,
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-
-    # knopbijschrift wijzigen
-    control = slide.controls[1]
-
-    if control.name == "CommandButton1" and control.properties != None:
-        newCaption = "MessageBox"
-        control.properties.remove("Caption")
-        control.properties.add("Caption", newCaption)
-
-        # vervangende afbeelding wijzigen
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            #font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                textSize = graphics.measure_string(newCaption, font, 65535)
-                graphics.draw_string(newCaption, font, brush, 
-                    (bmp.width - textSize.width) / 2, 
-                    (bmp.height - textSize.height) / 2)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-    
-    # ActiveX‑kaders 100 punten naar beneden verplaatsen
-    for ctl in slide.controls:
-        frame = control.frame
-        control.frame = slides.ShapeFrame(
-            frame.x, 
-            frame.y + 100, 
-            frame.width, 
-            frame.height, 
-            frame.flip_h, 
-            frame.flip_v, 
-            frame.rotation)
-
-    # Presentatie opslaan met bewerkte ActiveX‑besturingselementen
-    presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
-
-
-    # Besturingselementen nu verwijderen
-    slide.controls.clear()
-
-    # Presentatie opslaan met verwijderde ActiveX‑besturingselementen
-    presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
+            if properties.count == 0:
+                print("  []")
+            for entry in properties:
+                print(f"  {entry.key} = {entry.value}")
 ```
 
+Geselecteerde uitvoer van `ActiveX.pptm` toont een tekstvak en een opdrachtknop.
 
-## **ActiveX Media Player‑besturingselement toevoegen**
-Om een ActiveX Media Player‑besturingselement toe te voegen, volgt u de onderstaande stappen:
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-1. Maak een instantie van de Presentation‑klasse en laad de voorbeeldpresentatie die Media Player‑ActiveX‑besturingselementen bevat.
-2. Maak een instantie van de doel‑Presentation‑klasse en genereer een lege presentatie‑instantie.
-3. Kloon de dia met Media Player‑ActiveX‑besturingselement uit de sjabloon‑presentatie naar de doel‑Presentation.
-4. Benader de gekloonde dia in de doel‑Presentation.
-5. Benader de ActiveX‑besturingselementen in de dia via de IControlCollection.
-6. Benader het Media Player‑ActiveX‑besturingselement en stel het videopad in via de eigenschappen.
-7. Sla de presentatie op als een PPTX‑bestand.
+Een lege eigenschaps‑collectie wordt weergegeven als `[]`. Voor besturingselementen die binaire opslag gebruiken, kan `properties` de waarde `None` teruggeven, weergegeven als `Properties unavailable`. Als je alleen de namen nodig hebt, gebruik dan [names_of_properties](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/names_of_properties/) nadat je op `None` gecontroleerd hebt. Het rapport somt de eigenschappen op die beschikbaar zijn in de presentatie. Een besturingselement kan tijdens uitvoering extra eigenschappen ondersteunen.
 
-```py
+## **ActiveX‑besturingselementen wijzigen**
+
+Het voorbeeld gaat uit van een macro‑ingeschakelde presentatie met op de eerste dia een tekstvak met de naam `TextBox1` en een opdrachtknop met de naam `CommandButton1`. Het gebruikt de [control properties collection](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) om de tekstvakwaarde en de knopbijschrift te wijzigen. Elk besturingselement heeft ook een statische voorbeeldweergave die PowerPoint kan tonen voordat het geactiveerd wordt. Lever een PNG voor elk besturingselement dat de bijgewerkte tekst en weergave toont. Het voorbeeld kent deze afbeeldingen toe via [Control.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/control/substitute_picture_format/).
+
+Het voorbeeld verplaatst elk besturingselement op de eerste dia 100 punten naar beneden door zijn [frame](https://reference.aspose.com/slides/python-net/aspose.slides/control/frame/) aan te passen. Het slaat de bewerkte presentatie op in PPTM‑formaat en gebruikt vervolgens [ControlCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/controlcollection/clear/) om een tweede kopie op te slaan waarbij alle ActiveX‑besturingselementen van die dia verwijderd zijn.
+
+```python
+from pathlib import Path
+
 import aspose.slides as slides
 
-# Instantieer Presentation‑klasse die een PPTX‑bestand vertegenwoordigt
-with slides.Presentation(path + "template.pptx") as presentation:
+with slides.Presentation("ActiveX.pptm") as presentation:
+    controls = presentation.slides[0].controls
+    text_box = next((control for control in controls if control.name == "TextBox1"), None)
+    button = next((control for control in controls if control.name == "CommandButton1"), None)
+    text_box_preview = Path("text-box-preview.png")
+    button_preview = Path("button-preview.png")
 
-    # Maak een lege presentatie‑instantie
-    with slides.Presentation() as newPresentation:
+    if text_box is None or button is None or text_box.properties is None or button.properties is None:
+        print("The first slide must contain both named controls with editable properties.")
+    elif not text_box_preview.is_file() or not button_preview.is_file():
+        print("Supply both preview images before updating the controls.")
+    else:
+        text_box.properties.remove("Value")
+        text_box.properties.add("Value", "Changed text")
+        button.properties.remove("Caption")
+        button.properties.add("Caption", "Show message")
 
-        # Verwijder de standaarddia
-        newPresentation.slides.remove_at(0)
+        for control, preview in [(text_box, text_box_preview), (button, button_preview)]:
+            image_data = preview.read_bytes()
+            control.substitute_picture_format.picture.image = presentation.images.add_image(image_data)
 
-        # Kloon de dia met Media Player ActiveX‑besturingselement
-        newPresentation.slides.insert_clone(0, presentation.slides[0])
+        for control in controls:
+            frame = control.frame
+            control.frame = slides.ShapeFrame(frame.x, frame.y + 100, frame.width, frame.height, frame.flip_h, frame.flip_v, frame.rotation)
 
-        # Toegang tot het Media Player ActiveX‑besturingselement en stel het videopad in
-        prop = newPresentation.slides[0].controls[0].properties
+        presentation.save("edited-controls.pptm", slides.export.SaveFormat.PPTM)
+        controls.clear()
+        presentation.save("removed-controls.pptm", slides.export.SaveFormat.PPTM)
+```
 
-        prop.remove("URL")
-        prop.add("URL", "Wildlife.mp4")
+## **Een ActiveX‑mediaplayer‑besturingselement toevoegen**
 
-        # Sla de presentatie op
-        newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
+Om een geconfigureerde Windows Media Player‑besturingselement opnieuw te gebruiken, begin je met een sjabloon waarvan de eerste dia een speler bevat met de naam `WindowsMediaPlayer1`. [SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) kopieert de volledige dia naar een nieuwe presentatie. Het voorbeeld stelt de `URL` van de speler in via zijn [properties collection](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) en slaat de gekloonde dia op als de enige dia in de uitvoer. De video blijft extern, dus kies een pad dat de speler tijdens afspelen kan benaderen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as template, slides.Presentation() as presentation:
+    slide = presentation.slides.add_clone(template.slides[0])
+    player = next((control for control in slide.controls if control.name == "WindowsMediaPlayer1"), None)
+
+    if player is None or player.properties is None:
+        print("The template slide must contain a named media player with editable properties.")
+    else:
+        player.properties.remove("URL")
+        player.properties.add("URL", "Wildlife.mp4")
+        presentation.slides.remove_at(0)
+        presentation.save("linked-video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Behoudt Aspose.Slides ActiveX‑besturingselementen bij het lezen en opnieuw opslaan als ze niet uitgevoerd kunnen worden in de Python‑runtime?**
+**Kan Aspose.Slides ActiveX‑besturingselementen behouden zonder ze uit te voeren?**
 
-Ja. Aspose.Slides beschouwt ze als onderdeel van de presentatie en kan hun eigenschappen en kaders lezen/wijzigen; het uitvoeren van de besturingselementen zelf is niet vereist om ze te behouden.
+Ja. Aspose.Slides kan besturingselementen lezen en opslaan, inclusief hun eigenschappen en posities, zonder ze te activeren.
 
-**Hoe verschillen ActiveX‑besturingselementen van OLE‑objecten in een presentatie?**
+**Hoe verschillen ActiveX‑besturingselementen van OLE‑objecten?**
 
-ActiveX‑besturingselementen zijn interactieve beheerde componenten (knoppen, tekstvakken, mediaplayer), terwijl [OLE](/slides/nl/python-net/manage-ole/) verwijst naar ingebedde toepassingsobjecten (bijvoorbeeld een Excel‑werkblad). Ze worden anders opgeslagen en verwerkt en hebben verschillende eigenschapsmodellen.
+ActiveX‑besturingselementen laten gebruikers met een dia interactie hebben, bijvoorbeeld door tekst in te voeren of op een knop te klikken. Een [OLE object](/slides/nl/python-net/manage-ole/) laat een dia inhoud bevatten of ernaar linken die door een andere applicatie wordt beheerd, zoals een Excel‑werkblad.
 
-**Werken ActiveX‑gebeurtenissen en VBA‑macro's als het bestand is aangepast door Aspose.Slides?**
+**Zullen ActiveX‑gebeurtenissen nog steeds VBA‑macro’s activeren nadat ik een presentatie met Aspose.Slides heb opgeslagen?**
 
-Aspose.Slides behoudt de bestaande markup en metadata; echter, gebeurtenissen en macro's worden alleen uitgevoerd binnen PowerPoint op Windows wanneer de beveiligingsinstellingen dit toestaan. De bibliotheek voert geen VBA uit.
+Sla de presentatie op in een macro‑ingeschakeld formaat zoals PPTM om het VBA‑project te behouden. PowerPoint voor Windows kan de bestaande gebeurtenis‑handlers uitvoeren wanneer de beveiligingsinstellingen zowel ActiveX‑besturingselementen als macro’s toestaan.

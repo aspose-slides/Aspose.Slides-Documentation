@@ -6,187 +6,157 @@ weight: 80
 url: /cs/net/activex/
 keywords:
 - ActiveX
-- ActiveX kontrola
-- správa ActiveX
-- přidání ActiveX
-- úprava ActiveX
-- mediální přehrávač
+- ovládací prvek ActiveX
+- spravovat ActiveX
+- přidat ActiveX
+- upravit ActiveX
+- přehrávač médií
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Zjistěte, jak Aspose.Slides pro .NET využívá ActiveX k automatizaci a vylepšení prezentací PowerPoint, poskytuje vývojářům silnou kontrolu nad snímky."
+description: "Upravujte textová pole a tlačítka ActiveX, aktualizujte náhledy ovládacích prvků a znovu použijte ovládací prvek Windows Media Player v prezentacích PowerPoint pomocí Aspose.Slides pro .NET."
 ---
 ## **Úvod**
 
-ActiveX ovládací prvky se používají v prezentacích. Aspose.Slides pro .NET vám umožňuje spravovat ActiveX ovládací prvky, ale jejich správa je trochu složitější a liší se od běžných tvarů v prezentaci. Od Aspose.Slides pro .NET 6.9.0 komponent podporuje správu ActiveX ovládacích prvků. V současné době můžete v prezentaci získat přístup k již přidanému ActiveX ovládacímu prvku a pomocí jeho různých vlastností ho upravit nebo smazat. Pamatujte, že ActiveX ovládací prvky nejsou tvary a nejsou součástí IShapeCollection prezentace, ale samostatného IControlCollection. Tento článek ukazuje, jak s nimi pracovat.
+ActiveX ovládací prvky poskytují snímku PowerPointu interaktivní elementy, jako jsou textová pole, tlačítka příkazů a přehrávače médií. Aspose.Slides pro .NET zpřístupňuje ovládací prvky snímku prostřednictvím [IBaseSlide.Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/controls/). Použijte tuto kolekci k úpravě ovládacího prvku, jeho přesunutí na snímku nebo jeho odstranění.
+
+## **Seznam ActiveX ovládacích prvků a jejich uložených vlastností**
+
+Pro prozkoumání neznámé šablony ji otevřete pro čtení a projděte ovládací prvky na každém snímku. Příklad uvádí číslo snímku, název ovládacího prvku, [ClassId](https://reference.aspose.com/slides/net/aspose.slides/icontrol/classid/) a každý pár klíč‑hodnota v [Properties](https://reference.aspose.com/slides/net/aspose.slides/icontrol/#properties). Prezentaci načítá bez aktivace ovládacích prvků, spouštění událostí nebo maker, měnění hodnot či ukládání souboru.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("ActiveX.pptm");
+
+for (var i = 0; i < presentation.Slides.Count; i++)
+{
+    foreach (var control in presentation.Slides[i].Controls)
+    {
+        Console.WriteLine($"Slide {i + 1} | {control.Name} | {control.ClassId}");
+        var properties = control.Properties;
+
+        if (properties == null)
+        {
+            Console.WriteLine("  Properties unavailable");
+            continue;
+        }
+
+        if (properties.Count == 0)
+            Console.WriteLine("  []");
+
+        foreach (var property in properties)
+            Console.WriteLine($"  {property.Key} = {property.Value}");
+    }
+}
+```
+
+Vybraný výstup ze `ActiveX.pptm` ukazuje textové pole a tlačítko příkazu.
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+Prázdná kolekce vlastností se zobrazuje jako `[]`. Pro ovládací prvky, které používají binární úložiště, může `Properties` vracet `null`, což je zobrazeno jako `Properties unavailable`. Pokud potřebujete jen názvy, použijte [NamesOfProperties](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/namesofproperties/) po kontrole na `null`. Zpráva vypisuje vlastnosti dostupné v prezentaci. Ovládací prvek může za běhu podporovat další vlastnosti.
 
 ## **Upravit ActiveX ovládací prvky**
 
-Pro správu jednoduchého ActiveX ovládacího prvku, jako je textové pole a jednoduché tlačítko příkazu, na snímku:
+Příklad očekává prezentaci s povolenými makry, ve které je na prvním snímku textové pole pojmenované `TextBox1` a tlačítko příkazu pojmenované `CommandButton1`. Používá [kolekci vlastností ovládacího prvku](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) ke změně hodnoty textového pole a popisku tlačítka. Každý ovládací prvek má také statický náhled, který PowerPoint může zobrazit před aktivací. Poskytněte pro každý ovládací prvek PNG ukazující jeho aktualizovaný text a vzhled. Příklad přiřazuje tyto obrázky pomocí [IControl.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/icontrol/substitutepictureformat/).
 
-1. Vytvořte instanci třídy Presentation a načtěte prezentaci, která obsahuje ActiveX ovládací prvky.
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přistupte k ActiveX ovládacím prvkům na snímku pomocí IControlCollection.
-4. Získejte ActiveX ovládací prvek TextBox1 pomocí objektu ControlEx.
-5. Změňte různé vlastnosti ActiveX ovládacího prvku TextBox1, včetně textu, písma, výšky písma a pozice rámečku.
-6. Přistupte k druhému ovládacímu prvku pojmenovanému CommandButton1.
-7. Změňte popisek tlačítka, písmo a pozici.
-8. Posuňte pozici rámců ActiveX ovládacích prvků.
-9. Zapište upravenou prezentaci do souboru PPTX.
+Příklad posune všechny ovládací prvky na prvním snímku dolů o 100 bodů změnou jejich [Frame](https://reference.aspose.com/slides/net/aspose.slides/icontrol/frame/). Uloží upravenou prezentaci ve formátu PPTM a poté použije [IControlCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icontrolcollection/clear/) k uložení druhé kopie, ve které jsou z daného snímku odstraněny všechny ActiveX ovládací prvky.
 
-Ukázkový kód níže aktualizuje ActiveX ovládací prvky na snímcích prezentace podle snímku zobrazeného níže.
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Přístup k prezentaci s ActiveX ovládacími prvky
-Presentation presentation = new Presentation("ActiveX.pptm");
+using var presentation = new Presentation("ActiveX.pptm");
 
-// Přístup k prvnímu snímku v prezentaci
-ISlide slide = presentation.Slides[0];
+var controls = presentation.Slides[0].Controls;
+var textBox = controls.FirstOrDefault(control => control.Name == "TextBox1");
+var button = controls.FirstOrDefault(control => control.Name == "CommandButton1");
 
-// changing TextBox text
-IControl control = slide.Controls[0];
-
-if (control.Name == "TextBox1" && control.Properties != null)
+if (textBox?.Properties == null || button?.Properties == null)
 {
-    string newText = "Changed text";
-    control.Properties["Value"] = newText;
-
-    //    změna náhradního obrázku. PowerPoint nahradí tento obrázek během aktivace ActiveX, takže je někdy v pořádku nechat obrázek beze změny.
-
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Window));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    graphics.DrawString(newText, font, brush, 10, 4);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(
-        pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[]
-    {
-            new System.Drawing.Point(1, image.Height - 1), new System.Drawing.Point(image.Width - 1, image.Height - 1),
-            new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("The first slide must contain both named controls with editable properties.");
+    return;
 }
 
-//    změna popisku tlačítka
-control = slide.Controls[1];
-
-if (control.Name == "CommandButton1" && control.Properties != null)
+if (!File.Exists("text-box-preview.png") || !File.Exists("button-preview.png"))
 {
-    String newCaption = "MessageBox";
-    control.Properties["Caption"] = newCaption;
-
-    //    změna náhrady
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    SizeF textSize = graphics.MeasureString(newCaption, font, int.MaxValue);
-    graphics.DrawString(newCaption, font, brush, (image.Width - textSize.Width) / 2, (image.Height - textSize.Height) / 2);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[]
-    {
-        new System.Drawing.Point(1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("Supply both preview images before updating the controls.");
+    return;
 }
 
-// Posunutí rámců ActiveX o 100 bodů dolů
-foreach (Control ctl in slide.Controls)
+textBox.Properties["Value"] = "Changed text";
+button.Properties["Caption"] = "Show message";
+
+using var textBoxPreview = File.OpenRead("text-box-preview.png");
+using var buttonPreview = File.OpenRead("button-preview.png");
+textBox.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(textBoxPreview);
+button.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(buttonPreview);
+
+foreach (var control in controls)
 {
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
-        frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
+    var frame = control.Frame;
+    control.Frame = new ShapeFrame(frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// Uložení prezentace s upravenými ActiveX ovládacími prvky
-presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+presentation.Save("edited-controls.pptm", SaveFormat.Pptm);
 
-
-// Nyní odstraňuji ovládací prvky
-slide.Controls.Clear();
-
-// Ukládání prezentace s vyčištěnými ActiveX ovládacími prvky
-presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+controls.Clear();
+presentation.Save("removed-controls.pptm", SaveFormat.Pptm);
 ```
 
-## **Přidat ActiveX mediální přehrávač**
+## **Přidat ActiveX ovládací prvek Media Player**
 
-Chcete-li přidat ActiveX Media Player ovládací prvek, proveďte následující kroky:
+Chcete‑li znovu použít nakonfigurovaný ovládací prvek Windows Media Player, začněte šablonou, jejíž první snímek obsahuje přehrávač pojmenovaný `WindowsMediaPlayer1`. [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) zkopíruje celý snímek do nové prezentace. Příklad nastaví přehrávači `URL` v jeho [kolekci vlastností](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) a uloží zklonovaný snímek jako jediný snímek ve výstupu. Video zůstává externí, proto zvolte cestu, ke které má přehrávač během přehrávání přístup.
 
-1. Vytvořte instanci třídy Presentation a načtěte ukázkovou prezentaci, která obsahuje ActiveX ovládací prvky Media Player.
-2. Vytvořte instanci cílové třídy Presentation a vytvořte prázdnou prezentaci.
-3. Zkopírujte snímek s ActiveX ovládacím prvkem Media Player ze šablonové prezentace do cílové prezentace.
-4. Získejte přístup ke zkopírovanému snímku v cílové prezentaci.
-5. Přistupte k ActiveX ovládacím prvkům na snímku pomocí IControlCollection.
-6. Získejte ActiveX ovládací prvek Media Player a nastavte cestu k videu pomocí jeho vlastností.
-7. Uložte prezentaci do souboru PPTX.
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-Presentation presentation = new Presentation("template.pptx");
+using var template = new Presentation("template.pptx");
+using var presentation = new Presentation();
 
-// Vytvořte prázdnou instanci prezentace
-Presentation newPresentation = new Presentation();
+var slide = presentation.Slides.AddClone(template.Slides[0]);
+var player = slide.Controls.FirstOrDefault(control => control.Name == "WindowsMediaPlayer1");
 
-// Odstraňte výchozí snímek
-newPresentation.Slides.RemoveAt(0);
+if (player?.Properties == null)
+{
+    Console.WriteLine("The template slide must contain a named media player with editable properties.");
+    return;
+}
 
-// Zkopírujte snímek s Media Player ActiveX ovládacím prvkem
-newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
+player.Properties["URL"] = "Wildlife.mp4";
 
-// Přístup k Media Player ActiveX ovládacímu prvku a nastavení cesty k videu
-newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
-
-// Uložte prezentaci
-newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Slides.RemoveAt(0);
+presentation.Save("linked-video.pptx", SaveFormat.Pptx);
 ```
 
 ## **Často kladené otázky**
 
-**Zachovává Aspose.Slides ActiveX ovládací prvky při čtení a opětovném uložení, pokud nemohou být spuštěny v .NET runtime?**
+**Může Aspose.Slides zachovat ActiveX ovládací prvky, aniž by je spouštěl?**
 
-Ano. Aspose.Slides je považuje za součást prezentace a dokáže číst / upravovat jejich vlastnosti a rámečky; k zachování není nutné spouštět samotné ovládací prvky.
+Ano. Aspose.Slides může číst a ukládat ovládací prvky, včetně jejich vlastností a pozic, aniž by je aktivoval.
 
-**Jak se ActiveX ovládací prvky liší od OLE objektů v prezentaci?**
+**Jak se liší ActiveX ovládací prvky od OLE objektů?**
 
-ActiveX ovládací prvky jsou interaktivní řízené prvky (tlačítka, textová pole, mediální přehrávač), zatímco [OLE](/slides/cs/net/manage-ole/) odkazuje na vložené aplikační objekty (například list Excelu). Jsou ukládány a zpracovávány odlišně a mají jiný model vlastností.
+ActiveX ovládací prvky umožňují uživatelům interagovat se snímkem, například zadáním textu nebo kliknutím na tlačítko. [OLE objekt](/slides/cs/net/manage-ole/) umožňuje, aby snímek obsahoval nebo odkazoval na obsah spravovaný jinou aplikací, jako je například list Excelu.
 
-**Fungují události ActiveX a VBA makra, pokud byl soubor upraven pomocí Aspose.Slides?**
+**Spustí se události ActiveX stále VBA makra po uložení prezentace pomocí Aspose.Slides?**
 
-Aspose.Slides zachovává stávající značkování a metadata; události a makra však běží pouze v PowerPointu pod Windows, pokud to zabezpečení umožní. Knihovna nespouští VBA.
+Uložte prezentaci v formátu s povolenými makry, například PPTM, aby byl zachován její VBA projekt. PowerPoint pro Windows může spustit existující obslužné rutiny událostí, pokud nastavení zabezpečení povolí jak ActiveX ovládací prvky, tak makra.

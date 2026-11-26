@@ -1,5 +1,5 @@
 ---
-title: 使用 C++ 在簡報中管理 ActiveX 控制項
+title: 使用 C++ 管理簡報中的 ActiveX 控制項
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,166 +15,202 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "了解 Aspose.Slides for C++ 如何利用 ActiveX 自動化並強化 PowerPoint 簡報，為開發人員提供對投影片的強大控制能力。"
+description: "編輯 ActiveX 文字方塊與按鈕、更新控制項預覽，並在 PowerPoint 簡報中使用 Aspose.Slides for C++ 重複使用 Windows Media Player 控制項。"
 ---
 ## **簡介**
 
-ActiveX 控制項在簡報中使用。Aspose.Slides for C++ 讓您管理 ActiveX 控制項，但其管理方式較為複雜，且不同於一般簡報圖形。從 Aspose.Slides for C++ 18.1 起，該元件支援管理 ActiveX 控制項。目前，您可以透過其各種屬性存取簡報中已加入的 ActiveX 控制項，並對其進行修改或刪除。請記住，ActiveX 控制項不是圖形，也不屬於簡報的 IShapeCollection，而是屬於獨立的 IControlCollection。本章節說明如何使用它們。
+ActiveX 控制項為 PowerPoint 投影片提供互動元素，例如文字方塊、指令按鈕與媒體播放器。Aspose.Slides for C++ 透過 [IBaseSlide::get_Controls](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_controls/) 讓您取得投影片的控制項。使用此集合可編輯控制項、在投影片上移動或移除它。
 
-## **修改 ActiveX 控制項**
-要在投影片上管理簡單的 ActiveX 控制項（例如文字方塊與簡易指令按鈕）：
+## **列出 ActiveX 控制項及其儲存屬性**
 
-1. 建立 Presentation 類別的實例，並載入其中包含 ActiveX 控制項的簡報。
-1. 依索引取得投影片參考。
-1. 透過 IControlCollection 取得投影片中的 ActiveX 控制項。
-1. 使用 ControlEx 物件存取 TextBox1 ActiveX 控制項。
-1. 修改 TextBox1 ActiveX 控制項的各種屬性，包括文字、字型、字型高度與框架位置。
-1. 存取名為 CommandButton1 的第二個控制項。
-1. 變更按鈕的標題、字型與位置。
-1. 調整 ActiveX 控制項框架的位置。
-1. 將修改後的簡報寫入 PPTX 檔案。
+若要檢查不熟悉的範本，請以唯讀模式開啟並遍歷每張投影片上的控制項。範例會回報投影片編號、控制項名稱、[類別 ID](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_classid/)，以及 [儲存屬性](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_properties/) 中的每個鍵值對。它會在不啟動控制項、呼叫事件或巨集、變更值或儲存檔案的情況下讀取簡報。
 
-以下程式碼段會更新簡報投影片上的 ActiveX 控制項，如下所示。
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/guid.h>
 
-``` cpp
-// 取得包含 ActiveX 控制項的簡報
-auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
+using namespace Aspose::Slides;
+using namespace System;
 
-// 取得簡報的第一張投影片
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
 
-// 變更文字方塊文字
-auto control = slide->get_Controls()->idx_get(0);
-
-if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
+for (auto i = 0; i < presentation->get_Slides()->get_Count(); ++i)
 {
-    String newText = u"Changed text";
-    control->get_Properties()->idx_set(u"Value", newText);
+    auto controls = presentation->get_Slide(i)->get_Controls();
+    for (auto j = 0; j < controls->get_Count(); ++j)
+    {
+        auto control = controls->idx_get(j);
+        Console::WriteLine(u"Slide {0} | {1} | {2}", i + 1, control->get_Name(), control->get_ClassId().ToString());
+        auto properties = control->get_Properties();
+        if (!properties)
+        {
+            Console::WriteLine(u"  Properties unavailable");
+            continue;
+        }
 
-    // 變更替代影像。PowerPoint 會在 ActiveX 啟動時取代此影像，因此有時可以保留影像不變。
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
+        if (properties->get_Count() == 0)
+            Console::WriteLine(u"  []");
 
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    graphics->DrawString(newText, font, brush, 10.0f, 4.0f);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
+        auto entries = properties->GetEnumerator();
+        while (entries->MoveNext())
+        {
+            auto property = entries->get_Current();
+            Console::WriteLine(u"  {0} = {1}", property.get_Key(), property.get_Value());
+        }
+    }
 }
-
-// 變更按鈕標題
-control = slide->get_Controls()->idx_get(1);
-
-if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
-{
-    String newCaption = u"MessageBox";
-    control->get_Properties()->idx_set(u"Caption", newCaption);
-
-    // 變更替代影像
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
-
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    SizeF textSize = graphics->MeasureString(newCaption, font, std::numeric_limits<int32_t>::max());
-    graphics->DrawString(newCaption, font, brush, (image->get_Width() - textSize.get_Width()) / 2, (image->get_Height() - textSize.get_Height()) / 2);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
-}
-
-// 將 ActiveX 框架向下移動 100 點
-for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
-{
-    SharedPtr<IShapeFrame> frame = control->get_Frame();
-    control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
-}
-
-// 儲存已編輯 ActiveX 控制項的簡報
-presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
-
-// 現在移除控制項
-slide->get_Controls()->Clear();
-
-// 儲存已清除 ActiveX 控制項的簡報
-presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
-## **新增 Media Player ActiveX 控制項**
-ActiveX 控制項在簡報中使用。Aspose.Slides for C++ 讓您新增與管理 ActiveX 控制項，但其管理方式較為複雜，且不同於一般簡報圖形。自 Aspose.Slides for C++ 18.1 起，已在 Aspose.Slides 中加入對 Media Player ActiveX 控制項的支援。請記住，ActiveX 控制項不是圖形，也不屬於簡報的 IShapeCollection，而是獨立的 IControlExCollection。本章節說明如何使用它們。若要管理 Media Player ActiveX 控制項，請依照以下步驟操作：
+從 `ActiveX.pptm` 中選取的輸出顯示了一個文字方塊和一個指令按鈕。
 
-1. 建立 Presentation 類別的實例，並載入包含 Media Player ActiveX 控制項的範例簡報。
-1. 建立目標 Presentation 類別的實例，產生空白簡報。
-1. 將範本簡報中含有 Media Player ActiveX 控制項的投影片複製至目標 Presentation。
-1. 在目標 Presentation 中存取已複製的投影片。
-1. 透過 IControlCollection 取得投影片中的 ActiveX 控制項。
-1. 存取 Media Player ActiveX 控制項，並使用其屬性設定影片路徑。
-1. 將簡報儲存為 PPTX 檔案。
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-``` cpp
-// 實例化代表 PPTX 檔案的 Presentation 類別
-auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+空的屬性集合會顯示為 `[]`。對於使用二進位儲存的控制項，`get_Properties` 可能會回傳 `nullptr`，顯示為 `Properties unavailable`。如果僅需要屬性名稱，請在確認集合存在後使用 [get_NamesOfProperties](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/get_namesofproperties/)。報告列出簡報中可取得的屬性。控制項在執行時可能支援其他屬性。
 
-// 建立空白簡報實例
-auto newPresentation = System::MakeObject<Presentation>();
+## **修改 ActiveX 控制項**
 
-// 移除預設投影片
-newPresentation->get_Slides()->RemoveAt(0);
+此範例假設簡報為啟用巨集的檔案，且在第一張投影片上有名稱為 `TextBox1` 的文字方塊與名稱為 `CommandButton1` 的指令按鈕。它使用 [control properties collection](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) 變更文字方塊的值與按鈕的標題。每個控制項亦具有 PowerPoint 在啟動前可顯示的靜態預覽。請提供 PNG 圖檔顯示更新後的文字與外觀。範例透過 [IControl::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_substitutepictureformat/) 指定這些圖像。
 
-// 複製含 Media Player ActiveX 控制項的投影片
-newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
+範例會將第一張投影片上的所有控制項向下移動 100 點，方式是變更其[frame](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/set_frame/)。它以 PPTM 格式儲存編輯後的簡報，然後使用 [IControlCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolcollection/clear/) 以儲存第二份已移除所有 ActiveX 控制項的副本。
 
-// 存取 Media Player ActiveX 控制項並設定影片路徑
-newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/io/file.h>
 
-// 儲存簡報
-newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
+auto controls = presentation->get_Slide(0)->get_Controls();
+SharedPtr<IControl> textBox;
+SharedPtr<IControl> button;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"TextBox1")
+        textBox = control;
+    else if (control->get_Name() == u"CommandButton1")
+        button = control;
+}
+
+if (!textBox || !button || !textBox->get_Properties() || !button->get_Properties())
+{
+    Console::WriteLine(u"The first slide must contain both named controls with editable properties.");
+    return;
+}
+
+if (!File::Exists(u"text-box-preview.png") || !File::Exists(u"button-preview.png"))
+{
+    Console::WriteLine(u"Supply both preview images before updating the controls.");
+    return;
+}
+
+textBox->get_Properties()->idx_set(u"Value", u"Changed text");
+button->get_Properties()->idx_set(u"Caption", u"Show message");
+
+auto textBoxBytes = File::ReadAllBytes(u"text-box-preview.png");
+auto buttonBytes = File::ReadAllBytes(u"button-preview.png");
+auto textBoxPreview = presentation->get_Images()->AddImage(textBoxBytes);
+auto buttonPreview = presentation->get_Images()->AddImage(buttonBytes);
+textBox->get_SubstitutePictureFormat()->get_Picture()->set_Image(textBoxPreview);
+button->get_SubstitutePictureFormat()->get_Picture()->set_Image(buttonPreview);
+
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    auto frame = control->get_Frame();
+    auto movedFrame = MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation());
+    control->set_Frame(movedFrame);
+}
+
+presentation->Save(u"edited-controls.pptm", SaveFormat::Pptm);
+
+controls->Clear();
+presentation->Save(u"removed-controls.pptm", SaveFormat::Pptm);
+```
+
+## **新增 ActiveX 媒體播放器控制項**
+
+若要重複使用已設定好的 Windows Media Player 控制項，請以第一張投影片包含名稱為 `WindowsMediaPlayer1` 的播放器之範本作為起點。[ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) 會將整張投影片複製到新簡報中。範例在其[properties collection](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) 中設定播放器的 `URL`，並將複製的投影片儲存為輸出的唯一投影片。影片保持外部連結，請選擇播放器在播放時能存取的路徑。
+
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+
+auto source = MakeObject<Presentation>(u"template.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->AddClone(source->get_Slide(0));
+auto controls = slide->get_Controls();
+
+SharedPtr<IControl> player;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"WindowsMediaPlayer1")
+    {
+        player = control;
+        break;
+    }
+}
+
+if (!player || !player->get_Properties())
+{
+    Console::WriteLine(u"The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+
+presentation->get_Slides()->RemoveAt(0);
+presentation->Save(u"linked-video.pptx", SaveFormat::Pptx);
 ```
 
 ## **常見問題**
 
-**Aspose.Slides 在讀取並重新保存檔案時，若無法在 C++ 執行環境中執行 ActiveX 控制項，是否仍會保留它們？**
+**Aspose.Slides 能在不執行 ActiveX 控制項的情況下保留它們嗎？**
 
-是。Aspose.Slides 將它們視為簡報的一部份，能讀取與修改其屬性與框架；不需要執行控制項本身即可保留它們。
+是。Aspose.Slides 能在不啟動控制項的情況下讀取並儲存控制項，包括其屬性與位置。
 
-**ActiveX 控制項與簡報中的 OLE 物件有何不同？**
+**ActiveX 控制項與 OLE 物件有何不同？**
 
-ActiveX 控制項是可互動的受管理控制項（例如按鈕、文字方塊、媒體播放器），而 [OLE](/slides/zh-hant/cpp/manage-ole/) 指的是內嵌的應用程式物件（例如 Excel 工作表）。它們的儲存與處理方式不同，且擁有不同的屬性模型。
+ActiveX 控制項讓使用者與投影片互動，例如輸入文字或點擊按鈕。 [OLE 物件](/slides/zh-hant/cpp/manage-ole/) 讓投影片包含或連結至其他應用程式管理的內容，例如 Excel 工作表。
 
-**如果檔案已由 Aspose.Slides 修改，ActiveX 事件和 VBA 巨集是否仍會運作？**
+**在使用 Aspose.Slides 儲存簡報後，ActiveX 事件仍會觸發 VBA 巨集嗎？**
 
-Aspose.Slides 會保留現有的標記與中繼資料；然而，事件與巨集僅在 Windows 上的 PowerPoint 且安全性允許時才能執行。此函式庫不會執行 VBA。
+請將簡報儲存為支援巨集的格式（如 PPTM）以保留 VBA 專案。當 Windows 版 PowerPoint 的安全性設定允許 ActiveX 控制項與巨集時，便會執行現有的事件處理常式。

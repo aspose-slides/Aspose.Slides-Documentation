@@ -6,7 +6,7 @@ weight: 80
 url: /id/cpp/activex/
 keywords:
 - ActiveX
-- Kontrol ActiveX
+- kontrol ActiveX
 - kelola ActiveX
 - tambahkan ActiveX
 - modifikasi ActiveX
@@ -15,166 +15,202 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari bagaimana Aspose.Slides untuk C++ memanfaatkan ActiveX untuk mengotomatisasi dan meningkatkan presentasi PowerPoint, memberikan kontrol yang kuat bagi pengembang atas slide."
+description: "Edit kotak teks dan tombol ActiveX, perbarui pratinjau kontrol, serta gunakan kembali kontrol Windows Media Player dalam presentasi PowerPoint dengan Aspose.Slides untuk C++."
 ---
 ## **Pendahuluan**
 
-Kontrol ActiveX digunakan dalam presentasi. Aspose.Slides untuk C++ memungkinkan Anda mengelola kontrol ActiveX, namun pengelolaannya sedikit lebih rumit dan berbeda dari bentuk presentasi biasa. Mulai Aspose.Slides untuk C++ 18.1, komponen ini mendukung pengelolaan kontrol ActiveX. Saat ini, Anda dapat mengakses kontrol ActiveX yang sudah ditambahkan dalam presentasi Anda dan memodifikasi atau menghapusnya dengan menggunakan berbagai properti. Ingat, kontrol ActiveX bukan bentuk (shape) dan tidak termasuk dalam IShapeCollection presentasi tetapi berada di IControlCollection terpisah. Artikel ini menunjukkan cara bekerja dengan mereka.
+Kontrol ActiveX memberikan slide PowerPoint elemen interaktif seperti kotak teks, tombol perintah, dan pemutar media. Aspose.Slides untuk C++ mengekspos kontrol slide melalui [IBaseSlide::get_Controls](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_controls/). Gunakan koleksi ini untuk menyunting kontrol, memindahkannya pada slide, atau menghapusnya.
 
-## **Memodifikasi Kontrol ActiveX**
-Untuk mengelola kontrol ActiveX sederhana seperti kotak teks dan tombol perintah pada sebuah slide:
+## **Daftar Kontrol ActiveX dan Properti yang Disimpan**
 
-1. Buat instance kelas Presentation dan muat presentasi yang berisi kontrol ActiveX.
-1. Dapatkan referensi slide berdasarkan indeksnya.
-1. Akses kontrol ActiveX pada slide dengan mengakses IControlCollection.
-1. Akses kontrol ActiveX TextBox1 menggunakan objek ControlEx.
-1. Ubah berbagai properti kontrol ActiveX TextBox1 termasuk teks, font, tinggi font, dan posisi frame.
-1. Akses kontrol kedua yang bernama CommandButton1.
-1. Ubah caption tombol, font, dan posisi.
-1. Geser posisi frame kontrol ActiveX.
-1. Tulis presentasi yang telah dimodifikasi ke file PPTX.
-
-Potongan kode di bawah ini memperbarui kontrol ActiveX pada slide presentasi seperti yang ditunjukkan.
+Untuk memeriksa templat yang tidak dikenal, buka untuk dibaca dan iterasi melalui kontrol pada setiap slide. Contoh melaporkan nomor slide, nama kontrol, [ID kelas](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_classid/), dan setiap pasangan kunci-nilai dalam [properti yang disimpan](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_properties/). Ia membaca presentasi tanpa mengaktifkan kontrol, memanggil acara atau makro, mengubah nilai, atau menyimpan file.
 
 ```cpp
-// Mengakses presentasi dengan  kontrol ActiveX
-auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/guid.h>
 
-// Mengakses slide pertama dalam presentasi
-auto slide = presentation->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace System;
 
-// mengubah teks TextBox
-auto control = slide->get_Controls()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
 
-if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
+for (auto i = 0; i < presentation->get_Slides()->get_Count(); ++i)
 {
-    String newText = u"Changed text";
-    control->get_Properties()->idx_set(u"Value", newText);
+    auto controls = presentation->get_Slide(i)->get_Controls();
+    for (auto j = 0; j < controls->get_Count(); ++j)
+    {
+        auto control = controls->idx_get(j);
+        Console::WriteLine(u"Slide {0} | {1} | {2}", i + 1, control->get_Name(), control->get_ClassId().ToString());
+        auto properties = control->get_Properties();
+        if (!properties)
+        {
+            Console::WriteLine(u"  Properties unavailable");
+            continue;
+        }
 
-    // mengubah gambar pengganti. Powerpoint akan mengganti gambar ini selama aktivasi activeX, jadi kadang diperbolehkan membiarkan gambar tidak berubah.
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
+        if (properties->get_Count() == 0)
+            Console::WriteLine(u"  []");
 
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    graphics->DrawString(newText, font, brush, 10.0f, 4.0f);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
+        auto entries = properties->GetEnumerator();
+        while (entries->MoveNext())
+        {
+            auto property = entries->get_Current();
+            Console::WriteLine(u"  {0} = {1}", property.get_Key(), property.get_Value());
+        }
+    }
 }
-
-// mengubah caption Tombol
-control = slide->get_Controls()->idx_get(1);
-
-if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
-{
-    String newCaption = u"MessageBox";
-    control->get_Properties()->idx_set(u"Caption", newCaption);
-
-    // mengubah pengganti
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
-
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    SizeF textSize = graphics->MeasureString(newCaption, font, std::numeric_limits<int32_t>::max());
-    graphics->DrawString(newCaption, font, brush, (image->get_Width() - textSize.get_Width()) / 2, (image->get_Height() - textSize.get_Height()) / 2);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
-}
-
-// Memindahkan frame ActiveX turun 100 poin
-for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
-{
-    SharedPtr<IShapeFrame> frame = control->get_Frame();
-    control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
-}
-
-// Simpan presentasi dengan Kontrol ActiveX yang Diedit
-presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
-
-// Sekarang menghapus kontrol
-slide->get_Controls()->Clear();
-
-// Menyimpan presentasi dengan kontrol ActiveX yang dibersihkan
-presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
-## **Menambahkan Kontrol ActiveX Media Player**
-Kontrol ActiveX digunakan dalam presentasi. Aspose.Slides untuk C++ memungkinkan Anda menambah dan mengelola kontrol ActiveX, namun pengelolaannya sedikit lebih rumit dan berbeda dari bentuk presentasi biasa. Mulai Aspose.Slides untuk C++ 18.1, dukungan untuk menambahkan kontrol ActiveX Media Player telah ditambahkan dalam Aspose.Slides. Ingat, kontrol ActiveX bukan bentuk dan tidak termasuk dalam IShapeCollection presentasi tetapi berada di IControlExCollection terpisah. Artikel ini menunjukkan cara bekerja dengan mereka. Untuk mengelola kontrol ActiveX Media Player, ikuti langkah‑langkah berikut:
+Keluaran terpilih dari `ActiveX.pptm` menunjukkan sebuah kotak teks dan sebuah tombol perintah.
 
-1. Buat instance kelas Presentation dan muat contoh presentasi yang berisi kontrol ActiveX Media Player.
-1. Buat instance kelas Presentation target dan hasilkan instance presentasi kosong.
-1. Kloning slide yang berisi kontrol ActiveX Media Player dari presentasi templat ke Presentation target.
-1. Akses slide hasil kloning di Presentation target.
-1. Akses kontrol ActiveX pada slide dengan mengakses IControlCollection.
-1. Akses kontrol ActiveX Media Player dan tetapkan jalur video dengan menggunakan propertinya.
-1. Simpan presentasi ke file PPTX.
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+Koleksi properti kosong muncul sebagai `[]`. Untuk kontrol yang menggunakan penyimpanan biner, `get_Properties` dapat mengembalikan `nullptr`, ditampilkan sebagai `Properties unavailable`. Jika Anda hanya membutuhkan nama, gunakan [get_NamesOfProperties](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/get_namesofproperties/) setelah memeriksa bahwa koleksi ada. Laporan mencantumkan properti yang tersedia dari presentasi. Sebuah kontrol mungkin mendukung properti tambahan pada waktu jalan.
+
+## **Ubah Kontrol ActiveX**
+
+Contoh mengharapkan presentasi ber-makro dengan kotak teks bernama `TextBox1` dan tombol perintah bernama `CommandButton1` pada slide pertama. Ia menggunakan [koleksi properti kontrol](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) untuk mengubah nilai kotak teks dan keterangan tombol. Setiap kontrol juga memiliki pratinjau statis yang dapat ditampilkan PowerPoint sebelum aktivasi. Sediakan PNG untuk setiap kontrol yang menunjukkan teks dan tampilan yang diperbarui. Contoh menetapkan gambar-gambar ini melalui [IControl::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_substitutepictureformat/).
+
+Contoh memindahkan setiap kontrol pada slide pertama turun sebesar 100 poin dengan mengubah [frame](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/set_frame/). Ia menyimpan presentasi yang disunting dalam format PPTM, kemudian menggunakan [IControlCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolcollection/clear/) untuk menyimpan salinan kedua dengan semua kontrol ActiveX dihapus dari slide tersebut.
 
 ```cpp
-// Membuat instance kelas Presentation yang mewakili file PPTX
-auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/io/file.h>
 
-// Membuat instance presentasi kosong
-auto newPresentation = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
-// Menghapus slide default
-newPresentation->get_Slides()->RemoveAt(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
+auto controls = presentation->get_Slide(0)->get_Controls();
+SharedPtr<IControl> textBox;
+SharedPtr<IControl> button;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"TextBox1")
+        textBox = control;
+    else if (control->get_Name() == u"CommandButton1")
+        button = control;
+}
 
-// Mengkloning slide dengan Kontrol ActiveX Pemutar Media
-newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
+if (!textBox || !button || !textBox->get_Properties() || !button->get_Properties())
+{
+    Console::WriteLine(u"The first slide must contain both named controls with editable properties.");
+    return;
+}
 
-// Mengakses kontrol ActiveX Pemutar Media dan mengatur jalur video
-newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+if (!File::Exists(u"text-box-preview.png") || !File::Exists(u"button-preview.png"))
+{
+    Console::WriteLine(u"Supply both preview images before updating the controls.");
+    return;
+}
 
-// Menyimpan Presentasi
-newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
+textBox->get_Properties()->idx_set(u"Value", u"Changed text");
+button->get_Properties()->idx_set(u"Caption", u"Show message");
+
+auto textBoxBytes = File::ReadAllBytes(u"text-box-preview.png");
+auto buttonBytes = File::ReadAllBytes(u"button-preview.png");
+auto textBoxPreview = presentation->get_Images()->AddImage(textBoxBytes);
+auto buttonPreview = presentation->get_Images()->AddImage(buttonBytes);
+textBox->get_SubstitutePictureFormat()->get_Picture()->set_Image(textBoxPreview);
+button->get_SubstitutePictureFormat()->get_Picture()->set_Image(buttonPreview);
+
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    auto frame = control->get_Frame();
+    auto movedFrame = MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation());
+    control->set_Frame(movedFrame);
+}
+
+presentation->Save(u"edited-controls.pptm", SaveFormat::Pptm);
+
+controls->Clear();
+presentation->Save(u"removed-controls.pptm", SaveFormat::Pptm);
 ```
 
-## **FAQ**
+## **Tambahkan Kontrol Media Player ActiveX**
 
-**Apakah Aspose.Slides mempertahankan kontrol ActiveX saat membaca dan menyimpan kembali jika kontrol tersebut tidak dapat dijalankan di runtime C++?**
+Untuk menggunakan kembali kontrol Windows Media Player yang telah dikonfigurasi, mulailah dengan templat yang slide pertamanya berisi pemutar bernama `WindowsMediaPlayer1`. [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) menyalin seluruh slide ke presentasi baru. Contoh menetapkan `URL` pemutar dalam [koleksi properti](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) dan menyimpan slide yang diklon sebagai satu-satunya slide dalam output. Video tetap eksternal, jadi pilih jalur yang dapat diakses pemutar selama pemutaran.
 
-Ya. Aspose.Slides memperlakukan mereka sebagai bagian dari presentasi dan dapat membaca/memodifikasi properti serta frame mereka; mengeksekusi kontrol itu sendiri tidak diperlukan untuk mempertahankannya.
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
 
-**Bagaimana perbedaan kontrol ActiveX dengan objek OLE dalam presentasi?**
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
 
-Kontrol ActiveX adalah kontrol interaktif yang dikelola (tombol, kotak teks, pemutar media), sedangkan [OLE](/slides/id/cpp/manage-ole/) mengacu pada objek aplikasi yang disematkan (misalnya, lembar kerja Excel). Mereka disimpan dan ditangani secara berbeda serta memiliki model properti yang berbeda.
+auto source = MakeObject<Presentation>(u"template.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->AddClone(source->get_Slide(0));
+auto controls = slide->get_Controls();
 
-**Apakah peristiwa ActiveX dan makro VBA berfungsi jika file telah dimodifikasi oleh Aspose.Slides?**
+SharedPtr<IControl> player;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"WindowsMediaPlayer1")
+    {
+        player = control;
+        break;
+    }
+}
 
-Aspose.Slides mempertahankan markup dan metadata yang ada; namun, peristiwa dan makro hanya dapat dijalankan di PowerPoint pada Windows ketika keamanan memperbolehkannya. Perpustakaan tidak mengeksekusi VBA.
+if (!player || !player->get_Properties())
+{
+    Console::WriteLine(u"The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+
+presentation->get_Slides()->RemoveAt(0);
+presentation->Save(u"linked-video.pptx", SaveFormat::Pptx);
+```
+
+## **Tanya Jawab**
+
+**Apakah Aspose.Slides dapat mempertahankan kontrol ActiveX tanpa menjalankannya?**
+
+Ya. Aspose.Slides dapat membaca dan menyimpan kontrol, termasuk properti dan posisinya, tanpa mengaktifkannya.
+
+**Bagaimana perbedaan kontrol ActiveX dengan objek OLE?**
+
+Kontrol ActiveX memungkinkan pengguna berinteraksi dengan slide, misalnya dengan memasukkan teks atau mengklik tombol. Sebuah [objek OLE](/slides/id/cpp/manage-ole/) memungkinkan slide berisi atau menautkan ke konten yang dikelola oleh aplikasi lain, seperti lembar kerja Excel.
+
+**Apakah peristiwa ActiveX masih akan memicu makro VBA setelah saya menyimpan presentasi dengan Aspose.Slides?**
+
+Simpan presentasi dalam format ber-makro seperti PPTM untuk mempertahankan proyek VBA-nya. PowerPoint untuk Windows dapat menjalankan penangan peristiwa yang ada ketika pengaturan keamanannya mengizinkan baik kontrol ActiveX maupun makro.

@@ -1,5 +1,5 @@
 ---
-title: 管理 .NET 環境下簡報的 ActiveX 控制項
+title: 在 .NET 中管理簡報的 ActiveX 控制項
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -16,177 +16,147 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解 Aspose.Slides for .NET 如何利用 ActiveX 自動化與增強 PowerPoint 簡報，為開發者提供對投影片的強大控制。"
+description: "編輯 ActiveX 文字方塊與按鈕，更新控制項預覽，並在 PowerPoint 簡報中使用 Aspose.Slides for .NET 重新利用 Windows Media Player 控制項。"
 ---
-## **簡介**
+## **介紹**
 
-ActiveX 控制項在簡報中被使用。Aspose.Slides for .NET 允許您管理 ActiveX 控制項，但其管理方式較為複雜，且不同於一般的簡報形狀。從 Aspose.Slides for .NET 6.9.0 起，該元件支援管理 ActiveX 控制項。目前，您可以存取簡報中已加入的 ActiveX 控制項，並透過其各種屬性進行修改或刪除。請記住，ActiveX 控制項不是形狀，亦不屬於簡報的 IShapeCollection，而是屬於獨立的 IControlCollection。本文將說明如何使用它們。
+ActiveX 控制項為 PowerPoint 投影片提供可互動的元素，例如文字方塊、指令按鈕和媒體播放器。Aspose.Slides for .NET 透過 [IBaseSlide.Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/controls/) 將投影片的控制項公開。使用此集合可編輯控制項、在投影片上移動或將其移除。
+
+## **列出 ActiveX 控制項及其儲存的屬性**
+
+若要檢查不熟悉的範本，請以唯讀模式開啟並遍歷每張投影片上的控制項。範例會報告投影片編號、控制項名稱、[ClassId](https://reference.aspose.com/slides/net/aspose.slides/icontrol/classid/)，以及在[Properties](https://reference.aspose.com/slides/net/aspose.slides/icontrol/#properties) 中的每個鍵值對。它會在不啟動控制項、觸發事件或巨集、變更值或儲存檔案的情況下讀取簡報。
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("ActiveX.pptm");
+
+for (var i = 0; i < presentation.Slides.Count; i++)
+{
+    foreach (var control in presentation.Slides[i].Controls)
+    {
+        Console.WriteLine($"Slide {i + 1} | {control.Name} | {control.ClassId}");
+        var properties = control.Properties;
+
+        if (properties == null)
+        {
+            Console.WriteLine("  Properties unavailable");
+            continue;
+        }
+
+        if (properties.Count == 0)
+            Console.WriteLine("  []");
+
+        foreach (var property in properties)
+            Console.WriteLine($"  {property.Key} = {property.Value}");
+    }
+}
+```
+
+從 `ActiveX.pptm` 取得的選取輸出顯示一個文字方塊和一個指令按鈕。
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+空的屬性集合會顯示為 `[]`。對於使用二進位儲存的控制項，`Properties` 可能會返回 `null`，顯示為 `Properties unavailable`。如果只需要名稱，可在檢查為 null 後使用 [NamesOfProperties](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/namesofproperties/)。報告列出簡報中可用的屬性。控制項在執行時可能支援額外的屬性。
 
 ## **修改 ActiveX 控制項**
 
-要在投影片上管理簡單的 ActiveX 控制項，例如文字方塊與簡單的指令按鈕：
+範例假設第一張投影片上有一個名為 `TextBox1` 的文字方塊和一個名為 `CommandButton1` 的指令按鈕，且簡報已啟用巨集。它使用[控制屬性集合](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) 變更文字方塊的值與按鈕的標題。每個控制項亦有 PowerPoint 在啟動前可顯示的靜態預覽。提供每個控制項的 PNG，顯示更新後的文字與外觀。範例透過[IControl.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/icontrol/substitutepictureformat/) 指派這些影像。
 
-1. 建立 Presentation 類別的實例，並載入已包含 ActiveX 控制項的簡報。
-2. 依索引取得投影片參考。
-3. 透過 IControlCollection 存取投影片中的 ActiveX 控制項。
-4. 使用 ControlEx 物件存取 TextBox1 ActiveX 控制項。
-5. 變更 TextBox1 ActiveX 控制項的各種屬性，包括文字、字型、字型高度與框架位置。
-6. 存取名為 CommandButton1 的第二個控制項。
-7. 變更按鈕的標題、字型與位置。
-8. 調整 ActiveX 控制項框架的位置。
-9. 將修改後的簡報寫入 PPTX 檔案。
+範例透過變更其[Frame](https://reference.aspose.com/slides/net/aspose.slides/icontrol/frame/)，將第一張投影片上的所有控制項向下移動 100 點。它以 PPTM 格式儲存編輯後的簡報，然後使用[IControlCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icontrolcollection/clear/) 產生第二份副本，該副本已從該投影片移除所有 ActiveX 控制項。
 
-以下程式碼片段會將簡報投影片上的 ActiveX 控制項更新為下圖所示的樣子。
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// 存取含有  ActiveX 控制項的簡報
-Presentation presentation = new Presentation("ActiveX.pptm");
+using var presentation = new Presentation("ActiveX.pptm");
 
-// 存取簡報中的第一張投影片
-ISlide slide = presentation.Slides[0];
+var controls = presentation.Slides[0].Controls;
+var textBox = controls.FirstOrDefault(control => control.Name == "TextBox1");
+var button = controls.FirstOrDefault(control => control.Name == "CommandButton1");
 
-// 更改 TextBox 文字
-IControl control = slide.Controls[0];
-
-if (control.Name == "TextBox1" && control.Properties != null)
+if (textBox?.Properties == null || button?.Properties == null)
 {
-    string newText = "Changed text";
-    control.Properties["Value"] = newText;
-
-    // 更改替代圖像。PowerPoint 會在 ActiveX 啟動期間替換此圖像，因此有時可以保持圖像不變。
-
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Window));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    graphics.DrawString(newText, font, brush, 10, 4);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(
-        pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[]
-    {
-            new System.Drawing.Point(1, image.Height - 1), new System.Drawing.Point(image.Width - 1, image.Height - 1),
-            new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("The first slide must contain both named controls with editable properties.");
+    return;
 }
 
-// 更改按鈕標題
-control = slide.Controls[1];
-
-if (control.Name == "CommandButton1" && control.Properties != null)
+if (!File.Exists("text-box-preview.png") || !File.Exists("button-preview.png"))
 {
-    String newCaption = "MessageBox";
-    control.Properties["Caption"] = newCaption;
-
-    // 更改替代圖像
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    SizeF textSize = graphics.MeasureString(newCaption, font, int.MaxValue);
-    graphics.DrawString(newCaption, font, brush, (image.Width - textSize.Width) / 2, (image.Height - textSize.Height) / 2);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[]
-    {
-        new System.Drawing.Point(1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("Supply both preview images before updating the controls.");
+    return;
 }
 
-// 將 ActiveX 框架向下移動 100 點
-foreach (Control ctl in slide.Controls)
+textBox.Properties["Value"] = "Changed text";
+button.Properties["Caption"] = "Show message";
+
+using var textBoxPreview = File.OpenRead("text-box-preview.png");
+using var buttonPreview = File.OpenRead("button-preview.png");
+textBox.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(textBoxPreview);
+button.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(buttonPreview);
+
+foreach (var control in controls)
 {
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
-        frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
+    var frame = control.Frame;
+    control.Frame = new ShapeFrame(frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// 儲存已編輯 ActiveX 控制項的簡報
-presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+presentation.Save("edited-controls.pptm", SaveFormat.Pptm);
 
-
-// 現在移除控制項
-slide.Controls.Clear();
-
-// 儲存已清除 ActiveX 控制項的簡報
-presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+controls.Clear();
+presentation.Save("removed-controls.pptm", SaveFormat.Pptm);
 ```
 
-## **加入 ActiveX Media Player 控制項**
+## **新增 ActiveX 媒體播放器控制項**
 
-若要加入 ActiveX Media Player 控制項，請執行以下步驟：
+若要重複使用已配置的 Windows Media Player 控制項，請從第一張投影片包含名為 `WindowsMediaPlayer1` 的播放器的範本開始。[ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) 會將整張投影片複製到新簡報。範例在其[屬性集合](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) 中設定播放器的 `URL`，並將複製的投影片儲存為輸出唯一的投影片。影片保持外部，請選擇播放器在播放時能存取的路徑。
 
-1. 建立 Presentation 類別的實例，並載入已包含 Media Player ActiveX 控制項的範例簡報。
-2. 建立目標 Presentation 類別的實例，產生空白簡報實例。
-3. 將範本簡報中含有 Media Player ActiveX 控制項的投影片複製到目標 Presentation。
-4. 在目標 Presentation 中存取已複製的投影片。
-5. 透過 IControlCollection 存取投影片中的 ActiveX 控制項。
-6. 存取 Media Player ActiveX 控制項，並使用其屬性設定影片路徑。
-7. 將簡報儲存為 PPTX 檔案。
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// 建立代表 PPTX 檔案的 Presentation 類別實例
-Presentation presentation = new Presentation("template.pptx");
+using var template = new Presentation("template.pptx");
+using var presentation = new Presentation();
 
-// 建立空白簡報實例
-Presentation newPresentation = new Presentation();
+var slide = presentation.Slides.AddClone(template.Slides[0]);
+var player = slide.Controls.FirstOrDefault(control => control.Name == "WindowsMediaPlayer1");
 
-// 移除預設投影片
-newPresentation.Slides.RemoveAt(0);
+if (player?.Properties == null)
+{
+    Console.WriteLine("The template slide must contain a named media player with editable properties.");
+    return;
+}
 
-// 複製含有 Media Player ActiveX 控制項的投影片
-newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
+player.Properties["URL"] = "Wildlife.mp4";
 
-// 存取 Media Player ActiveX 控制項並設定影片路徑
-newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
-
-// 儲存簡報
-newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Slides.RemoveAt(0);
+presentation.Save("linked-video.pptx", SaveFormat.Pptx);
 ```
 
 ## **常見問題**
 
-**Aspose.Slides 在讀取並重新儲存時，若無法在 .NET 執行環境中執行，是否仍會保留 ActiveX 控制項？**
+**Aspose.Slides 能在不執行的情況下保留 ActiveX 控制項嗎？**
 
-是的。Aspose.Slides 會將它們視為簡報的一部份，並能讀取/修改其屬性與框架；不需要執行控制項本身即可保留它們。
+可以。Aspose.Slides 能讀取並儲存控制項，包括其屬性與位置，且不會啟動它們。
 
-**ActiveX 控制項與簡報中的 OLE 物件有何不同？**
+**ActiveX 控制項與 OLE 物件有何不同？**
 
-ActiveX 控制項是可互動的受管理控制項（例如按鈕、文字方塊、Media Player），而 [OLE](/slides/zh-hant/net/manage-ole/) 則指嵌入的應用程式物件（例如 Excel 工作表）。它們的存儲與處理方式不同，且具有不同的屬性模型。
+ActiveX 控制項允許使用者與投影片互動，例如填寫文字或點擊按鈕。[OLE 物件](/slides/zh-hant/net/manage-ole/) 允許投影片包含或鏈結至由其他應用程式管理的內容，例如 Excel 工作表。
 
-**如果檔案已被 Aspose.Slides 修改，ActiveX 事件與 VBA 巨集仍會運作嗎？**
+**在使用 Aspose.Slides 儲存簡報後，ActiveX 事件仍會觸發 VBA 巨集嗎？**
 
-Aspose.Slides 會保留現有的標記與中繼資料；然而，事件與巨集僅在 Windows 上的 PowerPoint 並且安全性允許的情況下才能執行。此函式庫不會執行 VBA。
+將簡報儲存為支援巨集的格式（例如 PPTM）即可保留 VBA 專案。當 Windows 版 PowerPoint 的安全性設定同時允許 ActiveX 控制項與巨集時，便能執行既有的事件處理程式。

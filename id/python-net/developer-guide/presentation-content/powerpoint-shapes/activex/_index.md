@@ -1,223 +1,132 @@
 ---
-title: Kelola Kontrol ActiveX dalam Presentasi dengan Python
-linktitle: ActiveX
+title: "Kelola Kontrol ActiveX dalam Presentasi dengan Python"
+linktitle: "ActiveX"
 type: docs
 weight: 80
 url: /id/python-net/activex/
 keywords:
 - ActiveX
 - kontrol ActiveX
-- mengelola ActiveX
-- menambahkan ActiveX
-- memodifikasi ActiveX
+- kelola ActiveX
+- tambahkan ActiveX
+- modifikasi ActiveX
 - pemutar media
 - PowerPoint
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari cara Aspose.Slides untuk Python via .NET memanfaatkan ActiveX untuk mengotomatiskan dan meningkatkan presentasi PowerPoint, memberikan kontrol kuat kepada pengembang atas slide."
+description: "Edit kotak teks dan tombol ActiveX, perbarui preview kontrol, dan gunakan kembali kontrol Windows Media Player dalam presentasi PowerPoint dengan Aspose.Slides untuk Python via .NET."
 ---
 ## **Pendahuluan**
 
-Kontrol ActiveX digunakan dalam presentasi. Aspose.Slides untuk Python via .NET memungkinkan Anda mengelola kontrol ActiveX, tetapi mengelolanya sedikit lebih rumit dan berbeda dari bentuk presentasi biasa. Mulai Aspose.Slides untuk Python via .NET 6.9.0, komponen ini mendukung pengelolaan kontrol ActiveX. Saat ini, Anda dapat mengakses kontrol ActiveX yang sudah ditambahkan dalam presentasi Anda dan memodifikasi atau menghapusnya dengan menggunakan berbagai propertinya. Ingat, kontrol ActiveX bukan bentuk dan bukan bagian dari IShapeCollection presentasi melainkan IControlCollection terpisah. Artikel ini menunjukkan cara bekerja dengan mereka.
+Kontrol ActiveX memberikan elemen interaktif pada slide PowerPoint seperti kotak teks, tombol perintah, dan pemutar media. Aspose.Slides untuk Python via .NET menampilkan kontrol slide melalui [Slide.controls](https://reference.aspose.com/slides/python-net/aspose.slides/slide/controls/). Gunakan koleksi ini untuk mengedit kontrol, memindahkannya pada slide, atau menghapusnya.
 
-## **Modifikasi Kontrol ActiveX**
-Untuk mengelola kontrol ActiveX sederhana seperti kotak teks dan tombol perintah sederhana pada slide:
+## **Daftar Kontrol ActiveX dan Properti yang Disimpan**
 
-1. Buat instance dari kelas Presentation dan muat presentasi yang berisi kontrol ActiveX.
-2. Dapatkan referensi slide berdasarkan indeksnya.
-3. Akses kontrol ActiveX pada slide dengan mengakses IControlCollection.
-4. Akses kontrol ActiveX TextBox1 menggunakan objek ControlEx.
-5. Ubah berbagai properti kontrol ActiveX TextBox1 termasuk teks, font, tinggi font, dan posisi bingkai.
-6. Akses kontrol akses kedua yang disebut CommandButton1.
-7. Ubah keterangan tombol, font, dan posisinya.
-8. Geser posisi bingkai kontrol ActiveX.
-9. Tulis presentasi yang telah dimodifikasi ke file PPTX.
+Untuk memeriksa templat yang tidak dikenal, buka untuk dibaca dan iterasikan melalui kontrol pada setiap slide. Contoh melaporkan nomor slide, nama kontrol, [class_id](https://reference.aspose.com/slides/python-net/aspose.slides/control/class_id/), dan setiap pasangan kunci-nilai dalam [properties](https://reference.aspose.com/slides/python-net/aspose.slides/control/#properties). Ia membaca presentasi tanpa mengaktifkan kontrol, memanggil event atau makro, mengubah nilai, atau menyimpan file.
 
-Potongan kode di bawah ini memperbarui kontrol ActiveX pada slide presentasi seperti yang ditunjukkan di bawah.
-
-```py
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
-import io
 
-# Mengakses presentasi dengan kontrol ActiveX
-with slides.Presentation(path + "ActiveX.pptm") as presentation:
-    # Mengakses slide pertama dalam presentasi
-    slide = presentation.slides[0]
+with slides.Presentation("ActiveX.pptm") as presentation:
+    for slide_number, slide in enumerate(presentation.slides, start=1):
+        for control in slide.controls:
+            print(f"Slide {slide_number} | {control.name} | {control.class_id}")
+            properties = control.properties
+            if properties is None:
+                print("  Properties unavailable")
+                continue
 
-    # mengubah teks TextBox
-    control = slide.controls[0]
-
-    if control.name == "TextBox1" and control.properties != None:
-        newText = "Changed text"
-        control.properties.remove("Value")
-        control.properties.add("Value", newText)
-
-        # mengubah gambar pengganti. PowerPoint akan mengganti gambar ini selama aktivasi ActiveX, jadi kadang-kadang boleh membiarkan gambar tidak berubah.
-
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            # font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                graphics.draw_string(newText, font, brush, 10, 4)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, [
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [
-                        draw.PointF(1, bmp.height - 1), 
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1)])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen,
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-
-    # mengubah keterangan tombol
-    control = slide.controls[1]
-
-    if control.name == "CommandButton1" and control.properties != None:
-        newCaption = "MessageBox"
-        control.properties.remove("Caption")
-        control.properties.add("Caption", newCaption)
-
-        # mengubah pengganti
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            #font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                textSize = graphics.measure_string(newCaption, font, 65535)
-                graphics.draw_string(newCaption, font, brush, 
-                    (bmp.width - textSize.width) / 2, 
-                    (bmp.height - textSize.height) / 2)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-    
-    # Memindahkan bingkai ActiveX 100 poin ke bawah
-    for ctl in slide.controls:
-        frame = control.frame
-        control.frame = slides.ShapeFrame(
-            frame.x, 
-            frame.y + 100, 
-            frame.width, 
-            frame.height, 
-            frame.flip_h, 
-            frame.flip_v, 
-            frame.rotation)
-
-    # Simpan presentasi dengan Kontrol ActiveX yang Diedit
-    presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
-
-
-    # Sekarang menghapus kontrol
-    slide.controls.clear()
-
-    # Menyimpan presentasi dengan kontrol ActiveX yang dibersihkan
-    presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
+            if properties.count == 0:
+                print("  []")
+            for entry in properties:
+                print(f"  {entry.key} = {entry.value}")
 ```
 
-## **Menambahkan Kontrol Media Player ActiveX**
-Untuk menambahkan kontrol Media Player ActiveX, silakan lakukan langkah-langkah berikut:
+Output yang dipilih dari `ActiveX.pptm` menunjukkan sebuah kotak teks dan sebuah tombol perintah.
 
-1. Buat instance dari kelas Presentation dan muat contoh presentasi yang berisi kontrol Media Player ActiveX.
-2. Buat instance dari kelas Presentation target dan hasilkan instance presentasi kosong.
-3. Klon slide yang memiliki kontrol Media Player ActiveX dalam presentasi templat ke Presentation target.
-4. Akses slide yang diklon di Presentation target.
-5. Akses kontrol ActiveX pada slide dengan mengakses IControlCollection.
-6. Akses kontrol Media Player ActiveX dan atur jalur video dengan menggunakan propertinya.
-7. Simpan presentasi ke file PPTX.
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-```py
+Koleksi properti kosong muncul sebagai `[]`. Untuk kontrol yang menggunakan penyimpanan biner, `properties` dapat mengembalikan `None`, yang ditampilkan sebagai `Properties unavailable`. Jika Anda hanya membutuhkan nama, gunakan [names_of_properties](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/names_of_properties/) setelah memeriksa apakah bernilai `None`. Laporan mencantumkan properti yang tersedia dari presentasi. Sebuah kontrol dapat mendukung properti tambahan pada waktu berjalan.
+
+## **Ubah Kontrol ActiveX**
+
+Contoh mengharapkan presentasi yang mendukung makro dengan kotak teks bernama `TextBox1` dan tombol perintah bernama `CommandButton1` pada slide pertama. Ia menggunakan [control properties collection](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) untuk mengubah nilai kotak teks dan judul tombol. Setiap kontrol juga memiliki pratinjau statis yang dapat ditampilkan PowerPoint sebelum aktivasi. Sediakan PNG untuk setiap kontrol yang menunjukkan teks dan tampilan yang diperbarui. Contoh menetapkan gambar ini melalui [Control.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/control/substitute_picture_format/).
+
+Contoh memindahkan setiap kontrol pada slide pertama ke bawah sebesar 100 poin dengan mengubah [frame](https://reference.aspose.com/slides/python-net/aspose.slides/control/frame/). Ia menyimpan presentasi yang diedit dalam format PPTM, lalu menggunakan [ControlCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/controlcollection/clear/) untuk menyimpan salinan kedua dengan semua kontrol ActiveX dihapus dari slide tersebut.
+
+```python
+from pathlib import Path
+
 import aspose.slides as slides
 
-# Membuat instance kelas Presentation yang mewakili file PPTX
-with slides.Presentation(path + "template.pptx") as presentation:
+with slides.Presentation("ActiveX.pptm") as presentation:
+    controls = presentation.slides[0].controls
+    text_box = next((control for control in controls if control.name == "TextBox1"), None)
+    button = next((control for control in controls if control.name == "CommandButton1"), None)
+    text_box_preview = Path("text-box-preview.png")
+    button_preview = Path("button-preview.png")
 
-    # Membuat instance presentasi kosong
-    with slides.Presentation() as newPresentation:
+    if text_box is None or button is None or text_box.properties is None or button.properties is None:
+        print("The first slide must contain both named controls with editable properties.")
+    elif not text_box_preview.is_file() or not button_preview.is_file():
+        print("Supply both preview images before updating the controls.")
+    else:
+        text_box.properties.remove("Value")
+        text_box.properties.add("Value", "Changed text")
+        button.properties.remove("Caption")
+        button.properties.add("Caption", "Show message")
 
-        # Menghapus slide default
-        newPresentation.slides.remove_at(0)
+        for control, preview in [(text_box, text_box_preview), (button, button_preview)]:
+            image_data = preview.read_bytes()
+            control.substitute_picture_format.picture.image = presentation.images.add_image(image_data)
 
-        # Menggandakan slide dengan Kontrol Media Player ActiveX
-        newPresentation.slides.insert_clone(0, presentation.slides[0])
+        for control in controls:
+            frame = control.frame
+            control.frame = slides.ShapeFrame(frame.x, frame.y + 100, frame.width, frame.height, frame.flip_h, frame.flip_v, frame.rotation)
 
-        # Mengakses kontrol Media Player ActiveX dan mengatur jalur video
-        prop = newPresentation.slides[0].controls[0].properties
+        presentation.save("edited-controls.pptm", slides.export.SaveFormat.PPTM)
+        controls.clear()
+        presentation.save("removed-controls.pptm", slides.export.SaveFormat.PPTM)
+```
 
-        prop.remove("URL")
-        prop.add("URL", "Wildlife.mp4")
+## **Tambahkan Kontrol Media Player ActiveX**
 
-        # Simpan Presentasi
-        newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
+Untuk menggunakan kembali kontrol Windows Media Player yang telah dikonfigurasi, mulai dengan templat yang slide pertamanya berisi pemutar bernama `WindowsMediaPlayer1`. [SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) menyalin seluruh slide ke presentasi baru. Contoh mengatur `URL` pemutar dalam [properties collection](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) dan menyimpan slide yang dikloning sebagai satu-satunya slide dalam keluaran. Video tetap eksternal, jadi pilih jalur yang dapat diakses pemutar selama pemutaran.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as template, slides.Presentation() as presentation:
+    slide = presentation.slides.add_clone(template.slides[0])
+    player = next((control for control in slide.controls if control.name == "WindowsMediaPlayer1"), None)
+
+    if player is None or player.properties is None:
+        print("The template slide must contain a named media player with editable properties.")
+    else:
+        player.properties.remove("URL")
+        player.properties.add("URL", "Wildlife.mp4")
+        presentation.slides.remove_at(0)
+        presentation.save("linked-video.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Apakah Aspose.Slides mempertahankan kontrol ActiveX saat membaca dan menyimpan kembali jika kontrol tersebut tidak dapat dijalankan di runtime Python?**
+**Apakah Aspose.Slides dapat mempertahankan kontrol ActiveX tanpa menjalankannya?**
 
-Ya. Aspose.Slides memperlakukan mereka sebagai bagian dari presentasi dan dapat membaca/memodifikasi properti serta bingkai mereka; mengeksekusi kontrol itu sendiri tidak diperlukan untuk mempertahankannya.
+Ya. Aspose.Slides dapat membaca dan menyimpan kontrol, termasuk properti dan posisinya, tanpa mengaktifkannya.
 
-**Bagaimana perbedaan kontrol ActiveX dengan objek OLE dalam sebuah presentasi?**
+**Bagaimana perbedaan kontrol ActiveX dengan objek OLE?**
 
-Kontrol ActiveX adalah kontrol terkelola interaktif (tombol, kotak teks, pemutar media), sedangkan [OLE](/slides/id/python-net/manage-ole/) merujuk pada objek aplikasi yang disematkan (misalnya, lembar kerja Excel). Mereka disimpan dan diproses secara berbeda serta memiliki model properti yang berbeda.
+Kontrol ActiveX memungkinkan pengguna berinteraksi dengan slide, misalnya dengan memasukkan teks atau mengklik tombol. Sebuah [OLE object](/slides/id/python-net/manage-ole/) memungkinkan slide berisi atau menautkan ke konten yang dikelola oleh aplikasi lain, seperti lembar kerja Excel.
 
-**Apakah peristiwa ActiveX dan makro VBA berfungsi jika file telah dimodifikasi oleh Aspose.Slides?**
+**Apakah peristiwa ActiveX masih akan memicu makro VBA setelah saya menyimpan presentasi dengan Aspose.Slides?**
 
-Aspose.Slides mempertahankan markup dan metadata yang ada; namun, peristiwa dan makro hanya berjalan di dalam PowerPoint pada Windows ketika keamanan mengizinkannya. Perpustakaan ini tidak mengeksekusi VBA.
+Simpan presentasi dalam format yang mendukung makro seperti PPTM untuk mempertahankan proyek VBA-nya. PowerPoint untuk Windows dapat menjalankan penangan peristiwa yang ada ketika pengaturan keamanannya mengizinkan baik kontrol ActiveX maupun makro.

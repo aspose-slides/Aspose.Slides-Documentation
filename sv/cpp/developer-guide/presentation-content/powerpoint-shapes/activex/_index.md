@@ -15,166 +15,202 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Lär dig hur Aspose.Slides för C++ utnyttjar ActiveX för att automatisera och förbättra PowerPoint-presentationer, vilket ger utvecklare kraftfull kontroll över bilder."
+description: "Redigera ActiveX‑textrutor och -knappar, uppdatera kontroll‑förhandsgranskningar och återanvänd en Windows Media Player‑kontroll i PowerPoint‑presentationer med Aspose.Slides för C++."
 ---
 ## **Introduktion**
 
-ActiveX control används i presentationer. Aspose.Slides för C++ låter dig hantera ActiveX‑kontroller, men att hantera dem är lite knepigare och annorlunda än vanliga presentationsformer. Från Aspose.Slides för C++ 18.1 stöder komponenten hantering av ActiveX‑kontroller. För närvarande kan du komma åt redan tillagda ActiveX‑kontroller i din presentation och ändra eller ta bort dem genom att använda deras olika egenskaper. Kom ihåg att ActiveX‑kontroller inte är former och inte är en del av presentationens IShapeCollection utan den separata IControlCollection. Den här artikeln visar hur du arbetar med dem.
+ActiveX‑kontroller ger en PowerPoint‑bild interaktiva element såsom textrutor, kommando‑knappar och mediespelare. Aspose.Slides for C++ exponerar en bilds kontroller via [IBaseSlide::get_Controls](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_controls/). Använd den här samlingen för att redigera en kontroll, flytta den på bilden eller ta bort den.
 
-## **Ändra en ActiveX‑kontroll**
-För att hantera en enkel ActiveX‑kontroll som en textruta och en enkel kommandoknapp på en bild:
+## **Lista ActiveX‑kontroller och deras lagrade egenskaper**
 
-1. Skapa en instans av Presentation‑klassen och läs in presentationen som innehåller ActiveX‑kontroller.
-2. Hämta en bildreferens med dess index.
-3. Kom åt ActiveX‑kontrollerna på bilden genom att använda IControlCollection.
-4. Kom åt TextBox1‑ActiveX‑kontrollen med ControlEx‑objektet.
-5. Ändra de olika egenskaperna för TextBox1‑ActiveX‑kontrollen, inklusive text, teckensnitt, teckenhöjd och ramposition.
-6. Kom åt den andra åtkomstkontrollen som heter CommandButton1.
-7. Ändra knappens rubrik, teckensnitt och position.
-8. Flytta positionen för ActiveX‑kontrollernas ramar.
-9. Skriv den modifierade presentationen till en PPTX‑fil.
+För att granska en okänd mall, öppna den för läsning och iterera genom kontrollerna på varje bild. Exemplet rapporterar bildnumret, kontrollens namn, [klass-ID](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_classid/), och varje nyckel‑värde‑par i [lagrade egenskaper](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_properties/). Det läser presentationen utan att aktivera kontroller, utlösa händelser eller makron, ändra värden eller spara filen.
 
-Kodsnutten nedan uppdaterar ActiveX‑kontrollerna på presentationsbilderna som visas nedan.
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/guid.h>
 
-``` cpp
-// Åtkomst till presentationen med ActiveX‑kontroller
-auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
+using namespace Aspose::Slides;
+using namespace System;
 
-// Åtkomst till den första bilden i presentationen
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
 
-// ändrar TextBox‑text
-auto control = slide->get_Controls()->idx_get(0);
-
-if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
+for (auto i = 0; i < presentation->get_Slides()->get_Count(); ++i)
 {
-    String newText = u"Changed text";
-    control->get_Properties()->idx_set(u"Value", newText);
+    auto controls = presentation->get_Slide(i)->get_Controls();
+    for (auto j = 0; j < controls->get_Count(); ++j)
+    {
+        auto control = controls->idx_get(j);
+        Console::WriteLine(u"Slide {0} | {1} | {2}", i + 1, control->get_Name(), control->get_ClassId().ToString());
+        auto properties = control->get_Properties();
+        if (!properties)
+        {
+            Console::WriteLine(u"  Properties unavailable");
+            continue;
+        }
 
-    // ändrar ersättningsbild. PowerPoint kommer att ersätta denna bild under ActiveX‑aktivering, så ibland är det OK att låta bilden förbli oförändrad.
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
+        if (properties->get_Count() == 0)
+            Console::WriteLine(u"  []");
 
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    graphics->DrawString(newText, font, brush, 10.0f, 4.0f);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
+        auto entries = properties->GetEnumerator();
+        while (entries->MoveNext())
+        {
+            auto property = entries->get_Current();
+            Console::WriteLine(u"  {0} = {1}", property.get_Key(), property.get_Value());
+        }
+    }
 }
-
-// ändrar knappens rubrik
-control = slide->get_Controls()->idx_get(1);
-
-if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
-{
-    String newCaption = u"MessageBox";
-    control->get_Properties()->idx_set(u"Caption", newCaption);
-
-    // ändrar ersättning
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
-
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    SizeF textSize = graphics->MeasureString(newCaption, font, std::numeric_limits<int32_t>::max());
-    graphics->DrawString(newCaption, font, brush, (image->get_Width() - textSize.get_Width()) / 2, (image->get_Height() - textSize.get_Height()) / 2);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
-}
-
-// Flyttar ActiveX‑ramar 100 punkter ned
-for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
-{
-    SharedPtr<IShapeFrame> frame = control->get_Frame();
-    control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
-}
-
-// Spara presentationen med redigerade ActiveX‑kontroller
-presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
-
-// Nu tar vi bort kontroller
-slide->get_Controls()->Clear();
-
-// Sparar presentationen med rensade ActiveX‑kontroller
-presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
-## **Lägg till en Media Player ActiveX‑kontroll**
-ActiveX‑kontroller används i presentationer. Aspose.Slides för C++ låter dig lägga till och hantera ActiveX‑kontroller, men att hantera dem är lite knepigare och annorlunda än vanliga presentationsformer. Från Aspose.Slides för C++ 18.1 har stöd för att lägga till Media Player‑ActiveX‑kontroller lagts till i Aspose.Slides. Kom ihåg att ActiveX‑kontroller inte är former och inte är en del av presentationens IShapeCollection utan den separata IControlExCollection. Den här artikeln visar hur du arbetar med dem. För att hantera en Media Player‑ActiveX‑kontroll, följ dessa steg:
+Det valda resultatet från `ActiveX.pptm` visar en textruta och en kommando‑knapp.
 
-1. Skapa en instans av Presentation‑klassen och läs in exempelpresentationen som innehåller Media Player‑ActiveX‑kontroller.
-2. Skapa en instans av mål‑Presentation‑klassen och generera en tom presentationsinstans.
-3. Klona bilden med Media Player‑ActiveX‑kontrollen i mallpresentationen till mål‑Presentation.
-4. Kom åt den klonade bilden i mål‑Presentation.
-5. Kom åt ActiveX‑kontrollerna på bilden genom att använda IControlCollection.
-6. Kom åt Media Player‑ActiveX‑kontrollen och ange videons sökväg genom att använda dess egenskaper.
-7. Spara presentationen till en PPTX‑fil.
-
-``` cpp
-// Instansiera Presentation-klassen som representerar PPTX-filen
-auto presentation = System::MakeObject<Presentation>(u"template.pptx");
-
-// Skapa en tom presentationsinstans
-auto newPresentation = System::MakeObject<Presentation>();
-
-// Ta bort standardbilden
-newPresentation->get_Slides()->RemoveAt(0);
-
-// Klona bild med Media Player ActiveX-kontroll
-newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
-
-// Kom åt Media Player ActiveX-kontrollen och ange videons sökväg
-newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
-
-// Spara presentationen
-newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
-## **FAQ**
+En tom egenskapssamling visas som `[]`. För kontroller som använder binär lagring kan `get_Properties` returnera `nullptr`, vilket visas som `Properties unavailable`. Om du bara behöver namnen, använd [get_NamesOfProperties](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/get_namesofproperties/) efter att ha kontrollerat att samlingen finns. Rapporten listar de egenskaper som är tillgängliga i presentationen. En kontroll kan stödja ytterligare egenskaper vid körning.
 
-**Bevarar Aspose.Slides ActiveX‑kontroller när den läser och sparar om de inte kan köras i C++‑runtime‑miljön?**
+## **Ändra ActiveX‑kontroller**
 
-Ja. Aspose.Slides behandlar dem som en del av presentationen och kan läsa/ändra deras egenskaper och ramar; att köra kontrollerna själva krävs inte för att bevara dem.
+Exemplet förutsätter en makro‑aktiverad presentation med en textruta benägen `TextBox1` och en kommando‑knapp benägen `CommandButton1` på den första bilden. Det använder [kontrollegenskapssamling](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) för att ändra textrutans värde och knappens rubrik. Varje kontroll har också en statisk förhandsgranskning som PowerPoint kan visa innan aktivering. Tillhandahåll en PNG för varje kontroll som visar dess uppdaterade text och utseende. Exemplet tilldelar dessa bilder via [IControl::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_substitutepictureformat/).
 
-**Hur skiljer sig ActiveX‑kontroller från OLE‑objekt i en presentation?**
+Exemplet flyttar varje kontroll på den första bilden nedåt med 100 punkter genom att ändra dess [ram](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/set_frame/). Det sparar den redigerade presentationen i PPTM‑format, och använder sedan [IControlCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolcollection/clear/) för att spara en andra kopia med alla ActiveX‑kontroller borttagna från den bilden.
 
-ActiveX‑kontroller är interaktiva hanterade kontroller (knappar, textrutor, media player), medan [OLE](/slides/sv/cpp/manage-ole/) avser inbäddade programobjekt (till exempel ett Excel‑ kalkylblad). De lagras och hanteras annorlunda och har olika egenskapsmodeller.
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/io/file.h>
 
-**Fungerar ActiveX‑händelser och VBA‑makron om filen har modifierats av Aspose.Slides?**
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
-Aspose.Slides bevarar den befintliga markupen och metadata; dock körs händelser och makron endast i PowerPoint på Windows när säkerheten tillåter det. Biblioteket kör inte VBA.
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
+auto controls = presentation->get_Slide(0)->get_Controls();
+SharedPtr<IControl> textBox;
+SharedPtr<IControl> button;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"TextBox1")
+        textBox = control;
+    else if (control->get_Name() == u"CommandButton1")
+        button = control;
+}
+
+if (!textBox || !button || !textBox->get_Properties() || !button->get_Properties())
+{
+    Console::WriteLine(u"The first slide must contain both named controls with editable properties.");
+    return;
+}
+
+if (!File::Exists(u"text-box-preview.png") || !File::Exists(u"button-preview.png"))
+{
+    Console::WriteLine(u"Supply both preview images before updating the controls.");
+    return;
+}
+
+textBox->get_Properties()->idx_set(u"Value", u"Changed text");
+button->get_Properties()->idx_set(u"Caption", u"Show message");
+
+auto textBoxBytes = File::ReadAllBytes(u"text-box-preview.png");
+auto buttonBytes = File::ReadAllBytes(u"button-preview.png");
+auto textBoxPreview = presentation->get_Images()->AddImage(textBoxBytes);
+auto buttonPreview = presentation->get_Images()->AddImage(buttonBytes);
+textBox->get_SubstitutePictureFormat()->get_Picture()->set_Image(textBoxPreview);
+button->get_SubstitutePictureFormat()->get_Picture()->set_Image(buttonPreview);
+
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    auto frame = control->get_Frame();
+    auto movedFrame = MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation());
+    control->set_Frame(movedFrame);
+}
+
+presentation->Save(u"edited-controls.pptm", SaveFormat::Pptm);
+
+controls->Clear();
+presentation->Save(u"removed-controls.pptm", SaveFormat::Pptm);
+```
+
+## **Lägg till en ActiveX‑mediaspelarkontroll**
+
+För att återanvända en konfigurerad Windows Media Player‑kontroll, börja med en mall vars första bild innehåller en spelare benägen `WindowsMediaPlayer1`. [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) kopierar hela bilden till en ny presentation. Exemplet sätter spelarens `URL` i dess [egenskapssamling](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) och sparar den klonade bilden som den enda bilden i utskicket. Videon förblir extern, så välj en sökväg som spelaren kan komma åt under uppspelning.
+
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+
+auto source = MakeObject<Presentation>(u"template.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->AddClone(source->get_Slide(0));
+auto controls = slide->get_Controls();
+
+SharedPtr<IControl> player;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"WindowsMediaPlayer1")
+    {
+        player = control;
+        break;
+    }
+}
+
+if (!player || !player->get_Properties())
+{
+    Console::WriteLine(u"The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+
+presentation->get_Slides()->RemoveAt(0);
+presentation->Save(u"linked-video.pptx", SaveFormat::Pptx);
+```
+
+## **Vanliga frågor**
+
+**Kan Aspose.Slides bevara ActiveX‑kontroller utan att köra dem?**
+
+Ja. Aspose.Slides kan läsa och spara kontroller, inklusive deras egenskaper och positioner, utan att aktivera dem.
+
+**Hur skiljer sig ActiveX‑kontroller från OLE‑objekt?**
+
+ActiveX‑kontroller låter användare interagera med en bild, till exempel genom att skriva in text eller klicka på en knapp. Ett [OLE‑objekt](/slides/sv/cpp/manage-ole/) låter en bild innehålla eller länka till innehåll som hanteras av ett annat program, såsom ett Excel‑arbetsblad.
+
+**Kommer ActiveX‑händelser fortfarande att utlösa VBA‑makron efter att jag sparat en presentation med Aspose.Slides?**
+
+Spara presentationen i ett makro‑aktiverat format såsom PPTM för att behålla dess VBA‑projekt. PowerPoint för Windows kan köra de befintliga händelsehanterarna när säkerhetsinställningarna tillåter både ActiveX‑kontroller och makron.

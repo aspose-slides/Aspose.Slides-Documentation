@@ -10,26 +10,20 @@ keywords:
 - ActiveX kezelése
 - ActiveX hozzáadása
 - ActiveX módosítása
-- médialejátszó
+- média lejátszó
 - PowerPoint
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Ismerje meg, hogyan használja az Aspose.Slides for Python via Java az ActiveX-et a PowerPoint prezentációk automatizálásához és fejlesztéséhez, erőteljes vezérlést biztosítva a fejlesztőknek a diák felett."
+description: "Szerkessze az ActiveX szövegdobozokat és gombokat, frissítse a vezérlő előnézeteket, valamint használja újra a Windows Media Player vezérlőt PowerPoint prezentációkban az Aspose.Slides for Python via Java segítségével."
 ---
 ## **Bevezetés**
 
-Az ActiveX vezérlőket prezentációkban használják. Az Aspose.Slides for Python via Java lehetővé teszi ActiveX vezérlők hozzáadását és kezelését, de ezek kezelése egy kicsit nehezebb a szokásos prezentációs alakzatokhoz képest. Az Aspose.Slides támogatja a Media Player ActiveX vezérlők hozzáadását. Vegye figyelembe, hogy az ActiveX vezérlők nem alakzatok; nem részei a prezentáció [ShapeCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/). Ezek a különálló [ControlCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/controlcollection/) részei. Ebben a témában megmutatjuk, hogyan dolgozhat velük.
+ActiveX vezérlők interaktív elemeket adnak a PowerPoint diához, például szövegdobozokat, parancsgombokat és média lejátszókat. Aspose.Slides for Python via Java egy dia vezérlőit a [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls) segítségével teszi elérhetővé. Használja ezt a gyűjteményt egy vezérlő szerkesztéséhez, mozgatásához a dián vagy eltávolításához.
 
-## **Media Player ActiveX vezérlő hozzáadása diára**
+## **ActiveX vezérlők listázása és tárolt tulajdonságaik**
 
-Az ActiveX Media Player vezérlő hozzáadásához tegye a következőket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból, és generáljon egy üres prezentációt.
-2. Érje el a cél diát a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) segítségével.
-3. Adja hozzá a Media Player ActiveX vezérlőt a [ControlCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/controlcollection/)-ben elérhető [addControl](https://reference.aspose.com/slides/hu/python-java/aspose.slides/controlcollection/#addControl) metódus használatával.
-4. Érje el a Media Player ActiveX vezérlőt, és állítsa be a videó útvonalát a tulajdonságainak használatával.
-5. Mentse a prezentációt PPTX fájlként.
+Egy ismeretlen sablon ellenőrzéséhez nyissa meg olvasásra, és iteráljon végig a diákon lévő vezérlőkön. A példa jelentést készít a dia számáról, a vezérlő nevéről, a [getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId) és minden kulcs-érték párról a [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) segítségével. A prezentációt úgy olvassa be, hogy nem aktiválja a vezérlőket, nem hív meg eseményeket vagy makrókat, nem módosítja az értékeket, és nem menti a fájlt.
 
 ```python
 import jpype
@@ -38,43 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# Hozzon létre egy üres prezentációt.
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # Adja hozzá a Media Player ActiveX vezérlőt.
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # Állítsa be a videó útvonalát.
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # Mentse a prezentációt.
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
-## **ActiveX vezérlő módosítása**
+A `ActiveX.pptm` kiválasztott kimenete egy szövegdobozt és egy parancsgombot mutat.
 
-{{% alert color="info" title="Note" %}}
-Az Aspose.Slides for Python via Java komponenseket biztosít az ActiveX vezérlők kezeléséhez. Elérheti a már hozzáadott ActiveX vezérlőt a prezentációban, és módosíthatja vagy törölheti a tulajdonságain keresztül.
-{{% /alert %}}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-Egy egyszerű ActiveX vezérlő, például egy szövegmező és egy egyszerű parancsgomb kezelése egy dián a következőképpen történik:
+Egy üres tulajdonsággyűjtemény `[]` formában jelenik meg. Azoknál a vezérlőknél, amelyek bináris tárolást használnak, a [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) `None` értéket adhat vissza, ami `Properties unavailable`‑ként jelenik meg. Ha csak a nevekre van szüksége, használja a [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties)‑t, miután ellenőrizte, hogy a gyűjtemény elérhető. A jelentés felsorolja a prezentációból elérhető tulajdonságokat. Egy vezérlő futásidőben további tulajdonságokat is támogathat.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból, és töltse be a benne ActiveX vezérlőket tartalmazó prezentációt.
-2. Szerezzen be egy diára mutató hivatkozást az indexe alapján.
-3. Érje el a dián lévő ActiveX vezérlőket a [ControlCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/controlcollection/) elérésével.
-4. A [Control](https://reference.aspose.com/slides/hu/python-java/aspose.slides/control/) objektum használatával érje el a TextBox1 ActiveX vezérlőt.
-5. Módosítsa a TextBox1 ActiveX vezérlő tulajdonságait, beleértve a szöveget, betűtípust, betűmagasságot és a keret pozícióját.
-6. Érje el a második, CommandButton1 nevű ActiveX vezérlőt.
-7. Módosítsa a gomb feliratát, betűtípust és pozíciót.
-8. Módosítsa az ActiveX vezérlők kereteinek pozícióját.
-9. Írja a módosított prezentációt PPTM fájlba.
+## **ActiveX vezérlők módosítása**
+
+A példa egy makrók támogatott prezentációt vár, amelyen az első dián egy `TextBox1` nevű szövegdoboz és egy `CommandButton1` nevű parancsgomb található. A [vezérlő tulajdonsággyűjtemény](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) segítségével módosítja a szövegdoboz értékét és a gomb feliratát. Minden vezérlőnek van egy statikus előnézete is, amelyet a PowerPoint az aktiválás előtt megjeleníthet. Biztosítson egy PNG-t minden vezérlőhöz, amely az frissített szöveget és megjelenést mutatja. A példa ezeket a képeket a [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat) segítségével rendeli hozzá.
+
+A példa az első dián lévő minden vezérlőt 100 ponttal lefelé mozgatja a keretét a [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame) beállításával. A szerkesztett prezentációt PPTM formátumban menti, majd a [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) segítségével elment egy második példányt, amelyben az összes ActiveX vezérlő eltávolításra került az adott diákról.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -82,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# Töltsük be a prezentációt ActiveX vezérlőkkel.
 presentation = Presentation("ActiveX.pptm")
 try:
-    if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-        # Hozzáférés az első diahoz.
-        slide = presentation.getSlides().get_Item(0)
-
-        # Módosítsuk a szövegmező szövegét.
-        control = slide.getControls().get_Item(0)
-
-        if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-            new_text = "Changed text"
-            control.getProperties().set_Item("Value", new_text)
-
-            # Cserélje le a helyettesítő képet. A PowerPoint az ActiveX aktiválásakor cseréli ki,
-            # ezért előfordulhat, hogy változatlan marad.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.window)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            graphics.drawString(new_text, 10, 20)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Módosítsuk a gomb feliratát.
-        control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-        if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-            new_caption = "Show MessageBox"
-            control.getProperties().set_Item("Caption", new_caption)
-            # Cserélje le a helyettesítő képet.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.control)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            metrics = graphics.getFontMetrics(font)
-            graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Mozgassa le a vezérlőket 100 ponttal.
-        for control in slide.getControls():
-            frame = control.getFrame()
-            new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-            control.setFrame(new_frame)
-        presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-        # Távolítsa el a vezérlőket.
-        presentation.getSlides().get_Item(0).getControls().clear()
-        presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
     else:
-        print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
+
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
+
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
     presentation.dispose()
 ```
 
+## **ActiveX média lejátszó vezérlő hozzáadása**
+
+Egy konfigurált Windows Media Player vezérlő újrafelhasználásához kezdjen egy olyan sablonnal, amelynek az első diáján egy `WindowsMediaPlayer1` nevű lejátszó található. A [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) lemásolja az egész diát egy új prezentációba. A példa beállítja a lejátszó `URL`‑jét a [tulajdonsággyűjtemény](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) segítségével, és a klónozott diát az egyetlen diaként menti a kimenetbe. A videó külső marad, ezért válasszon egy olyan útvonalat, amelyhez a lejátszó a lejátszás közben hozzáfér.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
+
 ## **GYIK**
 
-**Megőrzi az Aspose.Slides az ActiveX vezérlőket olvasáskor és újra mentéskor, ha nem futtathatók a Python futtatókörnyezetben?**
+**Megőrizheti az Aspose.Slides az ActiveX vezérlőket anélkül, hogy futtatná őket?**
 
-Igen. Az Aspose.Slides ezeket a prezentáció részének tekinti, és képes olvasni/módosítani a tulajdonságaikat és kereteiket; a vezérlők tényleges végrehajtása nem szükséges a megőrzésükhöz.
+Igen. Az Aspose.Slides képes olvasni és menteni a vezérlőket, beleértve azok tulajdonságait és pozícióit, anélkül, hogy aktiválná őket.
 
-**Miben különböznek az ActiveX vezérlők az OLE objektumoktól egy prezentációban?**
+**Miben különböznek az ActiveX vezérlők az OLE objektumoktól?**
 
-Az ActiveX vezérlők interaktív, kezelt vezérlők (gombok, szövegmezők, média lejátszó), míg az [OLE](/slides/hu/python-java/manage-ole/) beágyazott alkalmazásobjektumokra (például Excel-munkalap) utal. Másként tárolják és kezelik őket, és különböző tulajdonságmodellel rendelkeznek.
+Az ActiveX vezérlők lehetővé teszik a felhasználók számára, hogy interakcióba lépjenek a diával, például szöveget gépeljenek be vagy egy gombot kattintsanak. Egy [OLE objektum](/slides/hu/python-java/manage-ole/) lehetővé teszi, hogy a dia tartalmazzon vagy hivatkozzon egy másik alkalmazás által kezelt tartalomra, például egy Excel munkalapra.
 
-**Működnek az ActiveX események és VBA makrók, ha a fájlt az Aspose.Slides módosította?**
+**Kiváltanak még mindig VBA makrókat az ActiveX események, miután az Aspose.Slides‑szel mentem egy prezentációt?**
 
-Az Aspose.Slides megőrzi a meglévő jelölőket és metaadatokat; azonban az események és makrók csak a Windows PowerPoint programban futnak, ha a biztonsági beállítások engedik. A könyvtár nem hajtja végre a VBA-t.
+Mentse a prezentációt makrókat támogató formátumban, például PPTM‑ben, hogy megőrizze a VBA projektet. A Windows PowerPoint képes futtatni a meglévő eseménykezelőket, ha a biztonsági beállítások engedélyezik az ActiveX vezérlőket és a makrókat is.

@@ -1,5 +1,5 @@
 ---
-title: Verwalten von ActiveX-Steuerelementen in Präsentationen auf Android
+title: Verwalten von ActiveX-Steuerelementen in Präsentationen unter Android
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -10,188 +10,162 @@ keywords:
 - ActiveX verwalten
 - ActiveX hinzufügen
 - ActiveX ändern
-- Media Player
+- Media-Player
 - PowerPoint
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Aspose.Slides für Android via Java ActiveX nutzt, um PowerPoint-Präsentationen zu automatisieren und zu verbessern, und Entwicklern leistungsstarke Kontrolle über Folien gibt."
+description: "ActiveX-Textfelder und -Schaltflächen bearbeiten, Steuerelement-Vorschauen aktualisieren und ein Windows Media Player-Steuerelement in PowerPoint-Präsentationen mit Aspose.Slides für Android via Java wiederverwenden."
 ---
+## **Einleitung**
 
-{{% alert color="primary" %}} 
+ActiveX-Steuerelemente geben einer PowerPoint‑Folie interaktive Elemente wie Textfelder, Befehls­schaltflächen und Mediaplayer. Aspose.Slides für Android via Java stellt die Steuerelemente einer Folie über [IBaseSlide.getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getControls--) bereit. Verwenden Sie diese Sammlung, um ein Steuerelement zu bearbeiten, auf der Folie zu verschieben oder zu entfernen. Verwenden Sie in den nachfolgenden Beispielen Dateipfade, die Ihre Android‑App lesen kann, und wählen Sie für jede Ausgabedatei einen beschreibbaren Speicherort.
 
-ActiveX‑Steuerelemente werden in Präsentationen verwendet. Aspose.Slides für Android via Java ermöglicht das Hinzufügen und Verwalten von ActiveX‑Steuerelementen, ist jedoch im Vergleich zu normalen Präsentationsformen etwas schwieriger zu handhaben. Wir haben die Unterstützung zum Hinzufügen des Media Player Active‑Steuerelements in Aspose.Slides implementiert. Beachten Sie, dass ActiveX‑Steuerelemente keine Formen sind; sie gehören nicht zur Präsentation‑[IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/). Sie gehören stattdessen zur separaten [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/). In diesem Thema zeigen wir Ihnen, wie Sie mit ihnen arbeiten.
+## **Auflisten von ActiveX-Steuerelementen und deren gespeicherten Eigenschaften**
 
-{{% /alert %}} 
+Um eine unbekannte Vorlage zu untersuchen, öffnen Sie sie zum Lesen und iterieren Sie über die Steuerelemente jeder Folie. Das Beispiel gibt die Folien‑Nummer, den Namen des Steuerelements, [getClassId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getClassId--), und jedes Schlüssel‑Wert‑Paar in [getProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getProperties--) aus. Es liest die Präsentation, ohne Steuerelemente zu aktivieren, Ereignisse oder Makros auszulösen, Werte zu ändern oder die Datei zu speichern.
 
-## **Ein Media Player ActiveX‑Steuerelement zu einer Folie hinzufügen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)‑Klasse und erzeugen Sie eine leere Präsentationsinstanz.  
-2. Greifen Sie auf die Zielfolie in [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) zu.  
-3. Fügen Sie das Media Player ActiveX‑Steuerelement mit der [addControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-)‑Methode hinzu, die von [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/) bereitgestellt wird.  
-4. Greifen Sie auf das Media Player ActiveX‑Steuerelement zu und setzen Sie den Videopfad über dessen Eigenschaften.  
-5. Speichern Sie die Präsentation als PPTX‑Datei.  
-
-Dieser Beispielcode, basierend auf den oben genannten Schritten, zeigt, wie man ein Media Player ActiveX‑Steuerelement zu einer Folie hinzufügt:  
 ```java
-// Leere Präsentationsinstanz erstellen
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // Hinzufügen des Media Player ActiveX-Steuerelements
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // Zugriff auf das Media Player ActiveX-Steuerelement und Festlegen des Videopfads
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // Präsentation speichern
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Ausgewählte Ausgabe von `ActiveX.pptm` zeigt ein Textfeld und eine Befehls­schaltfläche.
 
-## **ActiveX‑Steuerelement ändern**
-{{% alert color="primary" %}} 
-
-Aspose.Slides für Android via Java 7.1.0 und neuere Versionen sind mit Komponenten zur Verwaltung von ActiveX‑Steuerelementen ausgestattet. Sie können das bereits hinzugefügte ActiveX‑Steuerelement in Ihrer Präsentation abrufen und über seine Eigenschaften ändern oder löschen.
-
-{{% /alert %}} 
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)‑Klasse und laden Sie die Präsentation, die ActiveX‑Steuerelemente enthält.  
-2. Holen Sie sich eine Folienreferenz über deren Index.  
-3. Greifen Sie auf die ActiveX‑Steuerelemente in der Folie zu, indem Sie die [IControlCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/) verwenden.  
-4. Greifen Sie mit dem [IControl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/)‑Objekt auf das ActiveX‑Steuerelement TextBox1 zu.  
-5. Ändern Sie die Eigenschaften des ActiveX‑Steuerelements TextBox1, die Text, Schriftart, Schriftgröße und Rahmenposition umfassen.  
-6. Greifen Sie auf das zweite Zugriffssteuerelement mit dem Namen CommandButton1 zu.  
-7. Ändern Sie die Beschriftung, Schriftart und Position des Buttons.  
-8. Verschieben Sie die Position der Rahmen der ActiveX‑Steuerelemente.  
-9. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
-
-Dieser Beispielcode, basierend auf den oben genannten Schritten, zeigt, wie man ein einfaches ActiveX‑Steuerelement verwaltet:  
-```java
-// Zugriff auf die Präsentation mit ActiveX-Steuerelementen
-Presentation pres = new Presentation("ActiveX.pptm");
-try {
-    // Zugriff auf die erste Folie in der Präsentation
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Ändern des TextBox-Texts
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // Ändern des Ersatzbildes. PowerPoint wird dieses Bild während der ActiveX-Aktivierung ersetzen,
-        // daher ist es manchmal in Ordnung, das Bild unverändert zu lassen.
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-    }
-
-    // Ändern der Schaltflächenbeschriftung
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // Ändern des Ersatzes
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-                graphics.dispose();
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "PNG", baos);
-
-                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-            }
-
-            // Verschieben um 100 Punkte nach unten
-            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-                IShapeFrame frame = ctl.getFrame();
-                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-            }
-            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
-
-            // Entfernen von Steuerelementen
-            pres.getSlides().get_Item(0).getControls().clear();
-            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-        } catch(IOException e) {
-        } finally {
-            if (pres != null) pres.dispose();
-        }
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
+Eine leere Eigenschaftssammlung erscheint als `[]`. Für Steuerelemente, die binäre Speicherung verwenden, kann [getProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getProperties--) `null` zurückgeben, angezeigt als `Properties unavailable`. Wenn Sie nur die Namen benötigen, verwenden Sie nach der Null‑Prüfung [getNamesOfProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--). Der Bericht listet die aus der Präsentation verfügbaren Eigenschaften auf. Ein Steuerelement kann zur Laufzeit zusätzliche Eigenschaften unterstützen.
+
+## **ActiveX-Steuerelemente ändern**
+
+Das Beispiel erwartet eine makrofähige Präsentation mit einem Textfeld namens `TextBox1` und einer Befehls­schaltfläche namens `CommandButton1` auf der ersten Folie. Es nutzt die [control properties collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolpropertiescollection/), um den Wert des Textfelds und die Beschriftung der Schaltfläche zu ändern. Jedes Steuerelement hat zudem eine statische Vorschau, die PowerPoint vor der Aktivierung anzeigen kann. Stellen Sie für jedes Steuerelement ein PNG bereit, das den aktualisierten Text und das Aussehen zeigt. Das Beispiel weist diese Bilder über [IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getSubstitutePictureFormat--) zu.
+
+Das Beispiel verschiebt jedes Steuerelement auf der ersten Folie um 100 Punkte nach unten, indem es den Rahmen mit [IControl.setFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-) setzt. Es speichert die bearbeitete Präsentation im PPTM‑Format und verwendet dann [IControlCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/#clear--), um eine zweite Kopie zu speichern, bei der alle ActiveX‑Steuerelemente von dieser Folie entfernt wurden.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
+try {
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
+    }
+
+    IPPImage textBoxPreview;
+    IPPImage buttonPreview;
+    try (FileInputStream textBoxStream = new FileInputStream("text-box-preview.png");
+         FileInputStream buttonStream = new FileInputStream("button-preview.png")) {
+        textBoxPreview = presentation.getImages().addImage(textBoxStream);
+        buttonPreview = presentation.getImages().addImage(buttonStream);
+    }
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
+
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
+    }
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
+
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ein ActiveX-Media-Player-Steuerelement hinzufügen**
+
+Um ein konfiguriertes Windows‑Media‑Player‑Steuerelement wiederzuverwenden, beginnen Sie mit einer Vorlage, deren erste Folie einen Player namens `WindowsMediaPlayer1` enthält. [ISlideCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) kopiert die gesamte Folie in eine neue Präsentation. Das Beispiel setzt die `URL` des Players in seiner [properties collection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolpropertiescollection/) und speichert die geklonte Folie als einzige Folie der Ausgabe. Das Video bleibt extern, wählen Sie also einen Pfad, auf den der Player während der Wiedergabe zugreifen kann.
+
+```java
+import com.aspose.slides.*;
+
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
+            }
+        }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
+}
+```
 
 ## **FAQ**
 
-**Bewahrt Aspose.Slides ActiveX‑Steuerelemente beim Lesen und erneuten Speichern, wenn sie nicht in der Java‑Laufzeit ausgeführt werden können?**  
+**Kann Aspose.Slides ActiveX‑Steuerelemente erhalten, ohne sie auszuführen?**
 
-Ja. Aspose.Slides behandelt sie als Teil der Präsentation und kann deren Eigenschaften und Rahmen lesen/ändern; die Ausführung der Steuerelemente selbst ist nicht erforderlich, um sie zu erhalten.
+Ja. Aspose.Slides kann Steuerelemente einschließlich ihrer Eigenschaften und Positionen lesen und speichern, ohne sie zu aktivieren.
 
-**Wie unterscheiden sich ActiveX‑Steuerelemente von OLE‑Objekten in einer Präsentation?**  
+**Wie unterscheiden sich ActiveX‑Steuerelemente von OLE‑Objekten?**
 
-ActiveX‑Steuerelemente sind interaktive verwaltete Steuerelemente (Buttons, Textfelder, Media Player), während [OLE](/slides/de/androidjava/manage-ole/) sich auf eingebettete Anwendungsobjekte (z. B. ein Excel‑Arbeitsblatt) bezieht. Sie werden unterschiedlich gespeichert und verarbeitet und besitzen unterschiedliche Eigenschaftsmodelle.
+ActiveX‑Steuerelemente ermöglichen Benutzern die Interaktion mit einer Folie, z. B. das Eingeben von Text oder das Klicken einer Schaltfläche. Ein [OLE-Objekt](/slides/de/androidjava/manage-ole/) lässt eine Folie Inhalt enthalten oder darauf verlinken, der von einer anderen Anwendung verwaltet wird, z. B. ein Excel‑Arbeitsblatt.
 
-**Funktionieren ActiveX‑Ereignisse und VBA‑Makros, wenn die Datei von Aspose.Slides geändert wurde?**  
+**Lösen ActiveX‑Ereignisse nach dem Speichern einer Präsentation mit Aspose.Slides weiterhin VBA‑Makros aus?**
 
-Aspose.Slides bewahrt das vorhandene Markup und die Metadaten; jedoch werden Ereignisse und Makros nur innerhalb von PowerPoint unter Windows ausgeführt, wenn die Sicherheit es zulässt. Die Bibliothek führt kein VBA aus.
+Speichern Sie die Präsentation in einem makrofähigen Format wie PPTM, um ihr VBA‑Projekt beizubehalten. PowerPoint für Windows kann die vorhandenen Ereignis‑Handler ausführen, sofern die Sicherheitseinstellungen sowohl ActiveX‑Steuerelemente als auch Makros zulassen.

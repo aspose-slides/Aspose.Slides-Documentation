@@ -15,23 +15,15 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "了解 Aspose.Slides for Python via Java 如何使用 ActiveX 自动化并增强 PowerPoint 演示文稿，为开发者提供对幻灯片的强大控制能力。"
+description: "编辑 ActiveX 文本框和按钮，更新控件预览，并在 PowerPoint 演示文稿中使用 Aspose.Slides for Python via Java 复用 Windows Media Player 控件。"
 ---
-## **简介**
+## **介绍**
 
-ActiveX 控件用于演示文稿。Aspose.Slides for Python via Java 允许您添加和管理 ActiveX 控件，但与普通演示形状相比，它们的管理稍显复杂。Aspose.Slides 支持添加 Media Player ActiveX 控件。请注意，ActiveX 控件不是形状；它们不是演示文稿的[ShapeCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shapecollection/)的一部分，而是属于独立的[ControlCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/controlcollection/)。在本主题中，我们将向您展示如何使用它们。
+ActiveX 控件为 PowerPoint 幻灯片提供交互元素，例如文本框、命令按钮和媒体播放器。Aspose.Slides for Python via Java 通过 [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls) 公开幻灯片的控件。使用此集合编辑控件、在幻灯片上移动或删除它。
 
-## **向幻灯片添加 Media Player ActiveX 控件**
+## **列出 ActiveX 控件及其存储属性**
 
-要添加 ActiveX Media Player 控件，请执行以下操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例并生成一个空白演示文稿实例。  
-1. 在 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 中访问目标幻灯片。  
-1. 使用 [ControlCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/controlcollection/) 所提供的 [addControl](https://reference.aspose.com/slides/zh/python-java/aspose.slides/controlcollection/#addControl) 方法添加 Media Player ActiveX 控件。  
-1. 访问 Media Player ActiveX 控件并通过其属性设置视频路径。  
-1. 将演示文稿另存为 PPTX 文件。
-
-下面的示例代码基于上述步骤，演示如何向幻灯片添加 Media Player ActiveX 控件：
+要检查不熟悉的模板，打开它进行读取并遍历每张幻灯片上的控件。示例报告幻灯片编号、控件名称、[getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId)以及 [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) 中的每个键值对。它读取演示文稿时不会激活控件、调用事件或宏、更改值或保存文件。
 
 ```python
 import jpype
@@ -40,47 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# 创建一个空白演示文稿。
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # 添加 Media Player ActiveX 控件。
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # 设置视频路径。
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # 保存演示文稿。
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
+从 `ActiveX.pptm` 选取的输出显示了一个文本框和一个命令按钮。
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+空的属性集合显示为 `[]`。对于使用二进制存储的控件，[getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) 可能返回 `None`，显示为 `Properties unavailable`。如果只需要名称，请在确认集合可用后使用 [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties)。报告列出了演示文稿中可用的属性。控件在运行时可能支持额外的属性。
+
 ## **修改 ActiveX 控件**
 
-{{% alert color="info" title="注意" %}}
+示例假设宏启用的演示文稿的第一页包含名为 `TextBox1` 的文本框和名为 `CommandButton1` 的命令按钮。它使用 [control properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) 更改文本框的值和按钮的标题。每个控件还有 PowerPoint 在激活前可以显示的静态预览。为每个控件提供显示其更新文本和外观的 PNG。示例通过 [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat) 为这些图片赋值。
 
-Aspose.Slides for Python via Java 提供用于管理 ActiveX 控件的组件。您可以在演示文稿中访问已添加的 ActiveX 控件，并通过其属性对其进行修改或删除。
-
-{{% /alert %}}
-
-要在幻灯片上管理如文本框和简单命令按钮等简单 ActiveX 控件，请执行以下操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 类的实例，并加载包含 ActiveX 控件的演示文稿。  
-1. 通过索引获取幻灯片引用。  
-1. 通过访问 [ControlCollection](https://reference.aspose.com/slides/zh/python-java/aspose.slides/controlcollection/) 来获取幻灯片中的 ActiveX 控件。  
-1. 使用 [Control](https://reference.aspose.com/slides/zh/python-java/aspose.slides/control/) 对象访问 TextBox1 ActiveX 控件。  
-1. 更改 TextBox1 ActiveX 控件的属性，包括文本、字体、字体高度和框架位置。  
-1. 访问名为 CommandButton1 的第二个 ActiveX 控件。  
-1. 更改按钮的标题、字体和位置。  
-1. 调整 ActiveX 控件框架的位置。  
-1. 将修改后的演示文稿写入 PPTM 文件。
-
-下面的示例代码基于上述步骤，演示如何管理一个简单的 ActiveX 控件：
+示例通过使用 [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame) 将第一张幻灯片上的所有控件向下移动 100 点。它以 PPTM 格式保存编辑后的演示文稿，然后使用 [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) 保存第二个副本，其中已从该幻灯片移除所有 ActiveX 控件。
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -88,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# 加载带有 ActiveX 控件的演示文稿。
 presentation = Presentation("ActiveX.pptm")
 try:
-        if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-                # 访问第一张幻灯片。
-                slide = presentation.getSlides().get_Item(0)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
+    else:
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
 
-                # 更改文本框的文本。
-                control = slide.getControls().get_Item(0)
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
 
-                if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-                        new_text = "Changed text"
-                        control.getProperties().set_Item("Value", new_text)
-
-                        # 更改替代图像。PowerPoint 在 ActiveX 激活期间会替换它，
-                        # 因此有时可以保持不变。
-                        image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-                        graphics = image.getGraphics()
-                        graphics.setColor(SystemColor.window)
-                        graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-                        font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-                        graphics.setColor(SystemColor.windowText)
-                        graphics.setFont(font)
-                        graphics.drawString(new_text, 10, 20)
-
-                        graphics.setColor(SystemColor.controlShadow)
-                        graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-                        graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-                        graphics.setColor(SystemColor.controlDkShadow)
-                        graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-                        graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-                        graphics.setColor(SystemColor.controlHighlight)
-                        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-                        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-                        graphics.setColor(SystemColor.controlLtHighlight)
-                        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-                        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-                        graphics.dispose()
-
-                        image_stream = ByteArrayOutputStream()
-                        ImageIO.write(image, "PNG", image_stream)
-
-                        image_bytes = image_stream.toByteArray()
-                        substitute_image = presentation.getImages().addImage(image_bytes)
-                        control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-                # 更改按钮标题。
-                control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-                if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-                        new_caption = "Show MessageBox"
-                        control.getProperties().set_Item("Caption", new_caption)
-                        # 更改替代图像。
-                        image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-                        graphics = image.getGraphics()
-                        graphics.setColor(SystemColor.control)
-                        graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-                        font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-                        graphics.setColor(SystemColor.windowText)
-                        graphics.setFont(font)
-                        metrics = graphics.getFontMetrics(font)
-                        graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-                        graphics.setColor(SystemColor.controlLtHighlight)
-                        graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-                        graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-                        graphics.setColor(SystemColor.controlHighlight)
-                        graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-                        graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-                        graphics.setColor(SystemColor.controlShadow)
-                        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-                        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-                        graphics.setColor(SystemColor.controlDkShadow)
-                        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-                        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-                        graphics.dispose()
-
-                        image_stream = ByteArrayOutputStream()
-                        ImageIO.write(image, "PNG", image_stream)
-
-                        image_bytes = image_stream.toByteArray()
-                        substitute_image = presentation.getImages().addImage(image_bytes)
-                        control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-                # 将控件向下移动 100 点。
-                for control in slide.getControls():
-                        frame = control.getFrame()
-                        new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-                        control.setFrame(new_frame)
-                presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-                # 删除控件。
-                presentation.getSlides().get_Item(0).getControls().clear()
-                presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
-        else:
-                print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
+    presentation.dispose()
+```
+
+## **添加 ActiveX 媒体播放器控件**
+
+要复用已配置的 Windows Media Player 控件，请使用第一张幻灯片包含名为 `WindowsMediaPlayer1` 的播放器的模板。[SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) 将整张幻灯片复制到新演示文稿中。示例在其 [properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) 中设置播放器的 `URL`，并将克隆的幻灯片保存为输出中的唯一幻灯片。视频保持外部状态，因此请选择播放器在播放时可以访问的路径。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
         presentation.dispose()
+finally:
+    template.dispose()
 ```
 
 ## **常见问题**
 
-**Aspose.Slides 在读取并重新保存时是否会保留无法在 Python 运行时执行的 ActiveX 控件？**
+**Aspose.Slides 能在不运行它们的情况下保留 ActiveX 控件吗？**
 
-是的。Aspose.Slides 将它们视为演示文稿的一部分，可以读取/修改其属性和框架；无需执行控件本身即可保留它们。
+可以。Aspose.Slides 可以读取并保存控件，包括它们的属性和位置，而无需激活它们。
 
-**ActiveX 控件与演示文稿中的 OLE 对象有何区别？**
+**ActiveX 控件与 OLE 对象有何区别？**
 
-ActiveX 控件是交互式受管理的控件（按钮、文本框、媒体播放器），而 [OLE](/slides/zh/python-java/manage-ole/) 指的是嵌入的应用程序对象（例如 Excel 工作表）。它们的存储和处理方式不同，属性模型也不同。
+ActiveX 控件允许用户与幻灯片交互，例如输入文本或点击按钮。一个 [OLE object](/slides/zh/python-java/manage-ole/) 让幻灯片包含或链接到由其他应用程序管理的内容，例如 Excel 工作表。
 
-**如果文件已被 Aspose.Slides 修改，ActiveX 事件和 VBA 宏是否仍然有效？**
+**在使用 Aspose.Slides 保存演示文稿后，ActiveX 事件仍会触发 VBA 宏吗？**
 
-Aspose.Slides 会保留现有的标记和元数据；但事件和宏仅在 Windows 上的 PowerPoint 中且安全设置允许时才会运行。该库本身不执行 VBA。
+请将演示文稿保存为 PPTM 等宏启用格式以保留其 VBA 项目。当 Windows 版 PowerPoint 的安全设置同时允许 ActiveX 控件和宏时，PowerPoint 可以运行现有的事件处理程序。

@@ -16,175 +16,147 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET이 ActiveX를 활용하여 PowerPoint 프레젠테이션을 자동화하고 향상시키는 방법을 배우고, 개발자에게 슬라이드에 대한 강력한 제어 권한을 제공합니다."
+description: "Aspose.Slides for .NET을 사용하여 PowerPoint 프레젠테이션에서 ActiveX 텍스트 상자와 버튼을 편집하고, 컨트롤 미리보기를 업데이트하며, Windows Media Player 컨트롤을 재사용합니다."
 ---
 ## **소개**
 
-ActiveX 컨트롤은 프레젠테이션에서 사용됩니다. Aspose.Slides for .NET을 사용하면 ActiveX 컨트롤을 관리할 수 있지만, 관리가 약간 까다롭고 일반 프레젠테이션 도형과 다릅니다. Aspose.Slides for .NET 6.9.0부터 이 구성 요소는 ActiveX 컨트롤 관리를 지원합니다. 현재는 프레젠테이션에 이미 추가된 ActiveX 컨트롤에 접근하여 다양한 속성을 사용해 수정하거나 삭제할 수 있습니다. ActiveX 컨트롤은 도형이 아니며 프레젠테이션의 IShapeCollection에 포함되지 않고 별도의 IControlCollection에 포함된다는 점을 기억하십시오. 이 문서에서는 해당 컨트롤을 사용하는 방법을 보여줍니다.
+ActiveX 컨트롤은 텍스트 상자, 명령 단추 및 미디어 플레이어와 같은 대화형 요소를 PowerPoint 슬라이드에 제공합니다. Aspose.Slides for .NET은 슬라이드의 컨트롤을 [IBaseSlide.Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/controls/)를 통해 노출합니다. 이 컬렉션을 사용하여 컨트롤을 편집하고, 슬라이드에서 이동시키며, 제거할 수 있습니다.
+
+## **ActiveX 컨트롤 및 저장된 속성 목록**
+
+익숙하지 않은 템플릿을 검사하려면 템플릿을 읽기 모드로 열고 각 슬라이드의 컨트롤을 반복합니다. 예제는 슬라이드 번호, 컨트롤 이름, [ClassId](https://reference.aspose.com/slides/net/aspose.slides/icontrol/classid/), 및 [Properties](https://reference.aspose.com/slides/net/aspose.slides/icontrol/#properties)의 각 키-값 쌍을 보고합니다. 컨트롤을 활성화하거나 이벤트·매크로를 호출하거나 값을 변경하거나 파일을 저장하지 않고 프레젠테이션을 읽습니다.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("ActiveX.pptm");
+
+for (var i = 0; i < presentation.Slides.Count; i++)
+{
+    foreach (var control in presentation.Slides[i].Controls)
+    {
+        Console.WriteLine($"Slide {i + 1} | {control.Name} | {control.ClassId}");
+        var properties = control.Properties;
+
+        if (properties == null)
+        {
+            Console.WriteLine("  Properties unavailable");
+            continue;
+        }
+
+        if (properties.Count == 0)
+            Console.WriteLine("  []");
+
+        foreach (var property in properties)
+            Console.WriteLine($"  {property.Key} = {property.Value}");
+    }
+}
+```
+
+`ActiveX.pptm`에서 선택된 출력은 텍스트 상자와 명령 단추를 보여줍니다.
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+빈 속성 컬렉션은 `[]` 로 표시됩니다. 이진 저장소를 사용하는 컨트롤의 경우 `Properties`가 `null`을 반환할 수 있으며, 이는 `Properties unavailable` 로 표시됩니다. 이름만 필요하면 null 확인 후 [NamesOfProperties](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/namesofproperties/)를 사용하십시오. 보고서는 프레젠테이션에서 사용할 수 있는 속성을 나열합니다. 컨트롤은 런타임에 추가 속성을 지원할 수 있습니다.
 
 ## **ActiveX 컨트롤 수정**
-슬라이드에서 텍스트 상자와 간단한 명령 버튼과 같은 기본 ActiveX 컨트롤을 관리하려면:
 
-1. Presentation 클래스를 인스턴스화하고 ActiveX 컨트롤이 포함된 프레젠테이션을 로드합니다.
-1. 인덱스로 슬라이드 참조를 얻습니다.
-1. IControlCollection에 접근하여 슬라이드의 ActiveX 컨트롤에 접근합니다.
-1. ControlEx 객체를 사용하여 TextBox1 ActiveX 컨트롤에 접근합니다.
-1. 텍스트, 글꼴, 글꼴 높이 및 프레임 위치 등을 포함하여 TextBox1 ActiveX 컨트롤의 다양한 속성을 변경합니다.
-1. CommandButton1이라는 두 번째 액세스 컨트롤에 접근합니다.
-1. 버튼 캡션, 글꼴 및 위치를 변경합니다.
-1. ActiveX 컨트롤 프레임의 위치를 이동합니다.
-1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
+예제는 첫 번째 슬라이드에 `TextBox1`이라는 텍스트 상자와 `CommandButton1`이라는 명령 단추가 포함된 매크로 사용 프레젠테이션을 예상합니다. 텍스트 상자 값과 단추 캡션을 변경하려면 [컨트롤 속성 컬렉션](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/)을 사용합니다. 각 컨트롤은 활성화 전에 PowerPoint이 표시할 수 있는 정적 미리보기를 갖습니다. 업데이트된 텍스트와 모양을 보여주는 PNG를 각 컨트롤에 제공하십시오. 예제는 이러한 이미지를 [IControl.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/icontrol/substitutepictureformat/)을 통해 할당합니다.
 
-아래 코드 조각은 프레젠테이션 슬라이드의 ActiveX 컨트롤을 아래와 같이 업데이트합니다.
+예제는 첫 번째 슬라이드의 모든 컨트롤을 [Frame](https://reference.aspose.com/slides/net/aspose.slides/icontrol/frame/)을 변경하여 100포인트 아래로 이동시킵니다. 편집된 프레젠테이션을 PPTM 형식으로 저장한 후, [IControlCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icontrolcollection/clear/)을 사용하여 해당 슬라이드에서 모든 ActiveX 컨트롤을 제거한 두 번째 복사본을 저장합니다.
 
-```c#
-// ActiveX 컨트롤이 있는 프레젠테이션에 접근
-Presentation presentation = new Presentation("ActiveX.pptm");
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 프레젠테이션의 첫 번째 슬라이드에 접근
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation("ActiveX.pptm");
 
-// TextBox 텍스트 변경
-IControl control = slide.Controls[0];
+var controls = presentation.Slides[0].Controls;
+var textBox = controls.FirstOrDefault(control => control.Name == "TextBox1");
+var button = controls.FirstOrDefault(control => control.Name == "CommandButton1");
 
-if (control.Name == "TextBox1" && control.Properties != null)
+if (textBox?.Properties == null || button?.Properties == null)
 {
-    string newText = "Changed text";
-    control.Properties["Value"] = newText;
-
-    // 대체 이미지 변경. PowerPoint는 ActiveX 활성화 중 이 이미지를 교체하므로, 때때로 이미지를 변경하지 않은 상태로 두어도 괜찮습니다.
-
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Window));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    graphics.DrawString(newText, font, brush, 10, 4);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(
-        pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[]
-    {
-            new System.Drawing.Point(1, image.Height - 1), new System.Drawing.Point(image.Width - 1, image.Height - 1),
-            new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("The first slide must contain both named controls with editable properties.");
+    return;
 }
 
-// 버튼 캡션 변경
-control = slide.Controls[1];
-
-if (control.Name == "CommandButton1" && control.Properties != null)
+if (!File.Exists("text-box-preview.png") || !File.Exists("button-preview.png"))
 {
-    String newCaption = "MessageBox";
-    control.Properties["Caption"] = newCaption;
-
-    // 대체 이미지 변경
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    SizeF textSize = graphics.MeasureString(newCaption, font, int.MaxValue);
-    graphics.DrawString(newCaption, font, brush, (image.Width - textSize.Width) / 2, (image.Height - textSize.Height) / 2);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[]
-    {
-        new System.Drawing.Point(1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("Supply both preview images before updating the controls.");
+    return;
 }
 
-// ActiveX 프레임을 100 포인트 아래로 이동
-foreach (Control ctl in slide.Controls)
+textBox.Properties["Value"] = "Changed text";
+button.Properties["Caption"] = "Show message";
+
+using var textBoxPreview = File.OpenRead("text-box-preview.png");
+using var buttonPreview = File.OpenRead("button-preview.png");
+textBox.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(textBoxPreview);
+button.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(buttonPreview);
+
+foreach (var control in controls)
 {
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
-        frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
+    var frame = control.Frame;
+    control.Frame = new ShapeFrame(frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// 편집된 ActiveX 컨트롤이 포함된 프레젠테이션 저장
-presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+presentation.Save("edited-controls.pptm", SaveFormat.Pptm);
 
-
-// 이제 컨트롤을 제거합니다
-slide.Controls.Clear();
-
-// 정리된 ActiveX 컨트롤이 포함된 프레젠테이션 저장
-presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+controls.Clear();
+presentation.Save("removed-controls.pptm", SaveFormat.Pptm);
 ```
 
 ## **ActiveX 미디어 플레이어 컨트롤 추가**
-ActiveX Media Player 컨트롤을 추가하려면 다음 단계를 수행하십시오:
 
-1. Presentation 클래스를 인스턴스화하고 Media Player ActiveX 컨트롤이 포함된 샘플 프레젠테이션을 로드합니다.
-1. 대상 Presentation 클래스를 인스턴스화하고 빈 프레젠테이션 인스턴스를 생성합니다.
-1. 템플릿 프레젠테이션에서 Media Player ActiveX 컨트롤이 있는 슬라이드를 대상 Presentation에 복제합니다.
-1. 대상 Presentation에서 복제된 슬라이드에 접근합니다.
-1. IControlCollection에 접근하여 슬라이드의 ActiveX 컨트롤에 접근합니다.
-1. Media Player ActiveX 컨트롤에 접근하고 해당 속성을 사용하여 비디오 경로를 설정합니다.
-1. 프레젠테이션을 PPTX 파일로 저장합니다.
+구성된 Windows Media Player 컨트롤을 재사용하려면 첫 번째 슬라이드에 `WindowsMediaPlayer1`이라는 플레이어가 포함된 템플릿으로 시작합니다. [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/)은 전체 슬라이드를 새 프레젠테이션으로 복사합니다. 예제는 플레이어의 `URL`을 [속성 컬렉션](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/)에 설정하고 복제된 슬라이드를 출력의 유일한 슬라이드로 저장합니다. 비디오는 외부에 남아 있으므로 재생 중에 플레이어가 접근할 수 있는 경로를 선택하십시오.
 
-```c#
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화
-Presentation presentation = new Presentation("template.pptx");
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 빈 프레젠테이션 인스턴스를 생성
-Presentation newPresentation = new Presentation();
+using var template = new Presentation("template.pptx");
+using var presentation = new Presentation();
 
-// 기본 슬라이드 제거
-newPresentation.Slides.RemoveAt(0);
+var slide = presentation.Slides.AddClone(template.Slides[0]);
+var player = slide.Controls.FirstOrDefault(control => control.Name == "WindowsMediaPlayer1");
 
-// Media Player ActiveX 컨트롤이 있는 슬라이드 복제
-newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
+if (player?.Properties == null)
+{
+    Console.WriteLine("The template slide must contain a named media player with editable properties.");
+    return;
+}
 
-// Media Player ActiveX 컨트롤에 접근하고 비디오 경로를 설정
-newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
+player.Properties["URL"] = "Wildlife.mp4";
 
-// 프레젠테이션 저장
-newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Slides.RemoveAt(0);
+presentation.Save("linked-video.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **자주 묻는 질문**
 
-**Aspose.Slides가 .NET 런타임에서 실행될 수 없을 경우에도 읽고 다시 저장할 때 ActiveX 컨트롤을 보존합니까?**
+**Aspose.Slides가 ActiveX 컨트롤을 실행하지 않고 보존할 수 있나요?**
 
-예. Aspose.Slides는 이를 프레젠테이션의 일부로 취급하며 속성과 프레임을 읽고 수정할 수 있습니다; 컨트롤 자체를 실행할 필요는 없습니다.
+예. Aspose.Slides는 컨트롤을 활성화하지 않고도 해당 속성과 위치를 포함하여 읽고 저장할 수 있습니다.
 
-**프레젠테이션에서 ActiveX 컨트롤은 OLE 객체와 어떻게 다릅니까?**
+**ActiveX 컨트롤은 OLE 객체와 어떻게 다릅니까?**
 
-ActiveX 컨트롤은 인터랙티브한 관리형 컨트롤(버튼, 텍스트 상자, 미디어 플레이어)이며, [OLE](/slides/ko/net/manage-ole/)는 임베드된 애플리케이션 객체(예: Excel 워크시트)를 의미합니다. 이들은 저장 방식과 처리 방식이 다르고 속성 모델도 다릅니다.
+ActiveX 컨트롤은 사용자가 텍스트를 입력하거나 버튼을 클릭하는 등 슬라이드와 상호 작용할 수 있게 합니다. [OLE object](/slides/ko/net/manage-ole/)는 슬라이드가 Excel 워크시트와 같은 다른 응용 프로그램에서 관리되는 콘텐츠를 포함하거나 연결하도록 합니다.
 
-**Aspose.Slides가 파일을 수정한 경우 ActiveX 이벤트와 VBA 매크로가 작동합니까?**
+**Aspose.Slides로 프레젠테이션을 저장한 후에도 ActiveX 이벤트가 VBA 매크로를 트리거합니까?**
 
-Aspose.Slides는 기존 마크업 및 메타데이터를 보존하지만, 이벤트와 매크로는 보안이 허용될 때 Windows의 PowerPoint 내부에서만 실행됩니다. 이 라이브러리는 VBA를 실행하지 않습니다.
+프레젠테이션을 PPTM과 같은 매크로 사용 형식으로 저장하면 VBA 프로젝트가 유지됩니다. Windows용 PowerPoint는 보안 설정에서 ActiveX 컨트롤과 매크로 모두를 허용할 경우 기존 이벤트 처리기를 실행할 수 있습니다.

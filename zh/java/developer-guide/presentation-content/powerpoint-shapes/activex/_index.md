@@ -1,5 +1,5 @@
 ---
-title: 使用 Java 管理演示文稿中的 ActiveX 控件
+title: 在 Java 中管理演示文稿中的 ActiveX 控件
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,186 +15,157 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "了解 Aspose.Slides for Java 如何利用 ActiveX 自动化并增强 PowerPoint 演示文稿，为开发人员提供对幻灯片的强大控制。"
+description: "编辑 ActiveX 文本框和按钮，更新控件预览，并在 PowerPoint 演示文稿中使用 Aspose.Slides for Java 重用 Windows Media Player 控件。"
 ---
+## **介绍**
 
-{{% alert color="primary" %}} 
+ActiveX 控件为 PowerPoint 幻灯片提供交互元素，例如文本框、命令按钮和媒体播放器。Aspose.Slides for Java 通过[IBaseSlide.getControls](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getControls--)公开幻灯片的控件。使用此集合可以编辑控件、在幻灯片上移动它或将其删除。
 
-ActiveX 控件在演示文稿中使用。Aspose.Slides for Java 允许您添加和管理 ActiveX 控件，但与普通演示形状相比，它们的管理稍显复杂。我们在 Aspose.Slides 中实现了添加 Media Player Active 控件的支持。请注意，ActiveX 控件不是形状；它们不是演示文稿的 [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/)。它们属于单独的 [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/)。本主题将向您展示如何使用它们。 
+## **列出 ActiveX 控件及其存储属性**
 
-{{% /alert %}} 
+要检查不熟悉的模板，打开它进行读取并遍历每张幻灯片上的控件。示例报告幻灯片编号、控件名称、[getClassId](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getClassId--)以及[getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--)中的每个键值对。它读取演示文稿时不激活控件、不触发事件或宏、不更改值，也不保存文件。
 
-## **向幻灯片添加 Media Player ActiveX 控件**
-要添加 ActiveX Media Player 控件，请执行以下操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例并生成一个空的演示文稿实例。
-1. 在 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 中访问目标幻灯片。
-1. 使用 [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/) 提供的 [addControl](https://reference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) 方法添加 Media Player ActiveX 控件。
-1. 访问 Media Player ActiveX 控件并通过其属性设置视频路径。
-1. 将演示文稿保存为 PPTX 文件。
-
-以下示例代码基于上述步骤，演示如何向幻灯片添加 Media Player ActiveX 控件：
 ```java
-// 创建空的演示文稿实例
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // 添加 Media Player ActiveX 控件
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // 访问 Media Player ActiveX 控件并设置视频路径
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // 保存演示文稿
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+从 `ActiveX.pptm` 中选取的输出显示了一个文本框和一个命令按钮。
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+空属性集合显示为 `[]`。对于使用二进制存储的控件，[getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--)可能返回 `null`，显示为 `Properties unavailable`。如果只需要名称，请在检查 null 后使用[getNamesOfProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--)。报告列出了演示文稿中可用的属性。控件在运行时可能支持其他属性。
 
 ## **修改 ActiveX 控件**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Java 7.1.0 及更高版本配备了用于管理 ActiveX 控件的组件。您可以访问演示文稿中已添加的 ActiveX 控件，并通过其属性对其进行修改或删除。 
+示例要求一个启用了宏的演示文稿，在第一张幻灯片上有一个名为 `TextBox1` 的文本框和一个名为 `CommandButton1` 的命令按钮。它使用[控件属性集合](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/)来更改文本框的值和按钮的标题。每个控件还有一个 PowerPoint 在激活前可以显示的静态预览。为每个控件提供显示其更新后文本和外观的 PNG。示例通过[IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getSubstitutePictureFormat--)分配这些图像。
 
-{{% /alert %}} 
+示例通过使用[IControl.setFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-)将第一张幻灯片上的每个控件向下移动 100 点来设置其框架。它以 PPTM 格式保存编辑后的演示文稿，然后使用[IControlCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/#clear--)保存第二个副本，其中该幻灯片的所有 ActiveX 控件均已移除。
 
-要在幻灯片上管理简单的 ActiveX 控件（如文本框和普通命令按钮），请执行以下操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) 类的实例并加载包含 ActiveX 控件的演示文稿。
-1. 通过索引获取幻灯片引用。
-1. 通过访问 [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/) 来获取幻灯片中的 ActiveX 控件。
-1. 使用 [IControl](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/) 对象访问 TextBox1 ActiveX 控件。
-1. 更改 TextBox1 ActiveX 控件的属性，包括文本、字体、字体高度和框架位置。
-1. 访问名为 CommandButton1 的第二个控件。
-1. 更改按钮的标题、字体和位置。
-1. 移动 ActiveX 控件框架的位置。
-1. 将修改后的演示文稿写入 PPTX 文件。
-
-以下示例代码基于上述步骤，演示如何管理一个简单的 ActiveX 控件： 
 ```java
-// 访问包含 ActiveX 控件的演示文稿
-Presentation pres = new Presentation("ActiveX.pptm");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // 访问演示文稿中的第一张幻灯片
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // 更改 TextBox 文本
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // 更改替代图像。PowerPoint 在 ActiveX 激活期间会替换此图像，
-        // 因此有时可以保持图像不变。
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
     }
 
-    // 更改按钮标题
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
+    Path textBoxPath = Paths.get("text-box-preview.png");
+    Path buttonPath = Paths.get("button-preview.png");
+    byte[] textBoxBytes = Files.readAllBytes(textBoxPath);
+    byte[] buttonBytes = Files.readAllBytes(buttonPath);
+    IPPImage textBoxPreview = presentation.getImages().addImage(textBoxBytes);
+    IPPImage buttonPreview = presentation.getImages().addImage(buttonBytes);
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
 
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // 更改替代图像
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
     }
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
 
-    // 向下移动 100 点
-    for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-        IShapeFrame frame = ctl.getFrame();
-        ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-    }
-    pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
-
-    // 移除控件
-    pres.getSlides().get_Item(0).getControls().clear();
-    pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-} catch(IOException e) {
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **添加 ActiveX 媒体播放器控件**
+
+要复用已配置的 Windows Media Player 控件，请使用第一张幻灯片包含名为 `WindowsMediaPlayer1` 的播放器的模板。[ISlideCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-)将整张幻灯片复制到新演示文稿中。示例在其[属性集合](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/)中设置播放器的 `URL`，并将克隆的幻灯片保存为输出中的唯一幻灯片。视频保持为外部文件，请选择播放器在播放期间能够访问的路径。
+
+```java
+import com.aspose.slides.*;
+
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
+            }
+        }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+        
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
+}
+```
 
 ## **常见问题**
 
-**Aspose.Slides 在读取并重新保存时，如果 ActiveX 控件无法在 Java 运行时执行，是否仍然保留这些控件？**
+**Aspose.Slides 能在不运行 ActiveX 控件的情况下保留它们吗？**
 
-是的。Aspose.Slides 将它们视为演示文稿的一部分，能够读取/修改它们的属性和框架；不需要执行控件本身即可保留它们。
+是的。Aspose.Slides 可以读取并保存控件，包括它们的属性和位置，而无需激活它们。
 
-**ActiveX 控件与演示文稿中的 OLE 对象有何区别？**
+**ActiveX 控件与 OLE 对象有何不同？**
 
-ActiveX 控件是交互式受管理的控件（按钮、文本框、媒体播放器），而 [OLE](/slides/zh/java/manage-ole/) 指的是嵌入的应用程序对象（例如 Excel 工作表）。它们的存储和处理方式不同，属性模型也不同。
+ActiveX 控件让用户与幻灯片交互，例如输入文本或点击按钮。一个[OLE 对象](/slides/zh/java/manage-ole/)允许幻灯片包含或链接到由其他应用程序管理的内容，例如 Excel 工作表。
 
-**如果文件已由 Aspose.Slides 修改，ActiveX 事件和 VBA 宏是否仍然有效？**
+**使用 Aspose.Slides 保存演示文稿后，ActiveX 事件仍会触发 VBA 宏吗？**
 
-Aspose.Slides 会保留现有的标记和元数据；但事件和宏只有在 Windows 上的 PowerPoint 中且安全设置允许时才会运行。该库不会执行 VBA。
+请将演示文稿保存为支持宏的格式，如 PPTM，以保留其 VBA 项目。PowerPoint for Windows 在其安全设置允许 ActiveX 控件和宏时，可以运行现有的事件处理程序。

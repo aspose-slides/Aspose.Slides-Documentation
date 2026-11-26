@@ -1,5 +1,5 @@
 ---
-title: Python ile Sunumlarda ActiveX Kontrollerini Yönetin
+title: Python ile Sunumlarda ActiveX Denetimlerini Yönetin
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,209 +15,118 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET'in ActiveX'i nasıl kullandığını, PowerPoint sunumlarını otomatikleştirip iyileştirdiğini öğrenin; geliştiricilere slaytlar üzerinde güçlü kontrol sağlar."
+description: "ActiveX metin kutularını ve düğmelerini düzenleyin, denetim önizlemelerini güncelleyin ve Aspose.Slides for Python via .NET ile PowerPoint sunumlarında bir Windows Media Player denetimini yeniden kullanın."
 ---
 ## **Giriş**
 
-ActiveX denetimleri sunumlarda kullanılır. Aspose.Slides for Python via .NET, ActiveX denetimlerini yönetmenizi sağlar, ancak bunları yönetmek biraz daha zordur ve normal sunum şekillerinden farklıdır. Aspose.Slides for Python via .NET 6.9.0 sürümünden itibaren, bileşen ActiveX denetimlerini yönetmeyi destekler. Şu anda, sunumunuzda önceden eklenmiş bir ActiveX denetimine erişebilir ve çeşitli özelliklerini kullanarak değiştirebilir veya silebilirsiniz. Unutmayın, ActiveX denetimleri şekil değildir ve sunumun IShapeCollection koleksiyonunun bir parçası değil, ayrı IControlCollection içinde bulunur. Bu makale, onlarla nasıl çalışılacağını gösterir.
-## **ActiveX Kontrollerini Değiştir**
-Bir slaytta metin kutusu ve basit komut düğmesi gibi basit bir ActiveX denetimini yönetmek için:
+ActiveX denetimleri, bir PowerPoint slaytına metin kutuları, komut düğmeleri ve medya oynatıcıları gibi etkileşimli öğeler ekler. Aspose.Slides for Python via .NET, bir slaydın denetimlerini [Slide.controls](https://reference.aspose.com/slides/python-net/aspose.slides/slide/controls/) aracılığıyla ortaya çıkar. Bu koleksiyonu bir denetimi düzenlemek, slayt üzerinde taşımak veya kaldırmak için kullanın.
 
-1. Presentation sınıfının bir örneğini oluşturun ve içinde ActiveX denetimleri bulunan sunumu yükleyin.
-1. İndeksi ile bir slayt referansı alın.
-1. IControlCollection'ı kullanarak slayttaki ActiveX denetimlerine erişin.
-1. ControlEx nesnesini kullanarak TextBox1 ActiveX denetimine erişin.
-1. TextBox1 ActiveX denetiminin metin, yazı tipi, yazı tipi yüksekliği ve çerçeve konumu gibi çeşitli özelliklerini değiştirin.
-1. CommandButton1 adlı ikinci erişim denetimine erişin.
-1. Düğmenin başlığını, yazı tipini ve konumunu değiştirin.
-1. ActiveX denetimlerinin çerçeve konumunu kaydırın.
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+## **ActiveX Denetimlerini ve Saklanan Özelliklerini Listele**
 
-Aşağıdaki kod parçacığı, sunum slaytlarındaki ActiveX denetimlerini aşağıda gösterildiği gibi günceller.
+Tanıdık olmayan bir şablonu incelemek için, şablonu okuma modunda açın ve her slayttaki denetimler üzerinde yineleyin. Örnek, slayt numarasını, denetim adını, [class_id](https://reference.aspose.com/slides/python-net/aspose.slides/control/class_id/) ve [properties](https://reference.aspose.com/slides/python-net/aspose.slides/control/#properties) içindeki her anahtar‑değer çiftini raporlar. Sunumu, denetimleri etkinleştirmeden, olayları veya makroları tetiklemeden, değerleri değiştirmeden veya dosyayı kaydetmeden okur.
 
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-import io
-
-# ActiveX denetimlerine sahip sunuma erişim
-with slides.Presentation(path + "ActiveX.pptm") as presentation:
-    # Sunumdaki ilk slayta erişim
-    slide = presentation.slides[0]
-
-    # TextBox metnini değiştiriyor
-    control = slide.controls[0]
-
-    if control.name == "TextBox1" and control.properties != None:
-        newText = "Changed text"
-        control.properties.remove("Value")
-        control.properties.add("Value", newText)
-
-        # yerine koyma resmini değiştiriyor. PowerPoint, ActiveX etkinleştirilirken bu resmi değiştirecektir, bu yüzden bazen resmi değiştirmeden bırakmak sorun değil.
-
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            # font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                graphics.draw_string(newText, font, brush, 10, 4)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, [
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [
-                        draw.PointF(1, bmp.height - 1), 
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1)])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen,
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-
-    # Düğme başlığını değiştiriyor
-    control = slide.controls[1]
-
-    if control.name == "CommandButton1" and control.properties != None:
-        newCaption = "MessageBox"
-        control.properties.remove("Caption")
-        control.properties.add("Caption", newCaption)
-
-        # yerine koymayı değiştiriyor
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            #font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                textSize = graphics.measure_string(newCaption, font, 65535)
-                graphics.draw_string(newCaption, font, brush, 
-                    (bmp.width - textSize.width) / 2, 
-                    (bmp.height - textSize.height) / 2)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-    
-    # ActiveX çerçevelerini 100 puan aşağı kaydırma
-    for ctl in slide.controls:
-        frame = control.frame
-        control.frame = slides.ShapeFrame(
-            frame.x, 
-            frame.y + 100, 
-            frame.width, 
-            frame.height, 
-            frame.flip_h, 
-            frame.flip_v, 
-            frame.rotation)
-
-    # Düzenlenmiş ActiveX denetimleriyle sunumu kaydet
-    presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
-
-
-    # Şimdi denetimler kaldırılıyor
-    slide.controls.clear()
-
-    # Temizlenmiş ActiveX denetimleriyle sunumu kaydetme
-    presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
-```
-
-
-## **ActiveX Media Player Kontrolü Ekle**
-ActiveX Media Player kontrolü eklemek için aşağıdaki adımları izleyin:
-
-1. Presentation sınıfının bir örneğini oluşturun ve içinde Media Player ActiveX denetimleri bulunan örnek sunumu yükleyin.
-1. Hedef Presentation sınıfının bir örneğini oluşturun ve boş bir sunum örneği oluşturun.
-1. Şablon sunumundaki Media Player ActiveX denetimli slaytı hedef Presentation'a kopyalayın.
-1. Hedef Presentation'daki kopyalanmış slayta erişin.
-1. IControlCollection'ı kullanarak slayttaki ActiveX denetimlerine erişin.
-1. Media Player ActiveX denetimine erişin ve özelliklerini kullanarak video yolunu ayarlayın.
-1. Sunumu bir PPTX dosyasına kaydedin.
-
-```py
+```python
 import aspose.slides as slides
 
-# PPTX dosyasını temsil eden Presentation sınıfını örnekleyin
-with slides.Presentation(path + "template.pptx") as presentation:
+with slides.Presentation("ActiveX.pptm") as presentation:
+    for slide_number, slide in enumerate(presentation.slides, start=1):
+        for control in slide.controls:
+            print(f"Slide {slide_number} | {control.name} | {control.class_id}")
+            properties = control.properties
+            if properties is None:
+                print("  Properties unavailable")
+                continue
 
-    # Boş bir sunum örneği oluşturun
-    with slides.Presentation() as newPresentation:
-
-        # Varsayılan slaytı kaldırın
-        newPresentation.slides.remove_at(0)
-
-        # Media Player ActiveX denetimi bulunan slaytı kopyalayın
-        newPresentation.slides.insert_clone(0, presentation.slides[0])
-
-        # Media Player ActiveX denetimine erişin ve video yolunu ayarlayın
-        prop = newPresentation.slides[0].controls[0].properties
-
-        prop.remove("URL")
-        prop.add("URL", "Wildlife.mp4")
-
-        # Sunumu kaydedin
-        newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
+            if properties.count == 0:
+                print("  []")
+            for entry in properties:
+                print(f"  {entry.key} = {entry.value}")
 ```
 
-## **FAQ**
+`ActiveX.pptm` dosyasından seçilen çıktı bir metin kutusu ve bir komut düğmesi gösterir.
 
-**Aspose.Slides, Python çalışma zamanında yürütülemiyorsa ActiveX denetimlerini okurken ve yeniden kaydederken korur mu?**
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-Evet. Aspose.Slides, bunları sunumun bir parçası olarak kabul eder ve özelliklerini ve çerçevelerini okuyabilir/değiştirebilir; denetimlerin kendisinin yürütülmesi, bunların korunması için gerekli değildir.
+Boş bir özellik koleksiyonu `[]` şeklinde görünür. İkili depolama kullanan denetimler için `properties` `None` dönebilir ve bu `Properties unavailable` olarak gösterilir. Sadece adlara ihtiyacınız varsa, `None` kontrolünden sonra [names_of_properties](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/names_of_properties/) kullanın. Rapor, sunumdan elde edilebilen özellikleri listeler. Bir denetim, çalışma zamanında ek özellikler destekleyebilir.
 
-**ActiveX denetimleri bir sunumdaki OLE nesnelerinden nasıl farklıdır?**
+## **ActiveX Denetimlerini Değiştir**
 
-ActiveX denetimleri, etkileşimli yönetilen denetimlerdir (düğmeler, metin kutuları, medya oynatıcı), oysa [OLE](/slides/tr/python-net/manage-ole/) gömülü uygulama nesnelerini (örneğin bir Excel çalışma sayfası) ifade eder. Bunlar farklı şekilde depolanır ve işlenir ve farklı özellik modellerine sahiptir.
+Örnek, ilk slaytta `TextBox1` adlı bir metin kutusu ve `CommandButton1` adlı bir komut düğmesi bulunan makro‑etkin bir sunum bekler. Metin kutusu değerini ve düğme başlığını değiştirmek için [denetim özellikleri koleksiyonu](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) kullanır. Her denetimin, PowerPoint'in etkinleştirmeden önce görüntüleyebileceği statik bir önizlemesi de vardır. Güncellenmiş metin ve görünümlerini gösteren bir PNG dosyasını her denetim için sağlayın. Örnek, bu görüntüleri [Control.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/control/substitute_picture_format/) aracılığıyla atar.
 
-**Aspose.Slides tarafından dosya değiştirildiyse ActiveX olayları ve VBA makroları çalışır mı?**
+Örnek, ilk slayttaki tüm denetimleri [frame](https://reference.aspose.com/slides/python-net/aspose.slides/control/frame/) özelliğini değiştirerek 100 puan aşağı kaydırır. Düzenlenmiş sunumu PPTM formatında kaydeder, ardından [ControlCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/controlcollection/clear/) kullanarak o slayttan tüm ActiveX denetimlerini kaldırılmış ikinci bir kopya kaydeder.
 
-Aspose.Slides mevcut işaretlemeyi ve meta verileri korur; ancak, olaylar ve makrolar yalnızca güvenlik izin verdiğinde Windows'ta PowerPoint içinde çalışır. Kütüphane VBA’yı çalıştırmaz.
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+with slides.Presentation("ActiveX.pptm") as presentation:
+    controls = presentation.slides[0].controls
+    text_box = next((control for control in controls if control.name == "TextBox1"), None)
+    button = next((control for control in controls if control.name == "CommandButton1"), None)
+    text_box_preview = Path("text-box-preview.png")
+    button_preview = Path("button-preview.png")
+
+    if text_box is None or button is None or text_box.properties is None or button.properties is None:
+        print("The first slide must contain both named controls with editable properties.")
+    elif not text_box_preview.is_file() or not button_preview.is_file():
+        print("Supply both preview images before updating the controls.")
+    else:
+        text_box.properties.remove("Value")
+        text_box.properties.add("Value", "Changed text")
+        button.properties.remove("Caption")
+        button.properties.add("Caption", "Show message")
+
+        for control, preview in [(text_box, text_box_preview), (button, button_preview)]:
+            image_data = preview.read_bytes()
+            control.substitute_picture_format.picture.image = presentation.images.add_image(image_data)
+
+        for control in controls:
+            frame = control.frame
+            control.frame = slides.ShapeFrame(frame.x, frame.y + 100, frame.width, frame.height, frame.flip_h, frame.flip_v, frame.rotation)
+
+        presentation.save("edited-controls.pptm", slides.export.SaveFormat.PPTM)
+        controls.clear()
+        presentation.save("removed-controls.pptm", slides.export.SaveFormat.PPTM)
+```
+
+## **ActiveX Medya Oynatıcı Denetimi Ekle**
+
+Yapılandırılmış bir Windows Media Player denetimini yeniden kullanmak için, ilk slaytında `WindowsMediaPlayer1` adlı bir oynatıcı bulunan bir şablonla başlayın. [SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) tüm slaytı yeni bir sunuma kopyalar. Örnek, oynatıcının `URL` değerini [özellikler koleksiyonu](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) içinde ayarlar ve kopyalanan slaytı çıktıda tek slayt olarak kaydeder. Video harici kalır, bu yüzden oynatma sırasında oynatıcının erişebileceği bir yol seçin.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as template, slides.Presentation() as presentation:
+    slide = presentation.slides.add_clone(template.slides[0])
+    player = next((control for control in slide.controls if control.name == "WindowsMediaPlayer1"), None)
+
+    if player is None or player.properties is None:
+        print("The template slide must contain a named media player with editable properties.")
+    else:
+        player.properties.remove("URL")
+        player.properties.add("URL", "Wildlife.mp4")
+        presentation.slides.remove_at(0)
+        presentation.save("linked-video.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **SSS**
+
+**Aspose.Slides ActiveX denetimlerini çalıştırmadan koruyabilir mi?**
+
+Evet. Aspose.Slides, denetimlerin özellikleri ve konumları dahil olmak üzere, onları etkinleştirmeden okuyabilir ve kaydedebilir.
+
+**ActiveX denetimleri OLE nesnelerinden nasıl farklıdır?**
+
+ActiveX denetimleri, kullanıcıların bir slayt ile etkileşime girmesini sağlar; örneğin metin girişi yapabilir veya bir düğmeye tıklayabilir. Bir [OLE nesnesi](/slides/tr/python-net/manage-ole/) ise bir slaytın başka bir uygulama tarafından yönetilen içeriği (örneğin bir Excel çalışma sayfası) içermesine veya ona bağlanmasına izin verir.
+
+**Aspose.Slides ile bir sunumu kaydettikten sonra ActiveX olayları VBA makrolarını tetiklemeye devam edecek mi?**
+
+Sunumu PPTM gibi makro‑etkin bir formatta kaydederek VBA projesini koruyun. Windows için PowerPoint, güvenlik ayarları hem ActiveX denetimlerine hem de makrolara izin verdiğinde mevcut olay işleyicilerini çalıştırabilir.

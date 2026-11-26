@@ -7,31 +7,23 @@ url: /cs/python-java/activex/
 keywords:
 - ActiveX
 - ActiveX ovládací prvek
-- správa ActiveX
-- přidání ActiveX
-- úprava ActiveX
+- spravovat ActiveX
+- přidat ActiveX
+- upravit ActiveX
 - přehrávač médií
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Zjistěte, jak Aspose.Slides pro Python přes Java využívá ActiveX k automatizaci a vylepšení PowerPoint prezentací, což vývojářům poskytuje silnou kontrolu nad snímky."
+description: "Upravit textová pole a tlačítka ActiveX, aktualizovat náhledy ovládacích prvků a znovu použít ovládací prvek Windows Media Player v prezentacích PowerPoint s Aspose.Slides pro Python via Java."
 ---
 ## **Úvod**
 
-ActiveX ovládací prvky se používají v prezentacích. Aspose.Slides pro Python přes Java umožňuje přidávat a spravovat ActiveX ovládací prvky, ale jsou o něco obtížnější na správu ve srovnání s běžnými tvary v prezentaci. Aspose.Slides podporuje přidávání ActiveX ovládacích prvků Media Player. Všimněte si, že ActiveX ovládací prvky nejsou tvary; nejsou součástí prezentace [ShapeCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/). Jsou součástí samostatné [ControlCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/controlcollection/) místo toho. V tomto tématu vám ukážeme, jak s nimi pracovat.
+ActiveX ovládací prvky poskytují snímku PowerPointu interaktivní elementy, jako jsou textová pole, tlačítka příkazů a přehrávače médií. Aspose.Slides for Python via Java zpřístupňuje ovládací prvky snímku prostřednictvím [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls). Použijte tuto kolekci k úpravě ovládacího prvku, jeho přesunu na snímku nebo odstranění.
 
-## **Přidání ActiveX ovládacího prvku Media Player na snímek**
+## **Seznam ActiveX ovládacích prvků a jejich uložených vlastností**
 
-Chcete‑li přidat ActiveX ovládací prvek Media Player, proveďte následující:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a vytvořte prázdnou prezentaci.
-2. Získejte cílový snímek v [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-3. Přidejte ActiveX ovládací prvek Media Player pomocí metody [addControl](https://reference.aspose.com/slides/cs/python-java/aspose.slides/controlcollection/#addControl) zveřejněné v [ControlCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/controlcollection/).
-4. Získejte přístup k ActiveX ovládacímu prvku Media Player a nastavte cestu k videu pomocí jeho vlastností.
-5. Uložte prezentaci jako soubor PPTX.
-
-Tento ukázkový kód, založený na výše uvedených krocích, ukazuje, jak přidat ActiveX ovládací prvek Media Player na snímek:
+Pro prozkoumání neznámé šablony ji otevřete pro čtení a projděte ovládací prvky na každém snímku. Příklad uvádí číslo snímku, název ovládacího prvku, [getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId) a každý pár klíč‑hodnota v [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties). Prezentaci načítá, aniž by aktivoval ovládací prvky, vyvolával události nebo makra, měnil hodnoty nebo ukládal soubor.
 
 ```python
 import jpype
@@ -40,45 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# Vytvořte prázdnou prezentaci.
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # Přidejte ActiveX ovládací prvek Media Player.
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # Nastavte cestu k videu.
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # Uložte prezentaci.
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
-## **Úprava ActiveX ovládacího prvku**
+Vybraný výstup ze `ActiveX.pptm` ukazuje textové pole a tlačítko příkazu.
 
-{{% alert color="info" title="Poznámka" %}}
-Aspose.Slides pro Python přes Java poskytuje komponenty pro správu ActiveX ovládacích prvků. Můžete získat přístup k již přidanému ActiveX ovládacímu prvku ve vaší prezentaci a upravit jej nebo smazat pomocí jeho vlastností.
-{{% /alert %}}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-Pro správu jednoduchého ActiveX ovládacího prvku, jako je textové pole a jednoduché tlačítko příkazu na snímku, proveďte následující:
+Prázdná kolekce vlastností se zobrazí jako `[]`. U ovládacích prvků, které používají binární úložiště, může [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) vrátit `None`, což je zobrazeno jako `Properties unavailable`. Pokud potřebujete jen názvy, použijte [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) po kontrole, že kolekce je dostupná. Zpráva uvádí vlastnosti dostupné z prezentace. Ovládací prvek může během běhu podporovat další vlastnosti.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a načtěte prezentaci, která obsahuje ActiveX ovládací prvky.
-2. Získejte referenci na snímek podle jeho indexu.
-3. Získejte přístup k ActiveX ovládacím prvkům na snímku pomocí [ControlCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/controlcollection/).
-4. Získejte přístup k ActiveX ovládacímu prvku TextBox1 pomocí objektu [Control](https://reference.aspose.com/slides/cs/python-java/aspose.slides/control/).
-5. Změňte vlastnosti ActiveX ovládacího prvku TextBox1, které zahrnují text, písmo, výšku písma a pozici rámce.
-6. Získejte přístup ke druhému ActiveX ovládacímu prvku nazvanému CommandButton1.
-7. Změňte popisek tlačítka, písmo a pozici.
-8. Posuňte pozici rámců ActiveX ovládacích prvků.
-9. Uložte upravenou prezentaci do souboru PPTM.
+## **Upravit ActiveX ovládací prvky**
 
-Tento ukázkový kód, založený na výše uvedených krocích, ukazuje, jak spravovat jednoduchý ActiveX ovládací prvek:
+Příklad očekává makrem povolenou prezentaci s textovým polem pojmenovaným `TextBox1` a tlačítkem příkazu pojmenovaným `CommandButton1` na prvním snímku. Používá [kolekci vlastností ovládacího prvku](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) ke změně hodnoty textového pole a popisku tlačítka. Každý ovládací prvek má také statický náhled, který PowerPoint může zobrazit před aktivací. Poskytněte PNG pro každý ovládací prvek zobrazující aktualizovaný text a vzhled. Příklad přiřazuje tyto obrázky pomocí [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat).
+
+Příklad přesune každý ovládací prvek na prvním snímku o 100 bodů dolů nastavením jeho rámce pomocí [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame). Uloží upravenou prezentaci ve formátu PPTM a poté použije [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) k uložení druhé kopie bez všech ActiveX ovládacích prvků na tomto snímku.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -86,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# Načtěte prezentaci s ActiveX ovládacími prvky.
 presentation = Presentation("ActiveX.pptm")
 try:
-    if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-        # Získejte přístup k prvnímu snímku.
-        slide = presentation.getSlides().get_Item(0)
-
-        # Změňte text v textovém poli.
-        control = slide.getControls().get_Item(0)
-
-        if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-            new_text = "Changed text"
-            control.getProperties().set_Item("Value", new_text)
-
-            # Změňte náhradní obrázek. PowerPoint jej během aktivace ActiveX nahradí,
-            # takže jej lze někdy nechat nezměněný.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.window)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            graphics.drawString(new_text, 10, 20)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Změňte popisek tlačítka.
-        control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-        if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-            new_caption = "Show MessageBox"
-            control.getProperties().set_Item("Caption", new_caption)
-            # Změňte náhradní obrázek.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.control)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            metrics = graphics.getFontMetrics(font)
-            graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Posuňte ovládací prvky dolů o 100 bodů.
-        for control in slide.getControls():
-            frame = control.getFrame()
-            new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-            control.setFrame(new_frame)
-        presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-        # Odstraňte ovládací prvky.
-        presentation.getSlides().get_Item(0).getControls().clear()
-        presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
     else:
-        print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
+
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
+
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
     presentation.dispose()
 ```
 
+## **Přidat ActiveX ovládací prvek přehrávače médií**
+
+Pro opakované použití nakonfigurovaného ovládacího prvku Windows Media Player začněte se šablonou, jejíž první snímek obsahuje přehrávač pojmenovaný `WindowsMediaPlayer1`. [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) zkopíruje celý snímek do nové prezentace. Příklad nastaví `URL` přehrávače v jeho [kolekci vlastností](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) a uloží klonovaný snímek jako jediný snímek výstupu. Video zůstává externí, takže zvolte cestu, ke které má přehrávač během přehrávání přístup.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
+
 ## **Často kladené otázky**
 
-**Zachovává Aspose.Slides ActiveX ovládací prvky při čtení a opětovném uložení, pokud nemohou být spuštěny v Python runtime?**
+**Dokáže Aspose.Slides zachovat ActiveX ovládací prvky, aniž by je spouštěl?**
 
-Ano. Aspose.Slides je považuje za součást prezentace a může číst/upravovat jejich vlastnosti a rámce; k jejich zachování není nutné spouštět samotné ovládací prvky.
+Ano. Aspose.Slides může číst a ukládat ovládací prvky, včetně jejich vlastností a pozic, aniž by je aktivoval.
 
-**Jak se ActiveX ovládací prvky liší od OLE objektů v prezentaci?**
+**Jak se liší ActiveX ovládací prvky od OLE objektů?**
 
-ActiveX ovládací prvky jsou interaktivní spravované ovládací prvky (tlačítka, textová pole, přehrávač médií), zatímco [OLE](/slides/cs/python-java/manage-ole/) označuje vložené objekty aplikací (například list Excelu). Jsou ukládány a zpracovávány odlišně a mají jiný model vlastností.
+ActiveX ovládací prvky umožňují uživatelům interagovat se snímkem, například zadávat text nebo kliknout na tlačítko. [OLE objekt](/slides/cs/python-java/manage-ole/) umožňuje, aby snímek obsahoval nebo odkazoval na obsah spravovaný jinou aplikací, například list Excelu.
 
-**Fungují události ActiveX a VBA makra, pokud byl soubor upraven pomocí Aspose.Slides?**
+**Spustí se po uložení prezentace pomocí Aspose.Slides stále události ActiveX, které spouštějí VBA makra?**
 
-Aspose.Slides zachovává existující značkování a metadata; avšak události a makra se spouští pouze v PowerPointu na Windows, pokud to bezpečnost povolí. Knihovna nevykonává VBA.
+Uložte prezentaci do makrem povoleného formátu, například PPTM, aby byl zachován její VBA projekt. PowerPoint pro Windows může spustit stávající obslužné rutiny událostí, pokud jeho nastavení zabezpečení povolí jak ActiveX ovládací prvky, tak makra.

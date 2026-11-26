@@ -1,6 +1,6 @@
 ---
-title: "ActiveX-Steuerelemente in Präsentationen mit C++ verwalten"
-linktitle: "ActiveX"
+title: Verwalten von ActiveX-Steuerelementen in Präsentationen mit C++
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /de/cpp/activex/
@@ -10,170 +10,205 @@ keywords:
 - ActiveX verwalten
 - ActiveX hinzufügen
 - ActiveX ändern
-- Media-Player
+- Mediaplayer
 - PowerPoint
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Aspose.Slides für C++ ActiveX nutzt, um PowerPoint-Präsentationen zu automatisieren und zu verbessern, und Entwicklern eine leistungsstarke Kontrolle über Folien bietet."
+description: "ActiveX-Textfelder und -Schaltflächen bearbeiten, Steuerelement-Vorschauen aktualisieren und ein Windows Media Player-Steuerelement in PowerPoint-Präsentationen mit Aspose.Slides für C++ wiederverwenden."
 ---
+## **Einleitung**
 
-ActiveX‑Steuerelemente werden in Präsentationen verwendet. Aspose.Slides für C++ ermöglicht die Verwaltung von ActiveX‑Steuerelementen, aber deren Verwaltung ist etwas kniffliger und unterscheidet sich von normalen Präsentationsformen. Seit Aspose.Slides für C++ 18.1 unterstützt die Komponente die Verwaltung von ActiveX‑Steuerelementen. Derzeit können Sie bereits hinzugefügte ActiveX‑Steuerelemente in Ihrer Präsentation abrufen und sie über deren verschiedene Eigenschaften ändern oder löschen. Denken Sie daran, dass ActiveX‑Steuerelemente keine Formen sind und nicht Teil der IShapeCollection der Präsentation, sondern einer separaten IControlCollection sind. Dieser Artikel zeigt, wie man mit ihnen arbeitet.
+ActiveX‑Steuerelemente geben einer PowerPoint‑Folie interaktive Elemente wie Textfelder, Befehls‑Schaltflächen und Medien‑Player. Aspose.Slides für C++ stellt die Steuerelemente einer Folie über [IBaseSlide::get_Controls](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_controls/) bereit. Verwenden Sie diese Sammlung, um ein Steuerelement zu bearbeiten, es auf der Folie zu verschieben oder zu entfernen.
 
-## **ActiveX‑Steuerelement ändern**
-Um ein einfaches ActiveX‑Steuerelement wie ein Textfeld und eine einfache Schaltfläche auf einer Folie zu verwalten:
+## **Auflisten von ActiveX‑Steuerelementen und deren gespeicherten Eigenschaften**
 
-1. Erstellen Sie eine Instanz der Klasse Presentation und laden Sie die Präsentation mit ActiveX‑Steuerelementen.
-1. Holen Sie sich einen Folien‑Verweis über dessen Index.
-1. Greifen Sie auf die ActiveX‑Steuerelemente in der Folie zu, indem Sie die IControlCollection verwenden.
-1. Greifen Sie auf das TextBox1‑ActiveX‑Steuerelement über das ControlEx‑Objekt zu.
-1. Ändern Sie die verschiedenen Eigenschaften des TextBox1‑ActiveX‑Steuerelements, einschließlich Text, Schriftart, Schriftgröße und Rahmenposition.
-1. Greifen Sie auf das zweite Steuerelement mit dem Namen CommandButton1 zu.
-1. Ändern Sie die Beschriftung, Schriftart und Position der Schaltfläche.
-1. Verschieben Sie die Position der Rahmen der ActiveX‑Steuerelemente.
-1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
+Um eine unbekannte Vorlage zu untersuchen, öffnen Sie sie zum Lesen und iterieren Sie über die Steuerelemente jeder Folie. Das Beispiel gibt die Foliennummer, den Namen des Steuerelements, die [Class‑ID](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_classid/), und jedes Schlüssel‑Wert‑Paar in den [gespeicherten Eigenschaften](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_properties/) aus. Es liest die Präsentation, ohne Steuerelemente zu aktivieren, Ereignisse oder Makros auszulösen, Werte zu ändern oder die Datei zu speichern.
 
-Der nachstehende Code‑Abschnitt aktualisiert die ActiveX‑Steuerelemente auf den Präsentationsfolien, wie unten gezeigt.
-``` cpp
-// Zugriff auf die Präsentation mit ActiveX-Steuerelementen
-auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/guid.h>
 
-// Zugriff auf die erste Folie in der Präsentation
-auto slide = presentation->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace System;
 
-// Ändern des Textes im TextBox
-auto control = slide->get_Controls()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
 
-if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
+for (auto i = 0; i < presentation->get_Slides()->get_Count(); ++i)
 {
-    String newText = u"Changed text";
-    control->get_Properties()->idx_set(u"Value", newText);
+    auto controls = presentation->get_Slide(i)->get_Controls();
+    for (auto j = 0; j < controls->get_Count(); ++j)
+    {
+        auto control = controls->idx_get(j);
+        Console::WriteLine(u"Slide {0} | {1} | {2}", i + 1, control->get_Name(), control->get_ClassId().ToString());
+        auto properties = control->get_Properties();
+        if (!properties)
+        {
+            Console::WriteLine(u"  Properties unavailable");
+            continue;
+        }
 
-    // Ändern des Ersatzbildes. PowerPoint ersetzt dieses Bild während der ActiveX-Aktivierung, daher ist es manchmal in Ordnung, das Bild unverändert zu lassen.
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
+        if (properties->get_Count() == 0)
+            Console::WriteLine(u"  []");
 
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    graphics->DrawString(newText, font, brush, 10.0f, 4.0f);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
+        auto entries = properties->GetEnumerator();
+        while (entries->MoveNext())
+        {
+            auto property = entries->get_Current();
+            Console::WriteLine(u"  {0} = {1}", property.get_Key(), property.get_Value());
+        }
+    }
 }
-
-// Ändern der Beschriftung der Schaltfläche
-control = slide->get_Controls()->idx_get(1);
-
-if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
-{
-    String newCaption = u"MessageBox";
-    control->get_Properties()->idx_set(u"Caption", newCaption);
-
-    // Ändern des Ersatzbildes
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
-
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    SizeF textSize = graphics->MeasureString(newCaption, font, std::numeric_limits<int32_t>::max());
-    graphics->DrawString(newCaption, font, brush, (image->get_Width() - textSize.get_Width()) / 2, (image->get_Height() - textSize.get_Height()) / 2);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
-}
-
-// Verschieben der ActiveX-Rahmen um 100 Punkte nach unten
-for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
-{
-    SharedPtr<IShapeFrame> frame = control->get_Frame();
-    control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
-}
-
-// Speichern der Präsentation mit bearbeiteten ActiveX-Steuerelementen
-presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
-
-// Jetzt werden die Steuerelemente entfernt
-slide->get_Controls()->Clear();
-
-// Speichern der Präsentation mit gelöschten ActiveX-Steuerelementen
-presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
+Die ausgewählte Ausgabe von `ActiveX.pptm` zeigt ein Textfeld und eine Befehls‑Schaltfläche.
 
-## **Media Player ActiveX‑Steuerelement hinzufügen**
-ActiveX‑Steuerelemente werden in Präsentationen verwendet. Aspose.Slides für C++ ermöglicht das Hinzufügen und Verwalten von ActiveX‑Steuerelementen, aber deren Verwaltung ist etwas kniffliger und unterscheidet sich von normalen Präsentationsformen. Seit Aspose.Slides für C++ 18.1 wurde die Unterstützung für das Hinzufügen von Media Player‑ActiveX‑Steuerelementen in Aspose.Slides integriert. Denken Sie daran, dass ActiveX‑Steuerelemente keine Formen sind und nicht Teil der IShapeCollection der Präsentation, sondern einer separaten IControlExCollection sind. Dieser Artikel zeigt, wie man mit ihnen arbeitet. Um ein Media Player‑ActiveX‑Steuerelement zu verwalten, führen Sie bitte die folgenden Schritte aus:
-
-1. Erstellen Sie eine Instanz der Klasse Presentation und laden Sie die Beispielpräsentation mit Media Player‑ActiveX‑Steuerelementen.
-1. Erstellen Sie eine Instanz der Ziel‑Presentation‑Klasse und erzeugen Sie eine leere Präsentationsinstanz.
-1. Klonen Sie die Folie mit dem Media Player‑ActiveX‑Steuerelement aus der Vorlagenpräsentation in die Ziel‑Presentation.
-1. Greifen Sie auf die geklonte Folie in der Ziel‑Presentation zu.
-1. Greifen Sie auf die ActiveX‑Steuerelemente in der Folie zu, indem Sie die IControlCollection verwenden.
-1. Greifen Sie auf das Media Player‑ActiveX‑Steuerelement zu und setzen Sie den Videopfad über dessen Eigenschaften.
-1. Speichern Sie die Präsentation in einer PPTX‑Datei.
-``` cpp
-// Instanziiere die Presentation-Klasse, die die PPTX-Datei darstellt
-auto presentation = System::MakeObject<Presentation>(u"template.pptx");
-
-// Erstelle eine leere Präsentationsinstanz
-auto newPresentation = System::MakeObject<Presentation>();
-
-// Entferne die Standardfolie
-newPresentation->get_Slides()->RemoveAt(0);
-
-// Klone die Folie mit dem Media Player ActiveX-Steuerelement
-newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
-
-// Greife auf das Media Player ActiveX-Steuerelement zu und setze den Videopfad
-newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
-
-// Speichere die Präsentation
-newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
+Eine leere Eigenschaftssammlung erscheint als `[]`. Für Steuerelemente, die binäre Speicherung verwenden, kann `get_Properties` `nullptr` zurückgeben, angezeigt als `Properties unavailable`. Wenn Sie nur die Namen benötigen, verwenden Sie [get_NamesOfProperties](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/get_namesofproperties/) nachdem Sie überprüft haben, dass die Sammlung existiert. Der Bericht listet die aus der Präsentation verfügbaren Eigenschaften auf. Ein Steuerelement kann zur Laufzeit zusätzliche Eigenschaften unterstützen.
 
+## **ActiveX‑Steuerelemente ändern**
+
+Das Beispiel erwartet eine makrofähige Präsentation mit einem Textfeld namens `TextBox1` und einer Befehls‑Schaltfläche namens `CommandButton1` auf der ersten Folie. Es verwendet die [Steuerelement‑Eigenschaftssammlung](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/), um den Wert des Textfelds und die Beschriftung der Schaltfläche zu ändern. Jedes Steuerelement verfügt außerdem über eine statische Vorschau, die PowerPoint vor der Aktivierung anzeigen kann. Stellen Sie für jedes Steuerelement ein PNG bereit, das den aktualisierten Text und das Erscheinungsbild zeigt. Das Beispiel weist diese Bilder über [IControl::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_substitutepictureformat/) zu.
+
+Das Beispiel verschiebt jedes Steuerelement auf der ersten Folie um 100 Punkte nach unten, indem es dessen [frame](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/set_frame/) ändert. Es speichert die bearbeitete Präsentation im PPTM‑Format und verwendet anschließend [IControlCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolcollection/clear/), um eine zweite Kopie zu speichern, in der alle ActiveX‑Steuerelemente von dieser Folie entfernt sind.
+
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
+auto controls = presentation->get_Slide(0)->get_Controls();
+SharedPtr<IControl> textBox;
+SharedPtr<IControl> button;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"TextBox1")
+        textBox = control;
+    else if (control->get_Name() == u"CommandButton1")
+        button = control;
+}
+
+if (!textBox || !button || !textBox->get_Properties() || !button->get_Properties())
+{
+    Console::WriteLine(u"The first slide must contain both named controls with editable properties.");
+    return;
+}
+
+if (!File::Exists(u"text-box-preview.png") || !File::Exists(u"button-preview.png"))
+{
+    Console::WriteLine(u"Supply both preview images before updating the controls.");
+    return;
+}
+
+textBox->get_Properties()->idx_set(u"Value", u"Changed text");
+button->get_Properties()->idx_set(u"Caption", u"Show message");
+
+auto textBoxBytes = File::ReadAllBytes(u"text-box-preview.png");
+auto buttonBytes = File::ReadAllBytes(u"button-preview.png");
+auto textBoxPreview = presentation->get_Images()->AddImage(textBoxBytes);
+auto buttonPreview = presentation->get_Images()->AddImage(buttonBytes);
+textBox->get_SubstitutePictureFormat()->get_Picture()->set_Image(textBoxPreview);
+button->get_SubstitutePictureFormat()->get_Picture()->set_Image(buttonPreview);
+
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    auto frame = control->get_Frame();
+    auto movedFrame = MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation());
+    control->set_Frame(movedFrame);
+}
+
+presentation->Save(u"edited-controls.pptm", SaveFormat::Pptm);
+
+controls->Clear();
+presentation->Save(u"removed-controls.pptm", SaveFormat::Pptm);
+```
+## **Ein ActiveX‑Media‑Player‑Steuerelement hinzufügen**
+
+Um ein konfiguriertes Windows Media Player‑Steuerelement wiederzuverwenden, beginnen Sie mit einer Vorlage, bei der die erste Folie einen Player namens `WindowsMediaPlayer1` enthält. [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) kopiert die gesamte Folie in eine neue Präsentation. Das Beispiel setzt die `URL` des Players in seiner [Eigenschaftssammlung](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) und speichert die geklonte Folie als einzige Folie in der Ausgabe. Das Video bleibt extern, wählen Sie also einen Pfad, auf den der Player während der Wiedergabe zugreifen kann.
+
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+
+auto source = MakeObject<Presentation>(u"template.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->AddClone(source->get_Slide(0));
+auto controls = slide->get_Controls();
+
+SharedPtr<IControl> player;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"WindowsMediaPlayer1")
+    {
+        player = control;
+        break;
+    }
+}
+
+if (!player || !player->get_Properties())
+{
+    Console::WriteLine(u"The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+
+presentation->get_Slides()->RemoveAt(0);
+presentation->Save(u"linked-video.pptx", SaveFormat::Pptx);
+```
 ## **FAQ**
 
-**Behält Aspose.Slides ActiveX‑Steuerelemente bei, wenn sie beim Lesen und erneuten Speichern nicht in der C++‑Laufzeit ausgeführt werden können?**
+**Kann Aspose.Slides ActiveX‑Steuerelemente erhalten, ohne sie auszuführen?**
 
-Ja. Aspose.Slides behandelt sie als Teil der Präsentation und kann deren Eigenschaften und Rahmen lesen bzw. ändern; das Ausführen der Steuerelemente selbst ist nicht erforderlich, um sie zu erhalten.
+Ja. Aspose.Slides kann Steuerelemente lesen und speichern, einschließlich ihrer Eigenschaften und Positionen, ohne sie zu aktivieren.
 
-**Wie unterscheiden sich ActiveX‑Steuerelemente von OLE‑Objekten in einer Präsentation?**
+**Wie unterscheiden sich ActiveX‑Steuerelemente von OLE‑Objekten?**
 
-ActiveX‑Steuerelemente sind interaktive, verwaltete Steuerelemente (Schaltflächen, Textfelder, Media Player), während [OLE](/slides/de/cpp/manage-ole/) sich auf eingebettete Anwendungsobjekte (zum Beispiel ein Excel‑Arbeitsblatt) bezieht. Sie werden anders gespeichert und behandelt und besitzen unterschiedliche Property‑Modelle.
+ActiveX‑Steuerelemente ermöglichen es Benutzern, mit einer Folie zu interagieren, beispielsweise indem sie Text eingeben oder eine Schaltfläche anklicken. Ein [OLE‑Objekt](/slides/de/cpp/manage-ole/) lässt eine Folie Inhalte enthalten oder damit verlinken, die von einer anderen Anwendung verwaltet werden, etwa ein Excel‑Arbeitsblatt.
 
-**Funktionieren ActiveX‑Ereignisse und VBA‑Makros, wenn die Datei von Aspose.Slides geändert wurde?**
+**Lösen ActiveX‑Ereignisse weiterhin VBA‑Makros aus, nachdem ich eine Präsentation mit Aspose.Slides gespeichert habe?**
 
-Aspose.Slides bewahrt das vorhandene Markup und die Metadaten; Ereignisse und Makros werden jedoch nur in PowerPoint unter Windows ausgeführt, wenn die Sicherheit dies zulässt. Die Bibliothek führt kein VBA aus.
+Speichern Sie die Präsentation in einem makrofähigen Format wie PPTM, um ihr VBA‑Projekt zu erhalten. PowerPoint für Windows kann die vorhandenen Ereignis‑Handler ausführen, wenn die Sicherheitseinstellungen sowohl ActiveX‑Steuerelemente als auch Makros zulassen.

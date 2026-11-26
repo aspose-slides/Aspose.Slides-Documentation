@@ -1,5 +1,5 @@
 ---
-title: 在 Android 上管理簡報中的 ActiveX 控制項
+title: 管理 Android 簡報中的 ActiveX 控制項
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -16,180 +16,156 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "了解 Aspose.Slides for Android via Java 如何利用 ActiveX 自動化並強化 PowerPoint 簡報，為開發人員提供強大的投影片控制功能。"
+description: "編輯 ActiveX 文字方塊與按鈕、更新控制項預覽，並在 PowerPoint 簡報中使用 Aspose.Slides for Android via Java 重複使用 Windows Media Player 控制項。"
 ---
 ## **簡介**
 
-ActiveX 控制項在簡報中使用。Aspose.Slides for Android via Java 允許您加入與管理 ActiveX 控制項，但與一般簡報圖形相比，它們較難管理。我們在 Aspose.Slides 中實作了加入 Media Player Active 控制的支援。請注意，ActiveX 控制項不是圖形；它們不屬於簡報的 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/)。它們屬於獨立的 [IControlCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icontrolcollection/)。在本主題中，我們將向您展示如何使用它們。
+ActiveX 控制項為 PowerPoint 投影片提供互動元素，例如文字方塊、指令按鈕和媒體播放器。Aspose.Slides for Android via Java 透過 [IBaseSlide.getControls](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getControls--) 讓投影片的控制項可被存取。使用此集合可以編輯控制項、在投影片上移動它，或將其移除。在下列範例中，請使用 Android 應用程式可讀取的檔案路徑，並為每個輸出簡報選擇可寫入的位置。
 
-## **將 Media Player ActiveX 控制項新增至投影片**
-要新增 ActiveX Media Player 控制項，請執行以下步驟：
+## **列出 ActiveX 控制項及其儲存屬性**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 類別的實例，並產生一個空白簡報實例。
-2. 在 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 中存取目標投影片。
-3. 使用 [IControlCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icontrolcollection/) 所提供的 [addControl](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) 方法加入 Media Player ActiveX 控制項。
-4. 存取 Media Player ActiveX 控制項，並使用其屬性設定影片路徑。
-5. 將簡報儲存為 PPTX 檔案。
-
-以下範例程式碼根據上述步驟，示範如何將 Media Player ActiveX 控制項加入投影片：
+若要檢查不熟悉的範本，請以讀取模式開啟並遍歷每張投影片上的控制項。範例會回報投影片編號、控制項名稱、[getClassId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getClassId--)，以及 [getProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getProperties--) 中的每個鍵值對。它會在不啟動控制項、觸發事件或巨集、變更值或儲存檔案的情況下讀取簡報。
 
 ```java
-// 建立空白簡報實例
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // 加入 Media Player ActiveX 控制項
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // 存取 Media Player ActiveX 控制項並設定影片路徑
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // 儲存簡報
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+從 `ActiveX.pptm` 取得的選取輸出顯示文字方塊與指令按鈕。
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+空的屬性集合會顯示為 `[]`。對於使用二進位儲存的控制項，[getProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getProperties--) 可能回傳 `null`，顯示為 `Properties unavailable`。如果只需要屬性名稱，可在檢查 null 之後使用 [getNamesOfProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--)。此報告列出簡報中可取得的屬性。控制項在執行期間可能支援其他屬性。
+
 ## **修改 ActiveX 控制項**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Android via Java 7.1.0 及更新版本具備管理 ActiveX 控制項的元件。您可以存取簡報中已加入的 ActiveX 控制項，並透過其屬性進行修改或刪除。 
+此範例假設在第一張投影片上有一個名為 `TextBox1` 的文字方塊與一個名為 `CommandButton1` 的指令按鈕，且簡報為支援巨集的格式。它使用 [控制項屬性集合](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolpropertiescollection/) 變更文字方塊的值與按鈕的標題。每個控制項亦具備 PowerPoint 在啟動前可顯示的靜態預覽。請提供 PNG 圖檔以顯示每個控制項更新後的文字與外觀。範例透過 [IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getSubstitutePictureFormat--) 指定這些圖像。
 
-{{% /alert %}} 
-
-若要在投影片上管理簡單的 ActiveX 控制項，例如文字方塊與簡單的指令按鈕，請執行以下步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 類別的實例，並載入含有 ActiveX 控制項的簡報。
-2. 依索引取得投影片參考。
-3. 透過存取 [IControlCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icontrolcollection/) 來取得投影片中的 ActiveX 控制項。
-4. 使用 [IControl](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icontrol/) 物件存取 TextBox1 ActiveX 控制項。
-5. 變更 TextBox1 ActiveX 控制項的屬性，包括文字、字型、字型大小以及框架位置。
-6. 存取第二個名為 CommandButton1 的控制項。
-7. 變更按鈕的標題、字型與位置。
-8. 調整 ActiveX 控制項框架的位置。
-9. 將修改後的簡報寫入 PPTX 檔案。
-
-以下範例程式碼根據上述步驟，示範如何管理簡單的 ActiveX 控制項： 
+此範例透過 [IControl.setFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-) 將第一張投影片上的所有控制項向下移動 100 點。它以 PPTM 格式儲存編輯後的簡報，然後使用 [IControlCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolcollection/#clear--) 再儲存一份已移除該投影片上所有 ActiveX 控制項的副本。
 
 ```java
-// 存取含有 ActiveX 控制項的簡報
-Presentation pres = new Presentation("ActiveX.pptm");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // 存取簡報中的第一張投影片
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // 變更文字方塊文字
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // 變更替代圖片。PowerPoint 會在 ActiveX 啟用期間替換此圖片，
-        // 因此有時可以保持圖片不變。
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
     }
 
-    // 變更按鈕標題
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // 變更替代圖片
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    IPPImage textBoxPreview;
+    IPPImage buttonPreview;
+    try (FileInputStream textBoxStream = new FileInputStream("text-box-preview.png");
+         FileInputStream buttonStream = new FileInputStream("button-preview.png")) {
+        textBoxPreview = presentation.getImages().addImage(textBoxStream);
+        buttonPreview = presentation.getImages().addImage(buttonStream);
     }
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
 
-    // 向下移動 100 點
-    for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-        IShapeFrame frame = ctl.getFrame();
-        ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
     }
-    pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
 
-    // 移除控制項
-    pres.getSlides().get_Item(0).getControls().clear();
-    pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-} catch(IOException e) {
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+## **新增 ActiveX 媒體播放器控制項**
+
+若要重新使用已設定的 Windows Media Player 控制項，請以第一張投影片包含名為 `WindowsMediaPlayer1` 的播放器的範本為起點。[ISlideCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) 會將整張投影片複製到新簡報中。範例在其 [屬性集合](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrolpropertiescollection/) 中設定播放器的 `URL`，並將複製的投影片保存為輸出的唯一投影片。影片保留為外部檔案，請選擇播放器在播放期間可存取的路徑。
+
+```java
+import com.aspose.slides.*;
+
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
+            }
+        }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
 }
 ```
 
 ## **常見問題**
 
-**當在 Java 執行環境中無法執行時，Aspose.Slides 讀取並重新儲存時會保留 ActiveX 控制項嗎？**  
-是的。Aspose.Slides 將它們視為簡報的一部分，能夠讀取與修改其屬性與框架；不需要執行控制項本身也能保留它們。
+**Aspose.Slides 能在不執行 ActiveX 控制項的情況下保留它們嗎？**
 
-**ActiveX 控制項與簡報中的 OLE 物件有何不同？**  
-ActiveX 控制項是互動式的受管理控制項（按鈕、文字方塊、媒體播放器），而 [OLE](/slides/zh-hant/androidjava/manage-ole/) 指的是嵌入式的應用程式物件（例如 Excel 工作表）。它們的儲存與處理方式不同，且擁有不同的屬性模型。
+是。Aspose.Slides 可在不啟動控制項的情況下讀取並儲存控制項，包括其屬性與位置。
 
-**若檔案已由 Aspose.Slides 修改，ActiveX 事件與 VBA 巨集是否仍能運作？**  
-Aspose.Slides 會保留現有的標記與中繼資料；然而，事件與巨集僅在 Windows 上的 PowerPoint 中、且安全性允許時才會執行。此函式庫不會執行 VBA。
+**ActiveX 控制項與 OLE 物件有何不同？**
+
+ActiveX 控制項讓使用者與投影片互動，例如輸入文字或點擊按鈕。 [OLE 物件](/slides/zh-hant/androidjava/manage-ole/) 讓投影片包含或鏈結至其他應用程式管理的內容，例如 Excel 工作表。
+
+**在使用 Aspose.Slides 儲存簡報後，ActiveX 事件仍會觸發 VBA 巨集嗎？**
+
+請將簡報存為支援巨集的格式（如 PPTM）以保留 VBA 專案。當 Windows 版 PowerPoint 的安全性設定允許 ActiveX 控制項與巨集時，即可執行現有的事件處理常式。

@@ -10,213 +10,121 @@ keywords:
 - διαχείριση ActiveX
 - προσθήκη ActiveX
 - τροποποίηση ActiveX
-- πρόγραμμα αναπαραγωγής πολυμέσων
+- πρόγραμμα αναπαραγωγής μέσων
 - PowerPoint
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Μάθετε πώς το Aspose.Slides for Python via .NET αξιοποιεί το ActiveX για να αυτοματοποιήσει και να βελτιώσει τις παρουσιάσεις PowerPoint, παρέχοντας στους προγραμματιστές ισχυρό έλεγχο επί των διαφάνειων."
+description: "Επεξεργασία πλαισίων κειμένου και κουμπιών ActiveX, ενημέρωση προεπισκοπήσεων ελέγχων και επαναχρησιμοποίηση ελέγχου Windows Media Player σε παρουσιάσεις PowerPoint με το Aspose.Slides για Python μέσω .NET."
 ---
 ## **Εισαγωγή**
 
-Οι έλεγχοι ActiveX χρησιμοποιούνται σε παρουσιάσεις. Το Aspose.Slides for Python via .NET σας επιτρέπει να διαχειρίζεστε ελέγχους ActiveX, αλλά η διαχείρισή τους είναι λίγο πιο δύσκολη και διαφορετική από τα κανονικά σχήματα παρουσίασης. Από το Aspose.Slides for Python via .NET 6.9.0, το στοιχείο υποστηρίζει τη διαχείριση ελέγχων ActiveX. Αυτή τη στιγμή, μπορείτε να προσπελάσετε έναν ήδη προστιθέμενο έλεγχο ActiveX στην παρουσίασή σας και να τον τροποποιήσετε ή να τον διαγράψετε χρησιμοποιώντας τις διάφορες ιδιότητές του. Να θυμάστε, οι έλεγχοι ActiveX δεν είναι σχήματα και δεν ανήκουν στη IShapeCollection της παρουσίασης, αλλά στη ξεχωριστή IControlCollection. Αυτό το άρθρο δείχνει πώς να δουλέψετε με αυτούς.
+Οι έλεγχοι ActiveX παρέχουν σε μια διαφάνεια PowerPoint διαδραστικά στοιχεία όπως πλαίσια κειμένου, κουμπιά εντολών και προγράμματα αναπαραγωγής πολυμέσων. Το Aspose.Slides για Python μέσω .NET εκθέτει τους ελέγχους μιας διαφάνειας μέσω του [Slide.controls](https://reference.aspose.com/slides/python-net/aspose.slides/slide/controls/). Χρησιμοποιήστε αυτή τη συλλογή για να επεξεργαστείτε έναν έλεγχο, να τον μετακινήσετε στη διαφάνεια ή να τον αφαιρέσετε.
+
+## **Καταγραφή ελέγχων ActiveX και των αποθηκευμένων ιδιοτήτων τους**
+
+Για να εξετάσετε ένα άγνωστο πρότυπο, ανοίξτε το για ανάγνωση και επαναλάβετε τους ελέγχους σε κάθε διαφάνεια. Το παράδειγμα εμφανίζει τον αριθμό της διαφάνειας, το όνομα του ελέγχου, το [class_id](https://reference.aspose.com/slides/python-net/aspose.slides/control/class_id/), και κάθε ζεύγος κλειδί‑τιμή στα [properties](https://reference.aspose.com/slides/python-net/aspose.slides/control/#properties). Διαβάζει την παρουσίαση χωρίς να ενεργοποιεί τους ελέγχους, να καλεί γεγονότα ή μακροεντολές, να αλλάζει τιμές ή να αποθηκεύει το αρχείο.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("ActiveX.pptm") as presentation:
+    for slide_number, slide in enumerate(presentation.slides, start=1):
+        for control in slide.controls:
+            print(f"Slide {slide_number} | {control.name} | {control.class_id}")
+            properties = control.properties
+            if properties is None:
+                print("  Properties unavailable")
+                continue
+
+            if properties.count == 0:
+                print("  []")
+            for entry in properties:
+                print(f"  {entry.key} = {entry.value}")
+```
+
+Η επιλεγμένη έξοδος από το `ActiveX.pptm` εμφανίζει ένα πλαίσιο κειμένου και ένα κουμπί εντολής.
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+Μια κενή συλλογή ιδιοτήτων εμφανίζεται ως `[]`. Για ελέγχους που χρησιμοποιούν δυαδική αποθήκευση, το `properties` μπορεί να επιστρέψει `None`, που εμφανίζεται ως `Properties unavailable`. Εάν χρειάζεστε μόνο τα ονόματα, χρησιμοποιήστε το [names_of_properties](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/names_of_properties/) μετά τον έλεγχο για `None`. Η αναφορά καταγράφει τις ιδιότητες που διατίθενται από την παρουσίαση. Ένας έλεγχος ενδέχεται να υποστηρίζει πρόσθετες ιδιότητες κατά την εκτέλεση.
 
 ## **Τροποποίηση ελέγχων ActiveX**
 
-1. Δημιουργήστε μια παρουσία της κλάσης Presentation και φορτώστε την παρουσίαση που περιέχει ελέγχους ActiveX.  
-2. Αποκτήστε μια αναφορά σε διαφάνεια με βάση τον δείκτη της.  
-3. Προσιθείτε στους ελέγχους ActiveX στη διαφάνεια μέσω του IControlCollection.  
-4. Προσιθείτε στον έλεγχο ActiveX TextBox1 χρησιμοποιώντας το αντικείμενο ControlEx.  
-5. Αλλάξτε τις διάφορες ιδιότητες του ελέγχου ActiveX TextBox1, όπως κείμενο, γραμματοσειρά, ύψος γραμματοσειράς και θέση πλαισίου.  
-6. Προσιθείτε στον δεύτερο έλεγχο πρόσβασης που ονομάζεται CommandButton1.  
-7. Αλλάξτε τη λεζάντα του κουμπιού, τη γραμματοσειρά και τη θέση.  
-8. Μετακινήστε τη θέση των πλαισίων των ελέγχων ActiveX.  
-9. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+Το παράδειγμα προϋποθέτει μια παρουσίαση με δυνατότητα μακροεντολών που περιέχει ένα πλαίσιο κειμένου με όνομα `TextBox1` και ένα κουμπί εντολής με όνομα `CommandButton1` στην πρώτη διαφάνεια. Χρησιμοποιεί τη [control properties collection](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) για να αλλάξει την τιμή του πλαισίου κειμένου και τη λεζάντα του κουμπιού. Κάθε έλεγχος διαθέτει επίσης μια στατική προεπισκόπηση που το PowerPoint μπορεί να εμφανίσει πριν από την ενεργοποίηση. Παρέχετε ένα αρχείο PNG για κάθε έλεγχο που να εμφανίζει το ενημερωμένο κείμενο και την εμφάνισή του. Το παράδειγμα αντιστοιχίζει αυτές τις εικόνες μέσω του [Control.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/control/substitute_picture_format/).
 
-Το παρακάτω απόσπασμα κώδικα ενημερώνει τους ελέγχους ActiveX στις διαφάνειες της παρουσίασης όπως φαίνεται παρακάτω.
+Το παράδειγμα μετακινεί κάθε έλεγχο στην πρώτη διαφάνεια προς τα κάτω κατά 100 σημεία αλλάζοντας το [frame](https://reference.aspose.com/slides/python-net/aspose.slides/control/frame/). Αποθηκεύει την επεξεργασμένη παρουσίαση σε μορφή PPTM και, στη συνέχεια, χρησιμοποιεί το [ControlCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/controlcollection/clear/) για να αποθηκεύσει ένα δεύτερο αντίγραφο με όλους τους ελέγχους ActiveX αφαιρεμένους από τη διαφάνεια.
 
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-import io
+```python
+from pathlib import Path
 
-# Πρόσβαση στην παρουσίαση με ελέγχους ActiveX
-with slides.Presentation(path + "ActiveX.pptm") as presentation:
-    # Πρόσβαση στην πρώτη διαφάνεια της παρουσίασης
-    slide = presentation.slides[0]
-
-    # αλλαγή κειμένου TextBox
-    control = slide.controls[0]
-
-    if control.name == "TextBox1" and control.properties != None:
-        newText = "Changed text"
-        control.properties.remove("Value")
-        control.properties.add("Value", newText)
-
-        # αλλαγή εικόνας αντικατάστασης. Το PowerPoint θα αντικαταστήσει αυτήν την εικόνα κατά την ενεργοποίηση του ActiveX, έτσι κάποιες φορές είναι εντάξει να παραμείνει η εικόνα αμετάβλητη.
-
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            # font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                graphics.draw_string(newText, font, brush, 10, 4)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, [
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [
-                        draw.PointF(1, bmp.height - 1), 
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1)])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen,
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-
-    # αλλαγή λεζάντας κουμπιού
-    control = slide.controls[1]
-
-    if control.name == "CommandButton1" and control.properties != None:
-        newCaption = "MessageBox"
-        control.properties.remove("Caption")
-        control.properties.add("Caption", newCaption)
-
-        # αλλαγή αντικατάστασης
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            #font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                textSize = graphics.measure_string(newCaption, font, 65535)
-                graphics.draw_string(newCaption, font, brush, 
-                    (bmp.width - textSize.width) / 2, 
-                    (bmp.height - textSize.height) / 2)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-    
-    # Μετακίνηση πλαισίων ActiveX 100 σημεία προς τα κάτω
-    for ctl in slide.controls:
-        frame = control.frame
-        control.frame = slides.ShapeFrame(
-            frame.x, 
-            frame.y + 100, 
-            frame.width, 
-            frame.height, 
-            frame.flip_h, 
-            frame.flip_v, 
-            frame.rotation)
-
-    # Αποθήκευση της παρουσίασης με επεξεργασμένους ελέγχους ActiveX
-    presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
-
-
-    # Τώρα αφαιρούνται οι έλεγχοι
-    slide.controls.clear()
-
-    # Αποθήκευση της παρουσίασης με εκκαθαρισμένους ελέγχους ActiveX
-    presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
-```
-
-
-## **Προσθήκη ελέγχου ActiveX Media Player**
-
-1. Δημιουργήστε μια παρουσία της κλάσης Presentation και φορτώστε τη δείγμα παρουσίασης που περιέχει ελέγχους Media Player ActiveX.  
-2. Δημιουργήστε μια παρουσία της κλάσης Presentation-στόχο και δημιουργήστε μια κενή παρουσίαση.  
-3. Κλωνοποιήστε τη διαφάνεια με τον έλεγχο Media Player ActiveX από την πρότυπη παρουσίαση στην παρουσίαση-στόχο.  
-4. Προσιθείτε στην κλωνοποιημένη διαφάνεια στην παρουσίαση-στόχο.  
-5. Προσιθείτε στους ελέγχους ActiveX στη διαφάνεια μέσω του IControlCollection.  
-6. Προσιθείτε στον έλεγχο Media Player ActiveX και ορίστε τη διαδρομή του βίντεο χρησιμοποιώντας τις ιδιότητές του.  
-7. Αποθηκεύστε την παρουσίαση σε αρχείο PPTX.
-
-```py
 import aspose.slides as slides
 
-# Δημιουργία αντικειμένου κλάσης Presentation που αντιπροσωπεύει αρχείο PPTX
-with slides.Presentation(path + "template.pptx") as presentation:
+with slides.Presentation("ActiveX.pptm") as presentation:
+    controls = presentation.slides[0].controls
+    text_box = next((control for control in controls if control.name == "TextBox1"), None)
+    button = next((control for control in controls if control.name == "CommandButton1"), None)
+    text_box_preview = Path("text-box-preview.png")
+    button_preview = Path("button-preview.png")
 
-    # Δημιουργία κενής παρουσίασης
-    with slides.Presentation() as newPresentation:
+    if text_box is None or button is None or text_box.properties is None or button.properties is None:
+        print("The first slide must contain both named controls with editable properties.")
+    elif not text_box_preview.is_file() or not button_preview.is_file():
+        print("Supply both preview images before updating the controls.")
+    else:
+        text_box.properties.remove("Value")
+        text_box.properties.add("Value", "Changed text")
+        button.properties.remove("Caption")
+        button.properties.add("Caption", "Show message")
 
-        # Αφαίρεση προεπιλεγμένης διαφάνειας
-        newPresentation.slides.remove_at(0)
+        for control, preview in [(text_box, text_box_preview), (button, button_preview)]:
+            image_data = preview.read_bytes()
+            control.substitute_picture_format.picture.image = presentation.images.add_image(image_data)
 
-        # Κλωνοποίηση διαφάνειας με έλεγχο Media Player ActiveX
-        newPresentation.slides.insert_clone(0, presentation.slides[0])
+        for control in controls:
+            frame = control.frame
+            control.frame = slides.ShapeFrame(frame.x, frame.y + 100, frame.width, frame.height, frame.flip_h, frame.flip_v, frame.rotation)
 
-        # Πρόσβαση στον έλεγχο Media Player ActiveX και ορισμός διαδρομής βίντεο
-        prop = newPresentation.slides[0].controls[0].properties
-
-        prop.remove("URL")
-        prop.add("URL", "Wildlife.mp4")
-
-        # Αποθήκευση της παρουσίασης
-        newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("edited-controls.pptm", slides.export.SaveFormat.PPTM)
+        controls.clear()
+        presentation.save("removed-controls.pptm", slides.export.SaveFormat.PPTM)
 ```
+## **Προσθήκη ελέγχου Media Player ActiveX**
 
+Για να επαναχρησιμοποιήσετε έναν ρυθμισμένο έλεγχο Windows Media Player, ξεκινήστε με ένα πρότυπο της πρώτης διαφάνειας που περιέχει έναν αναπαραγωγέα με όνομα `WindowsMediaPlayer1`. Το [SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) αντιγράφει ολόκληρη τη διαφάνεια σε μια νέα παρουσίαση. Το παράδειγμα ορίζει τη `URL` του αναπαραγωγέα στη [properties collection](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) του και αποθηκεύει τη κλωνοποιημένη διαφάνεια ως τη μοναδική διαφάνεια στην έξοδο. Το βίντεο παραμένει εξωτερικό, έτσι επιλέξτε μια διαδρομή που ο αναπαραγωγέας μπορεί να προσπελάσει κατά την αναπαραγωγή.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as template, slides.Presentation() as presentation:
+    slide = presentation.slides.add_clone(template.slides[0])
+    player = next((control for control in slide.controls if control.name == "WindowsMediaPlayer1"), None)
+
+    if player is None or player.properties is None:
+        print("The template slide must contain a named media player with editable properties.")
+    else:
+        player.properties.remove("URL")
+        player.properties.add("URL", "Wildlife.mp4")
+        presentation.slides.remove_at(0)
+        presentation.save("linked-video.pptx", slides.export.SaveFormat.PPTX)
+```
 ## **Συχνές ερωτήσεις**
 
-**Διατηρεί το Aspose.Slides τους ελέγχους ActiveX κατά την ανάγνωση και επανα-αποθήκευση εάν δεν μπορούν να εκτελεστούν στο περιβάλλον Python;**
+**Μπορεί το Aspose.Slides να διατηρήσει τους ελέγχους ActiveX χωρίς να τους εκτελέσει;**
 
-Ναι. Το Aspose.Slides θεωρεί τους ελέγχους ως μέρος της παρουσίασης και μπορεί να διαβάσει/τροποποιήσει τις ιδιότητές τους και τα πλαίσια· δεν απαιτείται η εκτέλεση των ελέγχων για τη διατήρησή τους.
+Ναι. Το Aspose.Slides μπορεί να διαβάσει και να αποθηκεύσει τους ελέγχους, συμπεριλαμβανομένων των ιδιοτήτων και των θέσεών τους, χωρίς να τους ενεργοποιήσει.
 
-**Πώς διαφέρουν οι έλεγχοι ActiveX από τα αντικείμενα OLE σε μια παρουσίαση;**
+**Πώς διαφέρουν οι έλεγχοι ActiveX από τα αντικείμενα OLE;**
 
-Οι έλεγχοι ActiveX είναι διαδραστικά διαχειριζόμενα στοιχεία (κουμπιά, πεδία κειμένου, media player), ενώ το [OLE](/slides/el/python-net/manage-ole/) αναφέρεται σε ενσωματωμένα αντικείμενα εφαρμογών (για παράδειγμα, ένα φύλλο εργασίας Excel). Αποθηκεύονται και επεξεργάζονται διαφορετικά και έχουν διαφορετικά μοντέλα ιδιοτήτων.
+Οι έλεγχοι ActiveX επιτρέπουν στους χρήστες να αλληλεπιδρούν με μια διαφάνεια, για παράδειγμα εισάγοντας κείμενο ή κάνοντας κλικ σε ένα κουμπί. Ένα [OLE object](/slides/el/python-net/manage-ole/) επιτρέπει μια διαφάνεια να περιέχει ή να συνδέεται με περιεχόμενο που διαχειρίζεται μια άλλη εφαρμογή, όπως ένα φύλλο εργασίας Excel.
 
-**Λειτουργούν τα γεγονότα ActiveX και οι μακροεντολές VBA εάν το αρχείο έχει τροποποιηθεί από το Aspose.Slides;**
+**Θα εξακολουθούν τα γεγονότα ActiveX να ενεργοποιούν μακροεντολές VBA μετά την αποθήκευση μιας παρουσίασης με το Aspose.Slides;**
 
-Το Aspose.Slides διατηρεί τη υπάρχουσα σήμανση και μεταδεδομένα· ωστόσο, τα γεγονότα και οι μακροεντολές εκτελούνται μόνο μέσα στο PowerPoint στα Windows όταν η ασφάλεια το επιτρέπει. Η βιβλιοθήκη δεν εκτελεί VBA.
+Αποθηκεύστε την παρουσίαση σε μορφή που υποστηρίζει μακροεντολές, όπως PPTM, για να διατηρήσετε το έργο VBA. Το PowerPoint για Windows μπορεί να εκτελέσει τους υπάρχοντες διαχειριστές γεγονότων όταν οι ρυθμίσεις ασφαλείας του επιτρέπουν τόσο τους ελέγχους ActiveX όσο και τις μακροεντολές.
