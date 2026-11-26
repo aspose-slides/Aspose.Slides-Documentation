@@ -172,6 +172,51 @@ finally:
     presentation.dispose()
 ```
 
+### **Report Revision Number and Editing Time**
+
+To report one row for each PPTX file in the `presentations` folder, use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) and [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) to read its [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) without loading the slides for editing. The Python via Java API returns the editing duration in milliseconds. The example formats it as hours, minutes, and seconds, with a day count for durations of 24 hours or more.
+
+```python
+from pathlib import Path
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PresentationFactory
+
+factory = PresentationFactory.getInstance()
+print("File | RevisionNumber | TotalEditingTime")
+for path in sorted(Path("presentations").glob("*.pptx")):
+    if not path.is_file():
+        continue
+
+    info = factory.getPresentationInfo(str(path))
+    properties = info.readDocumentProperties()
+    total_seconds = int(properties.getTotalEditingTime()) // 1000
+    days, remaining_seconds = divmod(total_seconds, 86400)
+    hours, remaining_seconds = divmod(remaining_seconds, 3600)
+    minutes, seconds = divmod(remaining_seconds, 60)
+    editing_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    if days:
+        editing_time = f"{days}.{editing_time}"
+
+    print(f"{path.name} | {properties.getRevisionNumber()} | {editing_time}")
+```
+
+For a presentation with a recorded editing time of 1 day, 2 hours, and 5 minutes, the report shows the following output.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getRevisionNumber) reads a value that applications can change with [setRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setRevisionNumber). The revision number alone cannot establish how many times the presentation was saved or reconstruct its version history.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTotalEditingTime) reads the editing duration recorded in the file. A value of `00:00:00` means the stored duration is zero, even if someone edited the presentation.
+
 ## **Modify Built-in Properties**
 
 To update built-in metadata, use the setter methods on the object returned by [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties). This example opens an existing presentation, calls [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments), and [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager), then saves the updated presentation with [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). The saved PPTX contains the new metadata.

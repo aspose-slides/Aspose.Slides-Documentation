@@ -29,7 +29,7 @@ description: "Master presentation properties in Aspose.Slides for PHP via Java a
 
 Aspose.Slides for PHP via Java supports **built-in** and **custom** document properties. Use these properties to read and update presentation metadata, such as the author, title, and user-defined values.
 
-Aspose.Slides allows you to work with presentation document properties through the [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) class. An instance of this class is returned by [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). The following examples show how to read, modify, and manage these properties. They assume that PHP/Java Bridge and the Aspose.Slides PHP wrapper are initialized.
+Aspose.Slides allows you to work with presentation document properties through the [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) class. An instance of this class is returned by [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). The following examples show how to read, modify, and manage these properties. They assume that PHP/Java Bridge and the Aspose.Slides PHP wrapper are initialized.
 
 {{% alert color="info" title="Note" %}}
 
@@ -48,11 +48,11 @@ Aspose.Slides for PHP via Java provides access to both categories. In PowerPoint
 
 ## **Read Public Properties from an Encrypted Presentation**
 
-An opening password normally protects both presentation content and document properties. When a presentation is encrypted after calling [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) with `false`, its document properties remain public. An application can then call [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) with `true` and read the public metadata without supplying the opening password.
+An opening password normally protects both presentation content and document properties. When a presentation is encrypted after calling [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) with `false`, its document properties remain public. An application can then call [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) with `true` and read the public metadata without supplying the opening password.
 
-[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) controls what Aspose.Slides loads; it does not decrypt anything. If the properties were included in encryption, loading them without the password fails. If the presentation is not encrypted, the option is ignored and the complete presentation is loaded.
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) controls what Aspose.Slides loads; it does not decrypt anything. If the properties were included in encryption, loading them without the password fails. If the presentation is not encrypted, the option is ignored and the complete presentation is loaded.
 
-The example requires an encrypted presentation whose document properties were left public. It verifies the loading mode through [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) and then reads built-in properties through [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/):
+The example requires an encrypted presentation whose document properties were left public. It verifies the loading mode through [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) and then reads built-in properties through [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -77,7 +77,7 @@ try {
 }
 ```
 
-In this mode, slide content is not loaded. Slides, masters, layouts, shapes, media, and other presentation objects are unavailable. Applications should always check [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) before performing an operation that requires the complete presentation object model.
+In this mode, slide content is not loaded. Slides, masters, layouts, shapes, media, and other presentation objects are unavailable. Applications should always check [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) before performing an operation that requires the complete presentation object model.
 
 {{% alert color="warning" title="Warning" %}}
 Public metadata may expose author names, titles, subjects, keywords, company information, comments, and custom values. Encrypt sensitive properties together with the presentation. Leave them public only when indexing, classification, search, or document-management systems have a specific requirement to access them without a password.
@@ -85,9 +85,9 @@ Public metadata may expose author names, titles, subjects, keywords, company inf
 
 ## **Update Properties of an Encrypted Presentation**
 
-For an encrypted PPTX file, a presentation loaded after calling [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) with `true` is intended for reading public metadata. Aspose.Slides cannot save changed properties from that metadata-only object because the public properties must remain consistent with the corresponding data inside the encrypted presentation. Updating them therefore requires the correct opening password and a complete load.
+For an encrypted PPTX file, a presentation loaded after calling [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) with `true` is intended for reading public metadata. Aspose.Slides cannot save changed properties from that metadata-only object because the public properties must remain consistent with the corresponding data inside the encrypted presentation. Updating them therefore requires the correct opening password and a complete load.
 
-The example requires an encrypted PPTX presentation with public document properties and a known opening password. It opens the complete presentation with [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/), updates public built-in properties, and saves the result. It then uses [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/) to verify that encryption is preserved and reopens the public metadata without a password to verify the new values:
+The example requires an encrypted PPTX presentation with public document properties and a known opening password. It opens the complete presentation with [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword), updates public built-in properties, and saves the result. It then uses [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#isEncrypted) to verify that encryption is preserved and reopens the public metadata without a password to verify the new values:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -135,7 +135,7 @@ If an application is not allowed to decrypt or load the presentation content, it
 
 ## **Access Built-in Properties**
 
-The [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) class exposes built-in metadata through getter methods, including [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/), and [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/). This example opens an existing presentation and prints its stored metadata to the console. Values depend on the input presentation; some fields may be empty.
+The [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) class exposes built-in metadata through getter methods, including [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTitle), and [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCreatedTime). This example opens an existing presentation and prints its stored metadata to the console. Values depend on the input presentation; some fields may be empty.
 
 ```php
 use aspose\slides\Presentation;
@@ -163,9 +163,43 @@ try {
 }
 ```
 
+### **Report Revision Number and Editing Time**
+
+To report the revision number and total editing time for each PPTX file in the `presentations` folder, use [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) to read its [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) without loading the slides for editing. The PHP via Java API returns the editing time in milliseconds. The example converts it to hours, minutes, and seconds and includes a day count for durations of 24 hours or more.
+
+```php
+use aspose\slides\PresentationFactory;
+
+echo "File | RevisionNumber | TotalEditingTime\n";
+foreach (new GlobIterator("presentations/*.pptx") as $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    $info = PresentationFactory::getInstance()->getPresentationInfo($file->getRealPath());
+    $properties = $info->readDocumentProperties();
+    $totalSeconds = (int) (java_values($properties->getTotalEditingTime()) / 1000);
+    $days = intdiv($totalSeconds, 86400);
+    $time = sprintf("%02d:%02d:%02d", intdiv($totalSeconds, 3600) % 24, intdiv($totalSeconds, 60) % 60, $totalSeconds % 60);
+    $editingTime = $days > 0 ? $days . "." . $time : $time;
+    printf("%s | %d | %s\n", $file->getFilename(), java_values($properties->getRevisionNumber()), $editingTime);
+}
+```
+
+For a presentation with revision number 17 and a recorded editing time of 1 day, 2 hours, and 5 minutes, the report shows the following output.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[DocumentProperties::getRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getRevisionNumber) reads a value that applications can change with [DocumentProperties::setRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setRevisionNumber). The revision number alone cannot establish how many times the presentation was saved or reconstruct its version history.
+
+[DocumentProperties::getTotalEditingTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTotalEditingTime) reads the editing duration recorded in the file. A presentation can have a stored duration of zero (`00:00:00`) even if someone edited it.
+
 ## **Modify Built-in Properties**
 
-To update built-in metadata, use the setter methods on the object returned by [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). This example opens an existing presentation, calls [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/), and [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/), then saves the updated presentation with [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). The saved PPTX contains the new metadata.
+To update built-in metadata, use the setter methods on the object returned by [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). This example opens an existing presentation, calls [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setComments), and [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setManager), then saves the updated presentation with [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). The saved PPTX contains the new metadata.
 
 ```php
 use aspose\slides\Presentation;
@@ -189,7 +223,7 @@ try {
 
 ## **Manage the Hyperlink Base**
 
-[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/) returns the document-level base for relative hyperlinks. Use [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/) to change or clear it. This is useful when moving a presentation and its linked files to another location. It is separate from an individual hyperlink's [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/): changing the base does not rewrite the stored link addresses or change absolute destinations.
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getHyperlinkBase) returns the document-level base for relative hyperlinks. Use [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setHyperlinkBase) to change or clear it. This is useful when moving a presentation and its linked files to another location. It is separate from an individual hyperlink's [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/#getExternalUrl): changing the base does not rewrite the stored link addresses or change absolute destinations.
 
 The example requires a presentation containing both a relative link, such as `target.html`, and an absolute link, such as `https://example.org/absolute.html`. It reads the existing base, assigns a new base address, and saves and reopens the presentation to check the value. It then clears the base with an empty string and verifies the empty value in a separate saved file. Replace the example base address with the location of your linked files.
 
@@ -232,7 +266,7 @@ A relative link to `target.pptx` opened `old/target.pptx` when the base pointed 
 
 ## **Add Custom Presentation Properties**
 
-Custom properties store metadata that has no corresponding built-in field. The [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) method lets you assign a value by property name. This example creates a presentation, adds two text values and an integer version value, and saves the presentation with [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). Assigning a value to an existing name replaces that property’s value.
+Custom properties store metadata that has no corresponding built-in field. The [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) method lets you assign a value by property name. This example creates a presentation, adds two text values and an integer version value, and saves the presentation with [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). Assigning a value to an existing name replaces that property’s value.
 
 ```php
 use aspose\slides\Presentation;
@@ -254,7 +288,7 @@ try {
 
 ## **Access and Modify Custom Properties**
 
-This example opens a presentation containing custom properties and uses [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/) to iterate over them. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/) accepts a zero-based index and returns the name used by [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/). The example prints each original name and value, replaces every value with a numbered string regardless of its original type, and saves the changes. If there are no custom properties, the loop makes no changes.
+This example opens a presentation containing custom properties and uses [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCountOfCustomProperties) to iterate over them. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCustomPropertyName) accepts a zero-based index and returns the name used by [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item). The example prints each original name and value, replaces every value with a numbered string regardless of its original type, and saves the changes. If there are no custom properties, the loop makes no changes.
 
 ```php
 use aspose\slides\Presentation;
@@ -298,11 +332,11 @@ If you add a custom property that already exists, its existing value will be ove
 
 **Can I access presentation properties without fully loading the presentation?**
 
-Yes. Use [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/) and then [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/php-java/examine-presentation/) for a complete reporting example and format-specific limitations.
+Yes. Use [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/#getPresentationInfo) and then [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/php-java/examine-presentation/) for a complete reporting example and format-specific limitations.
 
 **Can I read public properties of an encrypted presentation without its opening password?**
 
-Yes. The presentation must have been encrypted after calling [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) with `false`, and it must be loaded after calling [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) with `true`.
+Yes. The presentation must have been encrypted after calling [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) with `false`, and it must be loaded after calling [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) with `true`.
 
 **Can I update an encrypted PPTX file in document-properties-only mode?**
 
