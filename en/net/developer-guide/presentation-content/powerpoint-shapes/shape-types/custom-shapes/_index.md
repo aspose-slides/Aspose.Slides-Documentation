@@ -282,6 +282,49 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
 }
 ```
 
+## **Inspect Geometry Path Commands**
+
+Download [contour.pptx](contour.pptx) and place it in the application's working directory. The first slide contains a shape with a straight top edge, a cubic Bézier curve, and a straight closing edge. Use [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) to read its paths. Each path lists its segments in drawing order in [PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/). Each segment's [PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) determines how to read its [SegmentData](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/segmentdata/).
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("contour.pptx");
+
+var shape = (IGeometryShape)presentation.Slides[0].Shapes[0];
+var paths = shape.GetGeometryPaths();
+
+for (int i = 0; i < paths.Length; i++)
+{
+    var segments = paths[i].PathData;
+    for (int j = 0; j < segments.Length; j++)
+    {
+        var command = segments[j].PathCommand;
+        var data = segments[j].SegmentData;
+        var detail = command switch
+        {
+            PathCommandType.MoveTo or PathCommandType.LineTo => $"destination=({data[0]}, {data[1]})",
+            PathCommandType.CubicBezierTo => $"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})",
+            PathCommandType.Close => "no coordinates",
+            _ => $"raw=[{string.Join(", ", data)}]"
+        };
+        Console.WriteLine($"Path {i}, segment {j}: {command} {detail}");
+    }
+}
+```
+
+The shape sits at (200, 100) points on the slide. The reported points are local to the shape, with (0, 0) at its upper-left corner, x increasing to the right, and y increasing downward. The closing segment returns to the starting point using no additional coordinates.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **Extract and Inspect Shape Elements**
 
 Use [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) to inspect an existing shape as elements containing path points and point types. Cast each returned [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) to [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) to read its [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) and [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/) arrays. This representation is useful for contour analysis or passing geometry to custom drawing tools.

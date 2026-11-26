@@ -266,6 +266,41 @@ with slides.Presentation() as presentation:
     print(is_geometry_closed(shape))
 ```
 
+## **Inspect Geometry Path Commands**
+
+Download [contour.pptx](contour.pptx) and place it in your working directory. The first shape on the first slide has a straight top edge, a cubic Bézier curve, and a straight closing edge. Use [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) to read its paths. For each path, [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) lists the segments in drawing order. Each segment’s [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) determines how to interpret its [PathSegment.segment_data](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/segment_data/).
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("contour.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    for i, path in enumerate(shape.get_geometry_paths()):
+        for j, segment in enumerate(path.path_data):
+            command = segment.path_command
+            data = segment.segment_data
+            if command in (slides.PathCommandType.MOVE_TO, slides.PathCommandType.LINE_TO):
+                detail = f"destination={tuple(data)}"
+            elif command == slides.PathCommandType.CUBIC_BEZIER_TO:
+                detail = f"control1={tuple(data[:2])} control2={tuple(data[2:4])} end={tuple(data[4:])}"
+            elif command == slides.PathCommandType.CLOSE:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={data}"
+            print(f"Path {i}, segment {j}: {command.name} {detail}")
+```
+
+The shape sits at (200, 100) points on the slide. The reported coordinates are local to the shape. Its upper-left corner is (0, 0), x increases to the right, and y increases downward. The closing segment returns to the starting point without additional coordinates.
+
+```text
+Path 0, segment 0: MOVE_TO destination=(0, 0)
+Path 0, segment 1: LINE_TO destination=(80, 0)
+Path 0, segment 2: CUBIC_BEZIER_TO control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: CLOSE no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **Extract and Inspect Shape Elements**
 
 Use [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) to inspect an existing shape as elements containing path points and point types. Each returned [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) exposes its [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) and [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/) arrays. This representation is useful for contour analysis or passing geometry to custom drawing tools.

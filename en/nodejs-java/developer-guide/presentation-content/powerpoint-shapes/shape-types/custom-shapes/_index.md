@@ -282,6 +282,57 @@ try {
 }
 ```
 
+## **Inspect Geometry Path Commands**
+
+Download [contour.pptx](contour.pptx) and place it in the application's working directory. The first shape on the first slide has a straight top edge, a cubic Bézier curve, and a straight closing edge. Use [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) to read the shape's paths and [getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) to read each path's segments in drawing order. For each segment, [getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) identifies the command and determines how to interpret the values returned by [getSegmentData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getSegmentData).
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("contour.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paths = shape.getGeometryPaths();
+    for (const [i, path] of paths.entries()) {
+        const segments = path.getPathData();
+        for (const [j, segment] of segments.entries()) {
+            const command = segment.getPathCommand();
+            const data = segment.getSegmentData();
+            let detail;
+            switch (command) {
+                case slides.PathCommandType.MoveTo:
+                case slides.PathCommandType.LineTo:
+                    const name = command === slides.PathCommandType.MoveTo ? "MoveTo" : "LineTo";
+                    detail = `${name} destination=(${data[0]}, ${data[1]})`;
+                    break;
+                case slides.PathCommandType.CubicBezierTo:
+                    detail = `CubicBezierTo control1=(${data[0]}, ${data[1]}) control2=(${data[2]}, ${data[3]}) end=(${data[4]}, ${data[5]})`;
+                    break;
+                case slides.PathCommandType.Close:
+                    detail = "Close no coordinates";
+                    break;
+                default:
+                    detail = `command=${command} raw=[${data.join(", ")}]`;
+            }
+            console.log(`Path ${i}, segment ${j}: ${detail}`);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The shape sits at (200, 100) points on the slide. The reported coordinates are local to the shape, with (0, 0) at its upper-left corner, x increasing to the right, and y increasing downward. The closing segment returns to the starting point without additional coordinates.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **Extract and Inspect Shape Elements**
 
 Use [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) to inspect an existing shape as elements containing path points and point types. Use each returned [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) to retrieve the point and type arrays through [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) and [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes) methods. This representation is useful for contour analysis or passing geometry to custom drawing tools.

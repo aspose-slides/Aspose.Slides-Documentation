@@ -293,6 +293,59 @@ try {
 }
 ```
 
+## **Inspect Geometry Path Commands**
+
+Download [contour.pptx](contour.pptx) and place it in the application's working directory. The first shape on the first slide has a straight top edge, a cubic Bézier curve, and a straight closing edge. Use [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) to read the shape's paths and [getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) to read each path's segments in drawing order. For each segment, [getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) identifies the command and determines how to interpret the values returned by [getSegmentData](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getSegmentData).
+
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("contour.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+    foreach ($shape->getGeometryPaths() as $pathIndex => $path) {
+        foreach ($path->getPathData() as $segmentIndex => $segment) {
+            $command = java_values($segment->getPathCommand());
+            $data = java_values($segment->getSegmentData());
+            switch ($command) {
+                case PathCommandType::MoveTo:
+                case PathCommandType::LineTo:
+                    $name = $command === PathCommandType::MoveTo ? "MoveTo" : "LineTo";
+                    $detail = sprintf("destination=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::CubicBezierTo:
+                    $name = "CubicBezierTo";
+                    $detail = sprintf("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::Close:
+                    $name = "Close";
+                    $detail = "no coordinates";
+                    break;
+                default:
+                    $name = "Command " . $command;
+                    $detail = "raw=" . json_encode($data);
+            }
+            printf("Path %d, segment %d: %s %s\n", $pathIndex, $segmentIndex, $name, $detail);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+The shape sits at (200, 100) points on the slide. The reported coordinates are local to the shape, with (0, 0) at its upper-left corner, x increasing to the right, and y increasing downward. The closing segment returns to the starting point without additional coordinates.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **Extract and Inspect Shape Elements**
 
 Use [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) to inspect an existing shape as elements containing path points and point types. Use each returned [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) to retrieve the point and type arrays through [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) and [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes) methods. This representation is useful for contour analysis or passing geometry to custom drawing tools.
