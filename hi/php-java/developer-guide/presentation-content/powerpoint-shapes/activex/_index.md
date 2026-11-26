@@ -1,172 +1,183 @@
 ---
-title: "PHP का उपयोग करके प्रस्तुतियों में ActiveX नियंत्रण प्रबंधित करें"
-linktitle: "ActiveX"
+title: PHP का उपयोग करके प्रस्तुतियों में ActiveX नियंत्रण प्रबंधित करें
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /hi/php-java/activex/
 keywords:
-  - "ActiveX"
-  - "ActiveX नियंत्रण"
-  - "ActiveX प्रबंधित करें"
-  - "ActiveX जोड़ें"
-  - "ActiveX संशोधित करें"
-  - "मीडिया प्लेयर"
-  - "PowerPoint"
-  - "प्रस्तुति"
-  - "PHP"
-  - "Aspose.Slides"
-description: "जाने कैसे Aspose.Slides for PHP via Java ActiveX का उपयोग करके PowerPoint प्रस्तुतियों को स्वचालित और उन्नत करता है, जिससे विकासकर्ताओं को स्लाइड्स पर शक्तिशाली नियंत्रण मिलता है।"
+- ActiveX
+- ActiveX नियंत्रण
+- ActiveX का प्रबंधन
+- ActiveX जोड़ें
+- ActiveX संशोधित करें
+- मीडिया प्लेयर
+- PowerPoint
+- प्रस्तुति
+- PHP
+- Aspose.Slides
+description: "ActiveX टेक्स्ट बॉक्स और बटनों को संपादित करें, नियंत्रण प्रीव्यू अपडेट करें, और Aspose.Slides for PHP via Java के साथ PowerPoint प्रस्तुतियों में Windows Media Player नियंत्रण का पुन: उपयोग करें।"
 ---
 ## **परिचय**
 
-ActiveX नियंत्रणों का उपयोग प्रस्तुतियों में किया जाता है। Aspose.Slides for PHP via Java आपको ActiveX नियंत्रणों को जोड़ने और प्रबंधित करने की सुविधा देता है, लेकिन सामान्य प्रस्तुति आकारों की तुलना में इन्हें प्रबंधित करना थोड़ा अधिक जटिल है। हमने Aspose.Slides में Media Player Active नियंत्रण जोड़ने के समर्थन को लागू किया है। ध्यान रखें कि ActiveX नियंत्रण आकार नहीं हैं; वे प्रस्तुति के [ShapeCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/) का हिस्सा नहीं हैं। वे अलग-अलग [ControlCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/controlcollection/) का हिस्सा होते हैं। इस विषय में, हम आपको दिखाएंगे कि इनके साथ कैसे काम किया जाता है।
+ActiveX नियंत्रण PowerPoint स्लाइड को इंटरैक्टिव तत्व जैसे टेक्स्ट बॉक्स, कमांड बटन, और मीडिया प्लेयर्स प्रदान करते हैं। Aspose.Slides for PHP via Java स्लाइड के नियंत्रणों को [BaseSlide::getControls](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getControls) के माध्यम से उजागर करता है। इस संग्रह का उपयोग करके आप नियंत्रण को संपादित कर सकते हैं, स्लाइड पर उसे स्थानांतरित कर सकते हैं, या हटा सकते हैं।
 
-## **स्लाइड में Media Player ActiveX नियंत्रण जोड़ें**
-ActiveX Media Player नियंत्रण जोड़ने के लिये, यह करें:
+## **ActiveX नियंत्रणों और उनके संग्रहीत गुणों की सूची**
 
-1. एक खाली प्रस्तुति उदाहरण उत्पन्न करने हेतु [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं।
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation) में लक्ष्य स्लाइड तक पहुंचें।
-1. [ControlCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/controlcollection/) द्वारा प्रदान किए गए [addControl](https://reference.aspose.com/slides/hi/php-java/aspose.slides/controlcollection/addcontrol/) मेथड का उपयोग करके Media Player ActiveX नियंत्रण जोड़ें।
-1. Media Player ActiveX नियंत्रण तक पहुंचें और उसकी प्रॉपर्टीज़ का उपयोग करके वीडियो पथ सेट करें।
-1. प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-ऊपर दिए गए चरणों पर आधारित यह नमूना कोड स्लाइड में Media Player ActiveX नियंत्रण जोड़ने का तरीका दिखाता है:
+अपरिचित टेम्प्लेट का निरीक्षण करने के लिए, उसे पढ़ने के लिए खोलें और प्रत्येक स्लाइड पर नियंत्रणों के माध्यम से इटररेट करें। उदाहरण स्लाइड संख्या, नियंत्रण नाम, [getClassId](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getClassId) और प्रत्येक कुंजी‑मान जोड़ी को [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties) में रिपोर्ट करता है। यह प्रस्तुति को बिना नियंत्रणों को सक्रिय किए, इवेंट्स या मैक्रोज़ को बुलाए, मान बदलें या फाइल सहेजे बिना पढ़ता है।
 
 ```php
-  # खाली प्रस्तुति इंस्टेंस बनाएँ
-  $pres = new Presentation();
-  try {
-    # Media Player ActiveX नियंत्रण जोड़ रहा है
-    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    # Media Player ActiveX नियंत्रण तक पहुँचें और वीडियो पथ सेट करें
-    $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
-    # प्रस्तुति सहेजें
-    $pres->save("Output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $slides = $presentation->getSlides();
+    for ($i = 0; $i < java_values($slides->size()); $i++) {
+        $controls = $slides->get_Item($i)->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            printf("Slide %d | %s | %s\n", $i + 1, $control->getName(), $control->getClassId());
+            $properties = $control->getProperties();
+            if (java_is_null($properties)) {
+                echo "  Properties unavailable\n";
+                continue;
+            }
+            if (java_values($properties->getCount()) === 0) {
+                echo "  []\n";
+                continue;
+            }
+            $names = $properties->getNamesOfProperties()->iterator();
+            while (java_values($names->hasNext())) {
+                $name = $names->next();
+                printf("  %s = %s\n", $name, $properties->get_Item($name));
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ActiveX नियंत्रण को संशोधित करें**
-{{% alert color="primary" %}} 
+`ActiveX.pptm` से चयनित आउटपुट एक टेक्स्ट बॉक्स और एक कमांड बटन दिखाता है।
 
-Aspose.Slides for PHP via Java 7.1.0 और नवीनतम संस्करणों में ActiveX नियंत्रणों को प्रबंधित करने के लिए घटक उपलब्ध हैं। आप अपनी प्रस्तुति में पहले से जोड़े गए ActiveX नियंत्रण तक पहुंच सकते हैं और उसकी प्रॉपर्टीज़ के माध्यम से उसे संशोधित या हटाना कर सकते हैं।
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-{{% /alert %}} 
+खाली गुण संग्रह `[]` के रूप में दिखता है। बाइनरी स्टोरेज का उपयोग करने वाले नियंत्रणों के लिए, [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties) `null` लौटा सकता है, जिसे `Properties unavailable` के रूप में दिखाया जाता है। यदि आपको केवल नाम चाहिए, तो null जाँच के बाद [getNamesOfProperties](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) का उपयोग करें। रिपोर्ट प्रस्तुति से उपलब्ध गुणों को सूचीबद्ध करती है। एक नियंत्रण रन‑टाइम में अतिरिक्त गुणों को सपोर्ट कर सकता है।
 
-स्लाइड पर टेक्स्ट बॉक्स और साधारण कमांड बटन जैसे एक सरल ActiveX नियंत्रण को प्रबंधित करने के लिये, यह करें:
+## **ActiveX नियंत्रणों में संशोधन**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation) क्लास का एक उदाहरण बनाएं और उसमें ActiveX नियंत्रणों वाली प्रस्तुति लोड करें।
-1. उसके सूचकांक द्वारा स्लाइड संदर्भ प्राप्त करें।
-1. स्लाइड में मौजूद ActiveX नियंत्रणों तक पहुँचने के लिये [ControlCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/controlcollection/) तक पहुंचें।
-1. [Control](https://reference.aspose.com/slides/hi/php-java/aspose.slides/control/) ऑब्जेक्ट का उपयोग करके TextBox1 ActiveX नियंत्रण तक पहुंचें।
-1. TextBox1 ActiveX नियंत्रण की प्रॉपर्टीज़ बदलें, जिनमें टेक्स्ट, फ़ॉन्ट, फ़ॉन्ट ऊँचाई और फ्रेम स्थिति शामिल हैं।
-1. दूसरे पहुँच नियंत्रण जिसका नाम CommandButton1 है, तक पहुंचें।
-1. बटन कैप्शन, फ़ॉन्ट और स्थिति बदलें।
-1. ActiveX नियंत्रण फ्रेमों की स्थिति को शिफ्ट करें।
-1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
+उदाहरण एक मैक्रो‑सक्षम प्रस्तुति की अपेक्षा करता है जिसमें पहले स्लाइड पर `TextBox1` नाम का टेक्स्ट बॉक्स और `CommandButton1` नाम का कमांड बटन हो। यह [control properties collection](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) का उपयोग करके टेक्स्ट बॉक्स मान और बटन कैप्शन बदलता है। प्रत्येक नियंत्रण का एक स्थिर प्रीव्यू भी होता है जिसे PowerPoint सक्रियण से पहले दिखा सकता है। प्रत्येक नियंत्रण के लिए अपडेटेड टेक्स्ट और स्वरूप दिखाने वाली PNG प्रदान करें। उदाहरण इन छवियों को [Control::getSubstitutePictureFormat](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getSubstitutePictureFormat) के माध्यम से असाइन करता है।
 
-ऊपर दिये गये चरणों पर आधारित यह नमूना कोड एक सरल ActiveX नियंत्रण को प्रबंधित करने का तरीका दिखाता है:
+उदाहरण पहले स्लाइड पर सभी नियंत्रणों को 100 पॉइंट नीचे ले जाता है, उनके फ्रेम को [Control::setFrame](https://reference.aspose.com/slides/php-java/aspose.slides/control/#setFrame) द्वारा सेट करके। यह संपादित प्रस्तुति को PPTM फ़ॉर्मेट में सहेजता है, फिर सभी ActiveX नियंत्रणों को हटाकर दूसरी प्रतिलिपि सहेजने के लिए [ControlCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/#clear) का उपयोग करता है।
 
 ```php
-  # ActiveX नियंत्रणों के साथ प्रस्तुति तक पहुंच
-  $pres = new Presentation("ActiveX.pptm");
-  try {
-    # प्रस्तुति में पहली स्लाइड तक पहुंच
-    $slide = $pres->getSlides()->get_Item(0);
-    # TextBox टेक्स्ट बदल रहा है
-    $control = $slide->getControls()->get_Item(0);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
-      $newText = "Changed text";
-      $control->getProperties()->set_Item("Value", $newText);
-      # बदली हुई छवि बदलना। PowerPoint सक्रियता के दौरान इस छवि को बदल देगा,
-      # इसलिए कभी‑कभी छवि को अपरिवर्तित छोड़ना ठीक है।
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->window);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $graphics->drawString($newText, 10, 20);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $controls = $presentation->getSlides()->get_Item(0)->getControls();
+    $textBox = null;
+    $button = null;
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $name = (string) $control->getName();
+        if ($name === "TextBox1") {
+            $textBox = $control;
+        } elseif ($name === "CommandButton1") {
+            $button = $control;
+        }
     }
-    # बटन कैप्शन बदलना
-    $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
-      $newCaption = "Show MessageBox";
-      $control->getProperties()->set_Item("Caption", $newCaption);
-      # बदली हुई छवि बदलना
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->control);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $metrics = $graphics->getFontMetrics($font);
-      $graphics->drawString($newCaption, $image->getWidth() - $metrics->stringWidth($newCaption) / 2, 20);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
+    if ($textBox === null || $button === null || java_is_null($textBox->getProperties()) || java_is_null($button->getProperties())) {
+        echo "The first slide must contain both named controls with editable properties.\n";
+        return;
     }
-    # 100 पॉइंट नीचे ले जा रहे हैं
-    foreach($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
-      $frame = $ctl->getFrame();
-      $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
+
+    foreach ([[$textBox, "text-box-preview.png"], [$button, "button-preview.png"]] as [$control, $path]) {
+        $image = Images::fromFile($path);
+        try {
+            $preview = $presentation->getImages()->addImage($image);
+            $control->getSubstitutePictureFormat()->getPicture()->setImage($preview);
+        } finally {
+            $image->dispose();
+        }
     }
-    $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
-    # नियंत्रणों को हटाना
-    $pres->getSlides()->get_Item(0)->getControls()->clear();
-    $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $textBox->getProperties()->set_Item("Value", "Changed text");
+    $button->getProperties()->set_Item("Caption", "Show message");
+
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $frame = $control->getFrame();
+        $newY = java_values($frame->getY()) + 100;
+        $moved = new ShapeFrame($frame->getX(), $newY, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation());
+        $control->setFrame($moved);
     }
-  }
+    $presentation->save("edited-controls.pptm", SaveFormat::Pptm);
+
+    $controls->clear();
+    $presentation->save("removed-controls.pptm", SaveFormat::Pptm);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **ActiveX मीडिया प्लेयर नियंत्रण जोड़ें**
+
+कॉन्फ़िगर किए गए Windows Media Player नियंत्रण को पुन: उपयोग करने के लिए, ऐसे टेम्प्लेट से शुरू करें जहाँ पहले स्लाइड में `WindowsMediaPlayer1` नाम का प्लेयर हो। [SlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) पूरी स्लाइड को नई प्रस्तुति में कॉपी करता है। उदाहरण प्लेयर के `URL` को उसके [properties collection](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) में सेट करता है और क्लोन की गई स्लाइड को आउटपुट में केवल स्लाइड के रूप में सहेजता है। वीडियो बाहरी रहता है, इसलिए ऐसा पथ चुनें जिसे प्लेयर प्लेबैक के दौरान एक्सेस कर सके।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$template = new Presentation("template.pptx");
+try {
+    $presentation = new Presentation();
+    try {
+        $slides = $presentation->getSlides();
+        $sourceSlide = $template->getSlides()->get_Item(0);
+        $slide = $slides->addClone($sourceSlide);
+        $player = null;
+        $controls = $slide->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            if ((string) $control->getName() === "WindowsMediaPlayer1") {
+                $player = $control;
+                break;
+            }
+        }
+        if ($player === null || java_is_null($player->getProperties())) {
+            echo "The template slide must contain a named media player with editable properties.\n";
+            return;
+        }
+        $player->getProperties()->set_Item("URL", "Wildlife.mp4");
+        $slides->removeAt(0);
+        $presentation->save("linked-video.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+} finally {
+    $template->dispose();
+}
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या Aspose.Slides सक्रिय नहीं हो सकने वाले ActiveX नियंत्रणों को पढ़ने और पुनः सहेजने पर संरक्षित रखता है?**
+**क्या Aspose.Slides सक्रिय किए बिना ActiveX नियंत्रणों को संरक्षित कर सकता है?**
 
-हां। Aspose.Slides उन्हें प्रस्तुति का हिस्सा मानता है और उनकी प्रॉपर्टीज़ व फ्रेम को पढ़/संशोधित कर सकता है; नियंत्रणों को स्वयं चलाना उन्हें संरक्षित रखने के लिये आवश्यक नहीं है।
+हाँ। Aspose.Slides नियंत्रणों को पढ़ और सहेज सकता है, जिसमें उनके गुण और स्थितियाँ शामिल हैं, बिना उन्हें सक्रिय किए।
 
-**ActiveX नियंत्रण प्रस्तुति में OLE वस्तुओं से कैसे अलग होते हैं?**
+**ActiveX नियंत्रण OLE ऑब्जेक्ट्स से कैसे अलग होते हैं?**
 
-ActiveX नियंत्रण इंटरैक्टिव प्रबंधित नियंत्रण होते हैं (बटन, टेक्स्ट बॉक्स, मीडिया प्लेयर), जबकि [OLE](/slides/hi/php-java/manage-ole/) एम्बेडेड एप्लिकेशन वस्तुओं को दर्शाता है (उदाहरण के लिये, एक Excel कार्यपत्र)। इन्हें अलग तरीके से संग्रहीत व संभाला जाता है और इनकी प्रॉपर्टी मॉडल अलग होती है।
+ActiveX नियंत्रण उपयोगकर्ताओं को स्लाइड के साथ इंटरैक्ट करने देते हैं, जैसे टेक्स्ट दर्ज करना या बटन पर क्लिक करना। एक [OLE ऑब्जेक्ट](/slides/hi/php-java/manage-ole/) स्लाइड को किसी अन्य एप्लिकेशन द्वारा प्रबंधित सामग्री, जैसे Excel वर्कशीट, को सम्मिलित या लिंक करने देता है।
 
-**क्या ActiveX इवेंट्स और VBA मैक्रो काम करते हैं यदि फ़ाइल को Aspose.Slides ने संशोधित किया हो?**
+**क्या Aspose.Slides के साथ प्रस्तुति सहेजने के बाद ActiveX इवेंट्स VBA मैक्रोज़ को ट्रिगर करेंगे?**
 
-Aspose.Slides मौजूदा मार्कअप और मेटाडेटा को संरक्षित रखता है; हालांकि इवेंट्स और मैक्रो केवल Windows पर PowerPoint के भीतर ही चलते हैं जब सुरक्षा अनुमति देती है। लाइब्रेरी VBA को निष्पादित नहीं करती।
+प्रेज़ेंटेशन को PPTM जैसे मैक्रो‑सक्षम फ़ॉर्मेट में सहेजें ताकि उसका VBA प्रोजेक्ट बना रहे। Windows के लिए PowerPoint इन इवेंट हैंडलर्स को तब चलाएगा जब उसकी सुरक्षा सेटिंग्स ActiveX नियंत्रणों और मैक्रोज़ दोनों को अनुमति देती हैं।

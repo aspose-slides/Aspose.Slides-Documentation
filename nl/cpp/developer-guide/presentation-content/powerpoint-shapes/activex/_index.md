@@ -1,5 +1,5 @@
 ---
-title: Beheer ActiveX-besturingselementen in presentaties met C++
+title: ActiveX-besturingselementen beheren in presentaties met C++
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -9,172 +9,208 @@ keywords:
 - ActiveX-besturingselement
 - ActiveX beheren
 - ActiveX toevoegen
-- ActiveX wijzigen
+- ActiveX aanpassen
 - mediaspeler
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe Aspose.Slides for C++ ActiveX benut om PowerPoint-presentaties te automatiseren en te verbeteren, waardoor ontwikkelaars krachtige controle over dia's krijgen."
+description: "Bewerk ActiveX-tekstvakken en -knoppen, werk voorbeeldweergaven van besturingselementen bij en hergebruik een Windows Media Player-besturingselement in PowerPoint-presentaties met Aspose.Slides voor C++."
 ---
 ## **Introductie**
 
-ActiveX‑besturingselementen worden gebruikt in presentaties. Aspose.Slides for C++ stelt u in staat om ActiveX‑besturingselementen te beheren, maar het beheren daarvan is iets ingewikkelder en verschilt van normale presentatie‑vormen. Vanaf Aspose.Slides for C++ 18.1 ondersteunt het component het beheren van ActiveX‑besturingselementen. Momenteel kunt u reeds toegevoegde ActiveX‑besturingselementen in uw presentatie benaderen en deze wijzigen of verwijderen via hun verschillende eigenschappen. Onthoud dat ActiveX‑besturingselementen geen vormen zijn en geen deel uitmaken van de IShapeCollection van de presentatie, maar van de aparte IControlCollection. Dit artikel laat zien hoe u ermee kunt werken.
+ActiveX‑besturingselementen geven een PowerPoint‑dia interactieve elementen zoals tekstvakken, opdrachtknoppen en mediaspelers. Aspose.Slides for C++ maakt de besturingselementen van een dia toegankelijk via [IBaseSlide::get_Controls](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_controls/). Gebruik deze verzameling om een besturingselement te bewerken, te verplaatsen op de dia, of te verwijderen.
 
-## **Een ActiveX‑besturingselement wijzigen**
-Om een eenvoudig ActiveX‑besturingselement, zoals een tekstvak en een eenvoudige opdrachtknop, op een dia te beheren:
+## **Lijst van ActiveX‑besturingselementen en hun opgeslagen eigenschappen**
 
-1. Maak een instantie van de Presentation‑klasse en laad de presentatie waarin ActiveX‑besturingselementen staan.
-1. Verkrijg een referentie naar de dia op basis van de index.
-1. Toegang krijgen tot de ActiveX‑besturingselementen op de dia via de IControlCollection.
-1. Toegang krijgen tot het ActiveX‑besturingselement TextBox1 met behulp van het ControlEx‑object.
-1. Wijzig de verschillende eigenschappen van het ActiveX‑besturingselement TextBox1, waaronder tekst, lettertype, lettergrootte en positie van het frame.
-1. Toegang krijgen tot het tweede besturingselement genaamd CommandButton1.
-1. Wijzig de knopbijschrift, het lettertype en de positie.
-1. Verplaats de positie van de frames van de ActiveX‑besturingselementen.
-1. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
+Om een onbekende sjabloon te inspecteren, open deze voor lezen en doorloop de besturingselementen op elke dia. Het voorbeeld geeft het slidennummer, de naam van het besturingselement, [class ID](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_classid/), en elk sleutel‑waarde‑paar in de [opgeslagen eigenschappen](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_properties/). Het leest de presentatie zonder de besturingselementen te activeren, gebeurtenissen of macro’s aan te roepen, waarden te wijzigen, of het bestand op te slaan.
 
-Het codefragment hieronder werkt de ActiveX‑besturingselementen op de presentatiedia's bij, zoals weergegeven hieronder.
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/guid.h>
 
-``` cpp
-// Toegang tot de presentatie met ActiveX-besturingselementen
-auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
+using namespace Aspose::Slides;
+using namespace System;
 
-// Toegang tot de eerste dia in de presentatie
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
 
-// tekst van TextBox wijzigen
-auto control = slide->get_Controls()->idx_get(0);
-
-if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
+for (auto i = 0; i < presentation->get_Slides()->get_Count(); ++i)
 {
-    String newText = u"Changed text";
-    control->get_Properties()->idx_set(u"Value", newText);
+    auto controls = presentation->get_Slide(i)->get_Controls();
+    for (auto j = 0; j < controls->get_Count(); ++j)
+    {
+        auto control = controls->idx_get(j);
+        Console::WriteLine(u"Slide {0} | {1} | {2}", i + 1, control->get_Name(), control->get_ClassId().ToString());
+        auto properties = control->get_Properties();
+        if (!properties)
+        {
+            Console::WriteLine(u"  Properties unavailable");
+            continue;
+        }
 
-    // vervangend beeld wijzigen. PowerPoint zal deze afbeelding vervangen tijdens ActiveX-activatie, dus soms is het OK om de afbeelding ongewijzigd te laten.
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
+        if (properties->get_Count() == 0)
+            Console::WriteLine(u"  []");
 
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    graphics->DrawString(newText, font, brush, 10.0f, 4.0f);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
+        auto entries = properties->GetEnumerator();
+        while (entries->MoveNext())
+        {
+            auto property = entries->get_Current();
+            Console::WriteLine(u"  {0} = {1}", property.get_Key(), property.get_Value());
+        }
+    }
 }
-
-// bijschrift van knop wijzigen
-control = slide->get_Controls()->idx_get(1);
-
-if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
-{
-    String newCaption = u"MessageBox";
-    control->get_Properties()->idx_set(u"Caption", newCaption);
-
-    // vervangende afbeelding wijzigen
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
-
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    SizeF textSize = graphics->MeasureString(newCaption, font, std::numeric_limits<int32_t>::max());
-    graphics->DrawString(newCaption, font, brush, (image->get_Width() - textSize.get_Width()) / 2, (image->get_Height() - textSize.get_Height()) / 2);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
-}
-
-// ActiveX-frames 100 punten omlaag verplaatsen
-for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
-{
-    SharedPtr<IShapeFrame> frame = control->get_Frame();
-    control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
-}
-
-// Opslaan van de presentatie met bewerkte ActiveX-besturingselementen
-presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
-
-// Besturingselementen nu verwijderen
-slide->get_Controls()->Clear();
-
-// Opslaan van de presentatie met verwijderde ActiveX-besturingselementen
-presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
-## **Een Media Player ActiveX‑besturingselement toevoegen**
-ActiveX‑besturingselementen worden gebruikt in presentaties. Aspose.Slides for C++ stelt u in staat om ActiveX‑besturingselementen toe te voegen en te beheren, maar het beheren daarvan is iets ingewikkelder en verschilt van gewone presentatie‑vormen. Vanaf Aspose.Slides for C++ 18.1 is er ondersteuning toegevoegd voor het toevoegen van Media Player ActiveX‑besturingselementen in Aspose.Slides. Onthoud dat ActiveX‑besturingselementen geen vormen zijn en geen deel uitmaken van de IShapeCollection van de presentatie, maar van de afzonderlijke IControlExCollection. Dit artikel laat zien hoe u ermee kunt werken. Om een Media Player ActiveX‑besturingselement te beheren, volgt u de onderstaande stappen:
+Geselecteerde output van `ActiveX.pptm` toont een tekstvak en een opdrachtknop.
 
-1. Maak een instantie van de Presentation‑klasse en laad de voorbeeldpresentatie waarin Media Player ActiveX‑besturingselementen staan.
-1. Maak een instantie van de doel‑Presentation‑klasse en genereer een lege presentatie‑instantie.
-1. Kloon de dia met Media Player ActiveX‑besturingselement uit de sjabloonpresentatie naar de doel‑Presentation.
-1. Verkrijg toegang tot de gekloonde dia in de doel‑Presentation.
-1. Verkrijg toegang tot de ActiveX‑besturingselementen op de dia via de IControlCollection.
-1. Verkrijg toegang tot het Media Player ActiveX‑besturingselement en stel het videopad in via zijn eigenschappen.
-1. Sla de presentatie op als een PPTX‑bestand.
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-``` cpp
-// Instantie van de Presentation-klasse die een PPTX-bestand vertegenwoordigt
-auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+Een lege eigenschapverzameling verschijnt als `[]`. Voor besturingselementen die binaire opslag gebruiken, kan `get_Properties` `nullptr` retourneren, weergegeven als `Properties unavailable`. Als je alleen de namen nodig hebt, gebruik dan [get_NamesOfProperties](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/get_namesofproperties/) na te hebben gecontroleerd dat de verzameling bestaat. Het rapport somt de eigenschappen op die beschikbaar zijn vanuit de presentatie. Een besturingselement kan tijdens runtime extra eigenschappen ondersteunen.
 
-// Maak een lege presentatie-instantie
-auto newPresentation = System::MakeObject<Presentation>();
+## **ActiveX‑besturingselementen wijzigen**
 
-// Verwijder standaarddia
-newPresentation->get_Slides()->RemoveAt(0);
+Het voorbeeld verwacht een macro‑ingeschakelde presentatie met een tekstvak genaamd `TextBox1` en een opdrachtknop genaamd `CommandButton1` op de eerste dia. Het gebruikt de [control properties collection](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) om de waarde van het tekstvak en het bijschrift van de knop te wijzigen. Elk besturingselement heeft ook een statische voorbeeldweergave die PowerPoint kan tonen vóór activatie. Lever een PNG voor elk besturingselement dat de bijgewerkte tekst en weergave toont. Het voorbeeld kent deze afbeeldingen toe via [IControl::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_substitutepictureformat/).
 
-// Kloon dia met Media Player ActiveX-besturingselement
-newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
+Het voorbeeld verplaatst elk besturingselement op de eerste dia 100 punten naar beneden door het [frame](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/set_frame/) te wijzigen. Het slaat de bewerkte presentatie op in PPTM‑formaat, en gebruikt daarna [IControlCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolcollection/clear/) om een tweede kopie op te slaan waarbij alle ActiveX‑besturingselementen van die dia verwijderd zijn.
 
-// Verkrijg toegang tot het Media Player ActiveX-besturingselement en stel het videopad in
-newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/io/file.h>
 
-// Sla de presentatie op
-newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
+auto controls = presentation->get_Slide(0)->get_Controls();
+SharedPtr<IControl> textBox;
+SharedPtr<IControl> button;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"TextBox1")
+        textBox = control;
+    else if (control->get_Name() == u"CommandButton1")
+        button = control;
+}
+
+if (!textBox || !button || !textBox->get_Properties() || !button->get_Properties())
+{
+    Console::WriteLine(u"The first slide must contain both named controls with editable properties.");
+    return;
+}
+
+if (!File::Exists(u"text-box-preview.png") || !File::Exists(u"button-preview.png"))
+{
+    Console::WriteLine(u"Supply both preview images before updating the controls.");
+    return;
+}
+
+textBox->get_Properties()->idx_set(u"Value", u"Changed text");
+button->get_Properties()->idx_set(u"Caption", u"Show message");
+
+auto textBoxBytes = File::ReadAllBytes(u"text-box-preview.png");
+auto buttonBytes = File::ReadAllBytes(u"button-preview.png");
+auto textBoxPreview = presentation->get_Images()->AddImage(textBoxBytes);
+auto buttonPreview = presentation->get_Images()->AddImage(buttonBytes);
+textBox->get_SubstitutePictureFormat()->get_Picture()->set_Image(textBoxPreview);
+button->get_SubstitutePictureFormat()->get_Picture()->set_Image(buttonPreview);
+
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    auto frame = control->get_Frame();
+    auto movedFrame = MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation());
+    control->set_Frame(movedFrame);
+}
+
+presentation->Save(u"edited-controls.pptm", SaveFormat::Pptm);
+
+controls->Clear();
+presentation->Save(u"removed-controls.pptm", SaveFormat::Pptm);
+```
+
+## **ActiveX‑mediaspeler toevoegen**
+
+Om een geconfigureerde Windows Media Player‑besturingselement opnieuw te gebruiken, begin met een sjabloon waarvan de eerste dia een speler bevat genaamd `WindowsMediaPlayer1`. [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) kopieert de volledige dia naar een nieuwe presentatie. Het voorbeeld stelt de `URL` van de speler in via de [properties collection](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) en slaat de gekloonde dia op als de enige dia in de uitvoer. De video blijft extern, dus kies een pad dat de speler tijdens het afspelen kan benaderen.
+
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+
+auto source = MakeObject<Presentation>(u"template.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->AddClone(source->get_Slide(0));
+auto controls = slide->get_Controls();
+
+SharedPtr<IControl> player;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"WindowsMediaPlayer1")
+    {
+        player = control;
+        break;
+    }
+}
+
+if (!player || !player->get_Properties())
+{
+    Console::WriteLine(u"The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+
+presentation->get_Slides()->RemoveAt(0);
+presentation->Save(u"linked-video.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Behoudt Aspose.Slides ActiveX‑besturingselementen bij het lezen en opnieuw opslaan wanneer ze niet uitgevoerd kunnen worden in de C++‑runtime?**
+**Kan Aspose.Slides ActiveX‑besturingselementen behouden zonder ze uit te voeren?**
 
-Ja. Aspose.Slides beschouwt ze als onderdeel van de presentatie en kan hun eigenschappen en frames lezen/wijzigen; het uitvoeren van de besturingselementen zelf is niet nodig om ze te behouden.
+Ja. Aspose.Slides kan besturingselementen lezen en opslaan, inclusief hun eigenschappen en posities, zonder ze te activeren.
 
-**Hoe verschillen ActiveX‑besturingselementen van OLE‑objecten in een presentatie?**
+**Hoe verschillen ActiveX‑besturingselementen van OLE‑objecten?**
 
-ActiveX‑besturingselementen zijn interactieve beheerde elementen (knoppen, tekstvakken, media‑speler), terwijl [OLE](/slides/nl/cpp/manage-ole/) verwijst naar ingebedde toepassingsobjecten (bijvoorbeeld een Excel‑werkblad). Ze worden anders opgeslagen en behandeld en hebben verschillende eigenschapsmodellen.
+ActiveX‑besturingselementen laten gebruikers met een dia interageren, bijvoorbeeld door tekst in te voeren of op een knop te klikken. Een [OLE object](/slides/nl/cpp/manage-ole/) laat een dia inhoud bevatten of linken naar content die wordt beheerd door een andere toepassing, zoals een Excel‑werkblad.
 
-**Werken ActiveX‑gebeurtenissen en VBA‑macro's als het bestand is aangepast door Aspose.Slides?**
+**Zullen ActiveX‑gebeurtenissen nog steeds VBA‑macro's activeren nadat ik een presentatie opsla met Aspose.Slides?**
 
-Aspose.Slides behoudt de bestaande markup en metadata; echter, gebeurtenissen en macro's worden alleen uitgevoerd in PowerPoint op Windows wanneer de beveiliging dit toestaat. De bibliotheek voert geen VBA uit.
+Sla de presentatie op in een macro‑ingeschakeld formaat zoals PPTM om het VBA‑project te behouden. PowerPoint voor Windows kan de bestaande gebeurtenishandlers uitvoeren wanneer de beveiligingsinstellingen zowel ActiveX‑besturingselementen als macro's toestaan.

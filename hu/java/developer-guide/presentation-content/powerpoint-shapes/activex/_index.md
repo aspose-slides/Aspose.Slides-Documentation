@@ -1,5 +1,5 @@
 ---
-title: ActiveX vezérlők kezelése prezentációkban Java használatával
+title: ActiveX vezérlők kezelése prezentációkban Java nyelven
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -10,188 +10,160 @@ keywords:
 - ActiveX kezelése
 - ActiveX hozzáadása
 - ActiveX módosítása
-- médiavégző
+- médialejátszó
 - PowerPoint
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan használja az Aspose.Slides for Java az ActiveX-et a PowerPoint‑prezentációk automatizálásához és fejlesztéséhez, erőteljes vezérlést biztosítva a fejlesztőknek a diák felett."
+description: "Szerkessze az ActiveX szövegdobozokat és gombokat, frissítse a vezérlő előnézeteket, és használja újra a Windows Media Player vezérlőt PowerPoint prezentációkban az Aspose.Slides for Java segítségével."
 ---
 ## **Bevezetés**
 
-Az ActiveX vezérlőket prezentációkban használják. Az Aspose.Slides for Java lehetővé teszi az ActiveX vezérlők hozzáadását és kezelését, de ezek a szokásos prezentációs alakzatokhoz képest kicsit bonyolultabbak. Beépítettük a Media Player Active vezérlő hozzáadásának támogatását az Aspose.Slides-be. Vegye figyelembe, hogy az ActiveX vezérlők nem alakzatok; nem részei a prezentáció [IShapeCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/). Ehelyett a különálló [IControlCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icontrolcollection/) részei. Ebben a témában megmutatjuk, hogyan dolgozhat velük. 
+Az ActiveX vezérlők interaktív elemeket adnak a PowerPoint diákhoz, például szövegdobozokat, parancsgombokat és médialejátszókat. Az Aspose.Slides for Java a diák vezérlőit a [IBaseSlide.getControls](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getControls--) metódussal teszi elérhetővé. Használja ezt a gyűjteményt egy vezérlő szerkesztéséhez, áthelyezéséhez a diáron vagy eltávolításához.
 
-## **Media Player ActiveX vezérlő hozzáadása egy diára**
-Az ActiveX Media Player vezérlő hozzáadásához a következőket kell tenni:
+## **Az ActiveX vezérlők listázása és tárolt tulajdonságaik**
 
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztály példányt, és generáljon egy üres prezentációt.
-2. Hozzáférés a cél diához a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) segítségével.
-3. Adja hozzá a Media Player ActiveX vezérlőt a [addControl](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) metódus használatával, amelyet az [IControlCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icontrolcollection/) biztosít.
-4. Hozzáférés a Media Player ActiveX vezérlőhöz, és a videó útvonal beállítása a tulajdonságain keresztül.
-5. Mentse a prezentációt PPTX fájlként.
-
-Ez a mintakód, a fentiek alapján, bemutatja, hogyan adhat Media Player ActiveX vezérlőt egy diához:
+Ismeretlen sablon vizsgálatához nyissa meg olvasásra, és járja végig a vezérlőket minden dián. A példa jelentést készít a diaszámmal, a vezérlő nevével, a [getClassId](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getClassId--) metódussal, és minden kulcs‑érték párral a [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--) metódusban. A bemutatót anélkül olvassa be, hogy aktiválja a vezérlőket, eseményeket vagy makrókat hívna meg, értékeket módosítana, vagy fájlt mentene.
 
 ```java
-// Üres prezentációpéldány létrehozása
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // A Media Player ActiveX vezérlő hozzáadása
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // A Media Player ActiveX vezérlő elérése és a videó útvonal beállítása
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // A prezentáció mentése
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ActiveX vezérlő módosítása**
-{{% alert color="primary" %}} 
+A `ActiveX.pptm` kiválasztott kimenete egy szövegdobozt és egy parancsgombot jelenít meg.
 
-Az Aspose.Slides for Java 7.1.0 és újabb verziók komponensekkel vannak ellátva az ActiveX vezérlők kezeléséhez. Elérheti a már hozzáadott ActiveX vezérlőt a prezentációban, és módosíthatja vagy törölheti a tulajdonságai segítségével.
-
-{{% /alert %}} 
-
-Egyszerű ActiveX vezérlő, például szövegdoboz és egyszerű parancsgomb kezelése egy dián a következő:
-
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztály példányt, és töltse be a prezentációt, amelyben ActiveX vezérlők vannak.
-2. Szerezzen be egy diára hivatkozást az indexe alapján.
-3. Hozzáférés a dián lévő ActiveX vezérlőkhöz a [IControlCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icontrolcollection/) elérésével.
-4. Hozzáférés a TextBox1 ActiveX vezérlőhöz a [IControl](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icontrol/) objektum használatával.
-5. Módosítsa a TextBox1 ActiveX vezérlő tulajdonságait, amelyek a szöveget, betűtípust, betűméretet és a keret pozícióját tartalmazzák.
-6. Hozzáférés a második vezérlőhöz, amely CommandButton1 néven ismert.
-7. Módosítsa a gomb feliratát, betűtípusát és pozícióját.
-8. Módosítsa az ActiveX vezérlők keretének helyzetét.
-9. Írja a módosított prezentációt PPTX fájlba.
-
-Ez a mintakód, a fenti lépések alapján, bemutatja, hogyan kezelhet egy egyszerű ActiveX vezérlőt: 
-
-```java
-// ActiveX vezérlőket tartalmazó prezentáció elérése
-Presentation pres = new Presentation("ActiveX.pptm");
-try {
-    // A prezentáció első diájának elérése
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // TextBox szövegének módosítása
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // Helyettesítő kép módosítása. A PowerPoint ezt a képet az ActiveX aktiválásakor lecseréli,
-        // ezért néha elfogadható a kép változatlanul hagyása.
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-    }
-
-    // Gombfelirat módosítása
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // Helyettesítő módosítása
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-                graphics.dispose();
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "PNG", baos);
-
-                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-            }
-
-            // 100 ponttal lejjebb mozgatás
-            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-                IShapeFrame frame = ctl.getFrame();
-                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-            }
-            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
-
-            // vezérlők eltávolítása
-            pres.getSlides().get_Item(0).getControls().clear();
-            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-        } catch(IOException e) {
-        } finally {
-            if (pres != null) pres.dispose();
-        }
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
+Egy üres tulajdonsággyűjtemény `[]`‑ként jelenik meg. A bináris tárolást használó vezérlőknél a [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--) `null`‑t adhat vissza, ami `Properties unavailable`‑ként jelenik meg. Ha csak a nevekre van szüksége, használja a [getNamesOfProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--)‑t a null ellenőrzés után. A jelentés felsorolja a bemutatóból elérhető tulajdonságokat. Egy vezérlő futásidőben további tulajdonságokat is támogathat.
+
+## **Az ActiveX vezérlők módosítása**
+
+A példa egy makró‑engedélyezett bemutatót vár, amelynek az első dián van egy `TextBox1` nevű szövegdoboz és egy `CommandButton1` nevű parancsgomb. A [vezérlő tulajdonsággyűjtemény](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) segítségével módosítja a szövegdoboz értékét és a gomb feliratát. Minden vezérlőnek van egy statikus előnézete, amelyet a PowerPoint aktiválás előtt megjeleníthet. Biztosítson egy PNG‑t minden vezérlőhöz, amely a frissített szöveget és megjelenést mutatja. A példa ezeket a képeket a [IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getSubstitutePictureFormat--) metódussal rendeli hozzá.
+
+A példa az első dián lévő összes vezérlőt 100 ponttal lefelé mozgatja a keretét a [IControl.setFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-) metódussal. A szerkesztett bemutatót PPTM formátumban menti, majd a [IControlCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/#clear--) segítségével elment egy második példányt, amelyből minden ActiveX vezérlő el van távolítva az adott diáról.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
+try {
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
+    }
+
+    Path textBoxPath = Paths.get("text-box-preview.png");
+    Path buttonPath = Paths.get("button-preview.png");
+    byte[] textBoxBytes = Files.readAllBytes(textBoxPath);
+    byte[] buttonBytes = Files.readAllBytes(buttonPath);
+    IPPImage textBoxPreview = presentation.getImages().addImage(textBoxBytes);
+    IPPImage buttonPreview = presentation.getImages().addImage(buttonBytes);
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
+
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
+    }
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
+
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
+## **ActiveX médiaplayer vezérlő hozzáadása**
+
+Egy konfigurált Windows Media Player vezérlő újrahasználatához kezdjen egy sablonnal, amelynek első dián egy `WindowsMediaPlayer1` nevű lejátszó található. A [ISlideCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) a teljes diát egy új bemutatóba másolja. A példa beállítja a lejátszó `URL`‑jét a [properties collection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) segítségével, és a klónozott diát az egyetlen diaként menti a kimenetbe. A videó külső marad, ezért válasszon egy olyan útvonalat, amelyhez a lejátszó a lejátszás során hozzáfér.
+
+```java
+import com.aspose.slides.*;
+
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
+            }
+        }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+        
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
+}
+```
 ## **GYIK**
 
-**Az Aspose.Slides megőrzi az ActiveX vezérlőket olvasás és újramentés során, ha azok nem hajthatók végre a Java runtime környezetben?**
+**Megőrizheti az Aspose.Slides az ActiveX vezérlőket anélkül, hogy futtatná őket?**
 
-Igen. Az Aspose.Slides ezeket a prezentáció részének tekinti, és képes olvasni/módosítani a tulajdonságaikat és kereteiket; a vezérlők tényleges végrehajtása nem szükséges a megőrzésükhöz.
+Igen. Az Aspose.Slides képes olvasni és menteni a vezérlőket, beleértve azok tulajdonságait és pozícióit, anélkül, hogy aktiválná őket.
 
-**Miben különböznek az ActiveX vezérlők az OLE objektumoktól egy prezentációban?**
+**Miben különböznek az ActiveX vezérlők az OLE objektumoktól?**
 
-Az ActiveX vezérlők interaktív, kezelt vezérlők (gombok, szövegdobozok, médialejátszó), míg az [OLE](/slides/hu/java/manage-ole/) beágyazott alkalmazásobjektumokra (például egy Excel munkalapra) utal. Ezek eltérő módon tárolódnak és kezelődnek, valamint különböző tulajdonságmodellel rendelkeznek.
+Az ActiveX vezérlők lehetővé teszik a felhasználók számára a diával való interakciót, például szöveg beírását vagy gombra kattintást. Egy [OLE objektum](/slides/hu/java/manage-ole/) lehetővé teszi, hogy a dia olyan tartalmat tartalmazzon vagy hivatkozzon rá, amelyet egy másik alkalmazás kezel, például egy Excel munkalap.
 
-**Működnek az ActiveX események és a VBA makrók, ha a fájlt az Aspose.Slides módosította?**
+**Az ActiveX események továbbra is elindítják a VBA makrókat, miután a prezentációt az Aspose.Slides‑szel mentem?**
 
-Az Aspose.Slides megtartja a meglévő jelölőnyelvet és metaadatokat; azonban az események és a makrók csak Windows-on a PowerPoint-on futnak, ha a biztonsági beállítások engedélyezik. A könyvtár nem hajtja végre a VBA‑t.
+Mentse a bemutatót makró‑engedélyezett formátumban, például PPTM‑ben, hogy megőrizze a VBA projektet. A Windows‑ra készült PowerPoint a meglévő eseménykezelőket akkor tudja futtatni, ha a biztonsági beállítások engedélyezik az ActiveX vezérlőket és a makrókat egyaránt.

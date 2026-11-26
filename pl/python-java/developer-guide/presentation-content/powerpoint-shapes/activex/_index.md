@@ -15,23 +15,15 @@ keywords:
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak Aspose.Slides for Python via Java wykorzystuje ActiveX do automatyzacji i ulepszania prezentacji PowerPoint, dając programistom potężną kontrolę nad slajdami."
+description: "Edytuj pola tekstowe i przyciski ActiveX, aktualizuj podglądy kontrolek oraz ponownie wykorzystaj kontrolkę Windows Media Player w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Pythona poprzez Java."
 ---
 ## **Wprowadzenie**
 
-Kontrolki ActiveX są używane w prezentacjach. Aspose.Slides for Python via Java umożliwia dodawanie i zarządzanie kontrolkami ActiveX, ale są one nieco trudniejsze w obsłudze w porównaniu do standardowych kształtów prezentacji. Aspose.Slides obsługuje dodawanie kontrolek Media Player ActiveX. Należy zauważyć, że kontrolki ActiveX nie są kształtami; nie są częścią prezentacji [ShapeCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapecollection/). Należą do osobnej [ControlCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/controlcollection/) zamiast tego. W tym temacie pokażemy, jak z nimi pracować.
+Kontrolki ActiveX dają slajdowi PowerPoint elementy interaktywne, takie jak pola tekstowe, przyciski poleceń i odtwarzacze multimedialne. Aspose.Slides for Python via Java udostępnia kontrolki slajdu poprzez [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls). Użyj tej kolekcji, aby edytować kontrolkę, przenieść ją na slajdzie lub usunąć.
 
-## **Dodaj kontrolkę Media Player ActiveX do slajdu**
+## **Lista kontrolek ActiveX i ich przechowywanych właściwości**
 
-Aby dodać kontrolkę Media Player ActiveX, wykonaj następujące kroki:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/), aby wygenerować pustą prezentację.
-2. Uzyskaj dostęp do docelowego slajdu w [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/).
-3. Dodaj kontrolkę Media Player ActiveX przy użyciu metody [addControl](https://reference.aspose.com/slides/pl/python-java/aspose.slides/controlcollection/#addControl), udostępnionej przez [ControlCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/controlcollection/).
-4. Uzyskaj dostęp do kontrolki Media Player ActiveX i ustaw ścieżkę wideo, korzystając z jej właściwości.
-5. Zapisz prezentację jako plik PPTX.
-
-Ten przykładowy kod, oparty na powyższych krokach, pokazuje, jak dodać kontrolkę Media Player ActiveX do slajdu:
+Aby zbadać nieznany szablon, otwórz go w trybie odczytu i przeiteruj kontrolki na każdym slajdzie. Przykład podaje numer slajdu, nazwę kontrolki, [getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId), oraz każdą parę klucz‑wartość w [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties). Odczytuje prezentację bez aktywacji kontrolek, wywoływania zdarzeń lub makr, zmieniania wartości czy zapisywania pliku.
 
 ```python
 import jpype
@@ -40,45 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# Utwórz pustą prezentację.
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # Dodaj kontrolkę Media Player ActiveX.
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # Ustaw ścieżkę wideo.
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # Zapisz prezentację.
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
-## **Modyfikuj kontrolkę ActiveX**
+Wybrany wynik z `ActiveX.pptm` pokazuje pole tekstowe i przycisk polecenia.
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java udostępnia komponenty do zarządzania kontrolkami ActiveX. Możesz uzyskać dostęp do już dodanej kontrolki ActiveX w swojej prezentacji i modyfikować lub usuwać ją za pomocą jej właściwości.
-{{% /alert %}}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-Aby zarządzać prostą kontrolką ActiveX, taką jak pole tekstowe i prosty przycisk poleceń na slajdzie, wykonaj następujące kroki:
+Pusta kolekcja właściwości pojawia się jako `[]`. Dla kontrolek używających binarnego przechowywania, [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) może zwrócić `None`, wyświetlane jako `Properties unavailable`. Jeśli potrzebujesz tylko nazw, użyj [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) po sprawdzeniu, że kolekcja jest dostępna. Raport wymienia właściwości dostępne w prezentacji. Kontrolka może obsługiwać dodatkowe właściwości w czasie wykonywania.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/), a następnie załaduj prezentację zawierającą kontrolki ActiveX.
-2. Uzyskaj odwołanie do slajdu na podstawie jego indeksu.
-3. Uzyskaj dostęp do kontrolek ActiveX na slajdzie, odwołując się do [ControlCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/controlcollection/).
-4. Uzyskaj dostęp do kontrolki ActiveX TextBox1, używając obiektu [Control](https://reference.aspose.com/slides/pl/python-java/aspose.slides/control/).
-5. Zmień właściwości kontrolki ActiveX TextBox1, takie jak tekst, czcionka, wysokość czcionki oraz położenie ramki.
-6. Uzyskaj dostęp do drugiej kontrolki ActiveX o nazwie CommandButton1.
-7. Zmień etykietę przycisku, czcionkę i położenie.
-8. Przesuń położenie ramek kontrolek ActiveX.
-9. Zapisz zmodyfikowaną prezentację do pliku PPTM.
+## **Modyfikowanie kontrolek ActiveX**
 
-Ten przykładowy kod, oparty na powyższych krokach, pokazuje, jak zarządzać prostą kontrolką ActiveX:
+Przykład zakłada prezentację z włączonymi makrami, zawierającą pole tekstowe o nazwie `TextBox1` oraz przycisk polecenia o nazwie `CommandButton1` na pierwszym slajdzie. Używa [collection właściwości kontrolki](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) aby zmienić wartość pola tekstowego i podpis przycisku. Każda kontrolka ma także statyczny podgląd, który PowerPoint może wyświetlić przed aktywacją. Dostarcz plik PNG dla każdej kontrolki, przedstawiający zaktualizowany tekst i wygląd. Przykład przypisuje te obrazy poprzez [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat).
+
+Przykład przesuwa każdą kontrolkę na pierwszym slajdzie w dół o 100 punktów, ustawiając jej ramkę za pomocą [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame). Zapisuje zmodyfikowaną prezentację w formacie PPTM, a następnie używa [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear), aby zapisać drugą kopię z usuniętymi wszystkimi kontrolkami ActiveX z tego slajdu.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -86,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# Załaduj prezentację z kontrolkami ActiveX.
 presentation = Presentation("ActiveX.pptm")
 try:
-    if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-        # Uzyskaj dostęp do pierwszego slajdu.
-        slide = presentation.getSlides().get_Item(0)
-
-        # Zmień tekst pola tekstowego.
-        control = slide.getControls().get_Item(0)
-
-        if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-            new_text = "Changed text"
-            control.getProperties().set_Item("Value", new_text)
-
-            # Zmień obraz zastępczy. PowerPoint zamienia go podczas aktywacji ActiveX,
-            # dlatego może czasami pozostać niezmieniony.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.window)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            graphics.drawString(new_text, 10, 20)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Zmień etykietę przycisku.
-        control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-        if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-            new_caption = "Show MessageBox"
-            control.getProperties().set_Item("Caption", new_caption)
-            # Zmień obraz zastępczy.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.control)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            metrics = graphics.getFontMetrics(font)
-            graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Przesuń kontrolki w dół o 100 punktów.
-        for control in slide.getControls():
-            frame = control.getFrame()
-            new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-            control.setFrame(new_frame)
-        presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-        # Usuń kontrolki.
-        presentation.getSlides().get_Item(0).getControls().clear()
-        presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
     else:
-        print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
+
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
+
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
     presentation.dispose()
 ```
 
+## **Dodanie kontrolki ActiveX Media Player**
+
+Aby ponownie użyć skonfigurowanej kontrolki Windows Media Player, rozpocznij od szablonu, którego pierwszy slajd zawiera odtwarzacz o nazwie `WindowsMediaPlayer1`. [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) kopiuje cały slajd do nowej prezentacji. Przykład ustawia `URL` odtwarzacza w jego [kolekcji właściwości](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) i zapisuje sklonowany slajd jako jedyny slajd w wyniku. Wideo pozostaje zewnętrzne, więc wybierz ścieżkę dostępną dla odtwarzacza podczas odtwarzania.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
+
 ## **FAQ**
 
-**Czy Aspose.Slides zachowuje kontrolki ActiveX podczas odczytu i ponownego zapisu, jeśli nie mogą być wykonane w środowisku uruchomieniowym Pythona?**
+**Czy Aspose.Slides może zachować kontrolki ActiveX bez ich uruchamiania?**
 
-Tak. Aspose.Slides traktuje je jako część prezentacji i może odczytywać/modyfikować ich właściwości oraz ramki; nie jest wymagane uruchamianie samych kontrolek, aby je zachować.
+Tak. Aspose.Slides może odczytywać i zapisywać kontrolki, wraz z ich właściwościami i pozycjami, bez ich aktywacji.
 
-**Czym różnią się kontrolki ActiveX od obiektów OLE w prezentacji?**
+**Czym różnią się kontrolki ActiveX od obiektów OLE?**
 
-Kontrolki ActiveX są interaktywnymi kontrolkami zarządzanymi (przyciski, pola tekstowe, odtwarzacz multimediów), natomiast [OLE](/slides/pl/python-java/manage-ole/) odnosi się do osadzonych obiektów aplikacji (na przykład arkusza Excel). Są przechowywane i obsługiwane inaczej oraz posiadają odrębne modele właściwości.
+Kontrolki ActiveX pozwalają użytkownikom na interakcję ze slajdem, na przykład poprzez wprowadzanie tekstu lub klikanie przycisku. [Obiekt OLE](/slides/pl/python-java/manage-ole/) umożliwia slajdowi zawieranie lub łączenie się z treścią zarządzaną przez inną aplikację, taką jak arkusz Excel.
 
-**Czy zdarzenia ActiveX i makra VBA działają, jeśli plik został zmodyfikowany przez Aspose.Slides?**
+**Czy zdarzenia ActiveX nadal wywołają makra VBA po zapisaniu prezentacji przy użyciu Aspose.Slides?**
 
-Aspose.Slides zachowuje istniejący znacznik i metadane; jednak zdarzenia i makra działają wyłącznie w PowerPoint na systemie Windows, gdy pozwala na to zabezpieczenie. Biblioteka nie wykonuje VBA.
+Zapisz prezentację w formacie obsługującym makra, takim jak PPTM, aby zachować projekt VBA. PowerPoint dla systemu Windows może uruchomić istniejące obsługi zdarzeń, gdy ustawienia zabezpieczeń zezwalają zarówno na kontrolki ActiveX, jak i makra.

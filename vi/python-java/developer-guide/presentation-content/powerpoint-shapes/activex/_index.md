@@ -1,5 +1,5 @@
 ---
-title: Quản lý các điều khiển ActiveX trong bản trình bày bằng Python
+title: Quản lý các điều khiển ActiveX trong bản trình chiếu bằng Python
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -12,26 +12,18 @@ keywords:
 - chỉnh sửa ActiveX
 - trình phát media
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Tìm hiểu cách Aspose.Slides for Python qua Java sử dụng ActiveX để tự động hóa và cải thiện các bản trình bày PowerPoint, cung cấp cho các nhà phát triển khả năng kiểm soát mạnh mẽ đối với các slide."
+description: "Chỉnh sửa các hộp văn bản và nút ActiveX, cập nhật bản xem trước của điều khiển, và tái sử dụng điều khiển Windows Media Player trong các bản trình chiếu PowerPoint với Aspose.Slides cho Python qua Java."
 ---
 ## **Giới thiệu**
 
-Các điều khiển ActiveX được sử dụng trong bản trình bày. Aspose.Slides for Python via Java cho phép bạn thêm và quản lý các điều khiển ActiveX, nhưng chúng phức tạp hơn một chút so với các hình dạng thông thường trong bản trình bày. Aspose.Slides hỗ trợ thêm các điều khiển Media Player ActiveX. Lưu ý rằng các điều khiển ActiveX không phải là hình dạng; chúng không thuộc [ShapeCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shapecollection/). Thay vào đó chúng thuộc [ControlCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/controlcollection/) riêng. Trong chủ đề này, chúng tôi sẽ hướng dẫn cách làm việc với chúng.
+Các điều khiển ActiveX cung cấp cho một slide PowerPoint các yếu tố tương tác như hộp văn bản, nút lệnh và trình phát phương tiện. Aspose.Slides for Python qua Java cung cấp các điều khiển của một slide thông qua [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls). Sử dụng bộ sưu tập này để chỉnh sửa một điều khiển, di chuyển nó trên slide hoặc xóa nó.
 
-## **Thêm điều khiển Media Player ActiveX vào một Slide**
+## **Liệt kê các Điều khiển ActiveX và Thuộc tính Được Lưu Trữ**
 
-Để thêm một điều khiển Media Player ActiveX, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) và tạo một bản trình bày trống.
-1. Truy cập slide mục tiêu trong [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-1. Thêm điều khiển Media Player ActiveX bằng phương thức [addControl](https://reference.aspose.com/slides/vi/python-java/aspose.slides/controlcollection/#addControl) được cung cấp bởi [ControlCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/controlcollection/).
-1. Truy cập điều khiển Media Player ActiveX và đặt đường dẫn video bằng cách sử dụng các thuộc tính của nó.
-1. Lưu bản trình bày dưới dạng tệp PPTX.
-
-Mã mẫu, dựa trên các bước trên, cho thấy cách thêm một điều khiển Media Player ActiveX vào slide:
+Để kiểm tra một mẫu không quen thuộc, mở nó để đọc và lặp lại các điều khiển trên mỗi slide. Ví dụ báo cáo số slide, tên điều khiển, [getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId), và mỗi cặp khóa-giá trị trong [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties). Nó đọc bản trình chiếu mà không kích hoạt các điều khiển, gọi sự kiện hay macro, thay đổi giá trị, hoặc lưu tệp.
 
 ```python
 import jpype
@@ -40,45 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# Tạo một bản trình bày trống.
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # Thêm điều khiển Media Player ActiveX.
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # Đặt đường dẫn video.
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # Lưu bản trình bày.
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
-## **Chỉnh sửa một điều khiển ActiveX**
+Kết quả đã chọn từ `ActiveX.pptm` hiển thị một hộp văn bản và một nút lệnh.
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java cung cấp các thành phần để quản lý các điều khiển ActiveX. Bạn có thể truy cập điều khiển ActiveX đã được thêm vào bản trình bày và chỉnh sửa hoặc xóa nó thông qua các thuộc tính của nó.
-{{% /alert %}}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-Để quản lý một điều khiển ActiveX đơn giản như hộp văn bản và nút lệnh đơn giản trên slide, thực hiện các bước sau:
+Một bộ sưu tập thuộc tính rỗng hiển thị dưới dạng `[]`. Đối với các điều khiển sử dụng lưu trữ nhị phân, [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) có thể trả về `None`, được hiển thị là `Properties unavailable`. Nếu bạn chỉ cần tên, hãy sử dụng [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) sau khi kiểm tra bộ sưu tập có sẵn. Báo cáo liệt kê các thuộc tính có sẵn trong bản trình chiếu. Một điều khiển có thể hỗ trợ các thuộc tính bổ sung tại thời gian chạy.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) và tải bản trình bày có các điều khiển ActiveX.
-1. Lấy tham chiếu slide theo chỉ mục của nó.
-1. Truy cập các điều khiển ActiveX trong slide bằng cách truy cập [ControlCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/controlcollection/).
-1. Truy cập điều khiển ActiveX TextBox1 bằng đối tượng [Control](https://reference.aspose.com/slides/vi/python-java/aspose.slides/control/).
-1. Thay đổi các thuộc tính của điều khiển ActiveX TextBox1 bao gồm văn bản, phông chữ, chiều cao phông và vị trí khung.
-1. Truy cập điều khiển ActiveX thứ hai có tên CommandButton1.
-1. Thay đổi chú thích nút, phông chữ và vị trí.
-1. Di chuyển vị trí khung của các điều khiển ActiveX.
-1. Ghi bản trình bày đã chỉnh sửa ra tệp PPTM.
+## **Chỉnh sửa các Điều khiển ActiveX**
 
-Mã mẫu, dựa trên các bước trên, cho thấy cách quản lý một điều khiển ActiveX đơn giản:
+Ví dụ này yêu cầu một bản trình chiếu cho phép macro có một hộp văn bản tên `TextBox1` và một nút lệnh tên `CommandButton1` trên slide đầu tiên. Nó sử dụng [control properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) để thay đổi giá trị hộp văn bản và chú thích nút. Mỗi điều khiển cũng có một bản xem trước tĩnh mà PowerPoint có thể hiển thị trước khi kích hoạt. Cung cấp một tệp PNG cho mỗi điều khiển hiển thị văn bản và giao diện đã cập nhật. Ví dụ gán các hình ảnh này thông qua [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat).
+
+Ví dụ di chuyển mọi điều khiển trên slide đầu tiên xuống dưới 100 điểm bằng cách đặt khung của chúng bằng [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame). Nó lưu bản trình chiếu đã chỉnh sửa ở định dạng PPTM, sau đó sử dụng [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) để lưu một bản sao thứ hai với tất cả các điều khiển ActiveX đã bị xóa khỏi slide đó.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -86,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# Tải bản trình bày có các điều khiển ActiveX.
 presentation = Presentation("ActiveX.pptm")
 try:
-        if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-                # Truy cập slide đầu tiên.
-                slide = presentation.getSlides().get_Item(0)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
+    else:
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
 
-                # Thay đổi văn bản của hộp văn bản.
-                control = slide.getControls().get_Item(0)
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
 
-                if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-                        new_text = "Changed text"
-                        control.getProperties().set_Item("Value", new_text)
-
-                        # Thay đổi hình ảnh thay thế. PowerPoint sẽ thay thế nó trong quá trình kích hoạt ActiveX,
-                        # do đó đôi khi có thể để nguyên.
-                        image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-                        graphics = image.getGraphics()
-                        graphics.setColor(SystemColor.window)
-                        graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-                        font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-                        graphics.setColor(SystemColor.windowText)
-                        graphics.setFont(font)
-                        graphics.drawString(new_text, 10, 20)
-
-                        graphics.setColor(SystemColor.controlShadow)
-                        graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-                        graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-                        graphics.setColor(SystemColor.controlDkShadow)
-                        graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-                        graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-                        graphics.setColor(SystemColor.controlHighlight)
-                        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-                        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-                        graphics.setColor(SystemColor.controlLtHighlight)
-                        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-                        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-                        graphics.dispose()
-
-                        image_stream = ByteArrayOutputStream()
-                        ImageIO.write(image, "PNG", image_stream)
-
-                        image_bytes = image_stream.toByteArray()
-                        substitute_image = presentation.getImages().addImage(image_bytes)
-                        control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-                # Thay đổi chú thích nút.
-                control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-                if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-                        new_caption = "Show MessageBox"
-                        control.getProperties().set_Item("Caption", new_caption)
-                        # Thay đổi hình ảnh thay thế.
-                        image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-                        graphics = image.getGraphics()
-                        graphics.setColor(SystemColor.control)
-                        graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-                        font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-                        graphics.setColor(SystemColor.windowText)
-                        graphics.setFont(font)
-                        metrics = graphics.getFontMetrics(font)
-                        graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-                        graphics.setColor(SystemColor.controlLtHighlight)
-                        graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-                        graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-                        graphics.setColor(SystemColor.controlHighlight)
-                        graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-                        graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-                        graphics.setColor(SystemColor.controlShadow)
-                        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-                        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-                        graphics.setColor(SystemColor.controlDkShadow)
-                        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-                        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-                        graphics.dispose()
-
-                        image_stream = ByteArrayOutputStream()
-                        ImageIO.write(image, "PNG", image_stream)
-
-                        image_bytes = image_stream.toByteArray()
-                        substitute_image = presentation.getImages().addImage(image_bytes)
-                        control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-                # Di chuyển các điều khiển xuống dưới 100 điểm.
-                for control in slide.getControls():
-                        frame = control.getFrame()
-                        new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-                        control.setFrame(new_frame)
-                presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-                # Xóa các điều khiển.
-                presentation.getSlides().get_Item(0).getControls().clear()
-                presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
-        else:
-                print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
-        presentation.dispose()
+    presentation.dispose()
 ```
 
-## **Câu hỏi thường gặp**
+## **Thêm một Điều khiển Trình phát Media ActiveX**
 
-**Aspose.Slides có giữ lại các điều khiển ActiveX khi đọc và lưu lại nếu chúng không thể thực thi trong môi trường Python không?**
+Để tái sử dụng một điều khiển Windows Media Player đã cấu hình, bắt đầu với một mẫu mà slide đầu tiên chứa một trình phát tên `WindowsMediaPlayer1`. [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) sao chép toàn bộ slide vào một bản trình chiếu mới. Ví dụ đặt `URL` của trình phát trong [properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) và lưu slide đã sao chép làm slide duy nhất trong đầu ra. Video vẫn ở dạng bên ngoài, vì vậy hãy chọn một đường dẫn mà trình phát có thể truy cập trong quá trình phát.
 
-Có. Aspose.Slides coi chúng là một phần của bản trình bày và có thể đọc/điều chỉnh các thuộc tính và khung của chúng; không cần thực thi các điều khiển để giữ chúng.
+```python
+import jpype
+import asposeslides
 
-**Các điều khiển ActiveX khác gì so với đối tượng OLE trong bản trình bày?**
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-ActiveX là các điều khiển tương tác được quản lý (nút, hộp văn bản, trình phát media), trong khi [OLE](/slides/vi/python-java/manage-ole/) đề cập đến các đối tượng ứng dụng được nhúng (ví dụ, một bảng tính Excel). Chúng được lưu trữ và xử lý khác nhau và có mô hình thuộc tính khác nhau.
+from asposeslides.api import Presentation, SaveFormat
 
-**Các sự kiện ActiveX và macro VBA có hoạt động nếu tệp đã được Aspose.Slides chỉnh sửa không?**
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
 
-Aspose.Slides giữ nguyên markup và siêu dữ liệu hiện có; tuy nhiên, các sự kiện và macro chỉ chạy trong PowerPoint trên Windows khi bảo mật cho phép. Thư viện không thực thi VBA.
+## **FAQ**
+
+**Aspose.Slides có thể giữ nguyên các điều khiển ActiveX mà không chạy chúng không?**
+
+Có. Aspose.Slides có thể đọc và lưu các điều khiển, bao gồm thuộc tính và vị trí của chúng, mà không kích hoạt chúng.
+
+**Các điều khiển ActiveX khác gì so với đối tượng OLE?**
+
+Các điều khiển ActiveX cho phép người dùng tương tác với slide, ví dụ nhập văn bản hoặc nhấn nút. Một [OLE object](/slides/vi/python-java/manage-ole/) cho phép slide chứa hoặc liên kết tới nội dung được quản lý bởi một ứng dụng khác, chẳng hạn như một bảng tính Excel.
+
+**Các sự kiện ActiveX sẽ vẫn kích hoạt macro VBA sau khi tôi lưu bản trình chiếu bằng Aspose.Slides không?**
+
+Lưu bản trình chiếu ở định dạng hỗ trợ macro như PPTM để giữ lại dự án VBA. PowerPoint cho Windows có thể chạy các trình xử lý sự kiện hiện có khi cài đặt bảo mật cho phép cả điều khiển ActiveX và macro.

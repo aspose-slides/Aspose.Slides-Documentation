@@ -1,5 +1,5 @@
 ---
-title: Quản lý các điều khiển ActiveX trong bản trình bày với Python
+title: Quản lý các điều khiển ActiveX trong bản trình chiếu bằng Python
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -12,212 +12,118 @@ keywords:
 - sửa đổi ActiveX
 - trình phát media
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Tìm hiểu cách Aspose.Slides for Python via .NET tận dụng ActiveX để tự động hoá và nâng cao các bản trình bày PowerPoint, cung cấp cho các nhà phát triển khả năng kiểm soát mạnh mẽ các slide."
+description: "Chỉnh sửa hộp văn bản và nút ActiveX, cập nhật bản xem trước của điều khiển, và tái sử dụng điều khiển Windows Media Player trong các bản trình chiếu PowerPoint với Aspose.Slides cho Python qua .NET."
 ---
 ## **Giới thiệu**
 
-Các điều khiển ActiveX được sử dụng trong các bản trình bày. Aspose.Slides for Python via .NET cho phép bạn quản lý các điều khiển ActiveX, nhưng việc quản lý chúng hơi phức tạp hơn và khác so với các hình dạng bình thường trong bản trình bày. Từ Aspose.Slides for Python via .NET 6.9.0, thành phần hỗ trợ quản lý các điều khiển ActiveX. Hiện tại, bạn có thể truy cập các điều khiển ActiveX đã được thêm vào bản trình bày và sửa đổi hoặc xóa chúng bằng cách sử dụng các thuộc tính khác nhau. Hãy nhớ, các điều khiển ActiveX không phải là hình dạng và không thuộc IShapeCollection của bản trình bày mà là IControlCollection riêng biệt. Bài viết này trình bày cách làm việc với chúng.
+Các điều khiển ActiveX cung cấp cho một slide PowerPoint các yếu tố tương tác như hộp văn bản, nút lệnh và trình phát phương tiện. Aspose.Slides for Python qua .NET cho phép truy cập các điều khiển của slide thông qua [Slide.controls](https://reference.aspose.com/slides/python-net/aspose.slides/slide/controls/). Sử dụng bộ sưu tập này để chỉnh sửa một điều khiển, di chuyển nó trên slide, hoặc xóa nó.
+
+## **Liệt kê các điều khiển ActiveX và các thuộc tính đã lưu**
+
+Để kiểm tra một mẫu không quen thuộc, mở nó để đọc và duyệt qua các điều khiển trên mỗi slide. Ví dụ báo cáo số slide, tên điều khiển, [class_id](https://reference.aspose.com/slides/python-net/aspose.slides/control/class_id/), và mỗi cặp khóa-giá trị trong [properties](https://reference.aspose.com/slides/python-net/aspose.slides/control/#properties). Nó đọc bản trình chiếu mà không kích hoạt các điều khiển, gọi sự kiện hoặc macro, thay đổi giá trị, hoặc lưu tệp.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("ActiveX.pptm") as presentation:
+    for slide_number, slide in enumerate(presentation.slides, start=1):
+        for control in slide.controls:
+            print(f"Slide {slide_number} | {control.name} | {control.class_id}")
+            properties = control.properties
+            if properties is None:
+                print("  Properties unavailable")
+                continue
+
+            if properties.count == 0:
+                print("  []")
+            for entry in properties:
+                print(f"  {entry.key} = {entry.value}")
+```
+
+Kết quả được chọn từ `ActiveX.pptm` hiển thị một hộp văn bản và một nút lệnh.
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+Một bộ sưu tập thuộc tính rỗng hiển thị dưới dạng `[]`. Đối với các điều khiển sử dụng lưu trữ nhị phân, `properties` có thể trả về `None`, được hiển thị là `Properties unavailable`. Nếu bạn chỉ cần tên, hãy sử dụng [names_of_properties](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/names_of_properties/) sau khi kiểm tra `None`. Báo cáo liệt kê các thuộc tính có sẵn từ bản trình chiếu. Một điều khiển có thể hỗ trợ các thuộc tính bổ sung tại thời gian chạy.
 
 ## **Sửa đổi các điều khiển ActiveX**
-Để quản lý một điều khiển ActiveX đơn giản như hộp văn bản và nút lệnh đơn giản trên một slide:
 
-1. Tạo một thể hiện của lớp Presentation và tải bản trình bày có các điều khiển ActiveX.
-1. Lấy tham chiếu slide bằng chỉ mục của nó.
-1. Truy cập các điều khiển ActiveX trong slide bằng cách truy cập IControlCollection.
-1. Truy cập điều khiển ActiveX TextBox1 bằng đối tượng ControlEx.
-1. Thay đổi các thuộc tính khác nhau của điều khiển ActiveX TextBox1 bao gồm văn bản, phông chữ, độ cao phông và vị trí khung.
-1. Truy cập điều khiển truy cập thứ hai có tên CommandButton1.
-1. Thay đổi chú thích nút, phông chữ và vị trí.
-1. Di chuyển vị trí của các khung điều khiển ActiveX.
-1. Ghi bản trình bày đã sửa đổi vào tệp PPTX.
+Ví dụ yêu cầu một bản trình chiếu bật macro có một hộp văn bản tên `TextBox1` và một nút lệnh tên `CommandButton1` trên slide đầu tiên. Nó sử dụng [control properties collection](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) để thay đổi giá trị hộp văn bản và tiêu đề nút. Mỗi điều khiển cũng có một bản xem trước tĩnh mà PowerPoint có thể hiển thị trước khi kích hoạt. Cung cấp một tệp PNG cho mỗi điều khiển để hiển thị văn bản và ngoại hình đã cập nhật. Ví dụ gán các hình ảnh này thông qua [Control.substitute_picture_format](https://reference.aspose.com/slides/python-net/aspose.slides/control/substitute_picture_format/).
 
-Đoạn mã dưới đây cập nhật các điều khiển ActiveX trên các slide của bản trình bày như được hiển thị bên dưới.
+Ví dụ di chuyển mọi điều khiển trên slide đầu tiên xuống 100 điểm bằng cách thay đổi [frame](https://reference.aspose.com/slides/python-net/aspose.slides/control/frame/). Nó lưu bản trình chiếu đã chỉnh sửa ở định dạng PPTM, sau đó sử dụng [ControlCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides/controlcollection/clear/) để lưu một bản sao thứ hai với tất cả các điều khiển ActiveX đã được xóa khỏi slide đó.
 
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-import io
+```python
+from pathlib import Path
 
-# Truy cập bản trình bày có các điều khiển ActiveX
-with slides.Presentation(path + "ActiveX.pptm") as presentation:
-    # Truy cập slide đầu tiên trong bản trình bày
-    slide = presentation.slides[0]
-
-    # thay đổi văn bản TextBox
-    control = slide.controls[0]
-
-    if control.name == "TextBox1" and control.properties != None:
-        newText = "Changed text"
-        control.properties.remove("Value")
-        control.properties.add("Value", newText)
-
-        # thay đổi hình ảnh thay thế. PowerPoint sẽ thay thế hình ảnh này trong quá trình kích hoạt ActiveX, vì vậy đôi khi có thể để nguyên hình ảnh.
-
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            # font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                graphics.draw_string(newText, font, brush, 10, 4)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, [
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [
-                        draw.PointF(1, bmp.height - 1), 
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1)])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen,
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-
-    # thay đổi chú thích nút
-    control = slide.controls[1]
-
-    if control.name == "CommandButton1" and control.properties != None:
-        newCaption = "MessageBox"
-        control.properties.remove("Caption")
-        control.properties.add("Caption", newCaption)
-
-        # thay đổi thay thế
-        bmp = draw.Bitmap(control.frame.width, control.frame.height)
-        with draw.Graphics.from_image(bmp) as graphics:
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.CONTROL)) as brush:
-                graphics.fill_rectangle(brush, 0, 0, bmp.width, bmp.height)
-
-            #font = draw.Font(control.properties["FontName"], 14)
-            font = draw.Font("Arial", 14)
-            with draw.SolidBrush(draw.Color.from_known_color(draw.KnownColor.WINDOW_TEXT)) as brush:
-                textSize = graphics.measure_string(newCaption, font, 65535)
-                graphics.draw_string(newCaption, font, brush, 
-                    (bmp.width - textSize.width) / 2, 
-                    (bmp.height - textSize.height) / 2)
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height - 1), 
-                        draw.PointF(0, 0), 
-                        draw.PointF(bmp.width - 1, 0) ])
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_LIGHT), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 2), 
-                        draw.PointF(1, 1), 
-                        draw.PointF(bmp.width - 2, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, bmp.height - 1),
-                        draw.PointF(bmp.width - 1, 1) ])
-
-            with draw.Pen(draw.Color.from_known_color(draw.KnownColor.CONTROL_DARK_DARK), 1) as pen:
-                graphics.draw_lines(pen, 
-                    [ 
-                        draw.PointF(0, bmp.height), 
-                        draw.PointF(bmp.width, bmp.height), 
-                        draw.PointF(bmp.width, 0) ])
-
-        bmp_bytes = io.BytesIO()
-        bmp.save(bmp_bytes, drawing.imaging.ImageFormat.png)
-        control.substitute_picture_format.picture.image = presentation.images.add_image(bmp_bytes)
-    
-    # Di chuyển khung ActiveX xuống 100 điểm
-    for ctl in slide.controls:
-        frame = control.frame
-        control.frame = slides.ShapeFrame(
-            frame.x, 
-            frame.y + 100, 
-            frame.width, 
-            frame.height, 
-            frame.flip_h, 
-            frame.flip_v, 
-            frame.rotation)
-
-    # Lưu bản trình bày với các điều khiển ActiveX đã chỉnh sửa
-    presentation.save("withActiveX-edited_out.pptm", slides.export.SaveFormat.PPTM)
-
-
-    # Bây giờ loại bỏ các điều khiển
-    slide.controls.clear()
-
-    # Lưu bản trình bày với các điều khiển ActiveX đã xóa
-    presentation.save("withActiveX.cleared_out.pptm", slides.export.SaveFormat.PPTM)
-```
-
-## **Thêm điều khiển Media Player ActiveX**
-Để thêm điều khiển Media Player ActiveX, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp Presentation và tải bản trình bày mẫu có các điều khiển Media Player ActiveX.
-1. Tạo một thể hiện của lớp Presentation đích và tạo một bản trình bày trống.
-1. Sao chép slide có điều khiển Media Player ActiveX trong bản trình bày mẫu sang Presentation đích.
-1. Truy cập slide đã sao chép trong Presentation đích.
-1. Truy cập các điều khiển ActiveX trong slide bằng cách truy cập IControlCollection.
-1. Truy cập điều khiển Media Player ActiveX và đặt đường dẫn video bằng cách sử dụng các thuộc tính của nó.
-1. Lưu bản trình bày vào tệp PPTX.
-
-```py
 import aspose.slides as slides
 
-# Tạo đối tượng lớp Presentation đại diện cho tệp PPTX
-with slides.Presentation(path + "template.pptx") as presentation:
+with slides.Presentation("ActiveX.pptm") as presentation:
+    controls = presentation.slides[0].controls
+    text_box = next((control for control in controls if control.name == "TextBox1"), None)
+    button = next((control for control in controls if control.name == "CommandButton1"), None)
+    text_box_preview = Path("text-box-preview.png")
+    button_preview = Path("button-preview.png")
 
-    # Tạo một đối tượng bản trình bày trống
-    with slides.Presentation() as newPresentation:
+    if text_box is None or button is None or text_box.properties is None or button.properties is None:
+        print("The first slide must contain both named controls with editable properties.")
+    elif not text_box_preview.is_file() or not button_preview.is_file():
+        print("Supply both preview images before updating the controls.")
+    else:
+        text_box.properties.remove("Value")
+        text_box.properties.add("Value", "Changed text")
+        button.properties.remove("Caption")
+        button.properties.add("Caption", "Show message")
 
-        # Xóa slide mặc định
-        newPresentation.slides.remove_at(0)
+        for control, preview in [(text_box, text_box_preview), (button, button_preview)]:
+            image_data = preview.read_bytes()
+            control.substitute_picture_format.picture.image = presentation.images.add_image(image_data)
 
-        # Sao chép slide có điều khiển Media Player ActiveX
-        newPresentation.slides.insert_clone(0, presentation.slides[0])
+        for control in controls:
+            frame = control.frame
+            control.frame = slides.ShapeFrame(frame.x, frame.y + 100, frame.width, frame.height, frame.flip_h, frame.flip_v, frame.rotation)
 
-        # Truy cập điều khiển Media Player ActiveX và đặt đường dẫn video
-        prop = newPresentation.slides[0].controls[0].properties
-
-        prop.remove("URL")
-        prop.add("URL", "Wildlife.mp4")
-
-        # Lưu bản trình bày
-        newPresentation.save("LinkingVideoActiveXControl_out.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("edited-controls.pptm", slides.export.SaveFormat.PPTM)
+        controls.clear()
+        presentation.save("removed-controls.pptm", slides.export.SaveFormat.PPTM)
 ```
 
-## **FAQ**
+## **Thêm một điều khiển Media Player ActiveX**
 
-**Aspose.Slides có giữ nguyên các điều khiển ActiveX khi đọc và lưu lại nếu chúng không thể thực thi trong môi trường Python không?**
+Để tái sử dụng một điều khiển Windows Media Player đã được cấu hình, bắt đầu với một mẫu mà slide đầu tiên chứa một trình phát có tên `WindowsMediaPlayer1`. [SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) sao chép toàn bộ slide vào một bản trình chiếu mới. Ví dụ đặt `URL` của trình phát trong [properties collection](https://reference.aspose.com/slides/python-net/aspose.slides/controlpropertiescollection/) và lưu slide đã sao chép làm slide duy nhất trong kết quả. Video vẫn ở ngoài, vì vậy chọn một đường dẫn mà trình phát có thể truy cập trong quá trình phát.
 
-Có. Aspose.Slides coi chúng là một phần của bản trình bày và có thể đọc/điều chỉnh các thuộc tính và khung của chúng; việc thực thi các điều khiển không cần thiết để giữ chúng.
+```python
+import aspose.slides as slides
 
-**Các điều khiển ActiveX khác gì so với các đối tượng OLE trong bản trình bày?**
+with slides.Presentation("template.pptx") as template, slides.Presentation() as presentation:
+    slide = presentation.slides.add_clone(template.slides[0])
+    player = next((control for control in slide.controls if control.name == "WindowsMediaPlayer1"), None)
 
-Các điều khiển ActiveX là các điều khiển tương tác được quản lý (nút, hộp văn bản, trình phát media), trong khi [OLE](/slides/vi/python-net/manage-ole/) đề cập đến các đối tượng ứng dụng nhúng (ví dụ, một bảng tính Excel). Chúng được lưu và xử lý một cách khác nhau và có các mô hình thuộc tính khác nhau.
+    if player is None or player.properties is None:
+        print("The template slide must contain a named media player with editable properties.")
+    else:
+        player.properties.remove("URL")
+        player.properties.add("URL", "Wildlife.mp4")
+        presentation.slides.remove_at(0)
+        presentation.save("linked-video.pptx", slides.export.SaveFormat.PPTX)
+```
 
-**Các sự kiện ActiveX và macro VBA có hoạt động nếu tệp đã được Aspose.Slides sửa đổi không?**
+## **Câu hỏi thường gặp**
 
-Aspose.Slides giữ nguyên markup và metadata hiện có; tuy nhiên, các sự kiện và macro chỉ chạy trong PowerPoint trên Windows khi bảo mật cho phép. Thư viện không thực thi VBA.
+**Aspose.Slides có thể giữ nguyên các điều khiển ActiveX mà không chạy chúng không?**  
+Có. Aspose.Slides có thể đọc và lưu các điều khiển, bao gồm thuộc tính và vị trí của chúng, mà không kích hoạt chúng.
+
+**Các điều khiển ActiveX khác biệt như thế nào so với đối tượng OLE?**  
+Các điều khiển ActiveX cho phép người dùng tương tác với một slide, ví dụ bằng cách nhập văn bản hoặc nhấn nút. Một [OLE object](/slides/vi/python-net/manage-ole/) cho phép slide chứa hoặc liên kết tới nội dung được quản lý bởi một ứng dụng khác, chẳng hạn như một bảng tính Excel.
+
+**Các sự kiện ActiveX vẫn sẽ kích hoạt macro VBA sau khi tôi lưu bản trình chiếu bằng Aspose.Slides không?**  
+Lưu bản trình chiếu ở định dạng bật macro như PPTM để giữ lại dự án VBA của nó. PowerPoint cho Windows có thể chạy các trình xử lý sự kiện hiện có khi cài đặt bảo mật cho phép cả điều khiển ActiveX và macro.

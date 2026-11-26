@@ -1,5 +1,5 @@
 ---
-title: ActiveX vezérlők kezelése prezentációkban C++-al
+title: ActiveX vezérlők kezelése prezentációkban C++ használatával
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -15,166 +15,202 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan használja az Aspose.Slides for C++ az ActiveX-et a PowerPoint prezentációk automatizálására és fejlesztésére, lehetővé téve a fejlesztők számára a diák hatékony irányítását."
+description: "Szerkessze az ActiveX szövegdobozokat és gombokat, frissítse a vezérlő előnézeteket, valamint használja újra a Windows Media Player vezérlőt PowerPoint prezentációkban az Aspose.Slides for C++ segítségével."
 ---
 ## **Bevezetés**
 
-Az ActiveX vezérlőket prezentációkban használják. Az Aspose.Slides for C++ lehetővé teszi az ActiveX vezérlők kezelését, de ezek kezelése valamivel bonyolultabb és különbözik a normál prezentációs alakzatoktól. Az Aspose.Slides for C++ 18.1 verziótól a komponens támogatja az ActiveX vezérlők kezelését. Jelenleg elérheted a prezentációban már hozzáadott ActiveX vezérlőket, és a különféle tulajdonságaik használatával módosíthatod vagy törölheted őket. Ne feledd, az ActiveX vezérlők nem alakzatok, és nem részei a prezentáció IShapeCollection gyűjteményének, hanem egy külön IControlCollection-nek. Ez a cikk bemutatja, hogyan dolgozhatsz velük.
+Az ActiveX vezérlők interaktív elemeket adnak a PowerPoint diához, például szövegdobozokat, parancsgombokat és médialejátszókat. Az Aspose.Slides for C++ a dia vezérlőit a [IBaseSlide::get_Controls](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_controls/) segítségével teszi elérhetővé. Használja ezt a gyűjteményt egy vezérlő szerkesztéséhez, áthelyezéséhez a dián, vagy eltávolításához.
 
-## **ActiveX vezérlő módosítása**
-Egyszerű ActiveX vezérlő, például egy szövegmező és egy egyszerű parancsgomb kezelése egy dián:
+## **ActiveX vezérlők listázása és tárolt tulajdonságaik**
 
-1. Hozz létre egy Presentation osztálypéldányt, és töltsd be a benne ActiveX vezérlőket tartalmazó prezentációt.  
-1. Szerezz be egy diára mutató hivatkozást az indexe alapján.  
-1. Érd el a dián lévő ActiveX vezérlőket az IControlCollection elérésével.  
-1. A ControlEx objektum segítségével érj hozzá a TextBox1 ActiveX vezérlőhöz.  
-1. Módosítsd a TextBox1 ActiveX vezérlő különböző tulajdonságait, beleértve a szöveget, betűtípust, betűmagasságot és a keret pozícióját.  
-1. Érd el a második vezérlőt, a CommandButton1-et.  
-1. Módosítsd a gomb feliratát, betűtípusát és pozícióját.  
-1. Áthelyezd az ActiveX vezérlők kereteinek pozícióját.  
-1. Írd a módosított prezentációt PPTX fájlba.  
+Egy ismeretlen sablon ellenőrzéséhez nyissa meg olvasásra, és iteráljon végig a diákon lévő vezérlőkön. A példa jelentést készít a dia számáról, a vezérlő nevéről, a [class ID](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_classid/) értékről, valamint minden kulcs-ertek párról a [stored properties](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_properties/) gyűjteményben. A prezentációt anélkül olvassa be, hogy a vezérlőket aktiválná, eseményeket vagy makrókat hívna meg, értékeket változtatna, vagy a fájlt mentené.
 
-Az alábbi kódrészlet frissíti a prezentáció diáin lévő ActiveX vezérlőket a lent látható diához.
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/guid.h>
 
-``` cpp
-// A prezentáció elérése ActiveX vezérlőkkel
-auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
+using namespace Aspose::Slides;
+using namespace System;
 
-// Az első dia elérése a prezentációban
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
 
-// changing TextBox text
-auto control = slide->get_Controls()->idx_get(0);
-
-if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
+for (auto i = 0; i < presentation->get_Slides()->get_Count(); ++i)
 {
-    String newText = u"Changed text";
-    control->get_Properties()->idx_set(u"Value", newText);
+    auto controls = presentation->get_Slide(i)->get_Controls();
+    for (auto j = 0; j < controls->get_Count(); ++j)
+    {
+        auto control = controls->idx_get(j);
+        Console::WriteLine(u"Slide {0} | {1} | {2}", i + 1, control->get_Name(), control->get_ClassId().ToString());
+        auto properties = control->get_Properties();
+        if (!properties)
+        {
+            Console::WriteLine(u"  Properties unavailable");
+            continue;
+        }
 
-    // helyettesítő kép módosítása. A PowerPoint kicseréli ezt a képet az ActiveX aktiválásakor, ezért néha rendben van, ha a képet változatlanul hagyjuk.
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
+        if (properties->get_Count() == 0)
+            Console::WriteLine(u"  []");
 
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    graphics->DrawString(newText, font, brush, 10.0f, 4.0f);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
+        auto entries = properties->GetEnumerator();
+        while (entries->MoveNext())
+        {
+            auto property = entries->get_Current();
+            Console::WriteLine(u"  {0} = {1}", property.get_Key(), property.get_Value());
+        }
+    }
 }
-
-// A gomb feliratának módosítása
-control = slide->get_Controls()->idx_get(1);
-
-if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
-{
-    String newCaption = u"MessageBox";
-    control->get_Properties()->idx_set(u"Caption", newCaption);
-
-    // helyettesítő módosítása
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
-
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    SizeF textSize = graphics->MeasureString(newCaption, font, std::numeric_limits<int32_t>::max());
-    graphics->DrawString(newCaption, font, brush, (image->get_Width() - textSize.get_Width()) / 2, (image->get_Height() - textSize.get_Height()) / 2);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
-}
-
-// ActiveX keretek mozgatása 100 ponttal lefelé
-for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
-{
-    SharedPtr<IShapeFrame> frame = control->get_Frame();
-    control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
-}
-
-// A prezentáció mentése módosított ActiveX vezérlőkkel
-presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
-
-// Most a vezérlők eltávolítása
-slide->get_Controls()->Clear();
-
-// A prezentáció mentése törölt ActiveX vezérlőkkel
-presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
-## **Média lejátszó ActiveX vezérlő hozzáadása**
-Az ActiveX vezérlőket prezentációkban használják. Az Aspose.Slides for C++ lehetővé teszi az ActiveX vezérlők hozzáadását és kezelését, de ezek kezelése valamivel bonyolultabb és eltér a normál prezentációs alakzatoktól. Az Aspose.Slides for C++ 18.1 verziótól kezdve támogatott a Media Player ActiveX vezérlő hozzáadása. Ne feledd, az ActiveX vezérlők nem alakzatok, és nem részei a prezentáció IShapeCollection gyűjteményének, hanem egy külön IControlExCollection-nek. Ez a cikk bemutatja, hogyan dolgozhatsz velük. Egy Media Player ActiveX vezérlő kezeléséhez hajtsd végre a következő lépéseket:
+A `ActiveX.pptm` kiválasztott kimenete egy szövegdobozt és egy parancsgombot mutat.
 
-1. Hozz létre egy Presentation osztálypéldányt, és töltsd be a Media Player ActiveX vezérlőket tartalmazó minta prezentációt.  
-1. Hozz létre egy cél Presentation osztálypéldányt, és generálj egy üres prezentációt.  
-1. Klónozd a sablon prezentációban a Media Player ActiveX vezérlőt tartalmazó diát a cél Presentation-be.  
-1. Érd el a klónozott diát a cél Presentation-ben.  
-1. Érd el a dián lévő ActiveX vezérlőket az IControlCollection elérésével.  
-1. Érd el a Media Player ActiveX vezérlőt, és állítsd be a videó útvonalát a tulajdonságai segítségével.  
-1. Mentsd a prezentációt PPTX fájlba.  
-
-``` cpp
-// A Presentation osztály példányosítása, amely PPTX fájlt képvisel
-auto presentation = System::MakeObject<Presentation>(u"template.pptx");
-
-// Üres prezentáció példány létrehozása
-auto newPresentation = System::MakeObject<Presentation>();
-
-// Alapértelmezett dia eltávolítása
-newPresentation->get_Slides()->RemoveAt(0);
-
-// Média lejátszó ActiveX vezérlővel rendelkező dia klónozása
-newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
-
-// A Media Player ActiveX vezérlő elérése és a videó útvonalának beállítása
-newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
-
-// A prezentáció mentése
-newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
-## **GYIK**
+Egy üres tulajdonsággyűjtemény `[]` formában jelenik meg. Azoknál a vezérlőknél, amelyek bináris tárolást használnak, a `get_Properties` visszaadhat `nullptr` értéket, amelyet a `Properties unavailable` jelöl. Ha csak a nevekre van szüksége, használja a [get_NamesOfProperties](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/get_namesofproperties/) függvényt, miután ellenőrizte, hogy a gyűjtemény létezik. A jelentés felsorolja a prezentációból elérhető tulajdonságokat. Egy vezérlő futasidoben további tulajdonságokat is támogathat.
 
-**Megőrzi az Aspose.Slides az ActiveX vezérlőket olvasás és újra mentés során, ha azok nem futtathatók a C++ futtatókörnyezetben?**
+## **ActiveX vezérlők módosítása**
 
-Igen. Az Aspose.Slides úgy kezeli őket, mint a prezentáció részét, és képes olvasni/módosítani a tulajdonságaikat és a kereteiket; a vezérlők saját maguknak a végrehajtása nem szükséges a megőrzésükhöz.
+A példa egy makró-engedélyezett prezentációt vár, amelyen az első dián egy `TextBox1` nevű szövegdoboz és egy `CommandButton1` nevű parancsgomb található. A [control properties collection](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) segítségével módosítja a szövegdoboz értékét és a gomb feliratát. Minden vezérlőnek van egy statikus előnézete is, amelyet a PowerPoint aktiválás előtt megjeleníthet. Adjon meg egy PNG-t minden vezérlőhöz, amely a frissített szöveget és megjelenést mutatja. A példa ezeket a képeket az [IControl::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_substitutepictureformat/) segítségével rendeli hozzá.
 
-**Miben különböznek az ActiveX vezérlők az OLE objektumoktól egy prezentációban?**
+A példa minden vezérlőt az első dián 100 ponttal lefelé mozgat a [frame](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/set_frame/) módosításával. A szerkesztett prezentációt PPTM formátumban menti, majd a [IControlCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolcollection/clear/) segítségével elment egy második példányt, amelyből az összes ActiveX vezérlő el van távolítva az adott diáról.
 
-Az ActiveX vezérlők interaktív, menedzselt vezérlők (gombok, szövegmezők, média lejátszó), míg az [OLE](/slides/hu/cpp/manage-ole/) beágyazott alkalmazásobjektumokra (például egy Excel munkalapra) utal. Más módon tárolódnak és kezelődnek, és különböző tulajdonsági modelljük van.
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/io/file.h>
 
-**Működnek az ActiveX események és VBA makrók, ha a fájlt az Aspose.Slides módosította?**
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
-Az Aspose.Slides megőrzi a meglévő jelölést és metaadatokat; azonban az események és makrók csak akkor futnak a PowerPointban Windows alatt, ha a biztonsági beállítások ezt engedik. A könyvtár nem hajtja végre a VBA‑t.
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
+auto controls = presentation->get_Slide(0)->get_Controls();
+SharedPtr<IControl> textBox;
+SharedPtr<IControl> button;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"TextBox1")
+        textBox = control;
+    else if (control->get_Name() == u"CommandButton1")
+        button = control;
+}
+
+if (!textBox || !button || !textBox->get_Properties() || !button->get_Properties())
+{
+    Console::WriteLine(u"The first slide must contain both named controls with editable properties.");
+    return;
+}
+
+if (!File::Exists(u"text-box-preview.png") || !File::Exists(u"button-preview.png"))
+{
+    Console::WriteLine(u"Supply both preview images before updating the controls.");
+    return;
+}
+
+textBox->get_Properties()->idx_set(u"Value", u"Changed text");
+button->get_Properties()->idx_set(u"Caption", u"Show message");
+
+auto textBoxBytes = File::ReadAllBytes(u"text-box-preview.png");
+auto buttonBytes = File::ReadAllBytes(u"button-preview.png");
+auto textBoxPreview = presentation->get_Images()->AddImage(textBoxBytes);
+auto buttonPreview = presentation->get_Images()->AddImage(buttonBytes);
+textBox->get_SubstitutePictureFormat()->get_Picture()->set_Image(textBoxPreview);
+button->get_SubstitutePictureFormat()->get_Picture()->set_Image(buttonPreview);
+
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    auto frame = control->get_Frame();
+    auto movedFrame = MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation());
+    control->set_Frame(movedFrame);
+}
+
+presentation->Save(u"edited-controls.pptm", SaveFormat::Pptm);
+
+controls->Clear();
+presentation->Save(u"removed-controls.pptm", SaveFormat::Pptm);
+```
+
+## **ActiveX médiaplayer vezérlő hozzáadása**
+
+Egy előre beállított Windows Media Player vezérlő újrahasználatához kezdjen egy olyan sablonnal, amelynek első diáján egy `WindowsMediaPlayer1` nevű lejátszó található. Az [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) lemásolja az egész diát egy új prezentációba. A példa a lejátszó `URL`-jét a [properties collection](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) segítségével állítja be, és a klónozott diát az egyetlen diaként menti a kimenetbe. A videó külső marad, ezért válasszon egy útvonalat, amelyhez a lejátszó a lejátszás során hozzáfér.
+
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+
+auto source = MakeObject<Presentation>(u"template.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->AddClone(source->get_Slide(0));
+auto controls = slide->get_Controls();
+
+SharedPtr<IControl> player;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"WindowsMediaPlayer1")
+    {
+        player = control;
+        break;
+    }
+}
+
+if (!player || !player->get_Properties())
+{
+    Console::WriteLine(u"The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+
+presentation->get_Slides()->RemoveAt(0);
+presentation->Save(u"linked-video.pptx", SaveFormat::Pptx);
+```
+
+## **FAQ**
+
+**Az Aspose.Slides képes megőrizni az ActiveX vezérlőket anélkül, hogy futtatná őket?**
+
+Igen. Az Aspose.Slides képes beolvasni és menteni a vezérlőket, beleértve azok tulajdonságait és pozícióit, anélkül, hogy aktiválná őket.
+
+**Miben különböznek az ActiveX vezérlők az OLE objektumoktól?**
+
+Az ActiveX vezérlők lehetővé teszik a felhasználók számára, hogy interakcióba lépjenek a diával, például szöveget írjanak be vagy gombra kattintsanak. Egy [OLE object](/slides/hu/cpp/manage-ole/) lehetővé teszi, hogy a dia akár tartalmazzon, akár hivatkozzon egy másik alkalmazás által kezelt tartalomra, mint például egy Excel munkalap.
+
+**Az ActiveX események még mindig aktiválják a VBA makrókat, ha az Aspose.Slides-szel mentek egy prezentációt?**
+
+Mentse a prezentációt makró-engedélyezett formátumban, például PPTM-ben, hogy megőrizze a VBA projektet. A Windows PowerPoint képes futtatni a meglévő eseménykezelőket, ha a biztonsági beállítások engedélyezik az ActiveX vezérlőket és a makrókat.

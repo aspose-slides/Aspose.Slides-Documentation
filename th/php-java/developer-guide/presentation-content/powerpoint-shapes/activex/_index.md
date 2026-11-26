@@ -1,172 +1,183 @@
 ---
-title: "จัดการคอนโทรล ActiveX ในการนำเสนอด้วย PHP"
-linktitle: "ActiveX"
+title: จัดการคอนโทรล ActiveX ในงานนำเสนอโดยใช้ PHP
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /th/php-java/activex/
 keywords:
-- "ActiveX"
-- "คอนโทรล ActiveX"
-- "จัดการ ActiveX"
-- "เพิ่ม ActiveX"
-- "แก้ไข ActiveX"
-- "สื่อเล่น"
-- "PowerPoint"
-- "การนำเสนอ"
-- "PHP"
-- "Aspose.Slides"
-description: "เรียนรู้ว่าคุณสามารถใช้ Aspose.Slides for PHP via Java กับ ActiveX เพื่อทำงานอัตโนมัติและปรับปรุงการนำเสนอ PowerPoint อย่างไร ให้ผู้พัฒนามีการควบคุมสไลด์อย่างเต็มที่"
+- ActiveX
+- คอนโทรล ActiveX
+- จัดการ ActiveX
+- เพิ่ม ActiveX
+- แก้ไข ActiveX
+- ตัวเล่นสื่อ
+- PowerPoint
+- งานนำเสนอ
+- PHP
+- Aspose.Slides
+description: "แก้ไขกล่องข้อความและปุ่ม ActiveX, อัปเดตภาพตัวอย่างคอนโทรล, และใช้คอนโทรล Windows Media Player ซ้ำในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
 ---
-## **บทนำ**
+## **Introduction**
 
-คอนโทรล ActiveX ถูกใช้ในงานนำเสนอ Aspose.Slides for PHP via Java ช่วยให้คุณสามารถเพิ่มและจัดการคอนโทรล ActiveX ได้ แต่การจัดการคอนโทรลเหล่านี้ค่อนข้างซับซ้อนเมื่อเทียบกับรูปร่างทั่วไปในงานนำเสนอ เราได้เพิ่มการสนับสนุนการเพิ่ม Media Player Active control ใน Aspose.Slides โปรดทราบว่าคอนโทรล ActiveX ไม่ใช่รูปร่าง; พวกมันไม่ได้เป็นส่วนหนึ่งของ [ShapeCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/) ของงานนำเสนอ แต่เป็นส่วนหนึ่งของ [ControlCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/controlcollection/) แยกออกมา ในหัวข้อนี้ เราจะสาธิตวิธีการทำงานกับคอนโทรลเหล่านี้
+คอนโทรล ActiveX ให้สไลด์ PowerPoint มีองค์ประกอบเชิงโต้ตอบ เช่น กล่องข้อความ ปุ่มคำสั่ง และเครื่องเล่นสื่อ Aspose.Slides สำหรับ PHP ผ่าน Java เปิดเผยคอนโทรลของสไลด์ผ่าน [BaseSlide::getControls](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getControls) ใช้คอลเลคชันนี้เพื่อแก้ไขคอนโทรล ย้ายบนสไลด์ หรือเอาออก
 
-## **เพิ่ม Media Player ActiveX Control ไปยังสไลด์**
-เพื่อเพิ่มคอนโทรล Media Player ActiveX ให้ทำตามขั้นตอนต่อไปนี้:
+## **List ActiveX Controls and Their Stored Properties**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation) และสร้างงานนำเสนอเปล่า
-2. เข้าถึงสไลด์เป้าหมายใน [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation)
-3. ใช้เมธอด [addControl](https://reference.aspose.com/slides/th/php-java/aspose.slides/controlcollection/addcontrol/) ของ [ControlCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/controlcollection/) เพื่อเพิ่ม Media Player ActiveX control
-4. เข้าถึง Media Player ActiveX control แล้วตั้งค่าพาธของวิดีโอผ่านคุณสมบัติของมัน
-5. บันทึกงานนำเสนอเป็นไฟล์ PPTX
-
-โค้ดตัวอย่างต่อไปนี้ซึ่งทำตามขั้นตอนข้างบนแสดงวิธีเพิ่ม Media Player ActiveX Control ไปยังสไลด์:
+เพื่อตรวจสอบเทมพลีตที่ไม่คุ้นเคย ให้เปิดเพื่ออ่านและวนลูปผ่านคอนโทรลบนแต่ละสไลด์ ตัวอย่างจะรายงานหมายเลขสไลด์ ชื่อคอนโทรล [getClassId](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getClassId) และแต่ละคู่คีย์‑ค่าใน [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties) จะอ่านงานนำเสนอโดยไม่ทำให้คอนโทรลทำงาน เรียกเหตุการณ์หรือมาโคร เปลี่ยนค่า หรือบันทึกไฟล์
 
 ```php
-  # สร้างอินสแตนซ์ของงานนำเสนอเปล่า
-  $pres = new Presentation();
-  try {
-    # เพิ่ม Media Player ActiveX control
-    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    # เข้าถึง Media Player ActiveX control และตั้งค่าพาธของวิดีโอ
-    $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
-    # บันทึกงานนำเสนอ
-    $pres->save("Output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $slides = $presentation->getSlides();
+    for ($i = 0; $i < java_values($slides->size()); $i++) {
+        $controls = $slides->get_Item($i)->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            printf("Slide %d | %s | %s\n", $i + 1, $control->getName(), $control->getClassId());
+            $properties = $control->getProperties();
+            if (java_is_null($properties)) {
+                echo "  Properties unavailable\n";
+                continue;
+            }
+            if (java_values($properties->getCount()) === 0) {
+                echo "  []\n";
+                continue;
+            }
+            $names = $properties->getNamesOfProperties()->iterator();
+            while (java_values($names->hasNext())) {
+                $name = $names->next();
+                printf("  %s = %s\n", $name, $properties->get_Item($name));
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **แก้ไข ActiveX Control**
-{{% alert color="primary" %}} 
+ผลลัพธ์ที่เลือกจาก `ActiveX.pptm` แสดงกล่องข้อความและปุ่มคำสั่ง
 
-Aspose.Slides for PHP via Java ตั้งแต่เวอร์ชัน 7.1.0 เป็นต้นไป มีคอมโพเนนต์สำหรับจัดการคอนโทรล ActiveX คุณสามารถเข้าถึงคอนโทรล ActiveX ที่ได้เพิ่มไว้ในงานนำเสนอและแก้ไขหรือทำการลบผ่านคุณสมบัติต่าง ๆ ได้
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-{{% /alert %}} 
+คอลเลคชันคุณสมบัติว่างจะแสดงเป็น `[]` สำหรับคอนโทรลที่ใช้การจัดเก็บแบบไบนารี [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties) สามารถคืนค่า `null` ซึ่งแสดงเป็น `Properties unavailable` หากคุณต้องการเพียงชื่อ ให้ใช้ [getNamesOfProperties](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) หลังตรวจสอบค่า null รายงานจะแสดงคุณสมบัติที่มีอยู่จากงานนำเสนอ คอนโทรลอาจสนับสนุนคุณสมบัติเพิ่มเติมขณะทำงาน
 
-เพื่อจัดการคอนโทรล ActiveX อย่างง่าย เช่น กล่องข้อความและปุ่มคำสั่งบนสไลด์ ให้ทำดังนี้:
+## **Modify ActiveX Controls**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation) และโหลดงานนำเสนอที่มีคอนโทรล ActiveX อยู่แล้ว
-2. รับอ้างอิงสไลด์ตามตำแหน่งดัชนี
-3. เข้าถึงคอนโทรล ActiveX ในสไลด์โดยการเข้าถึง [ControlCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/controlcollection/)
-4. เข้าถึงคอนโทรล TextBox1 ActiveX ผ่านออบเจ็กต์ [Control](https://reference.aspose.com/slides/th/php-java/aspose.slides/control/)
-5. เปลี่ยนคุณสมบัติของ TextBox1 ActiveX control ซึ่งรวมถึงข้อความ, ฟอนต์, ความสูงของฟอนต์, และตำแหน่งกรอบ
-6. เข้าถึงคอนโทรลที่สองที่ชื่อ CommandButton1
-7. เปลี่ยนข้อความของปุ่ม, ฟอนต์, และตำแหน่ง
-8. ย้ายตำแหน่งของกรอบคอนโทรล ActiveX
-9. เขียนงานนำเสนอที่แก้ไขแล้วลงไฟล์ PPTX
+ตัวอย่างคาดว่างานนำเสนอที่เปิดใช้งานมาโครมีกล่องข้อความชื่อ `TextBox1` และปุ่มคำสั่งชื่อ `CommandButton1` บนสไลด์แรก ใช้ [control properties collection](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) เพื่อเปลี่ยนค่ากล่องข้อความและคำบรรยายปุ่ม ทุกคอนโทรลยังมีภาพตัวอย่างคงที่ที่ PowerPoint สามารถแสดงก่อนทำงาน ให้จัดหา PNG สำหรับแต่ละคอนโทรลที่แสดงข้อความและลักษณะที่อัปเดต ตัวอย่างกำหนดภาพเหล่านี้ผ่าน [Control::getSubstitutePictureFormat](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getSubstitutePictureFormat)
 
-โค้ดตัวอย่างต่อไปนี้ซึ่งทำตามขั้นตอนข้างบนแสดงวิธีจัดการคอนโทรล ActiveX อย่างง่าย:
+ตัวอย่างย้ายคอนโทรลทั้งหมดบนสไลด์แรกลง 100 จุดโดยกำหนดกรอบด้วย [Control::setFrame](https://reference.aspose.com/slides/php-java/aspose.slides/control/#setFrame) จากนั้นบันทึกงานนำเสนอที่แก้ไขในรูปแบบ PPTM แล้วใช้ [ControlCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/#clear) เพื่อบันทึกสำเนาที่สองโดยลบคอนโทรล ActiveX ทั้งหมดออกจากสไลด์นั้น
 
 ```php
-  # เข้าถึงงานนำเสนอที่มีคอนโทรล ActiveX
-  $pres = new Presentation("ActiveX.pptm");
-  try {
-    # เข้าถึงสไลด์แรกในงานนำเสนอ
-    $slide = $pres->getSlides()->get_Item(0);
-    # เปลี่ยนข้อความของ TextBox
-    $control = $slide->getControls()->get_Item(0);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
-      $newText = "Changed text";
-      $control->getProperties()->set_Item("Value", $newText);
-      # เปลี่ยนรูปภาพทดแทน PowerPoint จะเปลี่ยนรูปนี้ในระหว่างการเปิดใช้งาน ActiveX,
-      # ดังนั้นบางครั้งจึงสามารถปล่อยให้รูปภาพไม่มีการเปลี่ยนแปลงได้.
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->window);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $graphics->drawString($newText, 10, 20);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $controls = $presentation->getSlides()->get_Item(0)->getControls();
+    $textBox = null;
+    $button = null;
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $name = (string) $control->getName();
+        if ($name === "TextBox1") {
+            $textBox = $control;
+        } elseif ($name === "CommandButton1") {
+            $button = $control;
+        }
     }
-    # เปลี่ยนข้อความปุ่ม
-    $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
-      $newCaption = "Show MessageBox";
-      $control->getProperties()->set_Item("Caption", $newCaption);
-      # เปลี่ยนรูปภาพทดแทน
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->control);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $metrics = $graphics->getFontMetrics($font);
-      $graphics->drawString($newCaption, $image->getWidth() - $metrics->stringWidth($newCaption) / 2, 20);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
+    if ($textBox === null || $button === null || java_is_null($textBox->getProperties()) || java_is_null($button->getProperties())) {
+        echo "The first slide must contain both named controls with editable properties.\n";
+        return;
     }
-    # ย้ายลง 100 จุด
-    foreach($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
-      $frame = $ctl->getFrame();
-      $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
+
+    foreach ([[$textBox, "text-box-preview.png"], [$button, "button-preview.png"]] as [$control, $path]) {
+        $image = Images::fromFile($path);
+        try {
+            $preview = $presentation->getImages()->addImage($image);
+            $control->getSubstitutePictureFormat()->getPicture()->setImage($preview);
+        } finally {
+            $image->dispose();
+        }
     }
-    $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
-    # ลบคอนโทรล
-    $pres->getSlides()->get_Item(0)->getControls()->clear();
-    $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $textBox->getProperties()->set_Item("Value", "Changed text");
+    $button->getProperties()->set_Item("Caption", "Show message");
+
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $frame = $control->getFrame();
+        $newY = java_values($frame->getY()) + 100;
+        $moved = new ShapeFrame($frame->getX(), $newY, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation());
+        $control->setFrame($moved);
     }
-  }
+    $presentation->save("edited-controls.pptm", SaveFormat::Pptm);
+
+    $controls->clear();
+    $presentation->save("removed-controls.pptm", SaveFormat::Pptm);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **คำถามที่พบบ่อย**
+## **Add an ActiveX Media Player Control**
 
-**Aspose.Slides จะรักษาคอนโทรล ActiveX ไว้เมื่ออ่านและบันทึกใหม่หรือไม่ หากไม่สามารถดำเนินการคอนโทรลเหล่านั้นใน runtime ของ Java ได้?**
+เพื่อใช้คอนโทรล Windows Media Player ที่กำหนดค่าไว้แล้ว ให้เริ่มด้วยเทมพลีตที่สไลด์แรกมีผู้เล่นชื่อ `WindowsMediaPlayer1` [SlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) จะคัดลอกสไลด์ทั้งหมดไปยังงานนำเสนอใหม่ ตัวอย่างตั้งค่า `URL` ของผู้เล่นใน [properties collection](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) และบันทึกสไลด์ที่คัดลอกเป็นสไลด์เดียวในผลลัพธ์ วิดีโอจะอยู่ภายนอก ดังนั้นให้เลือกเส้นทางที่ผู้เล่นสามารถเข้าถึงได้ขณะเล่น
 
-ใช่ Aspose.Slides ถือคอนโทรลเหล่านี้เป็นส่วนหนึ่งของงานนำเสนอและสามารถอ่าน/แก้ไขคุณสมบัติและกรอบของพวกมันได้; ไม่จำเป็นต้องดำเนินการคอนโทรลเองเพื่อรักษาไว้
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-**คอนโทรล ActiveX แตกต่างจากวัตถุ OLE ในงานนำเสนออย่างไร?**
+$template = new Presentation("template.pptx");
+try {
+    $presentation = new Presentation();
+    try {
+        $slides = $presentation->getSlides();
+        $sourceSlide = $template->getSlides()->get_Item(0);
+        $slide = $slides->addClone($sourceSlide);
+        $player = null;
+        $controls = $slide->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            if ((string) $control->getName() === "WindowsMediaPlayer1") {
+                $player = $control;
+                break;
+            }
+        }
+        if ($player === null || java_is_null($player->getProperties())) {
+            echo "The template slide must contain a named media player with editable properties.\n";
+            return;
+        }
+        $player->getProperties()->set_Item("URL", "Wildlife.mp4");
+        $slides->removeAt(0);
+        $presentation->save("linked-video.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+} finally {
+    $template->dispose();
+}
+```
 
-คอนโทรล ActiveX เป็นคอนโทรลที่โต้ตอบและจัดการได้ (เช่น ปุ่ม, กล่องข้อความ, Media Player) ในขณะที่ [OLE](/slides/th/php-java/manage-ole/) หมายถึงวัตถุแอปพลิเคชันที่ฝังอยู่ (เช่น Worksheet ของ Excel) ทั้งสองถูกจัดเก็บและจัดการด้วยวิธีที่แตกต่างกันและมีโมเดลคุณสมบัติที่ต่างกัน
+## **FAQ**
 
-**เหตุการณ์ ActiveX และแมโคร VBA ทำงานได้หรือไม่ หากไฟล์ถูกแก้ไขโดย Aspose.Slides?**
+**Can Aspose.Slides preserve ActiveX controls without running them?**
 
-Aspose.Slides จะรักษา markup และเมตาดาต้าที่มีอยู่เดิมไว้; อย่างไรก็ตามเหตุการณ์และแมโครจะทำงานเฉพาะใน PowerPoint บน Windows เมื่อความปลอดภัยอนุญาต ไม่ได้มีการรัน VBA โดยไลบรารีนี้
+ใช่ Aspose.Slides สามารถอ่านและบันทึกคอนโทรล รวมถึงคุณสมบัติและตำแหน่งได้โดยไม่ทำให้คอนโทรลทำงาน
+
+**How do ActiveX controls differ from OLE objects?**
+
+คอนโทรล ActiveX ให้ผู้ใช้โต้ตอบกับสไลด์ เช่น ป้อนข้อความหรือคลิกปุ่ม ส่วน [OLE object](/slides/th/php-java/manage-ole/) ให้สไลด์มีหรือเชื่อมโยงเนื้อหาที่จัดการโดยแอปพลิเคชันอื่น เช่น แผ่นงาน Excel
+
+**Will ActiveX events still trigger VBA macros after I save a presentation with Aspose.Slides?**
+
+บันทึกงานนำเสนอในรูปแบบที่เปิดใช้งานมาโครเช่น PPTM เพื่อรักษาโครงการ VBA ของคุณ PowerPoint สำหรับ Windows สามารถทำงานตัวจัดการเหตุการณ์ที่มีอยู่ได้เมื่อการตั้งค่าความปลอดภัยอนุญาตให้ใช้คอนโทรล ActiveX และมาโครพร้อมกัน

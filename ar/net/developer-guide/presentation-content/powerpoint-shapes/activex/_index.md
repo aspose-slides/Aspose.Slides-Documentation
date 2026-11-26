@@ -1,6 +1,6 @@
 ---
-title: "إدارة عناصر تحكم ActiveX في العروض التقديمية باستخدام .NET"
-linktitle: "ActiveX"
+title: إدارة عناصر التحكم ActiveX في العروض التقديمية في .NET
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ar/net/activex/
@@ -10,180 +10,150 @@ keywords:
 - إدارة ActiveX
 - إضافة ActiveX
 - تعديل ActiveX
-- مشغل وسائط
+- مشغّل وسائط
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعرف على كيفية استفادة Aspose.Slides for .NET من ActiveX لأتمتة وتعزيز عروض PowerPoint، مما يمنح المطورين تحكمًا قويًا في الشرائح."
+description: "تحرير صناديق نصوص وأزرار ActiveX، وتحديث معاينات عناصر التحكم، وإعادة استخدام عنصر تحكم Windows Media Player في عروض PowerPoint التقديمية باستخدام Aspose.Slides for .NET."
 ---
+## **المقدمة**
 
-تُستخدم عناصر تحكم ActiveX في العروض التقديمية. تتيح لك Aspose.Slides for .NET إدارة عناصر تحكم ActiveX، لكن إدارتها أكثر تعقيدًا ومختلفة عن الأشكال العادية في العرض. بدءًا من Aspose.Slides for .NET 6.9.0، يدعم المكوّن إدارة عناصر تحكم ActiveX. حاليًا، يمكنك الوصول إلى عنصر تحكم ActiveX المُضاف مسبقًا في عرضك وتعديله أو حذفه باستخدام خصائصه المتنوعة. تذكّر أن عناصر تحكم ActiveX ليست أشكالًا وليست جزءًا من IShapeCollection في العرض، بل هي جزء من IControlCollection المستقلة. توضح هذه المقالة كيفية العمل معها.
+تمنح عناصر التحكم ActiveX شريحة PowerPoint عناصر تفاعلية مثل صناديق النص وأزرار الأوامر ومشغلات الوسائط. Aspose.Slides for .NET تكشف عن عناصر التحكم في الشريحة عبر [IBaseSlide.Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/controls/). استخدم هذه المجموعة لتعديل عنصر التحكم، أو نقله على الشريحة، أو إزالته.
+
+## **قائمة عناصر تحكم ActiveX وخصائصها المخزنة**
+
+لتفقد قالب غير مألوف، افتحه للقراءة وتكرّر عبر عناصر التحكم في كل شريحة. يُظهر المثال رقم الشريحة، اسم عنصر التحكم، [ClassId](https://reference.aspose.com/slides/net/aspose.slides/icontrol/classid/)، وكل زوج مفتاح‑قيمة في [Properties](https://reference.aspose.com/slides/net/aspose.slides/icontrol/#properties). يقرأ العرض التقديمي دون تنشيط عناصر التحكم، أو استدعاء الأحداث أو الماكرو، أو تغيير القيم، أو حفظ الملف.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("ActiveX.pptm");
+
+for (var i = 0; i < presentation.Slides.Count; i++)
+{
+    foreach (var control in presentation.Slides[i].Controls)
+    {
+        Console.WriteLine($"Slide {i + 1} | {control.Name} | {control.ClassId}");
+        var properties = control.Properties;
+
+        if (properties == null)
+        {
+            Console.WriteLine("  Properties unavailable");
+            continue;
+        }
+
+        if (properties.Count == 0)
+            Console.WriteLine("  []");
+
+        foreach (var property in properties)
+            Console.WriteLine($"  {property.Key} = {property.Value}");
+    }
+}
+```
+
+يُظهر الناتج المختار من `ActiveX.pptm` صندوق نص وزر أمر.
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+تظهر مجموعة الخصائص الفارغة كـ `[]`. بالنسبة لعناصر التحكم التي تستخدم تخزينًا ثنائيًا، قد تُعيد `Properties` قيمة `null`، وتُعرض كـ `Properties unavailable`. إذا كنت بحاجة فقط إلى الأسماء، استخدم [NamesOfProperties](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/namesofproperties/) بعد فحص القيمة `null`. يُدرج التقرير الخصائص المتوفرة في العرض التقديمي. قد يدعم عنصر التحكم خصائص إضافية أثناء التشغيل.
 
 ## **تعديل عناصر تحكم ActiveX**
-لإدارة عنصر تحكم ActiveX بسيط مثل مربع نص وزر أمر بسيط على شريحة:
 
-1. إنشاء مثيل من فئة Presentation وتحميل العرض التقديمي الذي يحتوي على عناصر تحكم ActiveX.
-1. الحصول على مرجع الشريحة حسب الفهرس الخاص بها.
-1. الوصول إلى عناصر تحكم ActiveX في الشريحة عبر IControlCollection.
-1. الوصول إلى عنصر تحكم ActiveX TextBox1 باستخدام كائن ControlEx.
-1. تغيير الخصائص المختلفة لعنصر تحكم ActiveX TextBox1 بما في ذلك النص، الخط، ارتفاع الخط وموقع الإطار.
-1. الوصول إلى عنصر التحكم الثاني المسمى CommandButton1.
-1. تغيير عنوان الزر، الخط، والموقع.
-1. تحريك موضع إطارات عناصر تحكم ActiveX.
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+يتوقع المثال عرضًا تقديميًا مدعومًا بالماكرو يحتوي على صندوق نص اسمه `TextBox1` وزر أمر اسمه `CommandButton1` في الشريحة الأولى. يستخدم [control properties collection](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) لتغيير قيمة صندوق النص وعنوان الزر. لكل عنصر تحكم معاينة ثابتة يمكن لـ PowerPoint عرضها قبل التنشيط. قدّم صورة PNG لكل عنصر تحكم تُظهر النص المحدث والمظهر. يعيّن المثال هذه الصور عبر [IControl.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/icontrol/substitutepictureformat/).
 
-مقطع الشفرة أدناه يحدّث عناصر تحكم ActiveX على شرائح العرض التقديمي كما هو موضح أدناه.
-```c#
-// الوصول إلى العرض التقديمي مع  عناصر تحكم ActiveX
-Presentation presentation = new Presentation("ActiveX.pptm");
+يحرك المثال كل عنصر تحكم في الشريحة الأولى إلى الأسفل بمقدار 100 نقطة عن طريق تعديل [Frame](https://reference.aspose.com/slides/net/aspose.slides/icontrol/frame/). يحفظ العرض التقديمي المعدل بصيغة PPTM، ثم يستخدم [IControlCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icontrolcollection/clear/) لحفظ نسخة ثانية تُزيل جميع عناصر تحكم ActiveX من تلك الشريحة.
 
-// الوصول إلى الشريحة الأولى في العرض التقديمي
-ISlide slide = presentation.Slides[0];
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// تغيير نص TextBox
-IControl control = slide.Controls[0];
+using var presentation = new Presentation("ActiveX.pptm");
 
-if (control.Name == "TextBox1" && control.Properties != null)
+var controls = presentation.Slides[0].Controls;
+var textBox = controls.FirstOrDefault(control => control.Name == "TextBox1");
+var button = controls.FirstOrDefault(control => control.Name == "CommandButton1");
+
+if (textBox?.Properties == null || button?.Properties == null)
 {
-    string newText = "Changed text";
-    control.Properties["Value"] = newText;
-
-    // تغيير صورة البديل. سيقوم PowerPoint باستبدال هذه الصورة أثناء تنشيط activeX، لذلك في بعض الأحيان من المقبول ترك الصورة دون تغيير.
-
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Window));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    graphics.DrawString(newText, font, brush, 10, 4);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(
-        pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[]
-    {
-            new System.Drawing.Point(1, image.Height - 1), new System.Drawing.Point(image.Width - 1, image.Height - 1),
-            new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("The first slide must contain both named controls with editable properties.");
+    return;
 }
 
-// تغيير تسمية الزر
-control = slide.Controls[1];
-
-if (control.Name == "CommandButton1" && control.Properties != null)
+if (!File.Exists("text-box-preview.png") || !File.Exists("button-preview.png"))
 {
-    String newCaption = "MessageBox";
-    control.Properties["Caption"] = newCaption;
-
-    // تغيير البديل
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    SizeF textSize = graphics.MeasureString(newCaption, font, int.MaxValue);
-    graphics.DrawString(newCaption, font, brush, (image.Width - textSize.Width) / 2, (image.Height - textSize.Height) / 2);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[]
-    {
-        new System.Drawing.Point(1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("Supply both preview images before updating the controls.");
+    return;
 }
 
-// تحريك إطارات ActiveX 100 نقطة إلى الأسفل
-foreach (Control ctl in slide.Controls)
+textBox.Properties["Value"] = "Changed text";
+button.Properties["Caption"] = "Show message";
+
+using var textBoxPreview = File.OpenRead("text-box-preview.png");
+using var buttonPreview = File.OpenRead("button-preview.png");
+textBox.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(textBoxPreview);
+button.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(buttonPreview);
+
+foreach (var control in controls)
 {
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
-        frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
+    var frame = control.Frame;
+    control.Frame = new ShapeFrame(frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// حفظ العرض التقديمي مع عناصر تحكم ActiveX المعدلة
-presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+presentation.Save("edited-controls.pptm", SaveFormat.Pptm);
 
-
-// الآن يتم إزالة عناصر التحكم
-slide.Controls.Clear();
-
-// حفظ العرض التقديمي مع عناصر تحكم ActiveX التي تم مسحها
-presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+controls.Clear();
+presentation.Save("removed-controls.pptm", SaveFormat.Pptm);
 ```
 
+## **إضافة عنصر تحكم مشغل وسائط ActiveX**
 
-## **إضافة عنصر تحكم Media Player ActiveX**
-لإضافة عنصر تحكم Media Player ActiveX، يرجى تنفيذ الخطوات التالية:
+لإعادة استخدام عنصر تحكم Windows Media Player مُعد، ابدأ بقالب تحتوي شريحته الأولى على مشغل اسمه `WindowsMediaPlayer1`. تقوم [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) بنسخ الشريحة بالكامل إلى عرض تقديمي جديد. يضبط المثال خاصية `URL` الخاصة بالمشغل في [properties collection](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) ويحفظ الشريحة المستنسخة كالشريحة الوحيدة في الناتج. يبقى الفيديو خارجيًا، لذا اختر مسارًا يمكن للمشغل الوصول إليه أثناء التشغيل.
 
-1. إنشاء مثيل من فئة Presentation وتحميل نموذج العرض التقديمي الذي يحتوي على عناصر تحكم Media Player ActiveX.
-1. إنشاء مثيل من فئة Presentation المستهدفة وتوليد عرض تقديمي فارغ.
-1. استنساخ الشريحة التي تحتوي على عنصر تحكم Media Player ActiveX من العرض القالب إلى العرض المستهدف.
-1. الوصول إلى الشريحة المستنسخة في العرض المستهدف.
-1. الوصول إلى عناصر تحكم ActiveX في الشريحة عبر IControlCollection.
-1. الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو باستخدام خصائصه.
-1. حفظ العرض التقديمي إلى ملف PPTX.
-```c#
-// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
-Presentation presentation = new Presentation("template.pptx");
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// إنشاء نسخة فارغة من العرض التقديمي
-Presentation newPresentation = new Presentation();
+using var template = new Presentation("template.pptx");
+using var presentation = new Presentation();
 
-// إزالة الشريحة الافتراضية
-newPresentation.Slides.RemoveAt(0);
+var slide = presentation.Slides.AddClone(template.Slides[0]);
+var player = slide.Controls.FirstOrDefault(control => control.Name == "WindowsMediaPlayer1");
 
-// استنساخ الشريحة التي تحتوي على عنصر تحكم Media Player ActiveX
-newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
+if (player?.Properties == null)
+{
+    Console.WriteLine("The template slide must contain a named media player with editable properties.");
+    return;
+}
 
-// الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو
-newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
+player.Properties["URL"] = "Wildlife.mp4";
 
-// حفظ العرض التقديمي
-newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Slides.RemoveAt(0);
+presentation.Save("linked-video.pptx", SaveFormat.Pptx);
 ```
 
+## **التعليمات المتكررة**
 
-## **FAQ**
+**هل يمكن لـ Aspose.Slides حفظ عناصر تحكم ActiveX دون تشغيلها؟**  
+نعم. يمكن لـ Aspose.Slides قراءة وحفظ عناصر التحكم، بما في ذلك خصائصها ومواقعها، دون تنشيطها.
 
-**هل يحافظ Aspose.Slides على عناصر تحكم ActiveX عند القراءة وإعادة الحفظ إذا لم يكن بالإمكان تنفيذها في بيئة تشغيل .NET؟**
+**كيف تختلف عناصر تحكم ActiveX عن كائنات OLE؟**  
+تسمح عناصر تحكم ActiveX للمستخدمين بالتفاعل مع الشريحة، على سبيل المثال عن طريق إدخال نص أو النقر على زر. يسمح [OLE object](/slides/ar/net/manage-ole/) للشريحة باحتواء أو ربط محتوى تُديره تطبيق آخر، مثل ورقة عمل Excel.
 
-نعم. يعتبر Aspose.Slides هذه العناصر جزءًا من العرض التقديمي ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ لا يتطلب الحفاظ عليها تنفيذ عناصر التحكم نفسها.
-
-**كيف تختلف عناصر تحكم ActiveX عن كائنات OLE في العرض التقديمي؟**
-
-عناصر تحكم ActiveX هي عناصر تحكم تفاعلية مُدارة (الأزرار، مربعات النص، مشغل الوسائط)، بينما تشير [OLE](/slides/ar/net/manage-ole/) إلى كائنات تطبيق مضمنة (على سبيل المثال، ورقة عمل Excel). يتم تخزينها ومعالجتها بطريقة مختلفة ولها نماذج خصائص مختلفة.
-
-**هل تعمل أحداث ActiveX وماكرو VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**
-
-يحافظ Aspose.Slides على العلامات والبيانات الوصفية الموجودة؛ ومع ذلك، يتم تشغيل الأحداث والماكروهات فقط داخل PowerPoint على نظام Windows عندما تسمح الأمان بذلك. لا تقوم المكتبة بتنفيذ VBA.
+**هل ستستمر أحداث ActiveX في تشغيل ماكروات VBA بعد حفظ عرض تقديمي باستخدام Aspose.Slides؟**  
+احفظ العرض التقديمي بصيغة تدعم الماكرو مثل PPTM للاحتفاظ بمشروع VBA الخاص به. يمكن لـ PowerPoint لنظام Windows تشغيل معالجات الأحداث الموجودة عندما تسمح إعدادات الأمان الخاصة به بكل من عناصر تحكم ActiveX والماكروات.

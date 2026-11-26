@@ -1,5 +1,5 @@
 ---
-title: Quản lý các điều khiển ActiveX trong bản trình bày bằng .NET
+title: Quản lý các điều khiển ActiveX trong bản trình chiếu .NET
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -10,180 +10,151 @@ keywords:
 - quản lý ActiveX
 - thêm ActiveX
 - sửa đổi ActiveX
-- trình phát media
+- trình phát phương tiện
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách Aspose.Slides for .NET tận dụng ActiveX để tự động hóa và cải thiện các bản trình bày PowerPoint, cung cấp cho các nhà phát triển khả năng kiểm soát mạnh mẽ đối với các slide."
+description: "Chỉnh sửa hộp văn bản và nút ActiveX, cập nhật ảnh xem trước của điều khiển, và tái sử dụng một điều khiển Windows Media Player trong các bản trình chiếu PowerPoint bằng Aspose.Slides cho .NET."
 ---
 ## **Giới thiệu**
 
-Các điều khiển ActiveX được sử dụng trong các bản trình bày. Aspose.Slides for .NET cho phép bạn quản lý các điều khiển ActiveX, nhưng việc quản lý chúng hơi phức tạp hơn và khác so với các hình dạng thông thường trong bản trình bày. Từ Aspose.Slides for .NET 6.9.0, thành phần này hỗ trợ quản lý các điều khiển ActiveX. Hiện tại, bạn có thể truy cập các điều khiển ActiveX đã được thêm vào bản trình bày và sửa đổi hoặc xóa chúng bằng cách sử dụng các thuộc tính khác nhau. Lưu ý, các điều khiển ActiveX không phải là hình dạng và không thuộc IShapeCollection của bản trình bày mà nằm trong IControlCollection riêng biệt. Bài viết này giới thiệu cách làm việc với chúng.
-## **Sửa đổi các điều khiển ActiveX**
-Để quản lý một điều khiển ActiveX đơn giản như hộp văn bản và nút lệnh đơn giản trên một slide:
+Các điều khiển ActiveX cung cấp cho một slide PowerPoint các yếu tố tương tác như hộp văn bản, nút lệnh và trình phát phương tiện. Aspose.Slides for .NET cung cấp các điều khiển của slide thông qua [IBaseSlide.Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/controls/). Sử dụng bộ sưu tập này để chỉnh sửa một điều khiển, di chuyển nó trên slide hoặc xóa nó.
 
-1. Tạo một thể hiện của lớp Presentation và tải bản trình bày có chứa các điều khiển ActiveX.
-2. Lấy tham chiếu slide theo chỉ mục của nó.
-3. Truy cập các điều khiển ActiveX trong slide bằng cách truy xuất IControlCollection.
-4. Truy cập điều khiển ActiveX TextBox1 bằng đối tượng ControlEx.
-5. Thay đổi các thuộc tính khác nhau của điều khiển ActiveX TextBox1 bao gồm văn bản, phông chữ, chiều cao phông và vị trí khung.
-6. Truy cập điều khiển thứ hai có tên CommandButton1.
-7. Thay đổi chú thích nút, phông chữ và vị trí.
-8. Di chuyển vị trí của các khung điều khiển ActiveX.
-9. Ghi bản trình bày đã sửa đổi vào tệp PPTX.
+## **Liệt kê các điều khiển ActiveX và các thuộc tính đã lưu**
 
-Đoạn mã dưới đây cập nhật các điều khiển ActiveX trên các slide của bản trình bày như được hiển thị bên dưới.
+Để kiểm tra một mẫu chưa quen, mở nó để đọc và duyệt qua các điều khiển trên mỗi slide. Ví dụ báo cáo số slide, tên điều khiển, [ClassId](https://reference.aspose.com/slides/net/aspose.slides/icontrol/classid/), và mỗi cặp khóa-giá trị trong [Properties](https://reference.aspose.com/slides/net/aspose.slides/icontrol/#properties). Nó đọc bản trình chiếu mà không kích hoạt các điều khiển, gọi sự kiện hoặc macro, thay đổi giá trị, hoặc lưu tệp.
 
-```c#
-// Truy cập bản trình bày có các điều khiển ActiveX
-Presentation presentation = new Presentation("ActiveX.pptm");
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-// Truy cập slide đầu tiên trong bản trình bày
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation("ActiveX.pptm");
 
-// thay đổi văn bản TextBox
-IControl control = slide.Controls[0];
-
-if (control.Name == "TextBox1" && control.Properties != null)
+for (var i = 0; i < presentation.Slides.Count; i++)
 {
-    string newText = "Changed text";
-    control.Properties["Value"] = newText;
-
-    // thay đổi hình ảnh thay thế. Powerpoint sẽ thay thế hình ảnh này khi kích hoạt ActiveX, vì vậy đôi khi có thể để nguyên hình ảnh.
-
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Window));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    graphics.DrawString(newText, font, brush, 10, 4);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(
-        pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[]
+    foreach (var control in presentation.Slides[i].Controls)
     {
-            new System.Drawing.Point(1, image.Height - 1), new System.Drawing.Point(image.Width - 1, image.Height - 1),
-            new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+        Console.WriteLine($"Slide {i + 1} | {control.Name} | {control.ClassId}");
+        var properties = control.Properties;
+
+        if (properties == null)
+        {
+            Console.WriteLine("  Properties unavailable");
+            continue;
+        }
+
+        if (properties.Count == 0)
+            Console.WriteLine("  []");
+
+        foreach (var property in properties)
+            Console.WriteLine($"  {property.Key} = {property.Value}");
+    }
 }
-
-// thay đổi chú thích nút
-control = slide.Controls[1];
-
-if (control.Name == "CommandButton1" && control.Properties != null)
-{
-    String newCaption = "MessageBox";
-    control.Properties["Caption"] = newCaption;
-
-    // thay đổi hình ảnh thay thế
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    SizeF textSize = graphics.MeasureString(newCaption, font, int.MaxValue);
-    graphics.DrawString(newCaption, font, brush, (image.Width - textSize.Width) / 2, (image.Height - textSize.Height) / 2);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[]
-    {
-        new System.Drawing.Point(1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
-}
-
-// Di chuyển khung ActiveX xuống 100 điểm
-foreach (Control ctl in slide.Controls)
-{
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
-        frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
-}
-
-// Lưu bản trình bày với các điều khiển ActiveX đã chỉnh sửa
-presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
-
-
-// Bây giờ loại bỏ các điều khiển
-slide.Controls.Clear();
-
-// Lưu bản trình bày với các điều khiển ActiveX đã xóa
-presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
 ```
 
-## **Thêm một điều khiển Media Player ActiveX**
-Để thêm điều khiển Media Player ActiveX, vui lòng thực hiện các bước sau:
+Đầu ra đã chọn từ `ActiveX.pptm` hiển thị một hộp văn bản và một nút lệnh.
 
-1. Tạo một thể hiện của lớp Presentation và tải bản mẫu có chứa các điều khiển Media Player ActiveX.
-2. Tạo một thể hiện của lớp Presentation đích và tạo một bản trình bày trống.
-3. Sao chép slide chứa điều khiển Media Player ActiveX từ bản mẫu sang Presentation đích.
-4. Truy cập slide đã sao chép trong Presentation đích.
-5. Truy cập các điều khiển ActiveX trong slide bằng cách truy xuất IControlCollection.
-6. Truy cập điều khiển Media Player ActiveX và đặt đường dẫn video bằng cách sử dụng các thuộc tính của nó.
-7. Lưu bản trình bày vào tệp PPTX.
-
-```c#
-// Tạo thể hiện lớp Presentation đại diện cho tệp PPTX
-Presentation presentation = new Presentation("template.pptx");
-
-// Tạo một bản trình bày trống
-Presentation newPresentation = new Presentation();
-
-// Xóa slide mặc định
-newPresentation.Slides.RemoveAt(0);
-
-// Sao chép slide có điều khiển Media Player ActiveX
-newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
-
-// Truy cập điều khiển Media Player ActiveX và đặt đường dẫn video
-newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
-
-// Lưu bản trình bày
-newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
+Một bộ sưu tập thuộc tính trống xuất hiện dưới dạng `[]`. Đối với các điều khiển sử dụng lưu trữ nhị phân, `Properties` có thể trả về `null`, được hiển thị dưới dạng `Properties unavailable`. Nếu bạn chỉ cần tên, hãy sử dụng [NamesOfProperties](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/namesofproperties/) sau khi kiểm tra null. Báo cáo liệt kê các thuộc tính có sẵn trong bản trình chiếu. Một điều khiển có thể hỗ trợ các thuộc tính bổ sung tại thời gian chạy.
+
+## **Chỉnh sửa các điều khiển ActiveX**
+
+Ví dụ yêu cầu một bản trình chiếu có macro với một hộp văn bản có tên `TextBox1` và một nút lệnh có tên `CommandButton1` trên slide đầu tiên. Nó sử dụng [control properties collection](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) để thay đổi giá trị hộp văn bản và chú thích nút. Mỗi điều khiển cũng có một bản xem trước tĩnh mà PowerPoint có thể hiển thị trước khi kích hoạt. Cung cấp một tệp PNG cho mỗi điều khiển hiển thị văn bản và giao diện đã cập nhật. Ví dụ gán các hình ảnh này thông qua [IControl.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/icontrol/substitutepictureformat/).
+
+Ví dụ di chuyển mọi điều khiển trên slide đầu tiên xuống 100 điểm bằng cách thay đổi [Frame](https://reference.aspose.com/slides/net/aspose.slides/icontrol/frame/). Nó lưu bản trình chiếu đã chỉnh sửa ở định dạng PPTM, sau đó sử dụng [IControlCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icontrolcollection/clear/) để lưu một bản sao thứ hai với toàn bộ các điều khiển ActiveX bị xóa khỏi slide đó.
+
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("ActiveX.pptm");
+
+var controls = presentation.Slides[0].Controls;
+var textBox = controls.FirstOrDefault(control => control.Name == "TextBox1");
+var button = controls.FirstOrDefault(control => control.Name == "CommandButton1");
+
+if (textBox?.Properties == null || button?.Properties == null)
+{
+    Console.WriteLine("The first slide must contain both named controls with editable properties.");
+    return;
+}
+
+if (!File.Exists("text-box-preview.png") || !File.Exists("button-preview.png"))
+{
+    Console.WriteLine("Supply both preview images before updating the controls.");
+    return;
+}
+
+textBox.Properties["Value"] = "Changed text";
+button.Properties["Caption"] = "Show message";
+
+using var textBoxPreview = File.OpenRead("text-box-preview.png");
+using var buttonPreview = File.OpenRead("button-preview.png");
+textBox.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(textBoxPreview);
+button.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(buttonPreview);
+
+foreach (var control in controls)
+{
+    var frame = control.Frame;
+    control.Frame = new ShapeFrame(frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
+}
+
+presentation.Save("edited-controls.pptm", SaveFormat.Pptm);
+
+controls.Clear();
+presentation.Save("removed-controls.pptm", SaveFormat.Pptm);
+```
+## **Thêm điều khiển Media Player ActiveX**
+
+Để tái sử dụng một điều khiển Windows Media Player đã cấu hình, bắt đầu với một mẫu mà slide đầu tiên chứa một trình phát có tên `WindowsMediaPlayer1`. [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) sao chép toàn bộ slide vào một bản trình chiếu mới. Ví dụ đặt `URL` của trình phát trong [properties collection](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) và lưu slide đã sao chép làm slide duy nhất trong đầu ra. Video vẫn ở ngoài, vì vậy chọn một đường dẫn mà trình phát có thể truy cập trong quá trình phát.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var template = new Presentation("template.pptx");
+using var presentation = new Presentation();
+
+var slide = presentation.Slides.AddClone(template.Slides[0]);
+var player = slide.Controls.FirstOrDefault(control => control.Name == "WindowsMediaPlayer1");
+
+if (player?.Properties == null)
+{
+    Console.WriteLine("The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player.Properties["URL"] = "Wildlife.mp4";
+
+presentation.Slides.RemoveAt(0);
+presentation.Save("linked-video.pptx", SaveFormat.Pptx);
+```
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides có giữ lại các điều khiển ActiveX khi đọc và lưu lại nếu chúng không thể được thực thi trong môi trường .NET không?**
+**Aspose.Slides có thể giữ nguyên các điều khiển ActiveX mà không chạy chúng không?**
 
-Có. Aspose.Slides coi chúng là một phần của bản trình bày và có thể đọc/sửa đổi các thuộc tính và khung của chúng; không cần thực thi các điều khiển để giữ chúng lại.
+Có. Aspose.Slides có thể đọc và lưu các điều khiển, bao gồm cả thuộc tính và vị trí của chúng, mà không kích hoạt chúng.
 
-**Các điều khiển ActiveX khác gì so với đối tượng OLE trong bản trình bày?**
+**Các điều khiển ActiveX khác biệt như thế nào so với đối tượng OLE?**
 
-Các điều khiển ActiveX là các điều khiển quản lý tương tác (nút, ô văn bản, media player), trong khi [OLE](/slides/vi/net/manage-ole/) đề cập đến các đối tượng ứng dụng nhúng (ví dụ: một bảng tính Excel). Chúng được lưu trữ và xử lý khác nhau và có mô hình thuộc tính riêng.
+Các điều khiển ActiveX cho phép người dùng tương tác với slide, ví dụ nhập văn bản hoặc nhấp nút. Một [OLE object](/slides/vi/net/manage-ole/) cho phép slide chứa hoặc liên kết tới nội dung được quản lý bởi ứng dụng khác, như một bảng tính Excel.
 
-**Các sự kiện ActiveX và macro VBA có hoạt động nếu tệp đã được Aspose.Slides chỉnh sửa không?**
+**Các sự kiện ActiveX vẫn sẽ kích hoạt macro VBA sau khi tôi lưu bản trình chiếu bằng Aspose.Slides không?**
 
-Aspose.Slides giữ nguyên markup và metadata hiện có; tuy nhiên, các sự kiện và macro chỉ chạy trong PowerPoint trên Windows khi bảo mật cho phép. Thư viện không thực thi VBA.
+Lưu bản trình chiếu ở định dạng hỗ trợ macro như PPTM để giữ lại dự án VBA. PowerPoint cho Windows có thể chạy các trình xử lý sự kiện hiện có khi cài đặt bảo mật cho phép cả điều khiển ActiveX và macro.

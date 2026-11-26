@@ -15,166 +15,200 @@ keywords:
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "जानिए कैसे Aspose.Slides for C++ ActiveX का उपयोग करके PowerPoint प्रस्तुतियों को स्वचालित और बेहतर बनाता है, जिससे डेवलपर्स को स्लाइड्स पर शक्तिशाली नियंत्रण मिलता है।"
+description: "Aspose.Slides for C++ के साथ PowerPoint प्रस्तुतियों में ActiveX टेक्स्ट बॉक्स और बटन को संपादित करें, नियंत्रण प्रीव्यू को अपडेट करें, और Windows Media Player नियंत्रण को पुन: उपयोग करें।"
 ---
 ## **परिचय**
 
-ActiveX नियंत्रण प्रेजेंटेशन में उपयोग किए जाते हैं। Aspose.Slides for C++ आपको ActiveX नियंत्रणों को प्रबंधित करने की सुविधा देता है, लेकिन इन्हें प्रबंधित करना थोड़ा जटिल और सामान्य प्रेजेंटेशन शैलियों से अलग है। Aspose.Slides for C++ 18.1 से, यह घटक ActiveX नियंत्रणों के प्रबंधन को समर्थन देता है। वर्तमान में, आप अपने प्रेजेंटेशन में पहले से जोड़े गए ActiveX नियंत्रण तक पहुँच सकते हैं और उसके विभिन्न गुणों का उपयोग करके उसे संशोधित या हटाया जा सकता है। याद रखें, ActiveX नियंत्रण शैलियाँ नहीं हैं और प्रेजेंटेशन की IShapeCollection का हिस्सा नहीं होते बल्कि अलग IControlCollection का हिस्सा होते हैं। यह लेख इनसे काम करने का तरीका दिखाता है।
+ActiveX नियंत्रण PowerPoint स्लाइड को इंटरैक्टिव तत्व जैसे टेक्स्ट बॉक्स, कमांड बटन और मीडिया प्लेयर प्रदान करते हैं। Aspose.Slides for C++ एक स्लाइड के नियंत्रणों को [IBaseSlide::get_Controls](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_controls/) के माध्यम से उजागर करता है। इस संग्रह का उपयोग करके आप एक नियंत्रण को संपादित कर सकते हैं, स्लाइड पर उसे स्थानांतरित कर सकते हैं या हटा सकते हैं।
 
-## **ActiveX नियंत्रण को संशोधित करना**
-एक स्लाइड पर टेक्स्ट बॉक्स और सरल कमांड बटन जैसे साधारण ActiveX नियंत्रण को प्रबंधित करने के लिए:
+## **ActiveX नियंत्रणों और उनकी संग्रहीत गुणों की सूची**
 
-1. Presentation क्लास का एक इंस्टेंस बनाएं और उसमें ActiveX नियंत्रणों वाले प्रेजेंटेशन को लोड करें।
-2. इंडेक्स के आधार पर स्लाइड का रेफ़रेंस प्राप्त करें।
-3. IControlCollection तक पहुँचकर स्लाइड में मौजूद ActiveX नियंत्रणों तक पहुँचें।
-4. ControlEx ऑब्जेक्ट का उपयोग करके TextBox1 ActiveX नियंत्रण तक पहुँचें।
-5. TextBox1 ActiveX नियंत्रण के विभिन्न गुणों जैसे टेक्स्ट, फ़ॉन्ट, फ़ॉन्ट ऊँचाई और फ्रेम स्थिति को बदलें।
-6. CommandButton1 नामक दूसरे एक्सेस कंट्रोल तक पहुँचें।
-7. बटन कैप्शन, फ़ॉन्ट और स्थिति बदलें।
-8. ActiveX नियंत्रण के फ्रेम की स्थिति को शिफ्ट करें।
-9. संशोधित प्रेजेंटेशन को PPTX फ़ाइल में लिखें।
+अपरिचित टेम्प्लेट का निरीक्षण करने के लिए, उसे पढ़ने के मोड में खोलें और प्रत्येक स्लाइड पर नियंत्रणों के माध्यम से इटरेट करें। उदाहरण स्लाइड नंबर, नियंत्रण का नाम, [क्लास आईडी](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_classid/), और [संग्रहीत गुण](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_properties/) में प्रत्येक कुंजी‑मान जोड़े की रिपोर्ट करता है। यह प्रस्तुति को नियंत्रनों को सक्रिय किए बिना, इवेंट या मैक्रो को कॉल किए बिना, मान बदलें बिना, या फ़ाइल को सहेजे बिना पढ़ता है।
 
-नीचे दिया गया कोड स्निपेट प्रेजेंटेशन स्लाइड्स में ActiveX नियंत्रणों को नीचे दिखाए अनुसार अपडेट करता है।
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/guid.h>
 
-``` cpp
-// ActiveX नियंत्रणों के साथ प्रस्तुति तक पहुँच रहे हैं
-auto presentation = System::MakeObject<Presentation>(u"ActiveX.pptm");
+using namespace Aspose::Slides;
+using namespace System;
 
-// प्रस्तुति में पहली स्लाइड तक पहुँच रहे हैं
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
 
-// TextBox का टेक्स्ट बदल रहे हैं
-auto control = slide->get_Controls()->idx_get(0);
-
-if (control->get_Name() == u"TextBox1" && control->get_Properties() != nullptr)
+for (auto i = 0; i < presentation->get_Slides()->get_Count(); ++i)
 {
-    String newText = u"Changed text";
-    control->get_Properties()->idx_set(u"Value", newText);
+    auto controls = presentation->get_Slide(i)->get_Controls();
+    for (auto j = 0; j < controls->get_Count(); ++j)
+    {
+        auto control = controls->idx_get(j);
+        Console::WriteLine(u"Slide {0} | {1} | {2}", i + 1, control->get_Name(), control->get_ClassId().ToString());
+        auto properties = control->get_Properties();
+        if (!properties)
+        {
+            Console::WriteLine(u"  Properties unavailable");
+            continue;
+        }
 
-    // स्थानीय छवि बदल रहे हैं। PowerPoint सक्रियण के दौरान इस छवि को बदल देगा, इसलिए कभी‑कभी छवि को अपरिवर्तित छोड़ देना ठीक है।
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Window));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
+        if (properties->get_Count() == 0)
+            Console::WriteLine(u"  []");
 
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    graphics->DrawString(newText, font, brush, 10.0f, 4.0f);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
+        auto entries = properties->GetEnumerator();
+        while (entries->MoveNext())
+        {
+            auto property = entries->get_Current();
+            Console::WriteLine(u"  {0} = {1}", property.get_Key(), property.get_Value());
+        }
+    }
 }
-
-// बटन का कैप्शन बदल रहे हैं
-control = slide->get_Controls()->idx_get(1);
-
-if (control->get_Name() == u"CommandButton1" && control->get_Properties() != nullptr)
-{
-    String newCaption = u"MessageBox";
-    control->get_Properties()->idx_set(u"Caption", newCaption);
-
-    // विकल्पीय चित्र बदल रहे हैं
-    auto image = System::MakeObject<Bitmap>((int32_t)control->get_Frame()->get_Width(), (int32_t)control->get_Frame()->get_Height());
-    auto graphics = Graphics::FromImage(image);
-    auto brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::Control));
-    graphics->FillRectangle(brush, 0, 0, image->get_Width(), image->get_Height());
-
-    auto font = System::MakeObject<Font>(control->get_Properties()->idx_get(u"FontName"), 14.0f);
-    brush = System::MakeObject<SolidBrush>(Color::FromKnownColor(KnownColor::WindowText));
-    SizeF textSize = graphics->MeasureString(newCaption, font, std::numeric_limits<int32_t>::max());
-    graphics->DrawString(newCaption, font, brush, (image->get_Width() - textSize.get_Width()) / 2, (image->get_Height() - textSize.get_Height()) / 2);
-
-    auto pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLightLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height() - 1), Point(0, 0), System::Drawing::Point(image->get_Width() - 1, 0) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlLight), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 2), Point(1, 1), System::Drawing::Point(image->get_Width() - 2, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, image->get_Height() - 1), System::Drawing::Point(image->get_Width() - 1, 1) }));
-
-    pen = System::MakeObject<Pen>(Color::FromKnownColor(KnownColor::ControlDarkDark), 1.0f);
-    graphics->DrawLines(pen, System::MakeArray<Point>({ System::Drawing::Point(0, image->get_Height()), System::Drawing::Point(image->get_Width(), image->get_Height()), System::Drawing::Point(image->get_Width(), 0) }));
-
-    System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
-    image->Save(ms, System::Drawing::Imaging::ImageFormat::get_Png());
-    ms->Seek(0, System::IO::SeekOrigin::Begin);
-    control->get_SubstitutePictureFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(ms));
-}
-
-// ActiveX फ्रेम्स को 100 पॉइंट नीचे ले जा रहे हैं
-for (const auto& ctl : System::IterateOver<Control>(slide->get_Controls()))
-{
-    SharedPtr<IShapeFrame> frame = control->get_Frame();
-    control->set_Frame(System::MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation()));
-}
-
-// संकलित ActiveX नियंत्रणों के साथ प्रस्तुति को सहेज रहे हैं
-presentation->Save(u"withActiveX-edited_out.pptm", SaveFormat::Pptm);
-
-// अब नियंत्रणों को हटा रहे हैं
-slide->get_Controls()->Clear();
-
-// साफ किए गए ActiveX नियंत्रणों के साथ प्रस्तुति को सहेज रहे हैं
-presentation->Save(u"withActiveX.cleared_out.pptm", SaveFormat::Pptm);
 ```
 
-## **Media Player ActiveX नियंत्रण जोड़ना**
-ActiveX नियंत्रण प्रेजेंटेशन में उपयोग किए जाते हैं। Aspose.Slides for C++ आपको ActiveX नियंत्रण जोड़ने और प्रबंधित करने की सुविधा देता है, लेकिन इन्हें प्रबंधित करना थोड़ा जटिल और सामान्य प्रेजेंटेशन शैलियों से अलग है। Aspose.Slides for C++ 18.1 से, Media Player ActiveX नियंत्रण जोड़ने के लिए समर्थन Aspose.Slides में जोड़ा गया है। याद रखें, ActiveX नियंत्रण शैलियाँ नहीं हैं और प्रेजेंटेशन की IShapeCollection का हिस्सा नहीं होते बल्कि अलग IControlExCollection का हिस्सा होते हैं। यह लेख इनसे काम करने का तरीका दिखाता है। Media Player ActiveX नियंत्रण को प्रबंधित करने के लिए, कृपया नीचे दिए गए चरणों का पालन करें:
+`ActiveX.pptm` से चयनित आउटपुट एक टेक्स्ट बॉक्स और एक कमांड बटन दिखाता है।
 
-1. Presentation क्लास का एक इंस्टेंस बनाएं और उसमें Media Player ActiveX नियंत्रणों वाले सैंपल प्रेजेंटेशन को लोड करें।
-2. टार्गेट Presentation क्लास का एक इंस्टेंस बनाएं और एक खाली प्रेजेंटेशन बनायें।
-3. टेम्पलेट प्रेजेंटेशन में Media Player ActiveX नियंत्रण वाली स्लाइड को टार्गेट Presentation में क्लोन करें।
-4. टार्गेट Presentation में क्लोन की गई स्लाइड तक पहुँचें।
-5. IControlCollection तक पहुँचकर स्लाइड में मौजूद ActiveX नियंत्रणों तक पहुँचें।
-6. Media Player ActiveX नियंत्रण तक पहुँचें और उसकी प्रॉपर्टीज़ का उपयोग करके वीडियो पाथ सेट करें।
-7. प्रेजेंटेशन को PPTX फ़ाइल में सहेजें।
-
-``` cpp
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास को इंस्टैंटिएट करें
-auto presentation = System::MakeObject<Presentation>(u"template.pptx");
-
-// खाली प्रस्तुति इंस्टेंस बनाएं
-auto newPresentation = System::MakeObject<Presentation>();
-
-// डिफ़ॉल्ट स्लाइड हटाएँ
-newPresentation->get_Slides()->RemoveAt(0);
-
-// Media Player ActiveX नियंत्रण वाली स्लाइड को क्लोन करें
-newPresentation->get_Slides()->InsertClone(0, presentation->get_Slides()->idx_get(0));
-
-// Media Player ActiveX नियंत्रण तक पहुँचें और वीडियो पाथ सेट करें
-newPresentation->get_Slides()->idx_get(0)->get_Controls()->idx_get(0)->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
-
-// प्रस्तुति सहेजें
-newPresentation->Save(u"LinkingVideoActiveXControl_out.pptx", SaveFormat::Pptx);
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
+`[]` के रूप में एक खाली गुण संग्रह प्रदर्शित होता है। बाइनरी स्टोरेज वाले नियंत्रणों के लिए, `get_Properties` `nullptr` वापस कर सकता है, जिसे `Properties unavailable` के रूप में दिखाया जाता है। यदि आपको केवल नाम चाहिए, तो संग्रह के मौजूद होने की जाँच करने के बाद [get_NamesOfProperties](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/get_namesofproperties/) का उपयोग करें। रिपोर्ट प्रस्तुति से उपलब्ध गुणों की सूची देती है। किसी नियंत्रण में रन‑टाइम पर अतिरिक्त गुण समर्थित हो सकते हैं।
+
+## **ActiveX नियंत्रणों को संशोधित करें**
+
+उदाहरण पहले स्लाइड पर `TextBox1` नामक टेक्स्ट बॉक्स और `CommandButton1` नामक कमांड बटन वाले एक मैक्रो‑सक्षम प्रस्तुति की अपेक्षा करता है। यह टेक्स्ट बॉक्स मूल्य और बटन कैप्शन बदलने के लिए [नियंत्रण गुण संग्रह](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) का उपयोग करता है। प्रत्येक नियंत्रण का एक स्थिर प्रीव्यू भी होता है जिसे PowerPoint सक्रिय करने से पहले दिखा सकता है। प्रत्येक नियंत्रण के लिए अद्यतन टेक्स्ट और रूप दिखाने वाला PNG प्रदान करें। उदाहरण इन छवियों को [IControl::get_SubstitutePictureFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_substitutepictureformat/) के माध्यम से असाइन करता है।
+
+उदाहरण पहले स्लाइड पर प्रत्येक नियंत्रण को उसके [फ्रेम](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/set_frame/) को बदलकर 100 पॉइंट नीचे ले जाता है। यह संपादित प्रस्तुति को PPTM फ़ॉर्मेट में सहेजता है, फिर [IControlCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolcollection/clear/) का उपयोग करके उसी स्लाइड से सभी ActiveX नियंत्रण हटाकर दूसरी कॉपी सहेजता है।
+
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ShapeFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"ActiveX.pptm");
+auto controls = presentation->get_Slide(0)->get_Controls();
+SharedPtr<IControl> textBox;
+SharedPtr<IControl> button;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"TextBox1")
+        textBox = control;
+    else if (control->get_Name() == u"CommandButton1")
+        button = control;
+}
+
+if (!textBox || !button || !textBox->get_Properties() || !button->get_Properties())
+{
+    Console::WriteLine(u"The first slide must contain both named controls with editable properties.");
+    return;
+}
+
+if (!File::Exists(u"text-box-preview.png") || !File::Exists(u"button-preview.png"))
+{
+    Console::WriteLine(u"Supply both preview images before updating the controls.");
+    return;
+}
+
+textBox->get_Properties()->idx_set(u"Value", u"Changed text");
+button->get_Properties()->idx_set(u"Caption", u"Show message");
+
+auto textBoxBytes = File::ReadAllBytes(u"text-box-preview.png");
+auto buttonBytes = File::ReadAllBytes(u"button-preview.png");
+auto textBoxPreview = presentation->get_Images()->AddImage(textBoxBytes);
+auto buttonPreview = presentation->get_Images()->AddImage(buttonBytes);
+textBox->get_SubstitutePictureFormat()->get_Picture()->set_Image(textBoxPreview);
+button->get_SubstitutePictureFormat()->get_Picture()->set_Image(buttonPreview);
+
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    auto frame = control->get_Frame();
+    auto movedFrame = MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y() + 100, frame->get_Width(), frame->get_Height(), frame->get_FlipH(), frame->get_FlipV(), frame->get_Rotation());
+    control->set_Frame(movedFrame);
+}
+
+presentation->Save(u"edited-controls.pptm", SaveFormat::Pptm);
+
+controls->Clear();
+presentation->Save(u"removed-controls.pptm", SaveFormat::Pptm);
+```
+## **एक ActiveX मीडिया प्लेयर नियंत्रण जोड़ें**
+
+कॉन्फ़िगर किया गया Windows Media Player नियंत्रण पुन: उपयोग करने के लिए, ऐसे टेम्प्लेट से शुरू करें जिसकी पहली स्लाइड में `WindowsMediaPlayer1` नामक प्लेयर हो। [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) संपूर्ण स्लाइड को नई प्रस्तुति में कॉपी करता है। उदाहरण प्लेयर की `URL` को उसके [गुण संग्रह](https://reference.aspose.com/slides/cpp/aspose.slides/icontrolpropertiescollection/) में सेट करता है और क्लोन की गई स्लाइड को आउटपुट में केवल एक ही स्लाइड के रूप में सहेजता है। वीडियो बाहरी रहता है, इसलिए ऐसा पथ चुनें जिसे प्लेयर प्लेबैक के दौरान एक्सेस कर सके।
+
+```cpp
+#include <DOM/IControl.h>
+#include <DOM/IControlCollection.h>
+#include <DOM/IControlPropertiesCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace Aspose::Slides::Export;
+
+auto source = MakeObject<Presentation>(u"template.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slides()->AddClone(source->get_Slide(0));
+auto controls = slide->get_Controls();
+
+SharedPtr<IControl> player;
+for (auto i = 0; i < controls->get_Count(); ++i)
+{
+    auto control = controls->idx_get(i);
+    if (control->get_Name() == u"WindowsMediaPlayer1")
+    {
+        player = control;
+        break;
+    }
+}
+
+if (!player || !player->get_Properties())
+{
+    Console::WriteLine(u"The template slide must contain a named media player with editable properties.");
+    return;
+}
+
+player->get_Properties()->idx_set(u"URL", u"Wildlife.mp4");
+
+presentation->get_Slides()->RemoveAt(0);
+presentation->Save(u"linked-video.pptx", SaveFormat::Pptx);
+```
 ## **FAQ**
 
-**क्या Aspose.Slides C++ रनटाइम में निष्पादित नहीं हो सकने पर पढ़ते और पुनः सहेजते समय ActiveX नियंत्रणों को सुरक्षित रखता है?**
+**क्या Aspose.Slides ActiveX नियंत्रणों को उनके चलाए बिना सुरक्षित रख सकता है?**
 
-**हाँ। Aspose.Slides इन्हें प्रेजेंटेशन का हिस्सा मानता है और उनके गुणों और फ्रेम को पढ़/संशोधित कर सकता है; नियंत्रणों को स्वयं निष्पादित करने की आवश्यकता नहीं है उन्हें सुरक्षित रखने के लिए।**
+हां। Aspose.Slides नियंत्रनों को उनके गुणों और स्थितियों सहित पढ़ और सहेज सकता है, बिना उन्हें सक्रिय किए।
 
-**ActiveX नियंत्रण प्रेजेंटेशन में OLE ऑब्जेक्ट्स से कैसे भिन्न होते हैं?**
+**ActiveX नियंत्रण OLE ऑब्जेक्ट से कैसे भिन्न हैं?**
 
-ActiveX नियंत्रण इंटरैक्टिव मैनेज्ड कंट्रोल (बटन, टेक्स्ट बॉक्स, मीडिया प्लेयर) होते हैं, जबकि [OLE](/slides/hi/cpp/manage-ole/) एम्बेडेड एप्लिकेशन ऑब्जेक्ट्स (उदाहरण के लिए, Excel वर्कशीट) को दर्शाता है। इन्हें अलग तरीके से संग्रहीत और संभाला जाता है तथा इनकी प्रॉपर्टी मॉडल अलग होती है।
+ActiveX नियंत्रण उपयोगकर्ताओं को स्लाइड के साथ इंटरैक्ट करने की अनुमति देते हैं, जैसे टेक्स्ट दर्ज करना या बटन पर क्लिक करना। एक [OLE object](/slides/hi/cpp/manage-ole/) स्लाइड को किसी अन्य एप्लिकेशन द्वारा प्रबंधित सामग्री, जैसे Excel वर्कशीट, को शामिल या लिंक करने देता है।
 
-**क्या ActiveX इवेंट्स और VBA मैक्रोज़ काम करते हैं यदि फाइल को Aspose.Slides द्वारा संशोधित किया गया हो?**
+**क्या Aspose.Slides के साथ प्रस्तुति सहेजने के बाद ActiveX इवेंट्स अभी भी VBA मैक्रो को ट्रिगर करेंगे?**
 
-Aspose.Slides मौजूदा मार्कअप और मेटाडेटा को सुरक्षित रखता है; लेकिन इवेंट्स और मैक्रोज़ केवल Windows पर PowerPoint के अंदर ही चलते हैं जब सुरक्षा अनुमति देती है। लाइब्रेरी VBA को निष्पादित नहीं करती।
+प्रस्तुति को PPTM जैसे मैक्रो‑सक्षम फ़ॉर्मेट में सहेजें ताकि उसका VBA प्रोजेक्ट बना रहे। PowerPoint for Windows उन मौजूदा इवेंट हैंडलर्स को चला सकता है जब उसकी सुरक्षा सेटिंग्स ActiveX नियंत्रण और मैक्रो दोनों को अनुमति देती हैं।

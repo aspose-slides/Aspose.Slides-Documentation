@@ -1,166 +1,192 @@
 ---
-title: ActiveX
+title: JavaScript を使用してプレゼンテーションの ActiveX コントロールを管理する
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ja/nodejs-java/activex/
+keywords:
+- ActiveX
+- ActiveX コントロール
+- ActiveX の管理
+- ActiveX の追加
+- ActiveX の変更
+- メディアプレーヤー
+- PowerPoint
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js via Java を使用して、PowerPoint プレゼンテーション内の ActiveX テキストボックスやボタンを編集し、コントロールのプレビューを更新し、Windows Media Player コントロールを再利用します。"
 ---
+## **イントロダクション**
 
-{{% alert color="primary" %}} 
+ActiveX コントロールは、テキスト ボックス、コマンド ボタン、メディア プレーヤーなどのインタラクティブ要素を PowerPoint スライドに提供します。Aspose.Slides for Node.js via Java は、[BaseSlide.getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getControls) を通じてスライドのコントロールを公開します。このコレクションを使用してコントロールを編集したり、スライド上で移動したり、削除したりできます。
 
-ActiveX コントロールはプレゼンテーションで使用されます。Aspose.Slides for Node.js via Java を使用すると ActiveX コントロールを追加および管理できますが、通常のスライド シェイプに比べてやや扱いが難しくなります。Aspose.Slides で Media Player Active コントロールの追加サポートを実装しました。ActiveX コントロールはシェイプではなく、プレゼンテーションの [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) の一部ではありません。代わりに別個の [ControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlcollection/) の一部です。このトピックでは、これらの操作方法を示します。
+## **ActiveX コントロールとその保存されているプロパティの一覧**
 
-{{% /alert %}} 
+不慣れなテンプレートを調査するには、読み取りモードで開き、各スライドのコントロールを反復処理します。この例では、スライド番号、コントロール名、[getClassId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getClassId)、および [getProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getProperties) で取得したすべてのキー‑バリュー ペアを報告します。プレゼンテーションは、コントロールをアクティブ化したり、イベントやマクロを呼び出したり、値を変更したり、ファイルを保存したりせずに読み取ります。
 
-## **スライドへのメディアプレーヤー ActiveX コントロールの追加**
-ActiveX Media Player コントロールを追加するには、次の手順を実行します。
-
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) クラスのインスタンスを作成し、空のプレゼンテーションを生成します。
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) で対象のスライドにアクセスします。
-1. [ControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlcollection/) が提供する [addControl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ControlCollection#addControl-int-float-float-float-float-) メソッドを使用して Media Player ActiveX コントロールを追加します。
-1. Media Player ActiveX コントロールにアクセスし、プロパティを使用してビデオ パスを設定します。
-1. プレゼンテーションを PPTX ファイルとして保存します。
-
-上記の手順に基づくサンプルコードは、スライドに Media Player ActiveX コントロールを追加する方法を示しています:
 ```javascript
-// 空のプレゼンテーションインスタンスを作成
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("ActiveX.pptm");
 try {
-    // Media Player ActiveX コントロールを追加
-    pres.getSlides().get_Item(0).getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-    // Media Player ActiveX コントロールにアクセスし、ビデオパスを設定
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("java.net.URL", "Wildlife.wmv");
-    // プレゼンテーションを保存
-    pres.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slideList = presentation.getSlides();
+    for (let i = 0; i < slideList.size(); i++) {
+        const controls = slideList.get_Item(i).getControls();
+        for (let j = 0; j < controls.size(); j++) {
+            const control = controls.get_Item(j);
+            console.log(`Slide ${i + 1} | ${control.getName()} | ${control.getClassId()}`);
+            const properties = control.getProperties();
+            if (properties == null) {
+                console.log("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() === 0) {
+                console.log("  []");
+            }
+            const names = properties.getNamesOfProperties().iterator();
+            while (names.hasNext()) {
+                const name = names.next();
+                console.log(`  ${name} = ${properties.get_Item(name)}`);
+            }
+        }
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+Selected output from `ActiveX.pptm` shows a text box and a command button.
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+空のプロパティ コレクションは `[]` として表示されます。バイナリ ストレージを使用するコントロールの場合、[getProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getProperties) は `null` を返すことがあり、`Properties unavailable` と表示されます。名前だけが必要な場合は、`null` チェックの後で [getNamesOfProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) を使用してください。レポートにはプレゼンテーションから取得できるプロパティが一覧表示されます。コントロールは実行時に追加のプロパティをサポートすることがあります。
 
 ## **ActiveX コントロールの変更**
 
-スライド上のテキスト ボックスや単純なコマンド ボタンなどのシンプルな ActiveX コントロールを管理するには、次の手順を実行します。
+この例は、最初のスライドに `TextBox1` という名前のテキスト ボックスと `CommandButton1` という名前のコマンド ボタンが含まれるマクロ有効プレゼンテーションを想定しています。[control properties collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlpropertiescollection/) を使用してテキスト ボックスの値とボタンのキャプションを変更します。各コントロールには、アクティブ化前に PowerPoint が表示できる静的プレビューが用意されています。更新されたテキストと外観を示す PNG を各コントロールに提供し、[Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getSubstitutePictureFormat) を通じてこれらの画像を割り当てます。
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) クラスのインスタンスを作成し、ActiveX コントロールを含むプレゼンテーションをロードします。
-1. インデックスでスライド参照を取得します。
-1. スライド内の [ControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlcollection/) にアクセスして ActiveX コントロールを取得します。
-1. [Control](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/) オブジェクトを使用して TextBox1 ActiveX コントロールにアクセスします。
-1. テキスト、フォント、フォントの高さ、フレーム位置など、TextBox1 ActiveX コントロールのプロパティを変更します。
-1. 2 番目のコントロールである CommandButton1 にアクセスします。
-1. ボタンのキャプション、フォント、位置を変更します。
-1. ActiveX コントロールのフレーム位置をシフトします。
-1. 変更したプレゼンテーションを PPTX ファイルに書き込みます。
+例では、[Control.setFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#setFrame) を使用して最初のスライド上のすべてのコントロールのフレームを 100 ポイント下に移動させます。編集後のプレゼンテーションを PPTM 形式で保存し、続いて [ControlCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlcollection/#clear) を使用してそのスライドからすべての ActiveX コントロールを除去した 2 番目のコピーを保存します。
 
-上記の手順に基づくサンプルコードは、シンプルな ActiveX コントロールを管理する方法を示しています:
 ```javascript
-const imageio = java.import("javax.imageio.ImageIO");
-// ActiveX コントロールがあるプレゼンテーションにアクセス
-var pres = new aspose.slides.Presentation("ActiveX.pptm");
-try {
-    // プレゼンテーションの最初のスライドにアクセス
-    var slide = pres.getSlides().get_Item(0);
-    // TextBox のテキストを変更
-    var control = slide.getControls().get_Item(0);
-    if (control.getName().toUpperCase() === "TextBox1".toUpperCase() && (control.getProperties() != null)) {
-        var newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-        // 代替画像を変更します。PowerPoint は ActiveX のアクティベーション時にこの画像を置き換えます、 
-        // そのため、画像を変更しないままにしておくことも時々問題ありません。
-        var image = java.newInstanceSync("java.awt.image.BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
-        var graphics = image.getGraphics();
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "window"));
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-        var font = java.newInstanceSync("java.awt.Font", control.getProperties().get_Item("FontName"), java.getStaticFieldValue("java.awt.Font", "PLAIN"), 16);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "windowText"));
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlShadow"));
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlDkShadow"));
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlHighlight"));
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlLtHighlight"));
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-        graphics.dispose();
-        var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        imageio.write(image, "PNG", baos);
-        var byteStream = Readable.from([Buffer.from(baos.toByteArray())]);
-        aspose.slides.readBytesFromStream(byteStream, (imgData) => {
-            control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(imgData));
-        });
-    }
-    // ボタンのキャプションを変更
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-    if (control.getName().toUpperCase() === "CommandButton1".toUpperCase() && (control.getProperties() != null)) {
-        var newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // 代替画像を変更
-        var image = java.newInstanceSync("java.awt.image.BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
-        var graphics = image.getGraphics();
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "control"));
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-        var font = java.newInstanceSync("java.awt.Font", control.getProperties().get_Item("FontName"), java.getStaticFieldValue("java.awt.Font", "PLAIN"), 16);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "windowText"));
-        graphics.setFont(font);
-        var metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, java.newFloat((image.getWidth() - metrics.stringWidth(newCaption)) / 2), 20);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlLtHighlight"));
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlHighlight"));
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlShadow"));
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlDkShadow"));
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-        graphics.dispose();
-        
-        var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        imageio.write(image, "PNG", baos);
-        var byteStream = Readable.from([Buffer.from(baos.toByteArray())]);
-        aspose.slides.readBytesFromStream(byteStream, (imgData) => {
-            control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(imgData));
-        });
-    }
-    // 100 ポイント下に移動
-    for (let i = 0; i < pres.getSlides().get_Item(0).getControls().size(); i++) {
-        let ctl = pres.getSlides().get_Item(0).getControls().get_Item(i);
-        var frame = ctl.getFrame();
-        ctl.setFrame(new aspose.slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), java.newByte(frame.getFlipH()), java.newByte(frame.getFlipV()), frame.getRotation()));
-    }
-    pres.save("withActiveX-edited_java.pptm", aspose.slides.SaveFormat.Pptm);
-    // コントロールを削除
-    pres.getSlides().get_Item(0).getControls().clear();
-    pres.save("withActiveX-cleared_java.pptm", aspose.slides.SaveFormat.Pptm);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function addPreview(presentation, path) {
+    const image = slides.Images.fromFile(path);
+    try {
+        return presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
     }
 }
+
+function editControls() {
+    const presentation = new slides.Presentation("ActiveX.pptm");
+    try {
+        const controls = presentation.getSlides().get_Item(0).getControls();
+        let textBox;
+        let button;
+        for (let i = 0; i < controls.size(); i++) {
+            const control = controls.get_Item(i);
+            if (control.getName() === "TextBox1") {
+                textBox = control;
+            } else if (control.getName() === "CommandButton1") {
+                button = control;
+            }
+        }
+        if (!textBox || !button || textBox.getProperties() == null || button.getProperties() == null) {
+            console.log("The first slide must contain both named controls with editable properties.");
+            return;
+        }
+
+        const textBoxPreview = addPreview(presentation, "text-box-preview.png");
+        const buttonPreview = addPreview(presentation, "button-preview.png");
+        textBox.getProperties().set_Item("Value", "Changed text");
+        button.getProperties().set_Item("Caption", "Show message");
+        textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+        button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
+
+        for (let i = 0; i < controls.size(); i++) {
+            const control = controls.get_Item(i);
+            const frame = control.getFrame();
+            const flipH = java.newByte(frame.getFlipH());
+            const flipV = java.newByte(frame.getFlipV());
+            const moved = new slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), flipH, flipV, frame.getRotation());
+            control.setFrame(moved);
+        }
+        presentation.save("edited-controls.pptm", slides.SaveFormat.Pptm);
+
+        controls.clear();
+        presentation.save("removed-controls.pptm", slides.SaveFormat.Pptm);
+    } finally {
+        presentation.dispose();
+    }
+}
+
+editControls();
 ```
 
+## **ActiveX メディア プレーヤー コントロールの追加**
+
+設定済みの Windows Media Player コントロールを再利用するには、最初のスライドに `WindowsMediaPlayer1` という名前のプレーヤーが含まれるテンプレートから開始します。[SlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone) はスライド全体を新しいプレゼンテーションにコピーします。例では、プレーヤーの `URL` をその [properties collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlpropertiescollection/) に設定し、クローンされたスライドを出力の唯一のスライドとして保存します。ビデオは外部に残るため、再生中にプレーヤーがアクセスできるパスを選択してください。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+function addMediaPlayer() {
+    const template = new slides.Presentation("template.pptx");
+    try {
+        const presentation = new slides.Presentation();
+        try {
+            const templateSlide = template.getSlides().get_Item(0);
+            const slide = presentation.getSlides().addClone(templateSlide);
+            const controls = slide.getControls();
+            let player;
+            for (let i = 0; i < controls.size(); i++) {
+                const control = controls.get_Item(i);
+                if (control.getName() === "WindowsMediaPlayer1") {
+                    player = control;
+                    break;
+                }
+            }
+            if (!player || player.getProperties() == null) {
+                console.log("The template slide must contain a named media player with editable properties.");
+                return;
+            }
+            player.getProperties().set_Item("URL", "Wildlife.mp4");
+            
+            presentation.getSlides().removeAt(0);
+            presentation.save("linked-video.pptx", slides.SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    } finally {
+        template.dispose();
+    }
+}
+
+addMediaPlayer();
+```
 
 ## **FAQ**
 
-**Aspose.Slides は、Python ランタイムで実行できない場合でも、読み取りと再保存時に ActiveX コントロールを保持しますか？**
+**Aspose.Slides は ActiveX コントロールを実行せずに保持できますか？**
 
-はい。Aspose.Slides はこれらをプレゼンテーションの一部として扱い、プロパティやフレームを読み取り/変更できます。コントロール自体の実行は保持に必要ありません。
+はい。Aspose.Slides はコントロールおよびそのプロパティや位置情報をアクティブ化せずに読み取りおよび保存できます。
 
-**ActiveX コントロールはプレゼンテーション内の OLE オブジェクトとどのように異なりますか？**
+**ActiveX コントロールは OLE オブジェクトとどう違いますか？**
 
-ActiveX コントロールはインタラクティブな管理コントロール（ボタン、テキスト ボックス、メディア プレーヤー）であり、[OLE](/slides/ja/nodejs-java/manage-ole/) は埋め込みアプリケーション オブジェクト（例: Excel ワークシート）を指します。保存および処理方法、プロパティ モデルが異なります。
+ActiveX コントロールは、テキスト入力やボタンのクリックなど、ユーザーがスライドと直接対話できるようにします。[OLE object](/slides/ja/nodejs-java/manage-ole/) は、スライドが別のアプリケーションで管理されているコンテンツ（例: Excel ワークシート）を含むかリンクすることを可能にします。
 
-**ファイルが Aspose.Slides によって変更された場合、ActiveX イベントや VBA マクロは動作しますか？**
+**Aspose.Slides でプレゼンテーションを保存した後、ActiveX イベントは VBA マクロを引き続きトリガーしますか？**
 
-Aspose.Slides は既存のマークアップとメタデータを保持しますが、イベントやマクロは Windows 上の PowerPoint でセキュリティが許可されたときにのみ実行されます。ライブラリ自体は VBA を実行しません。
+プレゼンテーションを PPTM などのマクロ有効形式で保存すれば、VBA プロジェクトが保持されます。Windows 用 PowerPoint のセキュリティ設定で ActiveX コントロールとマクロの両方が許可されていれば、既存のイベント ハンドラは実行されます。

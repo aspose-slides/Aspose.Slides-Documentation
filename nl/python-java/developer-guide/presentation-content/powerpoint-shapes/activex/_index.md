@@ -1,12 +1,12 @@
 ---
-title: Beheer ActiveX-besturingselementen in presentaties met Python
+title: Beheer ActiveX‑besturingselementen in presentaties met Python
 linktitle: ActiveX
 type: docs
 weight: 80
 url: /nl/python-java/activex/
 keywords:
 - ActiveX
-- ActiveX-besturingselement
+- ActiveX‑besturingselement
 - ActiveX beheren
 - ActiveX toevoegen
 - ActiveX wijzigen
@@ -15,23 +15,15 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe Aspose.Slides for Python via Java ActiveX gebruikt om PowerPoint-presentaties te automatiseren en te verbeteren, waardoor ontwikkelaars volledige controle over dia's krijgen."
+description: "Bewerk ActiveX‑tekstvakken en -knoppen, werk voorbeeldweergaven van besturingselementen bij en hergebruik een Windows Media Player‑besturingselement in PowerPoint‑presentaties met Aspose.Slides voor Python via Java."
 ---
 ## **Introductie**
 
-ActiveX-besturingselementen worden gebruikt in presentaties. Aspose.Slides for Python via Java stelt u in staat ActiveX-besturingselementen toe te voegen en te beheren, maar ze zijn iets lastiger te hanteren dan gewone presentatie-vormen. Aspose.Slides ondersteunt het toevoegen van Media Player ActiveX-besturingselementen. Merk op dat ActiveX-besturingselementen geen vormen zijn; ze maken geen deel uit van de presentatie's [ShapeCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/). Ze behoren tot de aparte [ControlCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/controlcollection/) in plaats daarvan. In dit onderwerp laten we u zien hoe u ermee kunt werken.
+ActiveX‑besturingselementen geven een PowerPoint‑dia interactieve elementen zoals tekstvakken, opdrachtknoppen en mediaplayers. Aspose.Slides voor Python via Java maakt de besturingselementen van een dia toegankelijk via [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls). Gebruik deze collectie om een besturingselement te bewerken, te verplaatsen op de dia, of te verwijderen.
 
-## **Een Media Player ActiveX-besturingselement toevoegen aan een dia**
+## **Lijst van ActiveX‑besturingselementen en hun opgeslagen eigenschappen**
 
-Om een ActiveX Media Player-besturingselement toe te voegen, doet u het volgende:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)-klasse en genereer een lege presentatie‑instantie.
-1. Open de doel‑dia in de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/).
-1. Voeg het Media Player ActiveX-besturingselement toe met behulp van de [addControl](https://reference.aspose.com/slides/nl/python-java/aspose.slides/controlcollection/#addControl)-methode die wordt aangeboden door de [ControlCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/controlcollection/).
-1. Verkrijg toegang tot het Media Player ActiveX-besturingselement en stel het video-pad in via zijn eigenschappen.
-1. Sla de presentatie op als een PPTX-bestand.
-
-Deze voorbeeldcode, gebaseerd op de bovenstaande stappen, toont hoe u een Media Player ActiveX-besturingselement aan een dia toevoegt:
+Om een onbekende template te onderzoeken, open deze voor lezen en doorloop de besturingselementen op elke dia. Het voorbeeld meldt het dia‑nummer, de naam van het besturingselement, [getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId), en elk sleutel‑waarde‑paar in [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties). Het leest de presentatie zonder de besturingselementen te activeren, gebeurtenissen of macro's uit te voeren, waarden te wijzigen, of het bestand op te slaan.
 
 ```python
 import jpype
@@ -40,45 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# Maak een lege presentatie.
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # Voeg het Media Player ActiveX-besturingselement toe.
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # Stel het video-pad in.
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # Sla de presentatie op.
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
-## **Een ActiveX-besturingselement wijzigen**
+Geselecteerde uitvoer van `ActiveX.pptm` toont een tekstvak en een opdrachtknop.
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java biedt componenten voor het beheren van ActiveX-besturingselementen. U kunt het reeds toegevoegde ActiveX-besturingselement in uw presentatie benaderen en via de eigenschappen wijzigen of verwijderen.
-{{% /alert %}}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-Om een eenvoudig ActiveX-besturingselement, zoals een tekstvak en een eenvoudige opdrachtknop op een dia, te beheren, doet u het volgende:
+Een lege eigenschapencollectie verschijnt als `[]`. Voor besturingselementen die binaire opslag gebruiken, kan [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) `None` retourneren, weergegeven als `Properties unavailable`. Als u alleen de namen nodig hebt, gebruik dan [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) nadat u gecontroleerd hebt dat de collectie beschikbaar is. Het rapport lijst de eigenschappen op die beschikbaar zijn vanuit de presentatie. Een besturingselement kan tijdens runtime extra eigenschappen ondersteunen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)-klasse en laad de presentatie die ActiveX-besturingselementen bevat.
-1. Verkrijg een dia-referentie op basis van de index.
-1. Benader de ActiveX-besturingselementen op de dia via de [ControlCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/controlcollection/).
-1. Verkrijg toegang tot het TextBox1 ActiveX-besturingselement met behulp van het [Control](https://reference.aspose.com/slides/nl/python-java/aspose.slides/control/)-object.
-1. Wijzig de eigenschappen van het TextBox1 ActiveX-besturingselement, zoals tekst, lettertype, lettergrootte en frame-positie.
-1. Benader het tweede ActiveX-besturingselement genaamd CommandButton1.
-1. Wijzig de knop-bijschrift, het lettertype en de positie.
-1. Verplaats de positie van de frames van de ActiveX-besturingselementen.
-1. Schrijf de aangepaste presentatie naar een PPTM-bestand.
+## **ActiveX‑besturingselementen aanpassen**
 
-Deze voorbeeldcode, gebaseerd op de bovenstaande stappen, toont hoe u een eenvoudig ActiveX-besturingselement beheert:
+Het voorbeeld verwacht een macro‑ingeschakelde presentatie met een tekstvak genaamd `TextBox1` en een opdrachtknop genaamd `CommandButton1` op de eerste dia. Het maakt gebruik van de [control properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) om de tekstvakwaarde en de knopbijschrift te wijzigen. Elk besturingselement heeft ook een statische voorbeeldweergave die PowerPoint kan tonen vóór activatie. Lever een PNG voor elk besturingselement met de bijgewerkte tekst en weergave. Het voorbeeld wijst deze afbeeldingen toe via [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat).
+
+Het voorbeeld verplaatst elk besturingselement op de eerste dia 100 punten naar beneden door het frame in te stellen met [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame). Het slaat de bewerkte presentatie op in PPTM‑formaat, en gebruikt vervolgens [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) om een tweede kopie op te slaan zonder alle ActiveX‑besturingselementen van die dia.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -86,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# Laad de presentatie met ActiveX-besturingselementen.
 presentation = Presentation("ActiveX.pptm")
 try:
-    if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-        # Open de eerste dia.
-        slide = presentation.getSlides().get_Item(0)
-
-        # Wijzig de tekst van het tekstvak.
-        control = slide.getControls().get_Item(0)
-
-        if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-            new_text = "Changed text"
-            control.getProperties().set_Item("Value", new_text)
-
-            # Wijzig de vervangende afbeelding. PowerPoint vervangt deze tijdens ActiveX‑activering,
-            # waardoor het soms onveranderd kan blijven.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.window)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            graphics.drawString(new_text, 10, 20)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Wijzig het knopbijschrift.
-        control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-        if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-            new_caption = "Show MessageBox"
-            control.getProperties().set_Item("Caption", new_caption)
-            # Wijzig de vervangende afbeelding.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.control)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            metrics = graphics.getFontMetrics(font)
-            graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # Verplaats de besturingselementen omlaag met 100 punten.
-        for control in slide.getControls():
-            frame = control.getFrame()
-            new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-            control.setFrame(new_frame)
-        presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-        # Verwijder de besturingselementen.
-        presentation.getSlides().get_Item(0).getControls().clear()
-        presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
     else:
-        print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
+
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
+
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
     presentation.dispose()
 ```
 
-## **Veelgestelde vragen**
+## **ActiveX‑media‑speler‑besturingselement toevoegen**
 
-**Behoudt Aspose.Slides ActiveX-besturingselementen bij het lezen en opnieuw opslaan als ze niet kunnen worden uitgevoerd in de Python-runtime?**
+Om een geconfigureerd Windows Media Player‑besturingselement opnieuw te gebruiken, begin met een template waarvan de eerste dia een speler bevat met de naam `WindowsMediaPlayer1`. [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) kopieert de volledige dia naar een nieuwe presentatie. Het voorbeeld stelt de `URL` van de speler in in zijn [properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) en slaat de gekloonde dia op als de enige dia in de uitvoer. De video blijft extern, dus kies een pad dat de speler tijdens afspelen kan bereiken.
 
-Ja. Aspose.Slides beschouwt ze als onderdeel van de presentatie en kan hun eigenschappen en frames lezen/wijzigen; het uitvoeren van de besturingselementen zelf is niet vereist om ze te behouden.
+```python
+import jpype
+import asposeslides
 
-**Hoe verschillen ActiveX-besturingselementen van OLE-objecten in een presentatie?**
+if not jpype.isJVMStarted():
+    jpave.startJVM()
 
-ActiveX-besturingselementen zijn interactieve beheerde besturingselementen (knoppen, tekstvakken, mediaspeler), terwijl [OLE](/slides/nl/python-java/manage-ole/) verwijst naar ingesloten toepassingsobjecten (bijvoorbeeld een Excel-werkblad). Ze worden anders opgeslagen en verwerkt en hebben verschillende eigenschapsmodellen.
+from asposeslides.api import Presentation, SaveFormat
 
-**Werken ActiveX-events en VBA-macro's als het bestand is gewijzigd door Aspose.Slides?**
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
 
-Aspose.Slides behoudt de bestaande markup en metadata; echter, events en macro's worden alleen uitgevoerd in PowerPoint op Windows wanneer de beveiliging het toestaat. De bibliotheek voert geen VBA uit.
+## **FAQ**
+
+**Kan Aspose.Slides ActiveX‑besturingselementen behouden zonder ze uit te voeren?**
+
+Ja. Aspose.Slides kan besturingselementen lezen en opslaan, inclusief hun eigenschappen en posities, zonder ze te activeren.
+
+**Hoe verschillen ActiveX‑besturingselementen van OLE‑objecten?**
+
+ActiveX‑besturingselementen laten gebruikers met een dia interactie hebben, bijvoorbeeld door tekst in te voeren of op een knop te klikken. Een [OLE‑object](/slides/nl/python-java/manage-ole/) laat een dia inhoud bevatten of ernaar koppelen die wordt beheerd door een andere applicatie, zoals een Excel‑werkblad.
+
+**Zullen ActiveX‑gebeurtenissen nog steeds VBA‑macro's activeren nadat ik een presentatie opsla met Aspose.Slides?**
+
+Sla de presentatie op in een macro‑ingeschakelde indeling zoals PPTM om het VBA‑project te behouden. PowerPoint voor Windows kan de bestaande gebeurtenis‑handlers uitvoeren wanneer de beveiligingsinstellingen zowel ActiveX‑besturingselementen als macro's toestaan.

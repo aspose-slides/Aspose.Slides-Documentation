@@ -1,12 +1,12 @@
 ---
-title: Beheer ActiveX‑controles in presentaties met JavaScript
+title: Beheer ActiveX-besturingselementen in presentaties met JavaScript
 linktitle: ActiveX
 type: docs
 weight: 80
 url: /nl/nodejs-java/activex/
 keywords:
 - ActiveX
-- ActiveX‑control
+- ActiveX besturingselement
 - ActiveX beheren
 - ActiveX toevoegen
 - ActiveX wijzigen
@@ -16,162 +16,175 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Leer hoe Aspose.Slides voor Node.js via Java ActiveX benut om PowerPoint‑presentaties te automatiseren en te verbeteren, waardoor ontwikkelaars krachtige controle over dia’s krijgen."
+description: "Bewerk ActiveX-tekstvakken en -knoppen, werk besturingselement-voorbeelden bij, en hergebruik een Windows Media Player-besturingselement in PowerPoint-presentaties met Aspose.Slides voor Node.js via Java."
 ---
-## **Introductie**
+## **Inleiding**
 
-ActiveX‑controles worden gebruikt in presentaties. Aspose.Slides voor Node.js via Java stelt je in staat om ActiveX‑controles toe te voegen en te beheren, maar ze zijn wat ingewikkelder te hanteren dan gewone presentatie‑vormen. We hebben ondersteuning geïmplementeerd voor het toevoegen van de Media Player‑Active‑control in Aspose.Slides. Merk op dat ActiveX‑controles geen vormen zijn; ze maken geen deel uit van de [ShapeCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/) van de presentatie. Ze behoren in plaats daarvan tot de afzonderlijke [ControlCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/controlcollection/). In dit onderwerp laten we je zien hoe je ermee kunt werken.
+ActiveX‑besturingselementen geven een PowerPoint‑dia interactieve elementen zoals tekstvakken, commandoknoppen en mediaplayers. Aspose.Slides for Node.js via Java maakt de besturingselementen van een dia toegankelijk via [BaseSlide.getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getControls). Gebruik deze collectie om een besturingselement te bewerken, te verplaatsen op de dia, of te verwijderen.
 
-## **Media Player‑ActiveX‑control aan dia toevoegen**
-Om een ActiveX Media Player‑control toe te voegen, doe je het volgende:
+## **Lijst van ActiveX‑besturingselementen en hun opgeslagen eigenschappen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation)‑klasse en genereer een lege presentatie‑instantie.
-1. Open de doel‑dia in [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation).
-1. Voeg de Media Player‑ActiveX‑control toe met de [addControl](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ControlCollection#addControl-int-float-float-float-float-)‑methode die wordt aangeboden door [ControlCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/controlcollection/).
-1. Open de Media Player‑ActiveX‑control en stel het video‑pad in via de eigenschappen.
-1. Sla de presentatie op als een PPTX‑bestand.
-
-Deze voorbeeldcode, gebaseerd op de bovenstaande stappen, laat zien hoe je een Media Player‑ActiveX‑control aan een dia kunt toevoegen:
+Om een onbekende sjabloon te inspecteren, opent u deze voor lezen en doorloopt u de besturingselementen op elke dia. Het voorbeeld geeft het slidennummer, de besturingselementnaam, [getClassId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getClassId), en elk sleutel‑waarde‑paar in [getProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getProperties). Het leest de presentatie zonder de besturingselementen te activeren, events of macro's uit te voeren, waarden te wijzigen, of het bestand op te slaan.
 
 ```javascript
-// Maak een lege presentatie‑instantie
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("ActiveX.pptm");
 try {
-    // ActiveX Media Player‑control toevoegen
-    pres.getSlides().get_Item(0).getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-    // Open de Media Player‑ActiveX‑control en stel het video‑pad in
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("java.net.URL", "Wildlife.wmv");
-    // Sla de presentatie op
-    pres.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slideList = presentation.getSlides();
+    for (let i = 0; i < slideList.size(); i++) {
+        const controls = slideList.get_Item(i).getControls();
+        for (let j = 0; j < controls.size(); j++) {
+            const control = controls.get_Item(j);
+            console.log(`Slide ${i + 1} | ${control.getName()} | ${control.getClassId()}`);
+            const properties = control.getProperties();
+            if (properties == null) {
+                console.log("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() === 0) {
+                console.log("  []");
+            }
+            const names = properties.getNamesOfProperties().iterator();
+            while (names.hasNext()) {
+                const name = names.next();
+                console.log(`  ${name} = ${properties.get_Item(name)}`);
+            }
+        }
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **ActiveX‑control aanpassen**
+Geselecteerde uitvoer van `ActiveX.pptm` toont een tekstvak en een commandoknop.
 
-Om een eenvoudige ActiveX‑control, zoals een tekstvak en een eenvoudige opdrachtknop, op een dia te beheren, doe je het volgende:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation)‑klasse en laad de presentatie met ActiveX‑controles erin.
-1. Verkrijg een referentie naar een dia op basis van de index.
-1. Open de ActiveX‑controles in de dia door de [ControlCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/controlcollection/) te benaderen.
-1. Open de TextBox1‑ActiveX‑control via het [Control](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/control/)‑object.
-1. Wijzig de eigenschappen van de TextBox1‑ActiveX‑control, waaronder tekst, lettertype, lettergrootte en positie van het frame.
-1. Open de tweede toegang‑control genaamd CommandButton1.
-1. Wijzig de knop‑bijschrift, het lettertype en de positie.
-1. Verschuif de positie van de frames van de ActiveX‑controles.
-1. Schrijf de aangepaste presentatie weg naar een PPTX‑bestand.
-
-Deze voorbeeldcode, gebaseerd op de bovenstaande stappen, laat zien hoe je een eenvoudige ActiveX‑control beheert:
-
-```javascript
-const imageio = java.import("javax.imageio.ImageIO");
-// De presentatie met ActiveX‑controles benaderen
-var pres = new aspose.slides.Presentation("ActiveX.pptm");
-try {
-    // De eerste dia in de presentatie benaderen
-    var slide = pres.getSlides().get_Item(0);
-    // tekst van TextBox wijzigen
-    var control = slide.getControls().get_Item(0);
-    if (control.getName().toUpperCase() === "TextBox1".toUpperCase() && (control.getProperties() != null)) {
-        var newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-        // Vervangende afbeelding wijzigen. PowerPoint zal deze afbeelding vervangen tijdens ActiveX‑activatie,
-        // dus soms is het oké om de afbeelding ongewijzigd te laten.
-        var image = java.newInstanceSync("java.awt.image.BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
-        var graphics = image.getGraphics();
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "window"));
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-        var font = java.newInstanceSync("java.awt.Font", control.getProperties().get_Item("FontName"), java.getStaticFieldValue("java.awt.Font", "PLAIN"), 16);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "windowText"));
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlShadow"));
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlDkShadow"));
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlHighlight"));
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlLtHighlight"));
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-        graphics.dispose();
-        var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        imageio.write(image, "PNG", baos);
-        var byteStream = Readable.from([Buffer.from(baos.toByteArray())]);
-        aspose.slides.readBytesFromStream(byteStream, (imgData) => {
-            control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(imgData));
-        });
-    }
-    // Onderschrift van knop wijzigen
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-    if (control.getName().toUpperCase() === "CommandButton1".toUpperCase() && (control.getProperties() != null)) {
-        var newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // Vervangende afbeelding wijzigen
-        var image = java.newInstanceSync("java.awt.image.BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
-        var graphics = image.getGraphics();
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "control"));
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-        var font = java.newInstanceSync("java.awt.Font", control.getProperties().get_Item("FontName"), java.getStaticFieldValue("java.awt.Font", "PLAIN"), 16);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "windowText"));
-        graphics.setFont(font);
-        var metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, java.newFloat((image.getWidth() - metrics.stringWidth(newCaption)) / 2), 20);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlLtHighlight"));
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlHighlight"));
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlShadow"));
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlDkShadow"));
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-        graphics.dispose();
-        
-        var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        imageio.write(image, "PNG", baos);
-        var byteStream = Readable.from([Buffer.from(baos.toByteArray())]);
-        aspose.slides.readBytesFromStream(byteStream, (imgData) => {
-            control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(imgData));
-        });
-    }
-    // 100 punten omlaag verplaatsen
-    for (let i = 0; i < pres.getSlides().get_Item(0).getControls().size(); i++) {
-        let ctl = pres.getSlides().get_Item(0).getControls().get_Item(i);
-        var frame = ctl.getFrame();
-        ctl.setFrame(new aspose.slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), java.newByte(frame.getFlipH()), java.newByte(frame.getFlipV()), frame.getRotation()));
-    }
-    pres.save("withActiveX-edited_java.pptm", aspose.slides.SaveFormat.Pptm);
-    // controles verwijderen
-    pres.getSlides().get_Item(0).getControls().clear();
-    pres.save("withActiveX-cleared_java.pptm", aspose.slides.SaveFormat.Pptm);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
+Een lege eigenschappenverzameling verschijnt als `[]`. Voor besturingselementen die binaire opslag gebruiken, kan [getProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getProperties) `null` teruggeven, weergegeven als `Properties unavailable`. Als u alleen de namen nodig heeft, gebruik dan [getNamesOfProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) na de null‑controle. Het rapport geeft de beschikbare eigenschappen van de presentatie weer. Een besturingselement kan tijdens uitvoering extra eigenschappen ondersteunen.
+
+## **ActiveX‑besturingselementen wijzigen**
+
+Het voorbeeld gaat uit van een macro‑ingeschakelde presentatie met een tekstvak genaamd `TextBox1` en een commandoknop genaamd `CommandButton1` op de eerste dia. Het gebruikt de [verzameling van besturingseigenschappen](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlpropertiescollection/) om de waarde van het tekstvak en het label van de knop te wijzigen. Elk besturingselement heeft ook een statische voorbeeldweergave die PowerPoint kan tonen vóór activatie. Lever een PNG voor elk besturingselement met de bijgewerkte tekst en weergave. Het voorbeeld kent deze afbeeldingen toe via [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getSubstitutePictureFormat).
+
+Het voorbeeld verplaatst elk besturingselement op de eerste dia 100 punten naar beneden door het frame in te stellen met [Control.setFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#setFrame). Het slaat de bewerkte presentatie op in PPTM‑formaat en gebruikt vervolgens [ControlCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlcollection/#clear) om een tweede kopie op te slaan waarbij alle ActiveX‑besturingselementen van die dia verwijderd zijn.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function addPreview(presentation, path) {
+    const image = slides.Images.fromFile(path);
+    try {
+        return presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
+}
+
+function editControls() {
+    const presentation = new slides.Presentation("ActiveX.pptm");
+    try {
+        const controls = presentation.getSlides().get_Item(0).getControls();
+        let textBox;
+        let button;
+        for (let i = 0; i < controls.size(); i++) {
+            const control = controls.get_Item(i);
+            if (control.getName() === "TextBox1") {
+                textBox = control;
+            } else if (control.getName() === "CommandButton1") {
+                button = control;
+            }
+        }
+        if (!textBox || !button || textBox.getProperties() == null || button.getProperties() == null) {
+            console.log("The first slide must contain both named controls with editable properties.");
+            return;
+        }
+
+        const textBoxPreview = addPreview(presentation, "text-box-preview.png");
+        const buttonPreview = addPreview(presentation, "button-preview.png");
+        textBox.getProperties().set_Item("Value", "Changed text");
+        button.getProperties().set_Item("Caption", "Show message");
+        textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+        button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
+
+        for (let i = 0; i < controls.size(); i++) {
+            const control = controls.get_Item(i);
+            const frame = control.getFrame();
+            const flipH = java.newByte(frame.getFlipH());
+            const flipV = java.newByte(frame.getFlipV());
+            const moved = new slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), flipH, flipV, frame.getRotation());
+            control.setFrame(moved);
+        }
+        presentation.save("edited-controls.pptm", slides.SaveFormat.Pptm);
+
+        controls.clear();
+        presentation.save("removed-controls.pptm", slides.SaveFormat.Pptm);
+    } finally {
+        presentation.dispose();
+    }
+}
+
+editControls();
+```
+## **Een ActiveX‑mediaplayer‑besturingselement toevoegen**
+
+Om een geconfigureerd Windows Media Player‑besturingselement opnieuw te gebruiken, start u met een sjabloon waarvan de eerste dia een speler bevat met de naam `WindowsMediaPlayer1`. [SlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone) kopieert de volledige dia naar een nieuwe presentatie. Het voorbeeld stelt de `URL` van de speler in via de [eigenschappenverzameling](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlpropertiescollection/) en slaat de gekloonde dia op als de enige dia in de uitvoer. De video blijft extern, dus kies een pad dat de speler tijdens het afspelen kan bereiken.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+function addMediaPlayer() {
+    const template = new slides.Presentation("template.pptx");
+    try {
+        const presentation = new slides.Presentation();
+        try {
+            const templateSlide = template.getSlides().get_Item(0);
+            const slide = presentation.getSlides().addClone(templateSlide);
+            const controls = slide.getControls();
+            let player;
+            for (let i = 0; i < controls.size(); i++) {
+                const control = controls.get_Item(i);
+                if (control.getName() === "WindowsMediaPlayer1") {
+                    player = control;
+                    break;
+                }
+            }
+            if (!player || player.getProperties() == null) {
+                console.log("The template slide must contain a named media player with editable properties.");
+                return;
+            }
+            player.getProperties().set_Item("URL", "Wildlife.mp4");
+            
+            presentation.getSlides().removeAt(0);
+            presentation.save("linked-video.pptx", slides.SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    } finally {
+        template.dispose();
+    }
+}
+
+addMediaPlayer();
+```
 ## **FAQ**
 
-**Behoudt Aspose.Slides ActiveX‑controles bij het lezen en opnieuw opslaan wanneer ze niet kunnen worden uitgevoerd in de Python‑runtime?**
+**Kan Aspose.Slides ActiveX‑besturingselementen behouden zonder ze uit te voeren?**
 
-Ja. Aspose.Slides beschouwt ze als onderdeel van de presentatie en kan hun eigenschappen en frames lezen/wijzigen; het uitvoeren van de controles zelf is niet vereist om ze te behouden.
+Ja. Aspose.Slides kan besturingselementen lezen en opslaan, inclusief hun eigenschappen en posities, zonder ze te activeren.
 
-**Hoe verschillen ActiveX‑controles van OLE‑objecten in een presentatie?**
+**Hoe verschillen ActiveX‑besturingselementen van OLE‑objecten?**
 
-ActiveX‑controles zijn interactieve beheerde controles (knoppen, tekstvakken, mediaplayer), terwijl [OLE](/slides/nl/nodejs-java/manage-ole/) verwijst naar ingebedde toepassingsobjecten (bijvoorbeeld een Excel‑werkblad). Ze worden anders opgeslagen en behandeld en hebben een ander eigenschapsmodel.
+ActiveX‑besturingselementen laten gebruikers een dia interactief gebruiken, bijvoorbeeld door tekst in te voeren of op een knop te klikken. Een [OLE‑object](/slides/nl/nodejs-java/manage-ole/) laat een dia inhoud bevatten of linken naar content die door een andere toepassing wordt beheerd, zoals een Excel‑werkblad.
 
-**Werken ActiveX‑gebeurtenissen en VBA‑macro's als het bestand is gewijzigd door Aspose.Slides?**
+**Zullen ActiveX‑events nog steeds VBA‑macro’s activeren nadat ik een presentatie opsla met Aspose.Slides?**
 
-Aspose.Slides behoudt de bestaande markup en metadata; echter, gebeurtenissen en macro's worden alleen uitgevoerd in PowerPoint op Windows wanneer de beveiliging dit toelaat. De bibliotheek voert zelf geen VBA uit.
+Sla de presentatie op in een macro‑ingeschakeld formaat zoals PPTM om het VBA‑project te behouden. PowerPoint voor Windows kan de bestaande event‑handlers uitvoeren wanneer de beveiligingsinstellingen zowel ActiveX‑besturingselementen als macro’s toestaan.

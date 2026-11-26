@@ -15,158 +15,169 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "了解 Aspose.Slides for PHP via Java 如何利用 ActiveX 自動化並增強 PowerPoint 簡報，為開發人員提供對投影片的強大控制功能。"
+description: "編輯 ActiveX 文字方塊和按鈕，更新控制項預覽，並在 PowerPoint 簡報中使用 Aspose.Slides for PHP via Java 重複使用 Windows Media Player 控制項。"
 ---
 ## **簡介**
 
-ActiveX 控制項在簡報中使用。Aspose.Slides for PHP via Java 允許您新增與管理 ActiveX 控制項，但相較於普通的簡報形狀，管理起來稍微複雜一些。我們已在 Aspose.Slides 中實作加入 Media Player Active 控制項的支援。請注意，ActiveX 控制項不是形狀；它們不屬於簡報的 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/)。它們屬於獨立的 [ControlCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/controlcollection/) 中。本章節將示範如何使用它們。
+ActiveX 控制項為 PowerPoint 投影片提供互動元素，例如文字方塊、指令按鈕和媒體播放器。Aspose.Slides for PHP via Java 透過 [BaseSlide::getControls](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getControls) 讓投影片的控制項可取得。使用此集合來編輯控制項、在投影片上移動或移除它。
 
-## **將 Media Player ActiveX 控制項新增至投影片**
-要新增 ActiveX Media Player 控制項，請執行以下步驟：
+## **列出 ActiveX 控制項及其儲存屬性**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation) 類別的實例，產生空白簡報。
-1. 在 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation) 中存取目標投影片。
-1. 使用由 [ControlCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/controlcollection/) 提供的 [addControl](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/controlcollection/addcontrol/) 方法加入 Media Player ActiveX 控制項。
-1. 取得 Media Player ActiveX 控制項，並使用其屬性設定影片路徑。
-1. 將簡報儲存為 PPTX 檔案。
-
-以下範例程式碼依照上述步驟說明如何將 Media Player ActiveX 控制項新增至投影片：
+要檢查不熟悉的範本，請以唯讀方式開啟並遍歷每張投影片上的控制項。範例會報告投影片編號、控制項名稱、[getClassId](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getClassId)，以及在 [getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties) 中的每個鍵值對。它會在不啟動控制項、觸發事件或巨集、變更值或儲存檔案的情況下讀取簡報。
 
 ```php
-  # 建立空白簡報實例
-  $pres = new Presentation();
-  try {
-    # 加入 Media Player ActiveX 控制項
-    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    # 取得 Media Player ActiveX 控制項並設定影片路徑
-    $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
-    # 儲存簡報
-    $pres->save("Output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $slides = $presentation->getSlides();
+    for ($i = 0; $i < java_values($slides->size()); $i++) {
+        $controls = $slides->get_Item($i)->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            printf("Slide %d | %s | %s\n", $i + 1, $control->getName(), $control->getClassId());
+            $properties = $control->getProperties();
+            if (java_is_null($properties)) {
+                echo "  Properties unavailable\n";
+                continue;
+            }
+            if (java_values($properties->getCount()) === 0) {
+                echo "  []\n";
+                continue;
+            }
+            $names = $properties->getNamesOfProperties()->iterator();
+            while (java_values($names->hasNext())) {
+                $name = $names->next();
+                printf("  %s = %s\n", $name, $properties->get_Item($name));
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+從 `ActiveX.pptm` 取得的選取輸出顯示了一個文字方塊和一個指令按鈕。
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+空的屬性集合會顯示為 `[]`。對於使用二進位儲存的控制項，[getProperties](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getProperties) 可能返回 `null`，顯示為 `Properties unavailable`。如果只需要名稱，可在檢查為 null 後使用 [getNamesOfProperties](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties)。報告列出簡報中可用的屬性。控制項在執行階段可能支援額外的屬性。
+
 ## **修改 ActiveX 控制項**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for PHP via Java 7.1.0 及更新版本已提供管理 ActiveX 控制項的元件。您可以存取簡報中已加入的 ActiveX 控制項，並透過其屬性進行修改或刪除。
+此範例假設簡報已啟用巨集，且第一張投影片上有名稱為 `TextBox1` 的文字方塊和名稱為 `CommandButton1` 的指令按鈕。它使用 [控制項屬性集合](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) 變更文字方塊的值與按鈕的標題。每個控制項也有 PowerPoint 可以在啟動前顯示的靜態預覽。為每個控制項提供 PNG 圖檔，以顯示更新後的文字與外觀。範例透過 [Control::getSubstitutePictureFormat](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getSubstitutePictureFormat) 指派這些圖像。
 
-{{% /alert %}} 
-
-要在投影片上管理簡單的 ActiveX 控制項（如文字方塊和簡易指令按鈕），請執行以下步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation) 類別的實例，並載入包含 ActiveX 控制項的簡報。
-1. 依索引取得投影片參考。
-1. 透過存取 [ControlCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/controlcollection/) 取得投影片中的 ActiveX 控制項。
-1. 使用 [Control](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/control/) 物件取得 TextBox1 ActiveX 控制項。
-1. 變更 TextBox1 ActiveX 控制項的屬性，包括文字、字型、字型高度與框架位置。
-1. 取得第二個稱為 CommandButton1 的存取控制項。
-1. 變更按鈕標題、字型與位置。
-1. 調整 ActiveX 控制項框架的位置。
-1. 將修改後的簡報寫入 PPTX 檔案。
-
-以下範例程式碼依照上述步驟說明如何管理簡單的 ActiveX 控制項：
+範例使用 [Control::setFrame](https://reference.aspose.com/slides/php-java/aspose.slides/control/#setFrame) 將第一張投影片上所有控制項向下移動 100 點。它以 PPTM 格式儲存編輯後的簡報，然後使用 [ControlCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/controlcollection/#clear) 再儲存一個第二份副本，該副本已從該投影片移除所有 ActiveX 控制項。
 
 ```php
-  # 存取帶有 ActiveX 控制項的簡報
-  $pres = new Presentation("ActiveX.pptm");
-  try {
-    # 存取簡報的第一張投影片
-    $slide = $pres->getSlides()->get_Item(0);
-    # 變更文字方塊文字
-    $control = $slide->getControls()->get_Item(0);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
-      $newText = "Changed text";
-      $control->getProperties()->set_Item("Value", $newText);
-      # 變更替代影像。PowerPoint 會在 ActiveX 啟用期間取代此影像，
-      # 因此有時保留影像不變也是可以的。
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->window);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $graphics->drawString($newText, 10, 20);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeFrame;
+
+$presentation = new Presentation("ActiveX.pptm");
+try {
+    $controls = $presentation->getSlides()->get_Item(0)->getControls();
+    $textBox = null;
+    $button = null;
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $name = (string) $control->getName();
+        if ($name === "TextBox1") {
+            $textBox = $control;
+        } elseif ($name === "CommandButton1") {
+            $button = $control;
+        }
     }
-    # 變更按鈕標題
-    $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
-    if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
-      $newCaption = "Show MessageBox";
-      $control->getProperties()->set_Item("Caption", $newCaption);
-      # 變更替代影像
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
-      $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor->control);
-      $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
-      $graphics->setColor(SystemColor->windowText);
-      $graphics->setFont($font);
-      $metrics = $graphics->getFontMetrics($font);
-      $graphics->drawString($newCaption, $image->getWidth() - $metrics->stringWidth($newCaption) / 2, 20);
-      $graphics->setColor(SystemColor->controlLtHighlight);
-      $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
-      $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor->controlHighlight);
-      $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
-      $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor->controlShadow);
-      $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
-      $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor->controlDkShadow);
-      $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
-      $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
-      $graphics->dispose();
-      $baos = new Java("java.io.ByteArrayOutputStream");
-      Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
-      $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
+    if ($textBox === null || $button === null || java_is_null($textBox->getProperties()) || java_is_null($button->getProperties())) {
+        echo "The first slide must contain both named controls with editable properties.\n";
+        return;
     }
-    # 向下移動 100 點
-    foreach($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
-      $frame = $ctl->getFrame();
-      $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
+
+    foreach ([[$textBox, "text-box-preview.png"], [$button, "button-preview.png"]] as [$control, $path]) {
+        $image = Images::fromFile($path);
+        try {
+            $preview = $presentation->getImages()->addImage($image);
+            $control->getSubstitutePictureFormat()->getPicture()->setImage($preview);
+        } finally {
+            $image->dispose();
+        }
     }
-    $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
-    # 移除控制項
-    $pres->getSlides()->get_Item(0)->getControls()->clear();
-    $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $textBox->getProperties()->set_Item("Value", "Changed text");
+    $button->getProperties()->set_Item("Caption", "Show message");
+
+    for ($j = 0; $j < java_values($controls->size()); $j++) {
+        $control = $controls->get_Item($j);
+        $frame = $control->getFrame();
+        $newY = java_values($frame->getY()) + 100;
+        $moved = new ShapeFrame($frame->getX(), $newY, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation());
+        $control->setFrame($moved);
     }
-  }
+    $presentation->save("edited-controls.pptm", SaveFormat::Pptm);
+
+    $controls->clear();
+    $presentation->save("removed-controls.pptm", SaveFormat::Pptm);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **新增 ActiveX 媒體播放器控制項**
+
+若要重複使用已配置的 Windows Media Player 控制項，請以第一張投影片包含名稱為 `WindowsMediaPlayer1` 的播放器的範本作為起點。[SlideCollection::addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/#addClone) 會將整張投影片複製到新簡報中。範例在其 [屬性集合](https://reference.aspose.com/slides/php-java/aspose.slides/controlpropertiescollection/) 中設定播放器的 `URL`，並將複製的投影片儲存為輸出的唯一投影片。影片保留為外部檔案，因此請選擇播放器在播放期間可存取的路徑。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$template = new Presentation("template.pptx");
+try {
+    $presentation = new Presentation();
+    try {
+        $slides = $presentation->getSlides();
+        $sourceSlide = $template->getSlides()->get_Item(0);
+        $slide = $slides->addClone($sourceSlide);
+        $player = null;
+        $controls = $slide->getControls();
+        for ($j = 0; $j < java_values($controls->size()); $j++) {
+            $control = $controls->get_Item($j);
+            if ((string) $control->getName() === "WindowsMediaPlayer1") {
+                $player = $control;
+                break;
+            }
+        }
+        if ($player === null || java_is_null($player->getProperties())) {
+            echo "The template slide must contain a named media player with editable properties.\n";
+            return;
+        }
+        $player->getProperties()->set_Item("URL", "Wildlife.mp4");
+        $slides->removeAt(0);
+        $presentation->save("linked-video.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+} finally {
+    $template->dispose();
+}
 ```
 
 ## **常見問題**
 
-**Aspose.Slides 在讀取並重新儲存時，如果在 Java 執行階段無法執行 ActiveX 控制項，是否仍會保留它們？**
+**Aspose.Slides 能在不執行的情況下保留 ActiveX 控制項嗎？**
 
-是。Aspose.Slides 會將它們視為簡報的一部份，並能讀取/修改其屬性與框架；不需要執行控制項本身即可保留。
+是。Aspose.Slides 能在不啟動控制項的情況下讀取並儲存控制項，包括它們的屬性與位置。
 
-**ActiveX 控制項與簡報中的 OLE 物件有何不同？**
+**ActiveX 控制項與 OLE 物件有何不同？**
 
-ActiveX 控制項是互動式受管理的控制項（按鈕、文字方塊、媒體播放器），而 [OLE](/slides/zh-hant/php-java/manage-ole/) 指的是嵌入式的應用程式物件（例如 Excel 工作表）。它們的儲存與處理方式不同，且具有不同的屬性模型。
+ActiveX 控制項允許使用者與投影片互動，例如輸入文字或點擊按鈕。 [OLE 物件](/slides/zh-hant/php-java/manage-ole/) 讓投影片包含或連結到由其他應用程式管理的內容，例如 Excel 工作表。
 
-**如果檔案已由 Aspose.Slides 修改，ActiveX 事件與 VBA 巨集是否仍然有效？**
+**儲存使用 Aspose.Slides 的簡報後，ActiveX 事件仍會觸發 VBA 巨集嗎？**
 
-Aspose.Slides 會保留現有的標記與中繼資料；然而，事件與巨集僅在 Windows 上的 PowerPoint 中，且安全性允許時才會執行。此函式庫不會執行 VBA。
+將簡報儲存為支援巨集的格式（例如 PPTM）即可保留 VBA 專案。當 Windows 版 PowerPoint 的安全性設定同時允許 ActiveX 控制項與巨集時，便會執行現有的事件處理常式。

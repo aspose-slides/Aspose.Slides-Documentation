@@ -1,12 +1,12 @@
 ---
-title: Управление ActiveX‑контролями в презентациях с помощью Java
+title: Управление ActiveX‑элементами в презентациях на Java
 linktitle: ActiveX
 type: docs
 weight: 80
 url: /ru/java/activex/
 keywords:
 - ActiveX
-- ActiveX‑контрол
+- элемент управления ActiveX
 - управление ActiveX
 - добавление ActiveX
 - изменение ActiveX
@@ -15,186 +15,157 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как Aspose.Slides for Java использует ActiveX для автоматизации и улучшения презентаций PowerPoint, предоставляя разработчикам мощный контроль над слайдами."
+description: "Редактировать текстовые поля и кнопки ActiveX, обновлять предварительные просмотры элементов управления и повторно использовать элемент Windows Media Player в презентациях PowerPoint с помощью Aspose.Slides для Java."
 ---
+## **Введение**
 
-{{% alert color="primary" %}} 
+ActiveX‑элементы предоставляют слайду PowerPoint интерактивные элементы, такие как текстовые поля, кнопки команд и медиаплееры. Aspose.Slides for Java раскрывает элементы управления слайда через [IBaseSlide.getControls](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getControls--). Используйте эту коллекцию для редактирования элемента управления, перемещения его по слайду или удаления.
 
-ActiveX‑контролы используются в презентациях. Aspose.Slides for Java позволяет добавлять и управлять ActiveX‑контролами, но они несколько сложнее в управлении по сравнению с обычными фигурами презентации. Мы реализовали поддержку добавления элемента управления Media Player ActiveX в Aspose.Slides. Обратите внимание, что ActiveX‑контролы не являются фигурами; они не являются частью презентации [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/). Они являются частью отдельного [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/) вместо этого. В этой статье мы покажем, как работать с ними. 
+## **Список ActiveX‑элементов и их сохранённых свойств**
 
-{{% /alert %}} 
+Чтобы исследовать незнакомый шаблон, откройте его для чтения и пройдите по элементам управления на каждом слайде. Пример выводит номер слайда, имя элемента управления, [getClassId](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getClassId--), а также каждую пару ключ‑значение из [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--). Он читает презентацию без активации элементов управления, вызова событий или макросов, изменения значений или сохранения файла.
 
-## **Добавить элемент управления Media Player ActiveX на слайд**
-Чтобы добавить элемент управления Media Player ActiveX, выполните следующее:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) и создайте пустую презентацию.
-2. Получите доступ к целевому слайду в [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-3. Добавьте элемент управления Media Player ActiveX с помощью метода [addControl](https://reference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) , предоставляемого интерфейсом [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/).
-4. Получите доступ к элементу управления Media Player ActiveX и задайте путь к видео, используя его свойства.
-5. Сохраните презентацию в файл PPTX.
-
-Этот пример кода, основанный на приведённых выше шагах, показывает, как добавить элемент управления Media Player ActiveX на слайд:
 ```java
-// Создать пустой экземпляр презентации
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // Добавление элемента управления Media Player ActiveX
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // Получить доступ к элементу управления Media Player ActiveX и задать путь к видео
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // Сохранить презентацию
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Выбранный вывод из `ActiveX.pptm` показывает текстовое поле и кнопку команды.
 
-## **Изменить ActiveX‑контрол**
-{{% alert color="primary" %}} 
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-Aspose.Slides for Java 7.1.0 и более поздних версий оснащён компонентами для управления ActiveX‑контролями. Вы можете получить доступ к уже добавленному ActiveX‑контролю в вашей презентации и изменить или удалить его с помощью его свойств.
+Пустая коллекция свойств отображается как `[]`. Для элементов управления, использующих бинарное хранилище, [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--) может возвращать `null`, отображаемый как `Properties unavailable`. Если нужны только имена, используйте [getNamesOfProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--) после проверки на `null`. Отчёт перечисляет свойства, доступные из презентации. Элемент управления может поддерживать дополнительные свойства во время выполнения.
 
-{{% /alert %}} 
+## **Изменить ActiveX‑элементы**
 
-Чтобы управлять простым ActiveX‑контролем, например текстовым полем и простой кнопкой, выполните следующее:
+Пример ожидает презентацию с поддержкой макросов, содержащую текстовое поле с именем `TextBox1` и кнопку команды с именем `CommandButton1` на первом слайде. Он использует [control properties collection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) для изменения значения текстового поля и подписи кнопки. Каждый элемент управления также имеет статический предварительный просмотр, который PowerPoint может показывать до активации. Предоставьте PNG для каждого элемента, показывающий обновлённый текст и внешний вид. Пример назначает эти изображения через [IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getSubstitutePictureFormat--).
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) и загрузите презентацию, содержащую ActiveX‑контролы.
-2. Получите ссылку на слайд по его индексу.
-3. Получите доступ к ActiveX‑контролям на слайде, обратившись к [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/).
-4. Получите доступ к ActiveX‑контролю TextBox1 с помощью объекта [IControl](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/).
-5. Измените свойства ActiveX‑контроля TextBox1, включающие текст, шрифт, высоту шрифта и позицию кадра.
-6. Получите доступ ко второму элементу управления под названием CommandButton1.
-7. Измените подпись кнопки, шрифт и позицию.
-8. Сдвиньте положение рамок ActiveX‑контролей.
-9. Запишите изменённую презентацию в файл PPTX.
+Пример перемещает каждый элемент управления на первом слайде вниз на 100 пунктов, задавая его рамку с помощью [IControl.setFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-). Он сохраняет отредактированную презентацию в формате PPTM, затем использует [IControlCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/#clear--) для сохранения второй копии без всех ActiveX‑элементов на этом слайде.
 
-Этот пример кода, основанный на приведённых выше шагах, показывает, как управлять простым ActiveX‑контролем: 
 ```java
-// Доступ к презентации с ActiveX‑контролями
-Presentation pres = new Presentation("ActiveX.pptm");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // Доступ к первому слайду в презентации
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // изменение текста TextBox
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // Замена заменяющего изображения. PowerPoint заменит это изображение во время активации ActiveX,
-        // поэтому иногда допустимо оставить изображение без изменений.
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
     }
 
-    // Изменение подписи кнопки
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
+    Path textBoxPath = Paths.get("text-box-preview.png");
+    Path buttonPath = Paths.get("button-preview.png");
+    byte[] textBoxBytes = Files.readAllBytes(textBoxPath);
+    byte[] buttonBytes = Files.readAllBytes(buttonPath);
+    IPPImage textBoxPreview = presentation.getImages().addImage(textBoxBytes);
+    IPPImage buttonPreview = presentation.getImages().addImage(buttonBytes);
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
 
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // Изменение заменяющего изображения
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
     }
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
 
-    // перемещение вниз на 100 пунктов
-    for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-        IShapeFrame frame = ctl.getFrame();
-        ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-    }
-    pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
-
-    // удаление контролов
-    pres.getSlides().get_Item(0).getControls().clear();
-    pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-} catch(IOException e) {
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Добавить элемент управления ActiveX Media Player**
+
+Чтобы повторно использовать настроенный элемент управления Windows Media Player, начните с шаблона, в котором первый слайд содержит плеер с именем `WindowsMediaPlayer1`. [ISlideCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) копирует весь слайд в новую презентацию. Пример задает `URL` плеера в его [properties collection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) и сохраняет клонированный слайд единственным слайдом в выводе. Видео остаётся внешним, поэтому укажите путь, доступный плееру во время воспроизведения.
+
+```java
+import com.aspose.slides.*;
+
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
+            }
+        }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+        
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
+}
+```
 
 ## **FAQ**
 
-**Сохраняет ли Aspose.Slides ActiveX‑контролы при чтении и повторном сохранении, если они не могут быть выполнены в среде Java?**
+**Может ли Aspose.Slides сохранять ActiveX‑элементы, не запуская их?**
 
-**Да.** Aspose.Slides рассматривает их как часть презентации и может читать/изменять их свойства и рамки; выполнение самих контролов не требуется для их сохранения.
+Да. Aspose.Slides может читать и сохранять элементы управления, включая их свойства и позиции, без их активации.
 
-**Чем ActiveX‑контролы отличаются от OLE‑объектов в презентации?**
+**Чем отличаются ActiveX‑элементы от OLE‑объектов?**
 
-ActiveX‑контролы — это интерактивные управляемые элементы (кнопки, текстовые поля, медиаплеер), тогда как [OLE](/slides/ru/java/manage-ole/) относится к встроенным объектам приложений (например, лист Excel). Они хранятся и обрабатываются по‑разному и имеют разные модели свойств.
+ActiveX‑элементы позволяют пользователям взаимодействовать со слайдом, например вводить текст или нажимать кнопку. [OLE object](/slides/ru/java/manage-ole/) позволяет слайду содержать или связывать контент, управляемый другим приложением, например таблицу Excel.
 
-**Работают ли события ActiveX и макросы VBA, если файл был изменён Aspose.Slides?**
+**Будут ли события ActiveX по‑прежнему вызывать VBA‑макросы после сохранения презентации с помощью Aspose.Slides?**
 
-Aspose.Slides сохраняет существующую разметку и метаданные; однако события и макросы выполняются только внутри PowerPoint на Windows, когда это разрешено параметрами безопасности. Библиотека не выполняет VBA.
+Сохраните презентацию в формате, поддерживающем макросы, например PPTM, чтобы сохранить её проект VBA. PowerPoint для Windows может выполнять существующие обработчики событий, когда настройки безопасности позволяют использовать как ActiveX‑элементы, так и макросы.

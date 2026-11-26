@@ -1,6 +1,6 @@
 ---
-title: "إدارة عناصر تحكم ActiveX في العروض التقديمية باستخدام Python"
-linktitle: "ActiveX"
+title: إدارة عناصر التحكم ActiveX في العروض التقديمية باستخدام Python
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ar/python-java/activex/
@@ -10,28 +10,20 @@ keywords:
 - إدارة ActiveX
 - إضافة ActiveX
 - تعديل ActiveX
-- مشغل وسائط
+- مشغّل وسائط
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيف يستخدم Aspose.Slides لـ Python عبر Java عناصر ActiveX لأتمتة وتحسين عروض PowerPoint التقديمية، مما يمنح المطورين سيطرة قوية على الشرائح."
+description: "تحرير مربعات النص وأزرار ActiveX، وتحديث معاينات عناصر التحكم، وإعادة استخدام عنصر تحكم Windows Media Player في عروض PowerPoint التقديمية باستخدام Aspose.Slides for Python عبر Java."
 ---
-## **مقدمة**
+## **المقدمة**
 
-تُستخدم عناصر تحكم ActiveX في العروض التقديمية. Aspose.Slides لـ Python عبر Java يتيح لك إضافة وإدارة عناصر تحكم ActiveX، لكنها تكون أكثر صعوبة في الإدارة مقارنةً بالأشكال العادية في العرض التقديمي. يدعم Aspose.Slides إضافة عناصر تحكم Media Player ActiveX. لاحظ أن عناصر تحكم ActiveX ليست أشكالًا؛ فهي ليست جزءًا من العرض التقديمي في [ShapeCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapecollection/). إنها جزء من [ControlCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/controlcollection/) المنفصل. في هذا الموضوع، سنوضح لك كيفية العمل معها.
+تُوفر عناصر التحكم ActiveX لشرائح PowerPoint عناصر تفاعلية مثل مربعات النص، أزرار الأوامر، ومشغلات الوسائط. تُتيح Aspose.Slides for Python عبر Java التحكم في عناصر الشريحة من خلال [BaseSlide.getControls](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getControls). استخدم هذه المجموعة لتعديل عنصر تحكم، نقلُه على الشريحة، أو إزالته.
 
-## **إضافة عنصر تحكم Media Player ActiveX إلى شريحة**
+## **قائمة عناصر التحكم ActiveX وخصائصها المخزنة**
 
-لإضافة عنصر تحكم Media Player ActiveX، افعل ذلك:
-
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) وتوليد نسخة فارغة من العرض التقديمي.
-2. الوصول إلى الشريحة المستهدفة في [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
-3. إضافة عنصر تحكم Media Player ActiveX باستخدام طريقة [addControl](https://reference.aspose.com/slides/ar/python-java/aspose.slides/controlcollection/#addControl) التي تُكشف عبر [ControlCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/controlcollection/).
-4. الوصول إلى عنصر تحكم Media Player ActiveX وتعيين مسار الفيديو باستخدام خصائصه.
-5. حفظ العرض التقديمي كملف PPTX.
-
-يعرض هذا الكود النموذجي، استنادًا إلى الخطوات السابقة، كيفية إضافة عنصر تحكم Media Player ActiveX إلى شريحة:
+لفحص قالب غير مألوف، افتحه للقراءة وت.iterate عبر عناصر التحكم في كل شريحة. تُظهر العينة رقم الشريحة، اسم عنصر التحكم، [getClassId](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getClassId)، وكل زوج مفتاح‑قيمة في [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties). يقرأ العرض التقديمي دون تفعيل عناصر التحكم، أو استدعاء الأحداث أو الماكروات، أو تغيير القيم، أو حفظ الملف.
 
 ```python
 import jpype
@@ -40,45 +32,47 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ControlType, Presentation, SaveFormat
+from asposeslides.api import Presentation
 
-# إنشاء عرض تقديمي فارغ.
-presentation = Presentation()
+presentation = Presentation("ActiveX.pptm")
 try:
-    # إضافة عنصر تحكم Media Player ActiveX.
-    slide = presentation.getSlides().get_Item(0)
-    control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400)
-
-    # تعيين مسار الفيديو.
-    control.getProperties().set_Item("URL", "Wildlife.wmv")
-
-    # حفظ العرض التقديمي.
-    presentation.save("Output.pptx", SaveFormat.Pptx)
+    for slide_number, slide in enumerate(presentation.getSlides(), start=1):
+        for control in slide.getControls():
+            print(f"Slide {slide_number} | {control.getName()} | {control.getClassId()}")
+            properties = control.getProperties()
+            if properties is None:
+                print("  Properties unavailable")
+            elif properties.getCount() == 0:
+                print("  []")
+            else:
+                for name in properties.getNamesOfProperties():
+                    print(f"  {name} = {properties.get_Item(name)}")
 finally:
     presentation.dispose()
 ```
 
-## **تعديل عنصر تحكم ActiveX**
+يعرض الإخراج المختار من `ActiveX.pptm` مربع نص وزر أمر.
 
-{{% alert color="info" title="Note" %}}
-يوفر Aspose.Slides لـ Python عبر Java مكونات لإدارة عناصر تحكم ActiveX. يمكنك الوصول إلى عنصر تحكم ActiveX الذي تم إضافته بالفعل في عرضك التقديمي وتعديله أو حذفه عبر خصائصه.
-{{% /alert %}}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-لإدارة عنصر تحكم ActiveX بسيط مثل مربع النص وزر الأمر البسيط على شريحة، قم بما يلي:
+تظهر مجموعة الخصائص الفارغة كـ `[]`. للعناصر التي تستخدم تخزينًا ثنائيًا، قد تُعيد [getProperties](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getProperties) القيمة `None`، وتُعرض كـ `Properties unavailable`. إذا كنت بحاجة إلى الأسماء فقط، استخدم [getNamesOfProperties](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties) بعد التحقق من توفر المجموعة. يسرد التقرير الخصائص المتاحة من العرض التقديمي. قد يدعم العنصر خصائص إضافية وقت التشغيل.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) وتحميل العرض التقديمي الذي يحتوي على عناصر تحكم ActiveX.
-2. الحصول على مرجع الشريحة باستخدام مؤشرها.
-3. الوصول إلى عناصر تحكم ActiveX في الشريحة عبر الوصول إلى [ControlCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/controlcollection/).
-4. الوصول إلى عنصر تحكم ActiveX TextBox1 باستخدام كائن [Control](https://reference.aspose.com/slides/ar/python-java/aspose.slides/control/).
-5. تغيير خصائص عنصر تحكم ActiveX TextBox1 التي تشمل النص، الخط، ارتفاع الخط، وموقع الإطار.
-6. الوصول إلى عنصر التحكم ActiveX الثاني المسمى CommandButton1.
-7. تغيير تسمية الزر، الخط، وموقعه.
-8. تحريك موقع إطارات عناصر تحكم ActiveX.
-9. كتابة العرض التقديمي المعدل إلى ملف PPTM.
+## **تعديل عناصر التحكم ActiveX**
 
-يعرض هذا الكود النموذجي، استنادًا إلى الخطوات السابقة، كيفية إدارة عنصر تحكم ActiveX بسيط:
+تتوقع العينة عرضًا تقديميًا يدعم الماكرو يحتوي على مربع نص اسمه `TextBox1` وزر أمر اسمه `CommandButton1` في الشريحة الأولى. تستخدم [control properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) لتغيير قيمة مربع النص وعنوان الزر. لكل عنصر تحكم معاينة ثابتة يمكن لـ PowerPoint عرضها قبل التفعيل. قدم ملف PNG لكل عنصر يظهر النص المحدث والمظهر. تُعيّن العينة هذه الصور عبر [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/python-java/aspose.slides/control/#getSubstitutePictureFormat).
+
+تنقل العينة كل عنصر تحكم في الشريحة الأولى للأسفل بمقدار 100 نقطة عبر ضبط إطاره بـ [Control.setFrame](https://reference.aspose.com/slides/python-java/aspose.slides/control/#setFrame). تحفظ العرض التقديمي المعدل بصيغة PPTM، ثم تستخدم [ControlCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/controlcollection/#clear) لحفظ نسخة ثانية مع إزالة جميع عناصر التحكم ActiveX من تلك الشريحة.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
@@ -86,132 +80,81 @@ if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeFrame
-from java.awt import Font, SystemColor
-from java.awt.image import BufferedImage
-from java.io import ByteArrayOutputStream
-from javax.imageio import ImageIO
 
-# تحميل العرض التقديمي مع عناصر تحكم ActiveX.
 presentation = Presentation("ActiveX.pptm")
 try:
-    if presentation.getSlides().size() > 0 and presentation.getSlides().get_Item(0).getControls().size() >= 2:
-        # الوصول إلى الشريحة الأولى.
-        slide = presentation.getSlides().get_Item(0)
-
-        # تغيير نص مربع النص.
-        control = slide.getControls().get_Item(0)
-
-        if str(control.getName()).lower() == "textbox1" and control.getProperties() is not None:
-            new_text = "Changed text"
-            control.getProperties().set_Item("Value", new_text)
-
-            # تغيير الصورة البديلة. يقوم PowerPoint باستبدالها أثناء تنشيط ActiveX،
-            # لذلك قد تُترك أحيانًا دون تعديل.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.window)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            graphics.drawString(new_text, 10, 20)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # تغيير تسمية الزر.
-        control = presentation.getSlides().get_Item(0).getControls().get_Item(1)
-
-        if str(control.getName()).lower() == "commandbutton1" and control.getProperties() is not None:
-            new_caption = "Show MessageBox"
-            control.getProperties().set_Item("Caption", new_caption)
-            # تغيير الصورة البديلة.
-            image = BufferedImage(int(control.getFrame().getWidth()), int(control.getFrame().getHeight()), BufferedImage.TYPE_INT_ARGB)
-            graphics = image.getGraphics()
-            graphics.setColor(SystemColor.control)
-            graphics.fillRect(0, 0, image.getWidth(), image.getHeight())
-
-            font = Font(control.getProperties().get_Item("FontName"), Font.PLAIN, 16)
-            graphics.setColor(SystemColor.windowText)
-            graphics.setFont(font)
-            metrics = graphics.getFontMetrics(font)
-            graphics.drawString(new_caption, (image.getWidth() - metrics.stringWidth(new_caption)) // 2, 20)
-
-            graphics.setColor(SystemColor.controlLtHighlight)
-            graphics.drawLine(0, image.getHeight() - 1, 0, 0)
-            graphics.drawLine(0, 0, image.getWidth() - 1, 0)
-
-            graphics.setColor(SystemColor.controlHighlight)
-            graphics.drawLine(1, image.getHeight() - 2, 1, 1)
-            graphics.drawLine(1, 1, image.getWidth() - 2, 1)
-
-            graphics.setColor(SystemColor.controlShadow)
-            graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1)
-            graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1)
-
-            graphics.setColor(SystemColor.controlDkShadow)
-            graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight())
-            graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0)
-
-            graphics.dispose()
-
-            image_stream = ByteArrayOutputStream()
-            ImageIO.write(image, "PNG", image_stream)
-
-            image_bytes = image_stream.toByteArray()
-            substitute_image = presentation.getImages().addImage(image_bytes)
-            control.getSubstitutePictureFormat().getPicture().setImage(substitute_image)
-
-        # نقل عناصر التحكم للأسفل بمقدار 100 نقطة.
-        for control in slide.getControls():
-            frame = control.getFrame()
-            new_frame = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
-            control.setFrame(new_frame)
-        presentation.save("withActiveX-edited_python.pptm", SaveFormat.Pptm)
-
-        # إزالة عناصر التحكم.
-        presentation.getSlides().get_Item(0).getControls().clear()
-        presentation.save("withActiveX-cleared_python.pptm", SaveFormat.Pptm)
+    controls = presentation.getSlides().get_Item(0).getControls()
+    by_name = {str(control.getName()): control for control in controls}
+    text_box = by_name.get("TextBox1")
+    button = by_name.get("CommandButton1")
+    if text_box is None or button is None or text_box.getProperties() is None or button.getProperties() is None:
+        print("The first slide must contain both named controls with editable properties.")
     else:
-        print("The first slide must contain the TextBox1 and CommandButton1 ActiveX controls.")
+        text_box_bytes = Path("text-box-preview.png").read_bytes()
+        button_bytes = Path("button-preview.png").read_bytes()
+        text_box_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(text_box_bytes))
+        button_preview = presentation.getImages().addImage(jpype.JArray(jpype.JByte)(button_bytes))
+        text_box.getProperties().set_Item("Value", "Changed text")
+        button.getProperties().set_Item("Caption", "Show message")
+        text_box.getSubstitutePictureFormat().getPicture().setImage(text_box_preview)
+        button.getSubstitutePictureFormat().getPicture().setImage(button_preview)
+
+        for control in controls:
+            frame = control.getFrame()
+            moved = ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation())
+            control.setFrame(moved)
+        presentation.save("edited-controls.pptm", SaveFormat.Pptm)
+
+        controls.clear()
+        presentation.save("removed-controls.pptm", SaveFormat.Pptm)
+except OSError as error:
+    print(f"Could not read a control preview: {error}")
 finally:
     presentation.dispose()
 ```
 
+## **إضافة عنصر تحكم مشغل وسائط ActiveX**
+
+لإعادة استخدام عنصر تحكم Windows Media Player مُكوّن، ابدأ بقالب تحتوي شريحته الأولى على مشغل اسمه `WindowsMediaPlayer1`. ينسخ [SlideCollection.addClone](https://reference.aspose.com/slides/python-java/aspose.slides/slidecollection/#addClone) الشريحة بالكامل إلى عرض تقديمي جديد. تُضبط العينة عنوان `URL` الخاص بالمشغل في [properties collection](https://reference.aspose.com/slides/python-java/aspose.slides/controlpropertiescollection/) وتُحفظ الشريحة المستنسخة كالشريحة الوحيدة في الناتج. يبقى الفيديو خارجيًا، لذا اختر مسارًا يمكن للمشغل الوصول إليه أثناء التشغيل.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+template = Presentation("template.pptx")
+try:
+    presentation = Presentation()
+    try:
+        slides = presentation.getSlides()
+        slide = slides.addClone(template.getSlides().get_Item(0))
+        player = next((control for control in slide.getControls() if control.getName() == "WindowsMediaPlayer1"), None)
+        if player is None or player.getProperties() is None:
+            print("The template slide must contain a named media player with editable properties.")
+        else:
+            player.getProperties().set_Item("URL", "Wildlife.mp4")
+            slides.removeAt(0)
+            presentation.save("linked-video.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    template.dispose()
+```
+
 ## **الأسئلة المتكررة**
 
-**هل يحافظ Aspose.Slides على عناصر تحكم ActiveX عند القراءة وإعادة الحفظ إذا لم يمكن تنفيذها في بيئة تشغيل Python؟**
+**هل يمكن لـ Aspose.Slides الحفاظ على عناصر التحكم ActiveX دون تشغيلها؟**
 
-نعم. يعتبر Aspose.Slides عناصر التحكم جزءًا من العرض التقديمي ويمكنه قراءة/تعديل خصائصها وإطاراتها؛ لا يلزم تنفيذ عناصر التحكم نفسها للحفاظ عليها.
+نعم. يمكن لـ Aspose.Slides قراءة العناصر وحفظها، بما في ذلك خصائصها ومواقعها، دون تفعيلها.
 
-**كيف تختلف عناصر تحكم ActiveX عن كائنات OLE في العرض التقديمي؟**
+**كيف تختلف عناصر التحكم ActiveX عن كائنات OLE؟**
 
-تُعد عناصر تحكم ActiveX ضوابط تفاعلية مُدارة (أزرار، مربعات نص، مشغل وسائط)، بينما يشير [OLE](/slides/ar/python-java/manage-ole/) إلى كائنات تطبيق مضمنة (مثل ورقة عمل Excel). يتم تخزينها ومعالجتها بطريقة مختلفة ولها نماذج خصائص متميزة.
+تسمح عناصر التحكم ActiveX للمستخدمين بالتفاعل مع الشريحة، مثل إدخال نص أو النقر على زر. يتيح [OLE object](/slides/ar/python-java/manage-ole/) للشريحة احتواء أو ربط محتوى تُديره تطبيق آخر، مثل ورقة عمل Excel.
 
-**هل تعمل أحداث ActiveX وماكرو VBA إذا تم تعديل الملف بواسطة Aspose.Slides؟**
+**هل ستستمر أحداث ActiveX في تشغيل ماكروات VBA بعد حفظ العرض التقديمي باستخدام Aspose.Slides؟**
 
-يحافظ Aspose.Slides على العلامات والبيانات الوصفية الحالية؛ ومع ذلك، تُنفّذ الأحداث والماكروهات فقط داخل PowerPoint على نظام Windows عندما تسمح الأمان بذلك. المكتبة لا تقوم بتنفيذ VBA.
+احفظ العرض التقديمي بصيغة تدعم الماكرو مثل PPTM للاحتفاظ بمشروع VBA الخاص به. يمكن لـ PowerPoint لنظام Windows تشغيل معالجات الأحداث الحالية عندما تسمح إعدادات الأمان بوجود كل من عناصر التحكم ActiveX والماكروات.

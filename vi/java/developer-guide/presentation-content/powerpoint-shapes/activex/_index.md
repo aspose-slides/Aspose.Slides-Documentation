@@ -1,5 +1,5 @@
 ---
-title: Quản lý các điều khiển ActiveX trong bài thuyết trình bằng Java
+title: Quản lý các điều khiển ActiveX trong bản trình chiếu bằng Java
 linktitle: ActiveX
 type: docs
 weight: 80
@@ -12,186 +12,160 @@ keywords:
 - sửa đổi ActiveX
 - trình phát media
 - PowerPoint
-- bài thuyết trình
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách Aspose.Slides for Java tận dụng ActiveX để tự động hoá và cải thiện các bài thuyết trình PowerPoint, cung cấp cho nhà phát triển khả năng kiểm soát mạnh mẽ trên các slide."
+description: "Chỉnh sửa các hộp văn bản và nút ActiveX, cập nhật bản xem trước của điều khiển, và tái sử dụng điều khiển Windows Media Player trong các bản trình chiếu PowerPoint với Aspose.Slides cho Java."
 ---
 ## **Giới thiệu**
 
-Các điều khiển ActiveX được sử dụng trong các bài thuyết trình. Aspose.Slides for Java cho phép bạn thêm và quản lý các điều khiển ActiveX, nhưng chúng khó quản lý hơn một chút so với các hình dạng bình thường trong bài thuyết trình. Chúng tôi đã triển khai hỗ trợ thêm điều khiển Media Player Active trong Aspose.Slides. Lưu ý rằng các điều khiển ActiveX không phải là hình dạng; chúng không phải là một phần của bản trình bày's [IShapeCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/). Chúng thuộc về [IControlCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icontrolcollection/) riêng biệt. Trong chủ đề này, chúng tôi sẽ hướng dẫn bạn cách làm việc với chúng. 
+Các điều khiển ActiveX cung cấp cho slide PowerPoint các yếu tố tương tác như hộp văn bản, nút lệnh và trình phát media. Aspose.Slides for Java cung cấp các điều khiển của slide thông qua [IBaseSlide.getControls](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getControls--). Sử dụng bộ sưu tập này để chỉnh sửa một điều khiển, di chuyển nó trên slide hoặc xóa nó.
 
-## **Thêm điều khiển Media Player ActiveX vào một slide**
-Để thêm một điều khiển Media Player ActiveX, làm theo các bước sau:
+## **Liệt kê các điều khiển ActiveX và các thuộc tính đã lưu của chúng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation) và tạo một bản trình bày trống.
-2. Truy cập slide mục tiêu trong [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation).
-3. Thêm điều khiển Media Player ActiveX bằng phương thức [addControl](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) được cung cấp bởi [IControlCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icontrolcollection/).
-4. Truy cập điều khiển Media Player ActiveX và đặt đường dẫn video bằng cách sử dụng các thuộc tính của nó.
-5. Lưu bản trình bày dưới dạng tệp PPTX.
-
-Mã mẫu này, dựa trên các bước trên, cho thấy cách thêm điều khiển Media Player ActiveX vào một slide:
+Để kiểm tra một mẫu không quen thuộc, mở nó để đọc và lặp qua các điều khiển trên mỗi slide. Ví dụ báo cáo số slide, tên điều khiển, [getClassId](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getClassId--), và mỗi cặp khóa-giá trị trong [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--). Nó đọc bản trình chiếu mà không kích hoạt các điều khiển, không gọi sự kiện hay macro, không thay đổi giá trị, và không lưu tệp.
 
 ```java
-// Tạo một thể hiện bản trình bày trống
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // Thêm điều khiển Media Player ActiveX
-    pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-
-    // Truy cập điều khiển Media Player ActiveX và đặt đường dẫn video
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
-
-    // Lưu bản trình bày
-    pres.save("Output.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < presentation.getSlides().size(); i++) {
+        for (IControl control : presentation.getSlides().get_Item(i).getControls()) {
+            System.out.printf("Slide %d | %s | %s%n", i + 1, control.getName(), control.getClassId());
+            IControlPropertiesCollection properties = control.getProperties();
+            if (properties == null) {
+                System.out.println("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() == 0) {
+                System.out.println("  []");
+            }
+            for (String name : properties.getNamesOfProperties()) {
+                System.out.printf("  %s = %s%n", name, properties.get_Item(name));
+            }
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Sửa đổi một điều khiển ActiveX**
-{{% alert color="primary" %}} 
+Kết quả đã chọn từ `ActiveX.pptm` hiển thị một hộp văn bản và một nút lệnh.
 
-Aspose.Slides for Java 7.1.0 và các phiên bản mới hơn được trang bị các thành phần để quản lý các điều khiển ActiveX. Bạn có thể truy cập điều khiển ActiveX đã được thêm vào bản trình bày và sửa đổi hoặc xóa nó thông qua các thuộc tính của nó.
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
 
-{{% /alert %}} 
+Một bộ sưu tập thuộc tính rỗng hiển thị dưới dạng `[]`. Đối với các điều khiển sử dụng lưu trữ nhị phân, [getProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getProperties--) có thể trả về `null`, được hiển thị là `Properties unavailable`. Nếu bạn chỉ cần tên, hãy sử dụng [getNamesOfProperties](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/#getNamesOfProperties--) sau khi kiểm tra null. Báo cáo liệt kê các thuộc tính có sẵn từ bản trình chiếu. Một điều khiển có thể hỗ trợ các thuộc tính bổ sung tại thời gian chạy.
 
-Để quản lý một điều khiển ActiveX đơn giản như hộp văn bản và nút lệnh đơn giản trên một slide, làm như sau:
+## **Chỉnh sửa các điều khiển ActiveX**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation) và tải bản trình bày có chứa các điều khiển ActiveX.
-2. Lấy tham chiếu slide bằng chỉ số của nó.
-3. Truy cập các điều khiển ActiveX trong slide bằng cách truy cập [IControlCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icontrolcollection/).
-4. Truy cập điều khiển ActiveX TextBox1 bằng đối tượng [IControl](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icontrol/).
-5. Thay đổi các thuộc tính của điều khiển ActiveX TextBox1 bao gồm văn bản, phông chữ, kích thước phông và vị trí khung.
-6. Truy cập điều khiển thứ hai có tên CommandButton1.
-7. Thay đổi nhãn nút, phông chữ và vị trí.
-8. Di chuyển vị trí của khung các điều khiển ActiveX.
-9. Ghi bản trình bày đã sửa đổi vào tệp PPTX.
+Ví dụ yêu cầu một bản trình chiếu hỗ trợ macro có một hộp văn bản có tên `TextBox1` và một nút lệnh có tên `CommandButton1` trên slide đầu tiên. Nó sử dụng [control properties collection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) để thay đổi giá trị hộp văn bản và nhãn nút. Mỗi điều khiển cũng có một bản xem trước tĩnh mà PowerPoint có thể hiển thị trước khi kích hoạt. Cung cấp một tệp PNG cho mỗi điều khiển để hiển thị văn bản và giao diện đã cập nhật. Ví dụ gán các hình ảnh này thông qua [IControl.getSubstitutePictureFormat](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getSubstitutePictureFormat--).
 
-Mã mẫu này, dựa trên các bước trên, cho thấy cách quản lý một điều khiển ActiveX đơn giản: 
+Ví dụ di chuyển mọi điều khiển trên slide đầu tiên xuống 100 điểm bằng cách đặt khung của chúng với [IControl.setFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#setFrame-com.aspose.slides.IShapeFrame-). Nó lưu bản trình chiếu đã chỉnh sửa ở định dạng PPTM, sau đó sử dụng [IControlCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolcollection/#clear--) để lưu một bản sao thứ hai với tất cả các điều khiển ActiveX đã bị xóa khỏi slide đó.
 
 ```java
-// Truy cập bản trình bày có các điều khiển ActiveX
-Presentation pres = new Presentation("ActiveX.pptm");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ActiveX.pptm");
 try {
-    // Truy cập slide đầu tiên trong bản trình bày
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // đổi văn bản TextBox
-    IControl control = slide.getControls().get_Item(0);
-
-    if (control.getName().equalsIgnoreCase("TextBox1") && control.getProperties() != null) {
-        String newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-
-        // Thay đổi hình ảnh thay thế. PowerPoint sẽ thay thế hình ảnh này khi kích hoạt ActiveX,
-        // vì vậy đôi khi có thể để nguyên hình ảnh.
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.window);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-
-        graphics.setColor(SystemColor.controlDkShadow);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-        graphics.dispose();
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "PNG", baos);
-
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    IControlCollection controls = presentation.getSlides().get_Item(0).getControls();
+    IControl textBox = null;
+    IControl button = null;
+    for (IControl control : controls) {
+        if ("TextBox1".equals(control.getName())) {
+            textBox = control;
+        } else if ("CommandButton1".equals(control.getName())) {
+            button = control;
+        }
+    }
+    if (textBox == null || button == null || textBox.getProperties() == null || button.getProperties() == null) {
+        System.out.println("The first slide must contain both named controls with editable properties.");
+        return;
     }
 
-    // Thay đổi chú thích nút
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
+    Path textBoxPath = Paths.get("text-box-preview.png");
+    Path buttonPath = Paths.get("button-preview.png");
+    byte[] textBoxBytes = Files.readAllBytes(textBoxPath);
+    byte[] buttonBytes = Files.readAllBytes(buttonPath);
+    IPPImage textBoxPreview = presentation.getImages().addImage(textBoxBytes);
+    IPPImage buttonPreview = presentation.getImages().addImage(buttonBytes);
+    textBox.getProperties().set_Item("Value", "Changed text");
+    button.getProperties().set_Item("Caption", "Show message");
+    textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+    button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
 
-    if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
-        String newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // Thay đổi thay thế
-        BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        java.awt.Graphics graphics = image.getGraphics();
-        graphics.setColor(SystemColor.control);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
+    for (IControl control : controls) {
+        IShapeFrame frame = control.getFrame();
+        ShapeFrame moved = new ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation());
+        control.setFrame(moved);
+    }
+    presentation.save("edited-controls.pptm", SaveFormat.Pptm);
 
-        java.awt.Font font = new java.awt.Font(control.getProperties().get_Item("FontName"), java.awt.Font.PLAIN, 16);
-        graphics.setColor(SystemColor.windowText);
-        graphics.setFont(font);
-        FontMetrics metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
+    controls.clear();
+    presentation.save("removed-controls.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+    System.out.println("Could not read a control preview: " + e.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
 
-        graphics.setColor(SystemColor.controlLtHighlight);
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
+## **Thêm điều khiển Media Player ActiveX**
 
-        graphics.setColor(SystemColor.controlHighlight);
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
+Để tái sử dụng một điều khiển Windows Media Player đã được cấu hình, bắt đầu với một mẫu mà slide đầu tiên chứa một trình phát có tên `WindowsMediaPlayer1`. [ISlideCollection.addClone](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) sao chép toàn bộ slide vào một bản trình chiếu mới. Ví dụ đặt `URL` của trình phát trong [properties collection](https://reference.aspose.com/slides/java/com.aspose.slides/icontrolpropertiescollection/) và lưu slide đã sao chép làm slide duy nhất trong kết quả. Video vẫn ở ngoài, vì vậy hãy chọn một đường dẫn mà trình phát có thể truy cập trong quá trình phát.
 
-        graphics.setColor(SystemColor.controlShadow);
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
+```java
+import com.aspose.slides.*;
 
-        graphics.setColor(SystemColor.controlDkShadow);
-                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-
-                graphics.dispose();
-
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "PNG", baos);
-
-                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+Presentation template = new Presentation("template.pptx");
+try {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().addClone(template.getSlides().get_Item(0));
+        IControl player = null;
+        for (IControl control : slide.getControls()) {
+            if ("WindowsMediaPlayer1".equals(control.getName())) {
+                player = control;
+                break;
             }
-
-            // di chuyển xuống 100 điểm
-            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-                IShapeFrame frame = ctl.getFrame();
-                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-            }
-            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
-
-            // xóa các điều khiển
-            pres.getSlides().get_Item(0).getControls().clear();
-            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-        } catch(IOException e) {
-        } finally {
-            if (pres != null) pres.dispose();
         }
+        if (player == null || player.getProperties() == null) {
+            System.out.println("The template slide must contain a named media player with editable properties.");
+            return;
+        }
+        player.getProperties().set_Item("URL", "Wildlife.mp4");
+        
+        presentation.getSlides().removeAt(0);
+        presentation.save("linked-video.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    template.dispose();
+}
 ```
 
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides có giữ lại các điều khiển ActiveX khi đọc và lưu lại nếu chúng không thể thực thi trong môi trường Java không?**
+**Aspose.Slides có thể giữ lại các điều khiển ActiveX mà không chạy chúng không?**
 
-Có. Aspose.Slides xem chúng như một phần của bản trình bày và có thể đọc/điều chỉnh các thuộc tính và khung của chúng; không cần thực thi các điều khiển để giữ lại chúng.
+Có. Aspose.Slides có thể đọc và lưu các điều khiển, bao gồm các thuộc tính và vị trí của chúng, mà không kích hoạt chúng.
 
-**Các điều khiển ActiveX khác gì so với các đối tượng OLE trong bản trình bày?**
+**Các điều khiển ActiveX khác gì so với đối tượng OLE?**
 
-Các điều khiển ActiveX là các điều khiển tương tác được quản lý (nút, hộp văn bản, trình phát media), trong khi [OLE](/slides/vi/java/manage-ole/) đề cập đến các đối tượng ứng dụng được nhúng (ví dụ, một bảng tính Excel). Chúng được lưu trữ và xử lý khác nhau và có các mô hình thuộc tính riêng.
+Các điều khiển ActiveX cho phép người dùng tương tác với slide, ví dụ bằng cách nhập văn bản hoặc nhấn nút. Một [đối tượng OLE](/slides/vi/java/manage-ole/) cho phép slide chứa hoặc liên kết tới nội dung được quản lý bởi một ứng dụng khác, chẳng hạn như một bảng tính Excel.
 
-**Các sự kiện ActiveX và macro VBA có hoạt động nếu tệp đã được Aspose.Slides chỉnh sửa không?**
+**Sự kiện ActiveX có vẫn kích hoạt macro VBA sau khi tôi lưu bản trình chiếu bằng Aspose.Slides không?**
 
-Aspose.Slides giữ nguyên markup và siêu dữ liệu hiện có; tuy nhiên, các sự kiện và macro chỉ chạy trong PowerPoint trên Windows khi bảo mật cho phép. Thư viện không thực thi VBA.
+Lưu bản trình chiếu ở định dạng hỗ trợ macro như PPTM để giữ lại dự án VBA của nó. PowerPoint cho Windows có thể chạy các trình xử lý sự kiện hiện có khi cài đặt bảo mật cho phép cả điều khiển ActiveX và macro.

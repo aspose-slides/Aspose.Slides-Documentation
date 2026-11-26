@@ -16,174 +16,147 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Scopri come Aspose.Slides per .NET utilizza ActiveX per automatizzare e migliorare le presentazioni PowerPoint, offrendo agli sviluppatori un controllo potente sulle diapositive."
+description: "Modifica caselle di testo e pulsanti ActiveX, aggiorna le anteprime dei controlli e riutilizza un controllo Windows Media Player nelle presentazioni PowerPoint con Aspose.Slides per .NET."
 ---
 ## **Introduzione**
 
-I controlli ActiveX sono utilizzati nelle presentazioni. Aspose.Slides per .NET consente di gestire i controlli ActiveX, ma la loro gestione è un po' più complessa e differente dalle forme normali delle presentazioni. Dalla versione Aspose.Slides per .NET 6.9.0, il componente supporta la gestione dei controlli ActiveX. Al momento è possibile accedere a un controllo ActiveX già aggiunto nella presentazione e modificarlo o eliminarlo utilizzando le sue varie proprietà. Ricorda, i controlli ActiveX non sono forme e non fanno parte della IShapeCollection della presentazione, ma della IControlCollection separata. Questo articolo mostra come lavorare con essi.
+I controlli ActiveX forniscono a una diapositiva PowerPoint elementi interattivi come caselle di testo, pulsanti comando e lettori multimediali. Aspose.Slides per .NET espone i controlli di una diapositiva tramite [IBaseSlide.Controls](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/controls/). Usa questa collezione per modificare un controllo, spostarlo nella diapositiva o rimuoverlo.
+
+## **Elenco dei controlli ActiveX e delle loro proprietà memorizzate**
+
+Per esaminare un modello sconosciuto, aprilo in lettura e itera sui controlli di ogni diapositiva. L'esempio riporta il numero della diapositiva, il nome del controllo, [ClassId](https://reference.aspose.com/slides/net/aspose.slides/icontrol/classid/), e ogni coppia chiave‑valore in [Properties](https://reference.aspose.com/slides/net/aspose.slides/icontrol/#properties). Legge la presentazione senza attivare i controlli, invocare eventi o macro, modificare valori o salvare il file.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("ActiveX.pptm");
+
+for (var i = 0; i < presentation.Slides.Count; i++)
+{
+    foreach (var control in presentation.Slides[i].Controls)
+    {
+        Console.WriteLine($"Slide {i + 1} | {control.Name} | {control.ClassId}");
+        var properties = control.Properties;
+
+        if (properties == null)
+        {
+            Console.WriteLine("  Properties unavailable");
+            continue;
+        }
+
+        if (properties.Count == 0)
+            Console.WriteLine("  []");
+
+        foreach (var property in properties)
+            Console.WriteLine($"  {property.Key} = {property.Value}");
+    }
+}
+```
+
+L'output selezionato da `ActiveX.pptm` mostra una casella di testo e un pulsante comando.
+
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
+```
+
+Una collezione di proprietà vuota appare come `[]`. Per i controlli che usano la memorizzazione binaria, `Properties` può restituire `null`, mostrato come `Properties unavailable`. Se hai bisogno solo dei nomi, usa [NamesOfProperties](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/namesofproperties/) dopo il controllo di null. Il rapporto elenca le proprietà disponibili nella presentazione. Un controllo può supportare proprietà aggiuntive a runtime.
+
 ## **Modifica dei controlli ActiveX**
-Per gestire un semplice controllo ActiveX come una casella di testo e un pulsante di comando su una diapositiva:
 
-1. Crea un'istanza della classe Presentation e carica la presentazione contenente i controlli ActiveX.
-1. Ottieni un riferimento alla diapositiva mediante il suo indice.
-1. Accedi ai controlli ActiveX nella diapositiva mediante la IControlCollection.
-1. Accedi al controllo ActiveX TextBox1 usando l'oggetto ControlEx.
-1. Modifica le varie proprietà del controllo ActiveX TextBox1, inclusi testo, carattere, altezza del carattere e posizione del frame.
-1. Accedi al secondo controllo, chiamato CommandButton1.
-1. Modifica la didascalia del pulsante, il carattere e la posizione.
-1. Sposta la posizione dei frame dei controlli ActiveX.
-1. Scrivi la presentazione modificata in un file PPTX.
+L'esempio richiede una presentazione abilitata alle macro con una casella di testo chiamata `TextBox1` e un pulsante comando chiamato `CommandButton1` sulla prima diapositiva. Utilizza la [collezione delle proprietà del controllo](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) per cambiare il valore della casella di testo e la didascalia del pulsante. Ogni controllo ha anche un'anteprima statica che PowerPoint può visualizzare prima dell'attivazione. Fornisci un PNG per ogni controllo che mostri il testo aggiornato e l'aspetto. L'esempio assegna queste immagini tramite [IControl.SubstitutePictureFormat](https://reference.aspose.com/slides/net/aspose.slides/icontrol/substitutepictureformat/).
 
-Il frammento di codice seguente aggiorna i controlli ActiveX nelle diapositive della presentazione come mostrato di seguito.
+L'esempio sposta ogni controllo sulla prima diapositiva verso il basso di 100 punti modificando il suo [Frame](https://reference.aspose.com/slides/net/aspose.slides/icontrol/frame/). Salva la presentazione modificata in formato PPTM, poi usa [IControlCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides/icontrolcollection/clear/) per salvare una seconda copia con tutti i controlli ActiveX rimossi da quella diapositiva.
 
-```c#
-// Accesso alla presentazione con controlli ActiveX
-Presentation presentation = new Presentation("ActiveX.pptm");
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Accesso alla prima diapositiva nella presentazione
-ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation("ActiveX.pptm");
 
-// modifica del testo della TextBox
-IControl control = slide.Controls[0];
+var controls = presentation.Slides[0].Controls;
+var textBox = controls.FirstOrDefault(control => control.Name == "TextBox1");
+var button = controls.FirstOrDefault(control => control.Name == "CommandButton1");
 
-if (control.Name == "TextBox1" && control.Properties != null)
+if (textBox?.Properties == null || button?.Properties == null)
 {
-    string newText = "Changed text";
-    control.Properties["Value"] = newText;
-
-    // modifica dell'immagine sostitutiva. PowerPoint sostituirà quest'immagine durante l'attivazione di ActiveX, quindi a volte è accettabile lasciare l'immagine invariata.
-
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Window));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    graphics.DrawString(newText, font, brush, 10, 4);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(
-        pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[]
-    {
-            new System.Drawing.Point(1, image.Height - 1), new System.Drawing.Point(image.Width - 1, image.Height - 1),
-            new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("The first slide must contain both named controls with editable properties.");
+    return;
 }
 
-// modifica della didascalia del pulsante
-control = slide.Controls[1];
-
-if (control.Name == "CommandButton1" && control.Properties != null)
+if (!File.Exists("text-box-preview.png") || !File.Exists("button-preview.png"))
 {
-    String newCaption = "MessageBox";
-    control.Properties["Caption"] = newCaption;
-
-    // modifica del sostituto
-    Bitmap image = new Bitmap((int)control.Frame.Width, (int)control.Frame.Height);
-    Graphics graphics = Graphics.FromImage(image);
-    Brush brush = new SolidBrush(Color.FromKnownColor(KnownColor.Control));
-    graphics.FillRectangle(brush, 0, 0, image.Width, image.Height);
-    brush.Dispose();
-    System.Drawing.Font font = new System.Drawing.Font(control.Properties["FontName"], 14);
-    brush = new SolidBrush(Color.FromKnownColor(KnownColor.WindowText));
-    SizeF textSize = graphics.MeasureString(newCaption, font, int.MaxValue);
-    graphics.DrawString(newCaption, font, brush, (image.Width - textSize.Width) / 2, (image.Height - textSize.Height) / 2);
-    brush.Dispose();
-    Pen pen = new Pen(Color.FromKnownColor(KnownColor.ControlLightLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height - 1), new System.Drawing.Point(0, 0), new System.Drawing.Point(image.Width - 1, 0) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlLight), 1);
-    graphics.DrawLines(pen, new System.Drawing.Point[] { new System.Drawing.Point(1, image.Height - 2), new System.Drawing.Point(1, 1), new System.Drawing.Point(image.Width - 2, 1) });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[]
-    {
-        new System.Drawing.Point(1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, image.Height - 1),
-        new System.Drawing.Point(image.Width - 1, 1)
-    });
-    pen.Dispose();
-    pen = new Pen(Color.FromKnownColor(KnownColor.ControlDarkDark), 1);
-    graphics.DrawLines(pen,new System.Drawing.Point[] { new System.Drawing.Point(0, image.Height), new System.Drawing.Point(image.Width, image.Height), new System.Drawing.Point(image.Width, 0) });
-    pen.Dispose();
-    graphics.Dispose();
-    control.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(image);
+    Console.WriteLine("Supply both preview images before updating the controls.");
+    return;
 }
 
-// Spostamento dei frame ActiveX di 100 punti verso il basso
-foreach (Control ctl in slide.Controls)
+textBox.Properties["Value"] = "Changed text";
+button.Properties["Caption"] = "Show message";
+
+using var textBoxPreview = File.OpenRead("text-box-preview.png");
+using var buttonPreview = File.OpenRead("button-preview.png");
+textBox.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(textBoxPreview);
+button.SubstitutePictureFormat.Picture.Image = presentation.Images.AddImage(buttonPreview);
+
+foreach (var control in controls)
 {
-    IShapeFrame frame = control.Frame;
-    control.Frame = new ShapeFrame(
-        frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
+    var frame = control.Frame;
+    control.Frame = new ShapeFrame(frame.X, frame.Y + 100, frame.Width, frame.Height, frame.FlipH, frame.FlipV, frame.Rotation);
 }
 
-// Salva la presentazione con i controlli ActiveX modificati
-presentation.Save("withActiveX-edited_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+presentation.Save("edited-controls.pptm", SaveFormat.Pptm);
 
-
-// Ora rimuovendo i controlli
-slide.Controls.Clear();
-
-// Salvataggio della presentazione con i controlli ActiveX cancellati
-presentation.Save("withActiveX.cleared_out.pptm", Aspose.Slides.Export.SaveFormat.Pptm);
+controls.Clear();
+presentation.Save("removed-controls.pptm", SaveFormat.Pptm);
 ```
 
 ## **Aggiungi un controllo ActiveX Media Player**
-Per aggiungere un controllo ActiveX Media Player, esegui i seguenti passaggi:
 
-1. Crea un'istanza della classe Presentation e carica la presentazione di esempio contenente i controlli ActiveX Media Player.
-1. Crea un'istanza della classe Presentation di destinazione e genera un'istanza di presentazione vuota.
-1. Clona la diapositiva con il controllo ActiveX Media Player dalla presentazione modello nella presentazione di destinazione.
-1. Accedi alla diapositiva clonata nella presentazione di destinazione.
-1. Accedi ai controlli ActiveX nella diapositiva mediante la IControlCollection.
-1. Accedi al controllo ActiveX Media Player e imposta il percorso del video usando le sue proprietà.
-1. Salva la presentazione in un file PPTX.
+Per riutilizzare un controllo Windows Media Player configurato, inizia con un modello la cui prima diapositiva contiene un lettore chiamato `WindowsMediaPlayer1`. [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) copia l'intera diapositiva in una nuova presentazione. L'esempio imposta l'`URL` del lettore nella sua [collezione delle proprietà](https://reference.aspose.com/slides/net/aspose.slides/icontrolpropertiescollection/) e salva la diapositiva clonata come unica diapositiva nell'output. Il video rimane esterno, quindi scegli un percorso a cui il lettore può accedere durante la riproduzione.
 
-```c#
-// Istanzia la classe Presentation che rappresenta il file PPTX
-Presentation presentation = new Presentation("template.pptx");
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Crea un'istanza vuota di presentazione
-Presentation newPresentation = new Presentation();
+using var template = new Presentation("template.pptx");
+using var presentation = new Presentation();
 
-// Rimuovi la diapositiva predefinita
-newPresentation.Slides.RemoveAt(0);
+var slide = presentation.Slides.AddClone(template.Slides[0]);
+var player = slide.Controls.FirstOrDefault(control => control.Name == "WindowsMediaPlayer1");
 
-// Clona la diapositiva con il controllo Media Player ActiveX
-newPresentation.Slides.InsertClone(0, presentation.Slides[0]);
+if (player?.Properties == null)
+{
+    Console.WriteLine("The template slide must contain a named media player with editable properties.");
+    return;
+}
 
-// Accedi al controllo Media Player ActiveX e imposta il percorso del video
-newPresentation.Slides[0].Controls[0].Properties["URL"] = "Wildlife.mp4";
+player.Properties["URL"] = "Wildlife.mp4";
 
-// Salva la presentazione
-newPresentation.Save("LinkingVideoActiveXControl_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Slides.RemoveAt(0);
+presentation.Save("linked-video.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Aspose.Slides conserva i controlli ActiveX durante la lettura e il salvataggio se non possono essere eseguiti nel runtime .NET?**
+**Aspose.Slides può preservare i controlli ActiveX senza eseguirli?**
 
-Sì. Aspose.Slides li considera parte della presentazione e può leggere/modificare le loro proprietà e i loro frame; l'esecuzione dei controlli stessi non è necessaria per conservarli.
+Sì. Aspose.Slides può leggere e salvare i controlli, incluse le loro proprietà e posizioni, senza attivarli.
 
-**In che modo i controlli ActiveX differiscono dagli oggetti OLE in una presentazione?**
+**In che modo i controlli ActiveX differiscono dagli oggetti OLE?**
 
-I controlli ActiveX sono controlli interattivi gestiti (pulsanti, caselle di testo, lettore multimediale), mentre [OLE](/slides/it/net/manage-ole/) si riferisce a oggetti applicativi incorporati (ad esempio, un foglio di lavoro Excel). Sono memorizzati e gestiti diversamente e possiedono modelli di proprietà differenti.
+I controlli ActiveX consentono agli utenti di interagire con una diapositiva, ad esempio inserendo testo o facendo clic su un pulsante. Un [oggetto OLE](/slides/it/net/manage-ole/) permette a una diapositiva di contenere o collegare contenuti gestiti da un'altra applicazione, come un foglio di lavoro Excel.
 
-**Gli eventi ActiveX e le macro VBA funzionano se il file è stato modificato da Aspose.Slides?**
+**Gli eventi ActiveX attiveranno ancora le macro VBA dopo aver salvato una presentazione con Aspose.Slides?**
 
-Aspose.Slides conserva il markup e i metadati esistenti; tuttavia, eventi e macro vengono eseguiti solo all'interno di PowerPoint su Windows quando la sicurezza lo consente. La libreria non esegue VBA.
+Salva la presentazione in un formato abilitato alle macro, ad esempio PPTM, per conservare il suo progetto VBA. PowerPoint per Windows può eseguire i gestori di eventi esistenti quando le impostazioni di sicurezza consentono sia i controlli ActiveX sia le macro.

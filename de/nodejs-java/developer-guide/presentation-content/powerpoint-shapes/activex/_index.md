@@ -1,166 +1,190 @@
 ---
-title: ActiveX
+title: ActiveX-Steuerelemente in Präsentationen mit JavaScript verwalten
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /de/nodejs-java/activex/
+keywords:
+- ActiveX
+- ActiveX-Steuerelement
+- ActiveX verwalten
+- ActiveX hinzufügen
+- ActiveX ändern
+- Mediaplayer
+- PowerPoint
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "ActiveX-Textfelder und -Schaltflächen bearbeiten, Steuerelement-Vorschauen aktualisieren und ein Windows Media Player-Steuerelement in PowerPoint-Präsentationen mit Aspose.Slides für Node.js über Java wiederverwenden."
 ---
+## **Einleitung**
 
-{{% alert color="primary" %}} 
+ActiveX‑Steuerelemente verleihen einer PowerPoint‑Folie interaktive Elemente wie Textfelder, Befehls‑schaltflächen und Mediaplayer. Aspose.Slides für Node.js über Java stellt die Steuerelemente einer Folie über [BaseSlide.getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getControls) bereit. Verwenden Sie diese Sammlung, um ein Steuerelement zu bearbeiten, es auf der Folie zu verschieben oder zu entfernen.
 
-ActiveX‑Steuerelemente werden in Präsentationen verwendet. Aspose.Slides für Node.js über Java ermöglicht das Hinzufügen und Verwalten von ActiveX‑Steuerelementen, ist jedoch im Vergleich zu normalen Präsentationsformen etwas schwieriger zu handhaben. Wir haben die Unterstützung für das Hinzufügen des Media Player‑Active‑Steuerelements in Aspose.Slides implementiert. Beachten Sie, dass ActiveX‑Steuerelemente keine Formen sind; sie sind nicht Teil der Präsentations‑[ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/). Sie gehören stattdessen zur separaten [ControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlcollection/). In diesem Thema zeigen wir Ihnen, wie Sie damit arbeiten.
+## **Auflisten von ActiveX-Steuerelementen und deren gespeicherten Eigenschaften**
 
-{{% /alert %}} 
+Um eine unbekannte Vorlage zu untersuchen, öffnen Sie sie zum Lesen und iterieren über die Steuerelemente jeder Folie. Das Beispiel gibt die Folienzahl, den Namen des Steuerelements, [getClassId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getClassId) und jedes Schlüssel‑Wert‑Paar in [getProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getProperties) aus. Es liest die Präsentation, ohne Steuerelemente zu aktivieren, Ereignisse oder Makros auszulösen, Werte zu ändern oder die Datei zu speichern.
 
-## **Hinzufügen des Media Player ActiveX‑Steuerelements zur Folie**
-Um ein ActiveX‑Media‑Player‑Steuerelement hinzuzufügen, gehen Sie wie folgt vor:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) und erzeugen Sie eine leere Präsentationsinstanz.  
-2. Greifen Sie in [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) auf die Zielfolie zu.  
-3. Fügen Sie das Media Player‑ActiveX‑Steuerelement mit der Methode [addControl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ControlCollection#addControl-int-float-float-float-float-) hinzu, die von der [ControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlcollection/) bereitgestellt wird.  
-4. Greifen Sie auf das Media Player‑ActiveX‑Steuerelement zu und setzen Sie den Videopfad über seine Eigenschaften.  
-5. Speichern Sie die Präsentation als PPTX‑Datei.  
-
-Dieser Beispielcode, basierend auf den oben genannten Schritten, zeigt, wie ein Media Player‑ActiveX‑Steuerelement zu einer Folie hinzugefügt wird:
 ```javascript
-// Leere Präsentationsinstanz erstellen
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("ActiveX.pptm");
 try {
-    // Hinzufügen des Media Player ActiveX-Steuerelements
-    pres.getSlides().get_Item(0).getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
-    // Zugriff auf das Media Player ActiveX-Steuerelement und Festlegen des Videopfads
-    pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("java.net.URL", "Wildlife.wmv");
-    // Präsentation speichern
-    pres.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slideList = presentation.getSlides();
+    for (let i = 0; i < slideList.size(); i++) {
+        const controls = slideList.get_Item(i).getControls();
+        for (let j = 0; j < controls.size(); j++) {
+            const control = controls.get_Item(j);
+            console.log(`Slide ${i + 1} | ${control.getName()} | ${control.getClassId()}`);
+            const properties = control.getProperties();
+            if (properties == null) {
+                console.log("  Properties unavailable");
+                continue;
+            }
+            if (properties.getCount() === 0) {
+                console.log("  []");
+            }
+            const names = properties.getNamesOfProperties().iterator();
+            while (names.hasNext()) {
+                const name = names.next();
+                console.log(`  ${name} = ${properties.get_Item(name)}`);
+            }
+        }
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+Die ausgewählte Ausgabe von `ActiveX.pptm` zeigt ein Textfeld und eine Befehls‑schaltfläche.
 
-## **Ändern von ActiveX‑Steuerelementen**
-
-Um ein einfaches ActiveX‑Steuerelement wie ein Textfeld und einen einfachen Befehlsbutton auf einer Folie zu verwalten, gehen Sie wie folgt vor:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) und laden Sie die Präsentation, die ActiveX‑Steuerelemente enthält.  
-2. Holen Sie sich eine Folienreferenz anhand ihres Index.  
-3. Greifen Sie über die [ControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlcollection/) auf die ActiveX‑Steuerelemente in der Folie zu.  
-4. Greifen Sie mit dem [Control](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/)‑Objekt auf das ActiveX‑Steuerelement TextBox1 zu.  
-5. Ändern Sie die Eigenschaften des TextBox1‑ActiveX‑Steuerelements, einschließlich Text, Schriftart, Schriftgröße und Rahmenposition.  
-6. Greifen Sie auf das zweite Steuerelement mit dem Namen CommandButton1 zu.  
-7. Ändern Sie die Beschriftung, die Schriftart und die Position des Buttons.  
-8. Verschieben Sie die Position der Rahmen der ActiveX‑Steuerelemente.  
-9. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
-
-Dieser Beispielcode, basierend auf den oben genannten Schritten, zeigt, wie ein einfaches ActiveX‑Steuerelement verwaltet wird: 
-```javascript
-const imageio = java.import("javax.imageio.ImageIO");
-// Zugriff auf die Präsentation mit ActiveX‑Steuerelementen
-var pres = new aspose.slides.Presentation("ActiveX.pptm");
-try {
-    // Zugriff auf die erste Folie in der Präsentation
-    var slide = pres.getSlides().get_Item(0);
-    // Text des TextBox‑Steuerelements ändern
-    var control = slide.getControls().get_Item(0);
-    if (control.getName().toUpperCase() === "TextBox1".toUpperCase() && (control.getProperties() != null)) {
-        var newText = "Changed text";
-        control.getProperties().set_Item("Value", newText);
-        // Ersatzbild ändern. PowerPoint ersetzt dieses Bild während der ActiveX‑Aktivierung,
-        // daher ist es manchmal in Ordnung, das Bild unverändert zu lassen.
-        var image = java.newInstanceSync("java.awt.image.BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
-        var graphics = image.getGraphics();
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "window"));
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-        var font = java.newInstanceSync("java.awt.Font", control.getProperties().get_Item("FontName"), java.getStaticFieldValue("java.awt.Font", "PLAIN"), 16);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "windowText"));
-        graphics.setFont(font);
-        graphics.drawString(newText, 10, 20);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlShadow"));
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlDkShadow"));
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlHighlight"));
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlLtHighlight"));
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-        graphics.dispose();
-        var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        imageio.write(image, "PNG", baos);
-        var byteStream = Readable.from([Buffer.from(baos.toByteArray())]);
-        aspose.slides.readBytesFromStream(byteStream, (imgData) => {
-            control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(imgData));
-        });
-    }
-    // Beschriftung des Buttons ändern
-    control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-    if (control.getName().toUpperCase() === "CommandButton1".toUpperCase() && (control.getProperties() != null)) {
-        var newCaption = "Show MessageBox";
-        control.getProperties().set_Item("Caption", newCaption);
-        // Ersatz ändern
-        var image = java.newInstanceSync("java.awt.image.BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
-        var graphics = image.getGraphics();
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "control"));
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-        var font = java.newInstanceSync("java.awt.Font", control.getProperties().get_Item("FontName"), java.getStaticFieldValue("java.awt.Font", "PLAIN"), 16);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "windowText"));
-        graphics.setFont(font);
-        var metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, java.newFloat((image.getWidth() - metrics.stringWidth(newCaption)) / 2), 20);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlLtHighlight"));
-        graphics.drawLine(0, image.getHeight() - 1, 0, 0);
-        graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlHighlight"));
-        graphics.drawLine(1, image.getHeight() - 2, 1, 1);
-        graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlShadow"));
-        graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
-        graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlDkShadow"));
-        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
-        graphics.dispose();
-        
-        var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        imageio.write(image, "PNG", baos);
-        var byteStream = Readable.from([Buffer.from(baos.toByteArray())]);
-        aspose.slides.readBytesFromStream(byteStream, (imgData) => {
-            control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(imgData));
-        });
-    }
-    // 100 Punkte nach unten verschieben
-    for (let i = 0; i < pres.getSlides().get_Item(0).getControls().size(); i++) {
-        let ctl = pres.getSlides().get_Item(0).getControls().get_Item(i);
-        var frame = ctl.getFrame();
-        ctl.setFrame(new aspose.slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), java.newByte(frame.getFlipH()), java.newByte(frame.getFlipV()), frame.getRotation()));
-    }
-    pres.save("withActiveX-edited_java.pptm", aspose.slides.SaveFormat.Pptm);
-    // Steuerelemente entfernen
-    pres.getSlides().get_Item(0).getControls().clear();
-    pres.save("withActiveX-cleared_java.pptm", aspose.slides.SaveFormat.Pptm);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
+```text
+Slide 1 | TextBox1 | 8bd21d10-ec42-11ce-9e0d-00aa006002f3
+  Value = Some text
+  FontName = Arial
+Slide 1 | CommandButton1 | d7053240-ce69-11cd-a777-00dd01143c57
+  Caption = Show
+  FontName = Arial
 ```
 
+Eine leere Eigenschaftssammlung erscheint als `[]`. Bei Steuerelementen, die binäre Speicherung verwenden, kann [getProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getProperties) `null` zurückgeben, dargestellt als `Properties unavailable`. Wenn Sie nur die Namen benötigen, verwenden Sie nach der Null‑Prüfung [getNamesOfProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlpropertiescollection/#getNamesOfProperties). Der Bericht listet die aus der Präsentation verfügbaren Eigenschaften auf. Ein Steuerelement kann zur Laufzeit zusätzliche Eigenschaften unterstützen.
 
+## **ActiveX-Steuerelemente ändern**
+
+Das Beispiel erwartet eine makrofähige Präsentation mit einem Textfeld namens `TextBox1` und einer Befehls‑schaltfläche namens `CommandButton1` auf der ersten Folie. Es verwendet die [control properties collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlpropertiescollection/) , um den Wert des Textfelds und die Beschriftung der Schaltfläche zu ändern. Jedes Steuerelement verfügt außerdem über eine statische Vorschau, die PowerPoint vor der Aktivierung anzeigen kann. Stellen Sie für jedes Steuerelement ein PNG bereit, das den aktualisierten Text und das Erscheinungsbild zeigt. Das Beispiel weist diese Bilder über [Control.getSubstitutePictureFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getSubstitutePictureFormat) zu.
+
+Das Beispiel verschiebt jedes Steuerelement auf der ersten Folie um 100 Punkte nach unten, indem es den Rahmen mit [Control.setFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#setFrame) setzt. Es speichert die bearbeitete Präsentation im PPTM‑Format und verwendet anschließend [ControlCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlcollection/#clear), um eine zweite Kopie zu speichern, aus der alle ActiveX‑Steuerelemente von dieser Folie entfernt wurden.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function addPreview(presentation, path) {
+    const image = slides.Images.fromFile(path);
+    try {
+        return presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
+}
+
+function editControls() {
+    const presentation = new slides.Presentation("ActiveX.pptm");
+    try {
+        const controls = presentation.getSlides().get_Item(0).getControls();
+        let textBox;
+        let button;
+        for (let i = 0; i < controls.size(); i++) {
+            const control = controls.get_Item(i);
+            if (control.getName() === "TextBox1") {
+                textBox = control;
+            } else if (control.getName() === "CommandButton1") {
+                button = control;
+            }
+        }
+        if (!textBox || !button || textBox.getProperties() == null || button.getProperties() == null) {
+            console.log("The first slide must contain both named controls with editable properties.");
+            return;
+        }
+
+        const textBoxPreview = addPreview(presentation, "text-box-preview.png");
+        const buttonPreview = addPreview(presentation, "button-preview.png");
+        textBox.getProperties().set_Item("Value", "Changed text");
+        button.getProperties().set_Item("Caption", "Show message");
+        textBox.getSubstitutePictureFormat().getPicture().setImage(textBoxPreview);
+        button.getSubstitutePictureFormat().getPicture().setImage(buttonPreview);
+
+        for (let i = 0; i < controls.size(); i++) {
+            const control = controls.get_Item(i);
+            const frame = control.getFrame();
+            const flipH = java.newByte(frame.getFlipH());
+            const flipV = java.newByte(frame.getFlipV());
+            const moved = new slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), flipH, flipV, frame.getRotation());
+            control.setFrame(moved);
+        }
+        presentation.save("edited-controls.pptm", slides.SaveFormat.Pptm);
+
+        controls.clear();
+        presentation.save("removed-controls.pptm", slides.SaveFormat.Pptm);
+    } finally {
+        presentation.dispose();
+    }
+}
+
+editControls();
+```
+## **Ein ActiveX-Media-Player-Steuerelement hinzufügen**
+
+Um ein konfiguriertes Windows‑Media‑Player‑Steuerelement wiederzuverwenden, beginnen Sie mit einer Vorlage, deren erste Folie einen Player namens `WindowsMediaPlayer1` enthält. [SlideCollection.addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone) kopiert die gesamte Folie in eine neue Präsentation. Das Beispiel setzt die `URL` des Players in seiner [properties collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/controlpropertiescollection/) und speichert die geklonte Folie als einzige Folie in der Ausgabe. Das Video bleibt extern, wählen Sie daher einen Pfad, auf den der Player während der Wiedergabe zugreifen kann.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+function addMediaPlayer() {
+    const template = new slides.Presentation("template.pptx");
+    try {
+        const presentation = new slides.Presentation();
+        try {
+            const templateSlide = template.getSlides().get_Item(0);
+            const slide = presentation.getSlides().addClone(templateSlide);
+            const controls = slide.getControls();
+            let player;
+            for (let i = 0; i < controls.size(); i++) {
+                const control = controls.get_Item(i);
+                if (control.getName() === "WindowsMediaPlayer1") {
+                    player = control;
+                    break;
+                }
+            }
+            if (!player || player.getProperties() == null) {
+                console.log("The template slide must contain a named media player with editable properties.");
+                return;
+            }
+            player.getProperties().set_Item("URL", "Wildlife.mp4");
+            
+            presentation.getSlides().removeAt(0);
+            presentation.save("linked-video.pptx", slides.SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    } finally {
+        template.dispose();
+    }
+}
+
+addMediaPlayer();
+```
 ## **FAQ**
 
-**Behält Aspose.Slides ActiveX‑Steuerelemente bei, wenn sie beim Lesen und erneuten Speichern nicht in der Python‑Laufzeit ausgeführt werden können?**
+**Kann Aspose.Slides ActiveX‑Steuerelemente erhalten, ohne sie auszuführen?**
 
-Ja. Aspose.Slides behandelt sie als Teil der Präsentation und kann ihre Eigenschaften und Rahmen lesen bzw. ändern; die Ausführung der Steuerelemente selbst ist nicht erforderlich, um sie zu erhalten.
+Ja. Aspose.Slides kann Steuerelemente lesen und speichern, einschließlich ihrer Eigenschaften und Positionen, ohne sie zu aktivieren.
 
-**Wie unterscheiden sich ActiveX‑Steuerelemente von OLE‑Objekten in einer Präsentation?**
+**Wie unterscheiden sich ActiveX‑Steuerelemente von OLE‑Objekten?**
 
-ActiveX‑Steuerelemente sind interaktive, verwaltete Steuerelemente (Buttons, Textfelder, Media‑Player), während [OLE](/slides/de/nodejs-java/manage-ole/) sich auf eingebettete Anwendungsobjekte (z. B. ein Excel‑Arbeitsblatt) bezieht. Sie werden unterschiedlich gespeichert und behandelt und besitzen unterschiedliche Eigenschaftsmodelle.
+ActiveX‑Steuerelemente ermöglichen es Benutzern, mit einer Folie zu interagieren, beispielsweise durch Eingabe von Text oder Klicken einer Schaltfläche. Ein [OLE object](/slides/de/nodejs-java/manage-ole/) ermöglicht, dass eine Folie Inhalte, die von einer anderen Anwendung verwaltet werden, wie ein Excel‑Arbeitsblatt, enthalten oder darauf verlinken kann.
 
-**Funktionieren ActiveX‑Ereignisse und VBA‑Makros, wenn die Datei von Aspose.Slides geändert wurde?**
+**Werden ActiveX‑Ereignisse nach dem Speichern einer Präsentation mit Aspose.Slides weiterhin VBA‑Makros auslösen?**
 
-Aspose.Slides bewahrt das vorhandene Markup und die Metadaten; jedoch werden Ereignisse und Makros nur innerhalb von PowerPoint unter Windows ausgeführt, sofern die Sicherheitsrichtlinien dies zulassen. Die Bibliothek führt kein VBA aus.
+Speichern Sie die Präsentation in einem makrofähigen Format wie PPTM, um ihr VBA‑Projekt zu erhalten. PowerPoint für Windows kann die vorhandenen Ereignis‑Handler ausführen, wenn die Sicherheitseinstellungen sowohl ActiveX‑Steuerelemente als auch Makros zulassen.
