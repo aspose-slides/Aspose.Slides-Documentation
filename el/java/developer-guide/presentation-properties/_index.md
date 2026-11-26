@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση ιδιοτήτων παρουσίασης σε Java
+title: Διαχείριση Ιδιοτήτων Παρουσίασης σε Java
 linktitle: Ιδιότητες Παρουσίασης
 type: docs
 weight: 70
@@ -10,46 +10,47 @@ keywords:
 - Ιδιότητες εγγράφου
 - Ενσωματωμένες ιδιότητες
 - Προσαρμοσμένες ιδιότητες
-- Προηγμένες ιδιότητες
+- Προχωρημένες ιδιότητες
 - Διαχείριση ιδιοτήτων
 - Τροποποίηση ιδιοτήτων
 - Μεταδεδομένα εγγράφου
 - Επεξεργασία μεταδεδομένων
-- Γλώσσα ελέγχου
+- Γλώσσα διορθώσεων
 - Προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε τις κύριες ιδιότητες παρουσίασης στο Aspose.Slides για Java και βελτιώστε την αναζήτηση, την εμπορική σήμανση και τη ροή εργασίας στα αρχεία PowerPoint και OpenDocument σας."
+description: "Διαχειριστείτε τις κύριες ιδιότητες παρουσίασης στο Aspose.Slides για Java και βελτιώστε την αναζήτηση, τη διαμόρφωση εμπορικού σήματος και τη ροή εργασίας στα αρχεία PowerPoint και OpenDocument σας."
 ---
 ## **Εισαγωγή**
 
-Το Aspose.Slides for Java υποστηρίζει **ενσωματωμένες** και **προσαρμοσμένες** ιδιότητες εγγράφων. Χρησιμοποιήστε αυτές τις ιδιότητες για να διαβάσετε και να ενημερώσετε τα μεταδεδομένα της παρουσίασης, όπως ο συγγραφέας, ο τίτλος και οι τιμές που ορίζονται από τον χρήστη.
+Το Aspose.Slides for Java υποστηρίζει **ενσωματωμένες** και **προσαρμοσμένες** ιδιότητες εγγράφου. Χρησιμοποιήστε αυτές τις ιδιότητες για να διαβάσετε και να ενημερώσετε τα μεταδεδομένα της παρουσίασης, όπως ο δημιουργός, ο τίτλος και οι τιμές που ορίζει ο χρήστης.
 
-Το Aspose.Slides σάς επιτρέπει να εργάζεστε με τις ιδιότητες εγγράφου παρουσίασης μέσω της διεπαφής [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/). Ένα αντίτυπο αυτής της διεπαφής επιστρέφεται από το [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--). Τα παρακάτω παραδείγματα δείχνουν πώς να διαβάσετε, να τροποποιήσετε και να διαχειριστείτε αυτές τις ιδιότητες.
+Το Aspose.Slides σας επιτρέπει να εργάζεστε με τις ιδιότητες εγγράφου παρουσίασης μέσω της διεπαφής [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) . Μια παρουσία της διεπαφής επιστρέφεται από τη μέθοδο [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) . Τα ακόλουθα παραδείγματα δείχνουν πώς να διαβάζετε, να τροποποιείτε και να διαχειρίζεστε αυτές τις ιδιότητες.
 
 {{% alert color="info" title="Note" %}}
-Το Aspose.Slides διαχειρίζεται τα μεταδεδομένα της εφαρμογής και του δημιουργού κατά την αποθήκευση των παρουσιάσεων· αυτά τα πεδία προσδιορίζουν το λογισμικό που δημιούργησε το αποτέλεσμα.
+Το Aspose.Slides διαχειρίζεται τα μεταδεδομένα της εφαρμογής και του παραγωγού κατά την αποθήκευση των παρουσιάσεων· αυτά τα πεδία αναγνωρίζουν το λογισμικό που δημιούργησε το αποτέλεσμα.
 {{% /alert %}}
 
-## **Διαχείριση Ιδιοτήτων Παρουσίασης**
+## **Διαχείριση Ιδιότητων Παρουσίασης**
 
-Οι ιδιότητες εγγράφου αποθηκεύουν περιγραφικές πληροφορίες παράλληλα με το περιεχόμενο της παρουσίασης. Κατατάσσονται σε δύο κατηγορίες:
+Οι ιδιότητες εγγράφου αποθηκεύουν περιγραφικές πληροφορίες παράλληλα με το περιεχόμενο της παρουσίασης. Ανήκουν σε δύο κατηγορίες:
 
-- **Ενσωματωμένες ιδιότητες** περιέχουν τυπικά μεταδεδομένα, όπως ο τίτλος, ο συγγραφέας και οι στατιστικές του εγγράφου.
+- **Ενσωματωμένες ιδιότητες** περιέχουν τυπικά μεταδεδομένα, όπως ο τίτλος, ο δημιουργός και τα στατιστικά του εγγράφου.
 - **Προσαρμοσμένες ιδιότητες** αποθηκεύουν ζεύγη ονομα/τιμή που ορίζονται από τον χρήστη.
 
-Το Aspose.Slides for Java παρέχει πρόσβαση και στις δύο κατηγορίες. Στο PowerPoint, επιλέξτε **Αρχείο → Πληροφορίες → Ιδιότητες → Προηγμένες Ιδιότητες** για να εξετάσετε τα μεταδεδομένα του εγγράφου. Ο διάλογος ομαδοποιεί τις πληροφορίες σε καρτέλες όπως **Περίληψη**, **Στατιστικά**, **Περιεχόμενα** και **Προσαρμοσμένα**. Χρησιμοποιήστε την καρτέλα **Προσαρμοσμένα** για να διαχειριστείτε τις ιδιότητες που ορίζονται από τον χρήστη.
+Το Aspose.Slides for Java παρέχει πρόσβαση και στις δύο κατηγορίες. Στο PowerPoint, επιλέξτε **Αρχείο → Πληροφορίες → Ιδιότητες → Προχωρημένες Ιδιότητες** για να εξετάσετε τα μεταδεδομένα του εγγράφου. Ο διάλογος ομαδοποιεί τις πληροφορίες σε καρτέλες όπως **Περίληψη**, **Στατιστικά**, **Περιεχόμενα** και **Προσαρμοσμένες**. Χρησιμοποιήστε την καρτέλα **Προσαρμοσμένες** για να διαχειριστείτε τις ιδιότητες που ορίζει ο χρήστης.
 
 ## **Ανάγνωση Δημόσιων Ιδιοτήτων από Κρυπτογραφημένη Παρουσίαση**
 
-Ένας κωδικός πρόσβασης ανοίγματος προστατεύει κανονικά τόσο το περιεχόμενο της παρουσίασης όσο και τις ιδιότητες του εγγράφου. Όταν μια παρουσίαση κρυπτογραφείται μετά την κλήση του [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) με `false`, οι ιδιότητες του εγγράφου παραμένουν δημόσιες. Μια εφαρμογή μπορεί στη συνέχεια να καλέσει το [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) με `true` και να διαβάσει τα δημόσια μεταδεδομένα χωρίς να παράσχει τον κωδικό ανοίγματος.
+Ένας κωδικός άνοιγμα συνήθως προστατεύει τόσο το περιεχόμενο της παρουσίασης όσο και τις ιδιότητες του εγγράφου. Όταν μια παρουσίαση κρυπτογραφείται μετά την κλήση της μεθόδου [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) με `false`, οι ιδιότητές της παραμένουν δημόσιες. Μια εφαρμογή μπορεί τότε να καλέσει τη μέθοδο [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) με `true` και να διαβάσει τα δημόσια μεταδεδομένα χωρίς να παρέχει τον κωδικό άνοιγμα.
 
-Το [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ελέγχει τι φορτώνει το Aspose.Slides· δεν αποκρυπτογραφεί τίποτα. Εάν οι ιδιότητες περιλαμβάνονταν στην κρυπτογράφηση, η φόρτωσή τους χωρίς κωδικό αποτυγχάνει. Εάν η παρουσίαση δεν είναι κρυπτογραφημένη, η επιλογή αγνοείται και φορτώνεται η πλήρης παρουσίαση.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ελέγχει τι φορτώνει το Aspose.Slides· δεν αποκρυπτογραφεί τίποτα. Εάν οι ιδιότητες συμπεριλήφθηκαν στην κρυπτογράφηση, η φόρτωσή τους χωρίς τον κωδικό αποτυγχάνει. Εάν η παρουσίαση δεν είναι κρυπτογραφημένη, η επιλογή αγνοείται και φορτώνεται ολόκληρη η παρουσίαση.
 
-Το παράδειγμα απαιτεί μια κρυπτογραφημένη παρουσίαση της οποίας οι ιδιότητες εγγράφου έχουν αφήσει δημόσιες. Επαληθεύει τη λειτουργία φόρτωσης μέσω του [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) και στη συνέχεια διαβάζει τις ενσωματωμένες ιδιότητες μέσω του [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
+Το παράδειγμα απαιτεί μια κρυπτογραφημένη παρουσίαση της οποίας οι ιδιότητες εγγράφου έχουν παραμείνει δημόσιες. Ελέγχει τη λειτουργία φόρτωσης μέσω του [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) και στη συνέχεια διαβάζει τις ενσωματωμένες ιδιότητες μέσω του [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) :
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.LoadOptions;
@@ -74,17 +75,18 @@ try {
 }
 ```
 
-Σε αυτή τη λειτουργία, το περιεχόμενο των διαφανειών δεν φορτώνεται. Οι διαφάνειες, τα master, οι διατάξεις, τα σχήματα, τα μέσα και άλλα αντικείμενα της παρουσίασης δεν είναι διαθέσιμα. Οι εφαρμογές πρέπει πάντα να ελέγχουν το [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) πριν εκτελέσουν μια ενέργεια που απαιτεί το πλήρες μοντέλο αντικειμένων της παρουσίασης.
+Σε αυτή τη λειτουργία, το περιεχόμενο των διαφανειών δεν φορτώνεται. Διαφάνειες, κύριοι, διατάξεις, σχήματα, πολυμέσα και άλλα αντικείμενα παρουσίασης δεν είναι διαθέσιμα. Οι εφαρμογές πρέπει πάντα να ελέγχουν το [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) πριν εκτελέσουν κάποια ενέργεια που απαιτεί το πλήρες μοντέλο αντικειμένων της παρουσίασης.
 
 {{% alert color="warning" title="Warning" %}}
-Τα δημόσια μεταδεδομένα ενδέχεται να αποκαλύψουν ονόματα συγγραφέων, τίτλους, θέματα, λέξεις-κλειδιά, πληροφορίες εταιρείας, σχόλια και προσαρμοσμένες τιμές. Κρυπτογραφήστε ευαίσθητες ιδιότητες μαζί με την παρουσίαση. Αφήστε τις δημόσιες μόνο όταν τα συστήματα ευρετηρίου, ταξινόμησης, αναζήτησης ή διαχείρισης εγγράφων έχουν συγκεκριμένη απαίτηση πρόσβασης χωρίς κωδικό.
+Τα δημόσια μεταδεδομένα μπορεί να εκθέτουν ονόματα δημιουργών, τίτλους, θέματα, λέξεις-κλειδιά, πληροφορίες εταιρείας, σχόλια και προσαρμοσμένες τιμές. Κρυπτογραφήστε ευαίσθητες ιδιότητες μαζί με την παρουσίαση. Αφήστε τις δημόσιες μόνο όταν οι μηχανές ευρετηρίασης, ταξινόμησης, αναζήτησης ή τα συστήματα διαχείρισης εγγράφων έχουν συγκεκριμένη απαίτηση πρόσβασης χωρίς κωδικό.
 {{% /alert %}}
 
-## **Ενημέρωση Ιδιοτήτων Κρυπτογραφημένης Παρουσίασης**
+## **Ενημέρωση Ιδιοτήτων Κρυπτογραφημένης Παρουσίας**
 
-Για ένα κρυπτογραφημένο αρχείο PPTX, μια παρουσίαση που φορτώνεται μετά την κλήση του [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) με `true` προορίζεται για ανάγνωση δημόσιων μεταδεδομένων. Το Aspose.Slides δεν μπορεί να αποθηκεύσει τις αλλαγμένες ιδιότητες από αυτό το αντικείμενο μόνο με μεταδεδομένα, επειδή οι δημόσιες ιδιότητες πρέπει να παραμένουν συνεπείς με τα αντίστοιχα δεδομένα μέσα στην κρυπτογραφημένη παρουσίαση. Η ενημέρωσή τους συνεπώς απαιτεί τον σωστό κωδικό ανοίγματος και πλήρη φόρτωση.
+Για ένα κρυπτογραφημένο αρχείο PPTX, μια παρουσίαση που φορτώνεται μετά την κλήση του [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) με `true` προορίζεται για ανάγνωση δημόσιων μεταδεδομένων. Το Aspose.Slides δεν μπορεί να αποθηκεύσει τις αλλαγμένες ιδιότητες από αυτό το αντικείμενο μόνο με μεταδεδομένα, επειδή οι δημόσιες ιδιότητες πρέπει να παραμείνουν σύμφωνες με τα αντίστοιχα δεδομένα εντός της κρυπτογραφημένης παρουσίασης. Η ενημέρωσή τους απαιτεί επομένως τον σωστό κωδικό ανοίγματος και πλήρη φόρτωση.
 
-Το παράδειγμα απαιτεί μια κρυπτογραφημένη παρουσίαση PPTX με δημόσιες ιδιότητες εγγράφου και γνωστό κωδικό ανοίγματος. Ανοίγει τη πλήρη παρουσίαση με το [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), ενημερώνει τις δημόσιες ενσωματωμένες ιδιότητες και αποθηκεύει το αποτέλεσμα. Στη συνέχεια χρησιμοποιεί το [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) για να επαληθεύσει ότι η κρυπτογράφηση διατηρείται και ανοίγει ξανά τα δημόσια μεταδεδομένα χωρίς κωδικό για να ελέγξει τις νέες τιμές:
+Το παράδειγμα απαιτεί μια κρυπτογραφημένη παρουσίαση PPTX με δημόσιες ιδιότητες εγγράφου και έναν γνωστό κωδικό ανοίγματος. Ανοίγει την πλήρη παρουσίαση με τη μέθοδο [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) , ενημερώνει τις δημόσιες ενσωματωμένες ιδιότητες και αποθηκεύει το αποτέλεσμα. Στη συνέχεια χρησιμοποιεί το [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) για να ελέγξει ότι η κρυπτογράφηση διατηρείται και ανοίγει ξανά τα δημόσια μεταδεδομένα χωρίς κωδικό για να επαληθεύσει τις νέες τιμές:
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.IPresentationInfo;
@@ -131,9 +133,10 @@ try {
 
 Εάν μια εφαρμογή δεν επιτρέπεται να αποκρυπτογραφήσει ή να φορτώσει το περιεχόμενο της παρουσίασης, πρέπει να αντιμετωπίζει τις δημόσιες ιδιότητες ενός κρυπτογραφημένου αρχείου PPTX ως μόνο για ανάγνωση.
 
-## **Πρόσβαση σε Ενσωματωμένες Ιδιότητες**
+## **Πρόσβαση στις Ενσωματωμένες Ιδιότητες**
 
-Η διεπαφή [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) εκθέτει ενσωματωμένα μεταδεδομένα μέσω μεθόδων getter, συμπεριλαμβανομένων των [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--), [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--), και [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--). Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και εκτυπώνει τα αποθηκευμένα μεταδεδομένα της στην κονσόλα. Οι τιμές εξαρτώνται από την εισερχόμενη παρουσίαση· ορισμένα πεδία μπορεί να είναι κενά.
+Η διεπαφή [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) εκθέτει τις ενσωματωμένες μεταδεδομένα μέσω μεθόδων getter, όπως [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--) , [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--) και [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) . Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και εκτυπώνει τα αποθηκευμένα μεταδεδομένα στην κονσόλα. Οι τιμές εξαρτώνται από την παρουσίαση εισόδου· ορισμένα πεδία μπορεί να είναι κενά.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -161,9 +164,51 @@ try {
 }
 ```
 
+### **Αναφορά Αριθμού Αναθεώρησης και Χρόνου Επεξεργασίας**
+
+Για να αναφέρετε μια γραμμή για κάθε αρχείο PPTX στον φάκελο `presentations`, καλέστε το [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) για να διαβάσετε το [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) του χωρίς να φορτώσετε τις διαφάνειες για επεξεργασία. Το Java API επιστρέφει τη διάρκεια επεξεργασίας σε χιλιοστά του δευτερολέπτου. Το παράδειγμα τη μορφοποιεί ως ώρες, λεπτά και δευτερόλεπτα, με μέτρηση ημερών για διάρκειες 24 ωρών ή περισσότερο.
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+System.out.println("File | RevisionNumber | TotalEditingTime");
+try (DirectoryStream<Path> files = Files.newDirectoryStream(Paths.get("presentations"), "*.pptx")) {
+    for (Path path : files) {
+        if (!Files.isRegularFile(path)) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(path.toString());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format("%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf("%s | %d | %s%n", path.getFileName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+Για μια παρουσίαση με καταγεγραμμένο χρόνο επεξεργασίας 1 ημέρα, 2 ώρες και 5 λεπτά, η αναφορά εμφανίζει το ακόλουθο αποτέλεσμα.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getRevisionNumber--) διαβάζει μια τιμή που οι εφαρμογές μπορούν να αλλάξουν με το [setRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-) . Ο μόνος αριθμός αναθεώρησης δεν μπορεί να προσδιορίσει πόσες φορές έχει αποθηκευτεί η παρουσίαση ή να ανασυγκροτήσει το ιστορικό εκδόσεων.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) διαβάζει τη διάρκεια επεξεργασίας που καταγράφηκε στο αρχείο. Μια τιμή `00:00:00` σημαίνει ότι η αποθηκευμένη διάρκεια είναι μηδέν, ακόμη κι αν κάποιος επεξεργάστηκε την παρουσίαση.
+
 ## **Τροποποίηση Ενσωματωμένων Ιδιοτήτων**
 
-Για να ενημερώσετε τα ενσωματωμένα μεταδεδομένα, χρησιμοποιήστε τις μεθόδους setter στο αντικείμενο που επιστρέφεται από το [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--). Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση, καλεί τις μεθόδους [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-), και [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-), και στη συνέχεια αποθηκεύει την ενημερωμένη παρουσίαση με το [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Το αποθηκευμένο PPTX περιέχει τα νέα μεταδεδομένα.
+Για να ενημερώσετε τα ενσωματωμένα μεταδεδομένα, χρησιμοποιήστε τις μεθόδους setter στο αντικείμενο που επιστρέφεται από το [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) . Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση, καλεί τις μεθόδους [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-) , [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-) , [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-) , [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-) και [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) , στη συνέχεια αποθηκεύει την ενημερωμένη παρουσίαση με το [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) . Το αποθηκευμένο PPTX περιέχει τα νέα μεταδεδομένα.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -187,9 +232,10 @@ try {
 
 ## **Διαχείριση Βάσης Υπερσυνδέσμου**
 
-Το [IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) επιστρέφει τη βάση σε επίπεδο εγγράφου για σχετικούς υπερσυνδέσμους. Χρησιμοποιήστε το [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) για να την αλλάξετε ή να την εκκαθαρίσετε. Αυτό είναι χρήσιμο όταν μεταφέρετε μια παρουσίαση και τα συνδεδεμένα αρχεία της σε άλλη τοποθεσία. Είναι ξεχωριστό από το [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) ενός μεμονωμένου υπερσυνδέσμου: η αλλαγή της βάσης δεν επανεγγράφει τις αποθηκευμένες διευθύνσεις συνδέσμου ούτε αλλάζει τις απόλυτες προορισμούς.
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) επιστρέφει τη βάση σε επίπεδο εγγράφου για σχετικούς υπερσυνδέσμους. Χρησιμοποιήστε το [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) για να την αλλάξετε ή να την διαγράψετε. Αυτό είναι χρήσιμο όταν μετακινείτε μια παρουσίαση και τα συνδεδεμένα αρχεία της σε άλλη τοποθεσία. Είναι ξεχωριστό από το ατομικό υπερσύνδεσμο [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) : η αλλαγή της βάσης δεν επαναγράφει τις αποθηκευμένες διευθύνσεις συνδέσμων ή δεν αλλάζει απόλυτους προορισμούς.
 
-Το παράδειγμα απαιτεί μια παρουσίαση που περιέχει τόσο έναν σχετικό σύνδεσμο, π.χ. `target.html`, όσο και έναν απόλυτο σύνδεσμο, π.χ. `https://example.org/absolute.html`. Διαβάζει τη υπάρχουσα βάση, ορίζει μια νέα διεύθυνση βάσης και αποθηκεύει και ανοίγει ξανά την παρουσίαση για να ελέγξει την τιμή. Στη συνέχεια εκκαθαρίζει τη βάση με μια κενή συμβολοσειρά και επαληθεύει τη κενή τιμή σε ένα ξεχωριστό αποθηκευμένο αρχείο. Αντικαταστήστε τη διεύθυνση βάσης του παραδείγματος με τη θέση των συνδεδεμένων αρχείων σας.
+Το παράδειγμα απαιτεί μια παρουσίαση που περιέχει τόσο έναν σχετικό σύνδεσμο, όπως `target.html`, όσο και έναν απόλυτο σύνδεσμο, όπως `https://example.org/absolute.html`. Διαβάζει τη υπάρχουσα βάση, αντιστοιχίζει μια νέα διεύθυνση βάσης, και αποθηκεύει και ανοίγει ξανά την παρουσίαση για να ελέγξει την τιμή. Στη συνέχεια διαγράφει τη βάση με μια κενή συμβολοσειρά και επαληθεύει την κενή τιμή σε ένα ξεχωριστό αποθηκευμένο αρχείο. Αντικαταστήστε τη διεύθυνση βάσης του παραδείγματος με τη θέση των συνδεδεμένων αρχείων σας.
+
 ```java
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -223,13 +269,14 @@ try {
 }
 ```
 
-Τα δύο μηνύματα επαλήθευσης πρέπει να εκτυπώσουν `true`. Η εκκαθάριση της βάσης αφήνει ανέπαφες τις διευθύνσεις των ατομικών υπερσυνδέσμων.
+Τα δύο μηνύματα επαλήθευσης θα πρέπει να εκτυπώσουν `true`. Η διαγραφή της βάσης αφήνει τις διευθύνσεις των ατομικών υπερσυνδέσμων ανέπαφες.
 
-Ένας σχετικός σύνδεσμος προς `target.pptx` άνοιγε `old/target.pptx` όταν η βάση υποδείκνυε το φάκελο `old`. Αφού αλλάξατε τη βάση στο φάκελο `new`, αποθηκεύσατε και ξανανοίξατε την παρουσίαση, ο ίδιος σύνδεσμος άνοιγε `new/target.pptx`. Ένας απόλυτος σύνδεσμος συνέχισε να ανοίγει το ίδιο αρχείο. Δοκιμάστε τους σχετικούς συνδέσμους σας στο PowerPoint πριν και μετά τη μετακίνηση της παρουσίασης ή την αλλαγή της βάσης.
+Ένας σχετικός σύνδεσμος προς `target.pptx` άνοιγε `old/target.pptx` όταν η βάση έδειχνε στο φάκελο `old`. Αφού η βάση αλλάξει στο φάκελο `new`, αποθηκευτεί και ανοίξει ξανά η παρουσίαση, ο ίδιος σύνδεσμος άνοιγε `new/target.pptx`. Ένας απόλυτος σύνδεσμος συνέχισε να ανοίγει το ίδιο αρχείο. Δοκιμάστε τους σχετικούς συνδέσμους σας στο PowerPoint πριν και μετά τη μετακίνηση της παρουσίασης ή την αλλαγή της βάσης.
 
 ## **Προσθήκη Προσαρμοσμένων Ιδιοτήτων Παρουσίασης**
 
-Οι προσαρμοσμένες ιδιότητες αποθηκεύουν μεταδεδομένα που δεν έχουν αντίστοιχο ενσωματωμένο πεδίο. Η μέθοδος [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) σας επιτρέπει να εκχωρήσετε μια τιμή με βάση το όνομα της ιδιότητας. Αυτό το παράδειγμα δημιουργεί μια παρουσίαση, προσθέτει δύο τιμές κειμένου και μια ακέραια τιμή έκδοσης, και αποθηκεύει την παρουσίαση με το [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Η εκχώρηση τιμής σε υπάρχον όνομα αντικαθιστά την τιμή εκείνης της ιδιότητας.
+Οι προσαρμοσμένες ιδιότητες αποθηκεύουν μεταδεδομένα που δεν έχουν αντίστοιχο ενσωματωμένο πεδίο. Η μέθοδος [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) σάς επιτρέπει να εκχωρήσετε μια τιμή με βάση το όνομα της ιδιότητας. Αυτό το παράδειγμα δημιουργεί μια παρουσίαση, προσθέτει δύο τιμές κειμένου και μια ακέραια τιμή έκδοσης, και αποθηκεύει την παρουσίαση με το [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) . Η εκχώρηση μιας τιμής σε υπάρχον όνομα αντικαθιστά την τιμή της ιδιότητας.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -251,7 +298,8 @@ try {
 
 ## **Πρόσβαση και Τροποποίηση Προσαρμοσμένων Ιδιοτήτων**
 
-Αυτό το παράδειγμα ανοίγει μια παρουσίαση που περιέχει προσαρμοσμένες ιδιότητες και χρησιμοποιεί το [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) για να τις επαναλάβει. Το [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) δέχεται δείκτη μηδενικής βάσης και επιστρέφει το όνομα που χρησιμοποιείται από το [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-). Το παράδειγμα εκτυπώνει κάθε αρχικό όνομα και τιμή, αντικαθιστά κάθε τιμή με μια αριθμημένη συμβολοσειρά ανεξάρτητα από τον αρχικό τύπο, και αποθηκεύει τις αλλαγές. Εάν δεν υπάρχουν προσαρμοσμένες ιδιότητες, η επανάληψη δεν κάνει αλλαγές.
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση που περιέχει προσαρμοσμένες ιδιότητες και χρησιμοποιεί το [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) για να τις επαναλάβει. Το [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) δέχεται έναν δείκτη που αρχίζει από το μηδέν και επιστρέφει το όνομα που χρησιμοποιείται από το [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) . Το παράδειγμα εκτυπώνει κάθε αρχικό όνομα και τιμή, αντικαθιστά κάθε τιμή με μια αριθμημένη συμβολοσειρά ανεξαρτήτως του αρχικού τύπου, και αποθηκεύει τις αλλαγές. Εάν δεν υπάρχουν προσαρμοσμένες ιδιότητες, η επανάληψη δεν κάνει αλλαγές.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -279,28 +327,28 @@ try {
 
 ## **Ζωντανό Παράδειγμα**
 
-Δοκιμάστε την [**Προβολή & Επεξεργασία Μεταδεδομένων PowerPoint**](https://products.aspose.app/slides/metadata) online εφαρμογή για να δείτε πώς να εργάζεστε με ιδιότητες εγγράφων χρησιμοποιώντας το Aspose.Slides API:
+Δοκιμάστε την διαδικτυακή εφαρμογή [**Προβολή & Επεξεργασία Μεταδεδομένων PowerPoint**](https://products.aspose.app/slides/metadata) για να δείτε πώς να εργάζεστε με τις ιδιότητες εγγράφου χρησιμοποιώντας το API του Aspose.Slides:
 
 [![Προβολή & Επεξεργασία Μεταδεδομένων PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να αφαιρέσω μια ενσωματωμένη ιδιότητα από μια παρουσίαση;**
 
-Οι ενσωματωμένες ιδιότητες αποτελούν αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν εντελώς. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις ορίσετε κενές, εφόσον αυτό επιτρέπεται από τη συγκεκριμένη ιδιότητα.
+Οι ενσωματωμένες ιδιότητες αποτελούν αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν εντελώς. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις ορίσετε ως κενές, εάν αυτό επιτρέπεται από τη συγκεκριμένη ιδιότητα.
 
-**Τι γίνεται αν προσθέσω μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη;**
+**Τι συμβαίνει αν προσθέσω μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη;**
 
 Εάν προσθέσετε μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη, η υπάρχουσα τιμή της θα αντικατασταθεί με τη νέα. Δεν χρειάζεται να αφαιρέσετε ή να ελέγξετε την ιδιότητα εκ των προτέρων, καθώς το Aspose.Slides ενημερώνει αυτόματα την τιμή της ιδιότητας.
 
-**Μπορώ να αποκτήσω πρόσβαση σε ιδιότητες της παρουσίασης χωρίς να φορτώσω πλήρως την παρουσίαση;**
+**Μπορώ να προσπελάσω τις ιδιότητες της παρουσίασης χωρίς να φορτώσω πλήρως την παρουσίαση;**
 
-Ναί. Χρησιμοποιήστε το [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) και στη συνέχεια το [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) για να διαβάσετε τα αποθηκευμένα μεταδεδομένα του εγγράφου χωρίς να δημιουργήσετε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Δείτε το [Build a Lightweight Presentation Inventory](/slides/el/java/examine-presentation/) για ένα πλήρες παράδειγμα αναφοράς και περιορισμούς ανά μορφή.
+Ναί. Χρησιμοποιήστε τη μέθοδο [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) και στη συνέχεια το [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) για να διαβάσετε τα αποθηκευμένα μεταδεδομένα εγγράφου χωρίς να δημιουργήσετε μια παρουσίαση [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) . Δείτε το άρθρο [Δημιουργία Ελαφρού Αποθέματος Παρουσίασης](/slides/el/java/examine-presentation/) για ένα πλήρες παράδειγμα αναφοράς και περιορισμούς ανά τύπο αρχείου.
 
-**Μπορώ να διαβάσω τις δημόσιες ιδιότητες μιας κρυπτογραφημένης παρουσίασης χωρίς τον κωδικό ανοίγματος της;**
+**Μπορώ να διαβάσω τις δημόσιες ιδιότητες μιας κρυπτογραφημένης παρουσίασης χωρίς τον κωδικό άνοιγμα;**
 
 Ναί. Η παρουσίαση πρέπει να έχει κρυπτογραφηθεί μετά την κλήση του [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) με `false`, και πρέπει να φορτωθεί μετά την κλήση του [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) με `true`.
 
 **Μπορώ να ενημερώσω ένα κρυπτογραφημένο αρχείο PPTX σε λειτουργία μόνο-ιδιοτήτων-εγγράφου;**
 
-Όχι. Τα δημόσια και κρυπτογραφημένα δεδομένα ιδιοτήτων πρέπει να παραμένουν συνεπή, επομένως η ενημέρωση ενός κρυπτογραφημένου αρχείου PPTX απαιτεί τη φόρτωση της πλήρους παρουσίασης με τον σωστό κωδικό ανοίγματος.
+Όχι. Τα δημόσια και κρυπτογραφημένα δεδομένα ιδιοτήτων πρέπει να παραμένουν συνεπή, επομένως η ενημέρωση ενός κρυπτογραφημένου αρχείου PPTX απαιτεί τη φόρτωση ολόκληρης της παρουσίασης με τον σωστό κωδικό άνοιγμα.

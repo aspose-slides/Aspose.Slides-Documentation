@@ -6,53 +6,51 @@ weight: 70
 url: /el/nodejs-java/presentation-properties/
 keywords:
 - Ιδιότητες PowerPoint
-- ιδιότητες παρουσίασης
-- ιδιότητες εγγράφου
-- ενσωματωμένες ιδιότητες
-- προσαρμοσμένες ιδιότητες
-- προηγμένες ιδιότητες
-- διαχείριση ιδιοτήτων
-- τροποποίηση ιδιοτήτων
-- μεταδεδομένα εγγράφου
-- επεξεργασία μεταδεδομένων
-- γλώσσα επιμέλειας
-- προεπιλεγμένη γλώσσα
+- Ιδιότητες παρουσίασης
+- Ιδιότητες εγγράφου
+- Ενσωματωμένες ιδιότητες
+- Προσαρμοσμένες ιδιότητες
+- Προηγμένες ιδιότητες
+- Διαχείριση ιδιοτήτων
+- Τροποποίηση ιδιοτήτων
+- Μεταδεδομένα εγγράφου
+- Επεξεργασία μεταδεδομένων
+- Γλώσσα επιμέλειας
+- Προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
-- παρουσίαση
+- Παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Κατακτήστε τις ιδιότητες παρουσίασης στο Aspose.Slides για Node.js μέσω Java και βελτιστοποιήστε την αναζήτηση, τη δημιουργία εταιρικής ταυτότητας και τη ροή εργασιών στα αρχεία PowerPoint και OpenDocument σας."
+description: "Διαχειριστείτε τις ιδιότητες παρουσίασης στο Aspose.Slides για Node.js μέσω Java και βελτιστοποιήστε την αναζήτηση, την εμπορική σήμανση και τη ροή εργασίας στα αρχεία PowerPoint και OpenDocument σας."
 ---
 ## **Εισαγωγή**
 
-Το Aspose.Slides για Node.js μέσω Java υποστηρίζει **ενσωματωμένες** και **προσαρμοσμένες** ιδιότητες εγγράφου. Χρησιμοποιήστε αυτές τις ιδιότητες για να διαβάσετε και να ενημερώσετε τα μεταδεδομένα της παρουσίασης, όπως ο συγγραφέας, ο τίτλος και οι τιμές που ορίζονται από τον χρήστη.
+Η Aspose.Slides για Node.js μέσω Java υποστηρίζει **ενσωματωμένες** και **προσαρμοσμένες** ιδιότητες εγγράφου. Χρησιμοποιήστε αυτές τις ιδιότητες για να διαβάζετε και να ενημερώνετε τα μεταδεδομένα της παρουσίασης, όπως ο δημιουργός, ο τίτλος και οι τιμές καθορισμένες από τον χρήστη.
 
-Το Aspose.Slides επιτρέπει την εργασία με τις ιδιότητες εγγράφου της παρουσίασης μέσω της κλάσης [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties). Μια παρουσία της κλάσης αυτής επιστρέφεται από τη μέθοδο [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Τα παρακάτω παραδείγματα δείχνουν πώς να διαβάσετε, να τροποποιήσετε και να διαχειριστείτε αυτές τις ιδιότητες.
+Η Aspose.Slides σας επιτρέπει να εργάζεστε με τις ιδιότητες εγγράφου μιας παρουσίασης μέσω της κλάσης [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties). Μια παρουσία της κλάσης αυτής επιστρέφεται από τη μέθοδο [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Τα παρακάτω παραδείγματα δείχνουν πώς να διαβάσετε, να τροποποιήσετε και να διαχειριστείτε αυτές τις ιδιότητες.
 
 {{% alert color="info" title="Note" %}}
-
-Το Aspose.Slides διαχειρίζεται τα μεταδεδομένα της εφαρμογής και του δημιουργού κατά την αποθήκευση παρουσιάσεων· αυτά τα πεδία αναγνωρίζουν το λογισμικό που δημιούργησε το αποτέλεσμα.
-
+Η Aspose.Slides διαχειρίζεται τα μεταδεδομένα της εφαρμογής και του παραγωγού κατά την αποθήκευση των παρουσιάσεων· αυτά τα πεδία προσδιορίζουν το λογισμικό που δημιούργησε το αποτέλεσμα.
 {{% /alert %}}
 
 ## **Διαχείριση Ιδιοτήτων Παρουσίασης**
 
-Οι ιδιότητες εγγράφου αποθηκεύουν περιγραφικές πληροφορίες παράλληλα με το περιεχόμενο της παρουσίασης. Κατατάσσονται σε δύο κατηγορίες:
+Οι ιδιότητες εγγράφου αποθηκεύουν περιγραφική πληροφορία μαζί με το περιεχόμενο της παρουσίασης. Κατατάσσονται σε δύο κατηγορίες:
 
-- **Built‑in properties** περιέχουν τυπικά μεταδεδομένα, όπως ο τίτλος, ο συγγραφέας και στατιστικά του εγγράφου.
-- **Custom properties** αποθηκεύουν ζεύγη όνομα/τιμή που ορίζονται από τον χρήστη.
+- **Ενσωματωμένες ιδιότητες** περιλαμβάνουν τυπικά μεταδεδομένα, όπως ο τίτλος, ο δημιουργός και τα στατιστικά του εγγράφου.
+- **Προσαρμοσμένες ιδιότητες** αποθηκεύουν ζεύγη ονόματος/τιμής καθορισμένα από τον χρήστη.
 
-Το Aspose.Slides για Node.js μέσω Java παρέχει πρόσβαση και στις δύο κατηγορίες. Στο PowerPoint, επιλέξτε **File → Info → Properties → Advanced Properties** για να εξετάσετε τα μεταδεδομένα του εγγράφου. Ο διάλογος ομαδοποιεί τις πληροφορίες σε καρτέλες όπως **Summary**, **Statistics**, **Contents** και **Custom**. Χρησιμοποιήστε την καρτέλα **Custom** για να διαχειριστείτε ιδιότητες που ορίζονται από τον χρήστη.
+Η Aspose.Slides για Node.js μέσω Java παρέχει πρόσβαση και στις δύο κατηγορίες. Στο PowerPoint, επιλέξτε **File → Info → Properties → Advanced Properties** για να ελέγξετε τα μεταδεδομένα του εγγράφου. Ο διάλογος ομαδοποιεί τις πληροφορίες σε καρτέλες όπως **Summary**, **Statistics**, **Contents** και **Custom**. Χρησιμοποιήστε την καρτέλα **Custom** για να διαχειριστείτε τις ιδιότητες που καθορίζονται από τον χρήστη.
 
-## **Ανάγνωση Δημοσίων Ιδιοτήτων από Κρυπτογραφημένη Παρουσίαση**
+## **Ανάγνωση Δημόσιων Ιδιοτήτων από Κρυπτογραφημένη Παρουσίαση**
 
-Ένας κωδικός ανοίγματος προστατεύει κανονικά τόσο το περιεχόμενο της παρουσίασης όσο και τις ιδιότητες εγγράφου. Όταν μια παρουσίαση κρυπτογραφείται μετά την κλήση της μεθόδου [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) με `false`, οι ιδιότητες εγγράφου παραμένουν δημόσιες. Μια εφαρμογή μπορεί στη συνέχεια να καλέσει τη μέθοδο [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) με `true` και να διαβάσει τα δημόσια μεταδεδομένα χωρίς να παρέχει τον κωδικό ανοίγματος.
+Ένας κωδικός πρόσβασης ανοίγματος προστατεύει συνήθως τόσο το περιεχόμενο της παρουσίασης όσο και τις ιδιότητες του εγγράφου. Όταν μια παρουσίαση κρυπτογραφείται μετά την κλήση της μεθόδου [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) με `false`, οι ιδιότητές της παραμένουν δημόσιες. Μια εφαρμογή μπορεί τότε να καλέσει τη μέθοδο [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) με `true` και να διαβάσει τα δημόσια μεταδεδομένα χωρίς να παρέχει τον κωδικό πρόσβασης ανοίγματος.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) ελέγχει τι φορτώνει το Aspose.Slides· δεν αποκρυπτογραφεί τίποτα. Εάν οι ιδιότητες περιλαμβάνονταν στην κρυπτογράφηση, η φόρτωση χωρίς κωδικό αποτυγχάνει. Εάν η παρουσίαση δεν είναι κρυπτογραφημένη, η επιλογή αγνοείται και η πλήρης παρουσίαση φορτώνεται.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) ελέγχει τι φορτώνει η Aspose.Slides· δεν αποκρυπτογραφεί τίποτα. Αν οι ιδιότητες συμπεριλήφθηκαν στην κρυπτογράφηση, η φόρτωση τους χωρίς τον κωδικό αποτυγχάνει. Αν η παρουσίαση δεν είναι κρυπτογραφημένη, η επιλογή αγνοείται και φορτώνεται η πλήρης παρουσίαση.
 
-Το παράδειγμα απαιτεί μια κρυπτογραφημένη παρουσίαση της οποίας οι ιδιότητες εγγράφου έχουν αφήσει δημόσιες. Επαληθεύει τη λειτουργία φόρτωσης μέσω της μεθόδου [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) και στη συνέχεια διαβάζει ενσωματωμένες ιδιότητες μέσω της [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
+Το παράδειγμα απαιτεί μια κρυπτογραφημένη παρουσίαση των οποίων οι ιδιότητες εγγράφου έχουν παραμείνει δημόσιες. Επαληθεύει τη λειτουργία φόρτωσης μέσω του [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) και, στη συνέχεια, διαβάζει τις ενσωματωμένες ιδιότητες μέσω του [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -76,17 +74,17 @@ try {
 }
 ```
 
-Σε αυτή τη λειτουργία, το περιεχόμενο των διαφανειών δεν φορτώνεται. Οι διαφάνειες, τα master, τα layouts, τα σχήματα, τα μέσα και άλλα αντικείμενα παρουσίασης δεν είναι διαθέσιμα. Οι εφαρμογές πρέπει πάντα να ελέγχουν το [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) πριν εκτελέσουν κάποια ενέργεια που απαιτεί το πλήρες μοντέλο αντικειμένων της παρουσίασης.
+Σε αυτή τη λειτουργία, το περιεχόμενο των διαφανειών δεν φορτώνεται. Οι διαφάνειες, τα master, τα layouts, τα σχήματα, τα μέσα και άλλα αντικείμενα της παρουσίασης δεν είναι διαθέσιμα. Οι εφαρμογές θα πρέπει πάντα να ελέγχουν το [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) πριν εκτελέσουν λειτουργία που απαιτεί το πλήρες μοντέλο αντικειμένων της παρουσίασης.
 
 {{% alert color="warning" title="Warning" %}}
-Τα δημόσια μεταδεδομένα μπορεί να αποκαλύψουν ονόματα συγγραφέων, τίτλους, θέματα, λέξεις‑κλειδιά, πληροφορίες εταιρείας, σχόλια και προσαρμοσμένες τιμές. Κρυπτογραφήστε ευαίσθητες ιδιότητες μαζί με την παρουσίαση. Αφήστε τις δημόσιες μόνο όταν συστήματα ευρετηρίασης, ταξινόμησης, αναζήτησης ή διαχείρισης εγγράφων έχουν συγκεκριμένη απαίτηση πρόσβασης χωρίς κωδικό.
+Τα δημόσια μεταδεδομένα μπορεί να αποκαλύψουν ονόματα δημιουργών, τίτλους, θέματα, λέξεις‑κλειδιά, πληροφορίες εταιρείας, σχόλια και προσαρμοσμένες τιμές. Κρυπτογραφήστε ευαίσθητες ιδιότητες μαζί με την παρουσίαση. Αφήστε τις δημόσιες μόνο όταν συστήματα ευρετηρίασης, ταξινόμησης, αναζήτησης ή διαχείρισης εγγράφων έχουν συγκεκριμένη ανάγκη πρόσβασης χωρίς κωδικό.
 {{% /alert %}}
 
 ## **Ενημέρωση Ιδιοτήτων Κρυπτογραφημένης Παρουσίασης**
 
-Για ένα κρυπτογραφημένο αρχείο PPTX, μια παρουσίαση που φορτώνεται μετά την κλήση της [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) με `true` προορίζεται για ανάγνωση δημόσιων μεταδεδομένων. Το Aspose.Slides δεν μπορεί να αποθηκεύσει αλλαγμένες ιδιότητες από αυτό το αντικείμενο μόνο‑μεταδεδομένων επειδή οι δημόσιες ιδιότητες πρέπει να παραμείνουν σύμφωνες με τα αντίστοιχα δεδομένα μέσα στην κρυπτογραφημένη παρουσίαση. Η ενημέρωσή τους απαιτεί λοιπόν τον σωστό κωδικό ανοίγματος και πλήρη φόρτωση.
+Για ένα κρυπτογραφημένο αρχείο PPTX, μια παρουσίαση που φορτώνεται μετά την κλήση του [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) με `true` προορίζεται για ανάγνωση δημόσιων μεταδεδομένων. Η Aspose.Slides δεν μπορεί να αποθηκεύσει τις αλλαγμένες ιδιότητες από αυτό το αντικείμενο μόνο‑μεταδεδομένων επειδή οι δημόσιες ιδιότητες πρέπει να παραμείνουν σύμφωνες με τα αντίστοιχα δεδομένα μέσα στην κρυπτογραφημένη παρουσίαση. Η ενημέρωσή τους απαιτεί επομένως το σωστό κωδικό ανοίγματος και πλήρη φόρτωση.
 
-Το παράδειγμα απαιτεί μια κρυπτογραφημένη παρουσίαση PPTX με δημόσιες ιδιότητες εγγράφου και γνωστό κωδικό ανοίγματος. Ανοίγει την πλήρη παρουσίαση με τη [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword), ενημερώνει δημόσιες ενσωματωμένες ιδιότητες και αποθηκεύει το αποτέλεσμα. Στη συνέχεια χρησιμοποιεί τη μέθοδο [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) για να επαληθεύσει ότι η κρυπτογράφηση διατηρείται και ξαναανοίγει τα δημόσια μεταδεδομένα χωρίς κωδικό για να ελέγξει τις νέες τιμές:
+Το παράδειγμα απαιτεί μια κρυπτογραφημένη παρουσίαση PPTX με δημόσιες ιδιότητες εγγράφου και γνωστό κωδικό ανοίγματος. Ανοίγει την πλήρη παρουσίαση με το [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword), ενημερώνει τις δημόσιες ενσωματωμένες ιδιότητες και αποθηκεύει το αποτέλεσμα. Στη συνέχεια χρησιμοποιεί το [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) για να επαληθεύσει ότι η κρυπτογράφηση διατηρείται και ανοίγει ξανά τα δημόσια μεταδεδομένα χωρίς κωδικό για να ελέγξει τις νέες τιμές:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -127,11 +125,11 @@ try {
 }
 ```
 
-Εάν μια εφαρμογή δεν επιτρέπεται να αποκρυπτογραφήσει ή να φορτώσει το περιεχόμενο της παρουσίασης, πρέπει να αντιμετωπίζει τις δημόσιες ιδιότητες ενός κρυπτογραφημένου αρχείου PPTX ως μόνο‑ανάγνωση.
+Αν μια εφαρμογή δεν επιτρέπεται να αποκρυπτογραφήσει ή να φορτώσει το περιεχόμενο της παρουσίασης, πρέπει να αντιμετωπίζει τις δημόσιες ιδιότητες ενός κρυπτογραφημένου αρχείου PPTX ως μόνο‑ανάγνωση.
 
-## **Πρόσβαση σε Ενσωματωμένες Ιδιότητες**
+## **Πρόσβαση στις Ενσωματωμένες Ιδιότητες**
 
-Η κλάση [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) εκθέτει ενσωματωμένα μεταδεδομένα μέσω μεθόδων getter, όπως [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor), [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle) και [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και εκτυπώνει τα αποθηκευμένα μεταδεδομένα στη γραμμή εντολών. Οι τιμές εξαρτώνται από την είσοδο· ορισμένα πεδία μπορεί να είναι κενά.
+Η κλάση [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) εκθέτει ενσωματωμένα μεταδεδομένα μέσω μεθόδων getter, όπως [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor), [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle) και [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και εκτυπώνει τα αποθηκευμένα μεταδεδομένα στην κονσόλα. Οι τιμές εξαρτώνται από την παρουσίαση εισόδου· ορισμένα πεδία μπορεί να είναι κενά.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -159,9 +157,52 @@ try {
 }
 ```
 
+### **Αναφορά Αριθμού Αναθεώρησης και Χρόνου Επεξεργασίας**
+
+Για να αναφέρετε τον αριθμό αναθεώρησης και το συνολικό χρόνο επεξεργασίας για κάθε αρχείο PPTX στο φάκελο `presentations`, χρησιμοποιήστε το [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties). Επιστρέφει τις [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) του αρχείου χωρίς να φορτώνει τις διαφάνειες για επεξεργασία. Το παράδειγμα μετατρέπει τη καταγεγραμμένη διάρκεια από χιλιοστά του δευτερολέπτου σε ώρες, λεπτά και δευτερόλεπτα. Για διάρκειες 24 ωρών ή περισσότερων, προσθέτει στην ώρα τον αριθμό των πλήρων ημερών.
+
+```javascript
+const fs = require("fs");
+const path = require("path");
+const slides = require("aspose.slides.via.java");
+
+const folder = "presentations";
+const files = fs.readdirSync(folder, { withFileTypes: true });
+const factory = slides.PresentationFactory.getInstance();
+
+console.log("File | RevisionNumber | TotalEditingTime");
+for (const file of files) {
+    if (!file.isFile() || path.extname(file.name).toLowerCase() !== ".pptx") {
+        continue;
+    }
+    const filePath = path.join(folder, file.name);
+    const info = factory.getPresentationInfo(filePath);
+    const properties = info.readDocumentProperties();
+    const totalSeconds = Math.floor(properties.getTotalEditingTime() / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor(totalSeconds / 3600) % 24;
+    const minutes = Math.floor(totalSeconds / 60) % 60;
+    const seconds = totalSeconds % 60;
+    const time = [hours, minutes, seconds].map(value => String(value).padStart(2, "0")).join(":");
+    const editingTime = days > 0 ? `${days}.${time}` : time;
+    console.log(`${file.name} | ${properties.getRevisionNumber()} | ${editingTime}`);
+}
+```
+
+Για μια παρουσίαση με καταγεγραμμένο χρόνο επεξεργασίας 1 ημέρα, 2 ώρες και 5 λεπτά, η αναφορά εμφανίζει το παρακάτω αποτέλεσμα.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getRevisionNumber) διαβάζει μια τιμή που οι εφαρμογές μπορούν να αλλάξουν με το [setRevisionNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setRevisionNumber). Ο αριθμός αναθεώρησης από μόνος του δεν μπορεί να αποδείξει πόσες φορές αποθηκεύτηκε η παρουσίαση ή να ανασύρει το ιστορικό εκδόσεών της.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTotalEditingTime) διαβάζει τη διάρκεια επεξεργασίας που καταγράφηκε στο αρχείο. Μια τιμή `00:00:00` σημαίνει ότι η αποθηκευμένη διάρκεια είναι μηδέν, ακόμη και αν κάποιος επεξεργάστηκε την παρουσίαση.
+
 ## **Τροποποίηση Ενσωματωμένων Ιδιοτήτων**
 
-Για να ενημερώσετε ενσωματωμένα μεταδεδομένα, χρησιμοποιήστε τις μεθόδους setter στο αντικείμενο που επιστρέφεται από τη [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση, καλεί τις [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor), [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments) και [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager), στη συνέχεια αποθηκεύει την ενημερωμένη παρουσίαση με τη [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Η αποθηκευμένη PPTX περιέχει τα νέα μεταδεδομένα.
+Για να ενημερώσετε ενσωματωμένα μεταδεδομένα, χρησιμοποιήστε τις μεθόδους setter στο αντικείμενο που επιστρέφεται από το [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση, καλεί τα [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor), [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments) και [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager), έπειτα αποθηκεύει την ενημερωμένη παρουσίαση με το [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Το αποθηκευμένο PPTX περιέχει τα νέα μεταδεδομένα.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -184,9 +225,9 @@ try {
 
 ## **Διαχείριση Βάσης Υπερσυνδέσμων**
 
-Η μέθοδος [DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) επιστρέφει τη βάση σε επίπεδο εγγράφου για σχετικούς υπερσυνδέσμους. Χρησιμοποιήστε τη [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) για να την αλλάξετε ή να την καθαρίσετε. Αυτό είναι χρήσιμο όταν μετακινείτε μια παρουσίαση και τα συνδεδεμένα αρχεία της σε άλλη θέση. Είναι ανεξάρτητο από τη μέθοδο [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) ενός μεμονωμένου υπερσυνδέσμου· η αλλαγή της βάσης δεν ξαναγράφει τις αποθηκευμένες διευθύνσεις των συνδέσμων ούτε αλλάζει απόλυτους προορισμούς.
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) επιστρέφει τη βασική διεύθυνση επιπέδου εγγράφου για σχετικούς υπερσυνδέσμους. Χρησιμοποιήστε το [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) για να την αλλάξετε ή να την καθαρίσετε. Αυτό είναι χρήσιμο όταν μετακινείτε μια παρουσίαση και τα συνδεδεμένα της αρχεία σε άλλη τοποθεσία. Είναι ξεχωριστό από το [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) ενός μεμονωμένου υπερσυνδέσμου: η αλλαγή της βάσης δεν ξαναγράφει τις αποθηκευμένες διευθύνσεις των συνδέσμων ούτε αλλάζει τις απόλυτες προορισμούς.
 
-Το παράδειγμα απαιτεί μια παρουσίαση που περιέχει τόσο έναν σχετικό σύνδεσμο, όπως `target.html`, όσο και έναν απόλυτο σύνδεσμο, όπως `https://example.org/absolute.html`. Διαβάζει τη υπάρχουσα βάση, ορίζει νέα διεύθυνση βάσης, αποθηκεύει και ξαναανοίγει την παρουσίαση για να ελέγξει την τιμή. Στη συνέχεια καθαρίζει τη βάση με κενή συμβολοσειρά και επαληθεύει την κενή τιμή σε ξεχωριστό αποθηκευμένο αρχείο. Αντικαταστήστε τη διεύθυνση βάσης του παραδείγματος με τη θέση των συνδεδεμένων αρχείων σας.
+Το παράδειγμα απαιτεί μια παρουσίαση που περιέχει τόσο ένα σχετικό σύνδεσμο, όπως `target.html`, όσο και έναν απόλυτο σύνδεσμο, όπως `https://example.org/absolute.html`. Διαβάζει τη υπάρχουσα βάση, εκχωρεί νέα διεύθυνση βάσης και αποθηκεύει και ανοίγει ξανά την παρουσίαση για να ελέγξει την τιμή. Στη συνέχεια καθαρίζει τη βάση με μια κενή συμβολοσειρά και επαληθεύει την κενή τιμή σε ξεχωριστό αποθηκευμένο αρχείο. Αντικαταστήστε τη διεύθυνση βάσης του παραδείγματος με τη θέση των συνδεδεμένων σας αρχείων.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -220,13 +261,13 @@ try {
 }
 ```
 
-Τα δύο μηνύματα επαλήθευσης θα πρέπει να εκτυπώσουν `true`. Ο καθαρισμός της βάσης αφήνει τις διευθύνσεις των μεμονωμένων υπερσυνδέσμων αμετάβλητες.
+Τα δύο μηνύματα επαλήθευσης θα πρέπει να εκτυπώσουν `true`. Ο καθαρισμός της βάσης αφήνει τις ατομικές διευθύνσεις υπερσυνδέσμων ανεπηρέαστες.
 
-Ένας σχετικός σύνδεσμος προς `target.pptx` άνοιγε `old/target.pptx` όταν η βάση υπαγόταν στο φάκελο `old`. Αφού η βάση αλλάξει στον φάκελο `new`, η αποθήκευση και η επανάληψη ανοίγματος οδηγούν τον ίδιο σύνδεσμο να ανοίγει `new/target.pptx`. Ένας απόλυτος σύνδεσμος συνεχίζει να ανοίγει το ίδιο αρχείο. Δοκιμάστε τους σχετικούς συνδέσμους σας στο PowerPoint πριν και μετά τη μετακίνηση της παρουσίασης ή την αλλαγή της βάσης.
+Ένας σχετικός σύνδεσμος προς `target.pptx` άνοιγε `old/target.pptx` όταν η βάση υποδείκνυε στο φάκελο `old`. Αφού η βάση αλλάξει στο φάκελο `new`, αποθηκευτεί και ανοίξει ξανά η παρουσίαση, ο ίδιος σύνδεσμος ανοίγει `new/target.pptx`. Ένας απόλυτος σύνδεσμος συνέχισε να ανοίγει το ίδιο αρχείο. Δοκιμάστε τους σχετικούς συνδέσμους σας στο PowerPoint πριν και μετά τη μετακίνηση της παρουσίασης ή την αλλαγή της βάσης.
 
 ## **Προσθήκη Προσαρμοσμένων Ιδιοτήτων Παρουσίασης**
 
-Οι προσαρμοσμένες ιδιότητες αποθηκεύουν μεταδεδομένα που δεν έχουν αντίστοιχο ενσωματωμένο πεδίο. Η μέθοδος [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) σας επιτρέπει να ορίσετε μια τιμή με βάση το όνομα της ιδιότητας. Αυτό το παράδειγμα δημιουργεί μια παρουσίαση, προσθέτει δύο τιμές κειμένου και μια ακέραια τιμή έκδοσης, και αποθηκεύει την παρουσίαση με τη [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Η ανάθεση τιμής σε υπάρχον όνομα αντικαθιστά την τιμή της ιδιότητας.
+Οι προσαρμοσμένες ιδιότητες αποθηκεύουν μεταδεδομένα που δεν έχουν αντίστοιχο ενσωματωμένο πεδίο. Η μέθοδος [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) σας επιτρέπει να ορίσετε μια τιμή με βάση το όνομα της ιδιότητας. Αυτό το παράδειγμα δημιουργεί μια παρουσίαση, προσθέτει δύο τιμές κειμένου και μια ακέραια τιμή έκδοσης, και αποθηκεύει την παρουσίαση με το [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Η ανάθεση τιμής σε υπάρχον όνομα αντικαθιστά την τιμή της ιδιότητας.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -247,7 +288,7 @@ try {
 
 ## **Πρόσβαση και Τροποποίηση Προσαρμοσμένων Ιδιοτήτων**
 
-Αυτό το παράδειγμα ανοίγει μια παρουσίαση που περιέχει προσαρμοσμένες ιδιότητες και χρησιμοποιεί τη [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) για να επαναλάβει πάνω τους. Η [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) δέχεται έναν μηδενικό δείκτη και επιστρέφει το όνομα που χρησιμοποιείται από τη [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). Το παράδειγμα εκτυπώνει κάθε αρχικό όνομα και τιμή, αντικαθιστά κάθε τιμή με μια αριθμημένη συμβολοσειρά ανεξάρτητα από τον αρχικό τύπο, και αποθηκεύει τις αλλαγές. Εάν δεν υπάρχουν προσαρμοσμένες ιδιότητες, η επανάληψη δεν κάνει καμία αλλαγή.
+Αυτό το παράδειγμα ανοίγει μια παρουσίαση που περιέχει προσαρμοσμένες ιδιότητες και χρησιμοποιεί το [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) για να τις διατρέξει. Το [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) δέχεται έναν μηδενικής βάσης δείκτη και επιστρέφει το όνομα που χρησιμοποιείται στη μέθοδο [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). Το παράδειγμα εκτυπώνει κάθε αρχικό όνομα και τιμή, αντικαθιστά κάθε τιμή με μια αριθμημένη συμβολοσειρά ανεξάρτητα από τον αρχικό τύπο, και αποθηκεύει τις αλλαγές. Αν δεν υπάρχουν προσαρμοσμένες ιδιότητες, ο βρόχος δεν κάνει καμία αλλαγή.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -274,28 +315,28 @@ try {
 
 ## **Ζωντανό Παράδειγμα**
 
-Δοκιμάστε την διαδικτυακή εφαρμογή [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) για να δείτε πώς να εργάζεστε με ιδιότητες εγγράφου χρησιμοποιώντας το API του Aspose.Slides:
+Δοκιμάστε την εφαρμογή online [**Προβολή & Επεξεργασία Μεταδεδομένων PowerPoint**](https://products.aspose.app/slides/metadata) για να δείτε πώς να εργάζεστε με ιδιότητες εγγράφου χρησιμοποιώντας το API της Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![Προβολή & Επεξεργασία Μεταδεδομένων PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να αφαιρέσω μια ενσωματωμένη ιδιότητα από μια παρουσίαση;**
 
-Οι ενσωματωμένες ιδιότητες είναι αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν εντελώς. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις ορίσετε κενές εφόσον το επιτρέπει η συγκεκριμένη ιδιότητα.
+Οι ενσωματωμένες ιδιότητες αποτελούν αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν εντελώς. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις ορίσετε κενές εφόσον το επιτρέπει η συγκεκριμένη ιδιότητα.
 
 **Τι συμβαίνει αν προσθέσω μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη;**
 
-Αν προσθέσετε μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη, η υπάρχουσα τιμή της θα αντικατασταθεί με τη νέα. Δεν χρειάζεται να αφαιρέσετε ή να ελέγξετε την ιδιότητα εκ των προτέρων, καθώς το Aspose.Slides ενημερώνει αυτόματα την τιμή της.
+Αν προσθέσετε μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη, η υπάρχουσα τιμή της θα αντικατασταθεί με τη νέα. Δεν χρειάζεται να αφαιρέσετε ή να ελέγξετε την ιδιότητα εκ των προτέρων, καθώς η Aspose.Slides ενημερώνει αυτόματα την τιμή της ιδιότητας.
 
-**Μπορώ να έχω πρόσβαση στις ιδιότητες παρουσίασης χωρίς να φορτώσω πλήρως την παρουσίαση;**
+**Μπορώ να έχω πρόσβαση στις ιδιότητες της παρουσίασης χωρίς να φορτώσω πλήρως την παρουσίαση;**
 
-Ναι. Χρησιμοποιήστε τη [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) και στη συνέχεια τη [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) για να διαβάσετε τα αποθηκευμένα μεταδεδομένα του εγγράφου χωρίς να δημιουργήσετε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). Δείτε το άρθρο [Build a Lightweight Presentation Inventory](/slides/el/nodejs-java/examine-presentation/) για πλήρες παράδειγμα αναφοράς και περιορισμούς ανά τύπο μορφής.
+Ναι. Χρησιμοποιήστε το [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) και έπειτα το [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) για να διαβάσετε τα αποθηκευμένα μεταδεδομένα εγγράφου χωρίς να δημιουργήσετε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). Δείτε το [Δημιουργία Ελαφριάς Καταγραφής Παρουσιάσεων](/slides/el/nodejs-java/examine-presentation/) για ένα πλήρες παράδειγμα αναφοράς και περιορισμούς ανά μορφότυπο.
 
-**Μπορώ να διαβάσω δημόσιες ιδιότητες κρυπτογραφημένης παρουσίασης χωρίς τον κωδικό ανοίγματος;**
+**Μπορώ να διαβάσω δημόσιες ιδιότητες μιας κρυπτογραφημένης παρουσίασης χωρίς τον κωδικό ανοίγματος;**
 
-Ναι. Η παρουσίαση πρέπει να έχει κρυπτογραφηθεί μετά την κλήση της [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) με `false`, και πρέπει να φορτωθεί μετά την κλήση της [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) με `true`.
+Ναι. Η παρουσίαση πρέπει να έχει κρυπτογραφηθεί μετά την κλήση του [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) με `false`, και πρέπει να φορτωθεί μετά την κλήση του [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) με `true`.
 
-**Μπορώ να ενημερώσω ένα κρυπτογραφημένο αρχείο PPTX σε λειτουργία μόνο‑ιδιότητες‑εγγράφου;**
+**Μπορώ να ενημερώσω ένα κρυπτογραφημένο αρχείο PPTX σε λειτουργία μόνο‑ιδιοτήτων‑εγγράφου;**
 
-Όχι. Τα δημόσια και κρυπτογραφημένα δεδομένα ιδιοτήτων πρέπει να παραμείνουν σύμφωνα, επομένως η ενημέρωση ενός κρυπτογραφημένου αρχείου PPTX απαιτεί τη φόρτωση της πλήρους παρουσίασης με τον σωστό κωδικό ανοίγματος.
+Όχι. Οι δημόσιες και κρυπτογραφημένες ιδιότητες πρέπει να παραμείνουν σύμφωνες, επομένως η ενημέρωση ενός κρυπτογραφημένου αρχείου PPTX απαιτεί τη φόρτωση της πλήρους παρουσίασης με τον σωστό κωδικό ανοίγματος.

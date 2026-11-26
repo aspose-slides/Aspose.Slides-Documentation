@@ -22,13 +22,13 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java'da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for PHP via Java'da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalamayı ve iş akışını basitleştirin."
 ---
 ## **Giriş**
 
-Aspose.Slides for PHP via Java **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri, yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
+Aspose.Slides for PHP via Java, **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
 
-Aspose.Slides, sunum belge özellikleriyle [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) sınıfı üzerinden çalışmanıza olanak tanır. Bu sınıfın bir örneği [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/) tarafından döndürülür. Aşağıdaki örnekler, bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir. PHP/Java Bridge ve Aspose.Slides PHP sarmalısının başlatıldığını varsayar.
+Aspose.Slides, sunum belge özellikleriyle [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) sınıfı aracılığıyla çalışmanıza izin verir. Bu sınıfın bir örneği [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) tarafından döndürülür. Aşağıdaki örnekler bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir. PHP/Java Bridge ve Aspose.Slides PHP sarmalayıcısının başlatıldığını varsayarlar.
 
 {{% alert color="info" title="Note" %}}
 Aspose.Slides, sunumları kaydederken uygulama ve üretici meta verilerini yönetir; bu alanlar çıktıyı oluşturan yazılımı tanımlar.
@@ -36,20 +36,20 @@ Aspose.Slides, sunumları kaydederken uygulama ve üretici meta verilerini yöne
 
 ## **Sunum Özelliklerini Yönet**
 
-Belge özellikleri, sunum içeriğinin yanında tanımlayıcı bilgileri depolar. İki kategoriye ayrılırlar:
+Belge özellikleri, sunum içeriğiyle birlikte açıklayıcı bilgi depolar. İki kategoriye ayrılırlar:
 
-- **Yerleşik özellikler** standart meta verileri içerir, örneğin başlık, yazar ve belge istatistikleri.
+- **Yerleşik özellikler** standard meta verileri içerir, örneğin başlık, yazar ve belge istatistikleri.
 - **Özel özellikler** kullanıcı tanımlı ad/değer çiftlerini depolar.
 
-Aspose.Slides for PHP via Java, her iki kategoriye de erişim sağlar. PowerPoint'te belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini seçin. İletişim kutusu bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere ayırır. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
+Aspose.Slides for PHP via Java, her iki kategoriye de erişim sağlar. PowerPoint'ta belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini kullanın. İletişim kutusu bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere ayırır. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
 
-## **Şifrelenmiş Sunumdan Genel Özellikleri Okuma**
+## **Şifreli Sunumdan Genel Özellikleri Okuma**
 
-Açma şifresi genellikle sunum içeriğini ve belge özelliklerini korur. Bir sunum, [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) `false` ile şifrelenince, belge özellikleri genel kalır. Bir uygulama daha sonra [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) `true` ile çağırarak açma şifresi vermeden genel meta verileri okuyabilir.
+Bir açma parolası genellikle hem sunum içeriğini hem de belge özelliklerini korur. Sunum, [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) `false` ile çağrıldıktan sonra şifrelenirse, belge özellikleri genel olarak kalır. Bir uygulama daha sonra [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `true` ile çağırarak açma parolası vermeden genel meta verileri okuyabilir.
 
-[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) Aspose.Slides'ın neyi yüklediğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifreleme içine dahil edilmişse, şifre olmadan yükleme başarısız olur. Sunum şifreli değilse, seçenek yok sayılır ve tam sunum yüklenir.
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) Aspose.Slides'in neyi yükleyeceğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifreleme içine dahil edilmişse, parolası olmadan yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yok sayılır ve tam sunum yüklenir.
 
-Örnek, belge özellikleri genel bırakılmış bir şifreli sunum gerektirir. Yükleme modunu [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) ile doğrular ve ardından yerleşik özellikleri [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/) aracılığıyla okur:
+Örnek, belge özellikleri genel bırakılmış bir şifreli sunum gerektirir. Yükleme modunu [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) ile doğrular ve ardından [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) aracılığıyla yerleşik özellikleri okur:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -74,17 +74,17 @@ try {
 }
 ```
 
-Bu modda, slayt içeriği yüklenmez. Slaytlar, masterlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılabilir değildir. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) kontrol etmelidir.
+Bu modda slayt içeriği yüklenmez. Slaytlar, master slaytlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) kontrol etmelidir.
 
 {{% alert color="warning" title="Warning" %}}
-Genel meta veriler, yazar adları, başlıklar, konular, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ortaya çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Bunları yalnızca indeksleme, sınıflandırma, arama veya belge yönetim sistemlerinin şifre olmadan erişim gerektirdiği durumlarda genel bırakın.
+Genel meta veriler yazar adlarını, başlıkları, konuları, anahtar kelimeleri, şirket bilgilerini, yorumları ve özel değerleri ifşa edebilir. Hassas özellikleri sunumla birlikte şifreleyin. Bunları yalnızca indeksleme, sınıflandırma, arama veya belge yönetim sistemlerinin şifre olmadan erişim ihtiyacı olduğunda genel bırakın.
 {{% /alert %}}
 
 ## **Şifreli Sunumun Özelliklerini Güncelleme**
 
-Şifreli bir PPTX dosyası için, [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) `true` ile çağırıldıktan sonra yüklenen bir sunum, genel meta verileri okumak içindir. Aspose.Slides, bu yalnızca meta veri nesnesinden değiştirilen özellikleri kaydedemez çünkü genel özellikler, şifreli sunum içindeki ilgili verilerle tutarlı olmalıdır. Bu nedenle güncelleme doğru açma şifresi ve tam bir yükleme gerektirir.
+Şifreli bir PPTX dosyası için, [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `true` ile çağrıldıktan sonra yüklenen bir sunum, genel meta verileri okumak için tasarlanmıştır. Aspose.Slides, bu yalnızca meta veri nesnesinden değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunumdaki ilgili veriyle tutarlı olmalıdır. Bu nedenle güncelleme doğru açma parolası ve tam yükleme gerektirir.
 
-Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma şifresi gerektirir. Tam sunumu [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından şifrelemenin korunduğunu doğrulamak için [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/) kullanır ve yeni değerleri doğrulamak için genel meta verileri şifre olmadan yeniden açar:
+Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma parolası gerektirir. Tam sunumu [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#isEncrypted) kullanarak şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için genel meta verileri parolasız yeniden açar:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -128,11 +128,11 @@ try {
 }
 ```
 
-Bir uygulamanın sunum içeriğini çözmesine veya yüklemesine izin verilmiyorsa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okunabilir olarak ele almalıdır.
+Bir uygulama sunum içeriğini çözme veya yükleme iznine sahip değilse, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okunabilir olarak değerlendirmelidir.
 
 ## **Yerleşik Özelliklere Erişim**
 
-[DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) sınıfı, [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/) ve [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/) gibi getter metodlarıyla yerleşik meta verileri sunar. Bu örnek mevcut bir sunumu açar ve depolanmış meta verileri konsola yazar. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
+[DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) sınıfı, [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTitle) ve [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCreatedTime) gibi getter yöntemleri aracılığıyla yerleşik meta verileri sunar. Bu örnek mevcut bir sunumu açar ve saklanan meta verileri konsola yazdırır. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,43 @@ try {
 }
 ```
 
-## **Yerleşik Özellikleri Değiştirme**
+### **Revizyon Numarasını ve Düzenleme Süresini Raporla**
 
-Yerleşik meta verileri güncellemek için, [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/) tarafından döndürülen nesnenin setter metodlarını kullanın. Bu örnek mevcut bir sunumu açar, [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/), ve [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/) metodlarını çağırır, ardından güncellenen sunumu [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
+`presentations` klasöründeki her PPTX dosyası için revizyon numarasını ve toplam düzenleme süresini raporlamak amacıyla, slaytları düzenleme için yüklemeden [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) kullanarak [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) okunur. PHP via Java API, düzenleme süresini milisaniye olarak döndürür. Örnek, bunu saat, dakika ve saniyeye çevirir ve 24 saatten uzun sürelere gün sayısı ekler.
+
+```php
+use aspose\slides\PresentationFactory;
+
+echo "File | RevisionNumber | TotalEditingTime\n";
+foreach (new GlobIterator("presentations/*.pptx") as $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    $info = PresentationFactory::getInstance()->getPresentationInfo($file->getRealPath());
+    $properties = $info->readDocumentProperties();
+    $totalSeconds = (int) (java_values($properties->getTotalEditingTime()) / 1000);
+    $days = intdiv($totalSeconds, 86400);
+    $time = sprintf("%02d:%02d:%02d", intdiv($totalSeconds, 3600) % 24, intdiv($totalSeconds, 60) % 60, $totalSeconds % 60);
+    $editingTime = $days > 0 ? $days . "." . $time : $time;
+    printf("%s | %d | %s\n", $file->getFilename(), java_values($properties->getRevisionNumber()), $editingTime);
+}
+```
+
+Revizyon numarası 17 ve kaydedilmiş düzenleme süresi 1 gün, 2 saat ve 5 dakika olan bir sunum için rapor aşağıdaki çıktıyı gösterir.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[DocumentProperties::getRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getRevisionNumber) bir değeri okur; bu değer uygulamalar tarafından [DocumentProperties::setRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setRevisionNumber) ile değiştirilebilir. Revizyon numarası tek başına sunumun kaç kez kaydedildiğini belirleyemez veya sürüm geçmişini yeniden oluşturamaz.
+
+[DocumentProperties::getTotalEditingTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTotalEditingTime) dosyada kaydedilen düzenleme süresini okur. Bir sunum, birisi düzenlemiş olsa bile saklanan süresi sıfır (`00:00:00`) olabilir.
+
+## **Yerleşik Özellikleri Değiştir**
+
+Yerleşik meta verileri güncellemek için, [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) tarafından döndürülen nesnenin setter yöntemlerini kullanın. Bu örnek mevcut bir sunumu açar, [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setComments) ve [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setManager) metodlarını çağırır, ardından güncellenmiş sunumu [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
 
 ```php
 use aspose\slides\Presentation;
@@ -184,11 +218,11 @@ try {
 }
 ```
 
-## **Hipermetin Bağlantı Temelini Yönetme**
+## **Hipermenin Temelini Yönet**
 
-[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/) göreceli hipermetin bağlantıları için belge seviyesindeki temeli döndürür. [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/) ile bunu değiştirebilir veya temizleyebilirsiniz. Bu, bir sunumu ve ilişkili dosyalarını başka bir konuma taşırken faydalıdır. Bu, bireysel bir hipermetin bağlantısının [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) öğesinden ayrıdır: temeli değiştirmek, depolanmış bağlantı adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getHyperlinkBase) göreceli hipermeninler için belge düzeyinde temel adresi döndürür. Bu temeli değiştirmek veya temizlemek için [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setHyperlinkBase) kullanın. Sunumu ve bağlı dosyalarını başka bir konuma taşırken faydalıdır. Bu, tek bir hipermenin'in [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/#getExternalUrl) yönteminden ayrı bir özelliktir: temeli değiştirmek, kaydedilen bağlantı adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
 
-Örnek, `target.html` gibi bir göreceli bağlantı ve `https://example.org/absolute.html` gibi bir mutlak bağlantı içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi atar ve değeri kontrol etmek için sunumu kaydedip yeniden açar. Ardından temeli boş bir dizeyle temizler ve boş değeri ayrı bir kaydedilmiş dosyada doğrular. Örnek temel adresini, ilişkili dosyalarınızın konumuyla değiştirin.
+Bu örnek, `target.html` gibi bir göreceli bağlantı ve `https://example.org/absolute.html` gibi bir mutlak bağlantı içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi atar ve değeri kontrol etmek için sunumu kaydedip yeniden açar. Ardından temeli boş bir dizeyle temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresini, bağlı dosyalarınızın konumuyla değiştirin.
 
 ```php
 use aspose\slides\Presentation;
@@ -223,13 +257,13 @@ try {
 }
 ```
 
-İki doğrulama mesajı `true` yazdırmalıdır. Temelin temizlenmesi, bireysel hipermetin bağlantı adreslerini olduğu gibi bırakır.
+İki doğrulama mesajı `true` yazdırmalıdır. Temelin temizlenmesi, tek tek hipermenin adreslerini aynı tutar.
 
-`target.pptx` göreceli bağlantısı, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedilip sunum yeniden açıldıktan sonra aynı bağlantı `new/target.pptx` dosyasını açtı. Mutlak bir bağlantı aynı dosyayı açmaya devam etti. Sunumu taşımadan veya temeli değiştirmeden önce ve sonra PowerPoint'te göreceli bağlantılarınızı test edin.
+`target.pptx`'ye göreceli bir bağlantı, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedilip sunum yeniden açıldıktan sonra aynı bağlantı `new/target.pptx` dosyasını açtı. Mutlak bir bağlantı aynı dosyayı açmaya devam etti. Sunumu taşımadan veya temelini değiştirmeden önce ve sonra PowerPoint'te göreceli bağlantılarınızı test edin.
 
-## **Özel Sunum Özellikleri Ekleme**
+## **Özel Sunum Özellikleri Ekle**
 
-Özel özellikler, karşılığı olan bir yerleşik alanı olmayan meta verileri depolar. [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) yöntemi, özellik adına göre bir değer atamanızı sağlar. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve sunumu [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) ile kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
+Özel özellikler, karşılığı yerleşik bir alan olmayan meta verileri depolar. [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) yöntemi, özellik adına göre bir değer atamanızı sağlar. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve sunumu [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) ile kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
 
 ```php
 use aspose\slides\Presentation;
@@ -251,7 +285,7 @@ try {
 
 ## **Özel Özelliklere Erişim ve Değiştirme**
 
-Bu örnek, özel özellikler içeren bir sunumu açar ve [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/) kullanarak bunları döndürür. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/) sıfırdan başlayan bir indeks alır ve [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) tarafından kullanılan adı döndürür. Örnek, her orijinal adı ve değeri yazar, her değeri orijinal tipine bakılmaksızın numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Eğer özel özellik yoksa, döngü hiçbir değişiklik yapmaz.
+Bu örnek, özel özellikler içeren bir sunumu açar ve [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCountOfCustomProperties) kullanarak üzerlerinde döner. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCustomPropertyName), sıfır tabanlı bir indeks alır ve [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) tarafından kullanılan adı döndürür. Örnek, her orijinal adı ve değeri yazdırır, tüm değerleri orijinal tipine bakılmaksızın numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Eğer özel özellik yoksa, döngü hiçbir değişiklik yapmaz.
 
 ```php
 use aspose\slides\Presentation;
@@ -279,28 +313,28 @@ try {
 
 ## **Canlı Örnek**
 
-Aspose.Slides API'si ile belge özellikleriyle nasıl çalışılacağını görmek için çevrimiçi [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) uygulamasını deneyin:
+Aspose.Slides API'siyle belge özellikleriyle nasıl çalışılacağını görmek için çevrimiçi uygulama [**PowerPoint Meta Verilerini Görüntüle ve Düzenle**](https://products.aspose.app/slides/metadata) deneyin:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![PowerPoint Meta Verilerini Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **SSS**
 
 **Bir sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
 
-Yerleşik özellikler, sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, değerlerini değiştirebilir veya ilgili özellik izin veriyorsa boş olarak ayarlayabilirsiniz.
+Yerleşik özellikler, sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, değerlerini değiştirebilir veya belirli özellik izin veriyorsa boş olarak ayarlayabilirsiniz.
 
-**Zaten var olan bir özel özelliği eklersem ne olur?**
+**Zaten var olan bir özel özellik eklersem ne olur?**
 
-Zaten var olan bir özel özellik eklenirse, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak özelliğin değerini günceller.
+Zaten var olan bir özel özellik eklenirse, mevcut değeri yeniyle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides özelliğin değerini otomatik olarak günceller.
 
-**Sunumu tam olarak yüklemeden sunum özelliklerine erişebilir miyim?**
+**Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
 
-Evet. [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/) ve ardından [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/) kullanarak bir [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) örneği oluşturmadan depolanmış belge meta verilerini okuyabilirsiniz. Tam bir raporlama örneği ve format‑özel sınırlamalar için [Build a Lightweight Presentation Inventory](/slides/tr/php-java/examine-presentation/) bölümüne bakın.
+Evet. [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/#getPresentationInfo) ve ardından [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) kullanarak [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) örneği oluşturulmadan saklanan belge meta verilerini okuyabilirsiniz. Tam bir raporlama örneği ve format‑spesifik sınırlamalar için [Hafif Bir Sunum Envanteri Oluştur](/slides/tr/php-java/examine-presentation/) bölümüne bakın.
 
-**Şifreli bir sunumun genel özelliklerini açma şifresi olmadan okuyabilir miyim?**
+**Şifreli bir sunumun genel özelliklerini açma parolası olmadan okuyabilir miyim?**
 
-Evet. Sunum, [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) `false` ile çağrıldıktan sonra şifrelenmiş olmalı ve [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) `true` ile çağrıldıktan sonra yüklenmiş olmalıdır.
+Evet. Sunum, [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) `false` ile çağrıldıktan sonra şifrelenmiş olmalı ve [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `true` ile çağrıldıktan sonra yüklenmiş olmalıdır.
 
-**Belge‑özellikleri‑sadece modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
+**Belge‑sadece‑özellikleri modunda bir şifreli PPTX dosyasını güncelleyebilir miyim?**
 
-Hayır. Genel ve şifreli özellik verileri tutarlı olmalı, bu yüzden şifreli bir PPTX dosyasını güncellemek, doğru açma şifresiyle tam sunumu yüklemeyi gerektirir.
+Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu nedenle şifreli bir PPTX dosyasını güncellemek, doğru açma parolasıyla tam sunumu yüklemeyi gerektirir.

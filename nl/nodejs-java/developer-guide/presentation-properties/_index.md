@@ -1,21 +1,21 @@
 ---
-title: Beheer presentatie-eigenschappen in JavaScript
-linktitle: Presentatie-eigenschappen
+title: Beheer presentatie‑eigenschappen in JavaScript
+linktitle: Presentatie‑eigenschappen
 type: docs
 weight: 70
 url: /nl/nodejs-java/presentation-properties/
 keywords:
-- PowerPoint-eigenschappen
-- presentatie-eigenschappen
+- PowerPoint‑eigenschappen
+- presentatie‑eigenschappen
 - documenteigenschappen
-- standaard-eigenschappen
+- ingebouwde eigenschappen
 - aangepaste eigenschappen
 - geavanceerde eigenschappen
 - eigenschappen beheren
 - eigenschappen wijzigen
 - documentmetadata
 - metadata bewerken
-- controletaal
+- proefleestaal
 - standaardtaal
 - PowerPoint
 - OpenDocument
@@ -23,34 +23,34 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Beheer presentatie-eigenschappen in Aspose.Slides voor Node.js via Java en stroomlijn zoeken, branding en workflow in uw PowerPoint- en OpenDocument-bestanden."
+description: "Beheer presentatieweigenschappen in Aspose.Slides voor Node.js via Java en stroomlijn zoeken, branding en workflow in uw PowerPoint‑ en OpenDocument‑bestanden."
 ---
 ## **Inleiding**
 
-Aspose.Slides voor Node.js via Java ondersteunt **standaard** en **aangepaste** documenteigenschappen. Gebruik deze eigenschappen om presentatiemetadata te lezen en bij te werken, zoals de auteur, titel en door de gebruiker gedefinieerde waarden.
+Aspose.Slides voor Node.js via Java ondersteunt **ingebouwde** en **aangepaste** documenteigenschappen. Gebruik deze eigenschappen om presentatiemetadata te lezen en bij te werken, zoals de auteur, titel en door‑gebruiker‑gedefinieerde waarden.
 
-Aspose.Slides stelt je in staat om met documenteigenschappen van presentaties te werken via de [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) klasse. Een instantie van deze klasse wordt geretourneerd door [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). De volgende voorbeelden laten zien hoe deze eigenschappen gelezen, gewijzigd en beheerd kunnen worden.
+Aspose.Slides stelt u in staat om met presentatiedocumenteigenschappen te werken via de [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) klasse. Een instantie van deze klasse wordt geretourneerd door [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). De volgende voorbeelden laten zien hoe u deze eigenschappen kunt lezen, wijzigen en beheren.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides beheert de toepassings- en producentmetadata bij het opslaan van presentaties; deze velden geven aan welke software de uitvoer heeft gegenereerd.
+Aspose.Slides beheert de toepassings‑ en producentmetadata bij het opslaan van presentaties; deze velden identificeren de software die de output heeft gemaakt.
 {{% /alert %}}
 
-## **Beheer presentatieweigenschappen**
+## **Presentatie‑eigenschappen Beheren**
 
-Documenteigenschappen slaan beschrijvende informatie op naast de inhoud van de presentatie. Ze behoren tot twee categorieën:
+Documenteigenschappen slaan beschrijvende informatie op naast de presentatie‑inhoud. Ze vallen in twee categorieën:
 
-- **Standaardeigenschappen** bevatten standaardmetadata, zoals de titel, auteur en documentstatistieken.
-- **Aangepaste eigenschappen** slaan door de gebruiker gedefinieerde naam/waarde-paren op.
+- **Ingebouwde eigenschappen** bevatten standaardmetadata, zoals de titel, auteur en documentstatistieken.
+- **Aangepaste eigenschappen** slaan door de gebruiker gedefinieerde naam/waarde‑paren op.
 
-Aspose.Slides voor Node.js via Java biedt toegang tot beide categorieën. In PowerPoint selecteer je **Bestand → Info → Eigenschappen → Geavanceerde eigenschappen** om de documentmetadata te inspecteren. Het dialoogvenster groepeert informatie in tabbladen zoals **Samenvatting**, **Statistieken**, **Inhoud** en **Aangepast**. Gebruik het tabblad **Aangepast** om door de gebruiker gedefinieerde eigenschappen te beheren.
+Aspose.Slides voor Node.js via Java biedt toegang tot beide categorieën. In PowerPoint selecteert u **Bestand → Info → Eigenschappen → Geavanceerde Eigenschappen** om documentmetadata te inspecteren. Het dialoogvenster groepeert informatie in tabbladen zoals **Samenvatting**, **Statistieken**, **Inhoud** en **Aangepast**. Gebruik het tabblad **Aangepast** om door‑gebruiker‑gedefinieerde eigenschappen te beheren.
 
-## **Openbare eigenschappen lezen van een versleutelde presentatie**
+## **Openbare Eigenschappen Lezen van een Versleutelde Presentatie**
 
-Een openingswachtwoord beschermt normaal zowel de inhoud van de presentatie als de documenteigenschappen. Wanneer een presentatie wordt versleuteld na het aanroepen van [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) met `false`, blijven de documenteigenschappen openbaar. Een applicatie kan vervolgens [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) aanroepen met `true` en de openbare metadata lezen zonder het openingswachtwoord op te geven.
+Een openingswachtwoord beschermt normaal zowel de presentatie‑inhoud als documenteigenschappen. Wanneer een presentatie wordt versleuteld na het aanroepen van [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) met `false`, blijven de documenteigenschappen openbaar. Een applicatie kan vervolgens [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) aanroepen met `true` en de openbare metadata lezen zonder het openingswachtwoord op te geven.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) bepaalt wat Aspose.Slides laadt; het decrypteert niets. Als de eigenschappen in de versleuteling waren opgenomen, mislukt het laden zonder wachtwoord. Is de presentatie niet versleuteld, dan wordt de optie genegeerd en wordt de volledige presentatie geladen.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) bepaalt wat Aspose.Slides laadt; het ontsleutelt niets. Als de eigenschappen waren opgenomen in de versleuteling, mislukt het laden zonder wachtwoord. Als de presentatie niet versleuteld is, wordt de optie genegeerd en wordt de volledige presentatie geladen.
 
-Het voorbeeld vereist een versleutelde presentatie waarvan de documenteigenschappen openbaar zijn gelaten. Het controleert de laadmodus via [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) en leest vervolgens standaardeigenschappen via [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
+Het voorbeeld vereist een versleutelde presentatie waarvan de documenteigenschappen openbaar zijn gelaten. Het verifieert de laadmodus via [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) en leest vervolgens ingebouwde eigenschappen via [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -74,17 +74,17 @@ try {
 }
 ```
 
-In deze modus wordt de inhoud van de dia's niet geladen. Dia's, masters, lay-outs, vormen, media en andere presentatie‑objecten zijn niet beschikbaar. Applicaties moeten altijd [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) controleren voordat ze een bewerking uitvoeren die het volledige presentatiemodel vereist.
+In deze modus wordt de slide‑inhoud niet geladen. Slides, masters, lay-outs, vormen, media en andere presentatie‑objecten zijn niet beschikbaar. Applicaties moeten altijd [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) controleren voordat ze een bewerking uitvoeren die het volledige presentatiemodel vereist.
 
 {{% alert color="warning" title="Warning" %}}
-Openbare metadata kan auteur­namen, titels, onderwerpen, trefwoorden, bedrijfsinformatie, opmerkingen en aangepaste waarden blootleggen. Versleutel gevoelige eigenschappen samen met de presentatie. Laat ze alleen openbaar wanneer indexering, classificatie, zoeken of document‑beheersystemen een specifieke vereiste hebben om er zonder wachtwoord toegang toe te krijgen.
+Openbare metadata kan auteursnamen, titels, onderwerpen, trefwoorden, bedrijfsinformatie, opmerkingen en aangepaste waarden blootleggen. Versleutel gevoelige eigenschappen samen met de presentatie. Laat ze alleen openbaar wanneer indexering, classificatie, zoeken of document‑beheersystemen een specifieke vereiste hebben om er zonder wachtwoord toegang toe te krijgen.
 {{% /alert %}}
 
-## **Eigenschappen van een versleutelde presentatie bijwerken**
+## **Eigenschappen van een Versleutelde Presentatie Bijwerken**
 
-Voor een versleuteld PPTX‑bestand is een presentatie die is geladen na het aanroepen van [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) met `true` bedoeld om openbare metadata te lezen. Aspose.Slides kan de gewijzigde eigenschappen van dat uitsluitend‑metadata‑object niet opslaan omdat de openbare eigenschappen consistent moeten blijven met de bijbehorende gegevens in de versleutelde presentatie. Het bijwerken hiervan vereist daarom het juiste openingswachtwoord en een volledige laadprocedure.
+Voor een versleuteld PPTX‑bestand is een presentatie die is geladen na het aanroepen van [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) met `true` bedoeld om openbare metadata te lezen. Aspose.Slides kan de gewijzigde eigenschappen niet opslaan vanuit dat alleen‑metadata‑object omdat de openbare eigenschappen consistent moeten blijven met de bijbehorende gegevens in de versleutelde presentatie. Het bijwerken ervan vereist daarom het juiste openingswachtwoord en een volledige load.
 
-Het voorbeeld vereist een versleutelde PPTX‑presentatie met openbare documenteigenschappen en een bekend openingswachtwoord. Het opent de volledige presentatie met [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword), werkt openbare standaardeigenschappen bij en slaat het resultaat op. Vervolgens gebruikt het [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) om te verifiëren dat de versleuteling behouden blijft en opent het de openbare metadata opnieuw zonder wachtwoord om de nieuwe waarden te controleren:
+Het voorbeeld vereist een versleutelde PPTX‑presentatie met openbare documenteigenschappen en een bekend openingswachtwoord. Het opent de volledige presentatie met [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword), werkt openbare ingebouwde eigenschappen bij, en slaat het resultaat op. Vervolgens gebruikt het [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) om te verifiëren dat de versleuteling behouden blijft en opent de openbare metadata opnieuw zonder wachtwoord om de nieuwe waarden te controleren:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -125,11 +125,11 @@ try {
 }
 ```
 
-Als een applicatie niet mag decrypteren of de inhoud van de presentatie laden, moet deze de openbare eigenschappen van een versleuteld PPTX‑bestand als alleen‑lezen behandelen.
+Als een applicatie niet is toegestaan om de presentatie‑inhoud te ontsleutelen of te laden, moet deze de openbare eigenschappen van een versleuteld PPTX‑bestand als alleen‑lezen behandelen.
 
-## **Toegang tot standaardeigenschappen**
+## **Toegang tot Ingebouwde Eigenschappen**
 
-De [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) klasse maakt standaardmetadata toegankelijk via getter‑methoden, waaronder [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor), [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle) en [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). Dit voorbeeld opent een bestaande presentatie en print de opgeslagen metadata naar de console. De waarden hangen af van de ingevoerde presentatie; sommige velden kunnen leeg zijn.
+De [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) klasse biedt ingebouwde metadata via getter‑methoden, waaronder [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor), [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle), en [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). Dit voorbeeld opent een bestaande presentatie en drukt de opgeslagen metadata af naar de console. Waarden hangen af van de invoerpresentatie; sommige velden kunnen leeg zijn.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -157,9 +157,52 @@ try {
 }
 ```
 
-## **Standaardeigenschappen wijzigen**
+### **Revisienummer en Bewerkingstijd Rapporteren**
 
-Om standaardmetadata bij te werken, gebruik je de setter‑methoden op het object dat wordt geretourneerd door [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Dit voorbeeld opent een bestaande presentatie, roept [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor), [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments) en [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager) aan, en slaat vervolgens de bijgewerkte presentatie op met [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). De opgeslagen PPTX bevat de nieuwe metadata.
+Om het revisienummer en de totale bewerkingstijd voor elk PPTX‑bestand in de map `presentations` te rapporteren, gebruikt u [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties). Het retourneert de [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) van het bestand zonder de slides te laden voor bewerking. Het voorbeeld zet de geregistreerde duur om van milliseconden naar uren, minuten en seconden. Voor duur van 24 uur of meer, wordt de tijd voorafgegaan door het aantal volledige dagen.
+
+```javascript
+const fs = require("fs");
+const path = require("path");
+const slides = require("aspose.slides.via.java");
+
+const folder = "presentations";
+const files = fs.readdirSync(folder, { withFileTypes: true });
+const factory = slides.PresentationFactory.getInstance();
+
+console.log("File | RevisionNumber | TotalEditingTime");
+for (const file of files) {
+    if (!file.isFile() || path.extname(file.name).toLowerCase() !== ".pptx") {
+        continue;
+    }
+    const filePath = path.join(folder, file.name);
+    const info = factory.getPresentationInfo(filePath);
+    const properties = info.readDocumentProperties();
+    const totalSeconds = Math.floor(properties.getTotalEditingTime() / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor(totalSeconds / 3600) % 24;
+    const minutes = Math.floor(totalSeconds / 60) % 60;
+    const seconds = totalSeconds % 60;
+    const time = [hours, minutes, seconds].map(value => String(value).padStart(2, "0")).join(":");
+    const editingTime = days > 0 ? `${days}.${time}` : time;
+    console.log(`${file.name} | ${properties.getRevisionNumber()} | ${editingTime}`);
+}
+```
+
+Voor een presentatie met een geregistreerde bewerkingstijd van 1 dag, 2 uur en 5 minuten, toont het rapport de volgende uitvoer.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getRevisionNumber) leest een waarde die applicaties kunnen wijzigen met [setRevisionNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setRevisionNumber). Het revisienummer alleen kan niet bepalen hoe vaak de presentatie is opgeslagen of de versiegeschiedenis reconstrueren.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTotalEditingTime) leest de bewerkingstijd die in het bestand is geregistreerd. Een waarde van `00:00:00` betekent dat de opgeslagen duur nul is, zelfs als iemand de presentatie heeft bewerkt.
+
+## **Ingebouwde Eigenschappen Wijzigen**
+
+Om ingebouwde metadata bij te werken, gebruikt u de setter‑methoden op het object dat wordt geretourneerd door [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Dit voorbeeld opent een bestaande presentatie, roept [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor), [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments) en [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager) aan, en slaat vervolgens de bijgewerkte presentatie op met [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). De opgeslagen PPTX bevat de nieuwe metadata.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -180,11 +223,11 @@ try {
 }
 ```
 
-## **Beheer de hyperlinkbasis**
+## **De Hyperlink‑basis Beheren**
 
-[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) geeft de document‑niveau basis terug voor relatieve hyperlinks. Gebruik [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) om deze te wijzigen of te wissen. Dit is nuttig bij het verplaatsen van een presentatie en de gekoppelde bestanden naar een andere locatie. Het staat los van de afzonderlijke hyperlink’s [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl): het wijzigen van de basis herschrijft niet de opgeslagen koppelingen of verandert absolute bestemmingen.
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) geeft de document‑niveau basis terug voor relatieve hyperlinks. Gebruik [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) om deze te wijzigen of te wissen. Dit is nuttig bij het verplaatsen van een presentatie en de gekoppelde bestanden naar een andere locatie. Het is gescheiden van de individuele hyperlink‑[Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl): het wijzigen van de basis herschrijft niet de opgeslagen linkadressen of verandert absolute bestemmingen.
 
-Het voorbeeld vereist een presentatie die zowel een relatieve link bevat, zoals `target.html`, als een absolute link, zoals `https://example.org/absolute.html`. Het leest de bestaande basis, kent een nieuw basisadres toe, slaat de presentatie op en opent deze opnieuw om de waarde te controleren. Vervolgens wist het de basis met een lege tekenreeks en verifieert de lege waarde in een apart opgeslagen bestand. Vervang het voorbeeld‑basisadres door de locatie van je gekoppelde bestanden.
+Het voorbeeld vereist een presentatie die zowel een relatieve link bevat, zoals `target.html`, als een absolute link, zoals `https://example.org/absolute.html`. Het leest de bestaande basis, wijst een nieuw basisadres toe, en slaat de presentatie op en opent deze opnieuw om de waarde te controleren. Vervolgens wist het de basis met een lege string en verifieert de lege waarde in een apart opgeslagen bestand. Vervang het voorbeeldbasisadres door de locatie van uw gekoppelde bestanden.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -218,13 +261,13 @@ try {
 }
 ```
 
-De twee verificatieberichten moeten `true` weergeven. Het wissen van de basis laat de afzonderlijke hyperlink‑adressen onaangetast.
+De twee verificatie‑berichten moeten `true` afdrukken. Het wissen van de basis laat de individuele hyperlink‑adressen ongewijzigd.
 
-Een relatieve link naar `target.pptx` opende `old/target.pptx` toen de basis naar de `old`‑map wees. Na het wijzigen van de basis naar de `new`‑map, opslaan en de presentatie opnieuw openen, opende dezelfde link `new/target.pptx`. Een absolute link bleef hetzelfde bestand openen. Test je relatieve links in PowerPoint vóór en na het verplaatsen van de presentatie of het wijzigen van de basis.
+Een relatieve link naar `target.pptx` opende `old/target.pptx` toen de basis naar de `old`‑map verwees. Na het wijzigen van de basis naar de `new`‑map, opslaan en de presentatie opnieuw openen, opende dezelfde link `new/target.pptx`. Een absolute link bleef hetzelfde bestand openen. Test uw relatieve links in PowerPoint vóór en na het verplaatsen van de presentatie of het wijzigen van de basis.
 
-## **Aangepaste presentatieweigenschappen toevoegen**
+## **Aangepaste Presentatie‑eigenschappen Toevoegen**
 
-Aangepaste eigenschappen slaan metadata op die geen overeenkomstig standaardveld hebben. De [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) methode laat je een waarde toewijzen op basis van de eigenschapsnaam. Dit voorbeeld maakt een presentatie, voegt twee tekstwaarden en een gehele versie‑waarde toe, en slaat de presentatie op met [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Een waarde toewijzen aan een bestaande naam vervangt de waarde van die eigenschap.
+Aangepaste eigenschappen slaan metadata op die geen overeenkomstig ingebouwd veld hebben. De [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) methode stelt u in staat een waarde toe te wijzen op basis van de eigenschapsnaam. Dit voorbeeld maakt een presentatie, voegt twee tekstwaarden en een integer versie‑waarde toe, en slaat de presentatie op met [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Het toewijzen van een waarde aan een bestaande naam vervangt de waarde van die eigenschap.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -243,9 +286,9 @@ try {
 }
 ```
 
-## **Aangepaste eigenschappen openen en wijzigen**
+## **Aangepaste Eigenschappen Toegang en Wijziging**
 
-Dit voorbeeld opent een presentatie met aangepaste eigenschappen en gebruikt [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) om erover te itereren. [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) accepteert een nul‑gebaseerde index en retourneert de naam die wordt gebruikt door [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). Het voorbeeld print elke oorspronkelijke naam en waarde, vervangt elke waarde door een genummerde tekenreeks ongeacht het oorspronkelijke type, en slaat de wijzigingen op. Als er geen aangepaste eigenschappen zijn, brengt de lus geen veranderingen aan.
+Dit voorbeeld opent een presentatie die aangepaste eigenschappen bevat en gebruikt [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) om erover te itereren. [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) accepteert een nulgebaseerde index en retourneert de naam die wordt gebruikt door [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). Het voorbeeld drukt elke oorspronkelijke naam en waarde af, vervangt elke waarde door een genummerde tekenreeks ongeacht het oorspronkelijke type, en slaat de wijzigingen op. Als er geen aangepaste eigenschappen zijn, voert de lus geen wijzigingen uit.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -272,28 +315,28 @@ try {
 
 ## **Live‑voorbeeld**
 
-Probeer de online app [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) om te zien hoe je met documenteigenschappen kunt werken via de Aspose.Slides‑API:
+Probeer de [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) online‑app om te zien hoe u met documenteigenschappen kunt werken via de Aspose.Slides‑API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
-**Hoe kan ik een standaardeigenschap uit een presentatie verwijderen?**
+**Hoe kan ik een ingebouwde eigenschap uit een presentatie verwijderen?**
 
-Standaardeigenschappen maken een integraal onderdeel van de presentatie uit en kunnen niet volledig worden verwijderd. Je kunt ze echter wel wijzigen of, indien de specifieke eigenschap dat toelaat, leeg maken.
+Ingebouwde eigenschappen maken een onlosmakelijk onderdeel van de presentatie uit en kunnen niet volledig worden verwijderd. U kunt echter hun waarden wijzigen of ze leeg maken als de specifieke eigenschap dat toestaat.
 
 **Wat gebeurt er als ik een aangepaste eigenschap toevoeg die al bestaat?**
 
-Als je een aangepaste eigenschap toevoegt die al bestaat, wordt de bestaande waarde overschreven door de nieuwe. Je hoeft de eigenschap niet vooraf te verwijderen of te controleren, omdat Aspose.Slides automatisch de waarde van de eigenschap bijwerkt.
+Als u een aangepaste eigenschap toevoegt die al bestaat, wordt de bestaande waarde overschreven door de nieuwe. U hoeft de eigenschap niet vooraf te verwijderen of te controleren, omdat Aspose.Slides de waarde automatisch bijwerkt.
 
 **Kan ik presentatieweigenschappen benaderen zonder de presentatie volledig te laden?**
 
-Ja. Gebruik [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) en vervolgens [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) om de opgeslagen documentmetadata te lezen zonder een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)‑instantie te maken. Zie [Build a Lightweight Presentation Inventory](/slides/nl/nodejs-java/examine-presentation/) voor een volledig voorbeeld van rapportage en format‑specifieke beperkingen.
+Ja. Gebruik [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) en vervolgens [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) om opgeslagen documentmetadata te lezen zonder een [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)‑instantie te maken. Zie [Build a Lightweight Presentation Inventory](/slides/nl/nodejs-java/examine-presentation/) voor een volledig rapportage‑voorbeeld en formaat‑specifieke beperkingen.
 
 **Kan ik openbare eigenschappen van een versleutelde presentatie lezen zonder het openingswachtwoord?**
 
-Ja. De presentatie moet zijn versleuteld nadat [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) is aangeroepen met `false`, en moet worden geladen na het aanroepen van [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) met `true`.
+Ja. De presentatie moet zijn versleuteld nadat [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) is aangeroepen met `false`, en moet worden geladen nadat [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) is aangeroepen met `true`.
 
-**Kan ik een versleuteld PPTX‑bestand bijwerken in alleen‑documenteigenschappen‑modus?**
+**Kan ik een versleuteld PPTX‑bestand bijwerken in de modus alleen‑document‑eigenschappen?**
 
-Nee. Publieke en versleutelde eigenschapsgegevens moeten consistent blijven, dus het bijwerken van een versleuteld PPTX‑bestand vereist het laden van de volledige presentatie met het juiste openingswachtwoord.
+Nee. Openbare en versleutelde eigenschapsgegevens moeten consistent blijven, dus het bijwerken van een versleuteld PPTX‑bestand vereist het volledige laden van de presentatie met het juiste openingswachtwoord.

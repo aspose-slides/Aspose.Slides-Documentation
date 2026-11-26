@@ -1,55 +1,57 @@
 ---
-title: Prezentáció tulajdonságok kezelése Pythonban
-linktitle: Prezentáció tulajdonságok
+title: Prezentációs tulajdonságok kezelése Pythonban
+linktitle: Prezentációs Tulajdonságok
 type: docs
 weight: 70
 url: /hu/python-java/presentation-properties/
 keywords:
 - PowerPoint tulajdonságok
-- prezentáció tulajdonságok
+- prezentációs tulajdonságok
 - dokumentum tulajdonságok
 - beépített tulajdonságok
 - egyedi tulajdonságok
-- haladó tulajdonságok
+- fejlett tulajdonságok
 - tulajdonságok kezelése
 - tulajdonságok módosítása
 - dokumentum metaadatok
 - metaadatok szerkesztése
-- ellenőrző nyelv
+- helyesírási nyelv
 - alapértelmezett nyelv
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Mestere a prezentáció tulajdonságoknak az Aspose.Slides for Python via Java-ban, és egyszerűsíti a keresést, a márkázást és a munkafolyamatot a PowerPoint és OpenDocument fájljaiban."
+description: "Mester szintű prezentációs tulajdonságok kezelése az Aspose.Slides for Python via Java használatával, és a keresés, márkaépítés és munkafolyamat optimalizálása PowerPoint és OpenDocument fájljaiban."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for Python via Java támogatja a **beépített** és **egyedi** dokumentumtulajdonságokat. Ezeket a tulajdonságokat használhatja a bemutató metaadatainak olvasására és frissítésére, például a szerző, a cím és a felhasználó által megadott értékek esetén.
+Az Aspose.Slides for Python via Java **beépített** és **egyedi** dokumentumtulajdonságokat támogat. Ezeket a tulajdonságokat a prezentáció metaadatainak, például a szerző, cím és felhasználó által definiált értékek olvasására és frissítésére használhatja.
 
-Az Aspose.Slides lehetővé teszi a bemutató dokumentumtulajdonságokkal való munkát a [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) osztályon keresztül. Ennek az osztálynak egy példánya a [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) hívásával kapható vissza. A következő példák bemutatják, hogyan lehet ezeket a tulajdonságokat olvasni, módosítani és kezelni.
+Az Aspose.Slides a prezentáció dokumentumtulajdonságokkal a [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) osztályon keresztül dolgozik. Ennek egy példányát a [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) adja vissza. Az alábbi példák bemutatják, hogyan lehet ezeket a tulajdonságokat olvasni, módosítani és kezelni.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides kezeli az alkalmazás és a gyártó metaadatait a bemutatók mentésekor; ezek a mezők azonosítják a kimenetet előállító szoftvert.
+
+Az Aspose.Slides a mentett prezentációk esetén kezeli az alkalmazás- és a készítői metaadatokat; ezek a mezők azonosítják a kimenetet előállító szoftvert.
+
 {{% /alert %}}
 
-## **A bemutató tulajdonságainak kezelése**
+## **Prezentáció Tulajdonságainak Kezelése**
 
-A dokumentumtulajdonságok leíró információkat tárolnak a bemutató tartalma mellett. Két kategóriába sorolhatók:
+A dokumentumtulajdonságok leíró információkat tárolnak a prezentáció tartalma mellett. Két kategóriába sorolhatók:
 
-- **Beépített tulajdonságok** szabványos metaadatokat tartalmaznak, például a címet, a szerzőt és a dokumentumstatisztikákat.
-- **Egyedi tulajdonságok** felhasználó által meghatározott név/érték párokat tárolnak.
+- **Beépített tulajdonságok** szabványos metaadatokat tartalmaznak, mint a cím, szerző és a dokumentum statisztikái.
+- **Egyedi tulajdonságok** felhasználó által definiált név/érték párokat tárolnak.
 
-Az Aspose.Slides for Python via Java hozzáférést biztosít mindkét kategóriához. PowerPointban válassza a **File → Info → Properties → Advanced Properties** menüpontot a dokumentum metaadatainak megtekintéséhez. A párbeszédablak információkat csoportosít fülekre, mint a **Summary**, **Statistics**, **Contents** és **Custom**. Az **Custom** fül használatával kezelheti a felhasználó által definiált tulajdonságokat.
+Az Aspose.Slides for Python via Java mindkét kategóriához hozzáférést biztosít. PowerPointban válassza a **Fájl → Információk → Tulajdonságok → Speciális Tulajdonságok** menüpontot a dokumentum metaadatainak megtekintéséhez. A párbeszédpanel a **Összefoglalás**, **Statisztikák**, **Tartalom** és **Egyedi** fülekre osztja az információkat. Az **Egyedi** fülön kezelheti a felhasználó által definiált tulajdonságokat.
 
-## **Nyilvános tulajdonságok olvasása titkosított bemutatóból**
+## **Nyilvános Tulajdonságok Olvasása Titkosított Prezentációból**
 
-A nyitó jelszó általában a bemutató tartalmát és a dokumentumtulajdonságokat is védi. Ha a bemutatót a [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) `False` értékkel történő meghívása után titkosítják, a dokumentumtulajdonságok nyilvánosak maradnak. Egy alkalmazás ekkor a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `True` értékkel hívhatja meg, és a nyitó jelszó megadása nélkül olvashatja a nyilvános metaadatokat.
+A megnyitási jelszó általában a prezentáció tartalmát és a dokumentumtulajdonságokat is védi. Ha egy prezentációt a [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) `False` értékkel titkosítanak, a dokumentumtulajdonságok nyilvánosak maradnak. Ezután egy alkalmazás a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `True` értékével olvashatja a nyilvános metaadatokat a megnyitási jelszó megadása nélkül.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) szabályozza, hogy az Aspose.Slides mit tölt be; nem hajt végre semmilyen dekódolást. Ha a tulajdonságok a titkosítás részei voltak, a jelszó nélkül történő betöltés meghiúsul. Ha a bemutató nincs titkosítva, az opció figyelmen kívül marad, és a teljes bemutató betöltődik.
+A [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) arra szabja az Aspose.Slides betöltését; semmit sem titkosít fel. Ha a tulajdonságok részei voltak a titkosításnak, a jelszó nélküli betöltés meghiúsul. Ha a prezentáció nincs titkosítva, a beállítás figyelmen kívül marad, és a teljes prezentáció betöltődik.
 
-A példa egy titkosított bemutatót igényel, amelynek a dokumentumtulajdonságai nyilvánosak maradtak. A betöltési módot a [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) segítségével ellenőrzi, majd a beépített tulajdonságokat a [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) segítségével olvassa:
+A példa egy olyan titkosított prezentációt igényel, amelynek dokumentumtulajdonságai nyilvánosak maradtak. Ellenőrzi a betöltési módot a [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) segítségével, majd a beépített tulajdonságokat a [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) olvassa:
 
 ```python
 import jpype
@@ -78,17 +80,17 @@ finally:
     presentation.dispose()
 ```
 
-Ebben a módban a dia tartalma nem töltődik be. A diák, mesterdiák, elrendezések, alakzatok, média és egyéb bemutatóobjektumok nem érhetők el. Az alkalmazásoknak mindig ellenőrizniük kell a [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) állapotát, mielőtt olyan műveletet végeznek, amely a teljes bemutató objektummodellt igényli.
+Ebben a módban a diák tartalma nem töltődik be. A diák, mesteroldalak, elrendezések, alakzatok, média és egyéb prezentációs objektumok nem érhetők el. Az alkalmazásoknak mindig ellenőrizniük kell a [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) értékét, mielőtt olyan műveletet végeznének, amely a teljes prezentációs objektummodellt igényli.
 
 {{% alert color="warning" title="Warning" %}}
-A nyilvános metaadatok felfedhetik a szerző neveit, címeket, tárgyakat, kulcsszavakat, vállalati információkat, megjegyzéseket és egyedi értékeket. Titkosítsa az érzékeny tulajdonságokat a bemutatóval együtt. Csak akkor hagyja nyilvánosnak, ha indexelés, besorolás, keresés vagy dokumentumkezelő rendszereknek kifejezett igényük van a jelszó nélküli hozzáférésre.
+A nyilvános metaadatok felfedhetik a szerző neveit, címeket, tárgyakat, kulcsszavakat, céginformációkat, megjegyzéseket és egyedi értékeket. Titkosítsa az érzékeny tulajdonságokat a prezentációval együtt. Csak akkor hagyja nyilvánosan, ha indexelés, osztályozás, keresés vagy dokumentumkezelő rendszereknek konkrétan szükségük van rá jelszó nélkül.
 {{% /alert %}}
 
-## **Titkosított bemutató tulajdonságainak frissítése**
+## **Titkosított Prezentáció Tulajdonságainak Frissítése**
 
-Titkosított PPTX fájl esetén a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `True` értékkel történő meghívása után betöltött bemutató csak a nyilvános metaadatok olvasására szolgál. Az Aspose.Slides nem tudja menteni a módosított tulajdonságokat ebből a kizárólag metaadatokat tartalmazó objektumból, mivel a nyilvános tulajdonságoknak összhangban kell lenniük a titkosított bemutató megfelelő adataival. Ennek frissítése ezért a megfelelő nyitó jelszót és a teljes betöltést igényli.
+Egy titkosított PPTX fájl esetén a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `True` értékű hívása után betöltött prezentáció csak a nyilvános metaadatok olvasására szolgál. Az Aspose.Slides nem tudja menteni a megváltozott tulajdonságokat ebből a metaadat‑csak objektumból, mert a nyilvános tulajdonságoknak meg kell egyezniük a titkosított prezentáció megfelelő adataival. Frissítésükhöz a helyes megnyitási jelszó és a teljes betöltés szükséges.
 
-A példa egy titkosított PPTX bemutatót igényel, amelynek a dokumentumtulajdonságai nyilvánosak, és egy ismert nyitó jelszóval rendelkezik. A teljes bemutatót a [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword) segítségével nyitja meg, frissíti a nyilvános beépített tulajdonságokat, és elmenti az eredményt. Ezután a [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) használatával ellenőrzi, hogy a titkosítás megmaradt-e, és a jelszó nélkül újra megnyitja a nyilvános metaadatokat az új értékek ellenőrzéséhez:
+A példa egy nyilvános dokumentumtulajdonságokkal rendelkező titkosított PPTX prezentációt és egy ismert megnyitási jelszót igényel. A teljes prezentációt a [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword) segítségével nyitja meg, frissíti a nyilvános beépített tulajdonságokat, majd elmenti az eredményt. Ezután a [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) ellenőrzi, hogy a titkosítás megmaradt‑e, és a nyilvános metaadatot jelszó nélkül újra megnyitja az új értékek ellenőrzéséhez:
 
 ```python
 import jpype
@@ -132,11 +134,11 @@ finally:
     metadata_presentation.dispose()
 ```
 
-Ha egy alkalmazás nem engedélyezett a bemutató tartalmának dekódolására vagy betöltésére, akkor a titkosított PPTX fájl nyilvános tulajdonságait csak olvasási módban kell kezelnie.
+Ha egy alkalmazás nem engedélyezett a prezentáció tartalmának dekódolására vagy betöltésére, a titkosított PPTX fájl nyilvános tulajdonságait csak olvashatóként kell kezelni.
 
-## **Beépített tulajdonságok elérése**
+## **Beépített Tulajdonságok Elérése**
 
-A [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) osztály getter metódusokkal teszi elérhetővé a beépített metaadatokat, többek között a [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle) és a [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime) metódusokkal. Ez a példa megnyit egy meglévő bemutatót, és a tárolt metaadatait a konzolra írja ki. Az értékek a bemeneti bemutatótól függenek; egyes mezők üresek lehetnek.
+A [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) osztály getter metódusokon keresztül hozza elérhetővé a beépített metaadatokat, többek között a [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor), a [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle) és a [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime) metódusokat. Ez a példa egy meglévő prezentációt nyit meg, és a konzolra írja a tárolt metaadatokat. Az értékek a bemeneti prezentációtól függenek; egyes mezők üresek lehetnek.
 
 ```python
 import jpype
@@ -169,9 +171,54 @@ finally:
     presentation.dispose()
 ```
 
-## **Beépített tulajdonságok módosítása**
+### **Revíziószám és Szerkesztési Idő Jelentése**
 
-A beépített metaadatok frissítéséhez használja a setter metódusokat a [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) által visszaadott objektumon. Ez a példa megnyit egy meglévő bemutatót, meghívja a [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments) és [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager) metódusokat, majd a [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) segítségével elmenti a frissített bemutatót. A mentett PPTX a új metaadatokat tartalmazza.
+A `presentations` mappában lévő minden PPTX fájlhoz egy sort jelentve, használja a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) és a [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) metódusokat a [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) beolvasásához a diák betöltése nélkül. A Python via Java API ezredmásodpercben adja vissza a szerkesztési időtartamot. A példa ezt órákra, percekre és másodpercekre formázza, 24 óra vagy annál hosszabb időtartam esetén napokkal együtt.
+
+```python
+from pathlib import Path
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PresentationFactory
+
+factory = PresentationFactory.getInstance()
+print("File | RevisionNumber | TotalEditingTime")
+for path in sorted(Path("presentations").glob("*.pptx")):
+    if not path.is_file():
+        continue
+
+    info = factory.getPresentationInfo(str(path))
+    properties = info.readDocumentProperties()
+    total_seconds = int(properties.getTotalEditingTime()) // 1000
+    days, remaining_seconds = divmod(total_seconds, 86400)
+    hours, remaining_seconds = divmod(remaining_seconds, 3600)
+    minutes, seconds = divmod(remaining_seconds, 60)
+    editing_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    if days:
+        editing_time = f"{days}.{editing_time}"
+
+    print(f"{path.name} | {properties.getRevisionNumber()} | {editing_time}")
+```
+
+Egy olyan prezentáció esetén, amelynek szerkesztési ideje 1 nap, 2 óra és 5 perc, a jelentés a következő kimenetet mutatja.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+A [getRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getRevisionNumber) olyan értéket olvas, amelyet a [setRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setRevisionNumber) módosíthat. A revíziószám önmagában nem határozza meg, hányszor lett a prezentáció mentve, vagy nem állítja helyre annak verziótörténetét.
+
+A [getTotalEditingTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTotalEditingTime) a fájlban tárolt szerkesztési időtartamot adja vissza. A `00:00:00` érték azt jelenti, hogy a tárolt idő nulla, még akkor is, ha valaki szerkesztette a prezentációt.
+
+## **Beépített Tulajdonságok Módosítása**
+
+A beépített metaadatok frissítéséhez használja a [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) által visszaadott objektum setter metódusait. Ez a példa egy meglévő prezentációt nyit meg, meghívja a [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), a [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), a [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), a [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments) és a [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager) metódusokat, majd a [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) segítségével menti a frissített prezentációt. A mentett PPTX tartalmazza az új metaadatokat.
 
 ```python
 import jpype
@@ -197,11 +244,11 @@ finally:
     presentation.dispose()
 ```
 
-## **A hiperhivatkozás alapjának kezelése**
+## **Hipernév Alapkezelése**
 
-A [DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) visszaadja a dokumentumszintű alapot a relatív hiperhivatkozásokhoz. A [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) használatával módosítható vagy törölhető ez az alap. Hasznos, ha egy bemutatót és a hozzá kapcsolódó fájlokat más helyre helyezi. Ez különálló az egyes hiperhivatkozások [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) metódusától: az alap módosítása nem írja felül a tárolt hivatkozási címeket, és nem változtatja meg az abszolút célokat.
+A [DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) visszaadja a dokumentumszintű alapot a relatív hiperhivatkozásokhoz. A [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) segítségével módosíthatja vagy törölheti azt. Ez akkor hasznos, ha egy prezentációt és a hozzá tartozó fájlokat egy másik helyre mozgatja. Ez különálló az egyes hiperhivatkozások [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) metódusától: az alap módosítása nem írja át a tárolt hivatkozáscímeket, illetve nem változtatja meg az abszolút célpontot.
 
-A példa olyan bemutatót igényel, amely tartalmaz egy relatív hivatkozást, például `target.html`, valamint egy abszolút hivatkozást, például `https://example.org/absolute.html`. Kiolvassa a meglévő alapot, új alapcímre állítja, majd elmenti és újra megnyitja a bemutatót az érték ellenőrzéséhez. Ezután egy üres karakterlánccal törli az alapot, és egy külön mentett fájlban ellenőrzi az üres értéket. Cserélje le a példában szereplő alapcímet a saját hivatkozott fájljai helyére.
+A példa egy olyan prezentációt igényel, amely tartalmaz egy relatív hivatkozást, például `target.html`, és egy abszolút hivatkozást, például `https://example.org/absolute.html`. A meglévő alapot beolvassa, beállít egy új alapcímét, majd menti és újra megnyitja a prezentációt az érték ellenőrzésére. Ezután egy üres karakterlánccal törli az alapot, és egy külön fájlban ellenőrzi az üres értéket. Cserélje ki a példában szereplő alapcímét a saját hivatkozási fájljai helyére.
 
 ```python
 import jpype
@@ -238,13 +285,13 @@ finally:
     presentation.dispose()
 ```
 
-A két ellenőrző üzenetnek `True` értéket kell kiírnia. Az alap törlése nem érinti az egyes hiperhivatkozások címét.
+A két ellenőrző üzenetnek **True**‑nak kell kiíródnia. Az alap törlése nem érinti az egyes hiperhivatkozás címeket.
 
-Egy relatív hivatkozás a `target.pptx` fájlra az `old/target.pptx`-t nyitotta meg, amikor az alap az `old` mappára mutatott. Az alap `new` mappára való módosítása, a mentés és a bemutató újbóli megnyitása után ugyanaz a hivatkozás a `new/target.pptx`-t nyitotta meg. Egy abszolút hivatkozás továbbra is ugyanazt a fájlt nyitotta meg. Tesztelje a relatív hivatkozásait a PowerPointban a bemutató áthelyezése vagy az alap megváltoztatása előtt és után.
+Egy relatív hivatkozás a `target.pptx` fájlra a `old/target.pptx`‑t nyitja meg, amikor az alap a `old` mappára mutat. Az alap `new` mappára változtatása, mentés és újranyitás után ugyanaz a hivatkozás a `new/target.pptx`‑t nyitja meg. Egy abszolút hivatkozás továbbra is ugyanazt a fájlt nyitja. Tesztelje a relatív hivatkozásait PowerPointban a prezentáció mozgatása vagy az alap módosítása előtt és után.
 
-## **Egyedi bemutatótulajdonságok hozzáadása**
+## **Egyedi Prezentációs Tulajdonságok Hozzáadása**
 
-Az egyedi tulajdonságok olyan metaadatokat tárolnak, amelyeknek nincs megfelelő beépített mezője. A [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) metódus lehetővé teszi a tulajdonság nevének megadásával történő érték hozzárendelését. Ez a példa létrehoz egy bemutatót, hozzáad két szöveges értéket és egy egész verzióértéket (a `jpype.JInt` használatával Java egész szám átadásához), majd a [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) segítségével elmenti a bemutatót. Egy meglévő névhez érték hozzárendelése felülírja a tulajdonság értékét.
+Az egyedi tulajdonságok olyan metaadatot tárolnak, amelynek nincs megfelelő beépített mezője. A [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) metódus lehetővé teszi egy érték hozzárendelését a tulajdonság nevével. Ez a példa létrehoz egy prezentációt, két szöveges és egy egész verzióértéket (a `jpype.JInt` segítségével Java egész szám átadásához) ad hozzá, majd a [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) metódussal menti a prezentációt. Egy már létező névhez egy érték hozzárendelése felülírja a korábbi értéket.
 
 ```python
 import jpype
@@ -268,9 +315,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Egyedi tulajdonságok elérése és módosítása**
+## **Egyedi Tulajdonságok Elérése és Módosítása**
 
-Ez a példa megnyit egy olyan bemutatót, amely egyedi tulajdonságokat tartalmaz, és a [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) segítségével iterálja őket. A [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) nulla-alapú indexet fogad és visszaadja a [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) által használt nevet. A példa kiírja minden eredeti nevet és értéket, minden értéket egy számozott karakterláncra cserél az eredeti típusától függetlenül, és elmenti a változtatásokat. Ha nincsenek egyedi tulajdonságok, a ciklus nem hajt végre változtatást.
+Ez a példa egy olyan prezentációt nyit meg, amely egyedi tulajdonságokat tartalmaz, és a [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) segítségével iterálja őket. A [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) nulla‑alapú indexet fogad, és visszaadja a [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) által használt nevet. A példa minden eredeti nevet és értéket kiír, minden értéket egy sorszámozott szöveggé cserél, függetlenül az eredeti típusától, majd elmenti a módosításokat. Ha nincsenek egyedi tulajdonságok, a ciklus nem hajt végre változtatást.
 
 ```python
 import jpype
@@ -299,30 +346,30 @@ finally:
     presentation.dispose()
 ```
 
-## **Élő példa**
+## **Élő Példa**
 
-Próbálja ki a [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) online alkalmazást, hogy lássa, hogyan lehet a dokumentumtulajdonságokkal dolgozni az Aspose.Slides API használatával:
+Próbálja ki az online alkalmazást **[View & Edit PowerPoint Metadata](https://products.aspose.app/slides/metadata)**, hogy megismerje a dokumentumtulajdonságok kezelését az Aspose.Slides API-val:
 
-[![PowerPoint metaadatok megtekintése és szerkesztése](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **GYIK**
 
-**Hogyan távolíthatok el egy beépített tulajdonságot egy bemutatóból?**
+**Hogyan távolíthatok el egy beépített tulajdonságot a prezentációból?**
 
-A beépített tulajdonságok a bemutató integrált részét képezik, és nem távolíthatók el teljesen. Azonban megváltoztathatja az értékeiket, vagy ha a konkrét tulajdonság engedi, beállíthatja őket üresnek.
+A beépített tulajdonságok a prezentáció szerves részei, ezért nem távolíthatók el teljesen. Azonban megváltoztathatja az értéküket, vagy ha a konkrét tulajdonság engedi, üresre állíthatja őket.
 
-**Mi történik, ha olyan egyedi tulajdonságot adok hozzá, amely már létezik?**
+**Mi történik, ha már létező egyedi tulajdonságot adok hozzá?**
 
-Ha olyan egyedi tulajdonságot ad hozzá, amely már létezik, a meglévő értéke felülíródik az újjal. Nem szükséges a tulajdonságot előzetesen eltávolítani vagy ellenőrizni, mivel az Aspose.Slides automatikusan frissíti a tulajdonság értékét.
+Ha már létező egyedi tulajdonságot ad hozzá, a meglévő értéke felül lesz írva az újjal. Nem szükséges előre eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti a tulajdonság értékét.
 
-**Elérhetem a bemutató tulajdonságait anélkül, hogy teljesen betölteném a bemutatót?**
+**El tudom-e érni a prezentáció tulajdonságait anélkül, hogy teljesen betölteném a prezentációt?**
 
-Igen. Használja a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) és ezután a [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) metódusokat, hogy a tárolt dokumentum metaadatait olvassa anélkül, hogy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) példányt hozna létre. Lásd a [Build a Lightweight Presentation Inventory](/slides/hu/python-java/examine-presentation/) példát a teljes jelentéskészítési példa és a formátumspecifikus korlátozások megtekintéséhez.
+Igen. Használja a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) metódust, majd a [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) segítségével olvassa a tárolt dokumentum metaadatait anélkül, hogy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) példányt hozna létre. Lásd a **[Build a Lightweight Presentation Inventory](/slides/hu/python-java/examine-presentation/)** cikket a teljes jelentési példáért és a formátumspecifikus korlátozásokért.
 
-**Olvashatok nyilvános tulajdonságokat egy titkosított bemutatóból a nyitó jelszó nélkül?**
+**Olvashatok nyilvános tulajdonságokat egy titkosított prezentációból anélkül, hogy a megnyitási jelszót ismerném?**
 
-Igen. A bemutatónak úgy kell titkosítva lennie, hogy a [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) `False` értékkel lett meghívva, és a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `True` értékkel történő meghívása után lett betöltve.
+Igen. A prezentációt a [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) `False` értékű hívása után kell titkosítani, és a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `True` értékével kell betölteni.
 
-**Frissíthetek egy titkosított PPTX fájlt csak a dokumentumtulajdonságok módjában?**
+**Frissíthetek egy titkosított PPTX fájlt csak dokumentumtulajdonság‑only módban?**
 
-Nem. A nyilvános és a titkosított tulajdonságadatoknak összhangban kell maradniuk, ezért egy titkosított PPTX fájl frissítéséhez a teljes bemutatót a megfelelő nyitó jelszóval kell betölteni.
+Nem. A nyilvános és a titkosított tulajdonságadatoknak konzisztensnek kell maradniuk, ezért egy titkosított PPTX fájl frissítéséhez a teljes prezentációt a helyes megnyitási jelszóval kell betölteni.

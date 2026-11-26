@@ -19,37 +19,37 @@ keywords:
 - Язык по умолчанию
 - PowerPoint
 - OpenDocument
-- Презентация
+- презентация
 - Java
 - Aspose.Slides
-description: "Мастерство управления свойствами презентации в Aspose.Slides for Java и оптимизация поиска, брендинга и рабочего процесса в ваших файлах PowerPoint и OpenDocument."
+description: "Управляйте свойствами презентации в Aspose.Slides for Java и оптимизируйте поиск, брендинг и рабочий процесс в ваших файлах PowerPoint и OpenDocument."
 ---
 ## **Введение**
 
-Aspose.Slides for Java поддерживает **встроенные** и **пользовательские** свойства документа. Используйте эти свойства для чтения и обновления метаданных презентации, таких как автор, заголовок и пользовательские значения.
+Aspose.Slides for Java поддерживает **встроенные** и **пользовательские** свойства документов. Используйте эти свойства для чтения и обновления метаданных презентации, таких как автор, заголовок и пользовательские значения.
 
-Aspose.Slides позволяет работать со свойствами документа презентации через интерфейс [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) . Экземпляр этого интерфейса возвращается методом [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) . Ниже приведены примеры, показывающие, как читать, изменять и управлять этими свойствами.
+Aspose.Slides позволяет работать со свойствами документов презентации через интерфейс [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) . Экземпляр этого интерфейса возвращается методом [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) . Ниже приведены примеры, показывающие, как читать, изменять и управлять этими свойствами.
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides управляет метаданными приложения и производителя при сохранении презентаций; эти поля идентифицируют программное обеспечение, создавшее вывод.
+{{% alert color="info" title="Примечание" %}}
+Aspose.Slides управляет метаданными приложения и производителя при сохранении презентаций; эти поля идентифицируют программное обеспечение, которое создало результат.
 {{% /alert %}}
 
 ## **Управление свойствами презентации**
 
-Свойства документа хранят описательную информацию наряду с содержимым презентации. Они делятся на две категории:
+Свойства документа хранят описательную информацию вместе с содержимым презентации. Они делятся на две категории:
 
 - **Встроенные свойства** содержат стандартные метаданные, такие как заголовок, автор и статистика документа.
-- **Пользовательские свойства** хранят пользовательские пары имя/значение.
+- **Пользовательские свойства** хранят пары «имя/значение», определённые пользователем.
 
-Aspose.Slides for Java предоставляет доступ к обеим категориям. В PowerPoint выберите **File → Info → Properties → Advanced Properties**, чтобы просмотреть метаданные документа. Диалог группирует информацию по вкладкам, таким как **Summary**, **Statistics**, **Contents** и **Custom**. Используйте вкладку **Custom** для управления пользовательскими свойствами.
+Aspose.Slides for Java предоставляет доступ к обеим категориям. В PowerPoint выберите **File → Info → Properties → Advanced Properties**, чтобы просмотреть метаданные документа. Диалоговое окно группирует информацию по вкладкам, таким как **Summary**, **Statistics**, **Contents** и **Custom**. Используйте вкладку **Custom**, чтобы управлять пользовательскими свойствами.
 
-## **Чтение публичных свойств из зашифрованной презентации**
+## **Чтение публичных свойств зашифрованной презентации**
 
-Пароль открытия обычно защищает как содержание презентации, так и свойства документа. Когда презентация зашифрована после вызова [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) с параметром `false`, её свойства документа остаются публичными. Приложение может затем вызвать [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) с параметром `true` и прочитать публичные метаданные без предоставления пароля открытия.
+Обычный пароль для открытия защищает и содержимое презентации, и свойства документа. Когда презентация шифруется после вызова [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) с `false`, её свойства документа остаются публичными. Приложение может затем вызвать [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) с `true` и прочитать публичные метаданные без предоставления пароля открытия.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) управляет тем, что загружает Aspose.Slides; он не расшифровывает ничего. Если свойства включены в шифрование, загрузка их без пароля завершается ошибкой. Если презентация не зашифрована, параметр игнорируется и загружается полная презентация.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) контролирует, что Aspose.Slides загружает; он ничего не расшифровывает. Если свойства включены в шифрование, загрузка без пароля завершается неудачей. Если презентация не зашифрована, параметр игнорируется и загружается полная презентация.
 
-В примере требуется зашифрованная презентация, у которой свойства документа оставлены публичными. Он проверяет режим загрузки через [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) и затем читает встроенные свойства через [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
+Пример требует зашифрованную презентацию, у которой свойства документа оставлены публичными. Он проверяет режим загрузки через [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) и затем читает встроенные свойства через [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -75,17 +75,17 @@ try {
 }
 ```
 
-В этом режиме содержимое слайдов не загружается. Слайды, шаблоны, макеты, фигуры, медиа и другие объекты презентации недоступны. Приложения всегда должны проверять [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) , прежде чем выполнять операцию, требующую полной модели объекта презентации.
+В этом режиме содержимое слайдов не загружается. Слайды, шаблоны, макеты, фигуры, медиа и другие объекты презентации недоступны. Приложения всегда должны проверять [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) , прежде чем выполнять операцию, требующую полной модели объектов презентации.
 
-{{% alert color="warning" title="Warning" %}}
-Публичные метаданные могут раскрыть имена авторов, заголовки, темы, ключевые слова, информацию о компании, комментарии и пользовательские значения. Шифруйте чувствительные свойства вместе с презентацией. Оставляйте их публичными только в случаях, когда системы индексации, классификации, поиска или управления документами имеют конкретную необходимость доступа к ним без пароля.
+{{% alert color="warning" title="Внимание" %}}
+Публичные метаданные могут раскрыть имена авторов, заголовки, темы, ключевые слова, информацию о компании, комментарии и пользовательские значения. Шифруйте чувствительные свойства вместе с презентацией. Оставляйте их публичными только в случае, когда индексация, классификация, поиск или системы управления документами имеют специфическую необходимость доступа к ним без пароля.
 {{% /alert %}}
 
 ## **Обновление свойств зашифрованной презентации**
 
-Для зашифрованного файла PPTX презентация, загруженная после вызова [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) с параметром `true`, предназначена для чтения публичных метаданных. Aspose.Slides не может сохранить изменённые свойства из этого объекта, содержащего только метаданные, потому что публичные свойства должны оставаться согласованными с соответствующими данными внутри зашифрованной презентации. Поэтому их обновление требует правильного пароля открытия и полной загрузки.
+Для зашифрованного файла PPTX презентация, загруженная после вызова [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) с `true`, предназначена для чтения публичных метаданных. Aspose.Slides не может сохранить изменённые свойства из этого объекта, содержащего только метаданные, потому что публичные свойства должны оставаться согласованными с соответствующими данными внутри зашифрованной презентации. Поэтому их обновление требует правильного пароля открытия и полной загрузки.
 
-В примере требуется зашифрованная PPTX‑презентация с публичными свойствами документа и известным паролем открытия. Он открывает полную презентацию с помощью [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) , обновляет публичные встроенные свойства и сохраняет результат. Затем используется [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) , чтобы проверить, что шифрование сохраняется, и повторно открывает публичные метаданные без пароля для проверки новых значений:
+Пример требует зашифрованную презентацию PPTX с публичными свойствами документа и известным паролем открытия. Он открывает полную презентацию с помощью [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) , обновляет публичные встроенные свойства и сохраняет результат. Затем он использует [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) , чтобы убедиться, что шифрование сохранено, и снова открывает публичные метаданные без пароля для проверки новых значений:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -135,7 +135,7 @@ try {
 
 ## **Доступ к встроенным свойствам**
 
-Интерфейс [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) предоставляет доступ к встроенным метаданным через методы‑получатели, включая [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--) , [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--) и [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) . Этот пример открывает существующую презентацию и выводит её хранимые метаданные в консоль. Значения зависят от входной презентации; некоторые поля могут быть пустыми.
+Интерфейс [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) раскрывает встроенные метаданные через методы‑получатели, включая [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--) , [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--) и [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) . Этот пример открывает существующую презентацию и выводит её сохранённые метаданные в консоль. Значения зависят от входной презентации; некоторые поля могут быть пустыми.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -164,9 +164,50 @@ try {
 }
 ```
 
+### **Отчет о номере ревизии и времени редактирования**
+
+Чтобы сформировать одну строку для каждого файла PPTX в папке `presentations`, вызовите [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) , чтобы прочитать его [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) без загрузки слайдов для редактирования. Java API возвращает длительность редактирования в миллисекундах. Пример форматирует её в часы, минуты и секунды, добавляя количество дней для длительностей ≥ 24 часов.
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+System.out.println("File | RevisionNumber | TotalEditingTime");
+try (DirectoryStream<Path> files = Files.newDirectoryStream(Paths.get("presentations"), "*.pptx")) {
+    for (Path path : files) {
+        if (!Files.isRegularFile(path)) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(path.toString());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format("%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf("%s | %d | %s%n", path.getFileName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+Для презентации с записанным временем редактирования 1 день, 2 часа и 5 минут отчет выводит следующий результат.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getRevisionNumber--) читает значение, которое приложения могут изменить с помощью [setRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-) . Сам номер ревизии не позволяет определить, сколько раз презентация была сохранена, или восстановить её историю версий.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) читает длительность редактирования, записанную в файле. Значение `00:00:00` означает, что сохранённая длительность равна нулю, даже если кто‑то редактировал презентацию.
+
 ## **Изменение встроенных свойств**
 
-Чтобы обновить встроенные метаданные, используйте методы‑установщики объекта, возвращаемого [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) . Этот пример открывает существующую презентацию, вызывает [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-) , [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-) , [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-) , [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-) и [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) , затем сохраняет обновлённую презентацию с помощью [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) . Сохранённый PPTX содержит новые метаданные.
+Чтобы обновить встроенные метаданные, используйте методы‑установщики объекта, возвращённого [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) . Этот пример открывает существующую презентацию, вызывает [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-) , [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-) , [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-) , [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-) и [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) , затем сохраняет обновлённую презентацию с помощью [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) . Сохранённый PPTX содержит новые метаданные.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -191,9 +232,9 @@ try {
 
 ## **Управление базой гиперссылок**
 
-[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) возвращает базовый адрес уровня документа для относительных гиперссылок. Используйте [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) , чтобы изменить его или очистить. Это полезно при перемещении презентации и связанных файлов в другое место. Это отдельно от отдельной гиперссылки [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) : изменение базы не переписывает сохранённые адреса ссылок и не меняет абсолютные назначения.
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) возвращает базовый адрес уровня документа для относительных гиперссылок. Используйте [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) , чтобы изменить его или очистить. Это полезно при перемещении презентации и её связанных файлов в другое место. Это отдельный параметр от [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) отдельной гиперссылки: изменение базы не переписывает сохранённые адреса ссылок и не меняет абсолютные назначения.
 
-В примере требуется презентация, содержащая как относительную ссылку, например `target.html`, так и абсолютную ссылку, например `https://example.org/absolute.html`. Он считывает существующую базу, задаёт новый базовый адрес, сохраняет и повторно открывает презентацию для проверки значения. Затем очищает базу пустой строкой и проверяет пустое значение в отдельном сохранённом файле. Замените пример базового адреса на расположение ваших связанных файлов.
+Пример требует презентацию, содержащую как относительную ссылку (например, `target.html`), так и абсолютную (например, `https://example.org/absolute.html`). Он считывает текущую базу, задаёт новый базовый адрес, сохраняет и снова открывает презентацию для проверки значения. Затем он очищает базу пустой строкой и проверяет пустое значение в отдельном сохранённом файле. Замените пример базового адреса на расположение ваших связанных файлов.
 
 ```java
 import com.aspose.slides.Presentation;
@@ -228,13 +269,13 @@ try {
 }
 ```
 
-Оба сообщения проверки должны вывести `true`. Очистка базы сохраняет отдельные адреса гиперссылок неизменными.
+Два проверочных сообщения должны вывести `true`. Очистка базы оставляет адреса отдельных гиперссылок без изменений.
 
-Относительная ссылка на `target.pptx` открывала `old/target.pptx`, когда база указывала на папку `old`. После изменения базы на папку `new`, сохранения и повторного открытия презентации, та же ссылка открывала `new/target.pptx`. Абсолютная ссылка продолжала открывать тот же файл. Проверьте свои относительные ссылки в PowerPoint до и после перемещения презентации или изменения её базы.
+Относительная ссылка на `target.pptx` открывала `old/target.pptx`, когда база указывала на папку `old`. После смены базы на папку `new`, сохранения и повторного открытия презентации та же ссылка открывала `new/target.pptx`. Абсолютная ссылка продолжала открывать тот же файл. Проверьте свои относительные ссылки в PowerPoint до и после перемещения презентации или изменения её базы.
 
 ## **Добавление пользовательских свойств презентации**
 
-Пользовательские свойства хранят метаданные, для которых нет соответствующего встроенного поля. Метод [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) позволяет назначать значение по имени свойства. Этот пример создаёт презентацию, добавляет два текстовых значения и целочисленное значение версии, и сохраняет презентацию с помощью [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) . Присвоение значения существующему имени заменяет значение этого свойства.
+Пользовательские свойства хранят метаданные, которые не имеют соответствующего встроенного поля. Метод [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) позволяет присвоить значение по имени свойства. Этот пример создаёт презентацию, добавляет два текстовых значения и целочисленное значение версии, затем сохраняет презентацию с помощью [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) . Присвоение значения существующему имени заменяет значение этого свойства.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -257,7 +298,7 @@ try {
 
 ## **Доступ и изменение пользовательских свойств**
 
-Этот пример открывает презентацию, содержащую пользовательские свойства, и использует [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) , чтобы пройтись по ним. [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) принимает нулевой индекс и возвращает имя, используемое [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) . Пример выводит каждое оригинальное имя и значение, заменяет каждое значение на нумерованную строку независимо от исходного типа, и сохраняет изменения. Если пользовательских свойств нет, цикл не вносит изменений.
+Этот пример открывает презентацию, содержащую пользовательские свойства, и использует [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) для их перебора. [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) принимает индекс, начинающийся с нуля, и возвращает имя, используемое в [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) . Пример выводит каждое оригинальное имя и значение, заменяет каждое значение нумерованной строкой независимо от исходного типа и сохраняет изменения. Если пользовательских свойств нет, цикл не вносит изменений.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -286,27 +327,27 @@ try {
 
 ## **Рабочий пример**
 
-Попробуйте онлайн‑приложение [**Просмотр и редактирование метаданных PowerPoint**](https://products.aspose.app/slides/metadata) , чтобы увидеть, как работать со свойствами документа с помощью API Aspose.Slides:
+Попробуйте онлайн‑приложение [**Просмотр и редактирование метаданных PowerPoint**](https://products.aspose.app/slides/metadata) , чтобы увидеть, как работать со свойствами документов с помощью API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![Просмотр и редактирование метаданных PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **Вопросы и ответы**
+## **Часто задаваемые вопросы**
 
 **Как удалить встроенное свойство из презентации?**
 
-Встроенные свойства являются неотъемлемой частью презентации и не могут быть полностью удалены. Однако вы можете изменить их значения или установить их пустыми, если конкретное свойство это позволяет.
+Встроенные свойства являются неотъемлемой частью презентации и полностью удалить их невозможно. Однако вы можете изменить их значения или установить их пустыми, если данное свойство позволяет это.
 
-**Что произойдет, если я добавлю пользовательское свойство, которое уже существует?**
+**Что произойдёт, если я добавлю пользовательское свойство, которое уже существует?**
 
 Если вы добавите пользовательское свойство, которое уже существует, его текущее значение будет перезаписано новым. Удалять или проверять свойство заранее не требуется, так как Aspose.Slides автоматически обновляет значение свойства.
 
 **Могу ли я получить доступ к свойствам презентации без полной загрузки презентации?**
 
-Да. Используйте [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) и затем [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) , чтобы прочитать сохранённые метаданные документа без создания экземпляра [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) . См. [Build a Lightweight Presentation Inventory](/slides/ru/java/examine-presentation/) для полного примера отчёта и ограничений, зависящих от формата.
+Да. Используйте [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) , а затем [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) , чтобы прочитать сохранённые метаданные документа без создания экземпляра [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) . См. [Build a Lightweight Presentation Inventory](/slides/ru/java/examine-presentation/) для полного примера отчёта и ограничений, связанных с форматами.
 
 **Могу ли я прочитать публичные свойства зашифрованной презентации без её пароля открытия?**
 
-Да. Презентация должна быть зашифрована после вызова [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) с `false`, и должна быть загружена после вызова [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) с `true`.
+Да. Презентация должна была быть зашифрована после вызова [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) с `false`, и должна быть загружена после вызова [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) с `true`.
 
 **Могу ли я обновить зашифрованный файл PPTX в режиме только свойств документа?**
 

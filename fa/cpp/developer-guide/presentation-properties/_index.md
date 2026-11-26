@@ -1,55 +1,55 @@
 ---
-title: مدیریت ویژگی‌های ارائه در C++
-linktitle: ویژگی‌های ارائه
+title: مدیریت خواص ارائه در C++
+linktitle: خواص ارائه
 type: docs
 weight: 70
 url: /fa/cpp/presentation-properties/
 keywords:
-- ویژگی‌های PowerPoint
-- ویژگی‌های ارائه
-- ویژگی‌های سند
-- ویژگی‌های پیش‌فرض
-- ویژگی‌های سفارشی
-- ویژگی‌های پیشرفته
-- مدیریت ویژگی‌ها
-- تغییر ویژگی‌ها
-- ابرداده سند
-- ویرایش ابرداده
-- زبان تصحیح
+- خواص پاورپوینت
+- خواص ارائه
+- خواص سند
+- خواص پیش‌ساخته
+- خواص سفارشی
+- خواص پیشرفته
+- مدیریت خواص
+- تغییر خواص
+- فرادادهٔ سند
+- ویرایش فراداده
+- زبان اصلاح
 - زبان پیش‌فرض
-- PowerPoint
-- OpenDocument
+- پاورپوینت
+- اُپن‌داکیومنت
 - ارائه
 - C++
 - Aspose.Slides
-description: "ویژگی‌های اصلی ارائه را در Aspose.Slides برای C++ مدیریت کنید و جستجو، برندینگ و جریان کار را در فایل‌های PowerPoint و OpenDocument خود بهینه‌سازی کنید."
+description: "کامل کردن خواص ارائه در Aspose.Slides for C++ و ساده‌سازی جستجو، برندینگ و گردش کار در فایل‌های پاورپوینت و اُپن‌داکیومنت شما."
 ---
-## **معرفی**
+## **مقدمه**
 
-Aspose.Slides for C++ پشتیبانی می‌کند از ویژگی‌های سند **درونی** و **سفارشی**. از این ویژگی‌ها برای خواندن و به‌روزرسانی فراداده ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
+Aspose.Slides for C++ از **خواص پیش‌ساخته** و **خواص سفارشی** سند پشتیبانی می‌کند. از این خواص برای خواندن و به‌روز کردن فرادادهٔ ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
 
-Aspose.Slides به شما امکان کار با ویژگی‌های سند ارائه را از طریق رابط [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) می‌دهد. یک نمونه از این رابط توسط [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) برگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
+Aspose.Slides به شما اجازه می‌دهد تا از طریق رابط [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) با خواص سند ارائه کار کنید. یک نمونه از این رابط توسط [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چطور این خواص را بخوانید، اصلاح کنید و مدیریت نمایید.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides هنگام ذخیره ارائه‌ها، متادیتای برنامه و تولیدکننده را مدیریت می‌کند؛ این فیلدها نرم‌افزاری را که خروجی را ایجاد کرده شناسایی می‌کنند.
+Aspose.Slides فراخوانی برنامه و تهیه‌کننده را هنگام ذخیرهٔ ارائه‌ها مدیریت می‌کند؛ این فیلدها نرم‌افزاری را که خروجی را تولید کرده است شناسایی می‌کنند.
 {{% /alert %}}
 
-## **مدیریت ویژگی‌های ارائه**
+## **مدیریت خواص ارائه**
 
-ویژگی‌های سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کنند. آنها به دو دسته تقسیم می‌شوند:
+خواص سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کنند. آن‌ها به دو دسته تقسیم می‌شوند:
 
-- **Built-in properties** شامل متادیتای استانداردی مانند عنوان، نویسنده و آمار سند هستند.
-- **Custom properties** جفت‌های نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
+- **خواص پیش‌ساخته** شامل فرادادهٔ استانداردی نظیر عنوان، نویسنده و آمار سند هستند.
+- **خواص سفارشی** جفت‌های نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
 
-Aspose.Slides for C++ دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، **File → Info → Properties → Advanced Properties** را انتخاب کنید تا متادیتای سند را بررسی کنید. این دیالوگ اطلاعات را در تب‌هایی مثل **Summary**، **Statistics**، **Contents** و **Custom** گروه‌بندی می‌کند. از تب **Custom** برای مدیریت ویژگی‌های تعریف‌شده توسط کاربر استفاده کنید.
+Aspose.Slides for C++ به هر دو دسته دسترسی فراهم می‌کند. در PowerPoint مسیر **File → Info → Properties → Advanced Properties** را برای بررسی فرادادهٔ سند انتخاب کنید. این دیالوگ اطلاعات را در تب‌های **Summary**، **Statistics**، **Contents** و **Custom** گروه‌بندی می‌کند. از تب **Custom** برای مدیریت خواص تعریف‌شده توسط کاربر استفاده کنید.
 
-## **خواندن ویژگی‌های عمومی از یک ارائه رمزگذاری شده**
+## **خواندن خواص عمومی از یک ارائهٔ رمزنگاری‌شده**
 
-یک رمز عبور باز کردن معمولاً هم محتوای ارائه و هم ویژگی‌های سند را محافظت می‌کند. وقتی یک ارائه با عبور `false` به [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) رمزگذاری شود، ویژگی‌های سند آن عمومی می‌مانند. سپس برنامه می‌تواند `true` را به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) پاس داده و متادیتای عمومی را بدون ارائه رمز عبور باز کردن بخواند.
+یک رمز عبور بازکن معمولاً محتوای ارائه و خواص سند را محافظت می‌کند. هنگامی که یک ارائه با عبور `false` به [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) رمزنگاری می‌شود، خواص سند آن عمومی می‌مانند. سپس یک برنامه می‌تواند `true` را به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) پاس دهد و فرادادهٔ عمومی را بدون ارائهٔ رمز عبور باز کردن بخواند.
 
-[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) تعیین می‌کند که Aspose.Slides چه چیزی را بارگذاری کند؛ این کار رمز‌گشایی نمی‌کند. اگر ویژگی‌ها در رمزگذاری گنجانده شده باشند، بارگذاری آنها بدون رمز عبور شکست می‌خورد. اگر ارائه رمزگذاری نشده باشد، این گزینه نادیده گرفته می‌شود و کل ارائه بارگذاری می‌شود.
+[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) تعیین می‌کند که Aspose.Slides چه چیزی را بارگذاری کند؛ این متد هیچ چیزی را رمزگشایی نمی‌کند. اگر خواص در رمزنگاری گنجانده شده باشند، بارگذاری آن‌ها بدون رمز عبور با خطا مواجه می‌شود. اگر ارائه رمزنگاری نشده باشد، این گزینه نادیده گرفته می‌شود و کل ارائه بارگذاری می‌شود.
 
-مثال به یک ارائه رمزگذاری شده‌ای نیاز دارد که ویژگی‌های سند آن عمومی باقی مانده باشد. حالت بارگذاری با استفاده از [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) تأیید می‌شود و سپس ویژگی‌های درونی با استفاده از [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) خوانده می‌شوند:
+مثال نیاز به یک ارائهٔ رمزنگاری‌شده دارد که خواص سند آن عمومی باقی مانده‌اند. این مثال حالت بارگذاری را از طریق [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) بررسی می‌کند و سپس خواص پیش‌ساخته را از طریق [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) می‌خواند:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -79,17 +79,17 @@ else
 }
 ```
 
-در این حالت، محتوای اسلاید بارگذاری نمی‌شود. اسلایدها، استادها، طرح‌بندی‌ها، اشکال، رسانه‌ها و سایر اشیاء ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملی که نیاز به مدل کامل شیء ارائه دارد، [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) را بررسی کنند.
+در این حالت محتوای اسلایدها بارگذاری نمی‌شود. اسلایدها، مسترها، طرح‌بندی‌ها، اشکال، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید پیش از انجام عملیاتی که به مدل کامل شیء ارائه نیاز دارد، همیشه [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) را بررسی کنند.
 
 {{% alert color="warning" title="Security" %}}
-متادیتای عمومی ممکن است نام نویسندگان، عناوین، موضوعات، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. ویژگی‌های حساس را همراه با ارائه رمزگذاری کنید. آنها را فقط در زمانی که سیستم‌های ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی برای دسترسی بدون رمز عبور دارند، عمومی بگذارید.
+فرادادهٔ عمومی ممکن است نام نویسندگان، عناوین، موضوعات، کلیدواژه‌ها، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. خواص حساس را همراه با ارائه رمزنگاری کنید. این خواص را فقط زمانی عمومی نگه دارید که سیستم‌های ایندکس، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی به دسترسی بدون رمز عبور داشته باشند.
 {{% /alert %}}
 
-## **به‌روزرسانی ویژگی‌های یک ارائه رمزگذاری شده**
+## **به‌روزرسانی خواص یک ارائهٔ رمزنگاری‌شده**
 
-برای یک فایل PPTX رمزگذاری‌شده، ارائه‌ای که با عبور `true` به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) بارگذاری می‌شود، برای خواندن متادیتای عمومی طراحی شده است. Aspose.Slides نمی‌تواند تغییرات ویژگی‌ها را از آن شیء فقط‑متادیتا ذخیره کند زیرا ویژگی‌های عمومی باید با داده‌های متناظر داخل ارائه رمزگذاری‌شده همگام بمانند. به‌روزرسانی آنها بنابراین به رمز عبور باز کردن صحیح و بارگذاری کامل نیاز دارد.
+برای یک فایل PPTX رمزنگاری‌شده، ارائه‌ای که با عبور `true` به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) بارگذاری می‌شود، صرفاً برای خواندن فرادادهٔ عمومی هدف‌گذاری شده است. Aspose.Slides نمی‌تواند خواص تغییر یافته را از آن شیء «فقط‑مدارک» ذخیره کند، زیرا خواص عمومی باید با دادهٔ متناظر داخل ارائهٔ رمزنگاری‌شده هماهنگ بمانند. به‌روزرسانی آن‌ها بنابراین نیاز به رمز عبور صحیح بازکن و بارگذاری کامل دارد.
 
-مثال به یک ارائه PPTX رمزگذاری‌شده با ویژگی‌های سند عمومی و یک رمز عبور باز کردن شناخته‌شده نیاز دارد. با استفاده از [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) ارائه کامل باز می‌شود، ویژگی‌های درونی عمومی به‌روزرسانی می‌شوند و نتیجه ذخیره می‌شود. سپس با استفاده از [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) صحت حفظ رمزگذاری تأیید می‌شود و متادیتای عمومی بدون رمز عبور بازخوانی می‌شود تا مقادیر جدید را بررسی کند:
+مثال نیاز به یک ارائهٔ PPTX رمزنگاری‌شده با خواص سند عمومی و رمز عبور بازکن شناخته‌شده دارد. این مثال ارائهٔ کامل را با [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) باز می‌کند، خواص پیش‌ساختهٔ عمومی را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌نماید. سپس با استفاده از [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) صحت حفظ رمزنگاری را بررسی می‌کند و فرادادهٔ عمومی را بدون رمز عبور دوباره باز می‌کند تا مقادیر جدید را تأیید نماید:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -137,11 +137,11 @@ else
 }
 ```
 
-اگر برنامه‌ای اجازهٔ رمز‑گشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید ویژگی‌های عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
+اگر برنامه اجازهٔ رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید خواص عمومی یک فایل PPTX رمزنگاری‌شده را به عنوان حالت فقط‑خواندنی در نظر بگیرد.
 
-## **دسترسی به ویژگی‌های درونی**
+## **دسترسی به خواص پیش‌ساخته**
 
-رابط [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) متادیتای درونی را از طریق متدهای getter تایپ‌شده مانند [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/)، [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) و [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/) در دسترس می‌گذارد. این مثال یک ارائه موجود را باز می‌کند و متادیتای ذخیره‌شدهٔ آن را در کنسول چاپ می‌کند. مقادیر بسته به ارائه ورودی متفاوت هستند؛ برخی فیلدها ممکن است خالی باشند.
+رابط [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) فرادادهٔ پیش‌ساخته را از طریق گترهای تایپی در دسترس می‌گذارد، از جمله [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/)، [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) و [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/). این مثال یک ارائهٔ موجود را باز می‌کند و فرادادهٔ ذخیره‌شده را در کنسول چاپ می‌نماید. مقادیر به ارائهٔ ورودی وابسته‌اند؛ برخی فیلدها ممکن است خالی باشند.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -170,9 +170,48 @@ System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
 System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
 ```
 
-## **تغییر ویژگی‌های درونی**
+### **گزارش شمارهٔ بازنگری و زمان ویرایش**
 
-برای به‌روزرسانی متادیتای درونی، از setter‑های شیء بازگردانده‌شده توسط [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) استفاده کنید. این مثال یک ارائه موجود را باز می‌کند، [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/)، [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/)، [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/)، [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) و [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/) را فراخوانی می‌کند، سپس ارائه بروز‌شده را با [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ذخیره می‌کند. PPTX ذخیره‌شده شامل متادیتای جدید خواهد بود.
+از [GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) و [ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) برای خواندن [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) هر فایل بدون بارگذاری اسلایدهای آن برای ویرایش استفاده کنید. این مثال یک ردیف برای هر فایل PPTX در پوشه `presentations` چاپ می‌کند. قالب استاندارد `c` شامل شمارش روزها زمانی است که زمان ویرایش ثبت‌شده به ۲۴ ساعت برسد.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/timespan.h>
+
+using namespace Aspose::Slides;
+using namespace System::IO;
+
+System::Console::WriteLine(u"File | RevisionNumber | TotalEditingTime");
+auto paths = Directory::GetFiles(u"presentations", u"*.pptx");
+for (const auto& path : paths)
+{
+    auto info = PresentationFactory::get_Instance()->GetPresentationInfo(path);
+    auto properties = info->ReadDocumentProperties();
+    auto fileName = Path::GetFileName(path);
+    auto editingTime = properties->get_TotalEditingTime().ToString(u"c");
+    System::Console::WriteLine(u"{0} | {1} | {2}", fileName, properties->get_RevisionNumber(), editingTime);
+}
+```
+
+برای یک ارائه با ۱ روز، ۲ ساعت و ۵ دقیقه زمان ویرایش ثبت‌شده، گزارش به این شکل خواهد بود:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[get_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_revisionnumber/) مقدار فراداده‌ای را می‌خواند که برنامه‌ها می‌توانند با [set_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_revisionnumber/) تغییر دهند. تنها آن مقدار نمی‌تواند تعداد ذخیره‌های ارائه یا تاریخچهٔ نسخهٔ آن را تعیین کند.
+
+[get_TotalEditingTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_totaleditingtime/) مدت زمان ویرایش ثبت‌شده در فایل را برمی‌گرداند. مقدار `00:00:00` به این معنی است که مدت زمان ذخیره‌شده صفر است؛ ممکن است ارائه همچنان ویرایش شده باشد.
+
+## **تعديل خواص پیش‌ساخته**
+
+برای به‌روزرسانی فرادادهٔ پیش‌ساخته، از متدهای تنظیم‌کننده روی شیء بازگردانده شده توسط [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) استفاده کنید. این مثال یک ارائهٔ موجود را باز می‌کند، [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/)، [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/)، [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/)، [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) و [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/) را فراخوانی می‌کند و سپس ارائهٔ به‌روزرسانی‌شده را با [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ذخیره می‌نماید. فایل PPTX ذخیره‌شده حاوی فرادادهٔ جدید خواهد بود.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -196,11 +235,11 @@ documentProperties->set_Manager(u"Aspose manager");
 presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
 ```
 
-## **مدیریت پایهٔ پیوندهای هیپرلینک**
+## **مدیریت مبنای پیوندهای فراگیر**
 
-[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) پایهٔ سطح سند برای پیوندهای نسبی را می‌خواند. این ویژگی زمانی مفید است که یک ارائه و فایل‌های پیوست آن را به مکان دیگری منتقل می‌کنید. این پایه مستقل از [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) یک پیوند منفرد است: تغییر پایه آدرس‌های ذخیره‌شدهٔ پیوندها را بازنویسی نمی‌کند و مقصدهای مطلق را تغییر نمی‌دهد.
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) مبنای سند برای پیوندهای نسبی را می‌خواند. این ویژگی هنگام جابجایی یک ارائه و فایل‌های پیوندی آن به مکان دیگری مفید است. این مقدار متفاوت از [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) یک پیوند فردی است؛ تغییر مبنا آدرس‌های ذخیره‌شدهٔ پیوندها یا مقصدهای مطلق را بازنویسی نمی‌کند.
 
-مثال به یک ارائه‌ای نیاز دارد که هم یک پیوند نسبی مانند `target.html` و هم یک پیوند مطلق مانند `https://example.org/absolute.html` داشته باشد. پایهٔ موجود خوانده می‌شود، آدرس پایهٔ جدید با استفاده از [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) اختصاص می‌یابد و برای بررسی مقدار، ارائه ذخیره و مجدداً باز می‌شود. سپس پایه با `u""` پاک می‌شود و مقدار خالی در فایلی ذخیره‌شدهٔ جداگانه تأیید می‌شود. آدرس پایهٔ مثال را با مکان فایل‌های پیوست خود جایگزین کنید.
+مثال نیاز به ارائه‌ای دارد که هم پیوند نسبی‌ای نظیر `target.html` و هم پیوند مطلقی نظیر `https://example.org/absolute.html` داشته باشد. ابتدا مبنای موجود را می‌خواند، سپس با [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) یک مبنای جدید اختصاص می‌دهد و پس از ذخیره و بازگشایی ارائه مقدار جدید را بررسی می‌کند. سپس مبنا را با `u""` پاک می‌کند و مقدار خالی را در فایلی جداگانه تأیید می‌نماید. مبنای مثال را با مسیر فایل‌های پیوندی خود جایگزین کنید.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -229,13 +268,13 @@ auto clearedPresentation = System::MakeObject<Presentation>(u"hyperlinks-cleared
 System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_DocumentProperties()->get_HyperlinkBase() == u""));
 ```
 
-دو پیام تأیید باید `True` چاپ کنند. پاک کردن پایه، آدرس‌های پیوندهای منفرد را دست‌نخورده می‌گذارد.
+دو پیام تأیید باید `True` چاپ کنند. پاک‌کردن مبنا آدرس‌های پیوندهای فردی را دست نخورده باقی می‌گذارد.
 
-یک پیوند نسبی به `target.pptx` هنگامیکه پایه به پوشهٔ `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشهٔ `new`، ذخیره و بازگشایی ارائه، همان پیوند `new/target.pptx` را باز می‌کند. یک پیوند مطلق همان فایل را باز نگه می‌دارد. پیوندهای نسبی خود را در PowerPoint قبل و بعد از جابه‌جایی ارائه یا تغییر پایه تست کنید.
+یک پیوند نسبی به `target.pptx` هنگام مبنای `old` فایل `old/target.pptx` را باز می‌کرد. پس از تغییر مبنا به پوشه `new`، ذخیره و بازگشایی ارائه، همان پیوند فایل `new/target.pptx` را باز کرد. یک پیوند مطلق بدون تغییر همان فایل را باز می‌کرد. پیوندهای نسبی خود را در PowerPoint پیش و پس از جابجایی ارائه یا تغییر مبنای آن تست کنید.
 
-## **افزودن ویژگی‌های سفارشی به ارائه**
+## **افزودن خواص سفارشی به ارائه**
 
-ویژگی‌های سفارشی متادیتایی را ذخیره می‌کنند که فیلد درونی معادلی برای آن وجود ندارد. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) به شما امکان می‌دهد مقدار را بر اساس نام ویژگی تعیین کنید. این مثال یک ارائه ایجاد می‌کند، دو مقدار متنی و یک مقدار عددی نسخه را اضافه می‌کند و ارائه را با [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ذخیره می‌کند. اختصاص مقدار به یک نام موجود، مقدار آن ویژگی را جایگزین می‌کند.
+خواص سفارشی فراداده‌ای را ذخیره می‌کنند که فیلد پیش‌ساخته‌ای معادل ندارند. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) به شما امکان می‌دهد مقدار را با نام خصوصیت اختصاص دهید. این مثال یک ارائه می‌سازد، دو مقدار متنی و یک مقدار عددی نسخه را اضافه می‌کند و سپس ارائه را با [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ذخیره می‌نماید. اختصاص مقدار به نامی که از قبل وجود دارد، مقدار آن خصوصیت را جایگزین می‌کند.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -258,9 +297,9 @@ documentProperties->idx_set(u"Document version", System::ObjectExt::Box(2));
 presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
 ```
 
-## **دسترسی و اصلاح ویژگی‌های سفارشی**
+## **دسترسی و تعديل خواص سفارشی**
 
-این مثال یک ارائه حاوی ویژگی‌های سفارشی را باز می‌کند و با استفاده از [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) روی آنها تکرار می‌نماید. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) یک شاخص صفر‑مبنا می‌پذیرد و نامی را برمی‌گرداند که توسط [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) و [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) استفاده می‌شود. مثال هر نام و مقدار اصلی را چاپ می‌کند، هر مقدار را به یک رشته شماره‌دار (بدون در نظر گرفتن نوع اصلی) تبدیل می‌کند و تغییرات را ذخیره می‌کند. اگر ویژگی سفارشی وجود نداشته باشد، حلقه هیچ تغییری ایجاد نمی‌کند.
+این مثال یک ارائه حاوی خواص سفارشی را باز می‌کند و با استفاده از [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) بر روی آن‌ها حلقه می‌زند. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) یک اندیس صفر‑پایه می‌گیرد و نامی را برمی‌گرداند که توسط [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) و [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) استفاده می‌شود. مثال هر نام و مقدار اصلی را چاپ می‌کند، همه مقادیر را با رشته‌ای شماره‌دار، صرف‌نظر از نوع اصلی، جایگزین می‌نماید و تغییرات را ذخیره می‌کند. اگر هیچ خاصیتی سفارشی وجود نداشته باشد، حلقه تغییری ایجاد نمی‌کند.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -292,28 +331,28 @@ presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 
 ## **مثال زنده**
 
-سعی کنید برنامهٔ آنلاین [**مشاهده و ویرایش فراداده پاورپوینت**](https://products.aspose.app/slides/metadata) را امتحان کنید تا ببینید چگونه با استفاده از API Aspose.Slides ویژگی‌های سند را مدیریت می‌کنید:
+سعی کنید برنامهٔ آنلاین [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) را برای مشاهدهٔ نحوه کار با خواص سند با استفاده از API Aspose.Slides امتحان کنید:
 
-[![مشاهده و ویرایش فراداده پاورپوینت](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چگونه می‌توان یک ویژگی درونی را از یک ارائه حذف کرد؟**
+**چگونه می‌توانم یک خاصیت پیش‌ساخته را از یک ارائه حذف کنم؟**
 
-ویژگی‌های درونی جزئی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آنها را به‌طور کامل حذف کرد. با این حال می‌توانید مقدار آنها را تغییر داده یا (در صورت امکان) به مقدار خالی تنظیم کنید.
+خواص پیش‌ساخته جزئی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آن‌ها را کاملاً حذف کرد. با این حال می‌توانید مقدار آن‌ها را تغییر دهید یا در صورت امکان مقدار خالی قرار دهید.
 
-**اگر ویژگی سفارشی‌ای اضافه کنم که قبلاً وجود داشته باشد، چه می‌شود؟**
+**اگر یک خاصیت سفارشی که از قبل وجود دارد را اضافه کنم، چه می‌شود؟**
 
-در صورتی که ویژگی سفارشی‌ای اضافه کنید که از قبل وجود داشته باشد، مقدار موجود آن با مقدار جدید بازنویسی می‌شود. نیازی به حذف یا بررسی پیش‑از‑این ویژگی نیست، زیرا Aspose.Slides به‌طور خودکار مقدار ویژگی را به‌روزرسانی می‌کند.
+اگر یک خاصیت سفارشی که پیش از این وجود داشته باشد اضافه کنید، مقدار موجود با مقدار جدید بازنویسی می‌شود. نیازی به حذف یا بررسی قبلی خاصیت نیست، زیرا Aspose.Slides به‌صورت خودکار ارزش خاصیت را به‌روز می‌کند.
 
-**آیا می‌توانم بدون بارگذاری کامل ارائه، به ویژگی‌های ارائه دسترسی پیدا کنم؟**
+**آیا می‌توانم به خواص ارائه بدون بارگذاری کامل ارائه دسترسی داشته باشم؟**
 
-بله. می‌توانید از [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) سپس [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) استفاده کنید تا متادیتای ذخیره‌شدهٔ سند را بدون ایجاد نمونهٔ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) بخوانید. برای یک مثال کامل گزارش‌گیری و محدودیت‌های خاص فرمت، به [Build a Lightweight Presentation Inventory](/slides/fa/cpp/examine-presentation/) مراجعه کنید.
+بله. از [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) استفاده کنید و سپس [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) را برای خواندن فرادادهٔ ذخیره‌شدهٔ سند بدون ایجاد یک نمونهٔ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) فراخوانی کنید. برای مثال کامل گزارش‌گیری و محدودیت‌های خاص فرمت به مطلب [Build a Lightweight Presentation Inventory](/slides/fa/cpp/examine-presentation/) مراجعه کنید.
 
-**آیا می‌توانم ویژگی‌های عمومی یک ارائه رمزگذاری شده را بدون رمز عبور باز کردن آن بخوانم؟**
+**آیا می‌توانم خواص عمومی یک ارائهٔ رمزنگاری‌شده را بدون رمز عبور بازکن بخوانم؟**
 
-بله. ارائه باید با عبور `false` به [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) رمزگذاری شده باشد و باید با عبور `true` به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) بارگذاری شود.
+بله. ارائه باید با عبور `false` به [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) رمزنگاری شده باشد و با عبور `true` به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) بارگذاری شود.
 
-**آیا می‌توانم یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑ویژگی‑سند به‌روزرسانی کنم؟**
+**آیا می‌توانم یک فایل PPTX رمزنگاری‌شده را در حالت فقط‑خواص‑سند به‌روزرسانی کنم؟**
 
-نه. داده‌های عمومی و رمزگذاری‌شده باید همگام باشند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده نیاز به بارگذاری کامل ارائه با رمز عبور صحیح دارد.
+خیر. داده‌های عمومی و رمزنگاری‌شده باید سازگار بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزنگاری‌شده مستلزم بارگذاری کامل ارائه با رمز عبور بازکن صحیح است.

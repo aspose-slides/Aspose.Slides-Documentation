@@ -22,16 +22,16 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Java 中精通演示文稿属性，并在您的 PowerPoint 和 OpenDocument 文件中简化搜索、品牌化和工作流。"
+description: "在 Aspose.Slides for Java 中掌握演示文稿属性，并在您的 PowerPoint 和 OpenDocument 文件中简化搜索、品牌化和工作流。"
 ---
 ## **介绍**
 
-Aspose.Slides for Java 支持 **内置** 和 **自定义** 文档属性。使用这些属性读取和更新演示文稿元数据，例如作者、标题和用户定义的值。
+Aspose.Slides for Java 支持 **内置** 和 **自定义** 文档属性。使用这些属性可以读取和更新演示文稿元数据，例如作者、标题和用户自定义值。
 
-Aspose.Slides 允许您通过 [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) 接口操作演示文稿文档属性。该接口的实例由 [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) 返回。以下示例展示了如何读取、修改和管理这些属性。
+Aspose.Slides 允许您通过 [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) 接口操作演示文稿的文档属性。该接口的实例由 [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) 返回。下面的示例演示如何读取、修改和管理这些属性。
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides 在保存演示文稿时管理应用程序和生成者的元数据；这些字段标识创建输出的软件。
+{{% alert color="info" title="注意" %}}
+Aspose.Slides 在保存演示文稿时管理应用程序和生成者元数据；这些字段标识创建输出的软件。
 {{% /alert %}}
 
 ## **管理演示文稿属性**
@@ -41,15 +41,15 @@ Aspose.Slides 在保存演示文稿时管理应用程序和生成者的元数据
 - **内置属性** 包含标准元数据，例如标题、作者和文档统计信息。
 - **自定义属性** 存储用户定义的名称/值对。
 
-Aspose.Slides for Java 提供对两类属性的访问。在 PowerPoint 中，选择 **文件 → 信息 → 属性 → 高级属性** 来检查文档元数据。对话框将信息分组到 **摘要**、**统计**、**内容** 和 **自定义** 等选项卡中。使用 **自定义** 选项卡来管理用户定义的属性。
+Aspose.Slides for Java 提供对两类属性的访问。在 PowerPoint 中，选择 **文件 → 信息 → 属性 → 高级属性** 以检查文档元数据。对话框将信息分组为 **摘要**、**统计**、**内容** 和 **自定义** 等选项卡。使用 **自定义** 选项卡来管理用户定义的属性。
 
-## **读取加密演示文稿的公共属性**
+## **从加密演示文稿读取公共属性**
 
-打开密码通常同时保护演示文稿内容和文档属性。当在调用 [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) 并传入 `false` 后对演示文稿进行加密时，其文档属性仍保持公共。此时应用程序可以调用 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) 并传入 `true`，在不提供打开密码的情况下读取公共元数据。
+打开密码通常同时保护演示文稿内容和文档属性。当在调用 [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) 并传入 `false` 后对演示文稿进行加密时，其文档属性保持公共。此时应用程序可以调用 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) 并传入 `true`，在不提供打开密码的情况下读取公共元数据。
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) 控制 Aspose.Slides 加载的内容；它不会进行解密。如果属性已被加密，则在没有密码的情况下加载会失败。如果演示文稿未加密，该选项被忽略，完整的演示文稿将被加载。
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) 控制 Aspose.Slides 加载的内容；它不会解密任何内容。如果属性已被加密，未提供密码加载将失败。若演示文稿未加密，则此选项被忽略，完整演示文稿会被加载。
 
-该示例需要一个文档属性保持公共的加密演示文稿。它通过 [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) 验证加载模式，然后通过 [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) 读取内置属性：
+示例需要一个文档属性保持公共的加密演示文稿。它通过 [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) 验证加载模式，然后通过 [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) 读取内置属性：
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -75,17 +75,17 @@ try {
 }
 ```
 
-在此模式下，幻灯片内容未被加载。幻灯片、母版、布局、形状、媒体以及其他演示文稿对象均不可用。应用程序在执行需要完整演示文稿对象模型的操作之前，应始终检查 [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--)。
+在此模式下，幻灯片内容不会被加载。幻灯片、母版、布局、形状、媒体及其他演示对象均不可用。应用程序在执行需要完整演示对象模型的操作前，应始终检查 [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--)。
 
-{{% alert color="warning" title="Warning" %}}
-公共元数据可能会暴露作者姓名、标题、主题、关键字、公司信息、评论和自定义值。请将敏感属性与演示文稿一起加密。仅在索引、分类、搜索或文档管理系统明确需要在无需密码的情况下访问时才将其保持公共。
+{{% alert color="warning" title="警告" %}}
+公共元数据可能泄露作者姓名、标题、主题、关键字、公司信息、评论以及自定义值。请将敏感属性与演示文稿一起加密。仅在索引、分类、搜索或文档管理系统明确需要在无密码情况下访问时才将其保持公共。
 {{% /alert %}}
 
 ## **更新加密演示文稿的属性**
 
-对于加密的 PPTX 文件，在调用 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) 并传入 `true` 后加载的演示文稿仅用于读取公共元数据。Aspose.Slides 无法从仅含元数据的对象保存更改的属性，因为公共属性必须与加密演示文稿中的相应数据保持一致。因此，更新这些属性需要正确的打开密码并完整加载演示文稿。
+对于加密的 PPTX 文件，在调用 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) 并传入 `true` 后加载的演示文稿仅用于读取公共元数据。Aspose.Slides 无法从仅含元数据的对象保存已更改的属性，因为公共属性必须与加密演示文稿内部的数据保持一致。因此，更新这些属性必须使用正确的打开密码并完成完整加载。
 
-该示例需要一个具有公共文档属性且已知打开密码的加密 PPTX 演示文稿。它使用 [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) 打开完整演示文稿，更新公共内置属性并保存结果。随后使用 [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) 验证加密仍然保留，并在不提供密码的情况下重新打开公共元数据以验证新值：
+示例需要一个文档属性保持公共且已知打开密码的加密 PPTX 演示文稿。它使用 [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) 完整打开演示文稿，更新公共内置属性并保存结果。随后使用 [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) 验证加密仍然存在，并在不提供密码的情况下重新打开公共元数据以验证新值：
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -135,7 +135,7 @@ try {
 
 ## **访问内置属性**
 
-[IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) 接口通过 getter 方法公开内置元数据，包括 [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--)、[getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--) 和 [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--)。此示例打开现有演示文稿并将其存储的元数据打印到控制台。值取决于输入的演示文稿；某些字段可能为空。
+[IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) 接口通过 getter 方法公开内置元数据，包括 [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--)、[getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--) 和 [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--)。本示例打开现有演示文稿并将其存储的元数据打印到控制台。值取决于输入的演示文稿；某些字段可能为空。
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -164,9 +164,50 @@ try {
 }
 ```
 
+### **报告修订号和编辑时间**
+
+若要对 `presentations` 文件夹中的每个 PPTX 文件输出一行报告，调用 [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) 读取其 [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) 而不加载幻灯片进行编辑。Java API 以毫秒返回编辑时长。示例将其格式化为小时、分钟和秒，并在时长达到或超过 24 小时时显示天数。
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+System.out.println("File | RevisionNumber | TotalEditingTime");
+try (DirectoryStream<Path> files = Files.newDirectoryStream(Paths.get("presentations"), "*.pptx")) {
+    for (Path path : files) {
+        if (!Files.isRegularFile(path)) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(path.toString());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format("%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf("%s | %d | %s%n", path.getFileName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+对于编辑时间为 1 天 2 小时 5 分钟的演示文稿，报告显示如下输出。
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getRevisionNumber--) 读取的值可通过 [setRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-) 进行更改。仅凭修订号无法确定演示文稿保存了多少次，也无法还原其版本历史。
+
+[getTotalEditingTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) 读取文件中记录的编辑时长。值为 `00:00:00` 表示存储的时长为零，即使有人对演示文稿进行了编辑。
+
 ## **修改内置属性**
 
-要更新内置元数据，请对由 [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) 返回的对象使用 setter 方法。此示例打开现有演示文稿，调用 [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-)、[setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-)、[setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-)、[setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-)、[setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-)，然后使用 [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) 保存更新后的演示文稿。保存的 PPTX 包含新的元数据。
+要更新内置元数据，请使用由 [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) 返回的对象的 setter 方法。本示例打开现有演示文稿，调用 [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-)、[setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-)、[setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-)、[setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-)、[setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-)，随后使用 [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) 保存更新后的演示文稿。保存的 PPTX 包含新的元数据。
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -189,11 +230,11 @@ try {
 }
 ```
 
-## **管理超链接基址**
+## **管理超链接基准**
 
-[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) 返回相对超链接的文档级基址。使用 [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) 可以更改或清除它。当移动演示文稿及其关联文件到其他位置时，这非常有用。它与单个超链接的 [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) 是分离的：更改基址不会重写已存储的链接地址或更改绝对目标。
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) 返回文档级别的相对超链接基准。使用 [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) 可更改或清除该基准。当演示文稿及其链接文件移动到其他位置时，这非常有用。它独立于单个超链接的 [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--)：更改基准不会重写已存储的链接地址或改变绝对目标。
 
-该示例需要一个包含相对链接（例如 `target.html`）和绝对链接（例如 `https://example.org/absolute.html`）的演示文稿。它读取现有基址，分配新的基址，然后保存并重新打开演示文稿以检查该值。随后使用空字符串清除基址，并在另一个保存的文件中验证空值。请将示例基址替换为您链接文件所在的位置。
+示例需要一个同时包含相对链接（如 `target.html`）和绝对链接（如 `https://example.org/absolute.html`）的演示文稿。它读取现有基准，分配新基准地址，保存并重新打开演示文稿以检查值。随后使用空字符串清除基准，并在另存的文件中验证空值。请将示例基准地址替换为实际链接文件所在的位置。
 
 ```java
 import com.aspose.slides.Presentation;
@@ -228,13 +269,13 @@ try {
 }
 ```
 
-两个验证消息应打印 `true`。清除基址后，单个超链接地址保持不变。
+两个验证消息应输出 `true`。清除基准后，单个超链接地址保持不变。
 
-当基址指向 `old` 文件夹时，对 `target.pptx` 的相对链接会打开 `old/target.pptx`。将基址更改为 `new` 文件夹并保存、重新打开演示文稿后，同一链接会打开 `new/target.pptx`。绝对链接仍然打开相同的文件。在移动演示文稿或更改基址前后，请在 PowerPoint 中测试您的相对链接。
+相对链接 `target.pptx` 在基准指向 `old` 文件夹时打开 `old/target.pptx`。将基准改为 `new` 文件夹后，保存并重新打开演示文稿，同一链接将打开 `new/target.pptx`。绝对链接仍然打开相同文件。请在移动演示文稿或更改基准前后，在 PowerPoint 中测试相对链接。
 
 ## **添加自定义演示文稿属性**
 
-自定义属性存储没有对应内置字段的元数据。[IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) 方法允许您按属性名称分配值。此示例创建一个演示文稿，添加两个文本值和一个整数版本值，并使用 [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) 保存演示文稿。对已有名称赋值会替换该属性的值。
+自定义属性存储没有对应内置字段的元数据。通过 [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) 方法可按属性名称分配值。本示例创建演示文稿，添加两个文本值和一个整数版本值，并使用 [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) 保存演示文稿。对已有名称赋值会覆盖该属性的原有值。
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -257,7 +298,7 @@ try {
 
 ## **访问并修改自定义属性**
 
-此示例打开包含自定义属性的演示文稿，并使用 [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) 进行遍历。[getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) 接受从零开始的索引并返回由 [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) 使用的名称。示例打印每个原始名称和值，将每个值替换为带编号的字符串（无论其原始类型），并保存更改。如果没有自定义属性，循环将不会进行任何修改。
+本示例打开包含自定义属性的演示文稿，并使用 [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) 迭代它们。[getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) 接受零基索引并返回用于 [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) 的名称。示例打印每个原始名称和值，将所有值替换为带编号的字符串（不论原始类型），并保存更改。如果没有自定义属性，循环不做任何修改。
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -292,22 +333,22 @@ try {
 
 ## **常见问题**
 
-**如何从演示文稿中删除内置属性？**
+**如何从演示文稿中移除内置属性？**
 
-内置属性是演示文稿的组成部分，不能完全删除。不过，您可以更改它们的值，或在特定属性允许的情况下将其设置为空。
+内置属性是演示文稿的组成部分，无法完全删除。不过，您可以更改它们的值，或在特定属性允许的情况下将其设为空。
 
-**如果添加的自定义属性已存在，会发生什么？**
+**如果我添加的自定义属性已经存在会怎样？**
 
-如果添加的自定义属性已存在，其原有值将被新值覆盖。您无需事先删除或检查该属性，因为 Aspose.Slides 会自动更新属性的值。
+如果添加的自定义属性已经存在，其原有值会被新值覆盖。无需事先删除或检查属性，Aspose.Slides 会自动更新属性的值。
 
-**是否可以在不完全加载演示文稿的情况下访问演示文稿属性？**
+**我能在不完整加载演示文稿的情况下访问演示文稿属性吗？**
 
-可以。使用 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-)，随后调用 [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) 即可在不创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 实例的情况下读取存储的文档元数据。请参阅 [构建轻量级演示文稿清单](/slides/zh/java/examine-presentation/) 获取完整的报告示例以及特定格式的限制。
+可以。使用 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) 然后调用 [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) 即可在不创建 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 实例的情况下读取存储的文档元数据。参见 [构建轻量级演示文稿清单](/slides/zh/java/examine-presentation/) 了解完整报告示例及格式特定的限制。
 
-**是否可以在不提供打开密码的情况下读取加密演示文稿的公共属性？**
+**我能在不提供打开密码的情况下读取加密演示文稿的公共属性吗？**
 
-可以。演示文稿必须在调用 [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) 并传入 `false` 后进行加密，并且需要在调用 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) 并传入 `true` 后加载。
+可以。前提是演示文稿在调用 [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) 并传入 `false` 后进行加密，并且在调用 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) 并传入 `true` 后加载。
 
-**是否可以在仅文档属性模式下更新加密的 PPTX 文件？**
+**我能在仅加载文档属性模式下更新加密的 PPTX 文件吗？**
 
-不可以。公共属性和加密属性数据必须保持一致，因此要更新加密的 PPTX 文件，需要使用正确的打开密码完整加载演示文稿。
+不能。公共属性与加密属性的数据必须保持一致，因此在更新加密 PPTX 文件时必须使用正确的打开密码并完整加载演示文稿。

@@ -5,51 +5,51 @@ type: docs
 weight: 70
 url: /cs/php-java/presentation-properties/
 keywords:
-- vlastnosti PowerPointu
-- vlastnosti prezentace
-- vlastnosti dokumentu
-- vestavěné vlastnosti
-- vlastní vlastnosti
-- rozšířené vlastnosti
-- správa vlastností
-- úprava vlastností
-- metadata dokumentu
-- úprava metadat
-- jazyk korektury
-- výchozí jazyk
+- Vlastnosti PowerPoint
+- Vlastnosti prezentace
+- Vlastnosti dokumentu
+- Vestavěné vlastnosti
+- Vlastní vlastnosti
+- Pokročilé vlastnosti
+- Správa vlastností
+- Úprava vlastností
+- Metadata dokumentu
+- Úprava metadat
+- Jazyk kontroly pravopisu
+- Výchozí jazyk
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Ovládněte vlastnosti prezentace v Aspose.Slides pro PHP přes Java a zefektivněte vyhledávání, značkování a workflow ve vašich souborech PowerPoint a OpenDocument."
+description: "Zvládněte vlastnosti prezentace v Aspose.Slides pro PHP přes Java a zefektivněte vyhledávání, značkování a pracovní postup ve vašich souborech PowerPoint a OpenDocument."
 ---
 ## **Úvod**
 
-Aspose.Slides pro PHP přes Java podporuje **vestavěné** a **vlastní** vlastnosti dokumentu. Použijte tyto vlastnosti ke čtení a aktualizaci metadat prezentace, jako jsou autor, název a uživatelem definované hodnoty.
+Aspose.Slides pro PHP přes Java podporuje **vestavěné** a **vlastní** vlastnosti dokumentu. Použijte tyto vlastnosti ke čtení a aktualizaci metadat prezentace, jako je autor, název a uživatelem definované hodnoty.
 
-Aspose.Slides umožňuje pracovat s vlastnostmi dokumentu prezentace prostřednictvím třídy [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/). Instance této třídy je vrácena metodou [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). Následující příklady ukazují, jak číst, upravovat a spravovat tyto vlastnosti. Předpokládají, že je inicializován PHP/Java Bridge a obal Aspose.Slides pro PHP.
+Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace pomocí třídy [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) . Instance této třídy je vrácena metodou [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). Následující příklady ukazují, jak číst, měnit a spravovat tyto vlastnosti. Předpokládají, že je inicializován PHP/Java Bridge a obal Aspose.Slides pro PHP.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides spravuje metadata aplikace a tvůrce při ukládání prezentací; tato pole identifikují software, který vytvořil výstup.
+Aspose.Slides spravuje metadata aplikace a výrobce při ukládání prezentací; tato pole identifikují software, který vytvořil výstup.
 {{% /alert %}}
 
-## **Spravovat vlastnosti prezentace**
+## **Správa vlastností prezentace**
 
-Vlastnosti dokumentu ukládají popisné informace vedle obsahu prezentace. Rozdělují se do dvou kategorií:
+Vlastnosti dokumentu ukládají popisné informace vedle obsahu prezentace. Patří do dvou kategorií:
 
 - **Vestavěné vlastnosti** obsahují standardní metadata, jako je název, autor a statistiky dokumentu.
-- **Vlastní vlastnosti** ukládají uživatelem definované páry jméno/hodnota.
+- **Vlastní vlastnosti** ukládají uživatelem definované páry název/hodnota.
 
-Aspose.Slides pro PHP přes Java poskytuje přístup k oběma kategoriím. V PowerPointu vyberte **Soubor → Informace → Vlastnosti → Pokročilé vlastnosti** pro prohlédnutí metadat dokumentu. Dialog skupinuje informace do záložek jako **Shrnutí**, **Statistiky**, **Obsah** a **Vlastní**. V kartě **Vlastní** můžete spravovat uživatelem definované vlastnosti.
+Aspose.Slides pro PHP přes Java poskytuje přístup k oběma kategoriím. V PowerPointu vyberte **File → Info → Properties → Advanced Properties** pro prohlédnutí metadat dokumentu. Dialog seskupuje informace do záložek jako **Summary**, **Statistics**, **Contents** a **Custom**. Použijte záložku **Custom** pro správu uživatelem definovaných vlastností.
 
 ## **Čtení veřejných vlastností z šifrované prezentace**
 
-Otevírací heslo obvykle chrání jak obsah prezentace, tak i vlastnosti dokumentu. Když je prezentace šifrována po volání [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) s hodnotou `false`, její vlastnosti dokumentu zůstávají veřejné. Aplikace pak může zavolat [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) s hodnotou `true` a přečíst veřejná metadata bez zadání otevíracího hesla.
+Otevírací heslo obvykle chrání jak obsah prezentace, tak vlastnosti dokumentu. Když je prezentace šifrována po volání [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) s hodnotou `false`, její vlastnosti dokumentu zůstávají veřejné. Aplikace pak může zavolat [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) s hodnotou `true` a přečíst veřejná metadata bez zadání otevíracího hesla.
 
-[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) řídí, co Aspose.Slides načte; nic nešifruje. Pokud byly vlastnosti zahrnuty do šifrování, načtení bez hesla selže. Pokud prezentace není šifrována, volba je ignorována a načte se celá prezentace.
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) řídí, co Aspose.Slides načítá; nic než šifru neodšifruje. Pokud byly vlastnosti zahrnuty do šifrování, načtení bez hesla selže. Pokud prezentace není šifrována, volba se ignoruje a načte se celá prezentace.
 
-Příklad vyžaduje šifrovanou prezentaci, jejíž vlastnosti dokumentu byly ponechány veřejné. Ověřuje režim načítání pomocí [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) a poté čte vestavěné vlastnosti pomocí [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/):
+Příklad vyžaduje šifrovanou prezentaci, jejíž vlastnosti dokumentu byly ponechány veřejné. Ověřuje režim načítání pomocí [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) a poté čte vestavěné vlastnosti pomocí [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -74,17 +74,17 @@ try {
 }
 ```
 
-V tomto režimu není načítán obsah snímků. Snímky, mastery, rozložení, tvary, média a další objekty prezentace nejsou k dispozici. Aplikace by měly vždy před provedením operace, která vyžaduje kompletní model objektů prezentace, zkontrolovat [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/).
+V tomto režimu není načten obsah snímků. Snímky, předlohy, rozvržení, tvary, média a další objekty prezentace nejsou k dispozici. Aplikace by měly vždy zkontrolovat [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded), před provedením operace, která vyžaduje kompletní objektový model prezentace.
 
 {{% alert color="warning" title="Warning" %}}
-Veřejná metadata mohou odhalit jména autorů, názvy, předměty, klíčová slova, informace o společnosti, komentáře a vlastní hodnoty. Šifrujte citlivé vlastnosti spolu s prezentací. Ponechte je veřejné pouze tehdy, když mají indexační, klasifikační, vyhledávací nebo systémy správy dokumentů konkrétní požadavek na přístup bez hesla.
+Veřejná metadata mohou odhalit jména autorů, názvy, předměty, klíčová slova, informace o společnosti, komentáře a vlastní hodnoty. Šifrujte citlivé vlastnosti společně s prezentací. Nechte je veřejné pouze v případě, že indexovací, klasifikační, vyhledávací nebo systémy pro správu dokumentů mají konkrétní požadavek na přístup k nim bez hesla.
 {{% /alert %}}
 
 ## **Aktualizace vlastností šifrované prezentace**
 
-Pro šifrovaný soubor PPTX je prezentace načtená po volání [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) s `true` určena ke čtení veřejných metadat. Aspose.Slides nemůže uložit změněné vlastnosti z tohoto objektu jen s metadaty, protože veřejné vlastnosti musí zůstat konzistentní s odpovídajícími daty uvnitř šifrované prezentace. Aktualizace tedy vyžaduje správné otevírací heslo a kompletní načtení.
+Pro šifrovaný soubor PPTX je prezentace načtená po volání [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) s hodnotou `true` určena k čtení veřejných metadat. Aspose.Slides nemůže uložit změněné vlastnosti z tohoto objektu obsahujícího pouze metadata, protože veřejné vlastnosti musí zůstat v souladu s odpovídajícími daty uvnitř šifrované prezentace. Aktualizace proto vyžaduje správné otevírací heslo a kompletní načtení.
 
-Příklad vyžaduje šifrovanou PPTX prezentaci s veřejnými vlastnostmi dokumentu a známým otevíracím heslem. Otevře kompletní prezentaci pomocí [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/), aktualizuje veřejné vestavěné vlastnosti a uloží výsledek. Poté použije [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/) k ověření, že šifrování bylo zachováno, a znovu otevře veřejná metadata bez hesla k ověření nových hodnot:
+Příklad vyžaduje šifrovanou PPTX prezentaci s veřejnými vlastnostmi dokumentu a známým otevíracím heslem. Otevře kompletní prezentaci pomocí [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword), aktualizuje veřejné vestavěné vlastnosti a uloží výsledek. Poté použije [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#isEncrypted) k ověření, že šifrování bylo zachováno, a znovu otevře veřejná metadata bez hesla pro ověření nových hodnot:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -128,11 +128,11 @@ try {
 }
 ```
 
-Pokud aplikace nemá oprávnění dešifrovat nebo načíst obsah prezentace, musí veřejné vlastnosti šifrovaného souboru PPTX považovat za pouze ke čtení.
+Pokud aplikace nemá povoleno dešifrovat nebo načíst obsah prezentace, musí považovat veřejné vlastnosti šifrovaného souboru PPTX za pouze pro čtení.
 
 ## **Přístup k vestavěným vlastnostem**
 
-Třída [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) vystavuje vestavěná metadata prostřednictvím metod getter, včetně [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/) a [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/). Tento příklad otevře existující prezentaci a vypíše její uložená metadata do konzole. Hodnoty závisí na vstupní prezentaci; některá pole mohou být prázdná.
+Třída [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) zpřístupňuje vestavěná metadata pomocí getter metod, včetně [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTitle) a [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCreatedTime). Tento příklad otevře existující prezentaci a vypíše její uložená metadata do konzole. Hodnoty závisí na vstupní prezentaci; některá pole mohou být prázdná.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,43 @@ try {
 }
 ```
 
+### **Zpráva o čísle revize a době úprav**
+
+Pro zjištění čísla revize a celkové doby úprav každého souboru PPTX ve složce `presentations` použijte [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties), abyste načetli jeho [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) bez načítání snímků pro úpravy. API PHP přes Java vrací dobu úprav v milisekundách. Příklad ji převádí na hodiny, minuty a sekundy a zahrnuje počet dní pro trvání 24 hodin a více.
+
+```php
+use aspose\slides\PresentationFactory;
+
+echo "File | RevisionNumber | TotalEditingTime\n";
+foreach (new GlobIterator("presentations/*.pptx") as $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    $info = PresentationFactory::getInstance()->getPresentationInfo($file->getRealPath());
+    $properties = $info->readDocumentProperties();
+    $totalSeconds = (int) (java_values($properties->getTotalEditingTime()) / 1000);
+    $days = intdiv($totalSeconds, 86400);
+    $time = sprintf("%02d:%02d:%02d", intdiv($totalSeconds, 3600) % 24, intdiv($totalSeconds, 60) % 60, $totalSeconds % 60);
+    $editingTime = $days > 0 ? $days . "." . $time : $time;
+    printf("%s | %d | %s\n", $file->getFilename(), java_values($properties->getRevisionNumber()), $editingTime);
+}
+```
+
+Pro prezentaci s číslem revize 17 a zaznamenanou dobou úprav 1 den, 2 hodiny a 5 minut zpráva zobrazí následující výstup.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[DocumentProperties::getRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getRevisionNumber) čte hodnotu, kterou aplikace mohou změnit pomocí [DocumentProperties::setRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setRevisionNumber). Samotné číslo revize neukazuje, kolikrát byla prezentace uložena, ani neumožňuje rekonstruovat historii verzí.
+
+[DocumentProperties::getTotalEditingTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTotalEditingTime) čte dobu úprav zaznamenanou v souboru. Prezentace může mít uloženou dobu nula (`00:00:00`), i když byla někým upravována.
+
 ## **Úprava vestavěných vlastností**
 
-Pro aktualizaci vestavěných metadat použijte metody setter na objektu vráceném metodou [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). Tento příklad otevře existující prezentaci, zavolá [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/) a [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/), poté uloží aktualizovanou prezentaci pomocí [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). Uložený soubor PPTX obsahuje nová metadata.
+Pro aktualizaci vestavěných metadat použijte metody setter na objektu vráceném metodou [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). Tento příklad otevře existující prezentaci, zavolá [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setComments) a [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setManager), pak uloží aktualizovanou prezentaci pomocí [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). Uložený PPTX obsahuje nová metadata.
 
 ```php
 use aspose\slides\Presentation;
@@ -184,11 +218,11 @@ try {
 }
 ```
 
-## **Správa základní adresy hypertextových odkazů**
+## **Správa základny hyperodkazu**
 
-[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/) vrací úroveň dokumentu pro relativní hypertextové odkazy. Použijte [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/) k jejímu změnění nebo vymazání. To je užitečné při přesunu prezentace a jejích souvisejících souborů na jiné místo. Je to oddělené od [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) jednotlivých odkazů: změna základny nepřepíše uložené adresy odkazů ani nezmění absolutní cíle.
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getHyperlinkBase) vrací úrovňový základ dokumentu pro relativní hyperodkazy. Použijte [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setHyperlinkBase) pro změnu nebo vymazání. To je užitečné při přesunu prezentace a jejích propojených souborů na jiné místo. Je to oddělené od individuálního hyperodkazu [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/#getExternalUrl): změna základu nepřepíše uložené adresy odkazů ani nezmění absolutní cíle.
 
-Příklad vyžaduje prezentaci obsahující jak relativní odkaz, například `target.html`, tak absolutní odkaz, například `https://example.org/absolute.html`. Přečte existující základnu, přiřadí novou základní adresu a uloží a znovu otevře prezentaci k ověření hodnoty. Poté základnu vymaže prázdným řetězcem a ověří prázdnou hodnotu v samostatném uloženém souboru. Nahraďte příkladovou základní adresu umístěním vašich propojených souborů.
+Příklad vyžaduje prezentaci obsahující jak relativní odkaz, např. `target.html`, tak absolutní odkaz, např. `https://example.org/absolute.html`. Přečte existující základ, přiřadí novou adresu základu a uloží a znovu otevře prezentaci pro kontrolu hodnoty. Poté základ vymaže pomocí prázdného řetězce a ověří prázdnou hodnotu v samostatném uloženém souboru. Nahraďte ukázkovou adresu základu umístěním vašich propojených souborů.
 
 ```php
 use aspose\slides\Presentation;
@@ -223,13 +257,13 @@ try {
 }
 ```
 
-Obě ověřovací zprávy by měly vypsat `true`. Vymazání základny ponechá jednotlivé adresy hypertextových odkazů nedotčeny.
+Obě ověřovací zprávy by měly vypsat `true`. Vymazání základu ponechá adresy jednotlivých hyperodkazů nedotčeny.
 
-Relativní odkaz na `target.pptx` otevřel `old/target.pptx`, když základna ukazovala na složku `old`. Po změně základny na složku `new`, uložení a opětovném otevření prezentace se stejný odkaz otevřel `new/target.pptx`. Absolutní odkaz nadále otevíral stejný soubor. Otestujte své relativní odkazy v PowerPointu před a po přesunu prezentace nebo změně její základny.
+Relativní odkaz na `target.pptx` otevřel `old/target.pptx`, když základ ukazoval na složku `old`. Po změně základu na složku `new`, uložení a opětovném otevření prezentace stejný odkaz otevřel `new/target.pptx`. Absolutní odkaz nadále otevřel stejný soubor. Otestujte své relativní odkazy v PowerPointu před a po přesunu prezentace nebo změně jejího základu.
 
 ## **Přidání vlastních vlastností prezentace**
 
-Vlastní vlastnosti ukládají metadata, pro která neexistuje odpovídající vestavěné pole. Metoda [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) umožňuje přiřadit hodnotu podle názvu vlastnosti. Tento příklad vytvoří prezentaci, přidá dva textové hodnoty a celočíselnou verzi a uloží prezentaci pomocí [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). Přiřazení hodnoty k existujícímu názvu nahradí hodnotu této vlastnosti.
+Vlastní vlastnosti ukládají metadata, která nemají odpovídající vestavěné pole. Metoda [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) vám umožňuje přiřadit hodnotu podle názvu vlastnosti. Tento příklad vytvoří prezentaci, přidá dva textové hodnoty a celočíselnou verzi, a uloží prezentaci pomocí [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). Přiřazení hodnoty k existujícímu názvu nahradí hodnotu této vlastnosti.
 
 ```php
 use aspose\slides\Presentation;
@@ -251,7 +285,7 @@ try {
 
 ## **Přístup a úprava vlastních vlastností**
 
-Tento příklad otevře prezentaci obsahující vlastní vlastnosti a použije [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/) k jejich iteraci. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/) přijímá index začínající nulou a vrací název použitý v [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/). Příklad vypíše každý původní název a hodnotu, nahradí každou hodnotu číslovaným řetězcem bez ohledu na původní typ a uloží změny. Pokud neexistují žádné vlastní vlastnosti, smyčka nedělá žádné změny.
+Tento příklad otevře prezentaci obsahující vlastní vlastnosti a použije [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCountOfCustomProperties), aby je prošel. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCustomPropertyName) přijímá index počínaje nulou a vrací název použitý v [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item). Příklad vypíše každý původní název a hodnotu, nahradí každou hodnotu číslovaným řetězcem bez ohledu na původní typ a uloží změny. Pokud nejsou žádné vlastní vlastnosti, smyčka neprovede žádné změny.
 
 ```php
 use aspose\slides\Presentation;
@@ -277,30 +311,30 @@ try {
 }
 ```
 
-## **Ukázkový příklad**
+## **Živý příklad**
 
-Vyzkoušejte online aplikaci [**Zobrazit a upravit metadata PowerPoint**](https://products.aspose.app/slides/metadata) a podívejte se, jak pracovat s vlastnostmi dokumentu pomocí API Aspose.Slides:
+Vyzkoušejte online aplikaci [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata), abyste viděli, jak pracovat s vlastnostmi dokumentu pomocí Aspose.Slides API:
 
-[![Zobrazit a upravit metadata PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
 **Jak mohu odstranit vestavěnou vlastnost z prezentace?**
 
-Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete však změnit jejich hodnoty nebo je nastavit na prázdné, pokud to konkrétní vlastnost umožňuje.
+Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete však buď změnit jejich hodnoty, nebo je nastavit na prázdné, pokud to konkrétní vlastnost umožňuje.
 
-**Co se stane, pokud přidám vlastní vlastnost, která už existuje?**
+**Co se stane, když přidám vlastní vlastnost, která již existuje?**
 
-Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Není nutné vlastnost předem odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
+Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost předtím odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
 
-**Mohu přistupovat k vlastnostem prezentace bez úplného načtení prezentace?**
+**Mohu získat přístup k vlastnostem prezentace bez úplného načtení prezentace?**
 
-Ano. Použijte [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/) a poté [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/) k přečtení uložených metadat dokumentu bez vytváření instance [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Viz [Build a Lightweight Presentation Inventory](/slides/cs/php-java/examine-presentation/) pro kompletní příklad reportování a omezení specifická pro formát.
+Ano. Použijte [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/#getPresentationInfo) a poté [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties), abyste načetli uložená metadata dokumentu bez vytváření instance [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Viz [Build a Lightweight Presentation Inventory](/slides/cs/php-java/examine-presentation/) pro kompletní příklad reportování a specifická omezení formátu.
 
-**Mohu přečíst veřejné vlastnosti šifrované prezentace bez jejího otevíracího hesla?**
+**Mohu číst veřejné vlastnosti šifrované prezentace bez jejího otevíracího hesla?**
 
-Ano. Prezentace musí být šifrována po volání [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) s `false` a musí být načtena po volání [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) s `true`.
+Ano. Prezentace musí být šifrována po volání [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) s hodnotou `false` a musí být načtena po volání [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) s hodnotou `true`.
 
-**Mohu aktualizovat šifrovaný soubor PPTX v režimu pouze vlastností dokumentu?**
+**Mohu aktualizovat šifrovaný soubor PPTX v režimu pouze vlastnosti dokumentu?**
 
-Ne. Veřejná a šifrovaná data vlastností musí zůstat konzistentní, takže aktualizace šifrovaného souboru PPTX vyžaduje načtení kompletní prezentace s správným otevíracím heslem.
+Ne. Veřejná a šifrovaná data vlastností musí zůstat konzistentní, takže aktualizace šifrovaného souboru PPTX vyžaduje načtení celé prezentace se správným otevíracím heslem.

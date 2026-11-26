@@ -1,5 +1,5 @@
 ---
-title: إدارة خصائص العرض التقديمي في بايثون
+title: إدارة خصائص العرض التقديمي في Python
 linktitle: خصائص العرض التقديمي
 type: docs
 weight: 70
@@ -22,34 +22,34 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تحكم كامل في خصائص العرض التقديمي في Aspose.Slides للبايثون عبر جافا وقم بتبسيط البحث والعلامة التجارية وسير العمل في ملفات PowerPoint و OpenDocument الخاصة بك."
+description: "إدارة خصائص العرض التقديمي في Aspose.Slides لPython عبر Java وتبسيط البحث والعلامة التجارية وسير العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
 ---
 ## **المقدمة**
 
-Aspose.Slides for Python via Java يدعم **الخصائص المدمجة** و **الخصائص المخصصة** للمستند. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف، العنوان، والقيم التي يحددها المستخدم.
+Aspose.Slides for Python via Java يدعم الخصائص **المدمجة** و **المخصصة** للوثائق. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف والعنوان والقيم التي يحددها المستخدم.
 
-يتيح لك Aspose.Slides العمل مع خصائص مستند العرض التقديمي عبر الفئة [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) . يتم إرجاع مثيل من هذه الفئة بواسطة [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) . تُظهر الأمثلة التالية كيفية قراءة، تعديل، وإدارة هذه الخصائص.
+Aspose.Slides يسمح لك بالعمل مع خصائص مستند العرض التقديمي عبر فئة [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/). يتم إرجاع كائن من هذه الفئة بواسطة [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties). توضح الأمثلة التالية كيفية قراءة وتعديل وإدارة هذه الخصائص.
 
 {{% alert color="info" title="Note" %}}
-يدير Aspose.Slides بيانات تعريف التطبيق والمنتج عند حفظ العروض التقديمية؛ تحدد هذه الحقول البرنامج الذي أنشأ الملف الناتج.
+Aspose.Slides يدير بيانات تعريف التطبيق والمنتج عند حفظ العروض التقديمية؛ تحدد هذه الحقول البرنامج الذي أنشأ الناتج.
 {{% /alert %}}
 
 ## **إدارة خصائص العرض التقديمي**
 
-تخزن خصائص المستند معلومات وصفية إلى جانب محتوى العرض التقديمي. تنقسم إلى فئتين:
+تخزن خصائص المستند معلومات وصفية جنبًا إلى جنب مع محتوى العرض التقديمي. تنقسم إلى فئتين:
 
-- **Built-in properties** تحتوي على بيانات تعريف قياسية، مثل العنوان، المؤلف، وإحصائيات المستند.
-- **Custom properties** تخزن أزواج اسم/قيمة يحددها المستخدم.
+- **الخصائص المدمجة** تحتوي على بيانات تعريف قياسية، مثل العنوان، المؤلف، وإحصائيات المستند.
+- **الخصائص المخصصة** تخزن أزواج الاسم/القيمة التي يحددها المستخدم.
 
-يوفر Aspose.Slides for Python via Java إمكانية الوصول إلى كلا الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لاستعراض بيانات تعريف المستند. يُقسم الحوار المعلومات إلى علامات تبويب مثل **Summary**، **Statistics**، **Contents**، و **Custom**. استخدم علامة التبويب **Custom** لإدارة الخصائص التي يحددها المستخدم.
+Aspose.Slides for Python via Java يوفر إمكانية الوصول إلى الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لتفقد بيانات تعريف المستند. يجمع الحوار المعلومات في علامات تبويب مثل **Summary**، **Statistics**، **Contents**، و **Custom**. استخدم علامة تبويب **Custom** لإدارة الخصائص التي يحددها المستخدم.
 
 ## **قراءة الخصائص العامة من عرض تقديمي مشفر**
 
-عادةً ما يحمي كلمة مرور الفتح كل من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير عرض تقديمي بعد استدعاء [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) مع `False`، تظل خصائص المستند عامة. يمكن لتطبيق بعد ذلك استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مع `True` وقراءة البيانات العامة دون تزويد كلمة مرور الفتح.
+عادةً ما تحمي كلمة مرور الفتح كلًا من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير عرض تقديمي بعد استدعاء [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) مع `False`، تبقى خصائص المستند عامة. يمكن للتطبيق بعد ذلك استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مع `True` وقراءة البيانات العامة دون تقديم كلمة مرور الفتح.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) يتحكم فيما يحمله Aspose.Slides؛ ولا يقوم بفك التشفير. إذا تم تضمين الخصائص في التشفير، فإن تحميلها بدون كلمة المرور سيفشل. إذا لم يكن العرض مشفراً، يتم تجاهل الخيار ويتم تحميل العرض الكامل.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) يتحكم فيما يقوم Aspose.Slides بتحميله؛ لا يقوم بفك التشفير. إذا تم تضمين الخصائص في عملية التشفير، فإن تحميلها بدون كلمة المرور يفشل. إذا لم يكن العرض مشفرًا، يتم تجاهل الخيار وتُحمَّل النسخة الكاملة من العرض.
 
-المثال يتطلب عرضاً مشفراً تُركت خصائص مستنده عامة. يتحقق من وضع التحميل عبر [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) ثم يقرأ الخصائص المدمجة عبر [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) :
+يتطلب المثال عرضًا تقديميًا مشفرًا تم ترك خصائص المستند فيه عامة. يتحقق من وضع التحميل عبر [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) ثم يقرأ الخصائص المدمجة عبر [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```python
 import jpype
@@ -78,17 +78,17 @@ finally:
     presentation.dispose()
 ```
 
-في هذا الوضع، لا يتم تحميل محتوى الشريحة. لا تتوفر الشرائح، القوالب، التخطيطات، الأشكال، الوسائط، وغيرها من كائنات العرض التقديمي. يجب على التطبيقات دائمًا التحقق من [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) قبل تنفيذ عملية تتطلب نموذج كائن العرض الكامل.
+في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، القوالب، المخططات، الأشكال، الوسائط، وغيرها من كائنات العرض غير متاحة. يجب على التطبيقات دائمًا التحقق من [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) قبل تنفيذ عملية تتطلب نموذج كائن العرض الكامل.
 
 {{% alert color="warning" title="Warning" %}}
-قد تكشف البيانات العامة عن أسماء المؤلفين، العناوين، المواضيع، الكلمات المفتاحية، معلومات الشركة، التعليقات، والقيم المخصصة. قم بتشفير الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما يكون هناك متطلبات محددة من أنظمة الفهرسة، التصنيف، البحث، أو إدارة المستندات للوصول إليها بدون كلمة مرور.
+قد تكشف البيانات العامة عن أسماء المؤلفين والعناوين والمواضيع والكلمات المفتاحية ومعلومات الشركة والتعليقات والقيم المخصصة. شفر الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما تتطلب أنظمة الفهرسة أو التصنيف أو البحث أو إدارة الوثائق الوصول إليها بدون كلمة مرور.
 {{% /alert %}}
 
 ## **تحديث خصائص عرض تقديمي مشفر**
 
-بالنسبة لملف PPTX مشفر، يكون العرض المحمَّل بعد استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مع `True` مخصصًا لقراءة البيانات العامة. لا يمكن لـ Aspose.Slides حفظ الخصائص المتغيرة من ذلك الكائن الذي يحمل البيانات العامة فقط لأن الخصائص العامة يجب أن تظل متسقة مع البيانات المقابلة داخل العرض المشفر. لذلك يتطلب تحديثها كلمة مرور الفتح الصحيحة وتحميلًا كاملاً.
+لملف PPTX مشفر، يُقصد من العرض الذي يُحمَّل بعد استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مع `True` قراءة البيانات العامة. لا يستطيع Aspose.Slides حفظ الخصائص المعدلة من ذلك الكائن المتاح للبيانات العامة لأن الخصائص العامة يجب أن تبقى متسقة مع البيانات المقابلة داخل العرض المشفر. لذلك يتطلب التحديث كلمة مرور الفتح الصحيحة وتحميلًا كاملاً.
 
-المثال يتطلب عرض PPTX مشفر بخصائص مستند عامة وكلمة مرور فتح معروفة. يفتح العرض الكامل باستخدام [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword)، يحدّث الخصائص المدمجة العامة، ويحفظ النتيجة. ثم يستخدم [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) للتحقق من الحفاظ على التشفير ويعيد فتح البيانات العامة بدون كلمة مرور للتحقق من القيم الجديدة :
+يتطلب المثال عرض PPTX مشفر يحتوي على خصائص مستند عامة وكلمة مرور فتح معروفة. يفتح العرض الكامل باستخدام [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword)، يحدّث الخصائص المدمجة العامة، ويحفظ النتيجة. ثم يستخدم [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) للتحقق من الحفاظ على التشفير ويعيد فتح البيانات العامة بدون كلمة مرور للتحقق من القيم الجديدة:
 
 ```python
 import jpype
@@ -132,11 +132,11 @@ finally:
     metadata_presentation.dispose()
 ```
 
-إذا لم يُسمح لتطبيق بفك تشفير أو تحميل محتوى العرض، يجب أن يتعامل مع الخصائص العامة لملف PPTX مشفر كقراءة فقط.
+إذا لم يُسمح للتطبيق بفك تشفير أو تحميل محتوى العرض، يجب أن يتعامل مع الخصائص العامة لملف PPTX المشفر كقابلة للقراءة فقط.
 
 ## **الوصول إلى الخصائص المدمجة**
 
-الفئة [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) تُظهر بيانات التعريف المدمجة عبر طرق getter، بما في ذلك [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor)، [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle)، و [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime). يفتح هذا المثال عرضًا موجودًا ويطبع بيانات التعريف المخزنة إلى وحدة التحكم. القيم تعتمد على العرض المدخل؛ قد تكون بعض الحقول فارغة.
+الفئة [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) تكشف عن بيانات التعريف المدمجة من خلال طرق getter، بما في ذلك [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor)، [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle)، و [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع البيانات المخزنة إلى وحدة التحكم. القيم تعتمد على العرض المدخل؛ قد تكون بعض الحقول فارغة.
 
 ```python
 import jpype
@@ -169,9 +169,54 @@ finally:
     presentation.dispose()
 ```
 
+### **تقرير رقم المراجعة ووقت التحرير**
+
+لتوليد صف واحد لكل ملف PPTX في مجلد `presentations`، استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) و [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) لقراءة [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) الخاصة به دون تحميل الشرائح للتحرير. تُعيد واجهة Python عبر Java مدة التحرير بالميليثانية. يقوم المثال بتنسيقها كساعات ودقائق وثوانٍ، مع عدد أيام للمدة التي تبلغ 24 ساعة أو أكثر.
+
+```python
+from pathlib import Path
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PresentationFactory
+
+factory = PresentationFactory.getInstance()
+print("File | RevisionNumber | TotalEditingTime")
+for path in sorted(Path("presentations").glob("*.pptx")):
+    if not path.is_file():
+        continue
+
+    info = factory.getPresentationInfo(str(path))
+    properties = info.readDocumentProperties()
+    total_seconds = int(properties.getTotalEditingTime()) // 1000
+    days, remaining_seconds = divmod(total_seconds, 86400)
+    hours, remaining_seconds = divmod(remaining_seconds, 3600)
+    minutes, seconds = divmod(remaining_seconds, 60)
+    editing_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    if days:
+        editing_time = f"{days}.{editing_time}"
+
+    print(f"{path.name} | {properties.getRevisionNumber()} | {editing_time}")
+```
+
+لعرض تم تسجيل وقت تحريره بـ 1 يوم، ساعتين، و5 دقائق، يعرض التقرير الن output التالي.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[ getRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getRevisionNumber) يقرأ قيمة يمكن للتطبيقات تعديلها باستخدام [setRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setRevisionNumber). رقم المراجعة وحده لا يمكنه تحديد عدد مرات حفظ العرض أو إعادة بناء تاريخ الإصدارات.
+
+[ getTotalEditingTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTotalEditingTime) يقرأ مدة التحرير المسجلة في الملف. القيمة `00:00:00` تعني أن المدة المخزنة صفر، حتى لو قام شخص ما بتحرير العرض.
+
 ## **تعديل الخصائص المدمجة**
 
-لتحديث بيانات التعريف المدمجة، استخدم طرق setter على الكائن الذي تُرجعه [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties). يفتح هذا المثال عرضًا موجودًا، يستدعي [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor)، [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle)، [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject)، [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments)، و[setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager)، ثم يحفظ العرض المحدَّث باستخدام [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). يحتوي ملف PPTX المحفوظ على البيانات التعريفية الجديدة.
+لتحديث البيانات المدمجة، استخدم طرق setter على الكائن الذي تُرجعه [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties). يفتح هذا المثال عرضًا تقديميًا موجودًا، يستدعي [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor)، [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle)، [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject)، [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments)، و [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager)، ثم يحفظ العرض المحدث باستخدام [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). يحتوي ملف PPTX المحفوظ على البيانات الجديدة.
 
 ```python
 import jpype
@@ -199,9 +244,9 @@ finally:
 
 ## **إدارة قاعدة الارتباط التشعبي**
 
-[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) تُعيد القاعدة على مستوى المستند للارتباطات التشعبية النسبية. استخدم [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) لتغييرها أو إفراغها. هذا مفيد عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. وهو منفصل عن [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) الخاص بالارتباط الفردي: تغيير القاعدة لا يعيد كتابة عناوين الروابط المخزنة ولا يغيّر الوجهات المطلقة.
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) تُرجع القاعدة على مستوى المستند للارتباطات التشعبية النسبية. استخدم [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) لتغييرها أو إفراغها. يكون ذلك مفيدًا عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. وهو منفصل عن [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) لارتباط تشعبي فردي: تغيير القاعدة لا يُعيد كتابة عناوين الروابط المخزنة ولا يغيّر الوجهات المطلقة.
 
-المثال يتطلب عرضًا يحتوي على ارتباط نسبي مثل `target.html` وارتباط مطلق مثل `https://example.org/absolute.html`. يقرأ القاعدة الحالية، يعين قاعدة جديدة، ويحفظ ويعيد فتح العرض للتحقق من القيمة. ثم يُفرغ القاعدة بسلسلة فارغة ويتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل قاعدة المثال بموقع ملفاتك المرتبطة.
+يتطلب المثال عرضًا يحتوي على رابط نسبي مثل `target.html`، ورابط مطلق مثل `https://example.org/absolute.html`. يقرأ القاعدة الحالية، يُعيّن عنوان قاعدة جديد، ثم يحفظ ويعيد فتح العرض للتحقق من القيمة. بعد ذلك يُفرغ القاعدة بسلسلة فارغة ويتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل عنوان القاعدة المثال بموقع ملفاتك المرتبطة.
 
 ```python
 import jpype
@@ -238,13 +283,13 @@ finally:
     presentation.dispose()
 ```
 
-يجب أن تُظهر رسالتا التحقق `True`. إفراغ القاعدة يترك عناوين الارتباطات الفردية دون تغيير.
+يجب أن تُظهر رسائل التحقق الاثنين `True`. إفراغ القاعدة يترك عناوين الروابط التشعبية الفردية كما هي.
 
-ارتباط نسبي إلى `target.pptx` كان يفتح `old/target.pptx` عندما كانت القاعدة تشير إلى مجلد `old`. بعد تغيير القاعدة إلى مجلد `new`، وحفظ وإعادة فتح العرض، يفتح نفس الارتباط `new/target.pptx`. الارتباط المطلق استمر في فتح الملف نفسه. اختبر الرابطين النسبيين في PowerPoint قبل وبعد نقل العرض أو تغيير قاعدته.
+رابط نسبي إلى `target.pptx` كان يفتح `old/target.pptx` عندما كانت القاعدة تشير إلى مجلد `old`. بعد تغيير القاعدة إلى مجلد `new`، وحفظ وإعادة فتح العرض، فتح نفس الرابط `new/target.pptx`. استمر الرابط المطلق في فتح الملف نفسه. اختبر روابطك النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير قاعدته.
 
 ## **إضافة خصائص عرض تقديمي مخصصة**
 
-الخصائص المخصصة تخزن بيانات تعريف لا توجد لها حقل مدمج مكافئ. طريقة [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) تتيح لك تعيين قيمة باسم الخاصية. يخلق هذا المثال عرضًا، يضيف قيمتي نص وقيمة إصدارة عددية (باستخدام `jpype.JInt` لتمرير عدد صحيح جافا)، ويحفظ العرض باستخدام [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية.
+تخزن الخصائص المخصصة بيانات تعريف لا يوجد لها حقل مدمج مقابل. تسمح طريقة [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) بتعيين قيمة وفقًا لاسم الخاصية. يخلق هذا المثال عرضًا تقديميًا، يضيف قيمتي نص وإصدار عدد صحيح (باستخدام `jpype.JInt` لتمرير عدد صحيح جافا)، ويحفظ العرض باستخدام [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية.
 
 ```python
 import jpype
@@ -268,9 +313,9 @@ finally:
     presentation.dispose()
 ```
 
-## **الوصول إلى الخصائص المخصصة وتعديلها**
+## **الوصول إلى وتعديل الخصائص المخصصة**
 
-يفتح هذا المثال عرضًا يحتوي على خصائص مخصصة ويستخدم [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) للتنقل بينها. [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) تقبل فهرسًا يبدأ من الصفر وتُعيد الاسم المستخدم في [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item). يطبع المثال كل اسم أصلي وقيمته، يستبدل كل قيمة بسلسلة مرقمة بغض النظر عن نوعها الأصلي، ويحفظ التغييرات. إذا لم توجد خصائص مخصصة، لا يُجري الحلقة أي تغييرات.
+يفتح هذا المثال عرضًا يحتوي على خصائص مخصصة ويستخدم [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) للتكرار عليها. [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) تقبل فهرسًا يبدأ من الصفر وتُرجع الاسم المستخدم بواسطة [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item). يطبع المثال كل اسم وقيمة أصلية، يُستبدل كل قيمة بسلسلة مُرقّمة بغض النظر عن نوعها الأصلي، ويحفظ التغييرات. إذا لم توجد خصائص مخصصة، فإن الحلقة لا تُجري أي تغييرات.
 
 ```python
 import jpype
@@ -299,9 +344,9 @@ finally:
     presentation.dispose()
 ```
 
-## **مثال حي**
+## **مثال عملي**
 
-جرّب تطبيق الويب [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) لتعرف كيف تتعامل مع خصائص المستند باستخدام واجهة برمجة تطبيقات Aspose.Slides:
+جرّب تطبيق الويب [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) لتكتشف كيفية العمل مع خصائص المستند باستخدام Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
@@ -309,20 +354,20 @@ finally:
 
 **كيف يمكنني إزالة خاصية مدمجة من عرض تقديمي؟**
 
-الخصائص المدمجة جزء لا يتجزأ من العرض ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها كفارغة إذا سمحت الخاصية بذلك.
+الخصائص المدمجة جزء لا يتجزأ من العرض ولا يمكن إزالتها تمامًا. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها كفارغة إذا سمحت الخاصية بذلك.
 
 **ماذا يحدث إذا أضفت خاصية مخصصة موجودة بالفعل؟**
 
-إذا أضفت خاصية مخصصة موجودة مسبقًا، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة الخاصية أو التحقق منها مسبقًا، فـ Aspose.Slides يحدث قيمة الخاصية تلقائيًا.
+إذا أضفت خاصية مخصصة موجودة مسبقًا، سيتم استبدال القيمة الحالية بالجديدة. لا تحتاج إلى إزالة أو فحص الخاصية مسبقًا، حيث يقوم Aspose.Slides تلقائيًا بتحديث قيمة الخاصية.
 
 **هل يمكنني الوصول إلى خصائص العرض دون تحميل العرض بالكامل؟**
 
-نعم. استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) ثم [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) لقراءة بيانات تعريف المستند المخزنة دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) . راجع [Build a Lightweight Presentation Inventory](/slides/ar/python-java/examine-presentation/) للحصول على مثال تقرير كامل والقيود الخاصة بكل تنسيق.
+نعم. استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) ثم [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) لقراءة بيانات تعريف المستند المخزنة دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) . انظر إلى [إنشاء جرد عرض تقديمي خفيف](/slides/ar/python-java/examine-presentation/) للحصول على مثال تقرير كامل والقيود الخاصة بالتنسيق.
 
-**هل يمكنني قراءة الخصائص العامة لعرض تقديمي مشفر بدون كلمة مرور الفتح؟**
+**هل يمكنني قراءة الخصائص العامة لعرض مشفر دون كلمة مرور الفتح؟**
 
 نعم. يجب أن يكون العرض قد تم تشفيره بعد استدعاء [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) مع `False`، ويجب تحميله بعد استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مع `True`.
 
-**هل يمكنني تحديث ملف PPTX مشفر في وضع تحميل الخصائص فقط؟**
+**هل يمكنني تحديث ملف PPTX مشفر في وضع خصائص المستند فقط؟**
 
-لا. يجب أن تظل بيانات الخصائص العامة والمشفرة متناسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض بالكامل مع كلمة مرور الفتح الصحيحة.
+لا. يجب أن تظل البيانات العامة والبيانات المشفرة متسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض بالكامل باستخدام كلمة مرور الفتح الصحيحة.

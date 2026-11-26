@@ -5,51 +5,51 @@ type: docs
 weight: 70
 url: /fa/php-java/presentation-properties/
 keywords:
-- خصوصیات پاورپوینت
+- خصوصیات PowerPoint
 - خصوصیات ارائه
 - خصوصیات سند
-- خصوصیات درون‌ساختی
+- خصوصیات درون‌ساز
 - خصوصیات سفارشی
 - خصوصیات پیشرفته
 - مدیریت خصوصیات
-- اصلاح خصوصیات
-- فرادادهٔ سند
+- تغییر خصوصیات
+- فراداده سند
 - ویرایش فراداده
-- زبان اصلاحیه
+- زبان تصحیح
 - زبان پیش‌فرض
 - PowerPoint
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "مدیریت کامل خصوصیات ارائه در Aspose.Slides برای PHP از طریق Java و بهینه‌سازی جستجو، برندسازی و گردش کار در فایل‌های PowerPoint و OpenDocument شما."
+description: "در Aspose.Slides برای PHP از طریق Java، خصوصیات ارائه را به‌صورت جامع مدیریت کنید و جستجو، برندینگ و جریان کار را در فایل‌های PowerPoint و OpenDocument خود بهینه سازید."
 ---
 ## **مقدمه**
 
-Aspose.Slides for PHP via Java از ویژگی‌های **درون‌ساختی** و **سفارشی** برای خصوصیات سند پشتیبانی می‌کند. از این خصوصیات برای خواندن و به‌روزرسانی فرادادهٔ ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
+Aspose.Slides for PHP via Java از ویژگی‌های **درون‌ساز** و **سفارشی** برای خصوصیات سند پشتیبانی می‌کند. از این خصوصیات برای خواندن و به‌روزرسانی فراداده ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
 
-Aspose.Slides به شما امکان کار با خصوصیات سند ارائه را از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) می‌دهد. یک نمونه از این کلاس توسط [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/) برگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این خصوصیات را بخوانید، اصلاح کنید و مدیریت نمایید. این مثال‌ها فرض می‌شوند که PHP/Java Bridge و wrapper PHP Aspose.Slides مقداردهی اولیه شده‌اند.
+Aspose.Slides به شما امکان کار با خصوصیات سند ارائه را از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) می‌دهد. یک نمونه از این کلاس توسط [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این خصوصیات را خوانده، تغییر داده و مدیریت کنید. این مثال‌ها فرض می‌کنند که PHP/Java Bridge و پوشش Aspose.Slides برای PHP مقداردهی اولیه شده‌اند.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides هنگام ذخیره‌سازی ارائه‌ها، فرادادهٔ برنامه و تولید‌کننده را مدیریت می‌کند؛ این فیلدها نرم‌افزار ایجادکنندهٔ خروجی را شناسایی می‌کنند.
+Aspose.Slides هنگام ذخیره ارائه‌ها، متادیتای برنامه و سازنده را مدیریت می‌کند؛ این فیلدها نرم‌افزاری را که خروجی را ایجاد کرده شناسایی می‌کند.
 {{% /alert %}}
 
 ## **مدیریت خصوصیات ارائه**
 
 خصوصیات سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کنند. آن‌ها به دو دسته تقسیم می‌شوند:
 
-- **خصوصیات درون‌ساختی** شامل فرادادهٔ استانداردی مانند عنوان، نویسنده و آمار سند هستند.
+- **خصوصیات درون‌ساز** شامل فراداده‌های استاندارد مانند عنوان، نویسنده و آمارهای سند هستند.
 - **خصوصیات سفارشی** جفت‌های نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
 
-Aspose.Slides for PHP via Java دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، برای بررسی فرادادهٔ سند، **File → Info → Properties → Advanced Properties** را انتخاب کنید. این گفت‌وگو اطلاعات را در برگه‌هایی مانند **Summary**، **Statistics**، **Contents** و **Custom** گروه‌بندی می‌کند. برای مدیریت خصوصیات تعریف‌شده توسط کاربر، از برگهٔ **Custom** استفاده کنید.
+Aspose.Slides for PHP via Java دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، برای بررسی متادیتای سند، **File → Info → Properties → Advanced Properties** را انتخاب کنید. دیالوگ اطلاعات را در زبانه‌هایی مانند **Summary**, **Statistics**, **Contents** و **Custom** گروه‌بندی می‌کند. از زبانه **Custom** برای مدیریت خصوصیات تعریف‌شده توسط کاربر استفاده کنید.
 
-## **خواندن خصوصیات عمومی از یک ارائهٔ رمزگذاری‌شده**
+## **خواندن خصوصیات عمومی از یک ارائه رمزگذاری‌شده**
 
-معمولاً یک رمز عبور بازکردن هم محتوا و هم خصوصیات سند ارائه را محافظت می‌کند. وقتی یک ارائه پس از فراخوانی [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) با مقدار `false` رمزگذاری می‌شود، خصوصیات سند آن به‌صورت عمومی باقی می‌مانند. سپس یک برنامه می‌تواند با فراخوانی [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) با مقدار `true`، فرادادهٔ عمومی را بدون ارائهٔ رمز عبور بازکردن بخواند.
+یک رمز عبور باز کردن معمولاً هم محتوای ارائه و هم خصوصیات سند را محافظت می‌کند. وقتی ارائه‌ای پس از فراخوانی [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) با مقدار `false` رمزگذاری شود، خصوصیات سند آن عمومی می‌مانند. سپس برنامه می‌تواند [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) را با مقدار `true` فراخوانی کند و متادیتای عمومی را بدون ارائه رمز عبور باز کردن بخواند.
 
-[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) تعیین می‌کند Aspose.Slides چه چیزی را بارگذاری کند؛ این متد هیچ چیزی را رمزگشایی نمی‌کند. اگر خصوصیات در رمزگذاری گنجانده شده باشند، بارگذاری آن‌ها بدون رمز عبور ناموفق است. اگر ارائه رمزگذاری نشده باشد، این گزینه نادیده گرفته می‌شود و ارائهٔ کامل بارگذاری می‌شود.
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مشخص می‌کند Aspose.Slides چه چیزی را بارگذاری می‌کند؛ این کار هیچ چیز را رمزگشایی نمی‌کند. اگر خصوصیات در فرآیند رمزگذاری گنجانده شوند، بارگذاری آن‌ها بدون رمز عبور موفق نمی‌شود. اگر ارائه رمزگذاری نشده باشد، این گزینه نادیده گرفته می‌شود و کل ارائه بارگذاری می‌شود.
 
-این مثال به یک ارائهٔ رمزگذاری‌شده نیاز دارد که خصوصیات سند آن به‌صورت عمومی باقی مانده باشد. حالت بارگذاری را از طریق [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) تأیید می‌کند و سپس خصوصیات درون‌ساختی را با استفاده از [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/) می‌خواند:
+مثال نیاز به ارائه‌ای رمزگذاری‌شده دارد که خصوصیات سند آن عمومی باقی مانده باشد. حالت بارگذاری از طریق [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) بررسی می‌شود و سپس خصوصیات درون‌ساز با استفاده از [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) خوانده می‌شوند:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -74,17 +74,17 @@ try {
 }
 ```
 
-در این حالت، محتوای اسلایدها بارگذاری نمی‌شود. اسلایدها، مسترها، طرح‌بندی‌ها، اشکال، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملیاتی که به مدل کامل شیء ارائه نیاز دارد، [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) را بررسی کنند.
+در این حالت محتویات اسلاید بارگذاری نمی‌شود. اسلایدها، مسترها، طرح‌بندی‌ها، اشکال، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملیاتی که به مدل کامل شیء ارائه نیاز دارد، [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) را بررسی کنند.
 
 {{% alert color="warning" title="Warning" %}}
-Metadata عمومی ممکن است نام‌های نویسنده، عناوین، موضوعات، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. خصوصیات حساس را همراه با ارائه رمزگذاری کنید. تنها در صورتی که سیستم‌های ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت اسناد نیاز خاصی به دسترسی بدون رمز عبور داشته باشند، آن‌ها را به‌صورت عمومی بگذارید.
+متادیتای عمومی ممکن است نام نویسندگان، عنوان‌ها، موضوع‌ها، کلیدواژه‌ها، اطلاعات شرکت، توضیحات و مقادیر سفارشی را آشکار کند. خصوصیات حساس را همراه با ارائه رمزگذاری کنید. تنها زمانی که سیستم‌های ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت اسناد نیاز خاصی به دسترسی بدون رمز عبور داشته باشند، آنها را عمومی بگذارید.
 {{% /alert %}}
 
-## **به‌روزرسانی خصوصیات یک ارائهٔ رمزگذاری‌شده**
+## **به‌روزرسانی خصوصیات یک ارائه رمزگذاری‌شده**
 
-برای یک فایل PPTX رمزگذاری‌شده، ارائه‌ای که پس از فراخوانی [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) با مقدار `true` بارگذاری می‌شود، برای خواندن فرادادهٔ عمومی منظور دارد. Aspose.Slides نمی‌تواند خصوصیات تغییر یافته را از این شیء صرفاً شامل فراداده ذخیره کند زیرا خصوصیات عمومی باید با داده‌های مربوطه در داخل ارائهٔ رمزگذاری‌شده هم‌خوانی داشته باشند. بنابراین به‌روزرسانی آن‌ها نیاز به رمز عبور صحیح بازکردن و بارگذاری کامل دارد.
+برای فایل PPTX رمزگذاری‌شده، ارائه‌ای که پس از فراخوانی [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) با مقدار `true` بارگذاری می‌شود، صرفاً برای خواندن متادیتای عمومی در نظر گرفته شده است. Aspose.Slides نمی‌تواند خصوصیات تغییر یافته را از آن شیء فقط‑متادیتا ذخیره کند، زیرا خصوصیات عمومی باید با داده‌های مربوطه در داخل ارائه رمزگذاری‌شده هماهنگ بمانند. به‌روزرسانی آنها بنابراین نیاز به رمز عبور باز کردن صحیح و بارگذاری کامل دارد.
 
-این مثال به یک ارائهٔ PPTX رمزگذاری‌شده با خصوصیات سند عمومی و رمز عبور بازکردن شناخته‌شده نیاز دارد. ابتدا ارائهٔ کامل را با استفاده از [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/) باز می‌کند، خصوصیات درون‌ساختی عمومی را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌نماید. سپس با استفاده از [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/) تأیید می‌کند که رمزگذاری حفظ شده و متادادهٔ عمومی را بدون رمز عبور مجدداً باز می‌کند تا مقادیر جدید را بررسی کند:
+این مثال نیاز به ارائهٔ PPTX رمزگذاری‌شده‌ای دارد که خصوصیات سند عمومی دارد و رمز عبور باز کردن آن شناخته شده است. ابتدا ارائهٔ کامل را با استفاده از [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword) باز می‌کند، خصوصیات درون‌ساز عمومی را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌نماید. سپس با استفاده از [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#isEncrypted) صحت حفظ رمزگذاری را بررسی می‌کند و متادیتای عمومی را بدون رمز عبور دوباره باز می‌کند تا مقادیر جدید را تأیید نماید:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -128,11 +128,11 @@ try {
 }
 ```
 
-اگر یک برنامه اجازهٔ رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید خصوصیات عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی درنظر بگیرد.
+اگر برنامه مجاز به رمزگشایی یا بارگذاری محتوای ارائه نباشد، باید خصوصیات عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی درنظر بگیرد.
 
-## **دسترسی به خصوصیات درون‌ساختی**
+## **دسترسی به خصوصیات درون‌ساز**
 
-کلاس [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) متاداده‌های درون‌ساختی را از طریق متدهای getter مانند [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/)، [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/)، و [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/) در دسترس قرار می‌دهد. این مثال یک ارائهٔ موجود را باز کرده و متاداده‌های ذخیره‌شده آن را به کنسول چاپ می‌کند. مقادیر به ارائهٔ ورودی بستگی دارد؛ برخی فیلدها ممکن است خالی باشند.
+کلاس [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) متادیتای درون‌ساز را از طریق متدهای دریافت‌کننده (getter) در دسترس می‌گذارد، از جمله [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getAuthor)، [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTitle) و [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCreatedTime). این مثال یک ارائهٔ موجود را باز می‌کند و متادیتای ذخیره‌شده آن را در کنسول چاپ می‌کند. مقادیر بسته به ارائهٔ ورودی متفاوت هستند؛ برخی فیلدها ممکن است خالی باشند.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,43 @@ try {
 }
 ```
 
-## **تغییر خصوصیات درون‌ساختی**
+### **گزارش شماره بازبینی و زمان ویرایش**
 
-برای به‌روزرسانی متاداده‌های درون‌ساختی، از متدهای setter روی شیء برگردانده‌شده توسط [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/) استفاده کنید. این مثال یک ارائهٔ موجود را باز می‌کند، [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/)، [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/)، [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/)، [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/)، و [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/) را فراخوانی می‌کند، سپس ارائهٔ به‌روزرسانی‌شده را با [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) ذخیره می‌نماید. فایل PPTX ذخیره‌شده حاوی متاداده‌های جدید است.
+برای گزارش شماره بازبینی و زمان کلی ویرایش هر فایل PPTX در پوشهٔ `presentations`، از [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) برای خواندن [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) بدون بارگذاری اسلایدها برای ویرایش استفاده کنید. API PHP via Java زمان ویرایش را بر حسب میلی‌ثانیه برمی‌گرداند. مثال آن را به ساعت، دقیقه و ثانیه تبدیل می‌کند و برای مدت‌های بیش از ۲۴ ساعت، تعداد روزها را نیز اضافه می‌نماید.
+
+```php
+use aspose\slides\PresentationFactory;
+
+echo "File | RevisionNumber | TotalEditingTime\n";
+foreach (new GlobIterator("presentations/*.pptx") as $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    $info = PresentationFactory::getInstance()->getPresentationInfo($file->getRealPath());
+    $properties = $info->readDocumentProperties();
+    $totalSeconds = (int) (java_values($properties->getTotalEditingTime()) / 1000);
+    $days = intdiv($totalSeconds, 86400);
+    $time = sprintf("%02d:%02d:%02d", intdiv($totalSeconds, 3600) % 24, intdiv($totalSeconds, 60) % 60, $totalSeconds % 60);
+    $editingTime = $days > 0 ? $days . "." . $time : $time;
+    printf("%s | %d | %s\n", $file->getFilename(), java_values($properties->getRevisionNumber()), $editingTime);
+}
+```
+
+برای ارائه‌ای با شماره بازبینی ۱۷ و زمان ویرایش ثبت‌شدهٔ ۱ روز، ۲ ساعت و ۵ دقیقه، گزارش خروجی زیر را نشان می‌دهد.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[DocumentProperties::getRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getRevisionNumber) مقداری را می‌خواند که برنامه‌ها می‌توانند با [DocumentProperties::setRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setRevisionNumber) تغییر دهند. فقط داشتن شماره بازبینی نمی‌تواند تعیین کند ارائه چند بار ذخیره شده یا تاریخچهٔ نسخهٔ آن را بازسازی کند.
+
+[DocumentProperties::getTotalEditingTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTotalEditingTime) زمان کلی ویرایش ثبت‌شده در فایل را می‌خواند. یک ارائه می‌تواند مدت زمان ذخیره‌شدهٔ صفر (`00:00:00`) داشته باشد حتی اگر کسی آن را ویرایش کرده باشد.
+
+## **تغییر خصوصیات درون‌ساز**
+
+برای به‌روزرسانی متادیتای درون‌ساز، از متدهای setter روی شیء بازگشتی از [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) استفاده کنید. این مثال یک ارائهٔ موجود را باز می‌کند، متدهای [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setAuthor)، [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setTitle)، [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setSubject)، [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setComments) و [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setManager) را صدا می‌زند و سپس ارائهٔ به‌روزرسانی‌شده را با [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) ذخیره می‌کند. فایل PPTX ذخیره‌شده شامل متادیتای جدید خواهد بود.
 
 ```php
 use aspose\slides\Presentation;
@@ -184,11 +218,11 @@ try {
 }
 ```
 
-## **مدیریت پایهٔ پیوندهای ابرمتنی**
+## **مدیریت پایهٔ هایپرلینک**
 
-[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/) پایهٔ سطح سند را برای پیوندهای نسبی بازمی‌گرداند. برای تغییر یا پاک کردن آن از [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/) استفاده کنید. این کار هنگام جابجایی یک ارائه و فایل‌های پیوندی آن به مکان دیگری مفید است. این مورد جدا از [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) یک پیوند ابرمتنی فردی است: تغییر پایه آدرس‌های ذخیره‌شده را بازنویسی نمی‌کند و مقاصد مطلق را تغییر نمی‌دهد.
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getHyperlinkBase) پایهٔ سطح سند برای هایپرلینک‌های نسبی را باز می‌گرداند. برای تغییر یا پاک کردن آن از [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setHyperlinkBase) استفاده کنید. این ویژگی هنگام جابه‌جا کردن یک ارائه و فایل‌های پیوست آن به مکان دیگری مفید است. این پایه مستقل از [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/#getExternalUrl) یک هایپرلینک منفرد است: تغییر پایه آدرس‌های ذخیره‌شدهٔ لینک را بازنویسی نمی‌کند و مقصدهای مطلق را تغییر نمی‌دهد.
 
-این مثال به یک ارائه نیاز دارد که هم یک پیوند نسبی مثل `target.html` و هم یک پیوند مطلق مثل `https://example.org/absolute.html` داشته باشد. ابتدا پایهٔ موجود را می‌خواند، یک آدرس پایهٔ جدید اختصاص می‌دهد و سپس ارائه را ذخیره و باز می‌کند تا مقدار را بررسی کند. سپس پایه را با یک رشتهٔ خالی پاک می‌کند و مقدار خالی را در یک فایل ذخیره‌شدهٔ جداگانه تأیید می‌کند. آدرس پایهٔ مثال را با مکان فایل‌های پیوندی خود جایگزین کنید.
+این مثال نیاز به ارائه‌ای دارد که شامل هر دو لینک نسبی (مانند `target.html`) و لینک مطلق (مانند `https://example.org/absolute.html`) باشد. ابتدا پایهٔ فعلی را می‌خواند، پایهٔ جدیدی اختصاص می‌دهد و پس از ذخیره و بازکردن دوبارهٔ ارائه مقدار جدید را بررسی می‌کند. سپس پایه را با رشتهٔ خالی پاک می‌کند و مقدار خالی را در فایلی جداگانه تأیید می‌نماید. آدرس پایهٔ مثال را با مکان فایل‌های پیوست خود جایگزین کنید.
 
 ```php
 use aspose\slides\Presentation;
@@ -223,13 +257,13 @@ try {
 }
 ```
 
-دو پیام تأیید باید مقدار `true` را چاپ کنند. پاک کردن پایه، آدرس‌های پیوندهای ابرمتنی فردی را دست‌نخورده می‌گذارد.
+دو پیام تأیید باید مقدار `true` را چاپ کنند. پاک کردن پایه آدرس‌های هایپرلینک‌های منفرد را دست نخورده می‌گذارد.
 
-یک پیوند نسبی به `target.pptx` وقتی پایه به پوشهٔ `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشهٔ `new`، ذخیره و بازگشایی ارائه، همان پیوند `new/target.pptx` را باز کرد. یک پیوند مطلق همچنان همان فایل را باز می‌کرد. پیوندهای نسبی خود را در PowerPoint قبل و بعد از جابجایی ارائه یا تغییر پایه آن آزمایش کنید.
+یک لینک نسبی به `target.pptx` هنگامیکه پایه به پوشهٔ `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشهٔ `new`، ذخیره و بازکردن مجدد ارائه، همان لینک `new/target.pptx` را باز می‌کند. یک لینک مطلق همان فایل را باز نگه می‌دارد. قبل و بعد از جابه‌جایی ارائه یا تغییر پایه، لینک‌های نسبی خود را در PowerPoint تست کنید.
 
 ## **افزودن خصوصیات سفارشی به ارائه**
 
-خصوصیات سفارشی متاداده‌ای را ذخیره می‌کنند که فیلد درون‌ساختی متناظری ندارند. متد [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) به شما امکان می‌دهد مقدار را براساس نام خصوصیت اختصاص دهید. این مثال یک ارائه ایجاد می‌کند، دو مقدار متنی و یک مقدار عددی نسخه را اضافه می‌کند و ارائه را با [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) ذخیره می‌کند. اختصاص مقدار به نامی موجود، مقدار آن خصوصیت را جایگزین می‌کند.
+خصوصیات سفارشی متادیتایی را ذخیره می‌کنند که فیلد درون‌ساز متناظری ندارند. متد [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) به شما امکان می‌دهد مقدار را بر اساس نام خصوصیت اختصاص دهید. این مثال یک ارائه ایجاد می‌کند، دو مقدار متنی و یک مقدار عددی نسخه را اضافه می‌کند و ارائه را با [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) ذخیره می‌نماید. اختصاص مقدار به نام موجود، مقدار همان خصوصیت را بازنویسی می‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -251,7 +285,7 @@ try {
 
 ## **دسترسی و تغییر خصوصیات سفارشی**
 
-این مثال یک ارائه حاوی خصوصیات سفارشی را باز می‌کند و از [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/) برای تکرار روی آن‌ها استفاده می‌کند. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/) یک اندیس صفر‑محور می‌پذیرد و نامی که توسط [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) استفاده شده است، برمی‌گرداند. مثال نام و مقدار اصلی هر خصوصیت را چاپ می‌کند، هر مقدار را با یک رشتهٔ عددی جایگزین می‌کند بدون در نظر گرفتن نوع اصلی آن، و تغییرات را ذخیره می‌نماید. اگر خصوصیات سفارشی وجود نداشته باشند، حلقه هیچ تغییری اعمال نمی‌کند.
+این مثال یک ارائه حاوی خصوصیات سفارشی را باز می‌کند و از [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCountOfCustomProperties) برای پیمایش آنها استفاده می‌کند. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCustomPropertyName) با دریافت یک اندیس صفر‑پایه، نامی را که توسط [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) استفاده شده است، برمی‌گرداند. مثال نام و مقدار اصلی هر خصوصیت را چاپ می‌کند، هر مقدار را با یک رشته عددی جایگزین می‌کند صرف‌نظر از نوع اصلی آن و تغییرات را ذخیره می‌کند. اگر هیچ خصوصیت سفارشی وجود نداشته باشد، حلقه هیچ تغییری ایجاد نمی‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -279,28 +313,28 @@ try {
 
 ## **مثال زنده**
 
-اپلیکیشن آنلاین [**مشاهده و ویرایش فرادادهٔ پاورپوینت**](https://products.aspose.app/slides/metadata) را امتحان کنید تا ببینید چگونه می‌توانید با استفاده از API Aspose.Slides با خصوصیات سند کار کنید:
+اپلیکیشن آنلاین [**مشاهده و ویرایش متادیتای PowerPoint**](https://products.aspose.app/slides/metadata) را امتحان کنید تا ببینید چگونه می‌توان با استفاده از API Aspose.Slides با خصوصیات سند کار کرد:
 
-[![مشاهده و ویرایش فرادادهٔ پاورپوینت](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![مشاهده و ویرایش متادیتای PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم یک خصوصیت درون‌ساختی را از یک ارائه حذف کنم؟**
+**چگونه می‌توان یک خصوصیت درون‌ساز را از یک ارائه حذف کرد؟**
 
-خصوصیات درون‌ساختی بخش جدایی‌ناپذیر ارائه هستند و نمی‌توان آنها را به‌طور کامل حذف کرد. با این حال، می‌توانید مقدار آنها را تغییر دهید یا در صورت اجازهٔ خصوصیت خاص، خالی تنظیم کنید.
+خصوصیات درون‌ساز بخش جدایی‑نایابی از ارائه هستند و به‌طور کامل نمی‌توانند حذف شوند. با این حال می‌توانید مقادیر آنها را تغییر دهید یا در صورت امکان، به مقدار خالی تنظیم کنید.
 
-**چه می‌شود اگر یک خصوصیت سفارشی که قبلاً وجود دارد را اضافه کنم؟**
+**اگر یک خصوصیت سفارشی که قبلاً وجود دارد را اضافه کنم، چه می‌شود؟**
 
-اگر یک خصوصیت سفارشی که از پیش وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی قبلی خصوصیت ندارید؛ Aspose.Slides به‌طور خودکار مقدار خصوصیت را به‌روز می‌کند.
+اگر یک خصوصیت سفارشی که پیش از این وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید بازنویسی می‌شود. نیازی به حذف یا بررسی قبلی خصوصیت ندارید، زیرا Aspose.Slides به‌طوری خودکار مقدار خصوصیت را به‌روز می‌کند.
 
-**آیا می‌توانم خصوصیات ارائه را بدون بارگذاری کامل آن دسترسی داشته باشم؟**
+**آیا می‌توان به خصوصیات ارائه بدون بارگذاری کامل ارائه دسترسی داشت؟**
 
-بله. از [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/) و سپس [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/) استفاده کنید تا متادادهٔ ذخیره‌شدهٔ سند را بدون ایجاد یک نمونهٔ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) بخوانید. برای مثال کامل گزارش‌گیری و محدودیت‌های فرمتی، به [ساخت فهرست سبک ارائه](/slides/fa/php-java/examine-presentation/) مراجعه کنید.
+بله. می‌توانید از [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/#getPresentationInfo) و سپس [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) برای خواندن متادیتای ذخیره‌شدهٔ سند بدون ایجاد یک نمونهٔ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) استفاده کنید. برای مثال کامل گزارش‌گیری و محدودیت‌های خاص فرمت، به بخش [ساخت موجودی ارائهٔ سبک‑وزن](/slides/fa/php-java/examine-presentation/) مراجعه کنید.
 
-**آیا می‌توانم خصوصیات عمومی یک ارائهٔ رمزگذاری‌شده را بدون رمز عبور بازکردن آن بخوانم؟**
+**آیا می‌توان خصوصیات عمومی یک ارائهٔ رمزگذاری‌شده را بدون رمز عبور باز کردن آن خواند؟**
 
-بله. ارائه باید پس از فراخوانی [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) با مقدار `false` رمزگذاری شده باشد و پس از فراخوانی [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) با مقدار `true` بارگذاری شود.
+بله. ارائه باید پس از فراخوانی [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) با مقدار `false` رمزگذاری شده باشد و سپس با فراخوانی [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) با مقدار `true` بارگذاری شود.
 
-**آیا می‌توانم یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑خصوصیات‑سند به‌روز کنم؟**
+**آیا می‌توان یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑خصوصیات‑سند به‌روزرسانی کرد؟**
 
-خیر. داده‌های عمومی و رمزگذاری‌شدهٔ خصوصیات باید سازگار بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده نیاز به بارگذاری کامل ارائه با رمز عبور صحیح بازکردن دارد.
+خیر. داده‌های عمومی و رمزگذاری‌شده باید هماهنگ بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده نیازمند بارگذاری کامل ارائه با رمز عبور باز کردن صحیح است.

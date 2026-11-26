@@ -8,48 +8,50 @@ keywords:
 - Thuộc tính PowerPoint
 - Thuộc tính bản trình chiếu
 - Thuộc tính tài liệu
-- Thuộc tính tích hợp
+- Thuộc tính dựng sẵn
 - Thuộc tính tùy chỉnh
 - Thuộc tính nâng cao
 - Quản lý thuộc tính
 - Sửa đổi thuộc tính
 - Siêu dữ liệu tài liệu
 - Chỉnh sửa siêu dữ liệu
-- Ngôn ngữ kiểm tra chính tả
+- Ngôn ngữ kiểm tra
 - Ngôn ngữ mặc định
 - PowerPoint
 - OpenDocument
-- Bản trình chiếu
+- bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Quản lý các thuộc tính bản trình chiếu trong Aspose.Slides cho PHP qua Java và tối ưu hoá việc tìm kiếm, xây dựng thương hiệu và quy trình làm việc trong các tệp PowerPoint và OpenDocument của bạn."
+description: "Quản lý toàn diện các thuộc tính bản trình chiếu trong Aspose.Slides cho PHP qua Java và tối ưu hoá tìm kiếm, thương hiệu và quy trình làm việc trong các tệp PowerPoint và OpenDocument của bạn."
 ---
 ## **Giới thiệu**
 
-Aspose.Slides for PHP via Java hỗ trợ các thuộc tính tài liệu **built-in** và **custom**. Sử dụng các thuộc tính này để đọc và cập nhật siêu dữ liệu của bản trình chiếu, chẳng hạn như tác giả, tiêu đề và các giá trị do người dùng định nghĩa.
+Aspose.Slides for PHP via Java hỗ trợ **built-in** và **custom** document properties. Sử dụng các thuộc tính này để đọc và cập nhật siêu dữ liệu của bản trình chiếu, chẳng hạn như tác giả, tiêu đề và các giá trị do người dùng định nghĩa.
 
-Aspose.Slides cho phép bạn làm việc với các thuộc tính tài liệu của bản trình chiếu thông qua lớp [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) . Một thể hiện của lớp này được trả về bởi [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). Các ví dụ sau cho thấy cách đọc, sửa đổi và quản lý các thuộc tính này. Chúng giả định rằng PHP/Java Bridge và trình bao bọc Aspose.Slides PHP đã được khởi tạo.
+Aspose.Slides cho phép bạn làm việc với thuộc tính tài liệu của bản trình chiếu thông qua lớp [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/). Một thể hiện của lớp này được trả về bởi [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). Các ví dụ sau minh họa cách đọc, sửa đổi và quản lý các thuộc tính này. Chúng giả định rằng PHP/Java Bridge và wrapper Aspose.Slides PHP đã được khởi tạo.
 
-{{% alert color="info" title="Lưu ý" %}}
-Aspose.Slides quản lý siêu dữ liệu ứng dụng và nhà sản xuất khi lưu bản trình chiếu; các trường này xác định phần mềm đã tạo ra kết quả.
+{{% alert color="info" title="Note" %}}
+
+Aspose.Slides quản lý siêu dữ liệu ứng dụng và nhà sản xuất khi lưu bản trình chiếu; các trường này xác định phần mềm đã tạo ra đầu ra.
+
 {{% /alert %}}
 
 ## **Quản lý Thuộc tính Bản trình chiếu**
 
-Các thuộc tính tài liệu lưu trữ thông tin mô tả cùng với nội dung bản trình chiếu. Chúng chia thành hai loại:
+Thuộc tính tài liệu lưu trữ thông tin mô tả bên cạnh nội dung bản trình chiếu. Chúng chia thành hai loại:
 
-- Thuộc tính **Built-in** chứa siêu dữ liệu tiêu chuẩn, chẳng hạn như tiêu đề, tác giả và thống kê tài liệu.
-- Thuộc tính **Custom** lưu trữ các cặp tên/giá trị được người dùng định nghĩa.
+- **Built-in properties** chứa siêu dữ liệu tiêu chuẩn, chẳng hạn như tiêu đề, tác giả và thống kê tài liệu.
+- **Custom properties** lưu trữ các cặp tên/giá trị do người dùng định nghĩa.
 
-Aspose.Slides for PHP via Java cung cấp quyền truy cập vào cả hai loại. Trong PowerPoint, chọn **File → Info → Properties → Advanced Properties** để kiểm tra siêu dữ liệu tài liệu. Hộp thoại nhóm thông tin thành các tab như **Summary**, **Statistics**, **Contents**, và **Custom**. Sử dụng tab **Custom** để quản lý các thuộc tính do người dùng định nghĩa.
+Aspose.Slides for PHP via Java cung cấp quyền truy cập vào cả hai loại. Trong PowerPoint, chọn **File → Info → Properties → Advanced Properties** để kiểm tra siêu dữ liệu tài liệu. Hộp thoại nhóm thông tin thành các thẻ như **Summary**, **Statistics**, **Contents**, và **Custom**. Sử dụng thẻ **Custom** để quản lý các thuộc tính do người dùng định nghĩa.
 
-## **Đọc Thuộc tính Công khai từ Một Bản trình chiếu Được Mã hoá**
+## **Đọc Thuộc tính Công cộng từ Bản trình chiếu Được Mã hoá**
 
-Mật khẩu mở thường bảo vệ cả nội dung bản trình chiếu và các thuộc tính tài liệu. Khi một bản trình chiếu được mã hoá sau khi gọi [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) với `false`, các thuộc tính tài liệu của nó vẫn công khai. Ứng dụng sau đó có thể gọi [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) với `true` và đọc siêu dữ liệu công khai mà không cung cấp mật khẩu mở.
+Mật khẩu mở thường bảo vệ cả nội dung bản trình chiếu và thuộc tính tài liệu. Khi một bản trình chiếu được mã hoá sau khi gọi [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) với `false`, các thuộc tính tài liệu của nó vẫn ở chế độ công cộng. Ứng dụng sau đó có thể gọi [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) với `true` và đọc siêu dữ liệu công cộng mà không cần cung cấp mật khẩu mở.
 
-[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) kiểm soát những gì Aspose.Slides tải; nó không giải mã bất kỳ thứ gì. Nếu các thuộc tính đã được bao gồm trong quá trình mã hoá, việc tải chúng mà không có mật khẩu sẽ bị thất bại. Nếu bản trình chiếu không được mã hoá, tùy chọn sẽ bị bỏ qua và toàn bộ bản trình chiếu sẽ được tải.
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) kiểm soát những gì Aspose.Slides tải; nó không giải mã bất kỳ thứ gì. Nếu các thuộc tính đã được bao gồm trong quá trình mã hoá, việc tải chúng mà không có mật khẩu sẽ thất bại. Nếu bản trình chiếu không được mã hoá, tùy chọn sẽ bị bỏ qua và toàn bộ bản trình chiếu sẽ được tải.
 
-Ví dụ yêu cầu một bản trình chiếu đã được mã hoá mà các thuộc tính tài liệu của nó được để công khai. Nó xác minh chế độ tải thông qua [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) và sau đó đọc các thuộc tính built‑in thông qua [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/) :
+Ví dụ yêu cầu một bản trình chiếu được mã hoá mà các thuộc tính tài liệu của nó được để công cộng. Nó xác minh chế độ tải thông qua [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) và sau đó đọc các thuộc tính built‑in thông qua [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -74,17 +76,17 @@ try {
 }
 ```
 
-Trong chế độ này, nội dung slide không được tải. Slides, masters, layouts, shapes, media và các đối tượng khác của bản trình chiếu không khả dụng. Ứng dụng luôn nên kiểm tra [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) trước khi thực hiện thao tác yêu cầu mô hình đối tượng bản trình chiếu đầy đủ.
+Trong chế độ này, nội dung slide không được tải. Các slide, master, layout, shape, media và các đối tượng khác của bản trình chiếu không khả dụng. Ứng dụng nên luôn kiểm tra [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) trước khi thực hiện một thao tác đòi hỏi mô hình đối tượng bản trình chiếu đầy đủ.
 
-{{% alert color="warning" title="Cảnh báo" %}}
-Siêu dữ liệu công khai có thể lộ tên tác giả, tiêu đề, chủ đề, từ khóa, thông tin công ty, nhận xét và các giá trị tùy chỉnh. Hãy mã hoá các thuộc tính nhạy cảm cùng với bản trình chiếu. Chỉ để chúng công khai khi hệ thống đánh chỉ mục, phân loại, tìm kiếm hoặc quản lý tài liệu có yêu cầu cụ thể để truy cập mà không cần mật khẩu.
+{{% alert color="warning" title="Warning" %}}
+Siêu dữ liệu công cộng có thể phô bày tên tác giả, tiêu đề, chủ đề, từ khóa, thông tin công ty, nhận xét và các giá trị tùy chỉnh. Hãy mã hoá các thuộc tính nhạy cảm cùng với bản trình chiếu. Chỉ để chúng công cộng khi hệ thống lập chỉ mục, phân loại, tìm kiếm hoặc quản lý tài liệu có yêu cầu cụ thể để truy cập chúng mà không cần mật khẩu.
 {{% /alert %}}
 
-## **Cập nhật Thuộc tính của Một Bản trình chiếu Được Mã hoá**
+## **Cập nhật Thuộc tính của Bản trình chiếu Được Mã hoá**
 
-Đối với tệp PPTX đã được mã hoá, một bản trình chiếu được tải sau khi gọi [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) với `true` nhằm mục đích đọc siêu dữ liệu công khai. Aspose.Slides không thể lưu các thuộc tính đã thay đổi từ đối tượng chỉ‑metadata này vì các thuộc tính công khai phải luôn nhất quán với dữ liệu tương ứng bên trong bản trình chiếu đã mã hoá. Do đó, việc cập nhật chúng yêu cầu mật khẩu mở đúng và một lần tải đầy đủ.
+Đối với tệp PPTX được mã hoá, một bản trình chiếu được tải sau khi gọi [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) với `true` chỉ nhằm mục đích đọc siêu dữ liệu công cộng. Aspose.Slides không thể lưu các thuộc tính đã thay đổi từ đối tượng chỉ có siêu dữ liệu này vì các thuộc tính công cộng phải đồng nhất với dữ liệu tương ứng bên trong bản trình chiếu đã mã hoá. Do đó, việc cập nhật chúng yêu cầu mật khẩu mở đúng và tải toàn bộ bản trình chiếu.
 
-Ví dụ yêu cầu một bản trình chiếu PPTX đã được mã hoá với các thuộc tính tài liệu công khai và một mật khẩu mở đã biết. Nó mở toàn bộ bản trình chiếu với [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/), cập nhật các thuộc tính built‑in công khai, và lưu kết quả. Sau đó sử dụng [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/) để xác minh rằng mã hoá vẫn được giữ và mở lại siêu dữ liệu công khai mà không cần mật khẩu để kiểm tra các giá trị mới:
+Ví dụ yêu cầu một bản PPTX được mã hoá với các thuộc tính tài liệu công cộng và một mật khẩu mở đã biết. Nó mở toàn bộ bản trình chiếu bằng [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword), cập nhật các thuộc tính built‑in công cộng, và lưu kết quả. Sau đó sử dụng [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#isEncrypted) để xác minh rằng mã hoá vẫn được giữ và mở lại siêu dữ liệu công cộng mà không cần mật khẩu để kiểm tra các giá trị mới:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -128,11 +130,11 @@ try {
 }
 ```
 
-Nếu một ứng dụng không được phép giải mã hoặc tải nội dung bản trình chiếu, nó phải xử lý các thuộc tính công khai của tệp PPTX đã mã hoá như là chỉ‑đọc.
+Nếu một ứng dụng không được phép giải mã hoặc tải nội dung bản trình chiếu, nó phải coi các thuộc tính công cộng của tệp PPTX được mã hoá là chỉ đọc.
 
 ## **Truy cập Thuộc tính Built‑in**
 
-Lớp [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) cung cấp siêu dữ liệu built‑in thông qua các phương thức getter, bao gồm [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/), và [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/). Ví dụ này mở một bản trình chiếu hiện có và in siêu dữ liệu đã lưu ra console. Các giá trị phụ thuộc vào bản trình chiếu đầu vào; một số trường có thể rỗng.
+Lớp [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) cung cấp siêu dữ liệu built‑in thông qua các phương thức getter, bao gồm [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTitle) và [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCreatedTime). Ví dụ này mở một bản trình chiếu hiện có và in siêu dữ liệu đã lưu ra console. Các giá trị phụ thuộc vào bản trình chiếu đầu vào; một số trường có thể để trống.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +162,43 @@ try {
 }
 ```
 
+### **Báo cáo Số phiên bản và Thời gian chỉnh sửa**
+
+Để báo cáo số phiên bản và tổng thời gian chỉnh sửa cho mỗi tệp PPTX trong thư mục `presentations`, sử dụng [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) để đọc [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) mà không tải các slide để chỉnh sửa. API PHP via Java trả về thời gian chỉnh sửa tính bằng mili giây. Ví dụ chuyển đổi nó sang giờ, phút và giây và bao gồm số ngày cho các khoảng thời gian từ 24 giờ trở lên.
+
+```php
+use aspose\slides\PresentationFactory;
+
+echo "File | RevisionNumber | TotalEditingTime\n";
+foreach (new GlobIterator("presentations/*.pptx") as $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    $info = PresentationFactory::getInstance()->getPresentationInfo($file->getRealPath());
+    $properties = $info->readDocumentProperties();
+    $totalSeconds = (int) (java_values($properties->getTotalEditingTime()) / 1000);
+    $days = intdiv($totalSeconds, 86400);
+    $time = sprintf("%02d:%02d:%02d", intdiv($totalSeconds, 3600) % 24, intdiv($totalSeconds, 60) % 60, $totalSeconds % 60);
+    $editingTime = $days > 0 ? $days . "." . $time : $time;
+    printf("%s | %d | %s\n", $file->getFilename(), java_values($properties->getRevisionNumber()), $editingTime);
+}
+```
+
+Với một bản trình chiếu có số phiên bản 17 và thời gian chỉnh sửa được ghi là 1 ngày, 2 giờ và 5 phút, báo cáo sẽ hiển thị đầu ra sau:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[DocumentProperties::getRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getRevisionNumber) đọc một giá trị mà các ứng dụng có thể thay đổi bằng [DocumentProperties::setRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setRevisionNumber). Số phiên bản đơn độc không thể xác định bao nhiêu lần bản trình chiếu đã được lưu hoặc tái tạo lịch sử phiên bản.
+
+[DocumentProperties::getTotalEditingTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTotalEditingTime) đọc thời lượng chỉnh sửa được ghi trong tệp. Một bản trình chiếu có thể có thời lượng lưu là 0 (`00:00:00`) ngay cả khi ai đó đã chỉnh sửa nó.
+
 ## **Sửa đổi Thuộc tính Built‑in**
 
-Để cập nhật siêu dữ liệu built‑in, sử dụng các phương thức setter trên đối tượng trả về bởi [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). Ví dụ này mở một bản trình chiếu hiện có, gọi [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/), và [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/), sau đó lưu bản trình chiếu đã cập nhật bằng [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). Tệp PPTX đã lưu sẽ chứa siêu dữ liệu mới.
+Để cập nhật siêu dữ liệu built‑in, sử dụng các phương thức setter trên đối tượng trả về bởi [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). Ví dụ này mở một bản trình chiếu hiện có, gọi [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setComments) và [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setManager), sau đó lưu bản trình chiếu đã cập nhật bằng [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). Tệp PPTX đã lưu sẽ chứa siêu dữ liệu mới.
 
 ```php
 use aspose\slides\Presentation;
@@ -184,11 +220,11 @@ try {
 }
 ```
 
-## **Quản lý Cơ sở Siêu liên kết**
+## **Quản lý Hyperlink Base**
 
-[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/) trả về cơ sở cấp tài liệu cho các siêu liên kết tương đối. Sử dụng [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/) để thay đổi hoặc xóa nó. Điều này hữu ích khi di chuyển một bản trình chiếu và các tệp liên kết sang vị trí khác. Nó tách biệt với [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) của từng siêu liên kết: việc thay đổi cơ sở không ghi lại lại địa chỉ liên kết đã lưu hoặc thay đổi đích tuyệt đối.
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getHyperlinkBase) trả về cơ sở tài liệu cho các siêu liên kết tương đối. Sử dụng [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setHyperlinkBase) để thay đổi hoặc xóa bỏ nó. Điều này hữu ích khi di chuyển bản trình chiếu và các tệp liên kết sang vị trí khác. Nó riêng biệt với [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/#getExternalUrl) của một siêu liên kết cá nhân: thay đổi cơ sở không ghi lại lại các địa chỉ liên kết đã lưu hoặc thay đổi đích tuyệt đối.
 
-Ví dụ yêu cầu một bản trình chiếu chứa cả liên kết tương đối, chẳng hạn `target.html`, và một liên kết tuyệt đối, chẳng hạn `https://example.org/absolute.html`. Nó đọc cơ sở hiện có, gán một địa chỉ cơ sở mới, và lưu và mở lại bản trình chiếu để kiểm tra giá trị. Sau đó xóa cơ sở bằng một chuỗi rỗng và xác minh giá trị rỗng trong một tệp đã lưu riêng. Thay địa chỉ cơ sở mẫu bằng vị trí của các tệp liên kết của bạn.
+Ví dụ yêu cầu một bản trình chiếu chứa cả một liên kết tương đối, chẳng hạn `target.html`, và một liên kết tuyệt đối, chẳng hạn `https://example.org/absolute.html`. Nó đọc cơ sở hiện có, gán một địa chỉ cơ sở mới, và lưu và mở lại bản trình chiếu để kiểm tra giá trị. Sau đó xóa cơ sở bằng một chuỗi rỗng và xác minh giá trị rỗng trong một tệp đã lưu riêng. Thay địa chỉ cơ sở mẫu bằng vị trí các tệp liên kết của bạn.
 
 ```php
 use aspose\slides\Presentation;
@@ -223,13 +259,13 @@ try {
 }
 ```
 
-Hai thông báo xác nhận nên in ra `true`. Xóa cơ sở không làm thay đổi các địa chỉ siêu liên kết riêng lẻ.
+Hai thông báo xác minh nên in ra `true`. Xóa cơ sở không làm thay đổi địa chỉ siêu liên kết cá nhân.
 
-Một liên kết tương đối tới `target.pptx` đã mở `old/target.pptx` khi cơ sở trỏ tới thư mục `old`. Sau khi thay đổi cơ sở thành thư mục `new`, lưu và mở lại bản trình chiếu, cùng một liên kết đã mở `new/target.pptx`. Một liên kết tuyệt đối vẫn mở cùng tệp. Hãy kiểm tra các liên kết tương đối của bạn trong PowerPoint trước và sau khi di chuyển bản trình chiếu hoặc thay đổi cơ sở của nó.
+Một liên kết tương đối tới `target.pptx` đã mở `old/target.pptx` khi cơ sở trỏ tới thư mục `old`. Sau khi thay đổi cơ sở thành thư mục `new`, lưu và mở lại bản trình chiếu, cùng một liên kết sẽ mở `new/target.pptx`. Một liên kết tuyệt đối vẫn mở cùng tệp. Hãy kiểm tra các liên kết tương đối của bạn trong PowerPoint trước và sau khi di chuyển bản trình chiếu hoặc thay đổi cơ sở.
 
 ## **Thêm Thuộc tính Tùy chỉnh cho Bản trình chiếu**
 
-Các thuộc tính tùy chỉnh lưu trữ siêu dữ liệu không có trường built‑in tương ứng. Phương thức [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) cho phép bạn gán một giá trị theo tên thuộc tính. Ví dụ này tạo một bản trình chiếu, thêm hai giá trị văn bản và một giá trị phiên bản kiểu số nguyên, và lưu bản trình chiếu bằng [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). Gán một giá trị cho một tên đã tồn tại sẽ thay thế giá trị của thuộc tính đó.
+Thuộc tính tùy chỉnh lưu trữ siêu dữ liệu không có trường built‑in tương ứng. Phương thức [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) cho phép bạn gán một giá trị bằng tên thuộc tính. Ví dụ này tạo một bản trình chiếu, thêm hai giá trị văn bản và một giá trị phiên bản nguyên, và lưu bản trình chiếu bằng [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). Gán một giá trị cho tên đã tồn tại sẽ thay thế giá trị của thuộc tính đó.
 
 ```php
 use aspose\slides\Presentation;
@@ -251,7 +287,7 @@ try {
 
 ## **Truy cập và Sửa đổi Thuộc tính Tùy chỉnh**
 
-Ví dụ này mở một bản trình chiếu chứa các thuộc tính tùy chỉnh và sử dụng [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/) để lặp qua chúng. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/) nhận một chỉ mục bắt đầu từ 0 và trả về tên được dùng bởi [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/). Ví dụ in mỗi tên và giá trị gốc, thay thế mọi giá trị bằng một chuỗi đánh số bất kể kiểu gốc, và lưu các thay đổi. Nếu không có thuộc tính tùy chỉnh nào, vòng lặp sẽ không thực hiện thay đổi nào.
+Ví dụ này mở một bản trình chiếu chứa các thuộc tính tùy chỉnh và sử dụng [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCountOfCustomProperties) để lặp qua chúng. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCustomPropertyName) nhận một chỉ số bắt đầu từ 0 và trả về tên được sử dụng bởi [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item). Ví dụ in mỗi tên và giá trị gốc, thay thế mọi giá trị bằng một chuỗi đánh số bất kể kiểu gốc, và lưu các thay đổi. Nếu không có thuộc tính tùy chỉnh nào, vòng lặp sẽ không thực hiện thay đổi nào.
 
 ```php
 use aspose\slides\Presentation;
@@ -279,28 +315,28 @@ try {
 
 ## **Ví dụ Trực tiếp**
 
-Hãy thử ứng dụng trực tuyến [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) để xem cách làm việc với các thuộc tính tài liệu bằng API Aspose.Slides:
+Thử ứng dụng trực tuyến [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) để xem cách làm việc với thuộc tính tài liệu bằng API Aspose.Slides:
 
-[![Xem & Chỉnh sửa Siêu dữ liệu PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **Câu hỏi thường gặp**
 
-**Làm thế nào để xóa một thuộc tính built-in khỏi bản trình chiếu?**
+**Làm thế nào để xóa một thuộc tính built‑in khỏi bản trình chiếu?**
 
-Các thuộc tính built-in là một phần không thể tách rời của bản trình chiếu và không thể được xóa hoàn toàn. Tuy nhiên, bạn có thể thay đổi giá trị của chúng hoặc đặt chúng thành rỗng nếu thuộc tính cụ thể cho phép.
+Các thuộc tính built‑in là một phần không thể tách rời của bản trình chiếu và không thể bị xóa hoàn toàn. Tuy nhiên, bạn có thể thay đổi giá trị của chúng hoặc đặt chúng thành rỗng nếu thuộc tính cụ thể cho phép.
 
 **Điều gì xảy ra nếu tôi thêm một thuộc tính tùy chỉnh đã tồn tại?**
 
-Nếu bạn thêm một thuộc tính tùy chỉnh đã tồn tại, giá trị hiện có sẽ bị ghi đè bằng giá trị mới. Bạn không cần phải xóa hoặc kiểm tra thuộc tính trước, vì Aspose.Slides sẽ tự động cập nhật giá trị của thuộc tính.
+Nếu bạn thêm một thuộc tính tùy chỉnh đã tồn tại, giá trị hiện có của nó sẽ bị ghi đè bằng giá trị mới. Bạn không cần phải xóa hoặc kiểm tra thuộc tính trước, vì Aspose.Slides sẽ tự động cập nhật giá trị thuộc tính.
 
-**Có thể truy cập thuộc tính bản trình chiếu mà không tải toàn bộ bản trình chiếu không?**
+**Tôi có thể truy cập thuộc tính bản trình chiếu mà không tải toàn bộ bản trình chiếu không?**
 
-Có. Sử dụng [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/) và sau đó [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/) để đọc siêu dữ liệu tài liệu được lưu trữ mà không tạo một đối tượng [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) . Xem [Xây dựng Kiểm kê Bản trình chiếu Nhẹ](/slides/vi/php-java/examine-presentation/) để biết ví dụ báo cáo đầy đủ và các giới hạn theo định dạng.
+Có. Sử dụng [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/#getPresentationInfo) rồi [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) để đọc siêu dữ liệu tài liệu đã lưu mà không tạo một thể hiện [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Xem [Build a Lightweight Presentation Inventory](/slides/vi/php-java/examine-presentation/) để biết ví dụ báo cáo đầy đủ và các giới hạn theo định dạng.
 
-**Có thể đọc các thuộc tính công khai của một bản trình chiếu đã mã hoá mà không có mật khẩu mở không?**
+**Tôi có thể đọc các thuộc tính công cộng của bản trình chiếu đã mã hoá mà không có mật khẩu mở không?**
 
-Có. Bản trình chiếu phải đã được mã hoá sau khi gọi [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) với `false`, và phải được tải sau khi gọi [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) với `true`.
+Có. Bản trình chiếu phải được mã hoá sau khi gọi [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) với `false`, và phải được tải sau khi gọi [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) với `true`.
 
-**Có thể cập nhật một tệp PPTX đã mã hoá trong chế độ chỉ‑tải‑thuộc‑tính‑tài‑liệu không?**
+**Tôi có thể cập nhật một tệp PPTX đã mã hoá ở chế độ chỉ tải tài liệu không?**
 
-Không. Dữ liệu thuộc tính công khai và đã mã hoá phải luôn nhất quán, vì vậy việc cập nhật một tệp PPTX đã mã hoá yêu cầu tải toàn bộ bản trình chiếu với mật khẩu mở đúng.
+Không. Dữ liệu thuộc tính công cộng và được mã hoá phải đồng nhất, vì vậy việc cập nhật một tệp PPTX đã mã hoá yêu cầu tải toàn bộ bản trình chiếu với mật khẩu mở đúng.

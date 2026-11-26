@@ -11,10 +11,10 @@ keywords:
 - yerleşik özellikler
 - özel özellikler
 - gelişmiş özellikler
-- özellikleri yönetme
-- özellikleri değiştirme
+- özellikleri yönet
+- özellikleri değiştir
 - belge meta verileri
-- meta verileri düzenleme
+- meta verileri düzenle
 - düzeltme dili
 - varsayılan dil
 - PowerPoint
@@ -22,34 +22,34 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET'te sunum özelliklerini yönetin ve PowerPoint dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for Python via .NET içinde sunum özelliklerini yöneterek PowerPoint dosyalarınızda aramayı, markalaştırmayı ve iş akışını kolaylaştırın."
 ---
 ## **Giriş**
 
-Aspose.Slides for Python via .NET **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri, yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
+Aspose.Slides for Python via .NET **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri sunum meta verilerini okumak ve güncellemek için kullanın; örneğin yazar, başlık ve kullanıcı tanımlı değerler.
 
-Aspose.Slides, sunum belge özelliklerini [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) sınıfı aracılığıyla işlemenizi sağlar. Bu sınıfın bir örneği, [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) tarafından döndürülür. Aşağıdaki örnekler, bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir.
+Aspose.Slides, sunum belge özellikleriyle [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) sınıfı aracılığıyla çalışmanıza olanak tanır. Bu sınıfın bir örneği [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) tarafından döndürülür. Aşağıdaki örnekler bu özellikleri nasıl okuyacağınızı, değiştireceğinizi ve yöneteceğinizi gösterir.
 
 {{% alert color="info" title="Note" %}}
 Aspose.Slides, sunumları kaydederken uygulama ve üretici meta verilerini yönetir; bu alanlar çıktıyı oluşturan yazılımı tanımlar.
 {{% /alert %}}
 
-## **Sunum Özelliklerini Yönetme**
+## **Sunum Özelliklerini Yönet**
 
-Belge özellikleri, sunum içeriğiyle birlikte tanımlayıcı bilgi depolar. İki kategoriye ayrılırlar:
+Belge özellikleri, sunum içeriğinin yanı sıra tanımlayıcı bilgileri depolar. İki kategoriye ayrılırlar:
 
-- **Yerleşik özellikler** başlık, yazar ve belge istatistikleri gibi standart meta verileri içerir.
+- **Yerleşik özellikler** standart meta verileri içerir, örneğin başlık, yazar ve belge istatistikleri.
 - **Özel özellikler** kullanıcı tanımlı ad/değer çiftlerini depolar.
 
-Aspose.Slides for Python via .NET, her iki kategoriye de erişim sağlar. PowerPoint'te belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini seçin. İletişim kutusu, bilgiyi **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere gruplar. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
+Aspose.Slides for Python via .NET, her iki kategoriye de erişim sağlar. PowerPoint'ta belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini seçin. İletişim kutusu bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere gruplar. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
 
-## **Şifrelenmiş Bir Sunumdan Genel Özellikleri Okuma**
+## **Şifreli Bir Sunumdan Genel Özellikleri Okuma**
 
-Açma şifresi genellikle hem sunum içeriğini hem de belge özelliklerini korur. Bir sunum, [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) `False` olarak ayarlandığında şifrelenmişse, belge özellikleri genel olarak kalır. Bir uygulama daha sonra [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) `True` olarak ayarlayarak açma şifresini sağlamadan genel meta verileri okuyabilir.
+Açma şifresi genellikle sunum içeriğini ve belge özelliklerini korur. Bir sunum, [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) `False` olarak ayarlandığında şifrelenmişse, belge özellikleri genel kalır. Bir uygulama daha sonra [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) `True` olarak ayarlayabilir ve açma şifresi vermeden genel meta verileri okuyabilir.
 
-[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) Aspose.Slides’in neyi yüklediğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifreleme içinde yer alıyorsa, şifre olmadan yükleme başarısız olur. Sunum şifreli değilse, seçenek yok sayılır ve tam sunum yüklenir.
+[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) Aspose.Slides'ın neyi yükleyeceğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifreleme içinde yer alıyorsa, şifre olmadan yükleme başarısız olur. Sunum şifreli değilse, seçenek yok sayılır ve tam sunum yüklenir.
 
-Bu örnek, belge özellikleri genel olarak bırakılmış şifreli bir sunum gerektirir. Yükleme kipini [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) ile doğrular ve ardından [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) aracılığıyla yerleşik özellikleri okur:
+Örnek, belge özellikleri genel bırakılmış bir şifreli sunum gerektirir. Yükleme modunu [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) ile doğrular ve ardından [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) üzerinden yerleşik özellikleri okur:
 
 ```python
 import aspose.slides as slides
@@ -68,17 +68,17 @@ with slides.Presentation("public-properties-encrypted.pptx", load_options) as pr
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-Bu kipte slayt içeriği yüklenmez. Slaytlar, ana şablonlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) kontrol etmelidir.
+Bu modda slayt içeriği yüklenmez. Slaytlar, ana slaytlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) kontrol etmelidir.
 
 {{% alert color="warning" title="Security" %}}
-Genel meta veriler yazar adları, başlıklar, konular, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ifşa edebilir. Hassas özellikleri sunumla birlikte şifreleyin. Yalnızca indeksleme, sınıflandırma, arama veya belge‑yönetim sistemlerinin şifre olmadan erişim gereksinimi olduğunda genel bırakın.
+Genel meta veriler yazar adları, başlıklar, konu, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri açığa çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Yalnızca indeksleme, sınıflandırma, arama veya belge yönetim sistemlerinin şifre olmadan erişim ihtiyacı olduğunda genel bırakın.
 {{% /alert %}}
 
-## **Şifrelenmiş Bir Sunumun Özelliklerini Güncelleme**
+## **Şifreli Bir Sunumun Özelliklerini Güncelleme**
 
-Şifreli bir PPTX dosyası için, [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) ile yüklenen bir sunum, genel meta verileri okumak için tasarlanmıştır. Aspose.Slides, bu yalnızca meta veri nesnesinden değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunum içindeki ilgili verilerle tutarlı olmalıdır. Bu nedenle güncelleme doğru açma şifresi ve tam bir yükleme gerektirir.
+Şifreli bir PPTX dosyası için, [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) ile yüklenen bir sunum, yalnızca genel meta verileri okuma amaçlıdır. Aspose.Slides, bu meta veri‑only nesneden değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunum içindeki ilgili verilerle tutarlı olmalıdır. Bu nedenle güncelleme, doğru açma şifresi ve tam yükleme gerektirir.
 
-Bu örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma şifresi gerektirir. Tam sunumu [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) kullanarak şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için genel meta verileri şifresiz yeniden açar:
+Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma şifresi gerektirir. Tam sunumu [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) ile şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için genel meta verileri şifresiz yeniden açar:
 
 ```python
 import aspose.slides as slides
@@ -110,11 +110,11 @@ with slides.Presentation(output_path, metadata_load_options) as metadata_present
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-Uygulama, sunum içeriğini çözümleyemez veya yükleyemezse, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okuma‑yalnızca olarak ele almalıdır.
+Bir uygulama sunum içeriğini çözemiyor veya yükleyemiyorsa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca‑okunur olarak ele almalıdır.
 
 ## **Yerleşik Özelliklere Erişim**
 
-[DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) sınıfı, [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/) ve [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/) gibi tiplenmiş özellikler aracılığıyla yerleşik meta verileri ortaya çıkarır. Bu örnek mevcut bir sunumu açar ve saklanan meta verileri konsola yazdırır. Değerler girdi sunumuna bağlıdır; bazı alanlar boş olabilir.
+[DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) sınıfı, [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/) ve [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/) gibi tipli özellikler aracılığıyla yerleşik meta verileri ortaya koyar. Bu örnek mevcut bir sunumu açar ve depolanmış meta verilerini konsola yazdırır. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
 
 ```python
 import aspose.slides as slides
@@ -138,9 +138,37 @@ with slides.Presentation("AccessBuiltInProperties.pptx") as presentation:
     print("Title:", document_properties.title)
 ```
 
+### **Revizyon Numarası ve Düzenleme Süresini Raporlama**
+
+`presentations` klasöründeki her PPTX dosyasının revizyon numarasını ve toplam düzenleme süresini raporlamak için [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) kullanarak [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) alınır; slaytlar yüklenmez. Python süresi bir `timedelta` olarak gösterir; kayıt süresi 24 saate ulaştığında gün sayısını da içerir.
+
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+print("File | RevisionNumber | TotalEditingTime")
+for path in Path("presentations").glob("*.pptx"):
+    if path.is_file():
+        info = slides.PresentationFactory.instance.get_presentation_info(str(path))
+        properties = info.read_document_properties()
+        print(f"{path.name} | {properties.revision_number} | {properties.total_editing_time}")
+```
+
+1 gün, 2 saat ve 5 dakika kayıtlı düzenleme süresi olan bir sunum için rapor şu satırı içerir.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1 day, 2:05:00
+```
+
+[DocumentProperties.revision_number](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/revision_number/) yazılabilir meta veridir. Değeri tek başına sunumun kaç kez kaydedildiğini belirleyemez veya sürüm geçmişini yeniden oluşturamaz.
+
+[DocumentProperties.total_editing_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/total_editing_time/) dosyada depolanan düzenleme süresini raporlar. `0:00:00` değeri, kayıtlı sürenin sıfır olduğunu, birinin sunumu düzenlemiş olsa bile gösterir.
+
 ## **Yerleşik Özellikleri Değiştirme**
 
-Yerleşik meta verileri güncellemek için, [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) tarafından ortaya çıkarılan yazılabilir özelliklere değerler atayın. Bu örnek mevcut bir sunumu açar, [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/) ve [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/) ayarlar, ardından güncellenen sunumu [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
+Yerleşik meta verileri güncellemek için [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) aracılığıyla sunulan yazılabilir özelliklere değer atayın. Bu örnek mevcut bir sunumu açar, [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/) ve [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/) ayarlar ve ardından [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) ile güncellenmiş sunumu kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
 
 ```python
 import aspose.slides as slides
@@ -157,11 +185,11 @@ with slides.Presentation("ModifyBuiltInProperties.pptx") as presentation:
     presentation.save("DocumentProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Köprü Temelini Yönetme**
+## **Hipermetin Tabanını Yönetme**
 
-[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) göreli köprüler için belge‑seviyesindeki temeli depolar. Sunumu ve bağlı dosyalarını başka bir konuma taşıdığınızda kullanışlıdır. Bu, bireysel bir köprünün [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) özelliğinden ayrı bir ayardır: temeli değiştirmek depolanan köprü adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
+[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) belge‑düzeyinde göreceli hipermetinler için temel adresi depolar. Sunumu ve bağlı dosyalarını başka bir konuma taşırken faydalıdır. Bu, bireysel bir hipermetnin [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) adresinden ayrı bir yapıdır; temeli değiştirmek saklanan bağlantı adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
 
-Bu örnek, `target.html` gibi bir göreli bağ ve bir dosya ya da web sitesine mutlak bağ içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adres atar ve değeri kontrol etmek için sunumu kaydedip yeniden açar. Ardından temeli `""` ile temizler ve ayrı bir kaydedilen dosyada boş değeri doğrular. Örnek temel adresi, bağlı dosyalarınızın konumuyla değiştirin.
+Örnek, `target.html` gibi göreceli bir bağlantı ve bir dosya ya da web sitesine mutlak bağlanı içerir. Mevcut temel adresi okur, yeni bir temel adres atar, sunumu kaydeder ve değeri kontrol etmek için yeniden açar. Ardından temel adresi `""` ile temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresi, bağlı dosyalarınızın konumuyla değiştirin.
 
 ```python
 import aspose.slides as slides
@@ -183,13 +211,13 @@ with slides.Presentation("hyperlinks-cleared.pptx") as cleared_presentation:
     print("Base cleared:", cleared_presentation.document_properties.hyperlink_base == "")
 ```
 
-İki doğrulama mesajı `True` yazdırmalıdır. Temelin temizlenmesi, bireysel köprü adreslerini etkilenmemiş bırakır.
+İki doğrulama mesajı da `True` yazdırmalıdır. Temelin temizlenmesi bireysel hipermetin adreslerini etkilemez.
 
-`target.pptx` göreli bir bağ, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedildikten ve sunum yeniden açıldıktan sonra aynı bağ `new/target.pptx` dosyasını açtı. Mutlak bağ aynı dosyayı açmaya devam etti. Sunumu taşıdıktan ya da temelini değiştirdikten önce ve sonra göreli bağlarınızı PowerPoint’te test edin.
+Temel `old` klasörüne işaret ettiğinde `target.pptx` göreceli bağlantısı `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedilip sunum yeniden açıldıktan sonra aynı bağlantı `new/target.pptx` dosyasını açtı. Mutlak bağlantı aynı dosyayı açmaya devam etti. Göreceli bağlantılarınızı PowerPoint'te sunumu taşıyıp temeli değiştirmeden önce ve sonra test edin.
 
 ## **Özel Sunum Özellikleri Ekleme**
 
-Özel özellikler, karşılığı olmayan yerleşik bir alanı olmayan meta verileri depolar. [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) yöntemi, özellik adını kullanarak bir değer atamanıza olanak tanır. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve sunumu [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) ile kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
+Özel özellikler, yerleşik bir alanı olmayan meta verileri depolar. [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) yöntemi, özellik adını belirterek bir değer atamanıza izin verir. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) ile sunumu kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
 
 ```python
 import aspose.slides as slides
@@ -206,7 +234,7 @@ with slides.Presentation() as presentation:
 
 ## **Özel Özelliklere Erişim ve Değiştirme**
 
-Bu örnek, özel özellikler içeren bir sunumu açar ve [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) kullanarak bunlar üzerinde yineleme yapar. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) sıfır‑tabanlı bir indeks kabul eder ve [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) tarafından kullanılan adı döndürür. Örnek, özel özelliklerin tümünün dize olduğu bir sunum gerektirir. Her orijinal adı ve değeri yazdırır, her değeri numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Özel özellik yoksa döngü hiçbir değişiklik yapmaz.
+Bu örnek, özel özellikler içeren bir sunumu açar ve [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) kullanarak bunlar üzerinde yineleme yapar. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) sıfır‑tabanlı bir indeks alır ve [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) ile kullanılan adı döndürür. Örnek, tüm özel özelliklerin string olduğu bir sunum gerektirir. Her orijinal adı ve değerini yazdırır, her değeri numaralı bir string ile değiştirir ve değişiklikleri kaydeder. Özel özellik hiç yoksa döngü hiçbir değişiklik yapmaz.
 
 ```python
 import aspose.slides as slides
@@ -227,11 +255,11 @@ with slides.Presentation("AccessAndModifyProperties.pptx") as presentation:
     presentation.save("CustomProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) değeri, ikinci argüman olarak geçirilen tek öğeli liste aracılığıyla döndürür. Yer tutucu, saklanan özelliğin türüyle eşleşmelidir: dize için `[""]` veya tam sayı için `[0]` kullanın. Tür uyuşmazlığı bir `InvalidCastException` oluşmasına neden olur; yer tutucuyu özel‑özellik şemanıza göre seçin.
+[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) değerini ikinci argüman olarak verilen tek‑elemanlı liste üzerinden döndürür. Yer tutucu, saklanan özelliğin tipine eşleşmelidir: bir string için `[""]`, bir tam sayı için `[0]` kullanın. Tip uyumsuzluğu bir `InvalidCastException` oluşturur; yer tutucuyu özel‑özellik şemanıza göre seçin.
 
 ## **Canlı Örnek**
 
-Aspose.Slides API’sini kullanarak belge özellikleriyle nasıl çalışılacağını görmek için çevrimiçi uygulama **[PowerPoint Meta Verilerini Görüntüle ve Düzenle](https://products.aspose.app/slides/metadata)**’yi deneyin:
+Belge özellikleriyle çalışmayı görmek için çevrimiçi uygulama **[View & Edit PowerPoint Metadata](https://products.aspose.app/slides/metadata)** deneyin:
 
 [![PowerPoint Meta Verilerini Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
@@ -239,20 +267,20 @@ Aspose.Slides API’sini kullanarak belge özellikleriyle nasıl çalışılaca�
 
 **Bir sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
 
-Yerleşik özellikler sunumun bütünleşik bir parçasıdır ve tamamen kaldırılamaz. Ancak, değerlerini değiştirebilir ya da izin veriliyorsa boş bir değer atayabilirsiniz.
+Yerleşik özellikler sunumun bütünleşik bir parçasıdır ve tamamen kaldırılamaz. Ancak, değerlerini değiştirebilir veya izin veriliyorsa boş olarak ayarlayabilirsiniz.
 
-**Zaten var olan bir özel özellik eklersem ne olur?**
+**Zaten var olan bir özel özelliği eklersem ne olur?**
 
-Var olan bir özel özellik eklerseniz, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak değeri günceller.
+Var olan bir özel özellik eklenirse, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak değeri günceller.
 
-**Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
+**Sunumu tamamen yüklemeden özelliklere erişebilir miyim?**
 
-Evet. Önce [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) çağırın, ardından [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) ile bir [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) örneği oluşturmadan saklı belge meta verilerini okuyun. Tam raporlama örneği ve format‑spesifik sınırlamalar için [Build a Lightweight Presentation Inventory](/slides/tr/python-net/examine-presentation/) bölümüne bakın.
+Evet. Önce [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) ardından [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) kullanarak [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) örneği oluşturmadan depolanmış belge meta verilerini okuyabilirsiniz. Tam raporlama örneği ve format‑spesifik sınırlamalar için **[Build a Lightweight Presentation Inventory](/slides/tr/python-net/examine-presentation/)** bölümüne bakın.
 
 **Şifreli bir sunumun genel özelliklerini açma şifresi olmadan okuyabilir miyim?**
 
-Evet. Sunum, [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) `False` olarak şifrelenmiş olmalı ve [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) `True` olarak yüklenmelidir.
+Evet. Sunum, [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) `False` olarak ayarlanmış ve [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) `True` olarak yüklenmiş olmalıdır.
 
-**Belge‑özellikleri‑yalnızca modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
+**Şifreli bir PPTX dosyasını belge‑özellikleri‑sadece modunda güncelleyebilir miyim?**
 
-Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu yüzden şifreli bir PPTX dosyasını güncellemek, doğru açma şifresiyle tam sunumu yüklemeyi gerektirir.
+Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu yüzden şifreli bir PPTX dosyasını güncellemek doğru açma şifresi ile tam sunumu yüklemeyi gerektirir.

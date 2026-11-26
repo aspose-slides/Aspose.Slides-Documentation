@@ -1,55 +1,55 @@
 ---
-title: Gérer les propriétés de la présentation en PHP
-linktitle: Propriétés de la présentation
+title: Gérer les propriétés de présentation en PHP
+linktitle: Propriétés de présentation
 type: docs
 weight: 70
 url: /fr/php-java/presentation-properties/
 keywords:
 - Propriétés PowerPoint
-- Propriétés de présentation
-- Propriétés du document
-- Propriétés intégrées
-- Propriétés personnalisées
-- Propriétés avancées
-- Gérer les propriétés
-- Modifier les propriétés
-- Métadonnées du document
-- Modifier les métadonnées
-- Langue de vérification
-- Langue par défaut
+- propriétés de présentation
+- propriétés de document
+- propriétés intégrées
+- propriétés personnalisées
+- propriétés avancées
+- gérer les propriétés
+- modifier les propriétés
+- métadonnées du document
+- modifier les métadonnées
+- langue de vérification
+- langue par défaut
 - PowerPoint
 - OpenDocument
-- Présentation
+- présentation
 - PHP
 - Aspose.Slides
-description: "Maîtrisez les propriétés de présentation dans Aspose.Slides pour PHP via Java et rationalisez la recherche, le branding et le flux de travail dans vos fichiers PowerPoint et OpenDocument."
+description: "Maîtrisez les propriétés de présentation dans Aspose.Slides pour PHP via Java et simplifiez la recherche, l'image de marque et le flux de travail dans vos fichiers PowerPoint et OpenDocument."
 ---
 ## **Introduction**
 
-Aspose.Slides pour PHP via Java prend en charge les propriétés de document **intégrées** et **personnalisées**. Utilisez ces propriétés pour lire et mettre à jour les métadonnées de la présentation, telles que l’auteur, le titre et les valeurs définies par l’utilisateur.
+Aspose.Slides pour PHP via Java prend en charge les propriétés de document **intégrées** et **personnalisées**. Utilisez ces propriétés pour lire et mettre à jour les métadonnées d’une présentation, telles que l’auteur, le titre et les valeurs définies par l’utilisateur.
 
-Aspose.Slides vous permet de travailler avec les propriétés de document de présentation via la classe [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/). Une instance de cette classe est renvoyée par [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). Les exemples suivants montrent comment lire, modifier et gérer ces propriétés. Ils supposent que le pont PHP/Java et le wrapper PHP d’Aspose.Slides sont initialisés.
+Aspose.Slides vous permet de travailler avec les propriétés de document d’une présentation via la classe [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/). Une instance de cette classe est renvoyée par [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). Les exemples suivants montrent comment lire, modifier et gérer ces propriétés. Ils supposent que le pont PHP/Java et le wrapper PHP d’Aspose.Slides sont initialisés.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides gère les métadonnées d’application et de producteur lors de l’enregistrement des présentations ; ces champs identifient le logiciel qui a créé la sortie.
+Aspose.Slides gère les métadonnées d’application et de producteur lors de l’enregistrement des présentations ; ces champs identifient le logiciel qui a créé le résultat.
 {{% /alert %}}
 
 ## **Gérer les propriétés de la présentation**
 
-Les propriétés de document stockent des informations descriptives à côté du contenu de la présentation. Elles se classent en deux catégories :
+Les propriétés de document stockent des informations descriptives avec le contenu de la présentation. Elles se déclinent en deux catégories :
 
 - **Propriétés intégrées** contiennent des métadonnées standard, telles que le titre, l’auteur et les statistiques du document.
 - **Propriétés personnalisées** stockent des paires nom/valeur définies par l’utilisateur.
 
-Aspose.Slides pour PHP via Java donne accès aux deux catégories. Dans PowerPoint, sélectionnez **Fichier → Informations → Propriétés → Propriétés avancées** pour examiner les métadonnées du document. La boîte de dialogue regroupe les informations en onglets tels que **Résumé**, **Statistiques**, **Contenu** et **Personnalisé**. Utilisez l’onglet **Personnalisé** pour gérer les propriétés définies par l’utilisateur.
+Aspose.Slides pour PHP via Java donne accès aux deux catégories. Dans PowerPoint, sélectionnez **File → Info → Properties → Advanced Properties** pour inspecter les métadonnées du document. La boîte de dialogue regroupe les informations dans des onglets tels que **Summary**, **Statistics**, **Contents** et **Custom**. Utilisez l’onglet **Custom** pour gérer les propriétés définies par l’utilisateur.
 
 ## **Lire les propriétés publiques d’une présentation chiffrée**
 
-Un mot de passe d’ouverture protège normalement à la fois le contenu de la présentation et les propriétés du document. Lorsqu’une présentation est chiffrée après avoir appelé [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) avec `false`, ses propriétés de document restent publiques. Une application peut alors appeler [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) avec `true` et lire les métadonnées publiques sans fournir le mot de passe d’ouverture.
+Un mot de passe d’ouverture protège généralement le contenu de la présentation ainsi que les propriétés du document. Lorsqu’une présentation est chiffrée après avoir appelé [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) avec `false`, ses propriétés de document restent publiques. Une application peut alors appeler [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) avec `true` et lire les métadonnées publiques sans fournir le mot de passe d’ouverture.
 
-[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) contrôle ce que Aspose.Slides charge ; il ne décrypte rien. Si les propriétés ont été incluses dans le chiffrement, les charger sans le mot de passe échoue. Si la présentation n’est pas chiffrée, l’option est ignorée et la présentation complète est chargée.
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) contrôle ce qu’Aspose.Slides charge ; il ne déchiffre rien. Si les propriétés ont été incluses dans le chiffrement, les charger sans le mot de passe échoue. Si la présentation n’est pas chiffrée, l’option est ignorée et la présentation complète est chargée.
 
-L’exemple nécessite une présentation chiffrée dont les propriétés de document ont été laissées publiques. Il vérifie le mode de chargement via [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) puis lit les propriétés intégrées via [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/):
+L’exemple nécessite une présentation chiffrée dont les propriétés du document sont restées publiques. Il vérifie le mode de chargement via [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) puis lit les propriétés intégrées via [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -74,17 +74,17 @@ try {
 }
 ```
 
-Dans ce mode, le contenu des diapositives n’est pas chargé. Les diapositives, maîtres, mises en page, formes, médias et autres objets de la présentation sont indisponibles. Les applications doivent toujours vérifier [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) avant d’effectuer une opération nécessitant le modèle complet d’objets de présentation.
+Dans ce mode, le contenu des diapositives n’est pas chargé. Les diapositives, les maîtres, les dispositions, les formes, les médias et autres objets de la présentation ne sont pas disponibles. Les applications doivent toujours vérifier [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) avant d’effectuer une opération qui nécessite le modèle d’objet complet de la présentation.
 
 {{% alert color="warning" title="Warning" %}}
-Les métadonnées publiques peuvent révéler les noms d’auteur, titres, sujets, mots‑clés, informations sur l’entreprise, commentaires et valeurs personnalisées. Chiffrez les propriétés sensibles avec la présentation. Ne les laissez publiques que lorsque l’indexation, la classification, la recherche ou les systèmes de gestion de documents ont une exigence spécifique d’accès sans mot de passe.
+Les métadonnées publiques peuvent révéler les noms d’auteur, les titres, les sujets, les mots‑clé, les informations d’entreprise, les commentaires et les valeurs personnalisées. Chiffrez les propriétés sensibles avec la présentation. Ne les laissez publiques que lorsque l’indexation, la classification, la recherche ou les systèmes de gestion de documents nécessitent un accès sans mot de passe.
 {{% /alert %}}
 
 ## **Mettre à jour les propriétés d’une présentation chiffrée**
 
-Pour un fichier PPTX chiffré, une présentation chargée après avoir appelé [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) avec `true` est destinée à la lecture des métadonnées publiques. Aspose.Slides ne peut pas enregistrer les propriétés modifiées à partir de cet objet « document‑properties‑only » car les propriétés publiques doivent rester cohérentes avec les données correspondantes à l’intérieur de la présentation chiffrée. Leur mise à jour nécessite donc le mot de passe d’ouverture correct et un chargement complet.
+Pour un fichier PPTX chiffré, une présentation chargée après avoir appelé [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) avec `true` est destinée à la lecture des métadonnées publiques. Aspose.Slides ne peut pas enregistrer les propriétés modifiées à partir de cet objet contenant uniquement les métadonnées, car les propriétés publiques doivent rester cohérentes avec les données correspondantes à l’intérieur de la présentation chiffrée. Les mettre à jour nécessite donc le mot de passe d’ouverture correct et un chargement complet.
 
-L’exemple nécessite une présentation PPTX chiffrée avec des propriétés de document publiques et un mot de passe d’ouverture connu. Il ouvre la présentation complète avec [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/), met à jour les propriétés intégrées publiques, et enregistre le résultat. Il utilise ensuite [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/) pour vérifier que le chiffrement est préservé et rouvre les métadonnées publiques sans mot de passe afin de vérifier les nouvelles valeurs:
+L’exemple nécessite une présentation PPTX chiffrée avec des propriétés de document publiques et un mot de passe d’ouverture connu. Il ouvre la présentation complète avec [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword), met à jour les propriétés intégrées publiques, puis enregistre le résultat. Il utilise ensuite [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#isEncrypted) pour vérifier que le chiffrement est conservé et rouvre les métadonnées publiques sans mot de passe afin de vérifier les nouvelles valeurs :
 
 ```php
 use aspose\slides\LoadOptions;
@@ -128,11 +128,11 @@ try {
 }
 ```
 
-Si une application n’est pas autorisée à déchiffrer ou à charger le contenu de la présentation, elle doit traiter les propriétés publiques d’un fichier PPTX chiffré comme en lecture‑seule.
+Si une application n’est pas autorisée à déchiffrer ou charger le contenu de la présentation, elle doit traiter les propriétés publiques d’un fichier PPTX chiffré comme en lecture seule.
 
 ## **Accéder aux propriétés intégrées**
 
-La classe [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) expose les métadonnées intégrées via des méthodes getter, notamment [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/) et [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/). Cet exemple ouvre une présentation existante et affiche les métadonnées stockées dans la console. Les valeurs dépendent de la présentation d’entrée ; certains champs peuvent être vides.
+La classe [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) expose les métadonnées intégrées via des méthodes d’accès, notamment [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTitle), et [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCreatedTime). Cet exemple ouvre une présentation existante et affiche ses métadonnées stockées dans la console. Les valeurs dépendent de la présentation d’entrée ; certains champs peuvent être vides.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,43 @@ try {
 }
 ```
 
+### **Rapporter le numéro de révision et le temps d’édition**
+
+Pour rapporter le numéro de révision et le temps total d’édition pour chaque fichier PPTX du dossier `presentations`, utilisez [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) pour lire ses [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) sans charger les diapositives pour l’édition. L’API PHP via Java renvoie le temps d’édition en millisecondes. L’exemple le convertit en heures, minutes et secondes et inclut un compte de jours pour les durées de 24 heures ou plus.
+
+```php
+use aspose\slides\PresentationFactory;
+
+echo "File | RevisionNumber | TotalEditingTime\n";
+foreach (new GlobIterator("presentations/*.pptx") as $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    $info = PresentationFactory::getInstance()->getPresentationInfo($file->getRealPath());
+    $properties = $info->readDocumentProperties();
+    $totalSeconds = (int) (java_values($properties->getTotalEditingTime()) / 1000);
+    $days = intdiv($totalSeconds, 86400);
+    $time = sprintf("%02d:%02d:%02d", intdiv($totalSeconds, 3600) % 24, intdiv($totalSeconds, 60) % 60, $totalSeconds % 60);
+    $editingTime = $days > 0 ? $days . "." . $time : $time;
+    printf("%s | %d | %s\n", $file->getFilename(), java_values($properties->getRevisionNumber()), $editingTime);
+}
+```
+
+Pour une présentation avec le numéro de révision 17 et un temps d’édition enregistré de 1 jour, 2 heures et 5 minutes, le rapport affiche la sortie suivante.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[DocumentProperties::getRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getRevisionNumber) lit une valeur que les applications peuvent modifier avec [DocumentProperties::setRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setRevisionNumber). Le numéro de révision seul ne permet pas de déterminer combien de fois la présentation a été enregistrée ni de reconstruire son historique de versions.
+
+[DocumentProperties::getTotalEditingTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTotalEditingTime) lit la durée d’édition enregistrée dans le fichier. Une présentation peut avoir une durée stockée de zéro (`00:00:00`) même si quelqu’un l’a éditée.
+
 ## **Modifier les propriétés intégrées**
 
-Pour mettre à jour les métadonnées intégrées, utilisez les méthodes setter sur l’objet renvoyé par [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). Cet exemple ouvre une présentation existante, appelle [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/) et [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/), puis enregistre la présentation mise à jour avec [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). Le PPTX enregistré contient les nouvelles métadonnées.
+Pour mettre à jour les métadonnées intégrées, utilisez les méthodes de définition sur l’objet renvoyé par [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). Cet exemple ouvre une présentation existante, appelle [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setComments), et [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setManager), puis enregistre la présentation mise à jour avec [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). Le PPTX enregistré contient les nouvelles métadonnées.
 
 ```php
 use aspose\slides\Presentation;
@@ -184,11 +218,11 @@ try {
 }
 ```
 
-## **Gérer la base d’hyperlien**
+## **Gérer la base des hyperliens**
 
-[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/) renvoie la base au niveau du document pour les hyperliens relatifs. Utilisez [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/) pour la modifier ou la vider. Cela est utile lors du déplacement d’une présentation et de ses fichiers liés vers un autre emplacement. C’est distinct de [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) d’un hyperlien individuel : changer la base ne réécrit pas les adresses de lien stockées ni ne modifie les destinations absolues.
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getHyperlinkBase) renvoie la base au niveau du document pour les hyperliens relatifs. Utilisez [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setHyperlinkBase) pour la modifier ou la réinitialiser. Cela est utile lors du déplacement d’une présentation et de ses fichiers liés vers un autre emplacement. Elle est distincte du [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/#getExternalUrl) : changer la base ne réécrit pas les adresses de lien stockées ni ne modifie les destinations absolues.
 
-L’exemple nécessite une présentation contenant à la fois un lien relatif, tel que `target.html`, et un lien absolu, tel que `https://example.org/absolute.html`. Il lit la base existante, affecte une nouvelle adresse de base, puis enregistre et rouvre la présentation pour vérifier la valeur. Il vide ensuite la base avec une chaîne vide et vérifie la valeur vide dans un fichier enregistré séparé. Remplacez l’adresse de base d’exemple par l’emplacement de vos fichiers liés.
+L’exemple nécessite une présentation contenant à la fois un lien relatif, tel que `target.html`, et un lien absolu, tel que `https://example.org/absolute.html`. Il lit la base existante, assigne une nouvelle adresse de base, puis enregistre et rouvre la présentation pour vérifier la valeur. Il efface ensuite la base avec une chaîne vide et vérifie la valeur vide dans un fichier enregistré séparé. Remplacez l’adresse de base d’exemple par l’emplacement de vos fichiers liés.
 
 ```php
 use aspose\slides\Presentation;
@@ -223,13 +257,13 @@ try {
 }
 ```
 
-Les deux messages de vérification devraient afficher `true`. Vider la base laisse les adresses individuelles des hyperliens intactes.
+Les deux messages de vérification devraient afficher `true`. Effacer la base laisse les adresses d’hyperliens individuelles intactes.
 
-Un lien relatif vers `target.pptx` ouvrait `old/target.pptx` lorsque la base pointait vers le dossier `old`. Après avoir changé la base vers le dossier `new`, enregistré et rouverts la présentation, le même lien ouvre `new/target.pptx`. Un lien absolu continue d’ouvrir le même fichier. Testez vos liens relatifs dans PowerPoint avant et après avoir déplacé la présentation ou modifié sa base.
+Un lien relatif vers `target.pptx` ouvrait `old/target.pptx` lorsque la base pointait vers le dossier `old`. Après avoir changé la base vers le dossier `new`, enregistré et rouvert la présentation, le même lien ouvrait `new/target.pptx`. Un lien absolu a continué d’ouvrir le même fichier. Testez vos liens relatifs dans PowerPoint avant et après avoir déplacé la présentation ou modifié sa base.
 
-## **Ajouter des propriétés de présentation personnalisées**
+## **Ajouter des propriétés personnalisées à la présentation**
 
-Les propriétés personnalisées stockent des métadonnées qui n’ont pas de champ intégré correspondant. La méthode [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) vous permet d’attribuer une valeur par nom de propriété. Cet exemple crée une présentation, ajoute deux valeurs texte et une valeur entière de version, puis enregistre la présentation avec [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). Attribuer une valeur à un nom existant remplace la valeur de cette propriété.
+Les propriétés personnalisées stockent des métadonnées qui n’ont pas de champ intégré correspondant. La méthode [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) vous permet d’assigner une valeur par nom de propriété. Cet exemple crée une présentation, ajoute deux valeurs texte et une valeur de version entière, puis enregistre la présentation avec [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). Assigner une valeur à un nom existant remplace la valeur de cette propriété.
 
 ```php
 use aspose\slides\Presentation;
@@ -251,7 +285,7 @@ try {
 
 ## **Accéder et modifier les propriétés personnalisées**
 
-Cet exemple ouvre une présentation contenant des propriétés personnalisées et utilise [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/) pour les parcourir. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/) accepte un indice zéro‑based et renvoie le nom utilisé par [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/). L’exemple affiche chaque nom et valeur d’origine, remplace chaque valeur par une chaîne numérotée quel que soit son type d’origine, puis enregistre les modifications. S’il n’existe aucune propriété personnalisée, la boucle ne fait aucun changement.
+Cet exemple ouvre une présentation contenant des propriétés personnalisées et utilise [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCountOfCustomProperties) pour les parcourir. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCustomPropertyName) accepte un indice zéro‑based et renvoie le nom utilisé par [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item). L’exemple affiche chaque nom et valeur d’origine, remplace chaque valeur par une chaîne numérotée quel que soit son type d’origine, et enregistre les modifications. S’il n’y a aucune propriété personnalisée, la boucle n’effectue aucun changement.
 
 ```php
 use aspose\slides\Presentation;
@@ -279,28 +313,28 @@ try {
 
 ## **Exemple en direct**
 
-Essayez l’application en ligne [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) pour voir comment travailler avec les propriétés de document à l’aide de l’API Aspose.Slides :
+Essayez l’application en ligne [**Voir & Modifier les métadonnées PowerPoint**](https://products.aspose.app/slides/metadata) pour voir comment travailler avec les propriétés de document en utilisant l’API Aspose.Slides :
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
-**Comment supprimer une propriété intégrée d’une présentation ?**
+**Comment puis‑je supprimer une propriété intégrée d’une présentation ?**
 
-Les propriétés intégrées font partie intégrante de la présentation et ne peuvent pas être supprimées entièrement. Cependant, vous pouvez modifier leurs valeurs ou les définir à vide si la propriété le permet.
+Les propriétés intégrées font partie intégrante de la présentation et ne peuvent pas être supprimées complètement. Cependant, vous pouvez soit modifier leurs valeurs, soit les vider si la propriété le permet.
 
 **Que se passe‑t‑il si j’ajoute une propriété personnalisée qui existe déjà ?**
 
-Si vous ajoutez une propriété personnalisée qui existe déjà, sa valeur existante sera écrasée par la nouvelle. Vous n’avez pas besoin de supprimer ou de vérifier la propriété au préalable, Aspose.Slides met à jour automatiquement la valeur de la propriété.
+Si vous ajoutez une propriété personnalisée qui existe déjà, sa valeur existante sera écrasée par la nouvelle. Vous n’avez pas besoin de supprimer ou de vérifier la propriété au préalable, car Aspose.Slides met automatiquement à jour la valeur de la propriété.
 
-**Puis‑je accéder aux propriétés de la présentation sans charger complètement la présentation ?**
+**Puis‑je accéder aux propriétés d’une présentation sans la charger entièrement ?**
 
-Oui. Utilisez [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/) puis [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/) pour lire les métadonnées du document stockées sans créer une instance [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Consultez [Build a Lightweight Presentation Inventory](/slides/fr/php-java/examine-presentation/) pour un exemple complet de rapport et les limitations propres à chaque format.
+Oui. Utilisez [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/#getPresentationInfo) puis [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) pour lire les métadonnées du document stockées sans créer d’instance [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Consultez [Construire un inventaire léger de présentations](/slides/fr/php-java/examine-presentation/) pour un exemple complet de rapport et les limitations propres aux formats.
 
 **Puis‑je lire les propriétés publiques d’une présentation chiffrée sans son mot de passe d’ouverture ?**
 
-Oui. La présentation doit avoir été chiffrée après avoir appelé [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) avec `false`, et elle doit être chargée après avoir appelé [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) avec `true`.
+Oui. La présentation doit avoir été chiffrée après avoir appelé [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) avec `false`, et elle doit être chargée après avoir appelé [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) avec `true`.
 
-**Puis‑je mettre à jour un fichier PPTX chiffré en mode « document‑properties‑only » ?**
+**Puis‑je mettre à jour un fichier PPTX chiffré en mode uniquement propriétés du document ?**
 
-Non. Les données publiques et chiffrées des propriétés doivent rester cohérentes, ainsi la mise à jour d’un fichier PPTX chiffré nécessite le chargement complet de la présentation avec le mot de passe d’ouverture correct.
+Non. Les données publiques et chiffrées des propriétés doivent rester cohérentes, ainsi la mise à jour d’un fichier PPTX chiffré nécessite de charger la présentation complète avec le mot de passe d’ouverture correct.

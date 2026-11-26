@@ -22,16 +22,16 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Menguasai properti presentasi di Aspose.Slides untuk Python via .NET dan menyederhanakan pencarian, penjenamaan, serta alur kerja dalam file PowerPoint Anda."
+description: "Kuasi properti presentasi dalam Aspose.Slides untuk Python via .NET dan permudah pencarian, penjenamaan, serta alur kerja dalam file PowerPoint Anda."
 ---
 ## **Pendahuluan**
 
 Aspose.Slides for Python via .NET mendukung properti dokumen **bawaan** dan **kustom**. Gunakan properti ini untuk membaca dan memperbarui metadata presentasi, seperti penulis, judul, dan nilai yang ditentukan pengguna.
 
-Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui kelas [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) . Sebuah instance kelas ini dikembalikan oleh [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti ini.
+Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui kelas [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/). Sebuah instance kelas ini dikembalikan oleh [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti ini.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides mengelola metadata aplikasi dan produsen saat menyimpan presentasi; bidang-bidang ini mengidentifikasi perangkat lunak yang membuat output.
+Aspose.Slides mengelola metadata aplikasi dan produsen saat menyimpan presentasi; bidang‑bidang ini mengidentifikasi perangkat lunak yang membuat output.
 {{% /alert %}}
 
 ## **Kelola Properti Presentasi**
@@ -41,15 +41,15 @@ Properti dokumen menyimpan informasi deskriptif bersama konten presentasi. Merek
 - **Properti bawaan** berisi metadata standar, seperti judul, penulis, dan statistik dokumen.
 - **Properti kustom** menyimpan pasangan nama/nilai yang ditentukan pengguna.
 
-Aspose.Slides for Python via .NET menyediakan akses ke kedua kategori. Di PowerPoint, pilih **File → Info → Properties → Advanced Properties** untuk memeriksa metadata dokumen. Dialog mengelompokkan informasi ke dalam tab seperti **Summary**, **Statistics**, **Contents**, dan **Custom**. Gunakan tab **Custom** untuk mengelola properti yang ditentukan pengguna.
+Aspose.Slides for Python via .NET menyediakan akses ke kedua kategori. Di PowerPoint, pilih **File → Info → Properties → Advanced Properties** untuk memeriksa metadata dokumen. Dialog mengelompokkan informasi ke dalam tab seperti **Ringkasan**, **Statistik**, **Konten**, dan **Kustom**. Gunakan tab **Kustom** untuk mengelola properti yang ditentukan pengguna.
 
-## **Baca Properti Publik dari Presentasi Terenkripsi**
+## **Baca Properti Publik dari Presentasi yang Di‑enkripsi**
 
-Kata sandi pembuka biasanya melindungi baik konten presentasi maupun properti dokumen. Ketika sebuah presentasi dienkripsi dengan [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) diatur ke `False`, properti dokumennya tetap publik. Sebuah aplikasi kemudian dapat mengatur [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) ke `True` dan membaca metadata publik tanpa menyediakan kata sandi pembuka.
+Password pembuka biasanya melindungi konten presentasi dan properti dokumen. Ketika sebuah presentasi dienkripsi dengan [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) diatur ke `False`, properti dokumennya tetap publik. Sebuah aplikasi kemudian dapat mengatur [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) ke `True` dan membaca metadata publik tanpa memberikan password pembuka.
 
-[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) mengontrol apa yang dimuat oleh Aspose.Slides; ia tidak mendekripsi apa pun. Jika properti tersebut termasuk dalam enkripsi, memuatnya tanpa kata sandi gagal. Jika presentasi tidak dienkripsi, opsi ini diabaikan dan presentasi lengkap dimuat.
+[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) mengontrol apa yang dimuat Aspose.Slides; ia tidak mendekripsi apa pun. Jika properti termasuk dalam enkripsi, memuatnya tanpa password akan gagal. Jika presentasi tidak dienkripsi, opsi ini diabaikan dan seluruh presentasi dimuat.
 
-Contoh ini membutuhkan presentasi terenkripsi yang properti dokumennya dibiarkan publik. Ia memverifikasi mode pemuatan melalui [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) dan kemudian membaca properti bawaan melalui [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
+Contoh memerlukan sebuah presentasi yang dienkripsi dengan properti dokumen dibiarkan publik. Ia memverifikasi mode pemuatan melalui [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) dan kemudian membaca properti bawaan melalui [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
 
 ```python
 import aspose.slides as slides
@@ -68,17 +68,17 @@ with slides.Presentation("public-properties-encrypted.pptx", load_options) as pr
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-Dalam mode ini, konten slide tidak dimuat. Slide, master, tata letak, bentuk, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
+Dalam mode ini, konten slide tidak dimuat. Slide, master, tata letak, shape, media, dan objek presentasi lainnya tidak tersedia. Aplikasi sebaiknya selalu memeriksa [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
 
 {{% alert color="warning" title="Security" %}}
-Metadata publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai kustom. Enkripsi properti sensitif bersama dengan presentasi. Biarkan publik hanya ketika proses pengindeksan, klasifikasi, pencarian, atau sistem manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa kata sandi.
+Metadata publik dapat mengekspos nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai kustom. Enkripsi properti sensitif bersama presentasi. Biarkan publik hanya ketika sistem pengindeksan, klasifikasi, pencarian, atau manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa password.
 {{% /alert %}}
 
-## **Perbarui Properti dari Presentasi Terenkripsi**
+## **Perbarui Properti Presentasi yang Di‑enkripsi**
 
-Untuk file PPTX terenkripsi, presentasi yang dimuat dengan [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) dimaksudkan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang diubah dari objek hanya‑metadata tersebut karena properti publik harus tetap konsisten dengan data yang bersesuaian di dalam presentasi terenkripsi. Memperbarui mereka oleh karena itu memerlukan kata sandi pembuka yang benar dan pemuatan lengkap.
+Untuk file PPTX yang dienkripsi, sebuah presentasi yang dimuat dengan [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) ditujukan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang berubah dari objek hanya‑metadata tersebut karena properti publik harus tetap konsisten dengan data yang bersesuaian di dalam presentasi yang dienkripsi. Oleh karena itu memperbarui mereka memerlukan password pembuka yang benar serta pemuatan lengkap.
 
-Contoh ini membutuhkan presentasi PPTX terenkripsi dengan properti dokumen publik dan kata sandi pembuka yang diketahui. Ia membuka presentasi lengkap dengan [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), memperbarui properti bawaan publik, dan menyimpan hasilnya. Kemudian ia menggunakan [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) untuk memverifikasi bahwa enkripsi dipertahankan dan membuka kembali metadata publik tanpa kata sandi untuk memverifikasi nilai baru:
+Contoh memerlukan sebuah presentasi PPTX yang dienkripsi dengan properti dokumen publik dan password pembuka yang diketahui. Ia membuka presentasi lengkap dengan [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), memperbarui properti bawaan publik, dan menyimpan hasilnya. Kemudian ia menggunakan [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) untuk memverifikasi bahwa enkripsi tetap terjaga dan membuka kembali metadata publik tanpa password untuk memverifikasi nilai baru:
 
 ```python
 import aspose.slides as slides
@@ -110,11 +110,11 @@ with slides.Presentation(output_path, metadata_load_options) as metadata_present
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-Jika sebuah aplikasi tidak diizinkan mendekripsi atau memuat konten presentasi, ia harus memperlakukan properti publik dari file PPTX terenkripsi sebagai hanya‑baca.
+Jika sebuah aplikasi tidak diizinkan mendekripsi atau memuat konten presentasi, ia harus memperlakukan properti publik dari file PPTX yang dienkripsi sebagai read‑only.
 
 ## **Akses Properti Bawaan**
 
-Kelas [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) menampilkan metadata bawaan melalui properti bertipe, termasuk [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), dan [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/). Contoh ini membuka presentasi yang ada dan mencetak metadata yang disimpan ke konsol. Nilai tergantung pada presentasi input; beberapa bidang mungkin kosong.
+Kelas [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) menampilkan metadata bawaan melalui properti ber‑tipe, termasuk [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), dan [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/). Contoh ini membuka presentasi yang ada dan mencetak metadata yang disimpan ke konsol. Nilai bergantung pada presentasi input; beberapa bidang mungkin kosong.
 
 ```python
 import aspose.slides as slides
@@ -138,9 +138,37 @@ with slides.Presentation("AccessBuiltInProperties.pptx") as presentation:
     print("Title:", document_properties.title)
 ```
 
+### **Laporan Nomor Revisi dan Waktu Pengeditan**
+
+Untuk melaporkan nomor revisi dan total waktu pengeditan untuk setiap file PPTX dalam folder `presentations`, gunakan [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) untuk mengambil [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/)‑nya tanpa memuat slide untuk pengeditan. Python menampilkan durasi sebagai `timedelta`, termasuk jumlah hari ketika waktu tercatat mencapai 24 jam.
+
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+print("File | RevisionNumber | TotalEditingTime")
+for path in Path("presentations").glob("*.pptx"):
+    if path.is_file():
+        info = slides.PresentationFactory.instance.get_presentation_info(str(path))
+        properties = info.read_document_properties()
+        print(f"{path.name} | {properties.revision_number} | {properties.total_editing_time}")
+```
+
+Untuk sebuah presentasi dengan 1 hari, 2 jam, dan 5 menit waktu pengeditan tercatat, laporan berisi baris berikut.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1 day, 2:05:00
+```
+
+[DocumentProperties.revision_number](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/revision_number/) adalah metadata yang dapat ditulis. Nilainya sendiri tidak dapat menunjukkan berapa kali presentasi disimpan atau merekonstruksi riwayat versinya.
+
+[DocumentProperties.total_editing_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/total_editing_time/) melaporkan durasi pengeditan yang disimpan dalam file. Nilai `0:00:00` berarti durasi tercatat nol, meskipun seseorang mengedit presentasi.
+
 ## **Modifikasi Properti Bawaan**
 
-Untuk memperbarui metadata bawaan, tetapkan nilai ke properti yang dapat ditulis yang ditampilkan oleh [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Contoh ini membuka presentasi yang ada, mengatur [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/), dan [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/), kemudian menyimpan presentasi yang diperbarui dengan [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). PPTX yang disimpan berisi metadata baru.
+Untuk memperbarui metadata bawaan, berikan nilai kepada properti yang dapat ditulis yang ditampilkan oleh [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Contoh ini membuka presentasi yang ada, mengatur [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/), dan [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/), lalu menyimpan presentasi yang diperbarui dengan [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). PPTX yang disimpan berisi metadata baru.
 
 ```python
 import aspose.slides as slides
@@ -159,9 +187,9 @@ with slides.Presentation("ModifyBuiltInProperties.pptx") as presentation:
 
 ## **Kelola Basis Hyperlink**
 
-[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) menyimpan basis tingkat dokumen untuk hyperlink relatif. Ini berguna saat memindahkan presentasi dan file terkait ke lokasi lain. Ini terpisah dari [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) pada hyperlink individu: mengubah basis tidak menulis ulang alamat tautan yang disimpan atau mengubah tujuan absolut.
+[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) menyimpan basis tingkat dokumen untuk hyperlink relatif. Ini berguna saat memindahkan presentasi dan file‑file terkait ke lokasi lain. Ini terpisah dari [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) pada hyperlink individu: mengubah basis tidak menulis ulang alamat link yang disimpan atau mengubah tujuan absolut.
 
-Contoh ini membutuhkan presentasi yang berisi baik tautan relatif, seperti `target.html`, maupun tautan absolut ke file atau situs web. Ia membaca basis yang ada, menetapkan alamat basis baru, dan menyimpan serta membuka kembali presentasi untuk memeriksa nilai tersebut. Selanjutnya ia mengosongkan basis dengan `""` dan memverifikasi nilai kosong dalam file terpisah yang disimpan. Ganti alamat basis contoh dengan lokasi file terkait Anda.
+Contoh memerlukan sebuah presentasi yang berisi baik tautan relatif, seperti `target.html`, maupun tautan absolut ke file atau situs web. Ia membaca basis yang ada, menetapkan alamat basis baru, lalu menyimpan dan membuka kembali presentasi untuk memeriksa nilai tersebut. Kemudian ia mengosongkan basis dengan `""` dan memverifikasi nilai kosong dalam file yang disimpan terpisah. Ganti alamat basis contoh dengan lokasi file‑file terkait Anda.
 
 ```python
 import aspose.slides as slides
@@ -183,13 +211,13 @@ with slides.Presentation("hyperlinks-cleared.pptx") as cleared_presentation:
     print("Base cleared:", cleared_presentation.document_properties.hyperlink_base == "")
 ```
 
-Dua pesan verifikasi harus mencetak `True`. Mengosongkan basis meninggalkan alamat hyperlink individu tetap utuh.
+Dua pesan verifikasi harus mencetak `True`. Mengosongkan basis tidak mengubah alamat hyperlink individu.
 
-Sebuah tautan relatif ke `target.pptx` membuka `old/target.pptx` ketika basis mengarah ke folder `old`. Setelah mengubah basis ke folder `new`, menyimpan, dan membuka kembali presentasi, tautan yang sama membuka `new/target.pptx`. Tautan absolut terus membuka file yang sama. Uji tautan relatif Anda di PowerPoint sebelum dan setelah memindahkan presentasi atau mengubah basisnya.
+Tautan relatif ke `target.pptx` membuka `old/target.pptx` ketika basis mengarah ke folder `old`. Setelah mengubah basis ke folder `new`, menyimpan, dan membuka kembali presentasi, tautan yang sama membuka `new/target.pptx`. Tautan absolut tetap membuka file yang sama. Uji tautan relatif Anda di PowerPoint sebelum dan sesudah memindahkan presentasi atau mengubah basismu.
 
 ## **Tambahkan Properti Presentasi Kustom**
 
-Properti kustom menyimpan metadata yang tidak memiliki bidang bawaan yang terkait. Metode [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) memungkinkan Anda menetapkan nilai berdasarkan nama properti. Contoh ini membuat sebuah presentasi, menambahkan dua nilai teks dan satu nilai versi integer, dan menyimpan presentasi dengan [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Menetapkan nilai ke nama yang sudah ada menggantikan nilai properti tersebut.
+Properti kustom menyimpan metadata yang tidak memiliki bidang bawaan yang bersesuaian. Metode [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) memungkinkan Anda menetapkan nilai berdasarkan nama properti. Contoh ini membuat sebuah presentasi, menambahkan dua nilai teks dan sebuah nilai versi integer, lalu menyimpan presentasi dengan [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Menetapkan nilai ke nama yang sudah ada menggantikan nilai properti tersebut.
 
 ```python
 import aspose.slides as slides
@@ -206,7 +234,7 @@ with slides.Presentation() as presentation:
 
 ## **Akses dan Modifikasi Properti Kustom**
 
-Contoh ini membuka sebuah presentasi yang berisi properti kustom dan menggunakan [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) untuk mengiterasi mereka. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) menerima indeks berbasis nol dan mengembalikan nama yang digunakan oleh [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/). Contoh ini membutuhkan sebuah presentasi yang semua properti kustomnya berupa string. Ia mencetak setiap nama dan nilai asli, mengganti setiap nilai dengan string bernomor, dan menyimpan perubahan. Jika tidak ada properti kustom, loop tidak melakukan perubahan.
+Contoh ini membuka sebuah presentasi yang berisi properti kustom dan menggunakan [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) untuk mengiterasi mereka. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) menerima indeks berbasis nol dan mengembalikan nama yang digunakan oleh [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/). Contoh memerlukan sebuah presentasi yang semua properti kustomnya berupa string. Ia mencetak setiap nama dan nilai asli, mengganti setiap nilai dengan string bernomor, dan menyimpan perubahan. Jika tidak ada properti kustom, loop tidak melakukan perubahan.
 
 ```python
 import aspose.slides as slides
@@ -227,11 +255,11 @@ with slides.Presentation("AccessAndModifyProperties.pptx") as presentation:
     presentation.save("CustomProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) mengembalikan nilai melalui daftar satu elemen yang diberikan sebagai argumen kedua. Placeholder harus sesuai dengan tipe properti yang disimpan: gunakan `[""]` untuk string atau `[0]` untuk integer. Tipe yang tidak cocok akan menimbulkan `InvalidCastException`; pilih placeholder sesuai skema properti‑kustom Anda.
+[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) mengembalikan nilai melalui daftar satu‑elemen yang diberikan sebagai argumen kedua. Placeholder harus cocok dengan tipe properti yang disimpan: gunakan `[""]` untuk string atau `[0]` untuk integer. Tipe yang tidak cocok akan menimbulkan `InvalidCastException`; pilih placeholder sesuai skema properti‑kustom Anda.
 
 ## **Contoh Langsung**
 
-Coba aplikasi daring [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) untuk melihat cara bekerja dengan properti dokumen menggunakan API Aspose.Slides:
+Coba aplikasi online [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) untuk melihat cara bekerja dengan properti dokumen menggunakan API Aspose.Slides:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
@@ -245,14 +273,14 @@ Properti bawaan merupakan bagian integral dari presentasi dan tidak dapat dihapu
 
 Jika Anda menambahkan properti kustom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut sebelumnya, karena Aspose.Slides secara otomatis memperbarui nilai properti.
 
-**Bisakah saya mengakses properti presentasi tanpa memuat seluruh presentasi?**
+**Dapatkah saya mengakses properti presentasi tanpa memuat penuh presentasi?**
 
-Ya. Gunakan [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) lalu [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Lihat [Build a Lightweight Presentation Inventory](/slides/id/python-net/examine-presentation/) untuk contoh pelaporan lengkap dan batasan format‑spesifik.
+Ya. Gunakan [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) dan kemudian [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Lihat [Bangun Inventaris Presentasi Ringan](/slides/id/python-net/examine-presentation/) untuk contoh pelaporan lengkap dan batasan spesifik format.
 
-**Bisakah saya membaca properti publik dari presentasi terenkripsi tanpa kata sandi pembukanya?**
+**Dapatkah saya membaca properti publik dari presentasi yang dienkripsi tanpa password pembuka?**
 
-Ya. Presentasi harus dienkripsi dengan [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) disetel ke `False`, dan harus dimuat dengan [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) disetel ke `True`.
+Ya. Presentasi harus telah dienkripsi dengan [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) yang diatur ke `False`, dan harus dimuat dengan [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) yang diatur ke `True`.
 
-**Bisakah saya memperbarui file PPTX terenkripsi dalam mode hanya‑properti‑dokumen?**
+**Dapatkah saya memperbarui file PPTX yang dienkripsi dalam mode hanya properti dokumen?**
 
-Tidak. Data properti publik dan terenkripsi harus tetap konsisten, sehingga memperbarui file PPTX terenkripsi memerlukan pemuatan lengkap presentasi dengan kata sandi pembuka yang benar.
+Tidak. Data properti publik dan yang dienkripsi harus tetap konsisten, sehingga memperbarui file PPTX yang dienkripsi memerlukan pemuatan lengkap presentasi dengan password pembuka yang benar.

@@ -14,7 +14,7 @@ keywords:
 - zarządzanie właściwościami
 - modyfikacja właściwości
 - metadane dokumentu
-- edycja metadanych
+- edytowanie metadanych
 - język korekty
 - język domyślny
 - PowerPoint
@@ -23,16 +23,16 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Opanuj właściwości prezentacji w Aspose.Slides for Node.js via Java i usprawnij wyszukiwanie, brandowanie oraz przepływ pracy w plikach PowerPoint i OpenDocument."
+description: "Zarządzaj właściwościami prezentacji w Aspose.Slides dla Node.js via Java i usprawnij wyszukiwanie, branding oraz przepływ pracy w swoich plikach PowerPoint i OpenDocument."
 ---
-## **Wprowadzenie**
+## **Wstęp**
 
-Aspose.Slides for Node.js via Java obsługuje **wbudowane** i **niestandardowe** właściwości dokumentu. Użyj tych właściwości, aby odczytać i zaktualizować metadane prezentacji, takie jak autor, tytuł oraz wartości określone przez użytkownika.
+Aspose.Slides for Node.js via Java obsługuje **wbudowane** i **niestandardowe** właściwości dokumentu. Użyj tych właściwości, aby odczytać i zaktualizować metadane prezentacji, takie jak autor, tytuł i wartości definiowane przez użytkownika.
 
-Aspose.Slides umożliwia pracę z właściwościami dokumentu prezentacji za pomocą klasy [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties). Instancja tej klasy jest zwracana przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Następujące przykłady pokazują, jak odczytywać, modyfikować i zarządzać tymi właściwościami.
+Aspose.Slides umożliwia pracę z właściwościami dokumentu prezentacji za pomocą klasy [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties). Instancja tej klasy jest zwracana przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Poniższe przykłady pokazują, jak odczytywać, modyfikować i zarządzać tymi właściwościami.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides zarządza metadanymi aplikacji i producenta podczas zapisywania prezentacji; pola te identyfikują oprogramowanie, które stworzyło wynik.
+Aspose.Slides zarządza metadanymi aplikacji i producenta podczas zapisywania prezentacji; pola te identyfikują oprogramowanie, które utworzyło wynik.
 {{% /alert %}}
 
 ## **Zarządzanie właściwościami prezentacji**
@@ -40,18 +40,17 @@ Aspose.Slides zarządza metadanymi aplikacji i producenta podczas zapisywania pr
 Właściwości dokumentu przechowują opisowe informacje wraz z treścią prezentacji. Dzielą się na dwie kategorie:
 
 - **Wbudowane właściwości** zawierają standardowe metadane, takie jak tytuł, autor i statystyki dokumentu.
-- **Niestandardowe właściwości** przechowują pary nazwa/wartość określone przez użytkownika.
+- **Niestandardowe właściwości** przechowują pary nazw/wartości definiowane przez użytkownika.
 
-Aspose.Slides for Node.js via Java zapewnia dostęp do obu kategorii. W PowerPoint wybierz **Plik → Informacje → Właściwości → Zaawansowane właściwości**, aby sprawdzić metadane dokumentu. Okno dialogowe grupuje informacje w zakładkach, takich jak **Podsumowanie**, **Statystyki**, **Zawartość** i **Niestandardowe**. Użyj zakładki **Niestandardowe**, aby zarządzać właściwościami określonymi przez użytkownika.
+Aspose.Slides for Node.js via Java zapewnia dostęp do obu kategorii. W programie PowerPoint wybierz **Plik → Informacje → Właściwości → Właściwości zaawansowane**, aby przeglądać metadane dokumentu. Dialog grupuje informacje w zakładkach, takich jak **Podsumowanie**, **Statystyki**, **Zawartość** i **Niestandardowe**. Użyj zakładki **Niestandardowe**, aby zarządzać właściwościami definiowanymi przez użytkownika.
 
 ## **Odczyt publicznych właściwości z zaszyfrowanej prezentacji**
 
-Hasło otwierające zwykle chroni zarówno treść prezentacji, jak i właściwości dokumentu. Gdy prezentacja jest szyfrowana po wywołaniu [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) z wartością `false`, jej właściwości dokumentu pozostają publiczne. Aplikacja może wtedy wywołać [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) z `true` i odczytać publiczne metadane bez podawania hasła otwierającego.
+Hasło otwierające zazwyczaj chroni zarówno treść prezentacji, jak i właściwości dokumentu. Gdy prezentacja jest szyfrowana po wywołaniu [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) z wartością `false`, jej właściwości dokumentu pozostają publiczne. Aplikacja może wtedy wywołać [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) z wartością `true` i odczytać publiczne metadane bez podawania hasła otwierającego.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) kontroluje, co Aspose.Slides ładuje; nie odszyfrowuje niczego. Jeśli właściwości zostały uwzględnione w szyfrowaniu, ich ładowanie bez hasła kończy się niepowodzeniem. Jeśli prezentacja nie jest szyfrowana, opcja jest ignorowana i ładowana jest cała prezentacja.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) kontroluje, co Aspose.Slides ładuje; nie odszyfrowuje niczego. Jeśli właściwości były włączone w szyfrowanie, ich ładowanie bez hasła kończy się niepowodzeniem. Jeśli prezentacja nie jest zaszyfrowana, opcja jest ignorowana i ładowana jest pełna prezentacja.
 
-Przykład wymaga zaszyfrowanej prezentacji, której właściwości dokumentu zostały pozostawione publiczne. Weryfikuje tryb ładowania przy użyciu [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) i następnie odczytuje wbudowane właściwości przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
-
+Przykład wymaga zaszyfrowanej prezentacji, której właściwości dokumentu zostały pozostawione publiczne. Weryfikuje tryb ładowania za pomocą [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded), a następnie odczytuje wbudowane właściwości za pomocą [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
 ```javascript
 const slides = require("aspose.slides.via.java");
 
@@ -74,18 +73,17 @@ try {
 }
 ```
 
-W tym trybie zawartość slajdów nie jest ładowana. Slajdy, mastery, układy, kształty, media i inne obiekty prezentacji są niedostępne. Aplikacje powinny zawsze sprawdzać [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) przed wykonaniem operacji wymagającej pełnego modelu obiektowego prezentacji.
+W tym trybie zawartość slajdów nie jest ładowana. Slajdy, wzorce, układy, kształty, media i inne obiekty prezentacji są niedostępne. Aplikacje powinny zawsze sprawdzać [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded), przed wykonaniem operacji wymagającej pełnego modelu obiektowego prezentacji.
 
 {{% alert color="warning" title="Warning" %}}
-Publiczne metadane mogą ujawnić nazwiska autorów, tytuły, tematy, słowa kluczowe, informacje o firmie, komentarze i wartości niestandardowe. Zaszyfruj wrażliwe właściwości razem z prezentacją. Pozostaw je publiczne tylko wtedy, gdy systemy indeksowania, klasyfikacji, wyszukiwania lub zarządzania dokumentami mają konkretny wymóg dostępu do nich bez hasła.
+Publiczne metadane mogą ujawnić nazwiska autorów, tytuły, tematy, słowa kluczowe, informacje o firmie, komentarze i wartości niestandardowe. Szyfruj wrażliwe właściwości razem z prezentacją. Pozostaw je publiczne tylko wtedy, gdy indeksowanie, klasyfikacja, wyszukiwanie lub systemy zarządzania dokumentami wymagają dostępu do nich bez hasła.
 {{% /alert %}}
 
 ## **Aktualizacja właściwości zaszyfrowanej prezentacji**
 
-Dla zaszyfrowanego pliku PPTX prezentacja załadowana po wywołaniu [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) z `true` jest przeznaczona do odczytu publicznych metadanych. Aspose.Slides nie może zapisać zmienionych właściwości z tego obiektu zawierającego wyłącznie metadane, ponieważ publiczne właściwości muszą pozostać zgodne z odpowiadającymi danymi w zaszyfrowanej prezentacji. Aktualizacja wymaga więc prawidłowego hasła otwierającego i pełnego załadowania.
+Dla zaszyfrowanego pliku PPTX prezentacja załadowana po wywołaniu [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) z wartością `true` służy do odczytu publicznych metadanych. Aspose.Slides nie może zapisać zmienionych właściwości z takiego obiektu zawierającego tylko metadane, ponieważ publiczne właściwości muszą pozostawać spójne z odpowiadającymi danymi wewnątrz zaszyfrowanej prezentacji. Ich aktualizacja wymaga więc prawidłowego hasła otwierającego i pełnego załadowania.
 
-Przykład wymaga zaszyfrowanej prezentacji PPTX z publicznymi właściwościami dokumentu oraz znanym hasłem otwierającym. Otwiera pełną prezentację przy użyciu [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword), aktualizuje publiczne wbudowane właściwości i zapisuje wynik. Następnie używa [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted), aby zweryfikować, że szyfrowanie zostało zachowane, i ponownie otwiera publiczne metadane bez hasła w celu sprawdzenia nowych wartości:
-
+Przykład wymaga zaszyfrowanej prezentacji PPTX z publicznymi właściwościami dokumentu oraz znanym hasłem otwierającym. Otwiera pełną prezentację przy użyciu [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword), aktualizuje publiczne wbudowane właściwości i zapisuje wynik. Następnie używa [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted), aby zweryfikować, że szyfrowanie zostało zachowane, i ponownie otwiera publiczne metadane bez hasła, aby sprawdzić nowe wartości:
 ```javascript
 const slides = require("aspose.slides.via.java");
 
@@ -125,12 +123,11 @@ try {
 }
 ```
 
-Jeśli aplikacja nie ma uprawnień do odszyfrowania lub załadowania zawartości prezentacji, musi traktować publiczne właściwości zaszyfrowanego pliku PPTX jako tylko do odczytu.
+Jeśli aplikacja nie ma uprawnienia do odszyfrowania lub załadowania zawartości prezentacji, musi traktować publiczne właściwości zaszyfrowanego pliku PPTX jako tylko do odczytu.
 
 ## **Dostęp do wbudowanych właściwości**
 
-Klasa [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) udostępnia wbudowane metadane za pomocą metod getter, w tym [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor), [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle) oraz [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). Ten przykład otwiera istniejącą prezentację i wypisuje jej zapisane metadane w konsoli. Wartości zależą od wejściowej prezentacji; niektóre pola mogą być puste.
-
+Klasa [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) udostępnia wbudowane metadane poprzez metody pobierające, w tym [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor), [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle) oraz [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). Ten przykład otwiera istniejącą prezentację i wypisuje jej zapisane metadane w konsoli. Wartości zależą od prezentacji wejściowej; niektóre pola mogą być puste.
 ```javascript
 const slides = require("aspose.slides.via.java");
 
@@ -157,10 +154,50 @@ try {
 }
 ```
 
+### **Raportowanie numeru wersji i czasu edycji**
+
+Aby zgłosić numer wersji i całkowity czas edycji dla każdego pliku PPTX w folderze `presentations`, użyj [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties). Zwraca ona [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) pliku bez ładowania slajdów do edycji. Przykład konwertuje zmierzony czas z milisekund na godziny, minuty i sekundy. Dla czasów trwających 24 godziny lub więcej, wynik jest poprzedzony liczbą pełnych dni.
+```javascript
+const fs = require("fs");
+const path = require("path");
+const slides = require("aspose.slides.via.java");
+
+const folder = "presentations";
+const files = fs.readdirSync(folder, { withFileTypes: true });
+const factory = slides.PresentationFactory.getInstance();
+
+console.log("File | RevisionNumber | TotalEditingTime");
+for (const file of files) {
+    if (!file.isFile() || path.extname(file.name).toLowerCase() !== ".pptx") {
+        continue;
+    }
+    const filePath = path.join(folder, file.name);
+    const info = factory.getPresentationInfo(filePath);
+    const properties = info.readDocumentProperties();
+    const totalSeconds = Math.floor(properties.getTotalEditingTime() / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor(totalSeconds / 3600) % 24;
+    const minutes = Math.floor(totalSeconds / 60) % 60;
+    const seconds = totalSeconds % 60;
+    const time = [hours, minutes, seconds].map(value => String(value).padStart(2, "0")).join(":");
+    const editingTime = days > 0 ? `${days}.${time}` : time;
+    console.log(`${file.name} | ${properties.getRevisionNumber()} | ${editingTime}`);
+}
+```
+
+Dla prezentacji z zarejestrowanym czasem edycji wynoszącym 1 dzień, 2 godziny i 5 minut, raport wyświetla następujący wynik.
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getRevisionNumber) odczytuje wartość, którą aplikacje mogą zmienić metodą [setRevisionNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setRevisionNumber). Sam numer wersji nie pozwala ustalić, ile razy prezentacja została zapisana ani odtworzyć jej historię wersji.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTotalEditingTime) odczytuje czas edycji zapisany w pliku. Wartość `00:00:00` oznacza, że zapisany czas jest zerowy, nawet jeśli ktoś edytował prezentację.
+
 ## **Modyfikacja wbudowanych właściwości**
 
-Aby zaktualizować wbudowane metadane, użyj metod setter na obiekcie zwróconym przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Ten przykład otwiera istniejącą prezentację, wywołuje [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor), [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments) oraz [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager), a następnie zapisuje zaktualizowaną prezentację przy użyciu [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Zapisany plik PPTX zawiera nowe metadane.
-
+Aby zaktualizować wbudowane metadane, użyj metod ustawiających na obiekcie zwróconym przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Ten przykład otwiera istniejącą prezentację, wywołuje [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor), [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments) oraz [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager), a następnie zapisuje zaktualizowaną prezentację metodą [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Zapisany plik PPTX zawiera nowe metadane.
 ```javascript
 const slides = require("aspose.slides.via.java");
 
@@ -180,12 +217,11 @@ try {
 }
 ```
 
-## **Zarządzanie podstawą hiperłącz**
+## **Zarządzanie bazą hiperłączy**
 
-[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) zwraca bazę dokumentu dla względnych hiperłączy. Użyj [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase), aby zmienić ją lub wyczyścić. Jest to przydatne przy przenoszeniu prezentacji i powiązanych plików w inne miejsce. Jest to oddzielne od indywidualnego hiperłącza metodą [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl): zmiana bazy nie przepisuje zapisanych adresów linków ani nie zmienia docelowych ścieżek bezwzględnych.
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) zwraca bazę dokumentu dla względnych hiperłączy. Użyj [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase), aby zmienić ją lub usunąć. Jest to przydatne przy przenoszeniu prezentacji i jej powiązanych plików do innej lokalizacji. Jest to niezależne od [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) pojedynczego hiperlinku: zmiana bazy nie przepisuje zapisanych adresów linków ani nie zmienia docelowych adresów bezwzględnych.
 
-Przykład wymaga prezentacji zawierającej zarówno względny link, np. `target.html`, jak i bezwzględny link, np. `https://example.org/absolute.html`. Odczytuje istniejącą bazę, przypisuje nowy adres bazy i zapisuje oraz ponownie otwiera prezentację, aby sprawdzić wartość. Następnie wyczyści bazę pustym ciągiem i weryfikuje pustą wartość w osobnym zapisanym pliku. Zamień przykładowy adres bazy na lokalizację swoich plików powiązanych.
-
+Przykład wymaga prezentacji zawierającej zarówno względny link, np. `target.html`, jak i bezwzględny link, np. `https://example.org/absolute.html`. Odczytuje istniejącą bazę, przypisuje nowy adres bazy, zapisuje i ponownie otwiera prezentację, aby sprawdzić wartość. Następnie usuwa bazę, przypisując pusty ciąg znaków, i weryfikuje pustą wartość w osobnym zapisanym pliku. Zastąp przykładowy adres bazy lokalizacją swoich plików powiązanych.
 ```javascript
 const slides = require("aspose.slides.via.java");
 
@@ -218,14 +254,13 @@ try {
 }
 ```
 
-Dwie wiadomości weryfikacyjne powinny wypisać `true`. Czyszczenie bazy nie zmienia adresów poszczególnych hiperłączy.
+Dwie wiadomości weryfikacyjne powinny wypisać `true`. Usunięcie bazy pozostawia niezmienione adresy poszczególnych hiperłączy.
 
-Względny link do `target.pptx` otwierał `old/target.pptx`, gdy baza wskazywała folder `old`. Po zmianie bazy na folder `new`, zapisaniu i ponownym otwarciu prezentacji ten sam link otwierał `new/target.pptx`. Link bezwzględny nadal otwierał ten sam plik. Przetestuj swoje względne linki w PowerPoint przed i po przeniesieniu prezentacji lub zmianie jej bazy.
+Względny link do `target.pptx` otwierał `old/target.pptx`, gdy baza wskazywała folder `old`. Po zmianie bazy na folder `new`, zapisaniu i ponownym otwarciu prezentacji, ten sam link otworzył `new/target.pptx`. Link bezwzględny nadal otwierał ten sam plik. Przetestuj swoje względne linki w PowerPoint przed i po przeniesieniu prezentacji lub zmianie jej bazy.
 
 ## **Dodawanie niestandardowych właściwości prezentacji**
 
-Niestandardowe właściwości przechowują metadane, które nie mają odpowiadającego wbudowanego pola. Metoda [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) pozwala przypisać wartość po nazwie właściwości. Ten przykład tworzy prezentację, dodaje dwie wartości tekstowe i jedną wartość wersji całkowitej, a następnie zapisuje prezentację przy użyciu [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Przypisanie wartości do istniejącej nazwy zastępuje wartość tej właściwości.
-
+Niestandardowe właściwości przechowują metadane, które nie mają odpowiadającego im pola wbudowanego. Metoda [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) pozwala przypisać wartość według nazwy właściwości. Ten przykład tworzy prezentację, dodaje dwie wartości tekstowe oraz wartość wersji całkowitej, i zapisuje prezentację metodą [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Przypisanie wartości do istniejącej nazwy zastępuje wartość tej właściwości.
 ```javascript
 const slides = require("aspose.slides.via.java");
 
@@ -245,8 +280,7 @@ try {
 
 ## **Dostęp i modyfikacja niestandardowych właściwości**
 
-Ten przykład otwiera prezentację zawierającą niestandardowe właściwości i wykorzystuje [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) do iteracji po nich. [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) przyjmuje indeks zerowy i zwraca nazwę używaną przez [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). Przykład wypisuje każdą oryginalną nazwę i wartość, zastępuje każdą wartość numerowanym ciągiem niezależnie od oryginalnego typu i zapisuje zmiany. Jeśli nie ma niestandardowych właściwości, pętla nie wprowadza zmian.
-
+Ten przykład otwiera prezentację zawierającą niestandardowe właściwości i używa [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties), aby je iterować. [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) przyjmuje indeks zerowy i zwraca nazwę używaną przez [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). Przykład wypisuje każdą oryginalną nazwę i wartość, zamienia każdą wartość na ponumerowany ciąg znaków bez względu na jej pierwotny typ i zapisuje zmiany. Jeśli nie ma niestandardowych właściwości, pętla nie wprowadza zmian.
 ```javascript
 const slides = require("aspose.slides.via.java");
 
@@ -272,28 +306,27 @@ try {
 
 ## **Przykład na żywo**
 
-Wypróbuj aplikację online [**Zobacz i edytuj metadane PowerPoint**](https://products.aspose.app/slides/metadata), aby zobaczyć, jak pracować z właściwościami dokumentu przy użyciu API Aspose.Slides:
-
-[![Zobacz i edytuj metadane PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+Wypróbuj aplikację online [**Wyświetl i edytuj metadane PowerPoint**](https://products.aspose.app/slides/metadata), aby zobaczyć, jak pracować z właściwościami dokumentu przy użyciu API Aspose.Slides:
+[![Wyświetl i edytuj metadane PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
 **Jak mogę usunąć wbudowaną właściwość z prezentacji?**
 
-Wbudowane właściwości są integralną częścią prezentacji i nie mogą być całkowicie usunięte. Można jednak zmienić ich wartości lub ustawić je jako puste, o ile dana właściwość na to pozwala.
+Wbudowane właściwości są integralną częścią prezentacji i nie mogą być całkowicie usunięte. Można jednak zmienić ich wartości lub ustawić je jako puste, jeśli dana właściwość na to pozwala.
 
 **Co się stanie, jeśli dodam niestandardową właściwość, która już istnieje?**
 
-Jeśli dodasz niestandardową właściwość, która już istnieje, jej dotychczasowa wartość zostanie nadpisana nową. Nie musisz usuwać ani sprawdzać właściwości wcześniej, ponieważ Aspose.Slides automatycznie aktualizuje wartość właściwości.
+Jeśli dodasz niestandardową właściwość, która już istnieje, jej istniejąca wartość zostanie nadpisana nową. Nie musisz usuwać ani sprawdzać właściwości wcześniej, ponieważ Aspose.Slides automatycznie aktualizuje wartość właściwości.
 
 **Czy mogę uzyskać dostęp do właściwości prezentacji bez pełnego ładowania prezentacji?**
 
-Tak. Użyj [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo), a następnie [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties), aby odczytać zapisane metadane dokumentu bez tworzenia instancji [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). Zobacz przykład pełnego raportowania w [Build a Lightweight Presentation Inventory](/slides/pl/nodejs-java/examine-presentation/) oraz ograniczenia specyficzne dla formatów.
+Tak. Użyj [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo), a następnie [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties), aby odczytać zapisane metadane dokumentu bez tworzenia instancji [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). Zobacz [Utwórz lekką inwentaryzację prezentacji](/slides/pl/nodejs-java/examine-presentation/) po pełny przykład raportowania i ograniczenia specyficzne dla formatu.
 
-**Czy mogę odczytać publiczne właściwości zaszyfrowanej prezentacji bez jej hasła otwierającego?**
+**Czy mogę odczytać publiczne właściwości zaszyfrowanej prezentacji bez hasła otwierającego?**
 
-Tak. Prezentacja musi być zaszyfrowana po wywołaniu [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) z `false`, a następnie ładowana po wywołaniu [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) z `true`.
+Tak. Prezentacja musi zostać zaszyfrowana po wywołaniu [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) z `false`, i musi być załadowana po wywołaniu [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) z `true`.
 
-**Czy mogę zaktualizować zaszyfrowany plik PPTX w trybie tylko-właściwości-dokumentu?**
+**Czy mogę zaktualizować zaszyfrowany plik PPTX w trybie tylko właściwości dokumentu?**
 
-Nie. Publiczne i zaszyfrowane dane właściwości muszą pozostać spójne, więc aktualizacja zaszyfrowanego pliku PPTX wymaga pełnego załadowania prezentacji z prawidłowym hasłem otwierającym.
+Nie. Publiczne i zaszyfrowane dane właściwości muszą pozostać spójne, więc aktualizacja zaszyfrowanego pliku PPTX wymaga załadowania pełnej prezentacji z prawidłowym hasłem otwierającym.

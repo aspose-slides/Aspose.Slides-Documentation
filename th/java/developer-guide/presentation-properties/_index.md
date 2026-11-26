@@ -1,55 +1,56 @@
 ---
-title: จัดการคุณสมบัติงานนำเสนอใน Java
-linktitle: คุณสมบัติงานนำเสนอ
+title: จัดการคุณสมบัตินำเสนอใน Java
+linktitle: คุณสมบัตินำเสนอ
 type: docs
 weight: 70
 url: /th/java/presentation-properties/
 keywords:
 - คุณสมบัติ PowerPoint
-- คุณสมบัติงานนำเสนอ
+- คุณสมบัตินำเสนอ
 - คุณสมบัติเอกสาร
-- คุณสมบัติมาตรฐาน
-- คุณสมบัติกำหนดเอง
+- คุณสมบัติ built-in
+- คุณสมบัติ custom
 - คุณสมบัติขั้นสูง
-- จัดการคุณสมบัติ
-- แก้ไขคุณสมบัติ
-- เมตาดาต้าเอกสาร
-- แก้ไขเมตาดาต้า
-- ภาษาการตรวจสอบ
-- ภาษามาตรฐาน
+- การจัดการคุณสมบัติ
+- การแก้ไขคุณสมบัติ
+- metadata เอกสาร
+- แก้ไข metadata
+- ภาษา proofing
+- ภาษาเริ่มต้น
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ควบคุมคุณสมบัติงานนำเสนอใน Aspose.Slides for Java และทำให้การค้นหา การสร้างแบรนด์ และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณเป็นเรื่องง่าย"
+description: "ควบคุมคุณสมบัตินำเสนอใน Aspose.Slides สำหรับ Java และทำให้การค้นหา การสร้างแบรนด์และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณเป็นเรื่องง่าย."
 ---
 ## **บทนำ**
 
-Aspose.Slides for Java รองรับคุณสมบัติเอกสาร **built-in** และ **custom** ใช้คุณสมบัติเหล่านี้เพื่ออ่านและอัปเดตเมตาดาต้าของงานนำเสนอ เช่น ผู้เขียน, ชื่อเรื่อง, และค่าที่ผู้ใช้กำหนด
+Aspose.Slides for Java รองรับคุณสมบัติเอกสาร **built-in** และ **custom** ใช้คุณสมบัติเหล่านี้เพื่ออ่านและอัปเดต metadata ของงานนำเสนอ เช่น ผู้เขียน, ชื่อเรื่อง, และค่าที่ผู้ใช้กำหนด
 
-Aspose.Slides ให้คุณทำงานกับคุณสมบัติเอกสารของงานนำเสนอผ่านอินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) อินสแตนซ์ของอินเทอร์เฟซนี้จะถูกคืนค่าจาก [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข และจัดการคุณสมบัติเหล่านี้
+Aspose.Slides ให้คุณทำงานกับคุณสมบัติเอกสารของงานนำเสนอผ่านอินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) ตัวอย่างของอินเทอร์เฟซนี้จะถูกคืนค่าโดย [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) ตัวอย่างต่อไปนี้แสดงวิธีอ่าน, แก้ไข, และจัดการคุณสมบัติเหล่านี้
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides จัดการเมตาดาต้าแอปพลิเคชันและผู้ผลิตเมื่อบันทึกงานนำเสนอ; ฟิลด์เหล่านี้ระบุซอฟต์แวร์ที่สร้างผลลัพธ์
+Aspose.Slides จัดการ metadata ของแอปพลิเคชันและผู้ผลิตเมื่อบันทึกงานนำเสนอ; ฟิลด์เหล่านี้ระบุซอฟต์แวร์ที่สร้างผลลัพธ์
 {{% /alert %}}
 
-## **จัดการคุณสมบัต่างานนำเสนอ**
+## **จัดการคุณสมบัติงานนำเสนอ**
 
-คุณสมบัติเอกสารเก็บข้อมูลเชิงบรรยายควบคู่กับเนื้อหาของงานนำเสนอ ทั้งนี้แบ่งออกเป็นสองประเภท:
+คุณสมบัติเอกสารเก็บข้อมูลเชิงอธิบายควบคู่กับเนื้อหาของงานนำเสนอ พวกมันแบ่งออกเป็นสองประเภท:
 
-- **Built-in properties** มีเมตาดาต้ามาตรฐาน เช่น ชื่อเรื่อง, ผู้เขียน, และสถิติของเอกสาร
+- **Built-in properties** มี metadata มาตรฐาน เช่น ชื่อเรื่อง, ผู้เขียน, และสถิติของเอกสาร
 - **Custom properties** เก็บคู่ชื่อ/ค่า ที่ผู้ใช้กำหนดเอง
 
-Aspose.Slides for Java ให้การเข้าถึงทั้งสองประเภท ใน PowerPoint ให้เลือก **File → Info → Properties → Advanced Properties** เพื่อดูเมตาดาต้าเอกสาร กล่องโต้ตอบจะจัดข้อมูลเป็นแท็บเช่น **Summary**, **Statistics**, **Contents**, และ **Custom** ใช้แท็บ **Custom** เพื่อจัดการคุณสมบัติที่ผู้ใช้กำหนด
+Aspose.Slides for Java ให้การเข้าถึงทั้งสองประเภท ใน PowerPoint, เลือก **File → Info → Properties → Advanced Properties** เพื่อดู metadata ของเอกสาร กล่องโต้ตอบจัดข้อมูลเป็นแท็บเช่น **Summary**, **Statistics**, **Contents**, และ **Custom** ใช้แท็บ **Custom** เพื่อจัดการคุณสมบัติที่ผู้กำหนด
 
-## **อ่านคุณสมบัติสาธารณะจากงานนำเสนอที่เข้ารหัส**
+## **Read Public Properties from an Encrypted Presentation**
 
-โดยปกติรหัสผ่านเปิดจะปกป้องทั้งเนื้อหาของงานนำเสนอและคุณสมบัติเอกสาร เมื่อมีการเข้ารหัสงานนำเสนอหลังจากเรียก [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) ด้วยค่า `false` คุณสมบัติเอกสารจะยังคงเป็นสาธารณะ แอปพลิเคชันสามารถเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ด้วยค่า `true` และอ่านเมตาดาต้าสาธารณะโดยไม่ต้องใส่รหัสผ่านเปิด
+รหัสผ่านเปิดปกติจะปกป้องทั้งเนื้อหาและคุณสมบัติเอกสารของงานนำเสนอ เมื่อมีการเข้ารหัสงานนำเสนอหลังจากเรียก [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) ด้วย `false` คุณสมบัติเอกสารจะยังคงเป็นสาธารณะ แอปพลิเคชันสามารถเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ด้วย `true` และอ่าน metadata สาธารณะโดยไม่ต้องระบุรหัสผ่านเปิด
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ควบคุมสิ่งที่ Aspose.Slides โหลด; ไม่ทำการถอดรหัสใด ๆ หากคุณสมบัตถูกรวมอยู่ในการเข้ารหัส การโหลดโดยไม่มีรหัสผ่านจะล้มเหลว หากงานนำเสนอไม่ได้เข้ารหัส ตัวเลือกนี้จะถูกละเลยและงานนำเสนอทั้งหมดจะถูกโหลด
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ควบคุมสิ่งที่ Aspose.Slides โหลด; มันไม่ได้ถอดรหัสอะไร หากคุณสมบัติเกิดรวมอยู่ในการเข้ารหัส การโหลดโดยไม่ใช้รหัสผ่านจะล้มเหลว หากงานนำเสนอไม่ถูกเข้ารหัส ตัวเลือกนี้จะถูกละเลยและงานนำเสนอทั้งหมดจะถูกโหลด
 
-ตัวอย่างนี้ต้องการงานนำเสนอที่เข้ารหัสซึ่งคุณสมบัติเอกสารถูกตั้งให้เป็นสาธารณะ มันตรวจสอบโหมดการโหลดผ่าน [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) แล้วอ่านคุณสมบัติ built-in ผ่าน [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
+ตัวอย่างต้องการงานนำเสนอที่เข้ารหัสโดยที่คุณสมบัติเอกสารถูกฝากไว้เป็นสาธารณะ ตัวอย่างตรวจสอบโหมดการโหลดผ่าน [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) แล้วอ่านคุณสมบัติ built‑in ผ่าน [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.LoadOptions;
@@ -74,16 +75,18 @@ try {
 }
 ```
 
-ในโหมดนี้ เนื้อหาแผ่นสไลด์จะไม่ถูกโหลด สไลด์, มาสเตอร์, เลย์เอาต์, รูปร่าง, สื่อ, และวัตถุอื่น ๆ ของงานนำเสนอจะไม่พร้อมใช้งาน แอปพลิเคชันควรตรวจสอบ [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) เสมอก่อนทำการดำเนินการที่ต้องการโมเดลวัตถุของงานนำเสนอครบถ้วน
+ในโหมดนี้เนื้อหาของสไลด์จะไม่ถูกโหลด สไลด์, มาสเตอร์, เลเอาต์, รูปร่าง, สื่อ, และออบเจ็กต์อื่นของงานนำเสนอจะไม่พร้อมใช้งาน แอปพลิเคชันควรตรวจสอบ [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) เสมอก่อนทำการที่ต้องการโมเดลออบเจ็กต์ของงานนำเสนอเต็มรูปแบบ
+
 {{% alert color="warning" title="Warning" %}}
-เมตาดาต้าสาธารณะอาจทำให้ชื่อผู้เขียน, ชื่อเรื่อง, หัวข้อ, คำสำคัญ, ข้อมูลบริษัท, ความคิดเห็น, และค่าที่กำหนดเองถูกเปิดเผย ให้เข้ารหัสคุณสมบัติที่ละเอียดอ่อนพร้อมกับงานนำเสนอ ปล่อยให้เป็นสาธารณะเฉพาะเมื่อระบบจัดทำดัชนี, การจัดหมวดหมู่, การค้นหา หรือระบบจัดการเอกสาร มีความต้องการเฉพาะในการเข้าถึงโดยไม่ต้องใช้รหัสผ่าน
+metadata สาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, หัวข้อ, คำสำคัญ, ข้อมูลบริษัท, ความคิดเห็น, และค่าที่กำหนดเอง การเข้ารหัสคุณสมบัติที่สำคัญพร้อมกับงานนำเสนอ ปล่อยให้เป็นสาธารณะเฉพาะกรณีที่ระบบจัดทำดัชนี, จัดประเภท, ค้นหา, หรือระบบจัดการเอกสารต้องการเข้าถึงโดยไม่ต้องใช้รหัสผ่าน
 {{% /alert %}}
 
-## **อัปเดตคุณสมบัติของงานนำเสนอที่เข้ารหัส**
+## **Update Properties of an Encrypted Presentation**
 
-สำหรับไฟล์ PPTX ที่เข้ารหัส งานนำเสนอที่โหลดหลังจากเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ด้วยค่า `true` มีวัตถุประสงค์เพื่ออ่านเมตาดาต้าสาธารณะ Aspose.Slides ไม่สามารถบันทึกคุณสมบัติที่เปลี่ยนแปลงจากวัตถุที่มีเมตาดาต้าอย่างเดียวได้ เนื่องจากคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลที่อยู่ในงานนำเสนอที่เข้ารหัส การอัปเดตจึงต้องใช้รหัสผ่านเปิดที่ถูกต้องและการโหลดแบบเต็ม
+สำหรับไฟล์ PPTX ที่เข้ารหัส งานนำเสนอที่โหลดหลังจากเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ด้วย `true` มีวัตถุประสงค์เพื่ออ่าน metadata สาธารณะ Aspose.Slides ไม่สามารถบันทึกการเปลี่ยนแปลงคุณสมบัติจากอ็อบเจ็กต์ที่โหลดเฉพาะ metadata ได้ เนื่องจากคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลภายในงานนำเสนอที่เข้ารหัส การอัปเดตจึงต้องใช้รหัสผ่านเปิดที่ถูกต้องและการโหลดเต็มรูปแบบ
 
-ตัวอย่างนี้ต้องการงานนำเสนอ PPTX ที่เข้ารหัสพร้อมคุณสมบัติเอกสารสาธารณะและรหัสผ่านเปิดที่ทราบ มันเปิดงานนำเสนอเต็มด้วย [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) ปรับปรุงคุณสมบัติ built-in สาธารณะ และบันทึกผลลัพธ์ จากนั้นใช้ [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) เพื่อตรวจสอบว่าการเข้ารหัสยังคงอยู่และเปิดเมตาดาต้าสาธารณะอีกครั้งโดยไม่มีรหัสผ่านเพื่อยืนยันค่าที่ใหม่:
+ตัวอย่างต้องการงานนำเสนอ PPTX ที่เข้ารหัสพร้อมกับคุณสมบัติเอกสารสาธารณะและรหัสผ่านเปิดที่ทราบ มันเปิดงานนำเสนอเต็มรูปแบบด้วย [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) อัปเดตคุณสมบัติ built‑in สาธารณะ และบันทึกผลลัพธ์ จากนั้นใช้ [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) เพื่อตรวจสอบว่าการเข้ารหัสยังคงอยู่และเปิด metadata สาธารณะโดยไม่มีรหัสผ่านเพื่อยืนยันค่าที่ใหม่:
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.IPresentationInfo;
@@ -128,11 +131,12 @@ try {
 }
 ```
 
-หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหาของงานนำเสนอ มันต้องถือคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสเป็นแบบอ่านอย่างเดียว
+หากแอปพลิเคชันไม่อนุญาตให้ถอดรหัสหรือโหลดเนื้อหาของงานนำเสนอ ต้องถือคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสว่าเป็นอ่าน‑อย่างเดียว
 
-## **เข้าถึงคุณสมบัติ Built-in**
+## **Access Built-in Properties**
 
-อินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) เปิดเผยเมตาดาต้า built-in ผ่านเมธอด getter รวมถึง [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--), [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--), และ [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่และพิมพ์เมตาดาต้าที่เก็บไว้ลงคอนโซล ค่าเหล่านี้ขึ้นกับงานนำเข้าสำหรับอินพุต; บางฟิลด์อาจว่าง
+อินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) เปิดเผย metadata built‑in ผ่านเมธอด getter เช่น [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--), [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--), และ [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่และพิมพ์ metadata ที่จัดเก็บลงคอนโซล ค่าเหล่านี้ขึ้นกับงานนำเข้าที่ใช้; บางฟิลด์อาจว่างเปล่า
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -160,9 +164,51 @@ try {
 }
 ```
 
-## **แก้ไขคุณสมบัติ Built-in**
+### **Report Revision Number and Editing Time**
 
-เพื่ออัปเดตเมตาดาต้า built-in ให้ใช้เมธอด setter บนวัตถุที่คืนค่าจาก [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่ เรียกใช้ [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-), และ [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) แล้วบันทึกงานนำเสนอที่อัปเดตด้วย [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) PPTX ที่บันทึกจะมีเมตาดาต้าใหม่
+เพื่อรายงานหนึ่งแถวต่อไฟล์ PPTX ในโฟลเดอร์ `presentations` เรียก [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) เพื่ออ่าน [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) โดยไม่โหลดสไลด์สำหรับแก้ไข API ของ Java คืนค่าระยะเวลาการแก้ไขเป็นมิลลิวินาที ตัวอย่างจะแปลงเป็นชั่วโมง, นาที, และวินาที พร้อมจำนวนวันสำหรับระยะเวลาที่เหนือ 24 ชั่วโมง
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+System.out.println("File | RevisionNumber | TotalEditingTime");
+try (DirectoryStream<Path> files = Files.newDirectoryStream(Paths.get("presentations"), "*.pptx")) {
+    for (Path path : files) {
+        if (!Files.isRegularFile(path)) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(path.toString());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format("%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf("%s | %d | %s%n", path.getFileName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+สำหรับงานนำเสนอที่บันทึกเวลาแก้ไขเป็น 1 วัน, 2 ชั่วโมง, และ 5 นาที รายงานจะแสดงผลลัพธ์ดังต่อไปนี้
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getRevisionNumber--) อ่านค่าที่แอปพลิเคชันสามารถเปลี่ยนได้ด้วย [setRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-) หมายเลขรีวิชันเพียงอย่างเดียวไม่สามารถบ่งชี้จำนวนครั้งที่งานนำเสนอถูกบันทึกหรือสร้างประวัติเวอร์ชันได้
+
+[getTotalEditingTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) อ่านระยะเวลาการแก้ไขที่บันทึกไว้ในไฟล์ ค่า `00:00:00` หมายถึงระยะเวลาที่เก็บเป็นศูนย์ แม้ว่าจะมีคนแก้ไขงานนำเสนอ
+
+## **Modify Built-in Properties**
+
+เพื่ออัปเดต metadata built‑in ให้ใช้เมธอด setter บนวัตถุที่ได้จาก [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) ตัวอย่างเปิดงานนำเสนอที่มีอยู่, เรียก [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-), และ [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) แล้วบันทึกงานนำเสนอที่อัปเดตด้วย [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) PPTX ที่บันทึกจะมี metadata ใหม่
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -184,11 +230,12 @@ try {
 }
 ```
 
-## **จัดการฐานของ Hyperlink**
+## **Manage the Hyperlink Base**
 
-[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) คืนค่าฐานระดับเอกสารสำหรับ Hyperlink แบบสัมพันธ์ ใช้ [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) เพื่อเปลี่ยนหรือเคลียร์ค่า นี้มีประโยชน์เมื่อย้ายงานนำเสนอและไฟล์ที่เชื่อมโยงไปยังตำแหน่งอื่น มันแยกจาก [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) ของ Hyperlink ทีละอัน: การเปลี่ยนฐานจะไม่เขียนทับที่อยู่ลิงก์ที่เก็บไว้หรือเปลี่ยนปลายทางแบบสัมบูรณ์
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) คืนค่าฐานระดับเอกสารสำหรับ hyperlink เชิงสัมพันธ์ ใช้ [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) เพื่อเปลี่ยนหรือเคลียร์ค่า นี้เป็นประโยชน์เมื่อย้ายงานนำเสนอและไฟล์ที่ลิงก์ไปยังตำแหน่งอื่น แยกจาก [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) ของ hyperlink แต่ละอัน: การเปลี่ยนฐานไม่ทำการเขียนทับที่อยู่ลิงก์ที่บันทึกไว้หรือเปลี่ยนปลายทางเป็นแบบ absolute
 
-ตัวอย่างนี้ต้องการงานนำเสนอที่มีทั้งลิงก์สัมพันธ์ เช่น `target.html` และลิงก์แบบสัมบูรณ์ เช่น `https://example.org/absolute.html` มันอ่านฐานที่มีอยู่แล้วกำหนดฐานใหม่ จากนั้นบันทึกและเปิดงานนำเสนอใหม่เพื่อตรวจสอบค่า หลังจากนั้นเคลียร์ฐานด้วยสตริงว่างและตรวจสอบค่าที่ว่างในไฟล์ที่บันทึกแยกต่างหาก ให้เปลี่ยนที่อยู่ฐานตัวอย่างเป็นตำแหน่งของไฟล์ที่เชื่อมโยงของคุณ
+ตัวอย่างต้องการงานนำเสนอที่มีลิงก์เชิงสัมพันธ์ เช่น `target.html` และลิงก์ absolute เช่น `https://example.org/absolute.html` อ่านฐานที่มีอยู่, ตั้งฐานใหม่, บันทึกและเปิดงานนำเสนอใหม่เพื่อตรวจสอบค่า หลังจากนั้นเคลียร์ฐานด้วยสตริงว่างและตรวจสอบค่าเปล่าในไฟล์ที่บันทึกแยกกัน แทนที่ฐานตัวอย่างด้วยตำแหน่งของไฟล์ที่ลิงก์ของคุณ
+
 ```java
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -222,13 +269,14 @@ try {
 }
 ```
 
-ข้อความตรวจสอบสองข้อความควรพิมพ์ `true` การเคลียร์ฐานจะทำให้ที่อยู่ Hyperlink แต่ละรายการยังคงอยู่
+ข้อความตรวจสอบสองข้อความควรพิมพ์ `true` การเคลียร์ฐานจะไม่กระทบที่อยู่ของ hyperlink แยกแต่ละอัน
 
-ลิงก์สัมพันธ์ไปยัง `target.pptx` เปิด `old/target.pptx` เมื่อฐานชี้ไปที่โฟลเดอร์ `old` หลังจากเปลี่ยนฐานเป็นโฟลเดอร์ `new` บันทึกและเปิดงานนำเสนอใหม่ ลิงก์เดียวกันจะเปิด `new/target.pptx` ลิงก์แบบสัมบูรณ์ยังคงเปิดไฟล์เดียวกัน ทดสอบลิงก์สัมพันธ์ของคุณใน PowerPoint ก่อนและหลังย้ายงานนำเสนอหรือเปลี่ยนฐาน
+ลิงก์เชิงสัมพันธ์ไปยัง `target.pptx` เปิด `old/target.pptx` เมื่อฐานชี้ไปที่โฟลเดอร์ `old` หลังจากเปลี่ยนฐานเป็นโฟลเดอร์ `new`, บันทึกและเปิดงานนำเสนอใหม่ ลิงก์เดียวกันเปิด `new/target.pptx` ลิงก์ absolute ยังคงเปิดไฟล์เดียวกัน ทดสอบลิงก์เชิงสัมพันธ์ของคุณใน PowerPoint ก่อนและหลังการย้ายงานนำเสนอหรือเปลี่ยนฐาน
 
-## **เพิ่มคุณสมบัติการนำเสนอแบบกำหนดเอง**
+## **Add Custom Presentation Properties**
 
-คุณสมบัติที่กำหนดเองเก็บเมตาดาต้าที่ไม่มีฟิลด์ built-in ที่สอดคล้องกัน เมธอด [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) ให้คุณกำหนดค่าโดยใช้ชื่อคุณสมบัติ ตัวอย่างนี้สร้างงานนำเสนอ เพิ่มค่าข้อความสองค่าและค่าตัวเลขเวอร์ชันหนึ่งค่า และบันทึกงานนำเสนอด้วย [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) การกำหนดค่ากับชื่อที่มีอยู่จะทดแทนค่าของคุณสมบัตินั้น
+คุณสมบัติเฉพาะเก็บ metadata ที่ไม่มีฟิลด์ built‑in ที่สอดคล้องกัน [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) ให้คุณกำหนดค่าโดยใช้ชื่อคุณสมบัติ ตัวอย่างนี้สร้างงานนำเสนอ, เพิ่มค่าข้อความสองค่และค่าตัวเลขเวอร์ชัน, แล้วบันทึกงานนำเสนอด้วย [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) การกำหนดค่าให้ชื่อที่มีอยู่แล้วจะทับค่าของคุณสมบัตินั้น
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -248,9 +296,10 @@ try {
 }
 ```
 
-## **เข้าถึงและแก้ไขคุณสมบัติที่กำหนดเอง**
+## **Access and Modify Custom Properties**
 
-ตัวอย่างนี้เปิดงานนำเสนอที่มีคุณสมบัติที่กำหนดเองและใช้ [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) เพื่อลูปผ่านมัน [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) รับดัชนีเริ่มจากศูนย์และคืนชื่อที่ใช้โดย [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) ตัวอย่างพิมพ์ชื่อและค่าต้นฉบับแต่ละรายการ แทนที่ค่าทั้งหมดด้วยสตริงลำดับหมายเลขโดยไม่คำนึงถึงประเภทเดิม แล้วบันทึกการเปลี่ยนแปลง หากไม่มีคุณสมบัติที่กำหนดเอง ลูปจะไม่ทำการเปลี่ยนแปลงใด ๆ
+ตัวอย่างนี้เปิดงานนำเสนอที่มีคุณสมบัติเฉพาะและใช้ [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) เพื่อวนลูปผ่านพวกมัน [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) รับดัชนีเริ่มจากศูนย์และคืนชื่อที่ใช้โดย [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) ตัวอย่างพิมพ์ชื่อและค่าต้นฉบับแต่ละรายการ, แทนที่ค่าทุกค่าโดยสตริงลำดับเลข regardless of its original type, แล้วบันทึกการเปลี่ยนแปลง หากไม่มีคุณสมบัติเฉพาะ ลูปจะไม่ทำการใด ๆ
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -276,30 +325,30 @@ try {
 }
 ```
 
-## **ตัวอย่างสด**
+## **Live Example**
 
-ลองแอปออนไลน์ [**ดูและแก้ไขเมตาดาต้า PowerPoint**](https://products.aspose.app/slides/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติเอกสารโดยใช้ Aspose.Slides API:
+ลองใช้แอปออนไลน์ [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติเอกสารโดยใช้ API ของ Aspose.Slides:
 
-[![ดูและแก้ไขเมตาดาต้า PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันจะลบคุณสมบัติ built-in จากงานนำเสนอได้อย่างไร?**
+**How can I remove a built-in property from a presentation?**
 
-คุณสมบัติ built-in เป็นส่วนสำคัญของงานนำเสนอและไม่สามารถลบออกได้โดยสมบูรณ์ อย่างไรก็ตาม คุณสามารถเปลี่ยนค่าของมันหรือกำหนดให้เป็นค่าว่างได้ หากคุณสมบัตินั้นอนุญาต
+คุณสมบัติ built‑in เป็นส่วนหนึ่งของงานนำเสนอและไม่สามารถลบโดยสมบูรณ์ได้ อย่างไรก็ตามคุณสามารถเปลี่ยนค่า หรือกำหนดค่าเป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาต
 
-**จะเกิดอะไรขึ้นหากฉันเพิ่มคุณสมบัติที่กำหนดเองที่มีอยู่แล้ว?**
+**What happens if I add a custom property that already exists?**
 
-หากคุณเพิ่มคุณสมบัติที่กำหนดเองที่มีอยู่แล้ว ค่าที่มีอยู่จะถูกเขียนทับด้วยค่าที่ใหม่ ไม่จำเป็นต้องลบหรือเช็คคุณสมบัตินั้นล่วงหน้า เนื่องจาก Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ
+หากคุณเพิ่มคุณสมบัติเฉพาะที่มีอยู่แล้ว ค่าที่มีอยู่จะถูกเขียนทับด้วยค่ใหม่ คุณไม่จำเป็นต้องลบหรือเช็คคุณสมบัติก่อนหน้า เนื่องจาก Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ
 
-**ฉันสามารถเข้าถึงคุณสมบัติของงานนำเสนอโดยไม่ต้องโหลดงานนำเสนอเต็มหรือไม่?**
+**Can I access presentation properties without fully loading the presentation?**
 
-ใช่ ใช้ [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) แล้วตามด้วย [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) เพื่ออ่านเมตาดาต้าเอกสารที่เก็บไว้โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ดู [Build a Lightweight Presentation Inventory](/slides/th/java/examine-presentation/) สำหรับตัวอย่างการรายงานที่ครบถ้วนและข้อจำกัดเฉพาะรูปแบบ
+ได้ ใช้ [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) แล้วตามด้วย [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) เพื่ออ่าน metadata ที่เก็บไว้โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) ดูตัวอย่างการรายงานเต็มรูปแบบและข้อจำกัดตามประเภทไฟล์ที่ [Build a Lightweight Presentation Inventory](/slides/th/java/examine-presentation/)
 
-**ฉันสามารถอ่านคุณสมบัติสาธารณะของงานนำเสนอที่เข้ารหัสโดยไม่ต้องใช้รหัสผ่านเปิดได้หรือไม่?**
+**Can I read public properties of an encrypted presentation without its opening password?**
 
-ใช่ งานนำเสนอจะต้องถูกเข้ารหัสหลังจากเรียก [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) ด้วยค่า `false` และต้องโหลดหลังจากเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ด้วยค่า `true`
+ได้ งานนำเสนอจะต้องถูกเข้ารหัสหลังจากเรียก [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) ด้วย `false` และต้องโหลดหลังจากเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) ด้วย `true`
 
-**ฉันสามารถอัปเดตไฟล์ PPTX ที่เข้ารหัสในโหมด document-properties-only ได้หรือไม่?**
+**Can I update an encrypted PPTX file in document‑properties‑only mode?**
 
-ไม่ ข้อมูลคุณสมบัติสาธารณะและที่เข้ารหัสต้องสอดคล้องกัน ดังนั้นการอัปเดตไฟล์ PPTX ที่เข้ารหัสต้องโหลดงานนำเสนอเต็มด้วยรหัสผ่านเปิดที่ถูกต้อง
+ไม่ได้ ข้อมูลคุณสมบัติสาธารณะและข้อมูลที่เข้ารหัสต้องสอดคล้องกัน ดังนั้นการอัปเดตไฟล์ PPTX ที่เข้ารหัสต้องโหลดงานนำเสนอแบบเต็มพร้อมรหัสผ่านเปิดที่ถูกต้อง

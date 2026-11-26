@@ -1,5 +1,5 @@
 ---
-title: .NET में प्रस्तुति गुणों का प्रबंधन
+title: .NET में प्रस्तुति गुण प्रबंधित करें
 linktitle: प्रस्तुति गुण
 type: docs
 weight: 70
@@ -13,9 +13,9 @@ keywords:
 - उन्नत गुण
 - गुण प्रबंधित करें
 - गुण संशोधित करें
-- दस्तावेज़ मेटाडाटा
-- मेटाडाटा संपादित करें
-- प्रूफिंग भाषा
+- दस्तावेज़ मेटाडेटा
+- मेटाडेटा संपादित करें
+- प्रूफ़िंग भाषा
 - डिफ़ॉल्ट भाषा
 - PowerPoint
 - OpenDocument
@@ -23,34 +23,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET में प्रस्तुति गुणों को प्रमुखता दें और अपने PowerPoint और OpenDocument फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सहज बनाएं।"
+description: "Aspose.Slides for .NET में प्रस्तुति गुणों पर पूर्ण नियंत्रण प्राप्त करें और अपने PowerPoint और OpenDocument फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सरल बनाएं।"
 ---
 ## **परिचय**
 
-Aspose.Slides for .NET **बिल्ट‑इन** और **कस्टम** दस्तावेज़ गुणों का समर्थन करता है। इन गुणों का उपयोग प्रस्तुति मेटाडाटा पढ़ने और अपडेट करने के लिए किया जाता है, जैसे लेखक, शीर्षक, और उपयोगकर्ता‑परिभाषित मान।
+Aspose.Slides for .NET **बिल्ट-इन** और **कस्टम** दस्तावेज़ गुणों का समर्थन करता है। इन गुणों का उपयोग करके आप प्रस्तुति मेटाडेटा पढ़ और अपडेट कर सकते हैं, जैसे लेखक, शीर्षक, और उपयोगकर्ता‑परिभाषित मान।
 
-Aspose.Slides आपको प्रस्तुति दस्तावेज़ गुणों के साथ काम करने की अनुमति देता है [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) इंटरफ़ेस के माध्यम से। इस इंटरफ़ेस का एक इंस्टेंस [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) द्वारा लौटाया जाता है। नीचे के उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ें, संशोधित करें और प्रबंधित करें।
+Aspose.Slides आपको प्रस्तुति दस्तावेज़ गुणों के साथ काम करने की अनुमति देता है [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) इंटरफ़ेस के माध्यम से। इस इंटरफ़ेस का एक उदाहरण [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) द्वारा लौटाया जाता है। निम्न उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ें, संशोधित करें और प्रबंधित करें।
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides प्रस्तुतियों को सहेजते समय एप्लिकेशन और उत्पादक मेटाडाटा को प्रबंधित करता है; ये फ़ील्ड उस सॉफ़्टवेयर की पहचान करती हैं जिसने आउटपुट बनाया।
+Aspose.Slides प्रस्तुतियों को सहेजते समय एप्लिकेशन और निर्माता मेटाडेटा को प्रबंधित करता है; ये फ़ील्ड उस सॉफ़्टवेयर को पहचानते हैं जिसने आउटपुट बनाया है।
 {{% /alert %}}
 
-## **प्रस्तुति गुणों को प्रबंधित करें**
+## **प्रेज़ेंटेशन गुण प्रबंधित करें**
 
 दस्तावेज़ गुण प्रस्तुति सामग्री के साथ वर्णनात्मक जानकारी संग्रहीत करते हैं। वे दो श्रेणियों में आते हैं:
 
-- **बिल्ट‑इन गुण** मानक मेटाडाटा रखते हैं, जैसे शीर्षक, लेखक, और दस्तावेज़ सांख्यिकी।
-- **कस्टम गुण** उपयोगकर्ता‑परिभाषित नाम/मान युग्म संग्रहीत करते हैं।
+- **बिल्ट-इन गुण** मानक मेटाडेटा रखते हैं, जैसे शीर्षक, लेखक, और दस्तावेज़ आँकड़े।
+- **कस्टम गुण** उपयोगकर्ता‑परिभाषित नाम/मान जोड़े संग्रहीत करते हैं।
 
-Aspose.Slides for .NET दोनों श्रेणियों तक पहुँच प्रदान करता है। PowerPoint में, दस्तावेज़ मेटाडाटा निरीक्षण करने के लिए **File → Info → Properties → Advanced Properties** चुनें। संवाद जानकारी को टैब में समूहित करता है जैसे **Summary**, **Statistics**, **Contents**, और **Custom**। उपयोगकर्ता‑परिभाषित गुणों को प्रबंधित करने के लिए **Custom** टैब उपयोग करें।
+Aspose.Slides for .NET दोनों श्रेणियों तक पहुँच प्रदान करता है। PowerPoint में, **File → Info → Properties → Advanced Properties** चुनें ताकि दस्तावेज़ मेटाडेटा निरीक्षण किया जा सके। संवाद जानकारी को टैब में समूहित करता है जैसे **Summary**, **Statistics**, **Contents**, और **Custom**। उपयोगकर्ता‑परिभाषित गुणों को प्रबंधित करने के लिए **Custom** टैब का उपयोग करें।
 
-## **एक एन्क्रिप्टेड प्रस्तुति से सार्वजनिक गुण पढ़ें**
+## **एन्क्रिप्टेड प्रस्तुति से सार्वजनिक गुण पढ़ें**
 
-एक खोलने वाला पासवर्ड सामान्यतः प्रस्तुति सामग्री और दस्तावेज़ गुणों दोनों की सुरक्षा करता है। जब प्रस्तुति को [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) `false` पर सेट करके एन्क्रिप्ट किया जाता है, तो उसके दस्तावेज़ गुण सार्वजनिक रह जाते हैं। तब एप्लिकेशन [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) को `true` सेट कर सकता है और खोलने वाला पासवर्ड दिए बिना सार्वजनिक मेटाडाटा पढ़ सकता है।
+एक खोलने वाला पासवर्ड सामान्यतः प्रस्तुति सामग्री और दस्तावेज़ गुणों दोनों की रक्षा करता है। जब प्रस्तुति को [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) को `false` पर सेट करके एन्क्रिप्ट किया जाता है, तो उसके दस्तावेज़ गुण सार्वजनिक रहते हैं। तब एप्लिकेशन [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) को `true` पर सेट करके बिना खोलने वाले पासवर्ड के सार्वजनिक मेटाडेटा पढ़ सकता है।
 
-[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) यह नियंत्रित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डिक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन में शामिल थे, तो पासवर्ड के बिना उन्हें लोड करना विफल होगा। यदि प्रस्तुति एन्क्रिप्ट नहीं है, तो विकल्प को नजरअंदाज किया जाता है और पूरी प्रस्तुति लोड होती है।
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) नियंत्रित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डीक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन में शामिल थे, तो पासवर्ड के बिना उन्हें लोड करना विफल हो जाएगा। यदि प्रस्तुति एन्क्रिप्टेड नहीं है, तो यह विकल्प नजरअंदाज किया जाता है और पूरी प्रस्तुति लोड की जाती है।
 
-उदाहरण को सार्वजनिक गुणों वाले एन्क्रिप्टेड प्रस्तुति की आवश्यकता होती है। यह लोडिंग मोड को [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) द्वारा सत्यापित करता है और फिर [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) के माध्यम से बिल्ट‑इन गुण पढ़ता है:
+उदाहरण को एक एन्क्रिप्टेड प्रस्तुति की आवश्यकता है जिसकी दस्तावेज़ गुण सार्वजनिक रखी गई हों। यह लोड मोड को [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) से जाँचता है और फिर [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) के माध्यम से बिल्ट‑इन गुण पढ़ता है:
 
 ```csharp
 using System;
@@ -73,17 +73,17 @@ else
 }
 ```
 
-इस मोड में, स्लाइड सामग्री लोड नहीं होती। स्लाइड, मास्टर, लेआउट, शैलियां, मीडिया, और अन्य प्रस्तुति ऑब्जेक्ट उपलब्ध नहीं होते। एप्लिकेशन को हमेशा [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) की जाँच करनी चाहिए इससे पहले कि वह ऐसी क्रिया करे जिसके लिए पूरी प्रस्तुति ऑब्जेक्ट मॉडल आवश्यक हो।
+इस मोड में, स्लाइड सामग्री लोड नहीं होती। स्लाइड्स, मास्टर, लेआउट, शेप, मीडिया और अन्य प्रस्तुति वस्तुएँ उपलब्ध नहीं रहतीं। एप्लिकेशन को हमेशा [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) की जाँच करनी चाहिए इससे पहले कि वह ऐसी कार्रवाई करे जिसके लिए पूर्ण प्रस्तुति ऑब्जेक्ट मॉडल की आवश्यकता हो।
 
 {{% alert color="warning" title="Security" %}}
-सार्वजनिक मेटाडाटा लेखक के नाम, शीर्षक, विषय, कुंजी शब्द, कंपनी सूचना, टिप्पणियां, और कस्टम मान उजागर कर सकता है। संवेदनशील गुणों को प्रस्तुति के साथ एन्क्रिप्ट करें। उन्हें सार्वजनिक तभी रखें जब इंडेक्सिंग, वर्गीकरण, खोज, या दस्तावेज़‑प्रबंधन प्रणालियों को पासवर्ड के बिना पहुँच की विशिष्ट आवश्यकता हो।
+सार्वजनिक मेटाडेटा लेखक नाम, शीर्षक, विषय, कुंजी‑शब्द, कंपनी जानकारी, टिप्पणी और कस्टम मान उजागर कर सकता है। संवेदनशील गुणों को प्रस्तुति के साथ एन्क्रिप्ट करें। केवल तब सार्वजनिक रखें जब इंडेक्सिंग, वर्गीकरण, खोज, या दस्तावेज़‑प्रबंधन प्रणालियों को पासवर्ड के बिना पहुँच की विशिष्ट आवश्यकता हो।
 {{% /alert %}}
 
-## **एक एन्क्रिप्टेड प्रस्तुति के गुण अपडेट करें**
+## **एन्क्रिप्टेड प्रस्तुति के गुण अपडेट करें**
 
-एक एन्क्रिप्टेड PPTX फ़ाइल के लिए, [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) के साथ लोड की गई प्रस्तुति सार्वजनिक मेटाडाटा पढ़ने के लिए है। Aspose.Slides उस मेटाडाटा‑केवल ऑब्जेक्ट से बदलें हुए गुणों को सहेज नहीं सकता क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रस्तुति के भीतर संबंधित डेटा के साथ सुसंगत रहना चाहिए। इसलिए अपडेट करने के लिए सही खोलने वाला पासवर्ड और पूरी लोड आवश्यक है।
+एक एन्क्रिप्टेड PPTX फ़ाइल के लिए, [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) के साथ लोड की गई प्रस्तुति केवल सार्वजनिक मेटाडेटा पढ़ने के लिए होती है। Aspose.Slides उस मेटाडेटा‑केवल ऑब्जेक्ट से बदले हुए गुणों को सहेज नहीं सकता क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रस्तुति के भीतर संबंधित डेटा के साथ सुसंगत रहना चाहिए। उन्हें अपडेट करने के लिए सही खोलने वाला पासवर्ड और पूर्ण लोड आवश्यक है।
 
-उदाहरण को सार्वजनिक दस्तावेज़ गुणों वाले एन्क्रिप्टेड PPTX प्रस्तुति और ज्ञात खोलने वाले पासवर्ड की आवश्यकता होती है। यह पूरी प्रस्तुति को [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) के साथ खोलता है, सार्वजनिक बिल्ट‑इन गुण अपडेट करता है, और परिणाम सहेजता है। फिर यह [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) का उपयोग करके एन्क्रिप्शन बनी रहने की जाँच करता है और पासवर्ड के बिना सार्वजनिक मेटाडाटा फिर से खोलकर नए मानों की पुष्टि करता है:
+उदाहरण को एक एन्क्रिप्टेड PPTX प्रस्तुति की आवश्यकता है जिसके सार्वजनिक दस्तावेज़ गुण हों और एक ज्ञात खोलने वाला पासवर्ड हो। यह पूर्ण प्रस्तुति को [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) से खोलता है, सार्वजनिक बिल्ट‑इन गुण अपडेट करता है, और परिणाम सहेजता है। फिर यह [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) का उपयोग करके एन्क्रिप्शन बरकरार है यह सत्यापित करता है और पासवर्ड के बिना सार्वजनिक मेटाडेटा फिर से खोलकर नई मानों की जाँच करता है:
 
 ```csharp
 using System;
@@ -119,11 +119,11 @@ else
 }
 ```
 
-यदि एप्लिकेशन को प्रस्तुति सामग्री को डिक्रिप्ट या लोड करने की अनुमति नहीं है, तो उसे एन्क्रिप्टेड PPTX फ़ाइल के सार्वजनिक गुणों को केवल‑पढ़ने योग्य मानना चाहिए।
+यदि कोई एप्लिकेशन प्रस्तुति सामग्री को डीक्रिप्ट या लोड करने की अनुमति नहीं रखता, तो उसे एन्क्रिप्टेड PPTX फ़ाइल के सार्वजनिक गुणों को केवल पढ़ने‑योग्य मानना चाहिए।
 
-## **बिल्ट‑इन गुणों तक पहुंचें**
+## **बिल्ट‑इन गुणों तक पहुँचें**
 
-[IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) इंटरफ़ेस टाइप्ड गुणों के माध्यम से बिल्ट‑इन मेटाडाटा उजागर करता है, जिसमें [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), और [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/) शामिल हैं। यह उदाहरण मौजूदा प्रस्तुति खोलता है और उसके संग्रहीत मेटाडाटा को कंसोल पर प्रिंट करता है। मान इनपुट प्रस्तुति पर निर्भर करते हैं; कुछ फ़ील्ड खाली हो सकते हैं।
+[IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) इंटरफ़ेस टाइप्ड गुणों के माध्यम से बिल्ट‑इन मेटाडेटा उजागर करता है, जिसमें [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), और [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/) शामिल हैं। यह उदाहरण मौजूदा प्रस्तुति को खोलता है और उसकी संग्रहीत मेटाडेटा को कंसोल पर प्रिंट करता है। मान इनपुट प्रस्तुति पर निर्भर करते हैं; कुछ फ़ील्ड ख़ाली हो सकती हैं।
 
 ```csharp
 using System;
@@ -149,9 +149,38 @@ Console.WriteLine("Subject: " + documentProperties.Subject);
 Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
+### **संस्करण संख्या और संपादन समय रिपोर्ट करें**
+
+`presentations` फ़ोल्डर में प्रत्येक PPTX फ़ाइल के लिए एक पंक्ति रिपोर्ट करने हेतु, स्लाइड्स को संपादन के लिये लोड किए बिना उसके [ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) को कॉल करके उसकी [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) प्राप्त करें। `TimeSpan` की मानक `c` फ़ॉर्मेट में अवधि 24 घंटे पहुँचने पर दिन की संख्या शामिल होती है।
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+Console.WriteLine("File | RevisionNumber | TotalEditingTime");
+foreach (var path in Directory.EnumerateFiles("presentations", "*.pptx"))
+{
+    var info = PresentationFactory.Instance.GetPresentationInfo(path);
+    var properties = info.ReadDocumentProperties();
+    Console.WriteLine($"{Path.GetFileName(path)} | {properties.RevisionNumber} | {properties.TotalEditingTime:c}");
+}
+```
+
+1 दिन, 2 घंटे, और 5 मिनट की रिकॉर्डेड संपादन समय वाले प्रस्तुति के लिए नमूना आउटपुट:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[RevisionNumber](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/revisionnumber/) लिखने योग्य मेटाडेटा है। उसका मान अकेले यह स्थापित नहीं कर सकता कि प्रस्तुति कितनी बार सहेजी गई या उसका संस्करण इतिहास कैसे रहा।
+
+[TotalEditingTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/totaleditingtime/) फ़ाइल में रिकॉर्ड किया गया संपादन अवधि है। `00:00:00` का मान दर्शाता है कि संग्रहीत अवधि शून्य है। यह सिद्ध नहीं करता कि कोई प्रस्तुति को नहीं संपादित किया।
+
 ## **बिल्ट‑इन गुणों को संशोधित करें**
 
-बिल्ट‑इन मेटाडाटा अपडेट करने के लिए, [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) द्वारा उजागर लिखने योग्य गुणों को मान असाइन करें। यह उदाहरण मौजूदा प्रस्तुति खोलता है, [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), और [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) सेट करता है, फिर [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) के साथ अपडेटेड प्रस्तुति सहेजता है। सहेजा गया PPTX नए मेटाडाटा को शामिल करता है।
+बिल्ट‑इन मेटाडेटा अपडेट करने के लिए, लिखने योग्य गुणों को मान असाइन करें जो [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) द्वारा उजागर किए गए हैं। यह उदाहरण मौजूदा प्रस्तुति को खोलता है, [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), और [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) को सेट करता है, और फिर [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) के साथ अपडेटेड प्रस्तुति को सहेजता है। सहेजा गया PPTX नया मेटाडेटा रखेगा।
 
 ```csharp
 using Aspose.Slides;
@@ -170,11 +199,11 @@ documentProperties.Manager = "Aspose manager";
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **हाइपरलिंक बेस को प्रबंधित करें**
+## **हायपरलिंक बेस प्रबंधित करें**
 
-[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) सापेक्ष हाइपरलिंक के लिए दस्तावेज़‑स्तर आधार को संग्रहीत करता है। यह प्रस्तुति और उसकी लिंक्ड फ़ाइलों को दूसरे स्थान पर ले जाने पर उपयोगी होता है। यह व्यक्तिगत हाइपरलिंक के [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) से अलग है: आधार बदलने से संग्रहीत लिंक पते नहीं बदलते और निरपेक्ष गंतव्य नहीं बदलते।
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) दस्तावेज़‑स्तर का बेस रखता है जो रिलेटिव हायपरलिंक के लिए उपयोग होता है। यह तब उपयोगी होता है जब आप प्रस्तुति और उसकी लिंक फ़ाइलों को किसी अन्य स्थान पर ले जाते हैं। यह व्यक्तिगत हायपरलिंक के [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) से अलग है: बेस बदलने से संग्रहीत लिंक पते पुनः नहीं लिखे जाते और न ही निरपेक्ष गंतव्य बदलते हैं।
 
-उदाहरण को एक प्रस्तुति की आवश्यकता है जिसमें एक सापेक्ष लिंक, जैसे `target.html`, और एक निरपेक्ष लिंक, जैसे `https://example.org/absolute.html` दोनों हों। यह मौजूदा आधार पढ़ता है, नया आधार पता असाइन करता है, और मान की जांच के लिए प्रस्तुति को सहेजता और पुनः खोलता है। फिर यह `string.Empty` के साथ आधार को साफ़ करता है और अलग फ़ाइल में खाली मान की पुष्टि करता है। उदाहरण आधार पते को अपने लिंक्ड फ़ाइलों के स्थान से बदलें।
+उदाहरण को ऐसी प्रस्तुति की आवश्यकता है जिसमें एक रिलेटिव लिंक (उदा., `target.html`) और एक निरपेक्ष लिंक (उदा., `https://example.org/absolute.html`) दोनों हों। यह मौजूदा बेस पढ़ता है, नया बेस पता असाइन करता है, और मूल्य जाँचने के लिए प्रस्तुति को सहेज कर पुनः खोलता है। फिर यह बेस को `string.Empty` से साफ़ करता है और अलग फ़ाइल में खाली मान की जाँच करता है। उदाहरण बेस पते को अपनी लिंक फ़ाइलों के स्थान से बदलें।
 
 ```csharp
 using System;
@@ -198,13 +227,13 @@ using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
 Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
 ```
 
-दोनों सत्यापन संदेश `True` प्रिंट करने चाहिए। आधार को साफ़ करने से व्यक्तिगत हाइपरलिंक पते अपरिवर्तित रहते हैं।
+दोनों सत्यापन संदेश `True` प्रिंट करेंगे। बेस को साफ़ करने से व्यक्तिगत हायपरलिंक पते अपरिवर्तित रहते हैं।
 
-`target.pptx` के लिए सापेक्ष लिंक ने `old/target.pptx` खोला जब आधार `old` फ़ोल्डर की ओर इशारा कर रहा था। आधार को `new` फ़ोल्डर में बदलने, सहेजने और प्रस्तुति को पुनः खोलने के बाद वही लिंक `new/target.pptx` खोलता है। निरपेक्ष लिंक वही फ़ाइल खोलता रहा। प्रस्तुति को स्थानांतरित करने या आधार बदलने से पहले और बाद में PowerPoint में अपने सापेक्ष लिंक परीक्षण करें।
+`target.pptx` के लिए एक रिलेटिव लिंक `old/target.pptx` खोलता था जब बेस `old` फ़ोल्डर की ओर इंगित करता था। बेस को `new` फ़ोल्डर में बदलने, सहेजने, और प्रस्तुति को पुनः खोलने के बाद वही लिंक `new/target.pptx` खोलता है। निरपेक्ष लिंक वही फ़ाइल खोलता रहता है। प्रस्तुति को स्थानांतरित करने या बेस बदलने से पहले और बाद में PowerPoint में अपने रिलेटिव लिंक का परीक्षण करें।
 
 ## **कस्टम प्रस्तुति गुण जोड़ें**
 
-कस्टम गुण ऐसे मेटाडाटा संग्रहीत करते हैं जिनका कोई संबंधित बिल्ट‑इन फ़ील्ड नहीं होता। [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) आपको गुण नाम द्वारा मान असाइन करने की अनुमति देता है। यह उदाहरण एक प्रस्तुति बनाता है, दो टेक्स्ट मान और एक पूर्णांक संस्करण मान जोड़ता है, और [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) के साथ प्रस्तुति सहेजता है। मौजूदा नाम को मान असाइन करने से उस गुण का मान बदल जाता है।
+कस्टम गुण उन मेटाडेटा को संग्रहीत करते हैं जिनके लिए कोई बिल्ट‑इन फ़ील्ड नहीं है। [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) आपको गुण नाम के द्वारा मान असाइन करने की अनुमति देता है। यह उदाहरण एक प्रस्तुति बनाता है, दो पाठ मान और एक पूर्णांक संस्करण मान जोड़ता है, और [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) के साथ प्रस्तुति को सहेजता है। मौजूदा नाम को मान असाइन करने से वह गुण का मान बदल जाता है।
 
 ```csharp
 using Aspose.Slides;
@@ -221,9 +250,9 @@ documentProperties["Document version"] = 2;
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **कस्टम गुणों तक पहुंचें और संशोधित करें**
+## **कस्टम गुणों तक पहुँचें और संशोधित करें**
 
-यह उदाहरण कस्टम गुणों वाले प्रस्तुति को खोलता है और [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) का उपयोग करके उन पर इटरिट करता है। [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) शून्य‑आधारित इंडेक्स लेता है और [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) द्वारा उपयोग किया गया नाम वापस करता है। उदाहरण प्रत्येक मूल नाम और मान को प्रिंट करता है, प्रत्येक मान को क्रमांकित स्ट्रिंग से बदल देता है चाहे उसका मूल प्रकार कुछ भी हो, और बदलाव सहेजता है। यदि कोई कस्टम गुण नहीं हैं, तो लूप कोई परिवर्तन नहीं करता।
+यह उदाहरण कस्टम गुणों वाली प्रस्तुति को खोलता है और उन्हें इटररेट करने के लिए [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) का उपयोग करता है। [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) शून्य‑आधारित इंडेक्स स्वीकार करता है और [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) द्वारा उपयोग किया गया नाम लौटाता है। उदाहरण प्रत्येक मूल नाम और मान को प्रिंट करता है, सभी मानों को क्रमांकित स्ट्रिंग से बदल देता है चाहे उनका मूल प्रकार कुछ भी हो, और बदलाव सहेजता है। यदि कोई कस्टम गुण नहीं हैं, तो लूप कोई परिवर्तन नहीं करता।
 
 ```csharp
 using System;
@@ -250,28 +279,28 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 ## **लाइव उदाहरण**
 
-Aspose.Slides API का उपयोग करके दस्तावेज़ गुणों के साथ काम करने का तरीका देखने के लिए ऑनलाइन एप्लिकेशन [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) आज़माएँ:
+ऑनलाइन ऐप **[View & Edit PowerPoint Metadata](https://products.aspose.app/slides/metadata)** आज़माएँ ताकि Aspose.Slides API का उपयोग करके दस्तावेज़ गुणों के साथ कैसे काम किया जाए देखें:
 
-[![PowerPoint मेटाडाटा देखें और संपादित करें](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![व्यू और एडिट पावरपॉइंट मेटाडेटा](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं प्रस्तुति से बिल्ट‑इन गुण कैसे हटा सकता हूँ?**
+**मैं प्रस्तुति से बिल्ट‑इन गुण को कैसे हटाऊँ?**
 
-बिल्ट‑इन गुण प्रस्तुति का अविभाज्य हिस्सा होते हैं और उन्हें पूरी तरह से हटाया नहीं जा सकता। हालांकि, आप उन्हें बदल सकते हैं या यदि विशिष्ट गुण अनुमति देता है तो खाली सेट कर सकते हैं।
+बिल्ट‑इन गुण प्रस्तुति का अभिन्न हिस्सा होते हैं और उन्हें पूरी तरह से हटाया नहीं जा सकता। हालांकि, आप उनके मान बदल सकते हैं या यदि विशिष्ट गुण की अनुमति देता है तो उन्हें खाली सेट कर सकते हैं।
 
-**यदि मैं कोई कस्टम गुण जोड़ूँ जो पहले से मौजूद है तो क्या होता है?**
+**यदि मैं ऐसा कस्टम गुण जोड़ूँ जो पहले से मौजूद है तो क्या होगा?**
 
-यदि आप मौजूद कस्टम गुण जोड़ते हैं, तो उसका मौजूदा मान नए मान से अधिलेखित हो जाएगा। आपको पहले से हटाने या जांचने की ज़रूरत नहीं है, क्योंकि Aspose.Slides स्वचालित रूप से गुण के मान को अपडेट कर देता है।
+यदि आप ऐसा कस्टम गुण जोड़ते हैं जो पहले से मौजूद है, तो उसका मौजूदा मान नए मान से अधिलेखित हो जाएगा। आपको पहले से गुण को हटाने या जाँचने की आवश्यकता नहीं है, क्योंकि Aspose.Slides स्वचालित रूप से गुण के मान को अपडेट कर देता है।
 
-**क्या मैं प्रस्तुति को पूरी तरह लोड किए बिना उसके गुणों तक पहुंच सकता हूँ?**
+**क्या मैं पूरी प्रस्तुति लोड किए बिना प्रस्तुति गुणों तक पहुँच सकता हूँ?**
 
-हाँ। [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) का उपयोग करके फिर [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) से बिना [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) इंस्टेंस बनाए संग्रहीत दस्तावेज़ मेटाडाटा पढ़ सकते हैं। पूर्ण रिपोर्ट उदाहरण और फ़ॉर्मेट‑विशिष्ट सीमाओं के लिए देखें [Build a Lightweight Presentation Inventory](/slides/hi/net/examine-presentation/)।
+हां। आप [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) का उपयोग करके फिर [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) के साथ संग्रहीत दस्तावेज़ मेटाडेटा पढ़ सकते हैं बिना [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) इंस्टेंस बनाए। पूर्ण रिपोर्टिंग उदाहरण और फ़ॉर्मेट‑विशिष्ट सीमाओं के लिए देखें [Build a Lightweight Presentation Inventory](/slides/hi/net/examine-presentation/)।
 
-**क्या मैं एन्क्रिप्टेड प्रस्तुति के सार्वजनिक गुणों को उसके खोलने वाले पासवर्ड के बिना पढ़ सकता हूँ?**
+**क्या मैं एन्क्रिप्टेड प्रस्तुति के सार्वजनिक गुण खोलने वाला पासवर्ड बिना पढ़ सकता हूँ?**
 
-हाँ। प्रस्तुति को [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) `false` पर सेट करके एन्क्रिप्ट किया गया होना चाहिए, और उसे [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) `true` के साथ लोड किया जाना चाहिए।
+हां। प्रस्तुति को [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) को `false` पर सेट करके एन्क्रिप्ट किया गया होना चाहिए, और उसे [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) को `true` पर सेट करके लोड किया गया होना चाहिए।
 
-**क्या मैं डॉक्यूमेंट‑प्रॉपर्टीज‑ओनली मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूँ?**
+**क्या मैं डॉक्यूमेंट‑प्रॉपर्टीज़‑ओनली मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूँ?**
 
-नहीं। सार्वजनिक और एन्क्रिप्टेड गुण डेटा को सुसंगत रहना चाहिए, इसलिए एन्क्रिप्टेड PPTX फ़ाइल को अपडेट करने के लिए सही खोलने वाले पासवर्ड के साथ पूरी प्रस्तुति लोड करनी पड़ती है।
+नहीं। सार्वजनिक और एन्क्रिप्टेड गुण डेटा को सुसंगत रहना चाहिए, इसलिए एन्क्रिप्टेड PPTX फ़ाइल को अपडेट करने के लिए सही खोलने वाले पासवर्ड के साथ पूरी प्रस्तुति लोड करनी आवश्यक है।

@@ -12,9 +12,9 @@ keywords:
 - Properti kustom
 - Properti lanjutan
 - Kelola properti
-- Modifikasi properti
+- Ubah properti
 - Metadata dokumen
-- Sunting metadata
+- Edit metadata
 - Bahasa pemeriksaan
 - Bahasa default
 - PowerPoint
@@ -22,34 +22,37 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Kelola properti presentasi utama di Aspose.Slides untuk Java dan permudah pencarian, penjenamaan, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
+description: "Kuasai properti presentasi di Aspose.Slides untuk Java dan permudah pencarian, branding, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Aspose.Slides untuk Java mendukung properti dokumen **bawaan** dan **kustom**. Gunakan properti ini untuk membaca dan memperbarui metadata presentasi, seperti penulis, judul, dan nilai yang ditentukan pengguna.
+Aspose.Slides for Java mendukung properti dokumen **bawaan** dan **kustom**. Gunakan properti ini untuk membaca dan memperbarui metadata presentasi, seperti penulis, judul, dan nilai yang ditentukan pengguna.
 
-Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui antarmuka [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) . Sebuah instance dari antarmuka ini dikembalikan oleh [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--). Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti tersebut.
+Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui antarmuka [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/). Instance antarmuka ini dikembalikan oleh [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--). Contoh berikut menunjukkan cara membaca, mengubah, dan mengelola properti tersebut.
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides mengelola metadata aplikasi dan produsen saat menyimpan presentasi; bidang-bidang ini mengidentifikasi perangkat lunak yang membuat hasil.
+{{% alert color="info" title="Catatan" %}}
+
+Aspose.Slides mengelola metadata aplikasi dan produsen saat menyimpan presentasi; bidang ini mengidentifikasi perangkat lunak yang membuat output.
+
 {{% /alert %}}
 
 ## **Kelola Properti Presentasi**
 
-Properti dokumen menyimpan informasi deskriptif bersama konten presentasi. Mereka terbagi menjadi dua kategori:
+Properti dokumen menyimpan informasi deskriptif bersamaan dengan konten presentasi. Mereka terbagi menjadi dua kategori:
 
-- **Built-in properties** berisi metadata standar, seperti judul, penulis, dan statistik dokumen.
-- **Custom properties** menyimpan pasangan nama/nilai yang ditentukan pengguna.
+- **Properti bawaan** berisi metadata standar, seperti judul, penulis, dan statistik dokumen.
+- **Properti kustom** menyimpan pasangan nama/nilai yang ditentukan pengguna.
 
-Aspose.Slides untuk Java menyediakan akses ke kedua kategori. Di PowerPoint, pilih **File → Info → Properties → Advanced Properties** untuk memeriksa metadata dokumen. Dialog mengelompokkan informasi ke dalam tab seperti **Summary**, **Statistics**, **Contents**, dan **Custom**. Gunakan tab **Custom** untuk mengelola properti yang ditentukan pengguna.
+Aspose.Slides for Java menyediakan akses ke kedua kategori. Di PowerPoint, pilih **File → Info → Properties → Advanced Properties** untuk memeriksa metadata dokumen. Dialog mengelompokkan informasi ke dalam tab seperti **Summary**, **Statistics**, **Contents**, dan **Custom**. Gunakan tab **Custom** untuk mengelola properti yang ditentukan pengguna.
 
-## **Baca Properti Publik dari Presentasi Terenkripsi**
+## **Baca Properti Publik dari Presentasi yang Terenkripsi**
 
-Password pembuka biasanya melindungi baik konten presentasi maupun properti dokumen. Ketika sebuah presentasi dienkripsi setelah memanggil [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) dengan `false`, properti dokumennya tetap publik. Sebuah aplikasi kemudian dapat memanggil [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) dengan `true` dan membaca metadata publik tanpa memasukkan password pembuka.
+Password pembuka biasanya melindungi baik konten presentasi maupun properti dokumen. Ketika presentasi dienkripsi setelah memanggil [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) dengan `false`, properti dokumennya tetap publik. Aplikasi kemudian dapat memanggil [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) dengan `true` dan membaca metadata publik tanpa menyediakan password pembuka.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) mengontrol apa yang dimuat oleh Aspose.Slides; itu tidak mendekripsi apa pun. Jika properti termasuk dalam enkripsi, memuatnya tanpa password gagal. Jika presentasi tidak terenkripsi, opsi ini diabaikan dan presentasi lengkap dimuat.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) mengendalikan apa yang dimuat Aspose.Slides; ia tidak mendekripsi apa pun. Jika properti termasuk dalam enkripsi, memuatnya tanpa password akan gagal. Jika presentasi tidak dienkripsi, opsi ini diabaikan dan seluruh presentasi dimuat.
 
-Contoh ini memerlukan sebuah presentasi terenkripsi yang properti dokumennya dibiarkan publik. Ia memverifikasi mode pemuatan melalui [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) dan kemudian membaca properti bawaan melalui [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
+Contoh ini memerlukan presentasi terenkripsi yang properti dokumennya dibiarkan publik. Ia memverifikasi mode pemuatan melalui [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) dan kemudian membaca properti bawaan melalui [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.LoadOptions;
@@ -74,17 +77,18 @@ try {
 }
 ```
 
-Dalam mode ini, konten slide tidak dimuat. Slide, master, tata letak, bentuk, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
+Dalam mode ini, konten slide tidak dimuat. Slide, master, tata letak, shape, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
 
-{{% alert color="warning" title="Warning" %}}
-Metadata publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai kustom. Enkripsi properti sensitif bersama dengan presentasi. Biarkan mereka publik hanya ketika proses pengindeksan, klasifikasi, pencarian, atau sistem manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa password.
+{{% alert color="warning" title="Peringatan" %}}
+Metadata publik dapat mengekspos nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai kustom. Enkripsi properti sensitif bersamaan dengan presentasi. Biarkan mereka publik hanya ketika sistem pengindeksan, klasifikasi, pencarian, atau manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa password.
 {{% /alert %}}
 
-## **Perbarui Properti Presentasi Terenkripsi**
+## **Perbarui Properti Presentasi yang Terenkripsi**
 
-Untuk file PPTX terenkripsi, sebuah presentasi yang dimuat setelah memanggil [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) dengan `true` ditujukan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang diubah dari objek yang hanya berisi metadata karena properti publik harus tetap konsisten dengan data yang sesuai di dalam presentasi terenkripsi. Oleh karena itu, memperbarui mereka memerlukan password pembuka yang benar dan pemuatan lengkap.
+Untuk file PPTX terenkripsi, presentasi yang dimuat setelah memanggil [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) dengan `true` ditujukan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang diubah dari objek hanya-metadata tersebut karena properti publik harus tetap konsisten dengan data yang bersangkutan di dalam presentasi yang terenkripsi. Oleh karena itu, memperbaruinya memerlukan password pembuka yang benar dan pemuatan lengkap.
 
-Contoh ini memerlukan sebuah presentasi PPTX terenkripsi dengan properti dokumen publik dan password pembuka yang diketahui. Ia membuka presentasi lengkap dengan [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), memperbarui properti bawaan publik, dan menyimpan hasilnya. Kemudian ia menggunakan [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) untuk memverifikasi bahwa enkripsi tetap terjaga dan membuka kembali metadata publik tanpa password untuk memverifikasi nilai baru:
+Contoh ini memerlukan presentasi PPTX terenkripsi dengan properti dokumen publik dan password pembuka yang diketahui. Ia membuka seluruh presentasi dengan [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), memperbarui properti bawaan publik, dan menyimpan hasilnya. Kemudian menggunakan [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) untuk memverifikasi bahwa enkripsi tetap dipertahankan dan membuka kembali metadata publik tanpa password untuk memverifikasi nilai baru:
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.IPresentationInfo;
@@ -129,11 +133,12 @@ try {
 }
 ```
 
-Jika sebuah aplikasi tidak diizinkan mendekripsi atau memuat konten presentasi, ia harus memperlakukan properti publik dari file PPTX terenkripsi sebagai baca-saja.
+Jika aplikasi tidak diizinkan mendekripsi atau memuat konten presentasi, ia harus memperlakukan properti publik dari file PPTX terenkripsi sebagai read‑only.
 
 ## **Akses Properti Bawaan**
 
-Antarmuka [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) menampilkan metadata bawaan melalui metode getter, termasuk [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--), [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--), dan [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--). Contoh ini membuka presentasi yang ada dan mencetak metadata yang disimpan ke konsol. Nilai tergantung pada presentasi input; beberapa bidang mungkin kosong.
+Antarmuka [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) menampilkan metadata bawaan melalui metode getter, termasuk [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--), [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--), dan [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--). Contoh ini membuka presentasi yang ada dan mencetak metadata yang disimpannya ke konsol. Nilai tergantung pada presentasi input; beberapa bidang mungkin kosong.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -161,9 +166,51 @@ try {
 }
 ```
 
-## **Modifikasi Properti Bawaan**
+### **Laporkan Nomor Revisi dan Waktu Penyuntingan**
 
-Untuk memperbarui metadata bawaan, gunakan metode setter pada objek yang dikembalikan oleh [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--). Contoh ini membuka presentasi yang ada, memanggil [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-), dan [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-), kemudian menyimpan presentasi yang diperbarui dengan [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-). PPTX yang disimpan berisi metadata baru.
+Untuk melaporkan satu baris bagi setiap file PPTX di folder `presentations`, panggil [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) untuk membaca [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) tanpa memuat slide untuk penyuntingan. API Java mengembalikan durasi penyuntingan dalam milidetik. Contoh memformatnya sebagai jam, menit, dan detik, dengan hitungan hari untuk durasi 24 jam atau lebih.
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+System.out.println("File | RevisionNumber | TotalEditingTime");
+try (DirectoryStream<Path> files = Files.newDirectoryStream(Paths.get("presentations"), "*.pptx")) {
+    for (Path path : files) {
+        if (!Files.isRegularFile(path)) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(path.toString());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format("%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf("%s | %d | %s%n", path.getFileName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+Untuk presentasi dengan waktu penyuntingan tercatat 1 hari, 2 jam, dan 5 menit, laporan menunjukkan output berikut.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getRevisionNumber--) membaca nilai yang dapat diubah aplikasi dengan [setRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-). Nomor revisi saja tidak dapat menunjukkan berapa kali presentasi disimpan atau merekonstruksi riwayat versinya.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) membaca durasi penyuntingan yang tercatat dalam file. Nilai `00:00:00` berarti durasi yang disimpan nol, meskipun ada yang menyunting presentasi.
+
+## **Ubah Properti Bawaan**
+
+Untuk memperbarui metadata bawaan, gunakan metode setter pada objek yang dikembalikan oleh [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--). Contoh ini membuka presentasi yang ada, memanggil [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-), dan [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-), lalu menyimpan presentasi yang diperbarui dengan [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-). PPTX yang disimpan berisi metadata baru.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -185,11 +232,12 @@ try {
 }
 ```
 
-## **Kelola Basis Hyperlink**
+## **Kelola Hyperlink Base**
 
-[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) mengembalikan basis level dokumen untuk hyperlink relatif. Gunakan [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) untuk mengubah atau mengosongkannya. Ini berguna saat memindahkan presentasi dan file terkait ke lokasi lain. Ini terpisah dari [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--): mengubah basis tidak menulis ulang alamat tautan yang disimpan atau mengubah tujuan absolut.
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) mengembalikan basis tingkat dokumen untuk hyperlink relatif. Gunakan [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) untuk mengubah atau mengosongkannya. Hal ini berguna ketika memindahkan presentasi dan berkas terkait ke lokasi lain. Ini terpisah dari [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) pada hyperlink individu: mengubah basis tidak menulis ulang alamat link yang disimpan maupun mengubah tujuan absolut.
 
-Contoh ini memerlukan presentasi yang berisi tautan relatif, misalnya `target.html`, dan tautan absolut, misalnya `https://example.org/absolute.html`. Ia membaca basis yang ada, menetapkan alamat basis baru, dan menyimpan serta membuka kembali presentasi untuk memeriksa nilai tersebut. Kemudian ia mengosongkan basis dengan string kosong dan memverifikasi nilai kosong dalam file yang disimpan terpisah. Ganti alamat basis contoh dengan lokasi file yang Anda tautkan.
+Contoh ini memerlukan presentasi yang berisi kedua jenis tautan: tautan relatif, misalnya `target.html`, dan tautan absolut, misalnya `https://example.org/absolute.html`. Ia membaca basis yang ada, menetapkan basis baru, lalu menyimpan dan membuka kembali presentasi untuk memeriksa nilai tersebut. Selanjutnya ia mengosongkan basis dengan string kosong dan memverifikasi nilai kosong dalam berkas yang disimpan terpisah. Ganti basis contoh dengan lokasi berkas tautan Anda.
+
 ```java
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -223,13 +271,14 @@ try {
 }
 ```
 
-Dua pesan verifikasi seharusnya mencetak `true`. Mengosongkan basis membiarkan alamat hyperlink individu tetap utuh.
+Kedua pesan verifikasi harus mencetak `true`. Mengosongkan basis tidak mengubah alamat hyperlink individu.
 
-Tautan relatif ke `target.pptx` membuka `old/target.pptx` ketika basis menunjuk ke folder `old`. Setelah mengubah basis ke folder `new`, menyimpan, dan membuka kembali presentasi, tautan yang sama membuka `new/target.pptx`. Tautan absolut tetap membuka file yang sama. Uji tautan relatif Anda di PowerPoint sebelum dan sesudah memindahkan presentasi atau mengubah basenya.
+Tautan relatif ke `target.pptx` membuka `old/target.pptx` ketika basis mengarah ke folder `old`. Setelah mengubah basis ke folder `new`, menyimpan, dan membuka kembali presentasi, tautan yang sama membuka `new/target.pptx`. Tautan absolut tetap membuka berkas yang sama. Uji tautan relatif Anda di PowerPoint sebelum dan sesudah memindahkan presentasi atau mengubah basenya.
 
 ## **Tambahkan Properti Presentasi Kustom**
 
-Properti kustom menyimpan metadata yang tidak memiliki bidang bawaan yang sesuai. Metode [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) memungkinkan Anda menetapkan nilai berdasarkan nama properti. Contoh ini membuat sebuah presentasi, menambahkan dua nilai teks dan satu nilai versi integer, dan menyimpan presentasi dengan [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Menetapkan nilai ke nama yang sudah ada menggantikan nilai properti tersebut.
+Properti kustom menyimpan metadata yang tidak memiliki bidang bawaan yang bersesuaian. Metode [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) memungkinkan Anda menetapkan nilai berdasarkan nama properti. Contoh ini membuat presentasi, menambahkan dua nilai teks dan satu nilai versi bertipe integer, lalu menyimpan presentasi dengan [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Menetapkan nilai ke nama yang sudah ada akan menggantikan nilai properti tersebut.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -249,9 +298,10 @@ try {
 }
 ```
 
-## **Akses dan Modifikasi Properti Kustom**
+## **Akses dan Ubah Properti Kustom**
 
-Contoh ini membuka sebuah presentasi yang berisi properti kustom dan menggunakan [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) untuk mengiterasi mereka. [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) menerima indeks berbasis nol dan mengembalikan nama yang digunakan oleh [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-). Contoh mencetak setiap nama dan nilai asli, mengganti setiap nilai dengan string bernomor terlepas dari tipe aslinya, dan menyimpan perubahan. Jika tidak ada properti kustom, loop tidak melakukan perubahan.
+Contoh ini membuka presentasi yang berisi properti kustom dan menggunakan [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) untuk mengiterasinya. [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) menerima indeks berbasis nol dan mengembalikan nama yang dipakai oleh [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-). Contoh mencetak setiap nama dan nilai asli, mengganti setiap nilai dengan string berangka terlepas dari tipe aslinya, dan menyimpan perubahan. Jika tidak ada properti kustom, loop tidak melakukan apa‑apa.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -279,28 +329,28 @@ try {
 
 ## **Contoh Langsung**
 
-Coba aplikasi online [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) untuk melihat cara bekerja dengan properti dokumen menggunakan API Aspose.Slides:
+Coba aplikasi daring [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) untuk melihat cara bekerja dengan properti dokumen menggunakan API Aspose.Slides:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
-**Bagaimana cara menghapus properti bawaan dari sebuah presentasi?**
+**Bagaimana cara menghapus properti bawaan dari presentasi?**
 
-Properti bawaan merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika diizinkan oleh properti tertentu.
+Properti bawaan merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika properti tersebut mengizinkannya.
 
 **Apa yang terjadi jika saya menambahkan properti kustom yang sudah ada?**
 
-Jika Anda menambahkan properti kustom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut sebelumnya, karena Aspose.Slides secara otomatis memperbarui nilai properti.
+Jika Anda menambahkan properti kustom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut terlebih dahulu, karena Aspose.Slides secara otomatis memperbarui nilai properti.
 
-**Bisakah saya mengakses properti presentasi tanpa memuat seluruh presentasi?**
+**Apakah saya dapat mengakses properti presentasi tanpa memuat seluruh presentasi?**
 
-Ya. Gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) dan kemudian [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Lihat [Bangun Inventaris Presentasi Ringan](/slides/id/java/examine-presentation/) untuk contoh pelaporan lengkap dan batasan spesifik format.
+Ya. Gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) lalu [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). Lihat [Build a Lightweight Presentation Inventory](/slides/id/java/examine-presentation/) untuk contoh laporan lengkap dan batasan spesifik format.
 
 **Bisakah saya membaca properti publik dari presentasi terenkripsi tanpa password pembukanya?**
 
 Ya. Presentasi harus dienkripsi setelah memanggil [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) dengan `false`, dan harus dimuat setelah memanggil [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) dengan `true`.
 
-**Bisakah saya memperbarui file PPTX terenkripsi dalam mode hanya properti dokumen?**
+**Bisakah saya memperbarui file PPTX terenkripsi dalam mode hanya‑properti‑dokumen?**
 
 Tidak. Data properti publik dan terenkripsi harus tetap konsisten, sehingga memperbarui file PPTX terenkripsi memerlukan pemuatan lengkap presentasi dengan password pembuka yang benar.

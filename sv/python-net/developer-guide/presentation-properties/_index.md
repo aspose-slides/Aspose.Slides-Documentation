@@ -6,7 +6,7 @@ weight: 70
 url: /sv/python-net/presentation-properties/
 keywords:
 - PowerPoint-egenskaper
-- presentations-egenskaper
+- presentationsegenskaper
 - dokumentegenskaper
 - inbyggda egenskaper
 - anpassade egenskaper
@@ -31,23 +31,23 @@ Aspose.Slides för Python via .NET stöder **inbyggda** och **anpassade** dokume
 Aspose.Slides låter dig arbeta med presentationsdokumentegenskaper via klassen [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) . En instans av denna klass returneras av [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Följande exempel visar hur man läser, modifierar och hanterar dessa egenskaper.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides hanterar applikations- och producentmetadata när presentationer sparas; dessa fält identifierar den programvara som skapade resultatet.
+Aspose.Slides hanterar applikations- och producentmetadata när presentationer sparas; dessa fält identifierar programvaran som skapade resultatet.
 {{% /alert %}}
 
 ## **Hantera presentationsegenskaper**
 
-Dokumentegenskaper lagrar beskrivande information tillsammans med presentationsinnehållet. De delas in i två kategorier:
+Dokumentegenskaper lagrar beskrivande information tillsammans med presentationsinnehåll. De delas in i två kategorier:
 
 - **Inbyggda egenskaper** innehåller standardmetadata, såsom titel, författare och dokumentstatistik.
 - **Anpassade egenskaper** lagrar användardefinierade namn/värde-par.
 
-Aspose.Slides för Python via .NET ger åtkomst till båda kategorierna. I PowerPoint, välj **File → Info → Properties → Advanced Properties** för att inspektera dokumentmetadata. Dialogrutan grupperar information i flikar såsom **Summary**, **Statistics**, **Contents** och **Custom**. Använd fliken **Custom** för att hantera användardefinierade egenskaper.
+Aspose.Slides för Python via .NET ger åtkomst till båda kategorierna. I PowerPoint, välj **File → Info → Properties → Advanced Properties** för att granska dokumentmetadata. Dialogrutan grupperar information i flikar såsom **Summary**, **Statistics**, **Contents** och **Custom**. Använd fliken **Custom** för att hantera användardefinierade egenskaper.
 
 ## **Läs offentliga egenskaper från en krypterad presentation**
 
-Ett öppningslösenord skyddar vanligtvis både presentationsinnehållet och dokumentegenskaperna. När en presentation är krypterad med [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) inställt på `False`, förblir dess dokumentegenskaper offentliga. En applikation kan då sätta [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) till `True` och läsa de offentliga metadatan utan att ange öppningslösenordet.
+Ett öppningslösenord skyddar normalt både presentationsinnehåll och dokumentegenskaper. När en presentation är krypterad med [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) satt till `False` förblir dess dokumentegenskaper offentliga. En applikation kan då sätta [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) till `True` och läsa den offentliga metadata utan att ange öppningslösenordet.
 
-[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) styr vad Aspose.Slides laddar; den dekrypterar inte något. Om egenskaperna inkluderades i krypteringen misslyckas laddning utan lösenord. Om presentationen inte är krypterad ignoreras alternativet och hela presentationen laddas.
+[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) styr vad Aspose.Slides laddar; den avkrypterar ingenting. Om egenskaperna inkluderades i krypteringen misslyckas laddning utan lösenord. Om presentationen inte är krypterad ignoreras alternativet och hela presentationen laddas.
 
 Exemplet kräver en krypterad presentation vars dokumentegenskaper lämnades offentliga. Det verifierar laddningsläget via [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) och läser sedan inbyggda egenskaper via [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
 
@@ -68,17 +68,17 @@ with slides.Presentation("public-properties-encrypted.pptx", load_options) as pr
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-I detta läge laddas inte bildinnehållet. Slides, masters, layouts, shapes, media och andra presentationsobjekt är otillgängliga. Applikationer bör alltid kontrollera [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) innan de utför en operation som kräver hela presentationsobjektmodellen.
+I detta läge laddas inte bildinnehållet. Slides, master, layouter, former, media och andra presentationsobjekt är otillgängliga. Applikationer bör alltid kontrollera [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) innan de utför en operation som kräver hela presentationsobjektmodellen.
 
 {{% alert color="warning" title="Security" %}}
-Offentlig metadata kan avslöja författarnamn, titlar, ämnen, nyckelord, företagsinformation, kommentarer och anpassade värden. Kryptera känsliga egenskaper tillsammans med presentationen. Lämna dem offentliga endast när indexering, klassificering, sökning eller dokumenthanteringssystem har ett specifikt krav på åtkomst utan lösenord.
+Offentlig metadata kan avslöja författarnamn, titlar, ämnen, nyckelord, företagsinformation, kommentarer och anpassade värden. Kryptera känsliga egenskaper tillsammans med presentationen. Lämna dem offentliga endast när indexering, klassificering, sökning eller dokumenthanteringssystem har ett specifikt krav på att få åtkomst utan lösenord.
 {{% /alert %}}
 
 ## **Uppdatera egenskaper för en krypterad presentation**
 
-För en krypterad PPTX‑fil är en presentation som laddas med [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) avsedd för att läsa offentlig metadata. Aspose.Slides kan inte spara ändrade egenskaper från det objektet som bara innehåller metadata eftersom de offentliga egenskaperna måste vara konsistenta med motsvarande data i den krypterade presentationen. Därför krävs rätt öppningslösenord och en fullständig laddning för att uppdatera dem.
+För en krypterad PPTX‑fil är en presentation som laddas med [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) avsedd för att läsa offentlig metadata. Aspose.Slides kan inte spara ändrade egenskaper från det objektet som endast innehåller metadata eftersom de offentliga egenskaperna måste vara konsistenta med motsvarande data i den krypterade presentationen. Att uppdatera dem kräver därför korrekt öppningslösenord och en fullständig laddning.
 
-Exemplet kräver en krypterad PPTX‑presentation med offentliga dokumentegenskaper och ett känt öppningslösenord. Det öppnar hela presentationen med [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), uppdaterar offentliga inbyggda egenskaper och sparar resultatet. Därefter används [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) för att verifiera att krypteringen bevaras och öppnar den offentliga metadatan utan lösenord för att verifiera de nya värdena:
+Exemplet kräver en krypterad PPTX‑presentation med offentliga dokumentegenskaper och ett känt öppningslösenord. Det öppnar hela presentationen med [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), uppdaterar offentliga inbyggda egenskaper och sparar resultatet. Därefter använder det [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) för att verifiera att krypteringen bevaras och öppnar den offentliga metadata utan lösenord för att kontrollera de nya värdena:
 
 ```python
 import aspose.slides as slides
@@ -114,7 +114,7 @@ Om en applikation inte får dekryptera eller ladda presentationsinnehållet mås
 
 ## **Åtkomst till inbyggda egenskaper**
 
-Klassen [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) exponerar inbyggd metadata via typade egenskaper, inklusive [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/) och [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/). Detta exempel öppnar en befintlig presentation och skriver dess lagrade metadata till konsolen. Värdena beror på inmatningspresentationen; vissa fält kan vara tomma.
+Klassen [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) visar inbyggd metadata via typade egenskaper, inklusive [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), och [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/). Detta exempel öppnar en befintlig presentation och skriver dess lagrade metadata till konsolen. Värdena beror på inmatningspresentationen; vissa fält kan vara tomma.
 
 ```python
 import aspose.slides as slides
@@ -138,9 +138,37 @@ with slides.Presentation("AccessBuiltInProperties.pptx") as presentation:
     print("Title:", document_properties.title)
 ```
 
+### **Rapportera revisionsnummer och redigeringstid**
+
+För att rapportera revisionsnummer och total redigeringstid för varje PPTX‑fil i mappen `presentations`, använd [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) för att hämta dess [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) utan att ladda bilderna för redigering. Python visar varaktigheten som en `timedelta`, inklusive dagantalet när den registrerade tiden når 24 timmar.
+
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+print("File | RevisionNumber | TotalEditingTime")
+for path in Path("presentations").glob("*.pptx"):
+    if path.is_file():
+        info = slides.PresentationFactory.instance.get_presentation_info(str(path))
+        properties = info.read_document_properties()
+        print(f"{path.name} | {properties.revision_number} | {properties.total_editing_time}")
+```
+
+För en presentation med 1 dag, 2 timmar och 5 minuter registrerad redigeringstid innehåller rapporten följande rad.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1 day, 2:05:00
+```
+
+[DocumentProperties.revision_number](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/revision_number/) är skrivbar metadata. Dess värde ensam kan inte fastställa hur många gånger presentationen sparades eller rekonstruera dess versionshistorik.
+
+[DocumentProperties.total_editing_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/total_editing_time/) rapporterar den redigeringstid som lagrats i filen. Ett värde på `0:00:00` betyder att den registrerade varaktigheten är noll, även om någon redigerade presentationen.
+
 ## **Modifiera inbyggda egenskaper**
 
-För att uppdatera inbyggd metadata, tilldela värden till de skrivbara egenskaper som exponeras av [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Detta exempel öppnar en befintlig presentation, sätter [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/) och [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/), och sparar sedan den uppdaterade presentationen med [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Den sparade PPTX‑filen innehåller den nya metadatan.
+För att uppdatera inbyggd metadata, tilldela värden till de skrivbara egenskaper som exponeras av [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Detta exempel öppnar en befintlig presentation, sätter [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/), och [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/), och sparar sedan den uppdaterade presentationen med [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Den sparade PPTX‑filen innehåller den nya metadata.
 
 ```python
 import aspose.slides as slides
@@ -159,7 +187,7 @@ with slides.Presentation("ModifyBuiltInProperties.pptx") as presentation:
 
 ## **Hantera hyperlänksbasen**
 
-[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) lagrar dokumentnivåns bas för relativa hyperlänkar. Detta är användbart när en presentation och dess länkade filer flyttas till en annan plats. Det är skilt från en enskild hyperlänks [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/): att ändra basen skriver inte om de lagrade ländadresserna eller ändrar absoluta destinationer.
+[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) lagrar den dokumentnivåbas för relativa hyperlänkar. Detta är användbart när en presentation och dess länkade filer flyttas till en annan plats. Det är separat från enskild hyperlänks [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/): att ändra basen skriver inte om de lagrade ländadresserna eller ändrar absoluta destinationer.
 
 Exemplet kräver en presentation som innehåller både en relativ länk, t.ex. `target.html`, och en absolut länk till en fil eller webbplats. Det läser den befintliga basen, tilldelar en ny basadress och sparar samt öppnar presentationen igen för att kontrollera värdet. Därefter rensar det basen med `""` och verifierar det tomma värdet i en separat sparad fil. Ersätt exempelbasadressen med platsen för dina länkade filer.
 
@@ -183,13 +211,13 @@ with slides.Presentation("hyperlinks-cleared.pptx") as cleared_presentation:
     print("Base cleared:", cleared_presentation.document_properties.hyperlink_base == "")
 ```
 
-De två verifieringsmeddelandena bör skriva ut `True`. Att rensa basen lämnar de individuella hyperlänkadresserna intakta.
+De två verifieringsmeddelandena bör skriva ut `True`. Att rensa basen lämnar de enskilda hyperlänksadresserna intakta.
 
-En relativ länk till `target.pptx` öppnade `old/target.pptx` när basen pekade på mappen `old`. Efter att ha ändrat basen till mappen `new`, sparat och öppnat presentationen igen, öppnade samma länk `new/target.pptx`. En absolut länk fortsatte att öppna samma fil. Testa dina relativa länkar i PowerPoint före och efter att du flyttat presentationen eller ändrat dess bas.
+En relativ länk till `target.pptx` öppnade `old/target.pptx` när basen pekade på mappen `old`. Efter att ha ändrat basen till mappen `new`, sparat och öppnat presentationen igen, öppnade samma länk `new/target.pptx`. En absolut länk fortsatte att öppna samma fil. Testa dina relativa länkar i PowerPoint före och efter att du flyttar presentationen eller ändrar dess bas.
 
 ## **Lägg till anpassade presentationsegenskaper**
 
-Anpassade egenskaper lagrar metadata som saknar motsvarande inbyggt fält. Metoden [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) låter dig tilldela ett värde via egenskapsnamn. Detta exempel skapar en presentation, lägger till två textvärden och ett heltalsversionsvärde, och sparar presentationen med [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Att tilldela ett värde till ett befintligt namn ersätter den egenskapens värde.
+Anpassade egenskaper lagrar metadata som saknar motsvarande inbyggt fält. Metoden [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) låter dig tilldela ett värde efter egenskapsnamn. Detta exempel skapar en presentation, lägger till två textvärden och ett heltalsversionsvärde, och sparar presentationen med [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Att tilldela ett värde till ett befintligt namn ersätter den egenskapens värde.
 
 ```python
 import aspose.slides as slides
@@ -204,9 +232,9 @@ with slides.Presentation() as presentation:
     presentation.save("CustomDocumentProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Åtkomst och modifiera anpassade egenskaper**
+## **Åtkomst och modifiering av anpassade egenskaper**
 
-Detta exempel öppnar en presentation som innehåller anpassade egenskaper och använder [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) för att iterera över dem. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) accepterar ett nollbaserat index och returnerar namnet som används av [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/). Exemplet kräver en presentation där alla anpassade egenskaper är strängar. Det skriver ut varje ursprungligt namn och värde, ersätter varje värde med en numrerad sträng och sparar ändringarna. Om det inte finns några anpassade egenskaper gör loopen inga förändringar.
+Detta exempel öppnar en presentation som innehåller anpassade egenskaper och använder [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) för att iterera över dem. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) accepterar ett nollbaserat index och returnerar namnet som används av [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/). Exemplet kräver en presentation vars anpassade egenskaper alla är strängar. Det skriver ut varje ursprungligt namn och värde, ersätter varje värde med en numrerad sträng och sparar ändringarna. Om det inte finns några anpassade egenskaper gör loopen inga ändringar.
 
 ```python
 import aspose.slides as slides
@@ -227,9 +255,9 @@ with slides.Presentation("AccessAndModifyProperties.pptx") as presentation:
     presentation.save("CustomProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) returnerar värdet via den en‑elementlista som passes som andra argument. Platshållaren måste matcha den lagrade egenskapens typ: använd `[""]` för en sträng eller `[0]` för ett heltal. En felaktig typ kastar ett `InvalidCastException`; välj platshållaren enligt ditt anpassade egenskapschema.
+[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) returnerar värdet via den en‑elementlista som passerats som andra argument. Platshållaren måste matcha den lagrade egenskapens typ: använd `[""]` för en sträng eller `[0]` för ett heltal. En felaktig typ kastar ett `InvalidCastException`; välj platshållaren enligt ditt anpassade egenskaps schema.
 
-## **Live-exempel**
+## **Live‑exempel**
 
 Prova den online‑appen [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) för att se hur du arbetar med dokumentegenskaper med Aspose.Slides‑API:n:
 
@@ -245,14 +273,14 @@ Inbyggda egenskaper är en integrerad del av presentationen och kan inte tas bor
 
 Om du lägger till en anpassad egenskap som redan finns, kommer dess befintliga värde att skrivas över med det nya. Du behöver inte ta bort eller kontrollera egenskapen i förväg, eftersom Aspose.Slides automatiskt uppdaterar egenskapens värde.
 
-**Kan jag komma åt presentationsegenskaper utan att ladda hela presentationen?**
+**Kan jag komma åt presentationsegenskaper utan att ladda in hela presentationen?**
 
-Ja. Använd [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) och sedan [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) för att läsa lagrad dokumentmetadata utan att skapa en [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)‑instans. Se [Build a Lightweight Presentation Inventory](/slides/sv/python-net/examine-presentation/) för ett komplett rapporteringsexempel och format‑specifika begränsningar.
+Ja. Använd [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) och sedan [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) för att läsa lagrad dokumentmetadata utan att skapa en [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)-instans. Se [Build a Lightweight Presentation Inventory](/slides/sv/python-net/examine-presentation/) för ett komplett rapportexempel och format‑specifika begränsningar.
 
 **Kan jag läsa offentliga egenskaper i en krypterad presentation utan dess öppningslösenord?**
 
 Ja. Presentationen måste ha krypterats med [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) satt till `False`, och den måste laddas med [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) satt till `True`.
 
-**Kan jag uppdatera en krypterad PPTX‑fil i enbart-dokumentegenskaper‑läge?**
+**Kan jag uppdatera en krypterad PPTX‑fil i dokument‑egenskaper‑endast‑läge?**
 
-Nej. Offentliga och krypterade egenskapsdata måste förbli konsistenta, så att uppdatera en krypterad PPTX‑fil kräver att hela presentationen laddas med korrekt öppningslösenord.
+Nej. Offentliga och krypterade egenskapsdata måste förbli konsekventa, så för att uppdatera en krypterad PPTX‑fil krävs att hela presentationen laddas med korrekt öppningslösenord.

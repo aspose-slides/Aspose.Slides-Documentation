@@ -1,18 +1,18 @@
 ---
-title: مدیریت خواص ارائه در Python
-linktitle: خواص ارائه
+title: مدیریت ویژگی‌های ارائه در Python
+linktitle: ویژگی‌های ارائه
 type: docs
 weight: 70
 url: /fa/python-java/presentation-properties/
 keywords:
-- خواص PowerPoint
-- خواص ارائه
-- خواص سند
-- خواص توکار
-- خواص سفارشی
-- خواص پیشرفته
-- مدیریت خواص
-- تغییر خواص
+- ویژگی‌های PowerPoint
+- ویژگی‌های ارائه
+- ویژگی‌های سند
+- ویژگی‌های تعبیه‌شده
+- ویژگی‌های سفارشی
+- ویژگی‌های پیشرفته
+- مدیریت ویژگی‌ها
+- اصلاح ویژگی‌ها
 - فراداده سند
 - ویرایش فراداده
 - زبان تصحیح
@@ -22,34 +22,34 @@ keywords:
 - ارائه
 - Python
 - Aspose.Slides
-description: "مدیریت کامل خواص ارائه در Aspose.Slides برای Python از طریق Java و بهینه‌سازی جستجو، برندسازی و جریان کار در فایل‌های PowerPoint و OpenDocument شما."
+description: "ویژگی‌های ارائه را در Aspose.Slides برای Python از طریق Java به‌طور کامل مدیریت کنید و جستجو، برندینگ و جریان کار را در فایل‌های PowerPoint و OpenDocument خود بهینه‌سازی کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-Aspose.Slides for Python via Java از ویژگی‌های **توکار** و **سفارشی** برای خواص سند پشتیبانی می‌کند. از این خواص برای خواندن و به‌روزرسانی فراداده‌های ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
+Aspose.Slides برای Python از طریق Java از ویژگی‌های سند **تعبیه‌شده** و **سفارشی** پشتیبانی می‌کند. از این ویژگی‌ها برای خواندن و به‌روزرسانی متادیتای ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
 
-Aspose.Slides به شما اجازه می‌دهد تا با خواص سند ارائه از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) کار کنید. یک نمونه از این کلاس توسط [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این خواص را بخوانید، تغییر دهید و مدیریت کنید.
+Aspose.Slides به شما امکان می‌دهد با ویژگی‌های سند ارائه از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) کار کنید. یک نمونه از این کلاس توسط [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) برگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides هنگام ذخیره ارائه‌ها، متاداده‌های برنامه و تولیدکننده را مدیریت می‌کند؛ این فیلدها نرم‌افزاری را که خروجی را ایجاد کرده است شناسایی می‌کنند.
+Aspose.Slides متادیتای برنامه و تولیدکننده را هنگام ذخیره‌سازی ارائه‌ها مدیریت می‌کند؛ این فیلدها نرم‌افزاری که خروجی را ایجاد کرده است شناسایی می‌کنند.
 {{% /alert %}}
 
-## **مدیریت خواص ارائه**
+## **مدیریت ویژگی‌های ارائه**
 
-خواص سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کنند. آن‌ها به دو دسته تقسیم می‌شوند:
+ویژگی‌های سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کنند. آن‌ها به دو دسته تقسیم می‌شوند:
 
-- **خواص توکار** شامل متاداده‌های استاندارد مانند عنوان، نویسنده و آمار سند هستند.
-- **خواص سفارشی** جفت‌های نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
+- **ویژگی‌های تعبیه‌شده** شامل متادیتای استانداردی مانند عنوان، نویسنده و آمار سند هستند.
+- **ویژگی‌های سفارشی** جفت‌های نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
 
-Aspose.Slides for Python via Java دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، **File → Info → Properties → Advanced Properties** را انتخاب کنید تا متاداده‌های سند را بررسی کنید. دیالوگ اطلاعات را در برگه‌هایی مانند **Summary**, **Statistics**, **Contents**, و **Custom** گروه‌بندی می‌کند. از برگه **Custom** برای مدیریت خواص تعریف‌شده توسط کاربر استفاده کنید.
+Aspose.Slides برای Python از طریق Java دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، **File → Info → Properties → Advanced Properties** را انتخاب کنید تا متادیتای سند را بررسی کنید. این گفت‌و‌گو اطلاعات را در برگه‌هایی مانند **Summary**، **Statistics**، **Contents** و **Custom** دسته‌بندی می‌کند. از برگه **Custom** برای مدیریت ویژگی‌های تعریف‌شده توسط کاربر استفاده کنید.
 
-## **خواندن خواص عمومی از یک ارائه رمزگذاری‌شده**
+## **خواندن ویژگی‌های عمومی از یک ارائهٔ رمزشده**
 
-یک رمز عبور باز کردن معمولاً هم محتوای ارائه و هم خواص سند را محافظت می‌کند. وقتی یک ارائه پس از فراخوانی [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) با `False` رمزگذاری شود، خواص سند آن به‌صورت عمومی باقی می‌مانند. سپس یک برنامه می‌تواند با فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) با `True`، متاداده‌های عمومی را بدون ارائه رمز عبور باز کردن بخواند.
+یک گذرواژهٔ باز کردن به طور معمول هر دو محتوای ارائه و ویژگی‌های سند را محافظت می‌کند. زمانی که یک ارائه پس از فراخوانی [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) با مقدار `False` رمزگذاری می‌شود، ویژگی‌های سند آن عمومی می‌مانند. سپس یک برنامه می‌تواند [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) را با مقدار `True` فراخوانی کند و متادیتای عمومی را بدون ارائهٔ گذرواژهٔ باز کردن بخواند.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مشخص می‌کند که Aspose.Slides چه چیزی را بارگذاری می‌کند؛ این متد هیچ چیز را رمزگشایی نمی‌کند. اگر خواص در رمزگذاری گنجانده شوند، بارگذاری آن‌ها بدون رمز عبور شکست می‌خورد. اگر ارائه رمزگذاری نشده باشد، این گزینه نادیده گرفته می‌شود و کل ارائه بارگذاری می‌شود.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) کنترل می‌کند Aspose.Slides چه چیزی را بارگذاری می‌کند؛ هیچ چیزی را رمزگشایی نمی‌کند. اگر ویژگی‌ها در رمزگذاری گنجانده شوند، بارگذاری آن‌ها بدون گذرواژه ناموفق می‌شود. اگر ارائه رمزشده نباشد، گزینه نادیده گرفته می‌شود و ارائه کامل بارگذاری می‌شود.
 
-این مثال به یک ارائهٔ رمزگذاری‌شده نیاز دارد که خواص سند آن به‌صورت عمومی باقی مانده باشد. حالت بارگذاری از طریق [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) تأیید شده و سپس خواص توکار از طریق [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) خوانده می‌شود:
+این مثال نیاز به یک ارائهٔ رمزشده دارد که ویژگی‌های سند آن به‌صورت عمومی باقی مانده‌اند. حالت بارگذاری را از طریق [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) بررسی می‌کند و سپس ویژگی‌های تعبیه‌شده را با استفاده از [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) می‌خواند:
 
 ```python
 import jpype
@@ -78,17 +78,17 @@ finally:
     presentation.dispose()
 ```
 
-در این حالت، محتوای اسلاید بارگذاری نمی‌شود. اسلایدها، مسترها، لایه‌ها، اشکال، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملی که به مدل شیء کامل ارائه نیاز دارد، [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) را بررسی کنند.
+در این حالت، محتویات اسلایدها بارگذاری نمی‌شود. اسلایدها، مسترها، چیدمان‌ها، اشکال، رسانه‌ها و سایر اشیاء ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملی که نیاز به مدل شیء کامل ارائه دارد، [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) را بررسی کنند.
 
 {{% alert color="warning" title="Warning" %}}
-متاداده‌های عمومی ممکن است نام‌های نویسندگان، عناوین، موضوعات، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کنند. خواص حساسی را همراه با ارائه رمزگذاری کنید. تنها در صورتی که سیستم‌های ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی به دسترسی بدون رمز عبور داشته باشند، آن‌ها را عمومی نگه دارید.
+متادیتای عمومی ممکن است نام‌های نویسنده، عناوین، موضوعات، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. ویژگی‌های حساس را همراه با ارائه رمزگذاری کنید. آن‌ها را عمومی بگذارید فقط زمانی که سیستم‌های ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی برای دسترسی به آن‌ها بدون گذرواژه دارند.
 {{% /alert %}}
 
-## **به‌روزرسانی خواص یک ارائه رمزگذاری‌شده**
+## **به‌روزرسانی ویژگی‌های یک ارائهٔ رمزشده**
 
-برای یک فایل PPTX رمزگذاری‌شده، ارائه‌ای که پس از فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) با `True` بارگذاری می‌شود، برای خواندن متاداده‌های عمومی در نظر گرفته شده است. Aspose.Slides نمی‌تواند خواص تغییر یافته را از این شیء فقط‑متاداده ذخیره کند، زیرا خواص عمومی باید با داده‌های مربوطه در داخل ارائهٔ رمزگذاری‌شده سازگار بمانند. بنابراین به‌روزرسانی آن‌ها نیاز به رمز عبور باز کردن صحیح و بارگذاری کامل دارد.
+برای یک فایل PPTX رمزشده، ارائه‌ای که پس از فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) با `True` بارگذاری می‌شود، برای خواندن متادیتای عمومی در نظر گرفته شده است. Aspose.Slides نمی‌تواند ویژگی‌های تغییر یافته را از آن شیء فقط‑متادیتا ذخیره کند زیرا ویژگی‌های عمومی باید با داده‌های متناظر داخل ارائهٔ رمزشده سازگار بمانند. بنابراین به‌روزرسانی آن‌ها نیاز به گذرواژهٔ باز کردن صحیح و بارگذاری کامل دارد.
 
-این مثال به یک ارائهٔ PPTX رمزگذاری‌شده با خواص سند عمومی و رمز عبور باز کردن شناخته‌شده نیاز دارد. ابتدا با استفاده از [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword) ارائهٔ کامل را باز می‌کند، خواص توکار عمومی را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌نماید. سپس با استفاده از [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) تأیید می‌کند که رمزگذاری حفظ شده و متاداده‌های عمومی را بدون رمز عبور باز می‌کند تا مقادیر جدید را تأیید کند:
+این مثال نیاز به یک ارائهٔ PPTX رمزشده دارد که ویژگی‌های سند عمومی دارد و گذرواژهٔ باز کردن شناخته‌شده‌ای دارد. با استفاده از [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword) ارائهٔ کامل را باز می‌کند، ویژگی‌های تعبیه‌شدهٔ عمومی را به‌روز می‌کند و نتیجه را ذخیره می‌کند. سپس با [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) صحت حفظ رمزگذاری را بررسی می‌کند و متادیتای عمومی را بدون گذرواژه دوباره باز می‌کند تا مقادیر جدید را تأیید کند:
 
 ```python
 import jpype
@@ -132,11 +132,11 @@ finally:
     metadata_presentation.dispose()
 ```
 
-اگر برنامه اجازهٔ رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید خواص عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
+اگر برنامه اجازهٔ رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید ویژگی‌های عمومی یک فایل PPTX رمزشده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
 
-## **دسترس به خواص توکار**
+## **دسترسی به ویژگی‌های تعبیه‌شده**
 
-کلاس [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) متاداده‌های توکار را از طریق متدهای getter مانند [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor)، [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle) و [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime) در دسترس قرار می‌دهد. این مثال یک ارائهٔ موجود را باز می‌کند و متاداده‌های ذخیره شده را در کنسول چاپ می‌کند. مقادیر بسته به ارائهٔ ورودی متفاوت هستند؛ برخی فیلدها ممکن است خالی باشند.
+کلاس [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) متادیتای تعبیه‌شده را از طریق متدهای getter مانند [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor)، [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle) و [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime) نمایش می‌دهد. این مثال یک ارائهٔ موجود را باز می‌کند و متادیتای ذخیره‌شده آن را در کنسول چاپ می‌کند. مقادیر بسته به ارائهٔ ورودی متفاوت هستند؛ برخی فیلدها ممکن است خالی باشند.
 
 ```python
 import jpype
@@ -169,9 +169,54 @@ finally:
     presentation.dispose()
 ```
 
-## **تغییر خواص توکار**
+### **گزارش شمارهٔ بازبینی و مدت زمان ویرایش**
 
-برای به‌روزرسانی متاداده‌های توکار، از متدهای setter بر روی شیء بازگردانده‌شده توسط [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) استفاده کنید. این مثال یک ارائهٔ موجود را باز می‌کند، [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor)، [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle)، [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject)، [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments) و [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager) را فراخوانی می‌کند و سپس با [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) ارائهٔ به‌روز شده را ذخیره می‌نماید. فایل PPTX ذخیره‌شده شامل متاداده‌های جدید خواهد بود.
+برای گزارش یک ردیف برای هر فایل PPTX در پوشه `presentations`، از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) و [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) استفاده کنید تا [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) آن را بدون بارگذاری اسلایدها برای ویرایش بخوانید. API Python via Java مدت زمان ویرایش را بر حسب میلی‌ثانیه برمی‌گرداند. مثال آن را به صورت ساعت، دقیقه و ثانیه قالب‌بندی می‌کند و برای مدت‌های ۲۴ ساعت یا بیشتر شمارش روز را اضافه می‌کند.
+
+```python
+from pathlib import Path
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PresentationFactory
+
+factory = PresentationFactory.getInstance()
+print("File | RevisionNumber | TotalEditingTime")
+for path in sorted(Path("presentations").glob("*.pptx")):
+    if not path.is_file():
+        continue
+
+    info = factory.getPresentationInfo(str(path))
+    properties = info.readDocumentProperties()
+    total_seconds = int(properties.getTotalEditingTime()) // 1000
+    days, remaining_seconds = divmod(total_seconds, 86400)
+    hours, remaining_seconds = divmod(remaining_seconds, 3600)
+    minutes, seconds = divmod(remaining_seconds, 60)
+    editing_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    if days:
+        editing_time = f"{days}.{editing_time}"
+
+    print(f"{path.name} | {properties.getRevisionNumber()} | {editing_time}")
+```
+
+برای ارائه‌ای که زمان ویرایش ثبت‌شدهٔ آن ۱ روز، ۲ ساعت و ۵ دقیقه باشد، گزارش خروجی زیر را نشان می‌دهد.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getRevisionNumber) مقداری را می‌خواند که برنامه‌ها می‌توانند با [setRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setRevisionNumber) تغییر دهند. شمارهٔ بازبینی به تنهایی نمی‌تواند تعداد دفعات ذخیرهٔ ارائه یا تاریخچهٔ نسخه‌ها را تعیین کند.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTotalEditingTime) مدت زمان ویرایش ثبت‌شده در فایل را می‌خواند. مقدار `00:00:00` به این معناست که مدت زمان ذخیره‌شده صفر است، حتی اگر کسی ارائه را ویرایش کرده باشد.
+
+## **تغییر ویژگی‌های تعبیه‌شده**
+
+برای به‌روزرسانی متادیتای تعبیه‌شده، از متدهای setter روی شیء برگردانده‌شده توسط [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) استفاده کنید. این مثال یک ارائهٔ موجود را باز می‌کند، [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor)، [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle)، [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject)، [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments) و [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager) را فراخوانی می‌کند و سپس ارائهٔ به‌روز شده را با [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) ذخیره می‌کند. فایل PPTX ذخیره‌شده شامل متادیتای جدید خواهد بود.
 
 ```python
 import jpype
@@ -197,11 +242,11 @@ finally:
     presentation.dispose()
 ```
 
-## **مدیریت پایهٔ هایپرلینک**
+## **مدیریت پایهٔ پیوندهای فرامشی**
 
-[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) پایهٔ سطری برای پیوندهای نسبی در سطح سند را برمی‌گرداند. برای تغییر یا پاک کردن آن از [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) استفاده کنید. این کار زمانی مفید است که یک ارائه و فایل‌های مرتبط آن را به مکان دیگری منتقل می‌کنید. این ویژگی مستقل از [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) یک پیوند فردی است: تغییر پایه آدرس‌های ذخیره‌شدهٔ پیوند را بازنویسی نمی‌کند و مقصدهای مطلق را تغییر نمی‌دهد.
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) پایهٔ سطری برای پیوندهای نسبی در سطح سند را برمی‌گرداند. از [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) برای تغییر یا پاک کردن آن استفاده کنید. این کار هنگام جابه‌جایی یک ارائه و فایل‌های پیوست شده‌اش به مکان دیگری مفید است. این ویژگی با [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) پیوندهای منفرد متفاوت است: تغییر پایه آدرس‌های ذخیره‌شدهٔ پیوندها را بازنویسی نمی‌کند و مقصدهای مطلق را تغییر نمی‌دهد.
 
-این مثال به ارائه‌ای نیاز دارد که هم یک پیوند نسبی مانند `target.html` و هم یک پیوند مطلق مانند `https://example.org/absolute.html` داشته باشد. ابتدا پایهٔ فعلی را می‌خواند، پایهٔ جدیدی اختصاص می‌دهد و ارائه را ذخیره و دوباره باز می‌کند تا مقدار را بررسی کند. سپس پایه را با رشتهٔ خالی پاک می‌کند و مقدار خالی را در فایلی جداگانه تأیید می‌نماید. آدرس پایهٔ مثال را با مکان فایل‌های پیوندی خود جایگزین کنید.
+این مثال نیاز به ارائه‌ای دارد که هم یک پیوند نسبی مانند `target.html` و هم یک پیوند مطلق مانند `https://example.org/absolute.html` داشته باشد. پایهٔ موجود را می‌خواند، آدرس پایهٔ جدیدی اختصاص می‌دهد و برای بررسی مقدار، ارائه را ذخیره و دوباره باز می‌کند. سپس پایه را با رشتهٔ خالی پاک می‌کند و مقدار خالی را در فایل ذخیره‌شدهٔ جداگانه تأیید می‌کند. آدرس پایهٔ مثال را با مسیر فایل‌های پیوست خود جایگزین کنید.
 
 ```python
 import jpype
@@ -238,13 +283,13 @@ finally:
     presentation.dispose()
 ```
 
-دو پیام تأیید باید `True` چاپ کنند. پاک‌کردن پایه آدرس‌های پیوندهای فردی را دست‌نخورده باقی می‌گذارد.
+دو پیام تأیید باید مقدار `True` را چاپ کنند. پاک کردن پایه آدرس‌های پیوندهای منفرد را دست‌نخورده می‌گذارد.
 
-یک پیوند نسبی به `target.pptx` وقتی پایه به پوشهٔ `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشهٔ `new`، ذخیره و بارگذاری مجدد ارائه، همان پیوند `new/target.pptx` را باز می‌کند. یک پیوند مطلق همچنان همان فایل را باز می‌کند. پیوندهای نسبی خود را در PowerPoint قبل و بعد از جابجایی ارائه یا تغییر پایه بررسی کنید.
+یک پیوند نسبی به `target.pptx` زمانی که پایه به پوشهٔ `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشهٔ `new`، ذخیره و بازگشایی ارائه، همان پیوند `new/target.pptx` را باز می‌کرد. یک پیوند مطلق به همان فایل ادامه داد. قبل و بعد از جابه‌جایی ارائه یا تغییر پایه، پیوندهای نسبی خود را در PowerPoint تست کنید.
 
-## **افزودن خواص سفارشی به ارائه**
+## **افزودن ویژگی‌های سفارشی به ارائه**
 
-خواص سفارشی متاداده‌هایی را ذخیره می‌کنند که فیلد توکار متناظری ندارند. متد [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) امکان اختصاص مقدار بر حسب نام خاصیت را می‌دهد. این مثال یک ارائه ایجاد می‌کند، دو مقدار متنی و یک مقدار عددی نسخه (با استفاده از `jpype.JInt` برای ارسال یک عدد صحیح جاوا) اضافه می‌نماید و با [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) ارائه را ذخیره می‌کند. اختصاص مقدار به نام موجود، مقدار آن خاصیت را بازنویسی می‌کند.
+ویژگی‌های سفارشی متادیتایی را ذخیره می‌کنند که فیلد تعبیه‌شدهٔ متناظری ندارند. متد [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) به شما اجازه می‌دهد مقدار را بر اساس نام ویژگی اختصاص دهید. این مثال یک ارائه ایجاد می‌کند، دو مقدار متنی و یک مقدار عددی نسخه (با استفاده از `jpype.JInt` برای ارسال یک عدد صحیح جاوا) اضافه می‌کند و ارائه را با [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) ذخیره می‌کند. اختصاص مقدار به یک نام موجود، مقدار آن ویژگی را بازنویسی می‌کند.
 
 ```python
 import jpype
@@ -268,9 +313,9 @@ finally:
     presentation.dispose()
 ```
 
-## **دسترس و تغییر خواص سفارشی**
+## **دسترسی و تغییر ویژگی‌های سفارشی**
 
-این مثال یک ارائه حاوی خواص سفارشی را باز می‌کند و با استفاده از [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) بر روی آن‌ها تکرار می‌نماید. [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) یک اندیس صفر‑پایه می‌گیرد و نامی را برمی‌گرداند که توسط [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) استفاده شده است. مثال هر نام و مقدار اصلی را چاپ می‌کند، هر مقدار را با رشته‌ای شماره‌دار جایگزین می‌نماید صرف‌نظر از نوع اصلی آن، و تغییرات را ذخیره می‌کند. اگر خاصیتی سفارشی وجود نداشته باشد، حلقه هیچ تغییری ایجاد نمی‌کند.
+این مثال یک ارائه حاوی ویژگی‌های سفارشی را باز می‌کند و با استفاده از [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) روی آن‌ها تکرار می‌کند. [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) یک اندیس صفر‑مبنا می‌گیرد و نام استفاده‌شده توسط [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) را برمی‌گرداند. مثال هر نام و مقدار اصلی را چاپ می‌کند، هر مقدار را با یک رشتهٔ عددی جایگزین می‌کند بی‌توجه به نوع اصلی آن و تغییرات را ذخیره می‌نماید. اگر ویژگی سفارشی وجود نداشته باشد، حلقه هیچ تغییری اعمال نمی‌کند.
 
 ```python
 import jpype
@@ -301,28 +346,28 @@ finally:
 
 ## **مثال زنده**
 
-اپلیکیشن آنلاین [**مشاهده و ویرایش فراداده‌های PowerPoint**](https://products.aspose.app/slides/metadata) را امتحان کنید تا ببینید چگونه با استفاده از API Aspose.Slides با خواص سند کار می‌کنید:
+سعی کنید برنامهٔ آنلاین [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) را برای مشاهدهٔ نحوه کار با ویژگی‌های سند با استفاده از API Aspose.Slides امتحان کنید:
 
-[![مشاهده و ویرایش فراداده‌های PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم یک خاصیت توکار را از یک ارائه حذف کنم؟**
+**چگونه می‌توان یک ویژگی تعبیه‌شده را از یک ارائه حذف کرد؟**
 
-خواص توکار بخش جدایی‌ناپذیر ارائه هستند و نمی‌توانند به‌طور کامل حذف شوند. اما می‌توانید مقدار آن‌ها را تغییر دهید یا در صورت اجازهٔ خاصیت، به مقدار خالی تنظیم کنید.
+ویژگی‌های تعبیه‌شده جزئی جدی از ارائه هستند و نمی‌توان آن‌ها را به‌طور کامل حذف کرد. اما می‌توانید مقدار آن‌ها را تغییر دهید یا اگر ویژگی خاص اجازهٔ خالی‌سازی را می‌دهد، مقادیر را خالی کنید.
 
-**چه اتفاقی می‌افتد اگر یک خاصیت سفارشی را اضافه کنم که قبلاً وجود دارد؟**
+**اگر یک ویژگی سفارشی که قبلاً وجود دارد را اضافه کنم چه می‌شود؟**
 
-اگر خاصیت سفارشی‌ای را اضافه کنید که از پیش موجود است، مقدار فعلی آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی قبلی خاصیت ندارید، زیرا Aspose.Slides به‌صورت خودکار مقدار خاصیت را به‌روز می‌کند.
+اگر یک ویژگی سفارشی که قبلاً وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید بازنویسی می‌شود. نیازی به حذف یا بررسی قبلی ویژگی ندارید، زیرا Aspose.Slides به‌صورت خودکار مقدار ویژگی را به‌روز می‌کند.
 
-**آیا می‌توانم خواص ارائه را بدون بارگذاری کامل ارائه دریافت کنم؟**
+**آیا می‌توان بدون بارگذاری کامل ارائه به ویژگی‌های آن دسترسی پیدا کرد؟**
 
-بله. می‌توانید از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) استفاده کنید و سپس با [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) متاداده‌های سند ذخیره‌شده را بدون ایجاد یک نمونهٔ [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) بخوانید. برای مثال کامل گزارش‌گیری و محدودیت‌های مخصوص فرمت، به مقالهٔ [Build a Lightweight Presentation Inventory](/slides/fa/python-java/examine-presentation/) مراجعه کنید.
+بله. می‌توانید از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) و سپس [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) استفاده کنید تا متادیتای ذخیره‌شدهٔ سند را بدون ایجاد یک نمونهٔ [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) بخوانید. برای مثال کامل گزارش و محدودیت‌های خاص فرمت، به [ساخت فهرست سبک ارائه](/slides/fa/python-java/examine-presentation/) مراجعه کنید.
 
-**آیا می‌توانم خواص عمومی یک ارائه رمزگذاری‌شده را بدون رمز عبور باز کردن آن بخوانم؟**
+**آیا می‌توان ویژگی‌های عمومی یک ارائهٔ رمزشده را بدون گذرواژهٔ باز کردن آن خواند؟**
 
-بله. ارائه باید پس از فراخوانی [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) با `False` رمزگذاری شده باشد و سپس پس از فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) با `True` بارگذاری شود.
+بله. ارائه باید پس از فراخوانی [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) با `False` رمزشده باشد و پس از فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) با `True` بارگذاری شود.
 
-**آیا می‌توانم یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑متاداده‑سند به‌روزرسانی کنم؟**
+**آیا می‌توان یک فایل PPTX رمزشده را در حالت فقط‑ویژگی‑مستند به‌روزرسانی کرد؟**
 
-خیر. داده‌های عمومی و رمزگذاری‌شده باید سازگار باقی بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده نیازمند بارگذاری کامل ارائه با رمز عبور باز کردن صحیح است.
+خیر. داده‌های ویژگی عمومی و رمزگذاری‌شده باید سازگار باقی بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزشده نیازمند بارگذاری کامل ارائه با گذرواژهٔ باز کردن صحیح است.

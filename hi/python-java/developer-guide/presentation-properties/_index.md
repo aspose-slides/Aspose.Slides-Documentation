@@ -1,57 +1,55 @@
 ---
-title: Python में प्रस्तुति गुणों का प्रबंधन
-linktitle: प्रस्तुति गुण
+title: "Python में प्रस्तुति गुणों का प्रबंधन"
+linktitle: "प्रस्तुति गुण"
 type: docs
 weight: 70
 url: /hi/python-java/presentation-properties/
 keywords:
-- PowerPoint गुण
-- प्रस्तुति गुण
-- दस्तावेज़ गुण
-- बिल्ट‑इन गुण
-- कस्टम गुण
-- उन्नत गुण
-- गुणों का प्रबंधन
-- गुणों में संशोधन
-- दस्तावेज़ मेटाडेटा
-- मेटाडेटा संपादन
-- प्रूफ़िंग भाषा
-- डिफ़ॉल्ट भाषा
-- PowerPoint
-- OpenDocument
-- प्रस्तुति
-- Python
-- Aspose.Slides
-description: "Aspose.Slides for Python via Java में प्रस्तुति गुणों का पूर्ण नियंत्रण प्राप्त करें और अपने PowerPoint और OpenDocument फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सरल बनाएं।"
+- "PowerPoint गुण"
+- "प्रस्तुति गुण"
+- "दस्तावेज़ गुण"
+- "बिल्ट‑इन गुण"
+- "कस्टम गुण"
+- "उन्नत गुण"
+- "गुणों का प्रबंधन"
+- "गुणों में संशोधन"
+- "दस्तावेज़ मेटाडेटा"
+- "मेटाडेटा संपादित करें"
+- "प्रूफ़िंग भाषा"
+- "डिफ़ॉल्ट भाषा"
+- "PowerPoint"
+- "OpenDocument"
+- "प्रस्तुति"
+- "Python"
+- "Aspose.Slides"
+description: "Aspose.Slides for Python via Java में प्रस्तुति गुणों को मास्टर करें और अपने PowerPoint और OpenDocument फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सुव्यवस्थित करें।"
 ---
 ## **परिचय**
 
-Aspose.Slides for Python via Java **बिल्ट‑इन** और **कस्टम** दस्तावेज़ गुणों का समर्थन करता है। इन गुणों का उपयोग प्रस्तुति मेटाडेटा पढ़ने और अपडेट करने के लिए करें, जैसे लेखक, शीर्षक, और उपयोगकर्ता‑परिभाषित मान।
+Aspose.Slides for Python via Java **बिल्ट‑इन** और **कस्टम** दस्तावेज़ गुणों को समर्थन देता है। इन गुणों का उपयोग प्रस्तुति मेटाडेटा को पढ़ने और अपडेट करने के लिए किया जाता है, जैसे लेखक, शीर्षक, और उपयोगकर्ता‑परिभाषित मान।
 
-Aspose.Slides आपको प्रस्तुति दस्तावेज़ गुणों के साथ काम करने की सुविधा देता है [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) क्लास के माध्यम से। इस क्लास का एक उदाहरण [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) द्वारा लौटाया जाता है। नीचे के उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ें, संशोधित करें और प्रबंधित करें।
+Aspose.Slides आपको प्रस्तुति दस्तावेज़ गुणों के साथ काम करने की अनुमति देता है [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) क्लास के माध्यम से। इस क्लास का एक उदाहरण [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) द्वारा लौटाया जाता है। निम्नलिखित उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ा, संशोधित और प्रबंधित किया जाए।
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides प्रस्तुति सहेजते समय एप्लिकेशन और निर्माता मेटाडेटा को प्रबंधित करता है; ये फ़ील्ड उस सॉफ़्टवेयर की पहचान करते हैं जिसने आउटपुट बनाया।
-
+Aspose.Slides प्रस्तुतियों को सहेजते समय एप्लिकेशन और प्रोड्यूसर मेटाडेटा को प्रबंधित करता है; ये फ़ील्ड उस सॉफ़्टवेयर की पहचान करती हैं जिसने आउटपुट बनाया।
 {{% /alert %}}
 
 ## **प्रस्तुति गुणों का प्रबंधन**
 
-दस्तावेज़ गुण प्रस्तुति सामग्री के साथ वर्णनात्मक जानकारी संग्रहीत करते हैं। ये दो श्रेणियों में वर्गीकृत होते हैं:
+Document properties प्रस्तुति सामग्री के साथ वर्णनात्मक जानकारी संग्रहीत करती हैं। वे दो वर्गों में विभाजित होती हैं:
 
 - **बिल्ट‑इन गुण** मानक मेटाडेटा रखते हैं, जैसे शीर्षक, लेखक, और दस्तावेज़ आँकड़े।
 - **कस्टम गुण** उपयोगकर्ता‑परिभाषित नाम/मान जोड़े संग्रहीत करते हैं।
 
-Aspose.Slides for Python via Java दोनों श्रेणियों तक पहुँच प्रदान करता है। PowerPoint में, **फ़ाइल → जानकारी → गुण → उन्नत गुण** चुनें ताकि दस्तावेज़ मेटाडेटा की जाँच की जा सके। डायलॉग जानकारी को **सारांश**, **सांख्यिकी**, **सामग्री**, और **कस्टम** जैसे टैब में समूहित करता है। उपयोगकर्ता‑परिभाषित गुणों को प्रबंधित करने के लिए **कस्टम** टैब का उपयोग करें।
+Aspose.Slides for Python via Java दोनों वर्गों तक पहुँच प्रदान करता है। PowerPoint में, दस्तावेज़ मेटाडेटा देखने के लिए **File → Info → Properties → Advanced Properties** चुनें। संवाद जानकारी को **Summary**, **Statistics**, **Contents**, और **Custom** टैब में समूहित करता है। उपयोगकर्ता‑परिभाषित गुणों को प्रबंधित करने के लिए **Custom** टैब का उपयोग करें।
 
 ## **एन्क्रिप्टेड प्रस्तुति से सार्वजनिक गुण पढ़ें**
 
-एक खोलने वाला पासवर्ड सामान्यतः प्रस्तुति सामग्री और दस्तावेज़ गुणों दोनों की रक्षा करता है। जब कोई प्रस्तुति [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) को `False` के साथ कॉल करने के बाद एन्क्रिप्ट की जाती है, तो उसके दस्तावेज़ गुण सार्वजनिक रहते हैं। फिर एक एप्लिकेशन [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) को `True` के साथ कॉल कर सकता है और खोलने वाला पासवर्ड दिए बिना सार्वजनिक मेटाडेटा पढ़ सकता है।
+एक खोलने वाला पासवर्ड सामान्यतः प्रस्तुति सामग्री और दस्तावेज़ गुण दोनों को सुरक्षित रखता है। जब प्रस्तुति को [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) को `False` के साथ बुलाकर एन्क्रिप्ट किया जाता है, उसका दस्तावेज़ गुण सार्वजनिक रहता है। फिर एप्लिकेशन [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) को `True` के साथ बुलाकर खोलने वाला पासवर्ड प्रदान किए बिना सार्वजनिक मेटाडेटा पढ़ सकता है।
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) यह नियंत्रित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डिक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन में सम्मिलित थे, तो पासवर्ड के बिना उन्हें लोड करना विफल हो जाता है। यदि प्रस्तुति एन्क्रिप्ट नहीं है, तो यह विकल्प अनदेखा किया जाता है और पूरी प्रस्तुति लोड हो जाती है।
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) यह नियंत्रित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डिक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन में शामिल थे, तो पासवर्ड के बिना उन्हें लोड करना विफल रहेगा। यदि प्रस्तुति एन्क्रिप्टेड नहीं है, तो यह विकल्प अनदेखा किया जाता है और पूरी प्रस्तुति लोड हो जाती है।
 
-उदाहरण को एक एन्क्रिप्टेड प्रस्तुति की आवश्यकता है जिसकी दस्तावेज़ गुण सार्वजनिक रखे गए हों। यह लोडिंग मोड को [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) के माध्यम से जांचता है और फिर [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) के माध्यम से बिल्ट‑इन गुण पढ़ता है:
+यह उदाहरण एक एन्क्रिप्टेड प्रस्तुति की आवश्यकता रखता है जिसके दस्तावेज़ गुण सार्वजनिक छोड़ दिए गये हों। यह लोडिंग मोड को [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) के माध्यम से जाँचता है और फिर [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) से बिल्ट‑इन गुण पढ़ता है:
 
 ```python
 import jpype
@@ -80,17 +78,17 @@ finally:
     presentation.dispose()
 ```
 
-इस मोड में स्लाइड सामग्री लोड नहीं की जाती। स्लाइड्स, मास्टर्स, लेआउट्स, शेप्स, मीडिया, और अन्य प्रस्तुति वस्तुएँ उपलब्ध नहीं होतीं। एप्लिकेशन को हमेशा [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) की जाँच करनी चाहिए इससे पहले कि वह ऐसा ऑपरेशन करे जिसके लिए पूर्ण प्रस्तुति ऑब्जेक्ट मॉडल की आवश्यकता हो।
+इस मोड में स्लाइड सामग्री लोड नहीं होती। स्लाइड्स, मास्टर, लेआउट, शैप्स, मीडिया और अन्य प्रस्तुति ऑब्जेक्ट उपलब्ध नहीं होते। एप्लिकेशन को हमेशा [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) जाँचना चाहिए इससे पहले कि वह ऐसी कार्रवाई करे जो पूरी प्रस्तुति ऑब्जेक्ट मॉडल की आवश्यकता रखती हो।
 
 {{% alert color="warning" title="Warning" %}}
-सार्वजनिक मेटाडेटा में लेखक नाम, शीर्षक, विषय, कीवर्ड, कंपनी जानकारी, टिप्पणी, और कस्टम मान दिखाई दे सकते हैं। संवेदनशील गुणों को प्रस्तुति के साथ ही एन्क्रिप्ट करें। उन्हें तभी सार्वजनिक रखें जब इंडेक्सिंग, वर्गीकरण, खोज, या दस्तावेज़‑प्रबंधन प्रणाली को पासवर्ड के बिना एक्सेस करने की विशिष्ट आवश्यकता हो।
+सार्वजनिक मेटाडेटा में लेखक नाम, शीर्षक, विषय, कुंजी‑शब्द, कंपनी जानकारी, टिप्पणी, और कस्टम मान दिख सकते हैं। संवेदनशील गुणों को प्रस्तुति के साथ एन्क्रिप्ट करें। इन्हें केवल तभी सार्वजनिक रखें जब इंडेक्सिंग, वर्गीकरण, खोज, या दस्तावेज़‑प्रबंधन सिस्टम को पासवर्ड‑बिना एक्सेस करने की विशिष्ट आवश्यकता हो।
 {{% /alert %}}
 
-## **एन्क्रिप्टेड प्रस्तुति की गुणों को अपडेट करें**
+## **एन्क्रिप्टेड प्रस्तुति के गुण अपडेट करें**
 
-एक एन्क्रिप्टेड PPTX फ़ाइल के लिए, वह प्रस्तुति जो [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) को `True` के साथ कॉल करने के बाद लोड की गई हो, सार्वजनिक मेटाडेटा पढ़ने के लिए अभिप्रेत है। Aspose.Slides उस मेटाडेटा‑केवल ऑब्जेक्ट से बदलते गुणों को सहेज नहीं सकता, क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रस्तुति के भीतर संबंधित डेटा के साथ सुसंगत रहना चाहिए। इसलिए अपडेट करने के लिये सही खोलने वाला पासवर्ड और पूर्ण लोड आवश्यक है।
+एक एन्क्रिप्टेड PPTX फ़ाइल के लिए, [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) को `True` के साथ बुलाकर लोड किया गया प्रस्तुति केवल सार्वजनिक मेटाडेटा पढ़ने के उद्देश्य से होता है। Aspose.Slides उस मेटाडेटा‑केवल ऑब्जेक्ट से बदले हुए गुणों को सहेज नहीं सकता क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रस्तुति के भीतर संबंधित डेटा के साथ सुसंगत रहना चाहिए। इसलिए अपडेट करने के लिए सही खोलने वाला पासवर्ड और पूरी लोड आवश्यक है।
 
-उदाहरण को एक एन्क्रिप्टेड PPTX प्रस्तुति की आवश्यकता है जिसमें सार्वजनिक दस्तावेज़ गुण और ज्ञात खोलने वाला पासवर्ड हो। यह पूर्ण प्रस्तुति को [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword) के साथ खोलता है, सार्वजनिक बिल्ट‑इन गुणों को अपडेट करता है, और परिणाम सहेजता है। फिर यह [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) का उपयोग करके एन्क्रिप्शन की पुष्टि करता है और पासवर्ड बिना सार्वजनिक मेटाडेटा को दोबारा खोलकर नए मानों की जाँच करता है:
+यह उदाहरण एक एन्क्रिप्टेड PPTX प्रस्तुति की आवश्यकता रखता है जिसमें सार्वजनिक दस्तावेज़ गुण और ज्ञात खोलने वाला पासवर्ड हो। यह पूरी प्रस्तुति को [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword) के साथ खोलता है, सार्वजनिक बिल्ट‑इन गुण अपडेट करता है, और परिणाम सहेजता है। फिर यह [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) का उपयोग करके एन्क्रिप्शन बना रहे होने की पुष्टि करता है और पासवर्ड‑बिना सार्वजनिक मेटाडेटा को फिर से खोलकर नई मानों की जाँच करता है:
 
 ```python
 import jpype
@@ -136,9 +134,9 @@ finally:
 
 यदि कोई एप्लिकेशन प्रस्तुति सामग्री को डिक्रिप्ट या लोड करने की अनुमति नहीं रखता, तो उसे एन्क्रिप्टेड PPTX फ़ाइल के सार्वजनिक गुणों को केवल‑पढ़ने‑योग्य मानना चाहिए।
 
-## **बिल्ट‑इन गुणों तक पहुँचें**
+## **बिल्ट‑इन गुणों का एक्सेस**
 
-[DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) क्लास getter मेथड्स के माध्यम से बिल्ट‑इन मेटाडेटा उजागर करती है, जिसमें [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle), और [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime) शामिल हैं। यह उदाहरण एक मौजूदा प्रस्तुति खोलता है और उसकी संग्रहीत मेटाडेटा को कंसोल में प्रिंट करता है। मान इनपुट प्रस्तुति पर निर्भर करते हैं; कुछ फ़ील्ड खाली हो सकते हैं।
+[DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) क्लास गेटर मेथड्स के माध्यम से बिल्ट‑इन मेटाडेटा प्रदान करती है, जिसमें [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle), और [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime) शामिल हैं। यह उदाहरण एक मौजूदा प्रस्तुति खोलता है और उसके संग्रहीत मेटाडेटा को कंसोल में प्रिंट करता है। मान इनपुट प्रस्तुति पर निर्भर करते हैं; कुछ फ़ील्ड खाली हो सकते हैं।
 
 ```python
 import jpype
@@ -171,9 +169,54 @@ finally:
     presentation.dispose()
 ```
 
-## **बिल्ट‑इन गुणों में संशोधन करें**
+### **रिवीजन नंबर और संपादन समय रिपोर्ट करें**
 
-बिल्ट‑इन मेटाडेटा को अपडेट करने के लिये आप [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) द्वारा लौटाए गए ऑब्जेक्ट पर setter मेथड्स का उपयोग कर सकते हैं। यह उदाहरण एक मौजूदा प्रस्तुति खोलता है, [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments), और [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager) को कॉल करता है, फिर अपडेटेड प्रस्तुति को [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) के साथ सहेजता है। सहेजा गया PPTX नई मेटाडेटा रखेगा।
+`presentations` फ़ोल्डर में प्रत्येक PPTX फ़ाइल के लिए एक पंक्ति रिपोर्ट करने हेतु, [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) और [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) का उपयोग करके स्लाइड्स को लोड किए बिना उसके [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) को पढ़ा जाता है। Python via Java API संपादन अवधि को मिलीसेकंड में लौटाता है। उदाहरण इसे घंटे, मिनट और सेकंड में फ़ॉर्मेट करता है, और 24 घंटे या अधिक अवधि के लिए दिन गिनती भी दिखाता है।
+
+```python
+from pathlib import Path
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PresentationFactory
+
+factory = PresentationFactory.getInstance()
+print("File | RevisionNumber | TotalEditingTime")
+for path in sorted(Path("presentations").glob("*.pptx")):
+    if not path.is_file():
+        continue
+
+    info = factory.getPresentationInfo(str(path))
+    properties = info.readDocumentProperties()
+    total_seconds = int(properties.getTotalEditingTime()) // 1000
+    days, remaining_seconds = divmod(total_seconds, 86400)
+    hours, remaining_seconds = divmod(remaining_seconds, 3600)
+    minutes, seconds = divmod(remaining_seconds, 60)
+    editing_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    if days:
+        editing_time = f"{days}.{editing_time}"
+
+    print(f"{path.name} | {properties.getRevisionNumber()} | {editing_time}")
+```
+
+1 दिन, 2 घंटे और 5 मिनट की रिकॉर्डेड संपादन समय वाली प्रस्तुति के लिए रिपोर्ट निम्न आउटपुट दर्शाती है।
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getRevisionNumber) वह मान पढ़ता है जिसे एप्लिकेशन [setRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setRevisionNumber) से बदल सकते हैं। केवल रिवीजन नंबर यह निर्धारित नहीं कर सकता कि प्रस्तुति कितनी बार सहेजी गई या उसका संस्करण इतिहास क्या है।
+
+[getTotalEditingTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTotalEditingTime) फ़ाइल में रिकॉर्डेड संपादन अवधि पढ़ता है। `00:00:00` का मान दर्शाता है कि संग्रहित अवधि शून्य है, भले ही किसी ने प्रस्तुति को संपादित किया हो।
+
+## **बिल्ट‑इन गुणों को संशोधित करें**
+
+बिल्ट‑इन मेटाडेटा अपडेट करने के लिए, [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) द्वारा लौटाए गए ऑब्जेक्ट पर सेट्टर मेथड्स का उपयोग करें। यह उदाहरण एक मौजूदा प्रस्तुति खोलता है, [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments), और [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager) को कॉल करता है, फिर [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) से अद्यतन प्रस्तुति सहेजता है। सहेजी गई PPTX में नया मेटाडेटा होगा।
 
 ```python
 import jpype
@@ -199,11 +242,11 @@ finally:
     presentation.dispose()
 ```
 
-## **हाइपरलिंक बेस प्रबंधित करें**
+## **हायपरलिंक बेस प्रबंधन**
 
-[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) दस्तावेज़‑स्तर का बेस लौटाता है जो सापेक्ष हाइपरलिंक्स के लिये उपयोग होता है। इसे बदलने या साफ़ करने के लिये [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) का प्रयोग करें। यह उपयोगी है जब आप प्रस्तुति और उसकी लिंक की गई फ़ाइलों को किसी अन्य स्थान पर ले जाते हैं। यह व्यक्तिगत हाइपरलिंक के [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) से अलग है: बेस बदलने से संग्रहीत लिंक पतों को पुनः लिखी नहीं जाती और न ही निरपेक्ष गंतव्य बदलते हैं।
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) रिलेटिव हाइपरलिंक्स के लिए दस्तावेज़‑स्तर बेस लौटाता है। इसे बदलने या साफ़ करने के लिए [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) का उपयोग करें। यह तब उपयोगी होता है जब आप प्रस्तुति और उसकी लिंक्ड फाइलों को किसी अन्य स्थान पर ले जाते हैं। यह व्यक्तिगत हाइपरलिंक के [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) से अलग है: बेस बदलने से संग्रहीत लिंक पते नहीं बदलते और न ही निरपेक्ष गंतव्य बदलता है।
 
-उदाहरण को एक ऐसी प्रस्तुति चाहिए जिसमें सापेक्ष लिंक `target.html` और निरपेक्ष लिंक `https://example.org/absolute.html` दोनों हों। यह मौजूदा बेस पढ़ता है, नया बेस पता सेट करता है, और मूल्य की जाँच के लिये प्रस्तुति को सहेज कर पुनः खोलता है। फिर यह बेस को खाली स्ट्रिंग से साफ़ करता है और एक अलग सहेजी गई फ़ाइल में खाली मान की पुष्टि करता है। उदाहरण बेस पते को अपने लिंक फ़ाइलों के स्थान से बदलें।
+यह उदाहरण एक ऐसी प्रस्तुति की आवश्यकता रखता है जिसमें एक रिलेटिव लिंक (`target.html`) और एक एब्सॉल्यूट लिंक (`https://example.org/absolute.html`) दोनों हों। यह मौजूदा बेस पढ़ता है, नया बेस पता असाइन करता है, फिर मूल्य जाँचने के लिए प्रस्तुति को सहेजता और पुनः खोलता है। फिर यह बेस को खाली स्ट्रिंग से साफ़ करता है और एक अलग सहेजी फ़ाइल में खाली मान की पुष्टि करता है। उदाहरण बेस पते को अपने लिंक्ड फ़ाइलों के स्थान से बदलें।
 
 ```python
 import jpype
@@ -240,13 +283,13 @@ finally:
     presentation.dispose()
 ```
 
-दोनों सत्यापन संदेश `True` प्रदर्शित करेंगे। बेस को साफ़ करने से व्यक्तिगत हाइपरलिंक पतों पर कोई असर नहीं पड़ता।
+दो वैरिफिकेशन संदेश `True` प्रिंट करने चाहिए। बेस साफ़ करने से व्यक्तिगत हाइपरलिंक एड्रेस अपरिवर्तित रहता है।
 
-सापेक्ष लिंक `target.pptx` ने `old/target.pptx` खोला जब बेस `old` फ़ोल्डर की ओर इशारा कर रहा था। बेस को `new` फ़ोल्डर में बदलने, सहेजने और प्रस्तुति को पुनः खोलने के बाद वही लिंक `new/target.pptx` खोलेगा। निरपेक्ष लिंक वही फ़ाइल खोलता ही रहेगा। प्रस्तुति को स्थानांतरित करने या उसका बेस बदलने से पहले और बाद में PowerPoint में अपने सापेक्ष लिंक का परीक्षण करें।
+यदि बेस `old` फ़ोल्डर की ओर इशारा कर रहा था, तो रिलेटिव लिंक `target.pptx` `old/target.pptx` खोलता था। बेस को `new` फ़ोल्डर में बदलने, सहेजने और पुनः खोलने के बाद वही लिंक `new/target.pptx` खोलता है। एब्सॉल्यूट लिंक वही फ़ाइल खोलता रहता है। बेस बदलने या प्रस्तुति को स्थानांतरित करने से पहले और बाद में अपने रिलेटिव लिंक को PowerPoint में परीक्षण करें।
 
 ## **कस्टम प्रस्तुति गुण जोड़ें**
 
-कस्टम गुण उन मेटाडेटा को संग्रहीत करते हैं जिनका कोई बिल्ट‑इन फ़ील्ड नहीं होता। [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) मेथड आपको गुण名稱 के द्वारा मान असाइन करने देता है। यह उदाहरण एक प्रस्तुति बनाता है, दो टेक्स्ट मान और एक पूर्णांक संस्करण मान (`jpype.JInt` का उपयोग करके जावा पूर्णांक पास किया गया) जोड़ता है, और प्रस्तुति को [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) के साथ सहेजता है। मौजूदा नाम को मान असाइन करने से वो गुण का मान बदल जाता है।
+कस्टम गुण उन मेटाडेटा को संग्रहीत करते हैं जिनका कोई बिल्ट‑इन फ़ील्ड नहीं होता। [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) मेथड आपको गुण नाम से मान असाइन करने की अनुमति देता है। यह उदाहरण एक प्रस्तुति बनाता है, दो टेक्स्ट मान और एक पूर्णांक संस्करण मान (`jpype.JInt` का उपयोग करके जावा पूर्णांक पास किया गया) जोड़ता है, और [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) से प्रस्तुति सहेजता है। मौजूदा नाम को पुनः असाइन करने से वह गुण का मान बदल जाता है।
 
 ```python
 import jpype
@@ -270,9 +313,9 @@ finally:
     presentation.dispose()
 ```
 
-## **कस्टम गुणों तक पहुँचें और संशोधित करें**
+## **कस्टम गुणों का एक्सेस और संशोधन**
 
-यह उदाहरण कस्टम गुणों वाले एक प्रस्तुति को खोलता है और [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) का उपयोग करके उन पर इटरेट करता है। [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) शून्य‑आधारित इंडेक्स लेता है और वह नाम लौटाता है जो [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) द्वारा使用 किया गया था। उदाहरण प्रत्येक मूल नाम और मान को प्रिंट करता है, हर मान को क्रमांकित स्ट्रिंग में बदल देता है चाहे उसका मूल प्रकार कुछ भी हो, और बदलावों को सहेजता है। यदि कोई कस्टम गुण नहीं है, तो लूप कोई परिवर्तन नहीं करता।
+यह उदाहरण कस्टम गुणों वाले प्रस्तुति को खोलता है और [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) से उनका आयतन लेता है। [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) शून्य‑आधारित इंडेक्स लेता है और वह नाम लौटाता है जिसका उपयोग [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) किया गया था। उदाहरण प्रत्येक मूल नाम और मान को प्रिंट करता है, सभी मानों को क्रमिक स्ट्रिंग से बदल देता है, और बदलाव सहेजता है। यदि कस्टम गुण नहीं हैं, तो लूप कोई परिवर्तन नहीं करता।
 
 ```python
 import jpype
@@ -301,30 +344,30 @@ finally:
     presentation.dispose()
 ```
 
-## **लाइवल उदाहरण**
+## **लाइव उदाहरण**
 
-ऑनलाइन ऐप [**PowerPoint मेटाडेटा देखें और संपादित करें**](https://products.aspose.app/slides/metadata) आज़माएँ ताकि Aspose.Slides API के साथ दस्तावेज़ गुणों पर काम करना देख सकें:
+ऑनलाइन ऐप [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) को आज़माएँ और Aspose.Slides API के साथ दस्तावेज़ गुणों के साथ काम करने का तरीका देखें:
 
 [![PowerPoint मेटाडेटा देखें और संपादित करें](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**मैं प्रस्तुति से बिल्ट‑इन गुण कैसे हटाऊँ?**
+**एक प्रस्तुति से बिल्ट‑इन गुण को कैसे हटाएँ?**
 
-बिल्ट‑इन गुण प्रस्तुति का अभिन्न हिस्सा होते हैं और उन्हें पूरी तरह हटाया नहीं जा सकता। हालांकि, आप उनकी मान बदल सकते हैं या यदि वह गुण अनुमति देता है तो उसे खाली सेट कर सकते हैं।
+बिल्ट‑इन गुण प्रस्तुति का अभिन्न हिस्सा होते हैं और उन्हें पूरी तरह हटाया नहीं जा सकता। हालांकि, आप उनके मान बदल सकते हैं या, यदि संबंधित गुण अनुमति देता है, तो उन्हें खाली सेट कर सकते हैं।
 
-**यदि मैं मौज़ूद कस्टम गुण को दोबारा जोड़ूँ तो क्या होगा?**
+**यदि मैं ऐसा कस्टम गुण जोड़ूँ जो पहले से मौजूद है तो क्या होगा?**
 
-यदि आप मौज़ूद कस्टम गुण को दोबारा जोड़ते हैं, तो उसका मौज़ूद मान नए मान से ओवरराइट हो जाएगा। आपको पहले से इसे हटाने या जाँचने की आवश्यकता नहीं है, क्योंकि Aspose.Slides स्वतः गुण के मान को अपडेट कर देता है।
+यदि आप ऐसा कस्टम गुण जोड़ते हैं जो पहले से मौजूद है, तो उसका मौजूदा मान नए मान से ओवरराइट हो जाएगा। आपको पहले से हटाने या जांचने की जरूरत नहीं है; Aspose.Slides स्वतः ही गुण के मान को अपडेट कर देता है।
 
-**क्या मैं पूर्ण प्रस्तुति लोड किए बिना प्रस्तुति गुणों तक पहुँच सकता हूँ?**
+**क्या मैं पूरी प्रस्तुति को लोड किए बिना प्रस्तुति गुणों तक पहुँच सकता हूँ?**
 
-हाँ। आप [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) का उपयोग करके फिर [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) को कॉल कर सकते हैं ताकि [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ऑब्जेक्ट बनाए बिना संग्रहीत दस्तावेज़ मेटाडेटा पढ़ा जा सके। पूर्ण रिपोर्ट उदाहरण और फ़ॉर्मेट‑विशिष्ट सीमाओं के लिये देखें [हल्की प्रस्तुति इन्वेंट्री बनाएं](/slides/hi/python-java/examine-presentation/)।
+हाँ। पहले [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) को कॉल करें और फिर [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) का उपयोग करके दस्तावेज़ मेटाडेटा पढ़ें, बिना [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) इंस्टेंस बनाये। पूर्ण रिपोर्टिंग उदाहरण और फ़ॉर्मेट‑विशिष्ट सीमाओं के लिए देखें [Build a Lightweight Presentation Inventory](/slides/hi/python-java/examine-presentation/)।
 
-**क्या मैं एन्क्रिप्टेड प्रस्तुति के सार्वजनिक गुण पासवर्ड के बिना पढ़ सकता हूँ?**
+**क्या मैं एन्क्रिप्टेड प्रस्तुति के सार्वजनिक गुणों को उसके खोलने वाले पासवर्ड के बिना पढ़ सकता हूँ?**
 
-हाँ। प्रस्तुति को तब एन्क्रिप्ट किया गया होना चाहिए जब [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) को `False` के साथ कॉल किया गया हो, और इसे तब लोड किया गया हो जब [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) को `True` के साथ कॉल किया गया हो।
+हाँ। प्रस्तुति को [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) को `False` के साथ बुलाकर एन्क्रिप्ट किया जाना चाहिए, और इसे [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) को `True` के साथ बुलाकर लोड किया जाना चाहिए।
 
-**क्या मैं दस्तावेज़‑गुण‑केवल मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूँ?**
+**क्या मैं डॉक्यूमेंट‑प्रॉपर्टीज‑ओनली मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूँ?**
 
-नहीं। सार्वजनिक और एन्क्रिप्टेड गुण डेटा को सुसंगत रहना चाहिए, इसलिए एन्क्रिप्टेड PPTX फ़ाइल को अपडेट करने के लिये सही खोलने वाला पासवर्ड के साथ पूरी प्रस्तुति को लोड करना आवश्यक है।
+नहीं। सार्वजनिक और एन्क्रिप्टेड गुण डेटा को सुसंगत रहना चाहिए, इसलिए एन्क्रिप्टेड PPTX फ़ाइल को अपडेट करने के लिए सही खोलने वाला पासवर्ड के साथ पूरी प्रस्तुति को लोड करना आवश्यक है।

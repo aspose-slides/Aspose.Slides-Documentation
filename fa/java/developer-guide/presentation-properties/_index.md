@@ -1,55 +1,55 @@
 ---
-title: مدیریت خصوصیات ارائه در جاوا
-linktitle: خصوصیات ارائه
+title: مدیریت ویژگی‌های ارائه در Java
+linktitle: ویژگی‌های ارائه
 type: docs
 weight: 70
 url: /fa/java/presentation-properties/
 keywords:
-- خصوصیات PowerPoint
-- خصوصیات ارائه
-- خصوصیات سند
-- خصوصیات پیش‌فرض
-- خصوصیات سفارشی
-- خصوصیات پیشرفته
-- مدیریت خصوصیات
-- تغییر خصوصیات
-- متادیتای سند
-- ویرایش متادیتا
-- زبان تصحیح
+- ویژگی‌های PowerPoint
+- ویژگی‌های ارائه
+- ویژگی‌های سند
+- ویژگی‌های پیش‌ساخته
+- ویژگی‌های سفارشی
+- ویژگی‌های پیشرفته
+- مدیریت ویژگی‌ها
+- تغییر ویژگی‌ها
+- فراداده سند
+- ویرایش فراداده
+- زبان پیش‌نگار
 - زبان پیش‌فرض
 - PowerPoint
 - OpenDocument
 - ارائه
 - Java
 - Aspose.Slides
-description: "در Aspose.Slides برای Java، خصوصیات ارائه را به‌طور کامل مدیریت کنید و جستجو، برندسازی و جریان کار را در فایل‌های PowerPoint و OpenDocument خود بهینه کنید."
+description: "ویژگی‌های ارائه را در Aspose.Slides برای Java به‌صورت کامل مدیریت کنید و جستجو، برندینگ و جریان کار را در فایل‌های PowerPoint و OpenDocument خود بهینه‌سازی کنید."
 ---
 ## **مقدمه**
 
-Aspose.Slides for Java از ویژگی‌های **پیش‌فرض** و **سفارشی** سند پشتیبانی می‌کند. از این ویژگی‌ها برای خواندن و به‌روزرسانی متادیتای ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
+Aspose.Slides برای Java از ویژگی‌های سند **پیش‌ساخته** و **سفارشی** پشتیبانی می‌کند. از این ویژگی‌ها برای خواندن و به‌روزرسانی فراداده ارائه استفاده کنید، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر.
 
-Aspose.Slides به شما امکان کار با خصوصیات سند ارائه را از طریق رابط [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) می‌دهد. یک نمونه از این رابط توسط [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) برگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این خصوصیات را بخوانید، تغییر دهید و مدیریت کنید.
+Aspose.Slides به شما امکان می‌دهد با ویژگی‌های سند ارائه از طریق رابط [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) کار کنید. یک نمونه از این رابط توسط [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، اصلاح کنید و مدیریت کنید.
 
-{{% alert color="info" title="توجه" %}}
-Aspose.Slides هنگام ذخیره‌سازی ارائه‌ها، متادیتای برنامه و تولیدکننده را مدیریت می‌کند؛ این فیلدها نرم‌افزاری را که خروجی را ایجاد کرده است شناسایی می‌کنند.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides هنگام ذخیره ارائه‌ها، فراداده‌های برنامه و تولیدکننده را مدیریت می‌کند؛ این فیلدها نرم‌افزاری را که خروجی را ایجاد کرده است شناسایی می‌کنند.
 {{% /alert %}}
 
-## **مدیریت خصوصیات ارائه**
+## **مدیریت ویژگی‌های ارائه**
 
-خصوصیات سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کند. این خصوصیات به دو دسته تقسیم می‌شوند:
+ویژگی‌های سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کنند. آن‌ها به دو دسته تقسیم می‌شوند:
 
-- **خصوصیات پیش‌فرض** شامل متادیتای استانداردی مانند عنوان، نویسنده و آمار سند هستند.
-- **خصوصیات سفارشی** جفت نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
+- **ویژگی‌های پیش‌ساخته** شامل فراداده‌های استاندارد هستند، مانند عنوان، نویسنده و آمار سند.
+- **ویژگی‌های سفارشی** جفت‌های نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
 
-Aspose.Slides for Java دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، برای بررسی متادیتای سند، **File → Info → Properties → Advanced Properties** را انتخاب کنید. این گفت‌وگو اطلاعات را در تب‌هایی مانند **Summary**، **Statistics**، **Contents** و **Custom** گروه‌بندی می‌کند. برای مدیریت خصوصیات تعریف‌شده توسط کاربر از تب **Custom** استفاده کنید.
+Aspose.Slides برای Java دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، **File → Info → Properties → Advanced Properties** را انتخاب کنید تا فراداده سند را بررسی کنید. دیالوگ اطلاعات را در برگه‌هایی مانند **Summary**، **Statistics**، **Contents** و **Custom** گروه‌بندی می‌کند. برای مدیریت ویژگی‌های تعریف‌شده توسط کاربر، برگه **Custom** را استفاده کنید.
 
-## **خواندن خصوصیات عمومی از یک ارائهٔ رمزگذاری‌شده**
+## **خواندن ویژگی‌های عمومی از یک ارائهٔ رمزنگاری‌شده**
 
-یک رمز عبور بازکن معمولاً هم محتوای ارائه و هم خصوصیات سند را محافظت می‌کند. وقتی ارائه پس از فراخوانی [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) با مقدار `false` رمزگذاری شود، خصوصیات سند به صورت عمومی باقی می‌مانند. سپس برنامه می‌تواند با فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) با مقدار `true` متادیتای عمومی را بدون ارائهٔ رمز عبور بازکن بخواند.
+یک رمز عبور بازکننده معمولاً هم محتوای ارائه و هم ویژگی‌های سند را محافظت می‌کند. وقتی یک ارائه پس از فراخوانی [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) با مقدار `false` رمزنگاری شود، ویژگی‌های سند آن به‌صورت عمومی باقی می‌مانند. سپس برنامه می‌تواند [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) را با مقدار `true` صدا بزند و فراداده عمومی را بدون ارائهٔ رمز عبور بازکننده بخواند.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) تعیین می‌کند Aspose.Slides چه چیزی را بارگذاری می‌کند؛ این کار هیچ چیز را رمزگشایی نمی‌کند. اگر خصوصیات در رمزگذاری گنجانده شده باشند، بارگذاری آن‌ها بدون رمز عبور شکست می‌خورد. اگر ارائه رمزگذاری نشده باشد، گزینه نادیده گرفته می‌شود و کل ارائه بارگذاری می‌شود.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) کنترل می‌کند که Aspose.Slides چه چیزی را بارگذاری کند؛ این کار هیچ چیزی را رمزگشایی نمی‌کند. اگر ویژگی‌ها در رمزنگاری گنجانده شده باشند، بارگذاری آن‌ها بدون رمز عبور با شکست مواجه می‌شود. اگر ارائه رمزنگاری نشده باشد، این گزینه نادیده گرفته می‌شود و ارائهٔ کامل بارگذاری می‌گردد.
 
-این مثال به یک ارائهٔ رمزگذاری‌شده نیاز دارد که خصوصیات سند آن به صورت عمومی باقی مانده باشد. حالت بارگذاری از طریق [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) بررسی می‌شود و سپس خصوصیات پیش‌فرض با استفاده از [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) خوانده می‌شود:
+این مثال به یک ارائهٔ رمزنگاری‌شده نیاز دارد که ویژگی‌های سند آن به‌صورت عمومی باقی مانده باشند. حالت بارگذاری را از طریق [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) بررسی می‌کند و سپس ویژگی‌های پیش‌ساخته را با استفاده از [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) می‌خواند:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -75,17 +75,17 @@ try {
 }
 ```
 
-در این حالت، محتوای اسلاید بارگذاری نمی‌شود. اسلایدها، استادها، طرح‌بندی‌ها، شکل‌ها، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملی که **به مدل کامل شیء ارائه نیاز دارد**، [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) را بررسی کنند.
+در این حالت، محتوای اسلاید بارگذاری نمی‌شود. اسلایدها، مسترها، چیدمان‌ها، اشکال، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملیاتی که به مدل اشیای کامل ارائه نیاز دارد، [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) را بررسی کنند.
 
-{{% alert color="warning" title="هشدار" %}}
-متادیتای عمومی ممکن است نام نویسندگان، عناوین، موضوعات، کلیدواژه‌ها، اطلاعات شرکت، نظرات و مقادیر **سفارشی** را فاش کند. خصوصیات حساس را همراه با ارائه رمزگذاری کنید. فقط زمانی که سیستم‌های ایندکس‌سازی، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی به دسترسی به آن‌ها بدون رمز عبور داشته باشند، عمومی بگذارید.
+{{% alert color="warning" title="Warning" %}}
+فراداده عمومی ممکن است نام‌های نویسنده، عناوین، موضوعات، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. ویژگی‌های حساس را همراه با ارائه رمزنگاری کنید. آن‌ها را به‌صورت عمومی فقط زمانی باقی بگذارید که سیستم‌های ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت اسناد نیاز خاصی برای دسترسی بدون رمز عبور داشته باشند.
 {{% /alert %}}
 
-## **به‌روزرسانی خصوصیات یک ارائهٔ رمزگذاری‌شده**
+## **به‌روزرسانی ویژگی‌های یک ارائهٔ رمزنگاری‌شده**
 
-برای یک فایل PPTX رمزگذاری‌شده، ارائه‌ای که پس از فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) با مقدار `true` بارگذاری شود، برای خواندن متادیتای عمومی هدف دارد. Aspose.Slides نمی‌تواند خصوصیات تغییر یافتهٔ آن متادیتای فقط‑خواندنی را ذخیره کند چون خصوصیات عمومی باید با دادهٔ متناظر داخل ارائهٔ رمزگذاری‌شده سازگار بمانند. بنابراین به‌روزرسانی آن‌ها مستلزم رمز عبور صحیح بازکن و یک بارگذاری کامل است.
+برای یک فایل PPTX رمزنگاری‌شده، ارائه‌ای که پس از فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) با مقدار `true` بارگذاری شود، برای خواندن فراداده عمومی در نظر گرفته شده است. Aspose.Slides نمی‌تواند ویژگی‌های تغییر یافته را از آن شیء تنها حاوی فراداده ذخیره کند زیرا ویژگی‌های عمومی باید با داده‌های مربوطه داخل ارائهٔ رمزنگاری‌شده سازگار بمانند. به‌روزرسانی آن‌ها به‌همین دلیل نیاز به رمز عبور بازکننده صحیح و یک بارگذاری کامل دارد.
 
-این مثال به یک ارائهٔ PPTX رمزگذاری‌شده با خصوصیات سند عمومی و رمز عبور بازکن شناخته‌شده نیاز دارد. ارائهٔ کامل را با استفاده از [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) باز می‌کند، خصوصیات پیش‌فرض عمومی را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌نماید. سپس با استفاده از [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) صحت حفظ رمزگذاری را تأیید می‌کند و متادیتای عمومی را بدون رمز عبور دوباره باز می‌کند تا مقادیر جدید را بررسی کند:
+این مثال به یک ارائهٔ PPTX رمزنگاری‌شده با ویژگی‌های سند عمومی و یک رمز عبور بازکننده شناخته‌شده نیاز دارد. ابتدا ارائهٔ کامل را با [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) باز می‌کند، ویژگی‌های پیش‌ساخته عمومی را به‌روز می‌کند و نتیجه را ذخیره می‌نماید. سپس از [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) برای تأیید حفظ رمزنگاری استفاده می‌کند و فراداده عمومی را بدون رمز عبور باز می‌کند تا مقادیر جدید را بررسی کند:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -131,11 +131,11 @@ try {
 }
 ```
 
-اگر برنامه مجاز به رمز‑گشایی یا بارگذاری محتوای ارائه نباشد، باید خصوصیات عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
+اگر یک برنامه اجازهٔ رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید ویژگی‌های عمومی یک فایل PPTX رمزنگاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
 
-## **دسترسی به خصوصیات پیش‌فرض**
+## **دسترسی به ویژگی‌های پیش‌ساخته**
 
-رابط [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) متادیتای پیش‌فرض را از طریق متدهای getter مانند [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--)، [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--)، و [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) در دسترس می‌گذارد. این مثال یک ارائهٔ موجود را باز می‌کند و متادیتای ذخیره‌شدهٔ آن را در کنسول چاپ می‌نماید. مقادیر بسته به ارائهٔ ورودی متفاوت‌اند؛ برخی فیلدها ممکن است خالی باشند.
+رابطه [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) متادیتای پیش‌ساخته را از طریق متدهای getter افشا می‌کند، از جمله [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--)، [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--) و [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--). این مثال یک ارائهٔ موجود را باز می‌کند و متادیتای ذخیره‌شده آن را در کنسول چاپ می‌نماید. مقادیر بسته به ارائهٔ ورودی متفاوت است؛ برخی فیلدها ممکن است خالی باشند.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -164,9 +164,50 @@ try {
 }
 ```
 
-## **تغییر خصوصیات پیش‌فرض**
+### **گزارش شماره بازبینی و زمان ویرایش**
 
-برای به‌روزرسانی متادیتای پیش‌فرض، از متدهای setter بر روی شیئی که توسط [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) برگردانده می‌شود، استفاده کنید. این مثال یک ارائهٔ موجود را باز می‌کند، [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-)، [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-)، [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-)، [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-)، و [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) را فراخوانی می‌کند و سپس ارائهٔ به‌روزشده را با [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ذخیره می‌کند. فایل PPTX ذخیره‌شده شامل متادیتای جدید خواهد بود.
+برای گزارش یک سطر برای هر فایل PPTX در پوشهٔ `presentations`، [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) را فراخوانی کنید تا [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) آن را بدون بارگذاری اسلایدها برای ویرایش بخوانید. API جاوا مدت زمان ویرایش را به میلی‌ثانیه برمی‌گرداند. مثال آن را به صورت ساعت، دقیقه و ثانیه قالب‌بندی می‌کند و برای مدت‌های برابر یا بیشتر از ۲۴ ساعت، تعداد روز را نیز اضافه می‌کند.
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+System.out.println("File | RevisionNumber | TotalEditingTime");
+try (DirectoryStream<Path> files = Files.newDirectoryStream(Paths.get("presentations"), "*.pptx")) {
+    for (Path path : files) {
+        if (!Files.isRegularFile(path)) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(path.toString());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format("%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf("%s | %d | %s%n", path.getFileName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+برای ارائه‌ای که زمان ویرایشی ثبت‌شدهٔ ۱ روز، ۲ ساعت و ۵ دقیقه دارد، گزارش خروجی زیر را نشان می‌دهد.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getRevisionNumber--) مقدار را می‌خواند که برنامه‌ها می‌توانند با [setRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-) تغییر دهند. تنها شماره بازبینی نمی‌تواند تعداد دفعات ذخیرهٔ ارائه یا تاریخچه نسخهٔ آن را تعیین کند.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) مدت زمان ویرایشی ثبت‌شده در فایل را می‌خواند. مقدار `00:00:00` به این معنی است که مدت زمان ذخیره‌شده صفر است، حتی اگر کسی ارائه را ویرایش کرده باشد.
+
+## **تغییر ویژگی‌های پیش‌ساخته**
+
+برای به‌روزرسانی متادیتای پیش‌ساخته، از متدهای setter روی شیء بازگردانده‌شده توسط [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) استفاده کنید. این مثال یک ارائهٔ موجود را باز می‌کند، [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-)، [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-)، [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-)، [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-)، و [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) را فراخوانی می‌کند، سپس ارائهٔ به‌روزرسانی‌شده را با [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ذخیره می‌نماید. PPTX ذخیره‌شده حاوی متادیتای جدید است.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -189,11 +230,11 @@ try {
 }
 ```
 
-## **مدیریت پایهٔ پیوندهای ابرمتن**
+## **مدیریت پایهٔ ابرپیوند**
 
-[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) پایهٔ سطری برای پیوندهای نسبی سطح سند را برمی‌گرداند. برای تغییر یا پاک‌سازی آن از [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) استفاده کنید. این کار هنگام جابجایی یک ارائه و فایل‌های پیوندی آن به مکان دیگری مفید است. این ویژگی مستقل از [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) یک پیوند جداگانه است: تغییر پایه، آدرس‌های ذخیره‌شدهٔ پیوندها را بازنویسی نمی‌کند و مقصدهای مطلق را تغییر نمی‌دهد.
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) پایهٔ سطح سند را برای ابرپیوندهای نسبی برمی‌گرداند. برای تغییر یا پاک کردن آن از [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) استفاده کنید. این زمانی مفید است که یک ارائه و فایل‌های پیوندی آن را به مکان دیگری منتقل می‌کنید. این مقدار جدا از [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) یک ابرپیوند منفرد است: تغییر پایه باعث بازنویسی آدرس‌های ذخیره‌شده یا تغییر مقصدهای مطلق نمی‌شود.
 
-این مثال به یک ارائهٔ حاوی هر دو پیوند نسبی (مانند `target.html`) و پیوند مطلق (مانند `https://example.org/absolute.html`) نیاز دارد. ابتدا پایهٔ موجود را می‌خواند، یک پایهٔ جدید اختصاص می‌دهد و ارائه را ذخیره و دوباره باز می‌کند تا مقدار را بررسی کند. سپس پایه را با رشتهٔ خالی پاک می‌کند و مقدار خالی را در فایلی جداگانه تأیید می‌نماید. آدرس پایهٔ مثال را با مکان فایل‌های پیوندی خود جایگزین کنید.
+این مثال به یک ارائهٔ حاوی هر دو لینک نسبی، مانند `target.html`، و لینک مطلق، مانند `https://example.org/absolute.html` نیاز دارد. پایهٔ موجود را می‌خواند، یک آدرس پایهٔ جدید اختصاص می‌دهد و ارائه را ذخیره و دوباره باز می‌کند تا مقدار را بررسی کند. سپس پایه را با یک رشتهٔ خالی پاک می‌کند و مقدار خالی را در فایلی ذخیره‌شده جداگانه تأیید می‌نماید. آدرس پایهٔ مثال را با مکان فایل‌های پیوندی خود جایگزین کنید.
 
 ```java
 import com.aspose.slides.Presentation;
@@ -228,13 +269,13 @@ try {
 }
 ```
 
-دو پیام تأیید باید `true` چاپ کنند. پاک‌سازی پایه، آدرس‌های پیوندهای جداگانه را دست‌نخورده می‌گذارد.
+دو پیام تأیید باید `true` چاپ کنند. پاک کردن پایه آدرس‌های ابرپیوندهای منفرد را دست‌نخورده می‌گذارد.
 
-یک پیوند نسبی به `target.pptx` هنگام داشتن پایه به پوشهٔ `old`، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشهٔ `new`، ذخیره و باز کردن دوبارهٔ ارائه، همان پیوند `new/target.pptx` را باز می‌کند. یک پیوند مطلق همچنان همان فایل را باز می‌کند. پیوندهای نسبی خود را در PowerPoint قبل و بعد از جابجایی ارائه یا تغییر پایه تست کنید.
+یک لینک نسبی به `target.pptx` هنگامیکه پایه به پوشهٔ `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشهٔ `new`، ذخیره و بازگشایی ارائه، همان لینک `new/target.pptx` را باز می‌کرد. یک لینک مطلق همچنان همان فایل را باز می‌کرد. لینک‌های نسبی خود را در PowerPoint قبل و بعد از انتقال ارائه یا تغییر پایه تست کنید.
 
-## **افزودن خصوصیات سفارشی به ارائه**
+## **افزودن ویژگی‌های سفارشی به ارائه**
 
-خصوصیات سفارشی متادیتایی را ذخیره می‌کنند که فیلد پیش‌فرضی برای آن موجود نیست. متد [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) به شما اجازه می‌دهد مقدار را بر اساس نام خصوصیت تعیین کنید. این مثال یک ارائه ایجاد می‌کند، دو مقدار متنی و یک مقدار عددی نسخه را اضافه می‌کند و ارائه را با [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ذخیره می‌نماید. اختصاص مقدار به یک نام موجود مقدار همان خصوصیت را جایگزین می‌کند.
+ویژگی‌های سفارشی متادیتایی را ذخیره می‌کنند که فیلد پیش‌ساخته‌ای متناظر برای آن وجود ندارد. متد [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) به شما اجازه می‌دهد مقدار را بر اساس نام ویژگی اختصاص دهید. این مثال یک ارائه ایجاد می‌کند، دو مقدار متن و یک مقدار عددی نسخه اضافه می‌کند و ارائه را با [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ذخیره می‌نماید. اختصاص مقدار به یک نام موجود، مقدار آن ویژگی را جایگزین می‌کند.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -255,9 +296,9 @@ try {
 }
 ```
 
-## **دسترسی و تغییر خصوصیات سفارشی**
+## **دسترسی و تغییر ویژگی‌های سفارشی**
 
-این مثال یک ارائه حاوی خصوصیات سفارشی را باز می‌کند و با استفاده از [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) بر روی آن‌ها تکرار می‌نماید. [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) یک شاخص صفر‑پایه می‌گیرد و نام مورد استفاده توسط [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) را برمی‌گرداند. مثال هر نام و مقدار اصلی را چاپ می‌کند، هر مقدار را با یک رشتهٔ شماره‌دار جایگزین می‌کند و تغییرات را ذخیره می‌نماید. اگر خصوصیات سفارشی وجود نداشته باشند، حلقه هیچ تغییری نمی‌سازد.
+این مثال یک ارائه حاوی ویژگی‌های سفارشی را باز می‌کند و از [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) برای پیمایش آن‌ها استفاده می‌نماید. [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) یک ایندکس صفر مبنی می‌پذیرد و نامی که توسط [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) استفاده می‌شود را برمی‌گرداند. مثال هر نام و مقدار اصلی را چاپ می‌کند، هر مقدار را با یک رشته عددی جایگزین می‌نماید، صرف‌نظر از نوع اصلی آن، و تغییرات را ذخیره می‌کند. اگر ویژگی سفارشی‌ای وجود نداشته باشد، حلقه تغییری ایجاد نمی‌کند.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -286,28 +327,28 @@ try {
 
 ## **مثال زنده**
 
-سعی کنید برنامهٔ آنلاین [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) را برای مشاهدهٔ نحوه کار با خصوصیات سند با استفاده از API Aspose.Slides امتحان کنید:
+Try the [**مشاهده و ویرایش فراداده پاورپوینت**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties using the Aspose.Slides API:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![مشاهده و ویرایش فراداده پاورپوینت](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چگونه می‌توان یک خصوصیت پیش‌فرض را از یک ارائه حذف کرد؟**
+**چگونه می‌توان یک ویژگی پیش‌ساخته را از یک ارائه حذف کرد؟**
 
-خصوصیات پیش‌فرض جزئی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آن‌ها را به‌طور کامل حذف کرد. با این حال، می‌توانید مقادیر آن‌ها را تغییر دهید یا در صورتی که خصوصیت اجازهٔ خالی بودن را بدهد، مقدار آن را خالی کنید.
+ویژگی‌های پیش‌ساخته بخشی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آنها را به‌تمامی حذف کرد. اما می‌توانید مقادیرشان را تغییر دهید یا در صورت امکان توسط ویژگی خاص، به مقدار خالی تنظیم کنید.
 
-**اگر یک خصوصیت سفارشی که از قبل وجود دارد را اضافه کنم چه می‌شود؟**
+**چه اتفاقی می‌افتد اگر یک ویژگی سفارشی که از پیش موجود است اضافه کنم؟**
 
-اگر یک خصوصیت سفارشی که از قبل وجود دارد را اضافه کنید، مقدار قبلی آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی قبلی خصوصیت نیست، زیرا Aspose.Slides به‌طور خودکار مقدار خصوصیت را به‌روزرسانی می‌کند.
+اگر یک ویژگی سفارشی که از پیش وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید بازنویسی می‌شود. نیازی به حذف یا بررسی پیش‌ازاین ویژگی ندارید، زیرا Aspose.Slides به‌طور خودکار مقدار ویژگی را به‌روز می‌کند.
 
-**آیا می‌توان بدون بارگذاری کامل ارائه، به خصوصیات آن دسترسی داشت؟**
+**آیا می‌توانم ویژگی‌های ارائه را بدون بارگذاری کامل ارائه دسترسی داشته باشم؟**
 
-بله. می‌توانید با استفاده از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) و سپس [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) متادیتای ذخیره‌شدهٔ سند را بدون ایجاد نمونه‌ای از [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) بخوانید. برای یک مثال کامل گزارش‌گیری و محدودیت‌های خاص فرمت، به [Build a Lightweight Presentation Inventory](/slides/fa/java/examine-presentation/) مراجعه کنید.
+بله. از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) استفاده کنید و سپس [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) برای خواندن متادیتای ذخیره‌شدهٔ سند بدون ایجاد یک شیء [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) استفاده کنید. برای مثال کامل گزارش و محدودیت‌های خاص فرمت، به [ساخت موجودی ارائهٔ کم‌حجم](/slides/fa/java/examine-presentation/) مراجعه کنید.
 
-**آیا می‌توان خصوصیات عمومی یک ارائهٔ رمزگذاری‌شده را بدون رمز عبور بازکن آن خواند؟**
+**آیا می‌توانم ویژگی‌های عمومی یک ارائهٔ رمزنگاری‌شده را بدون رمز عبور بازکننده آن بخوانم؟**
 
-بله. ارائه باید پس از فراخوانی [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) با مقدار `false` رمزگذاری شده باشد و سپس با فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) با مقدار `true` بارگذاری شود.
+بله. ارائه باید پس از فراخوانی [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) با مقدار `false` رمزنگاری شده باشد و سپس پس از فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) با مقدار `true` بارگذاری شود.
 
-**آیا می‌توان یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑بارگذاری‑خصوصیات‑سند به‌روزرسانی کرد؟**
+**آیا می‌توانم یک فایل PPTX رمزنگاری‌شده را در حالت فقط‑ویژگی‑های‑سند به‌روز کنم؟**
 
-خیر. داده‌های عمومی و رمزگذاری‌شده باید سازگار بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده مستلزم بارگذاری کامل ارائه با رمز عبور صحیح بازکن است.
+خیر. داده‌های ویژگی عمومی و رمزنگاری‌شده باید سازگار باقی بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزنگاری‌شده مستلزم بارگذاری کامل ارائه با رمز عبور بازکنندهٔ صحیح است.

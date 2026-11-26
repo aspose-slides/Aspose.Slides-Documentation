@@ -1,5 +1,5 @@
 ---
-title: Správa vlastností prezentace pomocí Pythonu
+title: Spravujte vlastnosti prezentace pomocí Pythonu
 linktitle: Vlastnosti prezentace
 type: docs
 weight: 70
@@ -10,46 +10,46 @@ keywords:
 - Vlastnosti dokumentu
 - Vestavěné vlastnosti
 - Vlastní vlastnosti
-- Rozšířené vlastnosti
+- Pokročilé vlastnosti
 - Správa vlastností
 - Úprava vlastností
 - Metadata dokumentu
 - Úprava metadat
-- Jazyk korektury
+- Jazyk pro korekturu
 - Výchozí jazyk
 - PowerPoint
 - OpenDocument
-- Prezentace
+- prezentace
 - Python
 - Aspose.Slides
-description: "Zvládněte vlastnosti prezentace v Aspose.Slides pro Python via .NET a zjednodušte vyhledávání, značkování a pracovní postup ve svých souborech PowerPoint."
+description: "Ovládejte vlastnosti prezentace v Aspose.Slides pro Python přes .NET a zjednodušte vyhledávání, značkování a workflow ve vašich souborech PowerPoint."
 ---
 ## **Úvod**
 
-Aspose.Slides for Python via .NET podporuje **vestavěné** a **vlastní** vlastnosti dokumentu. Použijte tyto vlastnosti ke čtení a aktualizaci metadat prezentace, jako je autor, název a uživatelem definované hodnoty.
+Aspose.Slides pro Python přes .NET podporuje **vestavěné** a **vlastní** vlastnosti dokumentu. Použijte tyto vlastnosti ke čtení a aktualizaci metadat prezentace, jako je autor, název a uživatelem definované hodnoty.
 
-Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace pomocí třídy [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) . Instance této třídy je vrácena pomocí [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Následující příklady ukazují, jak číst, měnit a spravovat tyto vlastnosti.
+Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace prostřednictvím třídy [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) . Instance této třídy je vrácena metodou [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Následující příklady ukazují, jak číst, upravovat a spravovat tyto vlastnosti.
 
 {{% alert color="info" title="Note" %}}
 Aspose.Slides spravuje metadata aplikace a výrobce při ukládání prezentací; tato pole identifikují software, který výstup vytvořil.
 {{% /alert %}}
 
-## **Správa vlastností prezentace**
+## **Spravovat vlastnosti prezentace**
 
-Vlastnosti dokumentu ukládají popisné informace vedle obsahu prezentace. Patří do dvou kategorií:
+Vlastnosti dokumentu ukládají popisné informace vedle obsahu prezentace. Rozdělují se do dvou kategorií:
 
 - **Vestavěné vlastnosti** obsahují standardní metadata, jako je název, autor a statistiky dokumentu.
 - **Vlastní vlastnosti** ukládají páry název/hodnota definované uživatelem.
 
-Aspose.Slides for Python via .NET poskytuje přístup k oběma kategoriím. V PowerPointu vyberte **File → Info → Properties → Advanced Properties** pro prohlížení metadat dokumentu. Dialog seskupuje informace do záložek jako **Summary**, **Statistics**, **Contents** a **Custom**. Použijte záložku **Custom** pro správu uživatelem definovaných vlastností.
+Aspose.Slides pro Python přes .NET poskytuje přístup k oběma kategoriím. V PowerPointu vyberte **File → Info → Properties → Advanced Properties** pro prohlížení metadat dokumentu. Dialog seskupuje informace do karet jako **Summary**, **Statistics**, **Contents** a **Custom**. Použijte kartu **Custom** pro správu uživatelem definovaných vlastností.
 
-## **Čtení veřejných vlastností z šifrované prezentace**
+## **Číst veřejné vlastnosti z šifrované prezentace**
 
-Otevírací heslo obvykle chrání jak obsah prezentace, tak vlastnosti dokumentu. Když je prezentace šifrována pomocí [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) nastaveným na `False`, její vlastnosti dokumentu zůstávají veřejné. Aplikace pak může nastavit [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) na `True` a číst veřejná metadata bez zadání otevíracího hesla.
+Obvykle ochrání otevírací heslo jak obsah prezentace, tak vlastnosti dokumentu. Když je prezentace šifrována pomocí [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) nastaveného na `False`, její vlastnosti dokumentu zůstávají veřejné. Aplikace pak může nastavit [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) na `True` a číst veřejná metadata bez zadání otevíracího hesla.
 
-[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) řídí, co Aspose.Slides načítá; neodšifruje nic. Pokud byly vlastnosti zahrnuty do šifrování, načtení bez hesla selže. Pokud prezentace není šifrována, volba se ignoruje a načte se celá prezentace.
+[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) řídí, co Aspose.Slides načte; neprovádí žádné dešifrování. Pokud byly vlastnosti zahrnuty do šifrování, načtení bez hesla selže. Pokud prezentace není šifrována, volba se ignoruje a načte se celá prezentace.
 
-Příklad vyžaduje šifrovanou prezentaci, jejíž vlastnosti dokumentu byly ponechány veřejné. Ověřuje režim načítání pomocí [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) a pak čte vestavěné vlastnosti pomocí [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
+Příklad vyžaduje šifrovanou prezentaci, jejíž vlastnosti dokumentu byly ponechány veřejné. Ověřuje režim načítání pomocí [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) a poté čte vestavěné vlastnosti pomocí [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
 
 ```python
 import aspose.slides as slides
@@ -68,17 +68,17 @@ with slides.Presentation("public-properties-encrypted.pptx", load_options) as pr
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-V tomto režimu se nenačítá obsah snímků. Snímky, hlavní snímky, rozvržení, tvary, média a další objekty prezentace jsou nedostupné. Aplikace by měly vždy zkontrolovat [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/), než provedou operaci vyžadující kompletní model objektů prezentace.
+V tomto režimu se nenačítá obsah snímků. Snímky, mastery, rozvržení, tvary, média a další objekty prezentace nejsou k dispozici. Aplikace by měly vždy zkontrolovat [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) před provedením operace vyžadující kompletní objektový model prezentace.
 
 {{% alert color="warning" title="Security" %}}
-Veřejná metadata mohou odhalit jména autorů, názvy, předměty, klíčová slova, informace o společnosti, komentáře a vlastní hodnoty. Šifrujte citlivé vlastnosti spolu s prezentací. Ponechte je veřejné jen v případě, že indexování, klasifikace, vyhledávání nebo systémy pro správu dokumentů mají konkrétní požadavek na přístup k nim bez hesla.
+Veřejná metadata mohou odhalit jména autorů, názvy, předměty, klíčová slova, informace o společnosti, komentáře a vlastní hodnoty. Šifrujte citlivé vlastnosti spolu s prezentací. Ponechte je veřejné jen tehdy, když indexovací, klasifikační, vyhledávací nebo systémy pro správu dokumentů mají konkrétní požadavek na přístup k nim bez hesla.
 {{% /alert %}}
 
-## **Aktualizace vlastností šifrované prezentace**
+## **Aktualizovat vlastnosti šifrované prezentace**
 
-Pro šifrovaný soubor PPTX je prezentace načtená pomocí [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) určena ke čtení veřejných metadat. Aspose.Slides nemůže uložit změněné vlastnosti z tohoto objektu pouze s metadaty, protože veřejné vlastnosti musí zůstat v souladu s odpovídajícími daty uvnitř šifrované prezentace. Aktualizace proto vyžaduje správné otevírací heslo a kompletní načtení.
+Pro šifrovaný soubor PPTX je prezentace načtená pomocí [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) určena pro čtení veřejných metadat. Aspose.Slides nemůže uložit změněné vlastnosti z tohoto objektu obsahujícího jen metadata, protože veřejné vlastnosti musí zůstat v souladu s odpovídajícími daty uvnitř šifrované prezentace. Aktualizace proto vyžaduje správné otevírací heslo a úplné načtení.
 
-Příklad vyžaduje šifrovanou PPTX prezentaci s veřejnými vlastnostmi dokumentu a známým otevíracím heslem. Otevře kompletní prezentaci pomocí [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), aktualizuje veřejné vestavěné vlastnosti a uloží výsledek. Poté použije [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) k ověření zachování šifrování a znovu otevře veřejná metadata bez hesla k ověření nových hodnot:
+Příklad vyžaduje šifrovanou PPTX prezentaci s veřejnými vlastnostmi dokumentu a známým otevíracím heslem. Otevře celou prezentaci pomocí [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), aktualizuje veřejné vestavěné vlastnosti a výsledek uloží. Pak použije [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) k ověření, že šifrování zůstalo zachováno, a znovu otevře veřejná metadata bez hesla pro ověření nových hodnot:
 
 ```python
 import aspose.slides as slides
@@ -110,7 +110,7 @@ with slides.Presentation(output_path, metadata_load_options) as metadata_present
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-Pokud aplikace nemá povoleno dešifrovat nebo načíst obsah prezentace, musí považovat veřejné vlastnosti šifrovaného souboru PPTX za pouze ke čtení.
+Pokud aplikaci není umožněno dešifrovat nebo načíst obsah prezentace, musí veřejné vlastnosti šifrovaného souboru PPTX považovat za pouze ke čtení.
 
 ## **Přístup k vestavěným vlastnostem**
 
@@ -138,9 +138,37 @@ with slides.Presentation("AccessBuiltInProperties.pptx") as presentation:
     print("Title:", document_properties.title)
 ```
 
-## **Úprava vestavěných vlastností**
+### **Zpráva o čísle revize a čase úprav**
 
-Pro aktualizaci vestavěných metadat přiřaďte hodnoty zapisovatelným vlastnostem zpřístupněným prostřednictvím [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Tento příklad otevře existující prezentaci, nastaví [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/), a [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/), poté uloží aktualizovanou prezentaci pomocí [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Uložený PPTX obsahuje nová metadata.
+Pro zjištění čísla revize a celkového času úprav pro každý soubor PPTX ve složce `presentations` použijte [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) , abyste získali jeho [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) bez načítání snímků pro úpravy. Python zobrazuje dobu jako `timedelta`, včetně počtu dnů, když zaznamenaný čas dosáhne 24 hodin.
+
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+print("File | RevisionNumber | TotalEditingTime")
+for path in Path("presentations").glob("*.pptx"):
+    if path.is_file():
+        info = slides.PresentationFactory.instance.get_presentation_info(str(path))
+        properties = info.read_document_properties()
+        print(f"{path.name} | {properties.revision_number} | {properties.total_editing_time}")
+```
+
+U prezentace s 1 dnem, 2 hodinami a 5 minutami zaznamenaného času úprav obsahuje zpráva následující řádek.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1 day, 2:05:00
+```
+
+[DocumentProperties.revision_number](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/revision_number/) je zapisovatelná metadata. Jeho hodnota sama o sobě nemůže určit, kolikrát byla prezentace uložena, ani rekonstruovat historii verzí.
+
+[DocumentProperties.total_editing_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/total_editing_time/) uvádí dobu úprav uloženou v souboru. Hodnota `0:00:00` znamená, že zaznamenaná doba je nula, i když někdo prezentaci upravoval.
+
+## **Upravit vestavěné vlastnosti**
+
+Pro aktualizaci vestavěných metadat přiřaďte hodnoty zapisovatelným vlastnostem zpřístupněným pomocí [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Tento příklad otevře existující prezentaci, nastaví [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/), a [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/), poté uloží aktualizovanou prezentaci pomocí [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Uložený PPTX obsahuje nová metadata.
 
 ```python
 import aspose.slides as slides
@@ -157,11 +185,11 @@ with slides.Presentation("ModifyBuiltInProperties.pptx") as presentation:
     presentation.save("DocumentProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Správa základního odkazu (Hyperlink Base)**
+## **Spravovat základní odkaz**
 
-[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) ukládá úroveň dokumentu jako základ pro relativní hypertextové odkazy. To je užitečné při přesunu prezentace a jejích propojených souborů na jiné místo. Je to oddělené od [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) jednotlivého odkazu: změna základu nepřepíše uložené adresy odkazů ani nezmění absolutní cíle.
+[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) ukládá úroveň dokumentu jako základ pro relativní hypertextové odkazy. To je užitečné při přesunu prezentace a jejích připojených souborů na jiné místo. Je oddělené od individuálního odkazu [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/): změna základu nepřepíše uložené adresy odkazů ani nezmění absolutní cíle.
 
-Příklad vyžaduje prezentaci obsahující jak relativní odkaz, například `target.html`, tak absolutní odkaz na soubor nebo web. Přečte existující základ, přiřadí novou adresu základu a uloží a znovu otevře prezentaci pro kontrolu hodnoty. Poté vymaže základ pomocí `""` a ověří prázdnou hodnotu v samostatném uloženém souboru. Nahraďte ukázkovou adresu základu umístěním vašich propojených souborů.
+Příklad vyžaduje prezentaci obsahující jak relativní odkaz, například `target.html`, tak absolutní odkaz na soubor nebo webovou stránku. Přečte existující základ, přiřadí novou adresu základu a uloží a znovu otevře prezentaci pro kontrolu hodnoty. Poté vyčistí základ pomocí `""` a ověří prázdnou hodnotu v samostatném uloženém souboru. Nahraďte příkladovou adresu základu umístěním vašich propojených souborů.
 
 ```python
 import aspose.slides as slides
@@ -183,13 +211,13 @@ with slides.Presentation("hyperlinks-cleared.pptx") as cleared_presentation:
     print("Base cleared:", cleared_presentation.document_properties.hyperlink_base == "")
 ```
 
-Obě ověřovací zprávy by měly vytisknout `True`. Vymazání základu ponechá jednotlivé adresy odkazů nedotčeny.
+Dvě ověřovací zprávy by měly vytisknout `True`. Vymazání základu ponechá jednotlivé adresy hypertextových odkazů nedotčeny.
 
-Relativní odkaz na `target.pptx` otevřel `old/target.pptx`, když základ ukazoval na složku `old`. Po změně základu na složku `new`, uložení a opětovném otevření prezentace stejný odkaz otevřel `new/target.pptx`. Absolutní odkaz nadále otevíral stejný soubor. Otestujte své relativní odkazy v PowerPointu před a po přesunu prezentace nebo změně jejího základu.
+Relativní odkaz na `target.pptx` otevřel `old/target.pptx`, když základ směřoval do složky `old`. Po změně základu na složku `new`, uložení a opětovném otevření prezentace stejný odkaz otevřel `new/target.pptx`. Absolutní odkaz i nadále otevíral stejný soubor. Otestujte své relativní odkazy v PowerPointu před a po přesunu prezentace nebo změně jejího základu.
 
-## **Přidání vlastních vlastností prezentace**
+## **Přidat vlastní vlastnosti prezentace**
 
-Vlastní vlastnosti ukládají metadata, která nemají odpovídající vestavěné pole. Metoda [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) vám umožní přiřadit hodnotu podle názvu vlastnosti. Tento příklad vytvoří prezentaci, přidá dvě textové hodnoty a celočíselnou verzi, a uloží prezentaci pomocí [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Přiřazení hodnoty k existujícímu názvu nahradí hodnotu této vlastnosti.
+Vlastní vlastnosti ukládají metadata, která nemají odpovídající vestavěné pole. Metoda [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) vám umožní přiřadit hodnotu podle názvu vlastnosti. Tento příklad vytvoří prezentaci, přidá dva textové hodnoty a celočíselnou verzi, a uloží prezentaci pomocí [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Přiřazení hodnoty k existujícímu názvu nahradí hodnotu té vlastnosti.
 
 ```python
 import aspose.slides as slides
@@ -206,7 +234,7 @@ with slides.Presentation() as presentation:
 
 ## **Přístup a úprava vlastních vlastností**
 
-Tento příklad otevře prezentaci obsahující vlastní vlastnosti a použije [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) k iteraci přes ně. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) přijímá nulový index a vrací název použitého [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/). Příklad vyžaduje prezentaci, jejíž vlastní vlastnosti jsou všechny řetězce. Vytiskne každý původní název a hodnotu, nahradí každou hodnotu číslovaným řetězcem a uloží změny. Pokud neexistují žádné vlastní vlastnosti, smyčka neprovedení žádné změny.
+Tento příklad otevře prezentaci obsahující vlastní vlastnosti a použije [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) , aby je iteroval. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) přijímá index od nuly a vrací název použitý metodou [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/). Příklad vyžaduje prezentaci, kde všechny vlastní vlastnosti jsou řetězce. Vytiskne každý původní název a hodnotu, nahradí každou hodnotu číslovaným řetězcem a uloží změny. Pokud nejsou žádné vlastní vlastnosti, smyčka žádné změny neprovede.
 
 ```python
 import aspose.slides as slides
@@ -227,32 +255,32 @@ with slides.Presentation("AccessAndModifyProperties.pptx") as presentation:
     presentation.save("CustomProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) vrací hodnotu pomocí jednoprvkové seznamu předaného jako druhý argument. Zástupný prvek musí odpovídat typu uložené vlastnosti: použijte `[""]` pro řetězec nebo `[0]` pro celé číslo. Nesprávný typ vyvolá `InvalidCastException`; vyberte zástupný prvek podle vašeho schématu vlastních vlastností.
+[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) vrací hodnotu přes jednoprvkový seznam předaný jako druhý argument. Zástupný znak musí odpovídat typu uložené vlastnosti: použijte `[""]` pro řetězec nebo `[0]` pro celé číslo. Nesprávný typ vyvolá `InvalidCastException`; zvolte zástupný znak podle schématu vašich vlastních vlastností.
 
 ## **Živý příklad**
 
-Vyzkoušejte aplikaci [**Zobrazit a upravit metadata PowerPoint**](https://products.aspose.app/slides/metadata) online a zjistěte, jak pracovat s vlastnostmi dokumentu pomocí Aspose.Slides API:
+Vyzkoušejte online aplikaci [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata), abyste viděli, jak pracovat s vlastnostmi dokumentu pomocí API Aspose.Slides:
 
-[![Zobrazit a upravit metadata PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **Často kladené otázky**
 
-**Jak mohu odebrat vestavěnou vlastnost z prezentace?**
+**Jak mohu odstranit vestavěnou vlastnost z prezentace?**
 
 Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete však změnit jejich hodnoty nebo je nastavit na prázdné, pokud to konkrétní vlastnost umožňuje.
 
 **Co se stane, když přidám vlastní vlastnost, která již existuje?**
 
-Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost předtím odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
+Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost předtím odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje její hodnotu.
 
-**Mohu přistupovat k vlastnostem prezentace bez kompletního načtení prezentace?**
+**Mohu přistupovat k vlastnostem prezentace bez úplného načtení prezentace?**
 
-Ano. Použijte [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) a poté [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/), abyste načetli uložená metadata dokumentu bez vytváření instance [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Viz [**Vytvořit odlehčený inventář prezentací**](/slides/cs/python-net/examine-presentation/) pro kompletní příklad reportování a omezení specifická pro formát.
+Ano. Použijte [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) a poté [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/), abyste přečetli uložená metadata dokumentu, aniž byste vytvářeli instanci [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Viz [Build a Lightweight Presentation Inventory](/slides/cs/python-net/examine-presentation/) pro kompletní příklad reportování a omezení specifická pro formát.
 
 **Mohu číst veřejné vlastnosti šifrované prezentace bez jejího otevíracího hesla?**
 
-Ano. Prezentace musí být šifrována pomocí [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) nastaveného na `False` a musí být načtena pomocí [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) nastaveného na `True`.
+Ano. Prezentace musela být šifrována pomocí [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) nastaveného na `False` a musí být načtena s [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) nastaveným na `True`.
 
-**Mohu aktualizovat šifrovaný PPTX soubor v režimu pouze vlastnosti dokumentu?**
+**Mohu aktualizovat šifrovaný soubor PPTX v režimu pouze vlastnosti dokumentu?**
 
-Ne. Veřejná a šifrovaná data vlastností musí zůstat konzistentní, takže aktualizace šifrovaného PPTX souboru vyžaduje načtení kompletní prezentace se správným otevíracím heslem.
+Ne. Veřejná a šifrovaná data vlastností musí zůstat konzistentní, takže aktualizace šifrovaného souboru PPTX vyžaduje načtení celé prezentace se správným otevíracím heslem.

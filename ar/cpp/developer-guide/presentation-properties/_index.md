@@ -8,7 +8,7 @@ keywords:
 - خصائص PowerPoint
 - خصائص العرض التقديمي
 - خصائص المستند
-- الخصائص المضمنة
+- خصائص مضمّنة
 - خصائص مخصصة
 - خصائص متقدمة
 - إدارة الخصائص
@@ -22,34 +22,34 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تحكم في خصائص العرض التقديمي في Aspose.Slides للغة C++ وسهّل البحث والعلامة التجارية وسير العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
+description: "إدارة خصائص العرض التقديمي في Aspose.Slides لـ C++ وتبسيط البحث والعلامة التجارية وسير العمل في ملفات PowerPoint و OpenDocument الخاصة بك."
 ---
 ## **مقدمة**
 
-Aspose.Slides for C++ يدعم **الخصائص المضمنة** و **الخصائص المخصصة** للمستند. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل الكاتب، العنوان، والقيم التي يحددها المستخدم.
+Aspose.Slides for C++ يدعم خصائص المستند **المضمنة** و**المخصصة**. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف، العنوان، والقيم المعرّفة من قبل المستخدم.
 
-Aspose.Slides يسمح لك بالعمل مع خصائص مستند العرض التقديمي عبر واجهة [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/). يتم إرجاع نسخة من هذه الواجهة بواسطة [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). توضح الأمثلة التالية كيفية قراءة، تعديل، وإدارة هذه الخصائص.
+يسمح لك Aspose.Slides بالعمل مع خصائص مستند العرض التقديمي من خلال واجهة [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) . تُرجَع نسخة من هذه الواجهة بواسطة [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). تُظهر الأمثلة التالية كيفية قراءة وتعديل وإدارة هذه الخصائص.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides يدير بيانات تعريف التطبيق والمنتج عند حفظ العروض التقديمية؛ هذه الحقول تحدد البرنامج الذي أنشأ الإخراج.
+يدير Aspose.Slides بيانات التعريف الخاصة بالتطبيق والمنتج عند حفظ العروض التقديمية؛ تُحدد هذه الحقول البرنامج الذي أنشأ الناتج.
 {{% /alert %}}
 
 ## **إدارة خصائص العرض التقديمي**
 
-تخزن خصائص المستند معلومات وصفية بجانب محتوى العرض التقديمي. تنقسم إلى فئتين:
+تخزن خصائص المستند معلومات وصفية إلى جانب محتوى العرض التقديمي. وتنقسم إلى فئتين:
 
-- **الخصائص المضمنة** تحتوي على بيانات تعريف معيارية، مثل العنوان، الكاتب، وإحصاءات المستند.
-- **الخصائص المخصصة** تخزن أزواج اسم/قيمة يحددها المستخدم.
+- **الخصائص المضمنة** تحتوي على بيانات تعريف قياسية، مثل العنوان، المؤلف، وإحصاءات المستند.
+- **الخصائص المخصصة** تخزن أزواج الاسم/القيمة التي يحددها المستخدم.
 
-Aspose.Slides for C++ يتيح الوصول إلى كلا الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لاستعراض بيانات تعريف المستند. يُقسم الحوار المعلومات إلى علامات تبويب مثل **Summary**, **Statistics**, **Contents**, و **Custom**. استخدم علامة تبويب **Custom** لإدارة الخصائص التي يحددها المستخدم.
+يوفر Aspose.Slides for C++ إمكانية الوصول إلى كلتا الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لتفحص بيانات تعريف المستند. يجمع الحوار المعلومات في علامات تبويب مثل **Summary**، **Statistics**، **Contents**، و**Custom**. استخدم علامة التبويب **Custom** لإدارة الخصائص التي يحددها المستخدم.
 
 ## **قراءة الخصائص العامة من عرض تقديمي مشفر**
 
-عادةً ما يحمي كلمة مرور الفتح كلًا من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير عرض تقديمي بتمرير `false` إلى [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/)، تظل خصائص المستند عامة. يمكن للتطبيق بعد ذلك تمرير `true` إلى [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) وقراءة البيانات العامة دون تزويد كلمة مرور الفتح.
+عادةً ما تحمّي كلمة المرور عند الفتح كلًا من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير عرض تقديمي بتمرير `false` إلى [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/)، تظل خصائص المستند عامة. ثم يمكن لتطبيق تمرير `true` إلى [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) وقراءة البيانات العامة دون توفير كلمة المرور عند الفتح.
 
-[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) يتحكم فيما يقوم Aspose.Slides بتحميله؛ وهو لا يفك تشفير أي شيء. إذا تم تضمين الخصائص في التشفير، فإن تحميلها بدون كلمة المرور يفشل. إذا لم يكن العرض مشفرًا، يتم تجاهل الخيار وتُحمَّل نسخة العرض الكاملة.
+يتحكم [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) فيما يقوم Aspose.Slides بتحميله؛ ولا يقوم بفك التشفير. إذا كانت الخصائص مشمولة في التشفير، فإن تحميلها بدون كلمة المرور سيفشل. إذا لم يكن العرض التقديمي مشفرًا، تُتجاهل هذه الخاصية وتُحمَّل كامل العرض التقديمي.
 
-يتطلب المثال عرضًا تقديميًا مشفرًا تُركت خصائصه العامة. يتحقق من وضع التحميل عبر [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) ثم يقرأ الخصائص المضمنة عبر [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
+يتطلّب المثال عرضًا تقديميًا مشفرًا تُترك خصائص المستند فيه عامة. يتحقق من وضع التحميل عبر [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/)، ثم يقرأ الخصائص المضمنة عبر [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -79,17 +79,17 @@ else
 }
 ```
 
-في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، القوالب الرئيسة، التخطيطات، الأشكال، الوسائط، وغيرها من كائنات العرض غير متاحة. يجب على التطبيقات دائمًا التحقق من [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) قبل تنفيذ عملية تتطلب نموذج كائن العرض الكامل.
+في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، القوالب، التخطيطات، الأشكال، الوسائط، وغيرها من كائنات العرض غير متاحة. يجب على التطبيقات دائمًا التحقق من [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) قبل تنفيذ عملية تتطلب نموذج كائن العرض الكامل.
 
 {{% alert color="warning" title="Security" %}}
-قد تكشف البيانات العامة عن أسماء المؤلفين، العناوين، المواضيع، الكلمات المفتاحية، معلومات الشركة، التعليقات، والقيم المخصصة. قم بتشفير الخصائص الحساسة مع العرض. اتركها عامة فقط عندما تتطلب أنظمة الفهرسة، التصنيف، البحث، أو إدارة المستندات إمكانية الوصول إليها دون كلمة مرور.
+قد تكشف البيانات العامة عن أسماء المؤلفين، العناوين، الموضوعات، الكلمات المفتاحية، معلومات الشركة، التعليقات، والقيم المخصصة. قم بتشفير الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما يتطلب الفهرسة أو التصنيف أو البحث أو أنظمة إدارة المستندات الوصول إليها دون كلمة مرور.
 {{% /alert %}}
 
 ## **تحديث خصائص عرض تقديمي مشفر**
 
-للملف PPTX المشفر، يُقصد بالعرض الذي يتم تحميله بتمرير `true` إلى [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) قراءة البيانات العامة فقط. لا يمكن لـ Aspose.Slides حفظ الخصائص المتغيّرة من كائن يحتوي على البيانات العامة فقط لأن الخصائص العامة يجب أن تظل متناسقة مع البيانات المقابلة داخل العرض المشفر. لذلك يتطلب التحديث كلمة مرور الفتح الصحيحة وتحميل كامل للعرض.
+بالنسبة إلى ملف PPTX مشفر، يهدف العرض المحمَّل بتمرير `true` إلى [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) إلى قراءة البيانات العامة. لا يمكن لبرنامج Aspose.Slides حفظ الخصائص المعدلة من كائن يحتوي على البيانات العامة فقط لأن الخصائص العامة يجب أن تظل متسقة مع البيانات المقابلة داخل العرض المشفر. وبالتالي يتطلب تحديثها كلمة المرور الصحيحة عند الفتح وتحميلًا كاملاً.
 
-يتطلب المثال عرضًا تقديميًا PPTX مشفرًا بخصائص مستند عامة وكلمة مرور فتح معروفة. يفتح العرض الكامل باستخدام [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/)، يُحدّث الخصائص المضمنة العامة، ويحفظ النتيجة. ثم يستخدم [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) للتحقق من الحفاظ على التشفير ويعيد فتح البيانات العامة دون كلمة مرور للتحقق من القيم الجديدة:
+يتطلّب المثال عرض PPTX مشفرًا يحتوي على خصائص مستند عامة وكلمة مرور معرفة عند الفتح. يفتح العرض الكامل باستخدام [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/)، يُحدّث الخصائص المضمنة العامة، ويحفظ النتيجة. ثم يستخدم [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) للتحقق من حفظ التشفير ويعيد فتح البيانات العامة بدون كلمة مرور للتحقق من القيم الجديدة:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -137,11 +137,11 @@ else
 }
 ```
 
-إذا لم يسمح التطبيق بفك تشفير أو تحميل محتوى العرض، يجب معاملة خصائص العرض المشفر كقراءة فقط.
+إذا لم يسمح لتطبيق بفك تشفير أو تحميل محتوى العرض التقديمي، يجب أن يتعامل مع الخصائص العامة لملف PPTX مشفر كقابلة للقراءة فقط.
 
 ## **الوصول إلى الخصائص المضمنة**
 
-واجهة [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) تعرض البيانات المضمنة عبر getters مكتوبة بنوعها، بما في ذلك [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/)، [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/)، و [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع بياناته المخزنة إلى وحدة التحكم. القيم تعتمد على العرض المدخل؛ قد تكون بعض الحقول فارغة.
+تُظهر واجهة [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) بيانات التعريف المضمنة عبر getters ذات نوع محدد، بما في ذلك [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/)، [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/)، و[get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع البيانات المخزنة إلى وحدة التحكم. القيم تعتمد على العرض المُدخل؛ قد تكون بعض الحقول فارغة.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -170,9 +170,48 @@ System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
 System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
 ```
 
+### **تقرير رقم المراجعة ووقت التحرير**
+
+استخدم [GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) و[ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) لقراءة [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) لكل ملف دون تحميل شرائحه للتحرير. يطبع هذا المثال صفًا واحدًا لكل ملف PPTX في مجلد `presentations`. يشتمل التنسيق القياسي `c` على عدد الأيام عندما يصل وقت التحرير المسجَّل إلى 24 ساعة.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/timespan.h>
+
+using namespace Aspose::Slides;
+using namespace System::IO;
+
+System::Console::WriteLine(u"File | RevisionNumber | TotalEditingTime");
+auto paths = Directory::GetFiles(u"presentations", u"*.pptx");
+for (const auto& path : paths)
+{
+    auto info = PresentationFactory::get_Instance()->GetPresentationInfo(path);
+    auto properties = info->ReadDocumentProperties();
+    auto fileName = Path::GetFileName(path);
+    auto editingTime = properties->get_TotalEditingTime().ToString(u"c");
+    System::Console::WriteLine(u"{0} | {1} | {2}", fileName, properties->get_RevisionNumber(), editingTime);
+}
+```
+
+لعرض تقديمي يحتوي على 1 يوم، 2 ساعة، و5 دقائق من وقت التحرير المسجَّل، يكون التقرير كالتالي:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[get_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_revisionnumber/) يقرأ قيمة بيانات التعريف التي يمكن للتطبيقات تعديلها باستخدام [set_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_revisionnumber/). لا يمكن لتلك القيمة بمفردها تحديد عدد مرات حفظ العرض التقديمي أو إعادة بناء تاريخ إصداراته.
+
+[get_TotalEditingTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_totaleditingtime/) يُرجِع مدة التحرير المسجلة في الملف. قيمة `00:00:00` تعني أن المدة المخزنة صفر. قد يكون العرض التقديمي لا يزال قد تم تحريره.
+
 ## **تعديل الخصائص المضمنة**
 
-لتحديث البيانات المضمنة، استخدم الـ setters على الكائن المرتجع من [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). يفتح هذا المثال عرضًا تقديميًا موجودًا، يستدعي [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/)، [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/), و [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/)، ثم يحفظ العرض المحدث باستخدام [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). يحتوي ملف PPTX المحفوظ على البيانات التعريفية الجديدة.
+لتحديث البيانات المضمنة، استخدم الدوال setter على الكائن المُرجع من [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). يفتح هذا المثال عرضًا تقديميًا موجودًا، يستدعي [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/)، [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/), و[set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/), ثم يحفظ العرض المحدث باستخدام [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). يحتوي ملف PPTX المحفوظ على البيانات الجديدة.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -196,11 +235,11 @@ documentProperties->set_Manager(u"Aspose manager");
 presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
 ```
 
-## **إدارة قاعدة الروابط التشعبية**
+## **إدارة أساس الروابط التشعبية**
 
-[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) يقرأ القاعدة على مستوى المستند للروابط التشعبية النسبية. هذا مفيد عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. إنها منفصلة عن [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/): تغيير القاعدة لا يعيد كتابة عناوين الروابط المخزنة ولا يغيّر الوجهات المطلقة.
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) يقرأ الأساس على مستوى المستند للروابط التشعبية النسبية. هذا مفيد عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. وهو منفصل عن [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/): تغيير الأساس لا يعيد كتابة عناوين الروابط المخزنة ولا يغيّر الوجهات المطلقة.
 
-يتطلب المثال عرضًا يحتوي على كلٍ من رابط نسبي، مثل `target.html`، ورابط مطلق، مثل `https://example.org/absolute.html`. يقرأ القاعدة الحالية، يعيّن قاعدة جديدة باستخدام [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/)، ويحفظ العرض ثم يعيده للتحقق من القيمة. بعد ذلك يمسح القاعدة باستخدام `u""` ويتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل عنوان القاعدة المثال بموقع ملفاتك المرتبطة.
+يتطلّب المثال عرضًا يحتوي على كل من رابط نسبي، مثل `target.html`، ورابط مطلق، مثل `https://example.org/absolute.html`. يقرأ الأساس الحالي، يعيّن عنوان أساس جديد باستخدام [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/), ثم يحفظ العرض ويعيد فتحه للتحقق من القيمة. بعد ذلك يُمسح الأساس باستخدام `u""` ويُتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل عنوان الأساس في المثال بموقع ملفاتك المرتبطة.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -229,13 +268,13 @@ auto clearedPresentation = System::MakeObject<Presentation>(u"hyperlinks-cleared
 System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_DocumentProperties()->get_HyperlinkBase() == u""));
 ```
 
-يجب أن تطبع رسائل التحقق الاثنين `True`. مسح القاعدة يترك عناوين الروابط الفردية دون تغيير.
+يجب أن تطبع رسالتي التحقق `True`. مسح الأساس يترك عناوين الروابط الفردية دون تغيير.
 
-رابط نسبي إلى `target.pptx` يفتح `old/target.pptx` عندما تكون القاعدة تشير إلى مجلد `old`. بعد تغيير القاعدة إلى مجلد `new`، وحفظ العرض وإعادة فتحه، يفتح الرابط نفسه `new/target.pptx`. الرابط المطلق يظل يفتح نفس الملف. اختبر روابطك النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير قاعدته.
+رابط نسبي إلى `target.pptx` كان يفتح `old/target.pptx` عندما كان الأساس يشير إلى مجلد `old`. بعد تغيير الأساس إلى مجلد `new`, وحفظ وإعادة فتح العرض، يفتح نفس الرابط `new/target.pptx`. الرابط المطلق استمر في فتح نفس الملف. اختبر روابطك النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير أسسه.
 
 ## **إضافة خصائص عرض تقديمي مخصصة**
 
-الخصائص المخصصة تخزن بيانات تعريف ليس لها حقل مضمّن مكافئ. تسمح [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) بتعيين قيمة باسم الخاصية. يخلق هذا المثال عرضًا تقديميًا، يضيف قيمتي نص وقيمة رقمية للإصدار، ويحفظ العرض باستخدام [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية الحالية.
+تخزن الخصائص المخصصة بيانات تعريف لا يوجد لها حقل مضمّن مماثل. يتيح لك [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) تعيين قيمة بحسب اسم الخاصية. ينشئ هذا المثال عرضًا تقديميًا، يضيف قيمتي نص وإصدار عدد صحيح، ويحفظ العرض باستخدام [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -258,9 +297,9 @@ documentProperties->idx_set(u"Document version", System::ObjectExt::Box(2));
 presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
 ```
 
-## **الوصول إلى الخصائص المخصصة وتعديلها**
+## **الوصول إلى وتعديل الخصائص المخصصة**
 
-يفتح هذا المثال عرضًا يحتوي على خصائص مخصصة ويستخدم [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) للتكرار عليها. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) تستقبل فهرسًا يبدأ من الصفر وتعيد الاسم المستخدم بواسطة [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) و [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/). يطبع المثال كل اسم وقيمة أصلية، يستبدل كل قيمة بسلسلة مرقمة بغض النظر عن نوعها الأصلي، ويحفظ التغييرات. إذا لم توجد خصائص مخصصة، لا يُجري الحلقة أي تغييرات.
+يفتح هذا المثال عرضًا يحتوي على خصائص مخصصة ويستخدم [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) للتنقل بينها. تستقبل [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) فهرسًا يبدأ من الصفر وتُرجع الاسم المستخدم بواسطة [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) و[idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/). يطبع المثال كل اسم وقيمة أصلية، يستبدل كل قيمة بسلسلة مرقمة بغض النظر عن نوعها الأصلي، ويحفظ التغييرات. إذا لم توجد خصائص مخصصة، فإن الحلقة لا تُجري أي تغييرات.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -292,28 +331,28 @@ presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 
 ## **مثال حي**
 
-جرّب التطبيق الإلكتروني [عرض وتعديل بيانات PowerPoint](https://products.aspose.app/slides/metadata) لتستكشف كيفية العمل مع خصائص المستند باستخدام واجهة Aspose.Slides API:
+جرّب التطبيق عبر الإنترنت [**عرض وتعديل بيانات تعريف PowerPoint**](https://products.aspose.app/slides/metadata) لتستعرض كيفية العمل مع خصائص المستند باستخدام Aspose.Slides API:
 
-[![عرض وتعديل بيانات PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![عرض وتعديل بيانات تعريف PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **الأسئلة المتكررة**
 
 **كيف يمكنني إزالة خاصية مضمّنة من عرض تقديمي؟**
 
-الخصائص المضمنة جزء أساسي من العرض ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمتها أو تعيينها كفارغة إذا سمح ذلك للخاصية المحددة.
+الخصائص المضمنة جزء لا يتجزأ من العرض التقديمي ولا يمكن إزالتها تمامًا. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها كفارغة إذا سمحت الخاصية المحددة بذلك.
 
 **ماذا يحدث إذا أضفت خاصية مخصصة موجودة بالفعل؟**
 
-إذا أضفت خاصية مخصصة موجودة، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة أو التحقق من الخاصية مسبقًا، حيث يقوم Aspose.Slides بتحديث قيمة الخاصية تلقائيًا.
+إذا أضفت خاصية مخصصة موجودة بالفعل، فستُستبدل قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة الخاصية أو التحقق منها مسبقًا، حيث يقوم Aspose.Slides بتحديث قيمة الخاصية تلقائيًا.
 
-**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميل العرض بالكامل؟**
+**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميله بالكامل؟**
 
-نعم. استخدم [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) ثم [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) لقراءة بيانات المستند المخزنة دون إنشاء نسخة من كائن [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). راجع [إنشاء جرد عرض تقديمي خفيف الوزن](/slides/ar/cpp/examine-presentation/) للحصول على مثال تقرير كامل والقيود الخاصة بكل تنسيق.
+نعم. استخدم [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) ثم [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) لقراءة بيانات تعريف المستند المخزنة دون إنشاء نسخة من [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). راجع [إنشاء جرد عرض تقديمي خفيف](/slides/ar/cpp/examine-presentation/) للحصول على مثال شامل للتقارير والقيود الخاصة بالتنسيق.
 
-**هل يمكنني قراءة الخصائص العامة لعرض مشفر دون كلمة مرور الفتح؟**
+**هل يمكنني قراءة الخصائص العامة لعرض تقديمي مشفر دون كلمة مرور الفتح؟**
 
-نعم. يجب أن يكون العرض قد تم تشفيره بتمرير `false` إلى [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/)، ويجب تحميله بتمرير `true` إلى [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/).
+نعم. يجب أن يكون العرض التقديمي قد تم تشفيره بتمرير `false` إلى [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), ويجب تحميله بتمرير `true` إلى [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/).
 
-**هل يمكنني تحديث ملف PPTX مشفر في وضعية تحميل الخصائص فقط؟**
+**هل يمكنني تحديث ملف PPTX مشفر في وضع تحميل خصائص المستند فقط؟**
 
-لا. يجب أن تظل بيانات الخصائص العامة المشفرة متناسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض بالكامل مع كلمة المرور الصحيحة.
+لا. يجب أن تظل بيانات الخصائص العامة والمشفرة متسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض التقديمي كاملاً باستخدام كلمة المرور الصحيحة عند الفتح.
