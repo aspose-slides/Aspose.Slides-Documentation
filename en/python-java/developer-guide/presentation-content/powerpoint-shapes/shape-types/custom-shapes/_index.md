@@ -307,6 +307,51 @@ finally:
     presentation.dispose()
 ```
 
+## **Inspect Geometry Path Commands**
+
+Download [contour.pptx](contour.pptx) and place it in the application's working directory. The first shape on the first slide has a straight top edge, a cubic Bézier curve, and a straight closing edge. Use [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) to read the shape's paths and [getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) to read each path's segments in drawing order. For each segment, [getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) identifies the command and determines how to interpret the values returned by [getSegmentData](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getSegmentData).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PathCommandType, Presentation
+
+presentation = Presentation("contour.pptx")
+try:
+    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    for i, path in enumerate(shape.getGeometryPaths()):
+        for j, segment in enumerate(path.getPathData()):
+            command = segment.getPathCommand()
+            data = segment.getSegmentData()
+            if command in (PathCommandType.MoveTo, PathCommandType.LineTo):
+                detail = f"destination=({data[0]}, {data[1]})"
+            elif command == PathCommandType.CubicBezierTo:
+                detail = f"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})"
+            elif command == PathCommandType.Close:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={list(data)}"
+            name = PathCommandType.getName(PathCommandType.class_, command)
+            print(f"Path {i}, segment {j}: {name} {detail}")
+finally:
+    presentation.dispose()
+```
+
+The shape sits at (200, 100) points on the slide. The reported coordinates are local to the shape, with (0, 0) at its upper-left corner, x increasing to the right, and y increasing downward. The closing segment returns to the starting point without additional coordinates.
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **Extract and Inspect Shape Elements**
 
 Use [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) to inspect an existing shape as elements containing path points and point types. Cast each returned element to [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) with `jpype.JObject` to retrieve the point and type arrays through [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) and [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) methods. This representation is useful for contour analysis or passing geometry to custom drawing tools.

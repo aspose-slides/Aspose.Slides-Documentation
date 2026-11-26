@@ -346,6 +346,79 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 2
 Console::WriteLine(isGeometryClosed(shape));
 ```
 
+## **Inspect Geometry Path Commands**
+
+Download [contour.pptx](contour.pptx) and place it in the application's working directory. The first shape on the first slide has a straight top edge, a cubic Bézier curve, and a straight closing edge. Use [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) to read its paths. For each path, [get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) returns the segments in drawing order. The command returned by [get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) determines how to interpret the values returned by [get_SegmentData](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_segmentdata/).
+
+```cpp
+#include <DOM/IGeometryPath.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/PathCommandType.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"contour.pptx");
+
+auto shape = ExplicitCast<IGeometryShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paths = shape->GetGeometryPaths();
+
+for (auto i = 0; i < paths->get_Length(); ++i)
+{
+    auto segments = paths->idx_get(i)->get_PathData();
+    for (auto j = 0; j < segments->get_Length(); ++j)
+    {
+        auto segment = segments->idx_get(j);
+        auto command = segment->get_PathCommand();
+        auto data = segment->get_SegmentData();
+        String detail;
+        switch (command)
+        {
+            case PathCommandType::MoveTo:
+            case PathCommandType::LineTo:
+                detail = String::Format(u"destination=({0}, {1})", data->idx_get(0), data->idx_get(1));
+                break;
+            case PathCommandType::CubicBezierTo:
+                detail = String::Format(u"control1=({0}, {1}) control2=({2}, {3}) end=({4}, {5})", data);
+                break;
+            case PathCommandType::Close:
+                detail = u"no coordinates";
+                break;
+            default:
+            {
+                auto values = MakeArray<String>(data->get_Length());
+                for (auto k = 0; k < data->get_Length(); ++k)
+                {
+                    values->idx_set(k, String::Format(u"{0}", data->idx_get(k)));
+                }
+                detail = String::Format(u"raw=[{0}]", String::Join(u", ", values));
+                break;
+            }
+        }
+        Console::WriteLine(u"Path {0}, segment {1}: {2} {3}", i, j, Enum<PathCommandType>::GetName(command), detail);
+    }
+}
+```
+
+The shape sits at (200, 100) points on the slide. The reported points are local to the shape, with (0, 0) at its upper-left corner, x increasing to the right, and y increasing downward. The closing segment returns to the starting point using no additional coordinates.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **Extract and Inspect Shape Elements**
 
 Use [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) to inspect an existing shape as elements containing path points and point types. Cast each returned [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) to [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) to read the arrays returned by [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) and [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). This representation is useful for contour analysis or passing geometry to custom drawing tools.
