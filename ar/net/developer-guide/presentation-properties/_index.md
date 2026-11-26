@@ -23,16 +23,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تحكم في خصائص العرض التقديمي في Aspose.Slides for .NET وقم بتبسيط البحث والعلامة التجارية وسير العمل في ملفات PowerPoint و OpenDocument الخاصة بك."
+description: "تحت السيطرة على خصائص العرض التقديمي في Aspose.Slides لـ .NET وتبسيط البحث والعلامة التجارية وسير العمل في ملفات PowerPoint و OpenDocument الخاصة بك."
 ---
 ## **المقدمة**
 
-Aspose.Slides for .NET يدعم الخصائص **المدمجة** والخصائص **المخصصة** للمستند. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف والعنوان والقيم المعرفة من قبل المستخدم.
+يدعم Aspose.Slides لإنشاء .NET الخصائص **المدمجة** و **المخصصة**. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف والعنوان والقيم المعرفة من قبل المستخدم.
 
-يسمح Aspose.Slides لك بالعمل مع خصائص مستند العرض التقديمي عبر واجهة [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) . يتم إرجاع مثال من هذه الواجهة بواسطة [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). توضح الأمثلة التالية كيفية قراءة هذه الخصائص وتعديلها وإدارتها.
+يتيح Aspose.Slides لك العمل مع خصائص مستند العرض التقديمي عبر الواجهة [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) . تُعيد هذه الواجهة كائنًا من خلال [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) . تُظهر الأمثلة التالية كيفية قراءة هذه الخصائص وتعديلها وإدارتها.
 
 {{% alert color="info" title="Note" %}}
-يدير Aspose.Slides بيانات التعريف الخاصة بالتطبيق والمنتج عند حفظ العروض التقديمية؛ هذه الحقول تحدد البرنامج الذي أنشأ الناتج.
+يتعامل Aspose.Slides مع بيانات تعريف التطبيق والناشر عند حفظ العروض التقديمية؛ تُحدد هذه الحقول البرنامج الذي أنشأ المخرجات.
 {{% /alert %}}
 
 ## **إدارة خصائص العرض التقديمي**
@@ -40,18 +40,17 @@ Aspose.Slides for .NET يدعم الخصائص **المدمجة** والخصائ
 تخزن خصائص المستند معلومات وصفية إلى جانب محتوى العرض التقديمي. وتنقسم إلى فئتين:
 
 - **الخصائص المدمجة** تحتوي على بيانات تعريف قياسية، مثل العنوان والمؤلف وإحصاءات المستند.
-- **الخصائص المخصصة** تخزن أزواج اسم/قيمة يُعرفها المستخدم.
+- **الخصائص المخصصة** تخزن أزواج اسم/قيمة يحددها المستخدم.
 
-يوفر Aspose.Slides for .NET إمكانية الوصول إلى كلتا الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لفحص بيانات تعريف المستند. تقوم النافذة بتجميع المعلومات في تبويبات مثل **Summary** و **Statistics** و **Contents** و **Custom**. استخدم تبويب **Custom** لإدارة الخصائص المعرفة من قبل المستخدم.
+يوفر Aspose.Slides لإنشاء .NET إمكانية الوصول إلى كلا الفئتين. في PowerPoint، اختر **ملف → معلومات → خصائص → خصائص متقدمة** لتفحص بيانات تعريف المستند. يجمع الحوار المعلومات في علامات تبويب مثل **الملخص**، **الإحصاءات**، **المحتويات**، و **مخصص**. استخدم علامة التبويب **مخصص** لإدارة الخصائص المعرفة من قبل المستخدم.
 
 ## **قراءة الخصائص العامة من عرض تقديمي مشفر**
 
-عادةً ما يحمي كلمة مرور الفتح كلًا من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير عرض تقديمي باستخدام [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) مع تعيين القيمة إلى `false`، تبقى خصائص المستند عامة. يمكن للتطبيق حينها تعيين [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) إلى `true` وقراءة البيانات العامة دون تقديم كلمة مرور الفتح.
+عادةً ما يحمي كلمة مرور الفتح كلًا من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير العرض باستخدام [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) مع تعيين القيمة إلى `false`، تبقى خصائص المستند عامة. يمكن للتطبيق بعدها ضبط [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) إلى `true` وقراءة البيانات العامة دون تقديم كلمة مرور الفتح.
 
-[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) يتحكم فيما يقوم Aspose.Slides بتحميله؛ ولا يقوم بفك أي تشفير. إذا كانت الخصائص مشمولة في التشفير، فإن تحميلها بدون كلمة المرور سيفشل. إذا لم يكن العرض التقديمي مُشفّرًا، يتم تجاهل الخيار ويتم تحميل العرض بالكامل.
+يتحكم [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) في ما يقوم Aspose.Slides بتحميله؛ لا يقوم بفك تشفير أي شيء. إذا تم تضمين الخصائص ضمن التشفير، فإن تحميلها بدون كلمة المرور سيفشل. إذا لم يكن العرض مشفرًا، يتم تجاهل الخيار ويُحمَّل العرض بالكامل.
 
-يتطلب المثال عرضًا تقديميًا مُشفّرًا تكون خصائص المستند العامة. يتحقق من وضع التحميل عبر [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) ثم يقرأ الخصائص المدمجة عبر [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
-
+يتطلب المثال عرضًا تقديميًا مشفرًا تُركت فيه خصائص المستند عامة. يتحقق من وضع التحميل عبر [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) ثم يقرأ الخصائص المدمجة عبر [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
 ```csharp
 using System;
 using Aspose.Slides;
@@ -73,18 +72,17 @@ else
 }
 ```
 
-في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، القوالب، التخطيطات، الأشكال، الوسائط، وغيرها من كائنات العرض غير متاحة. يجب على التطبيقات دائمًا التحقق من [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) قبل تنفيذ عملية تتطلب نموذج الكائن الكامل للعرض.
+في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، القوالب، التخطيطات، الأشكال، الوسائط، وغيرها من كائنات العرض غير متاحة. يجب على التطبيقات دائمًا فحص [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) قبل تنفيذ عملية تتطلب نموذج كائنات العرض الكامل.
 
 {{% alert color="warning" title="Security" %}}
-قد تكشف البيانات العامة عن أسماء المؤلفين والعناوين والمواضيع والكلمات المفتاحية ومعلومات الشركة والتعليقات والقيم المخصصة. قم بتشفير الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما تكون هناك حاجة في أنظمة الفهرسة أو التصنيف أو البحث أو إدارة المستندات للوصول إليها دون كلمة مرور.
+قد تكشف البيانات العامة عن أسماء المؤلفين والعناوين والموضوعات والكلمات المفتاحية ومعلومات الشركة والتعليقات والقيم المخصصة. قم بتشفير الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما تكون أنظمة الفهرسة أو التصنيف أو البحث أو إدارة المستندات تتطلب الوصول إليها دون كلمة مرور.
 {{% /alert %}}
 
 ## **تحديث خصائص عرض تقديمي مشفر**
 
-بالنسبة لملف PPTX مُشفّر، يُقصد من العرض الذي يُحمَّل باستخدام [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) قراءة البيانات العامة فقط. لا يستطيع Aspose.Slides حفظ الخصائص المتغيّرة من كائن يحتوي على البيانات العامة فقط لأن الخصائص العامة يجب أن تظل متسقة مع البيانات المقابلة داخل العرض المشفر. لذلك يتطلب تحديثها كلمة مرور الفتح الصحيحة وتحميلًا كاملاً.
+في حالة ملف PPTX مشفر، يُقصد من العرض المحمّل باستخدام [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) قراءة البيانات العامة. لا يمكن لـ Aspose.Slides حفظ الخصائص المعدلة من كائن يقتصر على البيانات العامة لأن الخصائص العامة يجب أن تظل متسقة مع البيانات المقابلة داخل العرض المشفر. لذا يتطلب تحديثها كلمة مرور الفتح الصحيحة وتحميلًا كاملًا.
 
-يتطلب المثال عرضًا تقديميًا PPTX مُشفّرًا يضم خصائص مستند عامة وكلمة مرور فتح معروفة. يفتح العرض الكامل باستخدام [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/)، يحدّث الخصائص المدمجة العامة، ويحفظ النتيجة. ثم يستخدم [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) للتحقق من بقاء التشفير، ويعيد فتح البيانات العامة بدون كلمة مرور للتحقق من القيم الجديدة:
-
+يتطلب المثال عرضًا تقديميًا PPTX مشفرًا مع خصائص مستند عامة وكلمة مرور فتح معروفة. يفتح العرض الكامل باستخدام [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/)، يحدّث الخصائص العامة المدمجة، ثم يحفظ النتيجة. بعد ذلك يستخدم [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) للتحقق من الحفاظ على التشفير ويعيد فتح البيانات العامة بدون كلمة مرور للتحقق من القيم الجديدة:
 ```csharp
 using System;
 using Aspose.Slides;
@@ -119,12 +117,11 @@ else
 }
 ```
 
-إذا لم يُسمح للتطبيق بفك تشفير أو تحميل محتوى العرض، يجب أن يعامل الخصائص العامة لملف PPTX مُشفّر كقراءة فقط.
+إذا لم يُسمح للتطبيق بفك تشفير أو تحميل محتوى العرض، يجب أن يتعامل مع الخصائص العامة لملف PPTX المشفر كقابلة للقراءة فقط.
 
 ## **الوصول إلى الخصائص المدمجة**
 
-تُظهر واجهة [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) البيانات المدمجة عبر خصائص ذات نوع محدد، بما في ذلك [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)، [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/)، و[CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع البيانات المخزنة في وحدة التحكم. تعتمد القيم على العرض المُدخل؛ قد تكون بعض الحقول فارغة.
-
+تُظهر الواجهة [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) البيانات المدمجة عبر خصائص ذات نوع محدد، بما في ذلك [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)، [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/)، و[CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع البيانات المخزنة إلى وحدة التحكم. تعتمد القيم على العرض المدخل؛ قد تكون بعض الحقول فارغة.
 ```csharp
 using System;
 using Aspose.Slides;
@@ -149,10 +146,36 @@ Console.WriteLine("Subject: " + documentProperties.Subject);
 Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
+### **الإبلاغ عن رقم المراجعة ووقت التحرير**
+
+للتبليغ عن صفٍ واحد لكل ملف PPTX في مجلد `presentations`، استدعِ [ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) لاسترجاع [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) دون تحميل الشرائح للتحرير. يتضمن التنسيق القياسي `c` لـ `TimeSpan` عدد الأيام عندما يصل المدة إلى 24 ساعة.
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+Console.WriteLine("File | RevisionNumber | TotalEditingTime");
+foreach (var path in Directory.EnumerateFiles("presentations", "*.pptx"))
+{
+    var info = PresentationFactory.Instance.GetPresentationInfo(path);
+    var properties = info.ReadDocumentProperties();
+    Console.WriteLine($"{Path.GetFileName(path)} | {properties.RevisionNumber} | {properties.TotalEditingTime:c}");
+}
+```
+
+نموذج إخراج لعرض تقديمي يحتوي على يوم واحد، ساعتين، و5 دقائق من وقت التحرير المسجل:
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[RevisionNumber](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/revisionnumber/) هو بيانات تعريف قابلة للكتابة. لا يمكن لقيمته وحدها تحديد عدد مرات حفظ العرض التقديمي أو إعادة بناء تاريخ إصداراته.
+
+[TotalEditingTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/totaleditingtime/) هو مدة التحرير المسجلة في الملف. القيمة `00:00:00` تعني أن المدة المخزنة صفر. هذا لا يثبت أن لا أحد قام بتحرير العرض.
+
 ## **تعديل الخصائص المدمجة**
 
-لتحديث البيانات المدمجة، عيّن قيمًا للخصائص القابلة للكتابة التي تُظهرها [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). يفتح هذا المثال عرضًا تقديميًا موجودًا، يحدد [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)، [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), و[Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/)، ثم يحفظ العرض المحدث باستخدام [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). يحتوي ملف PPTX المحفوظ على البيانات الجديدة.
-
+لتحديث البيانات المدمجة، عيّن قيمًا للخصائص القابلة للكتابة التي تُظهرها [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). يفتح هذا المثال عرضًا تقديميًا موجودًا، يضبط [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)، [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), و[Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/)، ثم يحفظ العرض المحدث باستخدام [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). يحتوي ملف PPTX المحفوظ على البيانات الجديدة.
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -170,12 +193,11 @@ documentProperties.Manager = "Aspose manager";
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **إدارة أساس الارتباط التشعبي**
+## **إدارة قاعدة الارتباط التشعبي**
 
-يخزن [IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) الأساس على مستوى المستند للارتباطات التشعبية النسبية. يكون هذا مفيدًا عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. وهو منفصل عن [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/): تغيير الأساس لا يعيد كتابة عناوين الروابط المخزنة ولا يغيّر الوجهات المطلقة.
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) يخزن القاعدة على مستوى المستند للارتباطات التشعبية النسبية. هذا مفيد عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. وهو منفصل عن [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) للارتباط التشعبي الفردي: تغيير القاعدة لا يعيد كتابة عناوين الروابط المخزنة ولا يغيّر الوجهات المطلقة.
 
-يتطلب المثال عرضًا تقديميًا يحتوي على رابط نسبي، مثل `target.html`، ورابط مطلق، مثل `https://example.org/absolute.html`. يقرأ الأساس الحالي، يعيّن عنوان أساس جديد، ثم يحفظ ويعيد فتح العرض للتحقق من القيمة. بعد ذلك يزيل الأساس باستخدام `string.Empty` ويتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل عنوان الأساس في المثال بموقع ملفاتك المرتبطة.
-
+يتطلب المثال عرضًا يحتوي على رابط نسبي، مثل `target.html`، ورابط مطلق، مثل `https://example.org/absolute.html`. يقرأ القاعدة الحالية، يعيّن عنوان قاعدة جديد، ثم يحفظ العرض ويعيد فتحه للتحقق من القيمة. بعد ذلك يمسح القاعدة باستخدام `string.Empty` ويتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل عنوان القاعدة المثال بموقع ملفاتك المرتبطة.
 ```csharp
 using System;
 using Aspose.Slides;
@@ -198,14 +220,13 @@ using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
 Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
 ```
 
-يجب أن تطبع رسالتي التحقق القيمتين `True`. يؤدي إزالة الأساس إلى إبقاء عناوين الروابط الفردية دون تغيير.
+يجب أن تطبع رسائل التحقق الاثنين القيمة `True`. مسح القاعدة يترك عناوين الروابط الفردية دون تغيير.
 
-فتح رابط نسبي إلى `target.pptx` ملف `old/target.pptx` عندما كان الأساس يشير إلى المجلد `old`. بعد تغيير الأساس إلى المجلد `new`، وحفظ وإعادة فتح العرض، فتح نفس الرابط `new/target.pptx`. استمر الرابط المطلق في فتح نفس الملف. اختبر روابطك النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير أسسه.
+رابط نسبي إلى `target.pptx` كان يفتح `old/target.pptx` عندما كانت القاعدة تشير إلى مجلد `old`. بعد تغيير القاعدة إلى مجلد `new`، وحفظ وإعادة فتح العرض، فتح الرابط نفسه `new/target.pptx`. الرابط المطلق استمر في فتح نفس الملف. اختبر روابطك النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير قاعدته.
 
 ## **إضافة خصائص عرض تقديمي مخصصة**
 
-تخزن الخصائص المخصصة بيانات تعريف لا توجد لها حقل مدمج مماثل. يتيح لك [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) تعيين قيمة حسب اسم الخاصية. يخلق هذا المثال عرضًا تقديميًا، يضيف قيمتين نصيتين وقيمة إصدار عددية صحيحة، ويحفظ العرض باستخدام [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية.
-
+تخزن الخصائص المخصصة بيانات تعريف لا توجد لها حقل مدمج مطابق. يسمح [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) بتعيين قيمة حسب اسم الخاصية. ينشئ هذا المثال عرضًا تقديميًا، يضيف قيمتي نص وإصدار عدد صحيح، ويحفظ العرض باستخدام [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية.
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -223,8 +244,7 @@ presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 
 ## **الوصول إلى الخصائص المخصصة وتعديلها**
 
-يفتح هذا المثال عرضًا تقديميًا يحتوي على خصائص مخصصة ويستخدم [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) للتنقل بينها. تستقبل [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) فهرسًا يبدأ من الصفر وتُرجع الاسم المستخدم في [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/). يطبع المثال كل اسم أصلي وقيمته، يستبدل كل قيمة بسلسلة مرقّمة بغض النظر عن نوعها الأصلي، ويحفظ التغييرات. إذا لم توجد خصائص مخصصة، لا يقوم الحلقة بأي تغييرات.
-
+يفتح هذا المثال عرضًا تقديميًا يحتوي على خصائص مخصصة ويستخدم [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) للتكرار عليها. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) تقبل فهرسًا يبدأ من الصفر وتعيد الاسم المستخدم من قبل [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/). يطبع المثال كل اسم وقيمة أصليين، يستبدل كل قيمة بسلسلة مرقمة بغض النظر عن نوعها الأصلي، ثم يحفظ التغييرات. إذا لم توجد خصائص مخصصة، لا يقوم الحلقة بأي تغييرات.
 ```csharp
 using System;
 using Aspose.Slides;
@@ -250,23 +270,22 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 ## **مثال حي**
 
-جرّب التطبيق عبر الإنترنت [**عرض وتعديل بيانات تعريف PowerPoint**](https://products.aspose.app/slides/metadata) لتتعرف على كيفية العمل مع خصائص المستند باستخدام واجهة برمجة تطبيقات Aspose.Slides:
-
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+جرب التطبيق المتاح عبر الإنترنت [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) لترى كيفية العمل مع خصائص المستند باستخدام واجهة برمجة تطبيقات Aspose.Slides:
+[![عرض وتحرير بيانات تعريف PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **الأسئلة المتكررة**
 
 **كيف يمكنني إزالة خاصية مدمجة من عرض تقديمي؟**
 
-الخصائص المدمجة هي جزء أساسي من العرض التقديمي ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها كفارغة إذا سمحت الخاصية المحددة بذلك.
+الخصائص المدمجة جزء أساسي من العرض التقديمي ولا يمكن إزالتها تمامًا. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها كفارغة إذا سمحت الخاصية المحددة بذلك.
 
 **ماذا يحدث إذا أضفت خاصية مخصصة موجودة مسبقًا؟**
 
-إذا أضفت خاصية مخصصة موجودة مسبقًا، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة الخاصية أو التحقق منها مسبقًا، حيث يقوم Aspose.Slides بتحديث قيمة الخاصية تلقائيًا.
+إذا أضفت خاصية مخصصة موجودة مسبقًا، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة أو فحص الخاصية مسبقًا، حيث يقوم Aspose.Slides تلقائيًا بتحديث قيمة الخاصية.
 
-**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميله بالكامل؟**
+**هل يمكنني الوصول إلى خصائص العرض دون تحميله بالكامل؟**
 
-نعم. استخدم [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) ثم [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) لقراءة بيانات تعريف المستند المخزنة دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) . راجع [Build a Lightweight Presentation Inventory](/slides/ar/net/examine-presentation/) للحصول على مثال تقارير كامل وقيود خاصة بالصيغة.
+نعم. استخدم [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) ثم [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) لقراءة بيانات تعريف المستند المخزنة دون إنشاء مثيل [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). راجع [Build a Lightweight Presentation Inventory](/slides/ar/net/examine-presentation/) للحصول على مثال تقارير كامل وقيود خاصة بالتنسيق.
 
 **هل يمكنني قراءة الخصائص العامة لعرض تقديمي مشفر دون كلمة مرور الفتح الخاصة به؟**
 
@@ -274,4 +293,4 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 **هل يمكنني تحديث ملف PPTX مشفر في وضع خصائص-المستند-فقط؟**
 
-لا. يجب أن تظل بيانات الخصائص العامة والمشفرة متسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض بالكامل مع كلمة مرور الفتح الصحيحة.
+لا. يجب أن تظل بيانات الخصائص العامة والمشفرة متسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض الكامل مع كلمة مرور الفتح الصحيحة.

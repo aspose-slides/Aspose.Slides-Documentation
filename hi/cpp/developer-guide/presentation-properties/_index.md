@@ -8,13 +8,13 @@ keywords:
 - PowerPoint गुण
 - प्रस्तुति गुण
 - दस्तावेज़ गुण
-- बिल्ट‑इन गुण
-- कस्टम गुण
+- निर्मित गुण
+- स्वनिर्धारित गुण
 - उन्नत गुण
 - गुणों का प्रबंधन
-- गुणों में संशोधन
-- दस्तावेज़ मेटाडाटा
-- मेटाडाटा संपादित करना
+- गुणों में परिवर्तन
+- दस्तावेज़ मेटाडेटा
+- मेटाडेटा संपादित करें
 - प्रूफिंग भाषा
 - डिफ़ॉल्ट भाषा
 - PowerPoint
@@ -22,34 +22,34 @@ keywords:
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ में प्रस्तुति गुणों को मास्टर करें और अपने PowerPoint और OpenDocument फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सुव्यवस्थित करें।"
+description: "Aspose.Slides for C++ में प्रस्तुति गुणों पर पूर्ण नियंत्रण प्राप्त करें और अपने PowerPoint और OpenDocument फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सहज बनाएं।"
 ---
 ## **परिचय**
 
-Aspose.Slides for C++ **built-in** और **custom** दस्तावेज़ गुणों का समर्थन करता है। इन गुणों का उपयोग प्रस्तुतिकरण मेटाडाटा को पढ़ने और अपडेट करने के लिए किया जाता है, जैसे लेखक, शीर्षक और उपयोगकर्ता‑परिभाषित मान।
+Aspose.Slides for C++ **built-in** और **custom** दस्तावेज़ गुणों का समर्थन करता है। इन गुणों का उपयोग प्रस्तुति मेटाडेटा को पढ़ने और अद्यतन करने के लिए किया जाता है, जैसे लेखक, शीर्षक, और उपयोगकर्ता‑परिभाषित मान।
 
-Aspose.Slides आपको प्रस्तुतिकरण दस्तावेज़ गुणों के साथ काम करने की अनुमति देता है [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) इंटरफ़ेस के माध्यम से। इस इंटरफ़ेस की एक इंस्टेंस [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) द्वारा लौटायी जाती है। निम्न उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ा, संशोधित और प्रबंधित किया जाए।
+Aspose.Slides आपको प्रस्तुति दस्तावेज़ गुणों के साथ काम करने की अनुमति देता है [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) इंटरफ़ेस के माध्यम से। इस इंटरफ़ेस का एक उदाहरण [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) द्वारा लौटाया जाता है। नीचे दिए गए उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ा, संशोधित और प्रबंधित किया जाए।
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides प्रस्तुतियों को सहेजते समय एप्लिकेशन और प्रोड्यूसर मेटाडाटा का प्रबंधन करता है; ये फ़ील्ड उस सॉफ़्टवेयर को पहचानते हैं जिसने आउटपुट बनाया।
+Aspose.Slides प्रस्तुतियों को सहेजते समय एप्लिकेशन और प्रोड्यूसर मेटाडेटा का प्रबंधन करता है; ये फ़ील्ड्स उस सॉफ़्टवेयर की पहचान करती हैं जिसने आउटपुट बनाया।
 {{% /alert %}}
 
 ## **प्रस्तुति गुणों का प्रबंधन**
 
-दस्तावेज़ गुण प्रस्तुति सामग्री के साथ वर्णनात्मक जानकारी संग्रहीत करते हैं। वे दो श्रेणियों में आते हैं:
+दस्तावेज़ गुण प्रस्तुति सामग्री के साथ विवरणात्मक जानकारी संग्रहीत करते हैं। वे दो वर्गों में विभाजित होते हैं:
 
-- **Built-in properties** मानक मेटाडाटा होते हैं, जैसे शीर्षक, लेखक, और दस्तावेज़ आँकड़े।
-- **Custom properties** उपयोगकर्ता‑परिभाषित नाम/मान जोड़े संग्रहीत करते हैं।
+- **Built-in properties** मानक मेटाडेटा जैसे शीर्षक, लेखक और दस्तावेज़ आँकड़े शामिल होते हैं।
+- **Custom properties** उपयोगकर्ता‑परिभाषित नाम/मान युग्म संग्रहीत करते हैं।
 
-Aspose.Slides for C++ दोनों श्रेणियों तक पहुँच प्रदान करता है। PowerPoint में, दस्तावेज़ मेटाडाटा की जांच के लिये **File → Info → Properties → Advanced Properties** चुनें। संवाद जानकारी को **Summary**, **Statistics**, **Contents**, और **Custom** जैसे टैब में समूहित करता है। उपयोगकर्ता‑परिभाषित गुणों का प्रबंधन करने के लिए **Custom** टैब का उपयोग करें।
+Aspose.Slides for C++ दोनों वर्गों तक पहुंच प्रदान करता है। PowerPoint में, दस्तावेज़ मेटाडेटा जांचने के लिए **File → Info → Properties → Advanced Properties** चुनें। यह संवाद जानकारी को **Summary**, **Statistics**, **Contents**, और **Custom** जैसे टैब में समूहित करता है। उपयोगकर्ता‑परिभाषित गुणों को प्रबंधित करने के लिए **Custom** टैब का उपयोग करें।
 
-## **एन्क्रिप्टेड प्रस्तुति से सार्वजनिक गुण पढ़ना**
+## **एनक्रिप्टेड प्रस्तुति से सार्वजनिक गुणों को पढ़ें**
 
-एक ओपनिंग पासवर्ड सामान्यतः प्रस्तुति सामग्री और दस्तावेज़ गुणों दोनों की रक्षा करता है। जब `false` पास करके प्रस्तुति को एन्क्रिप्ट किया जाता है [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), उसके दस्तावेज़ गुण सार्वजनिक रह जाते हैं। तब कोई एप्लिकेशन `true` पास करके [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/), को पास कर सकता है और ओपनिंग पासवर्ड प्रदान किए बिना सार्वजनिक मेटाडाटा पढ़ सकता है।
+एक खोलने वाला पासवर्ड सामान्यतः प्रस्तुति सामग्री और दस्तावेज़ गुणों दोनों की सुरक्षा करता है। जब प्रस्तुति को [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) को `false` पास करके एन्क्रिप्ट किया जाता है, तो उसके दस्तावेज़ गुण सार्वजनिक रहते हैं। तब एप्लिकेशन [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) को `true` पास करके खोलने वाला पासवर्ड दिए बिना सार्वजनिक मेटाडेटा पढ़ सकता है।
 
-[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) निर्धारित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डिक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन मेंincluded थे, तो पासवर्ड के बिना उन्हें लोड करना विफल रहता है। यदि प्रस्तुति एन्क्रिप्ट नहीं है, तो यह विकल्प नजरअंदाज किया जाता है और पूरी प्रस्तुति लोड की जाती है।
+[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) यह नियंत्रित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डिक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन में शामिल थे, तो पासवर्ड के बिना उन्हें लोड करना विफल हो जाता है। यदि प्रस्तुति एन्क्रिप्ट नहीं है, तो विकल्प को नज़रअंदाज़ किया जाता है और पूरी प्रस्तुति लोड हो जाती है।
 
-यह उदाहरण एक एन्क्रिप्टेड प्रस्तुति की आवश्यकता रखता है जिसके दस्तावेज़ गुण सार्वजनिक रखे गये थे। यह लोडिंग मोड को [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) के माध्यम से सत्यापित करता है और फिर [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) के माध्यम से बिल्ट‑इन गुण पढ़ता है:
+उदाहरण को एक एन्क्रिप्टेड प्रस्तुति की आवश्यकता होती है जिसमें दस्तावेज़ गुण सार्वजनिक रखे गए हों। यह लोडिंग मोड को [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) द्वारा सत्यापित करता है और फिर [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) के माध्यम से बिल्ट‑इन गुण पढ़ता है:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -79,17 +79,17 @@ else
 }
 ```
 
-इस मोड में, स्लाइड सामग्री लोड नहीं होती। स्लाइड्स, मास्टर्स, लेआउट्स, शेप्स, मीडिया, और अन्य प्रस्तुति वस्तुओं तक पहुँच नहीं होती। एप्लिकेशन को हमेशा [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) को जांचना चाहिए इससे पहले कि वह ऐसी ऑपरेशन करे जो पूर्ण प्रस्तुति ऑब्जेक्ट मॉडल की आवश्यकता रखती हो।
+इस मोड में स्लाइड सामग्री लोड नहीं होती। स्लाइड्स, मास्टर, लेआउट, आकार, मीडिया और अन्य प्रस्तुति वस्तुएँ अनुपलब्ध रहती हैं। एप्लिकेशन को हमेशा [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) जांचना चाहिए इससे पहले कि वह पूरी प्रस्तुति ऑब्जेक्ट मॉडल की आवश्यकता वाली कोई कार्रवाई करे।
 
 {{% alert color="warning" title="Security" %}}
-सार्वजनिक मेटाडाटा लेखक के नाम, शीर्षक, विषय, कीवर्ड, कंपनी जानकारी, टिप्पणियों और कस्टम मानों को उजागर कर सकता है। संवेदनशील गुणों को प्रस्तुति के साथ एन्क्रिप्ट करें। इन्हें केवल तब सार्वजनिक रखें जब इंडेक्सिंग, वर्गीकरण, खोज, या दस्तावेज़‑प्रबंधन प्रणाली को पासवर्ड के बिना इन्हें एक्सेस करने की विशेष आवश्यकता हो।
+सार्वजनिक मेटाडेटा लेखक नाम, शीर्षक, विषय, कुंजी‑शब्द, कंपनी जानकारी, टिप्पणियाँ और कस्टम मान प्रदर्शित कर सकता है। संवेदनशील गुणों को प्रस्तुति के साथ एन्क्रिप्ट करें। इन्हें केवल तभी सार्वजनिक रखें जब इंडेक्सिंग, वर्गीकरण, खोज या दस्तावेज़‑प्रबंधन प्रणाली को पासवर्ड के बिना उन्हें एक्सेस करने की विशिष्ट आवश्यकता हो।
 {{% /alert %}}
 
-## **एन्क्रिप्टेड प्रस्तुति के गुणों को अपडेट करें**
+## **एनक्रिप्टेड प्रस्तुति के गुणों को अद्यतन करें**
 
-एक एन्क्रिप्टेड PPTX फ़ाइल के लिये, `true` पास करके लोड की गयी प्रस्तुति [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) से सार्वजनिक मेटाडाटा पढ़ने के लिये अभिप्रेत है। Aspose.Slides उस केवल‑मेटाडाटा वस्तु से बदले हुए गुणों को सहेज नहीं सकता क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रस्तुति के अंदर के संबंधित डेटा के साथ सुसंगत रहना चाहिए। इसलिए उन्हें अपडेट करने के लिये सही ओपनिंग पासवर्ड और पूर्ण लोड आवश्यक है।
+एक एन्क्रिप्टेड PPTX फ़ाइल के लिए, [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) को `true` पास करके लोड किया गया प्रस्तुति केवल सार्वजनिक मेटाडेटा पढ़ने के लिए होता है। Aspose.Slides उस मेटाडेटा‑केवल ऑब्जेक्ट से बदले हुए गुणों को सहेज नहीं सकता क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रस्तुति के भीतर संबंधित डेटा के साथ संगत रहना चाहिए। इसलिए उन्हें अपडेट करने के लिए सही खोलने वाला पासवर्ड और पूरी लोड आवश्यक है।
 
-यह उदाहरण एक एन्क्रिप्टेड PPTX प्रस्तुति की आवश्यकता रखता है जिसमें सार्वजनिक दस्तावेज़ गुण और ज्ञात ओपनिंग पासवर्ड हो। यह पूर्ण प्रस्तुति को [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) के साथ खोलता है, सार्वजनिक बिल्ट‑इन गुणों को अपडेट करता है, और परिणाम सहेजता है। फिर यह [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) का उपयोग करके यह सत्यापित करता है कि एन्क्रिप्शन बरकरार है और पासवर्ड के बिना सार्वजनिक मेटाडाटा को फिर से खोलकर नए मानों की पुष्टि करता है:
+उदाहरण को एक एन्क्रिप्टेड PPTX प्रस्तुति की आवश्यकता है जिसमें सार्वजनिक दस्तावेज़ गुण और ज्ञात खोलने वाला पासवर्ड हो। यह पूरी प्रस्तुति को [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) के साथ खोलता है, सार्वजनिक बिल्ट‑इन गुण अपडेट करता है, और परिणाम सहेजता है। फिर यह [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) का उपयोग करके पुष्टि करता है कि एन्क्रिप्शन बना रहता है और पासवर्ड के बिना सार्वजनिक मेटाडेटा को फिर से खोल कर नई मानों की जाँच करता है:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -137,11 +137,11 @@ else
 }
 ```
 
-यदि किसी एप्लिकेशन को प्रस्तुति सामग्री को डिक्रिप्ट या लोड करने की अनुमति नहीं है, तो उसे एन्क्रिप्टेड PPTX फ़ाइल के सार्वजनिक गुणों को केवल‑पढ़ने योग्य मानना चाहिए।
+यदि कोई एप्लिकेशन प्रस्तुति सामग्री को डिक्रिप्ट या लोड करने की अनुमति नहीं रखता, तो उसे एन्क्रिप्टेड PPTX फ़ाइल के सार्वजनिक गुणों को केवल‑पढ़ने योग्य मानना चाहिए।
 
-## **बिल्ट‑इन गुणों तक पहुँच**
+## **बिल्ट‑इन गुणों तक पहुंच**
 
-[IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) इंटरफ़ेस टाइपड गेटर्स के माध्यम से बिल्ट‑इन मेटाडाटा उजागर करता है, जिसमें [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/), और [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/) शामिल हैं। यह उदाहरण एक मौजूदा प्रस्तुति खोलता है और उसकी संग्रहीत मेटाडाटा को कंसोल पर प्रिंट करता है। मान इनपुट प्रस्तुति पर निर्भर करता है; कुछ फ़ील्ड ख़ाली हो सकते हैं।
+[IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) इंटरफ़ेस टाइप्ड गेटरों के माध्यम से बिल्ट‑इन मेटाडेटा उजागर करता है, जिसमें [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) और [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/) शामिल हैं। यह उदाहरण मौजूदा प्रस्तुति खोलता है और उसके संग्रहीत मेटाडेटा को कंसोल पर प्रिंट करता है। मान इनपुट प्रस्तुति पर निर्भर करता है; कुछ फ़ील्ड खाली हो सकते हैं।
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -170,9 +170,48 @@ System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
 System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
 ```
 
+### **संशोधन संख्या और संपादन समय रिपोर्ट**
+
+[GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) और [ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) का उपयोग करके प्रत्येक फ़ाइल के [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) को स्लाइड्स लोड किए बिना पढ़ा जा सकता है। यह उदाहरण `presentations` फ़ोल्डर में प्रत्येक PPTX फ़ाइल के लिए एक पंक्ति प्रिंट करता है। मानक `c` फ़ॉर्मेट में दिन गिनती शामिल होती है जब रिकॉर्ड किया गया संपादन समय 24 घंटे तक पहुँच जाता है।
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/timespan.h>
+
+using namespace Aspose::Slides;
+using namespace System::IO;
+
+System::Console::WriteLine(u"File | RevisionNumber | TotalEditingTime");
+auto paths = Directory::GetFiles(u"presentations", u"*.pptx");
+for (const auto& path : paths)
+{
+    auto info = PresentationFactory::get_Instance()->GetPresentationInfo(path);
+    auto properties = info->ReadDocumentProperties();
+    auto fileName = Path::GetFileName(path);
+    auto editingTime = properties->get_TotalEditingTime().ToString(u"c");
+    System::Console::WriteLine(u"{0} | {1} | {2}", fileName, properties->get_RevisionNumber(), editingTime);
+}
+```
+
+1 दिन, 2 घंटे और 5 मिनट के रिकॉर्ड किए गए संपादन समय वाली प्रस्तुति के लिए रिपोर्ट इस प्रकार दिखती है:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[get_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_revisionnumber/) एक मेटाडेटा मान पढ़ता है जिसे एप्लिकेशन [set_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_revisionnumber/) से बदल सकते हैं। यह मान अकेले यह निर्धारित नहीं कर सकता कि प्रस्तुति कितनी बार सहेजा गया या उसका संस्करण इतिहास कैसे है।
+
+[get_TotalEditingTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_totaleditingtime/) फ़ाइल में रिकॉर्ड किया गया संपादन अवधि लौटाता है। `00:00:00` का मान दर्शाता है कि संग्रहीत अवधि शून्य है। फिर भी प्रस्तुति का संपादन हुआ हो सकता है।
+
 ## **बिल्ट‑इन गुणों को संशोधित करें**
 
-बिल्ट‑इन मेटाडाटा को अपडेट करने के लिये, [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) द्वारा लौटाए गये ऑब्जेक्ट पर सेटर्स का उपयोग करें। यह उदाहरण एक मौजूदा प्रस्तुति खोलता है, [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/), और [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/) को कॉल करता है, फिर अपडेटेड प्रस्तुति को [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) के साथ सहेजता है। सहेजा गया PPTX नया मेटाडाटा रखता है।
+बिल्ट‑इन मेटाडेटा को अद्यतन करने के लिए, [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) द्वारा लौटाए गए ऑब्जेक्ट पर सेटर्स का उपयोग करें। यह उदाहरण मौजूदा प्रस्तुति खोलता है, [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) और [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/) को कॉल करता है, फिर अद्यतन प्रस्तुति को [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) से सहेजता है। सहेजा गया PPTX नया मेटाडेटा रखता है।
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -198,9 +237,9 @@ presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
 
 ## **हाइपरलिंक बेस का प्रबंधन**
 
-[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) सापेक्ष हाइपरलिंक के लिये दस्तावेज़‑स्तरीय बेस पढ़ता है। यह उपयोगी है जब प्रस्तुति और उसकी लिंक्ड फ़ाइलों को किसी अन्य स्थान पर ले जाया जाता है। यह व्यक्तिगत हाइपरलिंक के [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) से अलग है: बेस बदलने से संग्रहीत लिंक एड्रेस नहीं बदले जाते और न ही पूर्ण गंतव्य बदलते हैं।
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) सापेक्ष हाइपरलिंक्स के लिए दस्तावेज़‑स्तरीय बेस पढ़ता है। यह प्रस्तुति और उसकी लिंक की गई फ़ाइलों को किसी अन्य स्थान पर ले जाने पर उपयोगी होता है। यह व्यक्तिगत हाइपरलिंक के [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) से अलग होता है: बेस बदलने से संग्रहीत लिंक पते नहीं बदलते और न ही निरपेक्ष गंतव्य बदलते हैं।
 
-यह उदाहरण एक ऐसी प्रस्तुति की आवश्यकता रखता है जिसमें एक सापेक्ष लिंक, जैसे `target.html`, और एक पूर्ण लिंक, जैसे `https://example.org/absolute.html` हो। यह मौजूदा बेस पढ़ता है, नई बेस एड्रेस [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) से असाइन करता है, और मूल्य जाँचने के लिये प्रस्तुति को सेव कर पुनः खोलता है। फिर यह बेस को `u""` से साफ़ करता है और अलग सहेजी फ़ाइल में खाली मान की पुष्टि करता है। उदाहरण बेस एड्रेस को अपनी लिंक्ड फ़ाइलों के स्थान से बदलें।
+उदाहरण को ऐसी प्रस्तुति चाहिए जिसमें एक सापेक्ष लिंक जैसे `target.html` और एक निरपेक्ष लिंक जैसे `https://example.org/absolute.html` दोनों हों। यह मौजूदा बेस पढ़ता है, नए बेस पते को [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) से असाइन करता है, और मूल्य जाँचने के लिये प्रस्तुति को सहेजकर पुनः खोलता है। फिर यह बेस को `u""` से साफ़ करता है और अलग सहेजी गई फ़ाइल में खाली मान की जाँच करता है। उदाहरण बेस पते को अपनी लिंक फ़ाइलों के स्थान से बदलें।
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -229,13 +268,13 @@ auto clearedPresentation = System::MakeObject<Presentation>(u"hyperlinks-cleared
 System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_DocumentProperties()->get_HyperlinkBase() == u""));
 ```
 
-दो सत्यापन संदेश `True` प्रिंट करेंगे। बेस को साफ़ करने से व्यक्तिगत हाइपरलिंक एड्रेस अपरिवर्तित रहते हैं।
+दोनों सत्यापन संदेश `True` प्रिंट करेंगे। बेस को साफ़ करने से व्यक्तिगत हाइपरलिंक पते अपरिवर्तित रहते हैं।
 
-`target.pptx` के सापेक्ष लिंक ने `old/target.pptx` खोला जब बेस `old` फ़ोल्डर की ओर इशारा करता था। बेस को `new` फ़ोल्डर में बदलने, सहेजने और प्रस्तुति को पुनः खोलने के बाद वही लिंक `new/target.pptx` खोलता है। पूर्ण लिंक वही फ़ाइल खोलता रहा। प्रस्तुति को स्थानांतरित करने या उसके बेस को बदलने से पहले और बाद में PowerPoint में अपने सापेक्ष लिंक का परीक्षण करें।
+`target.pptx` के लिए एक सापेक्ष लिंक ने `old/target.pptx` खोल दिया था जब बेस `old` फ़ोल्डर की ओर इशारा कर रहा था। बेस को `new` फ़ोल्डर में बदलने, सहेजने और प्रस्तुति को पुनः खोलने के बाद वही लिंक `new/target.pptx` खोलता है। निरपेक्ष लिंक वही फ़ाइल खोलता ही रहता है। प्रस्तुति को स्थानांतरित करने या बेस बदलने से पहले और बाद में PowerPoint में अपने सापेक्ष लिंक्स का परीक्षण करें।
 
 ## **कस्टम प्रस्तुति गुण जोड़ें**
 
-कस्टम गुण उन मेटाडाटा को संग्रहीत करते हैं जिनका कोई संबंधित बिल्ट‑इन फ़ील्ड नहीं होता। [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) आपको गुण नाम द्वारा मान असाइन करने देता है। यह उदाहरण एक प्रस्तुति बनाता है, दो टेक्स्ट मान और एक पूर्णांक संस्करण मान जोड़ता है, और प्रस्तुति को [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) के साथ सहेजता है। मौजूदा नाम पर मान असाइन करने से उस गुण का मान बदल दिया जाता है।
+कस्टम गुण उन मेटाडेटा को संग्रहीत करते हैं जिनका कोई बिल्ट‑इन फ़ील्ड नहीं होता। [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) आपको गुण नाम द्वारा मान असाइन करने की अनुमति देता है। यह उदाहरण एक प्रस्तुति बनाता है, दो टेक्स्ट मान और एक पूर्णांक संस्करण मान जोड़ता है, और प्रस्तुति को [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) से सहेजता है। मौजूदा नाम पर मान असाइन करने से उस गुण का मान बदल जाता है।
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -258,9 +297,9 @@ documentProperties->idx_set(u"Document version", System::ObjectExt::Box(2));
 presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
 ```
 
-## **कस्टम गुणों तक पहुँच और संशोधित करें**
+## **कस्टम गुणों तक पहुंच और संशोधन**
 
-यह उदाहरण कस्टम गुणों वाली एक प्रस्तुति खोलता है और उनके ऊपर इटरेट करने के लिये [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) का उपयोग करता है। [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) शून्य‑आधारित सूचकांक स्वीकार करता है और वह नाम लौटाता है जिसका उपयोग [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) और [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) द्वारा किया जाता है। उदाहरण प्रत्येक मूल नाम और मान को प्रिंट करता है, प्रत्येक मान को उसकी मूल प्रकार की परवाह किए बिना क्रमांकित स्ट्रिंग से बदल देता है, और परिवर्तनों को सहेजता है। यदि कोई कस्टम गुण नहीं है, तो लूप कोई परिवर्तन नहीं करता।
+यह उदाहरण कस्टम गुणों वाली प्रस्तुति खोलता है और [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) का उपयोग करके उन पर इटरेट करता है। [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) शून्य‑आधारित इंडेक्स स्वीकार करता है और वह नाम लौटाता है जिसका उपयोग [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) और [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) करते हैं। उदाहरण प्रत्येक मूल नाम और मान को प्रिंट करता है, सभी मानों को क्रमिक स्ट्रिंग से बदल देता है चाहे उनका मूल प्रकार कुछ भी हो, और बदलाव सहेजता है। यदि कोई कस्टम गुण नहीं हैं, तो लूप कोई परिवर्तन नहीं करता।
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -292,28 +331,28 @@ presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 
 ## **लाइव उदाहरण**
 
-Aspose.Slides API का उपयोग करके दस्तावेज़ गुणों के साथ कैसे काम करें, यह देखने के लिये ऑनलाइन ऐप [**PowerPoint मेटाडाटा देखें एवं संपादित करें**](https://products.aspose.app/slides/metadata) आज़माएँ:
+Aspose.Slides API का उपयोग करके दस्तावेज़ गुणों के साथ काम करने का तरीका देखने के लिए ऑनलाइन ऐप [**PowerPoint मेटाडेटा देखें और संपादित करें**](https://products.aspose.app/slides/metadata) आज़माएँ:
 
-[![PowerPoint मेटाडाटा देखें एवं संपादित करें](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![PowerPoint मेटाडेटा देखें और संपादित करें](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**एक बिल्ट‑इन गुण को प्रस्तुति से कैसे हटाया जा सकता है?**
+**मैं प्रस्तुति से बिल्ट‑इन गुण को कैसे हटाऊँ?**
 
-बिल्ट‑इन गुण प्रस्तुति का अभिन्न हिस्सा होते हैं और उन्हें पूरी तरह से हटाया नहीं जा सकता। हालांकि, आप उनकी मान को बदल सकते हैं या यदि विशिष्ट गुण अनुमति देता है तो उन्हें खाली सेट कर सकते हैं।
+बिल्ट‑इन गुण प्रस्तुति का अभिन्न भाग होते हैं और पूरी तरह से हटाए नहीं जा सकते। हालांकि, आप उनके मान बदल सकते हैं या यदि उस विशेष गुण द्वारा अनुमति हो तो खाली सेट कर सकते हैं।
 
-**यदि मैं एक मौजूदा कस्टम गुण को जोड़ता हूँ तो क्या होता है?**
+**यदि मैं ऐसा कस्टम गुण जोड़ूँ जो पहले से मौजूद है तो क्या होगा?**
 
-यदि आप एक मौजूदा कस्टम गुण को जोड़ते हैं, तो उसका मौजूदा मान नए मान से ओवरराइट हो जाएगा। आपको पहले से गुण को हटाने या जांचने की आवश्यकता नहीं है, क्योंकि Aspose.Slides स्वचालित रूप से गुण का मान अपडेट कर देता है।
+यदि आप ऐसा कस्टम गुण जोड़ते हैं जो पहले से मौजूद है, तो उसका मौजूदा मान नए मान से ओवरराइट हो जाएगा। आपको पहले से गुण हटाने या जाँचने की आवश्यकता नहीं है, क्योंकि Aspose.Slides स्वचालित रूप से गुण के मान को अपडेट करता है।
 
-**क्या मैं पूरी प्रस्तुति को लोड किए बिना प्रस्तुति गुणों तक पहुँच सकता हूँ?**
+**क्या मैं पूरी प्रस्तुति लोड किए बिना प्रस्तुति गुणों तक पहुंच सकता हूँ?**
 
-हाँ। आप [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) का उपयोग करके जानकारी प्राप्त कर सकते हैं और फिर [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) से stored document metadata को पढ़ सकते हैं बिना [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) इंस्टेंस बनाए। पूर्ण रिपोर्टिंग उदाहरण और फ़ॉर्मेट‑विशिष्ट सीमाओं के लिये देखें [Build a Lightweight Presentation Inventory](/slides/hi/cpp/examine-presentation/)।
+हाँ। आप [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) का उपयोग करके और फिर [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) द्वारा एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) इंस्टेंस बनाए बिना संग्रहीत दस्तावेज़ मेटाडेटा पढ़ सकते हैं। पूर्ण रिपोर्ट उदाहरण और फ़ॉर्मेट‑विशिष्ट सीमाओं के लिए देखें [Build a Lightweight Presentation Inventory](/slides/hi/cpp/examine-presentation/)।
 
-**क्या मैं एन्क्रिप्टेड प्रस्तुति के सार्वजनिक गुणों को उसके ओपनिंग पासवर्ड के बिना पढ़ सकता हूँ?**
+**क्या मैं एन्क्रिप्टेड प्रस्तुति के सार्वजनिक गुणों को बिना खोलने वाले पासवर्ड के पढ़ सकता हूँ?**
 
-हाँ। प्रस्तुति को `false` पास करके [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) से एन्क्रिप्ट किया गया होना चाहिए, और इसे `true` पास करके [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) से लोड किया गया होना चाहिए।
+हाँ। प्रस्तुति को तब एन्क्रिप्ट किया जाना चाहिए जब [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) को `false` पास किया गया हो, और इसे फिर [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) को `true` पास करके लोड किया गया हो।
 
-**क्या मैं डॉक्यूमेंट‑प्रॉपर्टीज़‑ऑनली मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूँ?**
+**क्या मैं दस्तावेज़‑गुण‑केवल मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूँ?**
 
-नहीं। सार्वजनिक और एन्क्रिप्टेड गुण डेटा को सुसंगत रहना चाहिए, इसलिए एन्क्रिप्टेड PPTX फ़ाइल को अपडेट करने के लिये सही ओपनिंग पासवर्ड के साथ पूरी प्रस्तुति को लोड करना आवश्यक है।
+नहीं। सार्वजनिक और एन्क्रिप्टेड गुण डेटा को संगत रहना चाहिए, इसलिए एन्क्रिप्टेड PPTX फ़ाइल को अपडेट करने के लिए सही खोलने वाला पासवर्ड के साथ पूरी प्रस्तुति लोड करना आवश्यक है।

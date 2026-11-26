@@ -1,5 +1,5 @@
 ---
-title: إ管理خصائص العرض التقديمي في PHP
+title: إدارة خصائص العرض التقديمي في PHP
 linktitle: خصائص العرض التقديمي
 type: docs
 weight: 70
@@ -14,7 +14,7 @@ keywords:
 - إدارة الخصائص
 - تعديل الخصائص
 - بيانات تعريف المستند
-- تحرير البيانات التعريفية
+- تحرير البيانات الوصفية
 - لغة التدقيق
 - اللغة الافتراضية
 - PowerPoint
@@ -22,34 +22,34 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تحكم في خصائص العرض التقديمي في Aspose.Slides للـ PHP عبر Java وسهل عملية البحث والعلامة التجارية وسير العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
+description: "تحكم في خصائص العرض التقديمي في Aspose.Slides لـ PHP عبر Java وحسّن البحث والعلامة التجارية وسير العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
 ---
-## **مقدمة**
+## **المقدمة**
 
-Aspose.Slides for PHP عبر Java يدعم الخصائص **المدمجة** والخصائص **المخصصة** للمستند. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف، العنوان، والقيم المعرفة من قبل المستخدم.
+يدعم Aspose.Slides for PHP عبر Java **الخصائص المدمجة** و **الخصائص المخصصة** للمستند. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف، العنوان، والقيم المعرفة من قبل المستخدم.
 
-Aspose.Slides يسمح لك بالعمل مع خصائص مستندات العرض التقديمي عبر الفئة [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) . يتم إرجاع مثيل من هذه الفئة بواسطة [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). توضح الأمثلة التالية كيفية قراءة هذه الخصائص وتعديلها وإدارتها. تفترض أن جسر PHP/Java وملف wrapper الخاص بـ Aspose.Slides للـ PHP مهيئان.
+يسمح لك Aspose.Slides بالعمل مع خصائص مستندات العروض التقديمية من خلال الفئة [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) class. تُرجَع نسخة من هذه الفئة بواسطة [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). تُظهر الأمثلة التالية كيفية قراءة هذه الخصائص وتعديلها وإدارتها. وتفترض أن جسر PHP/Java ومغلف Aspose.Slides لـ PHP تم تهيئتهما.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides يدير بيانات التعريف الخاصة بالتطبيق والمنتج عند حفظ العروض التقديمية؛ هذه الحقول تحدد البرنامج الذي أنشأ الناتج.
+يدير Aspose.Slides بيانات تعريف التطبيق والمنتج عند حفظ العروض التقديمية؛ تُحدد هذه الحقول البرنامج الذي أنشأ المخرجات.
 {{% /alert %}}
 
 ## **إدارة خصائص العرض التقديمي**
 
-تخزن خصائص المستند معلومات وصفية جنباً إلى جنب مع محتوى العرض التقديمي. وتنقسم إلى فئتين:
+تخزن خصائص المستند معلومات وصفية إلى جانب محتوى العرض التقديمي. وتنقسم إلى فئتين:
 
-- **خصائص مدمجة** تحتوي على بيانات تعريف قياسية، مثل العنوان، المؤلف، وإحصاءات المستند.
-- **خصائص مخصصة** تخزن أزواج اسم/قيمة يحددها المستخدم.
+- **الخصائص المدمجة** تحتوي على بيانات تعريف قياسية، مثل العنوان، المؤلف، وإحصائيات المستند.
+- **الخصائص المخصصة** تخزن أزواج الاسم/القيمة المعرفة من قبل المستخدم.
 
-Aspose.Slides for PHP عبر Java يتيح الوصول إلى كلا الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لتفقد بيانات تعريف المستند. يجمع الحوار المعلومات في علامات تبويب مثل **Summary**، **Statistics**، **Contents**، و**Custom**. استخدم علامة تبويب **Custom** لإدارة الخصائص التي يحددها المستخدم.
+يوفر Aspose.Slides for PHP عبر Java إمكانية الوصول إلى كلا الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لتفحص بيانات تعريف المستند. يقوم الحوار بتجميع المعلومات في علامات تبويب مثل **Summary** و **Statistics** و **Contents** و **Custom**. استخدم علامة تبويب **Custom** لإدارة الخصائص المعرفة من قبل المستخدم.
 
 ## **قراءة الخصائص العامة من عرض تقديمي مشفر**
 
-عادةً ما يحمي كلمة مرور الفتح كل من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير عرض تقديمي بعد استدعاء [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) مع `false`، تظل خصائص المستند عامة. يمكن لتطبيق بعد ذلك استدعاء [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) مع `true` وقراءة البيانات العامة بدون توفير كلمة مرور الفتح.
+عادةً ما يحمي كلمة المرور المفتوحة كلًا من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير عرض تقديمي بعد استدعاء [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) مع القيمة `false`، تبقى خصائص المستند عامة. يمكن للتطبيق بعد ذلك استدعاء [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مع القيمة `true` وقراءة البيانات العامة دون تقديم كلمة المرور المفتوحة.
 
-[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) يتحكم فيما يقوم Aspose.Slides بتحميله؛ لا يقوم بفك التشفير بأي شيء. إذا تم تضمين الخصائص في التشفير، فإن تحميلها بدون كلمة المرور سيفشل. إذا لم يكن العرض مشفراً، يتم تجاهل الخيار ويتم تحميل العرض بالكامل.
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) يتحكم فيما يقوم Aspose.Slides بتحميله؛ لا يقوم بفك تشفير أي شيء. إذا كانت الخصائص مشمولة في التشفير، فإن تحميلها بدون كلمة المرور سيفشل. إذا لم يكن العرض التقديمي مشفرًا، يتم تجاهل الخيار ويتم تحميل العرض التقديمي بالكامل.
 
-يتطلب المثال عرضاً تقديمياً مشفراً تم ترك خصائص مستنده عامة. يتحقق من وضع التحميل عبر [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) ثم يقرأ الخصائص المدمجة عبر [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/):
+يتطلب المثال عرض تقديمي مشفر تم ترك خصائص المستند الخاصة به عامة. يتحقق من وضع التحميل عبر [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) ثم يقرأ الخصائص المدمجة عبر [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -74,17 +74,17 @@ try {
 }
 ```
 
-في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، القوالب، التخطيطات، الأشكال، الوسائط، وغيرها من كائنات العرض غير متاحة. يجب على التطبيقات دائماً التحقق من [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) قبل تنفيذ عملية تتطلب نموذج كائن العرض الكامل.
+في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، القوالب، التخطيطات، الأشكال، الوسائط، وغيرها من كائنات العرض غير متاحة. يجب على التطبيقات دائمًا فحص [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) قبل تنفيذ عملية تتطلب نموذج كائنات العرض الكامل.
 
 {{% alert color="warning" title="Warning" %}}
-قد تكشف البيانات العامة عن أسماء المؤلفين، العناوين، المواضيع، الكلمات المفتاحية، معلومات الشركة، التعليقات، والقيم المخصصة. شفر الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما تكون أنظمة الفهرسة أو التصنيف أو البحث أو إدارة المستندات تحتاج إلى الوصول إليها بدون كلمة مرور.
+قد تكشف البيانات الوصفية العامة عن أسماء المؤلفين، العناوين، المواضيع، الكلمات المفتاحية، معلومات الشركة، التعليقات، والقيم المخصصة. قم بتشفير الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما يتطلب الفهرسة أو التصنيف أو البحث أو أنظمة إدارة المستندات الوصول إليها دون كلمة مرور.
 {{% /alert %}}
 
 ## **تحديث خصائص عرض تقديمي مشفر**
 
-بالنسبة لملف PPTX مشفر، فإن العرض الذي يتم تحميله بعد استدعاء [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) مع `true` مخصص لقراءة البيانات العامة. لا يستطيع Aspose.Slides حفظ الخصائص المعدلة من هذا الكائن الذي يقتصر على البيانات العامة لأن الخصائص العامة يجب أن تظل متناسقة مع البيانات المقابلة داخل العرض المشفر. لذلك يتطلب تحديثها كلمة مرور الفتح الصحيحة وتحميل كامل.
+بالنسبة لملف PPTX مشفر، يُقصد من العرض التقديمي الذي تم تحميله بعد استدعاء [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مع القيمة `true` قراءة البيانات العامة. لا يمكن لـ Aspose.Slides حفظ الخصائص التي تم تغييرها من كائن يختص بالبيانات العامة فقط لأن الخصائص العامة يجب أن تظل متسقة مع البيانات المقابلة داخل العرض المشفر. وبالتالي يتطلب تحديثها كلمة المرور المفتوحة الصحيحة وتحميلًا كاملًا.
 
-يتطلب المثال عرض تقديمي PPTX مشفر يحتوي على خصائص مستند عامة وكلمة مرور فتح معروفة. يفتح العرض الكامل باستخدام [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/)، يحدّث الخصائص المدمجة العامة، ثم يحفظ النتيجة. بعد ذلك يستخدم [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/) للتحقق من بقاء التشفير ويعيد فتح البيانات العامة بدون كلمة مرور للتحقق من القيم الجديدة:
+يتطلب المثال عرض PPTX مشفر يحتوي على خصائص مستند عامة وكلمة مرور مفتوحة معروفة. يفتح العرض الكامل باستخدام [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword)، يُحدّث الخصائص العامة المدمجة، ويحفظ النتيجة. ثم يستخدم [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#isEncrypted) للتحقق من الحفاظ على التشفير ويعيد فتح البيانات العامة دون كلمة مرور للتحقق من القيم الجديدة:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -128,11 +128,11 @@ try {
 }
 ```
 
-إذا لم تسمح التطبيق بفك تشفير أو تحميل محتوى العرض، يجب التعامل مع الخصائص العامة لملف PPTX مشفر كقراءة فقط.
+إذا لم يُسمح للتطبيق بفك تشفير أو تحميل محتوى العرض التقديمي، يجب أن يتعامل مع الخصائص العامة لملف PPTX مشفر على أنها للقراءة فقط.
 
 ## **الوصول إلى الخصائص المدمجة**
 
-الفئة [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) تكشف عن البيانات المدمجة عبر طرق getter، بما في ذلك [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/)، [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/)، و[getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع البيانات المخزنة إلى وحدة التحكم. القيم تعتمد على العرض المدخل؛ قد تكون بعض الحقول فارغة.
+تُظهر الفئة [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) البيانات المدمجة من خلال أساليب getter، بما في ذلك [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getAuthor)، [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTitle)، و [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCreatedTime). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع البيانات المخزنة إلى وحدة التحكم. القيم تعتمد على العرض المُدخل؛ قد تكون بعض الحقول فارغة.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,43 @@ try {
 }
 ```
 
+### **تقرير رقم المراجعة وزمن التحرير**
+
+للتقرير عن رقم المراجعة وإجمالي زمن التحرير لكل ملف PPTX في مجلد `presentations`، استخدم [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) لقراءة [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) الخاصة به دون تحميل الشرائح للتحرير. تُعيد واجهة PHP عبر Java زمن التحرير بالمللي ثانية. يحول المثال ذلك إلى ساعات ودقائق وثوانٍ ويشمل عدد الأيام للمدة التي تتجاوز 24 ساعة.
+
+```php
+use aspose\slides\PresentationFactory;
+
+echo "File | RevisionNumber | TotalEditingTime\n";
+foreach (new GlobIterator("presentations/*.pptx") as $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    $info = PresentationFactory::getInstance()->getPresentationInfo($file->getRealPath());
+    $properties = $info->readDocumentProperties();
+    $totalSeconds = (int) (java_values($properties->getTotalEditingTime()) / 1000);
+    $days = intdiv($totalSeconds, 86400);
+    $time = sprintf("%02d:%02d:%02d", intdiv($totalSeconds, 3600) % 24, intdiv($totalSeconds, 60) % 60, $totalSeconds % 60);
+    $editingTime = $days > 0 ? $days . "." . $time : $time;
+    printf("%s | %d | %s\n", $file->getFilename(), java_values($properties->getRevisionNumber()), $editingTime);
+}
+```
+
+لعرض تقديمي يحتوي على رقم مراجعة 17 وزمن تحرير مسجل قدره يوم واحد وساعتان و5 دقائق، يظهر التقرير المخرجات التالية.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[DocumentProperties::getRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getRevisionNumber) يقرأ قيمة يمكن للتطبيقات تغييرها باستخدام [DocumentProperties::setRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setRevisionNumber). رقم المراجعة وحده لا يمكنه تحديد عدد مرات حفظ العرض التقديمي أو إعادة بناء تاريخ إصداراته.
+
+[DocumentProperties::getTotalEditingTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTotalEditingTime) يقرأ مدة التحرير المسجلة في الملف. قد يحتوي العرض التقديمي على مدة مخزنة صفر (`00:00:00`) حتى ولو أن أحداً قام بتحريره.
+
 ## **تعديل الخصائص المدمجة**
 
-لتحديث البيانات المدمجة، استخدم طرق setter على الكائن الذي تُرجعه [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). يفتح هذا المثال عرضًا تقديميًا موجودًا، يستدعي [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/)، [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/)، [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/)، [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/)، و[setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/)، ثم يحفظ العرض المحدث باستخدام [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). يحتوي ملف PPTX المحفوظ على البيانات المدمجة الجديدة.
+لتحديث البيانات المدمجة، استخدم أساليب setter على الكائن الذي تُرجعه [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). يفتح هذا المثال عرضًا تقديميًا موجودًا، يستدعي [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setComments), و [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setManager), ثم يحفظ العرض المحدث باستخدام [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). يحتوي ملف PPTX المحفوظ على البيانات الجديدة.
 
 ```php
 use aspose\slides\Presentation;
@@ -184,11 +218,11 @@ try {
 }
 ```
 
-## **إدارة قاعدة الارتباط التشعبي**
+## **إدارة القاعدة الأساسية للروابط التشعبية**
 
-[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/) تُعيد القاعدة على مستوى المستند للارتباطات التشعبية النسبية. استخدم [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/) لتغييرها أو مسحها. هذا مفيد عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. إنه منفصل عن [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) لارتباط تشعبي فردي: تغيير القاعدة لا يعيد كتابة عناوين الروابط المخزنة ولا يغير الوجهات المطلقة.
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getHyperlinkBase) تُرجع القاعدة على مستوى المستند للروابط التشعبية النسبية. استخدم [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setHyperlinkBase) لتغييرها أو مسحها. هذا مفيد عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. وهو منفصل عن [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/#getExternalUrl) الخاص بالرابط التشعبي الفردي: تغيير القاعدة لا يعيد كتابة عناوين الروابط المخزنة ولا يغيّر الوجهات المطلقة.
 
-يتطلب المثال عرضًا يحتوي على رابط نسبي مثل `target.html` ورابط مطلق مثل `https://example.org/absolute.html`. يقرأ القاعدة الحالية، يعيّن قاعدة جديدة، ثم يحفظ ويعيد فتح العرض للتحقق من القيمة. بعد ذلك يمسح القاعدة بسلسلة فارغة ويُثبت القيمة الفارغة في ملف محفوظ منفصل. استبدل قاعدة المثال بموقع ملفاتك المرتبطة.
+يتطلب المثال عرضًا تقديميًا يحتوي على رابط نسبي، مثل `target.html`، ورابط مطلق، مثل `https://example.org/absolute.html`. يقرأ القاعدة الحالية، يعيّن قاعدة جديدة، ثم يحفظ ويعيد فتح العرض للتحقق من القيمة. ثم يمسح القاعدة بسلسلة فارغة ويتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل عنوان القاعدة في المثال بموقع ملفاتك المرتبطة.
 
 ```php
 use aspose\slides\Presentation;
@@ -223,13 +257,13 @@ try {
 }
 ```
 
-يجب أن تُظهر رسائل التحقق الثنائية القيمة `true`. مسح القاعدة يترك عناوين الروابط الفردية كما هي.
+يجب أن تطبع رسالتا التحقق `true`. مسح القاعدة يترك عناوين الروابط التشعبية الفردية دون تغيير.
 
-رابط نسبي إلى `target.pptx` كان يفتح `old/target.pptx` عندما كانت القاعدة تشير إلى مجلد `old`. بعد تغيير القاعدة إلى مجلد `new`، وحفظ وإعادة فتح العرض، يفتح الرابط نفسه `new/target.pptx`. الرابط المطلق استمر في فتح الملف نفسه. اختبر روابطك النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير قاعدته.
+رابط نسبي إلى `target.pptx` فتح `old/target.pptx` عندما كانت القاعدة تشير إلى المجلد `old`. بعد تغيير القاعدة إلى المجلد `new`، وحفظ وإعادة فتح العرض، فتح نفس الرابط `new/target.pptx`. استمر الرابط المطلق في فتح نفس الملف. اختبر الروابط النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير قاعدته.
 
 ## **إضافة خصائص عرض تقديمي مخصصة**
 
-الخصائص المخصصة تخزن بيانات تعريف لا توجد لها حقل مدمج مقابل. يسمح الأسلوب [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) بتعيين قيمة باسم الخاصية. يخلق هذا المثال عرضًا تقديميًا، يضيف قيمتي نص وإصدار رقمي، ويحفظ العرض باستخدام [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية الحالية.
+تخزن الخصائص المخصصة بيانات تعريف لا يوجد لها حقل مدمج مكافئ. تسمح طريقة [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) لك بتعيين قيمة حسب اسم الخاصية. يخلق هذا المثال عرضًا تقديميًا، يضيف قيمتي نص وقيمة عددية للإصدار، ويحفظ العرض باستخدام [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية.
 
 ```php
 use aspose\slides\Presentation;
@@ -249,9 +283,9 @@ try {
 }
 ```
 
-## **الوصول إلى الخصائص المخصصة وتعديلها**
+## **الوصول إلى وتعديل الخصائص المخصصة**
 
-يفتح هذا المثال عرضًا يحتوي على خصائص مخصصة ويستخدم [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/) للتمرير فوقها. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/) يستقبل فهرسًا يبدأ من الصفر ويرجع الاسم المستخدم بواسطة [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/). يطبع المثال كل اسم وقيمة أصلية، ويستبدل كل قيمة بسلسلة مرقمة بغض النظر عن نوعها الأصلي، ثم يحفظ التغييرات. إذا لم توجد خصائص مخصصة، فلن يقوم الحلقة بأي تغييرات.
+يفتح هذا المثال عرضًا تقديميًا يحتوي على خصائص مخصصة ويستخدم [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCountOfCustomProperties) للتكرار عليها. تقبل [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCustomPropertyName) فهرسًا يبدأ من الصفر وتُرجع الاسم المستخدم بواسطة [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item). يطبع المثال كل اسم أصلي وقيمته، يستبدل كل قيمة بسلسلة مرقمة بغض النظر عن نوعها الأصلي، ويحفظ التغييرات. إذا لم توجد خصائص مخصصة، فإن الحلقة لا تُجري أي تغييرات.
 
 ```php
 use aspose\slides\Presentation;
@@ -279,28 +313,28 @@ try {
 
 ## **مثال حي**
 
-جرّب التطبيق عبر الإنترنت [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) لترى كيفية العمل مع خصائص المستند باستخدام واجهة Aspose.Slides API:
+جرّب التطبيق على الإنترنت [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) لترى كيفية العمل مع خصائص المستند باستخدام Aspose.Slides API:
 
-[![عرض وتحرير بيانات PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **الأسئلة المتكررة**
 
 **كيف يمكنني إزالة خاصية مدمجة من عرض تقديمي؟**
 
-الخصائص المدمجة جزء لا يتجزأ من العرض ولا يمكن إزالتها بالكامل. مع ذلك، يمكنك إما تغيير قيمها أو تعيينها كفارغة إذا سمح ذلك الخاصية المحددة.
+الخصائص المدمجة جزء أساسي من العرض التقديمي ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها كفارغة إذا سمحت الخاصية المحددة بذلك.
 
-**ماذا يحدث إذا أضفت خاصية مخصصة موجودة مسبقاً؟**
+**ماذا يحدث إذا أضفت خاصية مخصصة موجودة بالفعل؟**
 
-إذا أضفت خاصية مخصصة موجودة مسبقاً، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة الخاصية أو التحقق منها مسبقاً، حيث يقوم Aspose.Slides بتحديث قيمة الخاصية تلقائياً.
+إذا أضفت خاصية مخصصة موجودة بالفعل، فستُستبدل قيمتها الموجودة بالجديدة. لا تحتاج إلى إزالة الخاصية أو فحصها مسبقًا، حيث يقوم Aspose.Slides بتحديث قيمة الخاصية تلقائيًا.
 
-**هل يمكنني الوصول إلى خصائص العرض دون تحميل العرض بالكامل؟**
+**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميل العرض بالكامل؟**
 
-نعم. استخدم [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/) ثم [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/) لقراءة بيانات المستند المخزنة دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). راجع [Build a Lightweight Presentation Inventory](/slides/ar/php-java/examine-presentation/) لتفاصيل مثال التقرير الكامل والقيود الخاصة بالصيغة.
+نعم. استخدم [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/#getPresentationInfo) ثم [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) لقراءة بيانات المستند المخزنة دون إنشاء نسخة من [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) . راجع [Build a Lightweight Presentation Inventory](/slides/ar/php-java/examine-presentation/) للحصول على مثال تقرير كامل والقيود الخاصة بالصيغ.
 
-**هل يمكنني قراءة الخصائص العامة لعرض تقديمي مشفر بدون كلمة مرور الفتح؟**
+**هل يمكنني قراءة الخصائص العامة لعرض تقديمي مشفر دون كلمة المرور المفتوحة؟**
 
-نعم. يجب أن يكون العرض قد تم تشفيره بعد استدعاء [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) مع `false`، ويجب تحميله بعد استدعاء [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) مع `true`.
+نعم. يجب أن يكون العرض التقديمي قد تم تشفيره بعد استدعاء [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) مع القيمة `false`، ويجب تحميله بعد استدعاء [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) مع القيمة `true`.
 
-**هل يمكنني تحديث ملف PPTX مشفر في وضع تحميل خصائص المستند فقط؟**
+**هل يمكنني تحديث ملف PPTX مشفر في وضع خصائص المستند فقط؟**
 
-لا. يجب أن تظل بيانات الخصائص العامة والمشفرة متناسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض بالكامل باستخدام كلمة مرور الفتح الصحيحة.
+لا. يجب أن تظل بيانات الخصائص العامة والمشفرة متسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض التقديمي بالكامل مع كلمة المرور المفتوحة الصحيحة.

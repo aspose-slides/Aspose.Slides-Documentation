@@ -1,12 +1,12 @@
 ---
 title: Beheer presentatieweigenschappen in .NET
-linktitle: Presentatieweigenschappen
+linktitle: Presentatie‑eigenschappen
 type: docs
 weight: 70
 url: /nl/net/presentation-properties/
 keywords:
-- PowerPoint-eigenschappen
-- presentatieweigenschappen
+- PowerPoint‑eigenschappen
+- presentatie‑eigenschappen
 - documenteigenschappen
 - ingebouwde eigenschappen
 - aangepaste eigenschappen
@@ -15,7 +15,7 @@ keywords:
 - eigenschappen wijzigen
 - documentmetadata
 - metadata bewerken
-- taal voor proeflezen
+- controletaal
 - standaardtaal
 - PowerPoint
 - OpenDocument
@@ -23,35 +23,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Beheer presentatieweigenschappen in Aspose.Slides voor .NET en stroomlijn zoeken, branding en workflow in uw PowerPoint- en OpenDocument-bestanden."
+description: "Beheer presentatie‑eigenschappen in Aspose.Slides voor .NET en stroomlijn zoeken, branding en workflow in uw PowerPoint‑ en OpenDocument‑bestanden."
 ---
 ## **Inleiding**
 
-Aspose.Slides for .NET ondersteunt **ingebouwde** en **aangepaste** documenteigenschappen. Gebruik deze eigenschappen om presentatiemetadata te lezen en bij te werken, zoals de auteur, titel en door de gebruiker gedefinieerde waarden.
+Aspose.Slides voor .NET ondersteunt **ingebouwde** en **aangepaste** documenteigenschappen. Gebruik deze eigenschappen om presentatiemetadata te lezen en bij te werken, zoals de auteur, titel en door de gebruiker gedefinieerde waarden.
 
-Aspose.Slides stelt u in staat om met de documenteigenschappen van een presentatie te werken via de [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface. Een instantie van deze interface wordt geretourneerd door [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). De volgende voorbeelden laten zien hoe u deze eigenschappen kunt lezen, wijzigen en beheren.
+Aspose.Slides stelt je in staat om met de documenteigenschappen van een presentatie te werken via de [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface. Een instantie van deze interface wordt geretourneerd door [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). De volgende voorbeelden laten zien hoe je deze eigenschappen kunt lezen, wijzigen en beheren.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides beheert de applicatie‑ en producentmetadata bij het opslaan van presentaties; deze velden identificeren de software die de uitvoer heeft gemaakt.
+Aspose.Slides beheert de applicatie- en producentmetadata bij het opslaan van presentaties; deze velden identificeren de software die de output heeft gemaakt.
 {{% /alert %}}
 
-## **Eigenschappen van de presentatie beheren**
+## **Beheer presentatieweigenschappen**
 
 Documenteigenschappen slaan beschrijvende informatie op naast de presentatie‑inhoud. Ze vallen in twee categorieën:
 
 - **Ingebouwde eigenschappen** bevatten standaardmetadata, zoals de titel, auteur en documentstatistieken.
-- **Aangepaste eigenschappen** slaan door de gebruiker gedefinieerde naam/waarde‑paren op.
+- **Aangepaste eigenschappen** slaan door de gebruiker gedefinieerde naam/waarde-paren op.
 
-Aspose.Slides for .NET biedt toegang tot beide categorieën. In PowerPoint selecteert u **Bestand → Info → Eigenschappen → Geavanceerde eigenschappen** om documentmetadata te inspecteren. Het dialoogvenster groepeert informatie in tabbladen zoals **Samenvatting**, **Statistieken**, **Inhoud** en **Aangepast**. Gebruik het tabblad **Aangepast** om door‑gebruiker gedefinieerde eigenschappen te beheren.
+Aspose.Slides voor .NET biedt toegang tot beide categorieën. In PowerPoint selecteer **Bestand → Info → Eigenschappen → Geavanceerde eigenschappen** om documentmetadata te inspecteren. Het dialoogvenster groepeert informatie in tabbladen zoals **Samenvatting**, **Statistieken**, **Inhoud** en **Aangepast**. Gebruik het tabblad **Aangepast** om door de gebruiker gedefinieerde eigenschappen te beheren.
 
 ## **Openbare eigenschappen lezen van een versleutelde presentatie**
 
-Een openings‑wachtwoord beschermt normaal zowel de presentatie‑inhoud als de documenteigenschappen. Wanneer een presentatie versleuteld is met [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) ingesteld op `false`, blijven de documenteigenschappen openbaar. Een applicatie kan dan [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) instellen op `true` en de openbare metadata lezen zonder het openings‑wachtwoord in te voeren.
+Een openingswachtwoord beschermt normaal zowel de presentatie‑inhoud als de documenteigenschappen. Wanneer een presentatie wordt versleuteld met [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) ingesteld op `false`, blijven de documenteigenschappen openbaar. Een toepassing kan dan [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) instellen op `true` en de openbare metadata lezen zonder het openingswachtwoord op te geven.
 
-[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) bepaalt wat Aspose.Slides laadt; het decodeert niets. Als de eigenschappen waren meegenomen in de versleuteling, mislukt het laden ervan zonder wachtwoord. Als de presentatie niet versleuteld is, wordt de optie genegeerd en wordt de volledige presentatie geladen.
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) bepaalt wat Aspose.Slides laadt; het ontsleutelt niets. Als de eigenschappen in de versleuteling waren opgenomen, faalt het laden zonder wachtwoord. Als de presentatie niet versleuteld is, wordt de optie genegeerd en wordt de volledige presentatie geladen.
 
-Het voorbeeld vereist een versleutelde presentatie waarvan de documenteigenschappen openbaar zijn gelaten. Het verifieert de laadmethode via [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) en leest vervolgens de ingebouwde eigenschappen via [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
-
+Het voorbeeld vereist een versleutelde presentatie waarvan de documenteigenschappen openbaar zijn gelaten. Het controleert de laadmethode via [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) en leest vervolgens ingebouwde eigenschappen via [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
 ```csharp
 using System;
 using Aspose.Slides;
@@ -73,18 +72,17 @@ else
 }
 ```
 
-In deze modus wordt de slide‑inhoud niet geladen. Slides, master‑slides, lay-outs, vormen, media en andere presentatie‑objecten zijn niet beschikbaar. Applicaties moeten altijd [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) controleren voordat ze een bewerking uitvoeren die het volledige presentatiemodel vereist.
+In deze modus wordt de dia‑inhoud niet geladen. Dia's, masters, lay‑outs, vormen, media en andere presentatie‑objecten zijn niet beschikbaar. Toepassingen moeten altijd [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) controleren voordat ze een handeling uitvoeren die het volledige presentatiemodel vereist.
 
 {{% alert color="warning" title="Security" %}}
-Openbare metadata kunnen auteursnamen, titels, onderwerpen, trefwoorden, bedrijfsinformatie, opmerkingen en aangepaste waarden onthullen. Versleutel gevoelige eigenschappen samen met de presentatie. Laat ze alleen openbaar wanneer indexeer‑, classificatie‑, zoek‑ of document‑beheersystemen een specifieke noodzaak hebben om er zonder wachtwoord toegang toe te krijgen.
+Openbare metadata kan auteursnamen, titels, onderwerpen, trefwoorden, bedrijfsinformatie, opmerkingen en aangepaste waarden blootleggen. Versleutel gevoelige eigenschappen samen met de presentatie. Laat ze alleen openbaar wanneer indexerings‑, classificatie‑, zoek‑ of document‑beheersystemen een specifieke vereiste hebben om er zonder wachtwoord toegang toe te krijgen.
 {{% /alert %}}
 
-## **Eigenschappen van een versleutelde presentatie bijwerken**
+## **Eigenschappen bijwerken van een versleutelde presentatie**
 
-Voor een versleuteld PPTX‑bestand is een presentatie die geladen is met [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) bedoeld om openbare metadata te lezen. Aspose.Slides kan geen gewijzigde eigenschappen opslaan vanuit dat alleen‑metadata‑object, omdat de openbare eigenschappen consistent moeten blijven met de corresponderende gegevens binnen de versleutelde presentatie. Het bijwerken ervan vereist dus het juiste openings‑wachtwoord en een volledige lading.
+Voor een versleuteld PPTX‑bestand is een presentatie die is geladen met [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) bedoeld om openbare metadata te lezen. Aspose.Slides kan gewijzigde eigenschappen niet opslaan vanuit dat alleen‑metadata‑object omdat de openbare eigenschappen consistent moeten blijven met de bijbehorende gegevens in de versleutelde presentatie. Het bijwerken ervan vereist daarom het juiste openingswachtwoord en een volledige lading.
 
-Het voorbeeld vereist een versleutelde PPTX‑presentatie met openbare documenteigenschappen en een bekend openings‑wachtwoord. Het opent de volledige presentatie met [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), werkt openbare ingebouwde eigenschappen bij en slaat het resultaat op. Vervolgens gebruikt het [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) om te verifiëren dat de versleuteling behouden blijft en opent het de openbare metadata opnieuw zonder wachtwoord om de nieuwe waarden te controleren:
-
+Het voorbeeld vereist een versleutelde PPTX‑presentatie met openbare documenteigenschappen en een bekend openingswachtwoord. Het opent de volledige presentatie met [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), werkt openbare ingebouwde eigenschappen bij en slaat het resultaat op. Vervolgens gebruikt het [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) om te verifiëren dat de versleuteling behouden blijft en opent het de openbare metadata opnieuw zonder wachtwoord om de nieuwe waarden te controleren:
 ```csharp
 using System;
 using Aspose.Slides;
@@ -119,12 +117,11 @@ else
 }
 ```
 
-Als een applicatie niet mag decrypten of de presentatie‑inhoud laden, moet zij de openbare eigenschappen van een versleuteld PPTX‑bestand als alleen‑lezen behandelen.
+Als een toepassing de presentatie‑inhoud niet mag ontsleutelen of laden, moet het de openbare eigenschappen van een versleuteld PPTX‑bestand als alleen‑lezen behandelen.
 
 ## **Toegang tot ingebouwde eigenschappen**
 
-De [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface maakt ingebouwde metadata toegankelijk via getypeerde eigenschappen, inclusief [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/) en [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). Dit voorbeeld opent een bestaande presentatie en drukt de opgeslagen metadata af naar de console. De waarden hangen af van de invoerpresentatie; sommige velden kunnen leeg zijn.
-
+De [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface maakt ingebouwde metadata beschikbaar via getypeerde eigenschappen, waaronder [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/) en [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). Dit voorbeeld opent een bestaande presentatie en drukt de opgeslagen metadata af naar de console. Waarden hangen af van de invoer‑presentatie; sommige velden kunnen leeg zijn.
 ```csharp
 using System;
 using Aspose.Slides;
@@ -149,10 +146,36 @@ Console.WriteLine("Subject: " + documentProperties.Subject);
 Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
+### **Revisienummer en bewerkingstijd rapporteren**
+
+Om één rij te rapporteren voor elk PPTX‑bestand in de map `presentations`, roep je [ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) aan om de [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) op te halen zonder de dia's te laden voor bewerking. Het standaard `c`‑formaat voor `TimeSpan` bevat het aantal dagen wanneer de duur 24 uur bereikt.
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+Console.WriteLine("File | RevisionNumber | TotalEditingTime");
+foreach (var path in Directory.EnumerateFiles("presentations", "*.pptx"))
+{
+    var info = PresentationFactory.Instance.GetPresentationInfo(path);
+    var properties = info.ReadDocumentProperties();
+    Console.WriteLine($"{Path.GetFileName(path)} | {properties.RevisionNumber} | {properties.TotalEditingTime:c}");
+}
+```
+
+Voorbeeldoutput voor een presentatie met 1 dag, 2 uur en 5 minuten geregistreerde bewerkingstijd:
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[RevisionNumber](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/revisionnumber/) is schrijfbare metadata. De waarde alleen kan niet bepalen hoe vaak de presentatie is opgeslagen of de versiegeschiedenis reconstrueren.
+
+[TotalEditingTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/totaleditingtime/) is de bewerkingstijd die in het bestand is vastgelegd. Een waarde van `00:00:00` betekent dat de opgeslagen duur nul is. Het bewijst niet dat niemand de presentatie heeft bewerkt.
+
 ## **Ingebouwde eigenschappen wijzigen**
 
-Om ingebouwde metadata bij te werken, kent u waarden toe aan de schrijfbare eigenschappen die worden blootgesteld door [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Dit voorbeeld opent een bestaande presentatie, stelt [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/) en [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) in, en slaat vervolgens de bijgewerkte presentatie op met [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Het opgeslagen PPTX‑bestand bevat de nieuwe metadata.
-
+Om ingebouwde metadata bij te werken, ken je waarden toe aan de schrijfbare eigenschappen die worden blootgesteld door [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Dit voorbeeld opent een bestaande presentatie, stelt [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/) en [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) in, slaat vervolgens de bijgewerkte presentatie op met [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). De opgeslagen PPTX bevat de nieuwe metadata.
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -172,10 +195,9 @@ presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 
 ## **Beheer van de hyperlink‑basis**
 
-[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) slaat de document‑niveau basis op voor relatieve hyperlinks. Dit is handig bij het verplaatsen van een presentatie en de gekoppelde bestanden naar een andere locatie. Het staat los van de [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) van een individuele hyperlink: het wijzigen van de basis herschrijft niet de opgeslagen linkadressen of verandert absolute bestemmingen.
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) slaat de basis‑URL van het document op voor relatieve hyperlinks. Dit is handig bij het verplaatsen van een presentatie en de gekoppelde bestanden naar een andere locatie. Het is gescheiden van de [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) van een individuele hyperlink: het wijzigen van de basis herschrijft niet de opgeslagen koppelingen of wijzigt absolute bestemmingen.
 
-Het voorbeeld vereist een presentatie die zowel een relatieve link bevat, zoals `target.html`, als een absolute link, zoals `https://example.org/absolute.html`. Het leest de bestaande basis, kent een nieuw basisadres toe, en slaat de presentatie op en opent deze opnieuw om de waarde te controleren. Vervolgens wist het de basis met `string.Empty` en verifieert de lege waarde in een apart opgeslagen bestand. Vervang het voorbeeld‑basisadres door de locatie van uw gekoppelde bestanden.
-
+Het voorbeeld vereist een presentatie die zowel een relatieve link bevat, bijvoorbeeld `target.html`, als een absolute link, bijvoorbeeld `https://example.org/absolute.html`. Het leest de bestaande basis, wijst een nieuw basisadres toe en slaat de presentatie op en opent deze opnieuw om de waarde te controleren. Vervolgens wist het de basis met `string.Empty` en verifieert de lege waarde in een apart opgeslagen bestand. Vervang het voorbeeld‑basisadres door de locatie van jouw gekoppelde bestanden.
 ```csharp
 using System;
 using Aspose.Slides;
@@ -198,14 +220,13 @@ using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
 Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
 ```
 
-De twee verificatie‑berichten moeten `True` afdrukken. Het wissen van de basis laat de individuele hyperlink‑adressen onaangeroerd.
+De twee verificatie‑berichten moeten `True` afdrukken. Het wissen van de basis laat de individuele hyperlink‑adressen ongewijzigd.
 
-Een relatieve link naar `target.pptx` opende `old/target.pptx` toen de basis naar de `old`‑map verwees. Na het wijzigen van de basis naar de `new`‑map, opslaan en opnieuw openen van de presentatie, opende dezelfde link `new/target.pptx`. Een absolute link bleef hetzelfde bestand openen. Test uw relatieve links in PowerPoint vóór en na het verplaatsen van de presentatie of het wijzigen van de basis.
+Een relatieve link naar `target.pptx` opende `old/target.pptx` toen de basis naar de map `old` wees. Na het wijzigen van de basis naar de map `new`, opslaan en de presentatie opnieuw openen, opende dezelfde link `new/target.pptx`. Een absolute link bleef hetzelfde bestand openen. Test je relatieve links in PowerPoint vóór en na het verplaatsen van de presentatie of het wijzigen van de basis.
 
 ## **Aangepaste presentatieweigenschappen toevoegen**
 
-Aangepaste eigenschappen slaan metadata op waarvoor geen overeenkomstig ingebouwd veld bestaat. De [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) laat u een waarde toewijzen op basis van de eigenschapsnaam. Dit voorbeeld maakt een presentatie, voegt twee tekstwaarden en een geheel getal versie‑waarde toe, en slaat de presentatie op met [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Het toewijzen van een waarde aan een bestaande naam vervangt de waarde van die eigenschap.
-
+Aangepaste eigenschappen slaan metadata op waarvoor geen overeenkomstig ingebouwd veld bestaat. De [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) stelt je in staat een waarde toe te wijzen op basis van de eigenschapsnaam. Dit voorbeeld maakt een presentatie, voegt twee tekstwaarden en een gehele versie‑waarde toe, en slaat de presentatie op met [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Het toewijzen van een waarde aan een bestaande naam vervangt de waarde van die eigenschap.
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -223,8 +244,7 @@ presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 
 ## **Aangepaste eigenschappen benaderen en wijzigen**
 
-Dit voorbeeld opent een presentatie met aangepaste eigenschappen en gebruikt [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) om erover te itereren. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) accepteert een index vanaf nul en geeft de naam terug die door de [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) wordt gebruikt. Het voorbeeld drukt elke oorspronkelijke naam en waarde af, vervangt elke waarde door een genummerde tekenreeks ongeacht het oorspronkelijke type, en slaat de wijzigingen op. Als er geen aangepaste eigenschappen zijn, doet de lus niets.
-
+Dit voorbeeld opent een presentatie met aangepaste eigenschappen en gebruikt [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) om er over te itereren. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) accepteert een index beginnend bij nul en retourneert de naam die wordt gebruikt door de [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/). Het voorbeeld drukt elke oorspronkelijke naam en waarde af, vervangt elke waarde door een genummerde tekenreeks ongeacht het oorspronkelijke type, en slaat de wijzigingen op. Als er geen aangepaste eigenschappen zijn, brengt de lus geen wijzigingen aan.
 ```csharp
 using System;
 using Aspose.Slides;
@@ -250,28 +270,27 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 ## **Live‑voorbeeld**
 
-Probeer de online app [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) om te zien hoe u met documenteigenschappen kunt werken via de Aspose.Slides‑API:
-
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+Try the [**Bekijk & bewerk PowerPoint‑metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties using the Aspose.Slides API:
+[![Bekijk & bewerk PowerPoint‑metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
 **Hoe kan ik een ingebouwde eigenschap uit een presentatie verwijderen?**
 
-Ingebouwde eigenschappen maken een integraal onderdeel van de presentatie uit en kunnen niet volledig worden verwijderd. U kunt ze echter wel wijzigen of, indien de specifieke eigenschap dat toestaat, op een lege waarde zetten.
+Ingebouwde eigenschappen maken een integraal deel van de presentatie uit en kunnen niet volledig verwijderd worden. Je kunt echter hun waarden wijzigen of, indien de specifieke eigenschap dat toestaat, ze leeg maken.
 
 **Wat gebeurt er als ik een aangepaste eigenschap toevoeg die al bestaat?**
 
-Als u een aangepaste eigenschap toevoegt die al bestaat, wordt de bestaande waarde overschreven door de nieuwe. Het is niet nodig de eigenschap vooraf te verwijderen of te controleren, omdat Aspose.Slides de waarde automatisch bijwerkt.
+Als je een aangepaste eigenschap toevoegt die al bestaat, wordt de bestaande waarde overschreven door de nieuwe. Je hoeft de eigenschap niet vooraf te verwijderen of te controleren, aangezien Aspose.Slides de waarde automatisch bijwerkt.
 
-**Kan ik presentatieweigenschappen benaderen zonder de volledige presentatie te laden?**
+**Kan ik presentatieweigenschappen benaderen zonder de presentatie volledig te laden?**
 
-Ja. Gebruik [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) en vervolgens [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) om opgeslagen documentmetadata te lezen zonder een [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑instantie te maken. Zie [Build a Lightweight Presentation Inventory](/slides/nl/net/examine-presentation/) voor een volledig rapportage‑voorbeeld en formaat‑specifieke beperkingen.
+Ja. Gebruik [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) en vervolgens [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) om opgeslagen documentmetadata te lezen zonder een [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑instantie te maken. Zie [Maak een lichtgewicht presentatie‑inventaris](/slides/nl/net/examine-presentation/) voor een volledig voorbeeld en formaat‑specifieke beperkingen.
 
-**Kan ik openbare eigenschappen van een versleutelde presentatie lezen zonder het openings‑wachtwoord?**
+**Kan ik openbare eigenschappen van een versleutelde presentatie lezen zonder het openingswachtwoord?**
 
-Ja. De presentatie moet versleuteld zijn met [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) ingesteld op `false`, en moet geladen worden met [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) ingesteld op `true`.
+Ja. De presentatie moet versleuteld zijn met [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) ingesteld op `false`, en moet worden geladen met [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) ingesteld op `true`.
 
 **Kan ik een versleuteld PPTX‑bestand bijwerken in alleen‑documenteigenschappen‑modus?**
 
-Nee. Openbare en versleutelde eigenschapsgegevens moeten consistent blijven, dus het bijwerken van een versleuteld PPTX‑bestand vereist het volledig laden van de presentatie met het juiste openings‑wachtwoord.
+Nee. Openbare en versleutelde eigenschapsgegevens moeten consistent blijven, dus het bijwerken van een versleuteld PPTX‑bestand vereist het volledig laden van de presentatie met het juiste openingswachtwoord.

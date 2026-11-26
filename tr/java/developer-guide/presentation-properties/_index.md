@@ -1,5 +1,5 @@
 ---
-title: Java'da Sunum Özelliklerini Yönetme
+title: Java'da Sunum Özelliklerini Yönet
 linktitle: Sunum Özellikleri
 type: docs
 weight: 70
@@ -11,10 +11,10 @@ keywords:
 - yerleşik özellikler
 - özel özellikler
 - gelişmiş özellikler
-- özellikleri yönetme
-- özellikleri değiştirme
+- özellikleri yönet
+- özellikleri değiştir
 - belge meta verileri
-- meta verileri düzenleme
+- meta verileri düzenle
 - düzeltme dili
 - varsayılan dil
 - PowerPoint
@@ -22,34 +22,34 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for Java'da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını sadeleştirin."
 ---
 ## **Giriş**
 
-Aspose.Slides for Java, **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri, yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
+Aspose.Slides for Java **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
 
-Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) arayüzü üzerinden çalışmanıza olanak tanır. Bu arayüzün bir örneği, [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) tarafından döndürülür. Aşağıdaki örnekler, bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir.
+Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) arayüzü aracılığıyla çalışmanıza olanak tanır. Bu arayüzün bir örneği [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) tarafından döndürülür. Aşağıdaki örnekler bu özellikleri nasıl okuyacağınızı, değiştireceğinizi ve yöneteceğinizi gösterir.
 
 {{% alert color="info" title="Note" %}}
 Aspose.Slides, sunumları kaydederken uygulama ve üretici meta verilerini yönetir; bu alanlar çıktıyı oluşturan yazılımı tanımlar.
 {{% /alert %}}
 
-## **Sunum Özelliklerini Yönetme**
+## **Sunum Özelliklerini Yönet**
 
-Belge özellikleri, sunum içeriğiyle birlikte tanımlayıcı bilgileri depolar. İki kategoriye ayrılırlar:
+Belge özellikleri, sunum içeriğinin yanında açıklayıcı bilgileri depolar. İki kategoriye ayrılırlar:
 
 - **Yerleşik özellikler** standart meta verileri içerir, örneğin başlık, yazar ve belge istatistikleri.
-- **Özel özellikler** kullanıcı tarafından tanımlanan ad/değer çiftlerini saklar.
+- **Özel özellikler** kullanıcı tanımlı ad/değer çiftlerini depolar.
 
-Aspose.Slides for Java, her iki kategoriye de erişim sağlar. PowerPoint'ta belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini seçin. İleti penceresi bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere ayırır. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
+Aspose.Slides for Java her iki kategoriye de erişim sağlar. PowerPoint'te belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini kullanın. İletişim kutusu bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere ayırır. **Custom** sekmesini kullanıcı tanımlı özellikleri yönetmek için kullanın.
 
-## **Şifrelenmiş Bir Sunumdan Genel Özellikleri Okuma**
+## **Şifreli Sunumdan Genel Özellikleri Okuma**
 
-Açılış şifresi genellikle hem sunum içeriğini hem de belge özelliklerini korur. Bir sunum, [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` ile çağrıldıktan sonra şifrelenirse, belge özellikleri açık kalır. Uygulama daha sonra [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile çağırarak açılış şifresi vermeden genel meta verileri okuyabilir.
+Açma parolası genellikle hem sunum içeriğini hem de belge özelliklerini korur. Bir sunum, [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` ile çağrıldıktan sonra şifrelenirse, belge özellikleri genel kalır. Bir uygulama daha sonra [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile çağırarak açma parolasını vermeden genel meta verileri okuyabilir.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) Aspose.Slides'ın neyi yüklediğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifreleme içine alınmışsa, şifre olmadan yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yok sayılır ve tam sunum yüklenir.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) Aspose.Slides'ın neyi yükleyeceğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifreleme içinde yer alıyorsa, parola olmadan yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yok sayılır ve tam sunum yüklenir.
 
-Örnek, belge özellikleri açık bırakılmış şifreli bir sunum gerektirir. Yükleme modunu [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) ile doğrular ve ardından [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) aracılığıyla yerleşik özellikleri okur:
+Örnek, belge özellikleri genel bırakılmış bir şifreli sunum gerektirir. Yükleme modunu [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) aracılığıyla doğrular ve ardından [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) üzerinden yerleşik özellikleri okur:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -75,17 +75,17 @@ try {
 }
 ```
 
-Bu modda, slayt içeriği yüklenmez. Slaytlar, masterlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) kontrol etmelidir.
+Bu modda, slayt içeriği yüklenmez. Slaytlar, ana slaytlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) kontrol etmelidir.
 
 {{% alert color="warning" title="Warning" %}}
-Genel meta veriler yazar adlarını, başlıkları, konuları, anahtar kelimeleri, şirket bilgilerini, yorumları ve özel değerleri ortaya çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Bunları yalnızca indeksleme, sınıflandırma, arama veya belge‑yönetim sistemlerinin şifre olmadan erişim gerektirdiği durumlarda açık bırakın.
+Genel meta veriler yazar adları, başlıklar, konular, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ortaya çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Bunları yalnızca dizinleme, sınıflandırma, arama veya belge yönetim sistemlerinin parolasız erişim için özel bir gereksinimi olduğunda genel bırakın.
 {{% /alert %}}
 
-## **Şifrelenmiş Bir Sunumun Özelliklerini Güncelleme**
+## **Şifreli Sunum Özelliklerini Güncelleme**
 
-Şifreli bir PPTX dosyası için, [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile çağrıldıktan sonra yüklenen bir sunum, genel meta verileri okumak için tasarlanmıştır. Aspose.Slides, bu yalnızca meta veri nesnesindeki değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunumdaki karşılık gelen verilerle tutarlı olmalıdır. Bu nedenle güncelleme, doğru açılış şifresini ve tam bir yüklemeyi gerektirir.
+Şifreli bir PPTX dosyası için, [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile çağrıldıktan sonra yüklenen bir sunum, genel meta verileri okumak için tasarlanmıştır. Aspose.Slides, bu yalnızca meta veri nesnesindeki değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunumdaki karşılık gelen verilerle tutarlı olmalıdır. Bu nedenle güncelleme doğru açma parolası ve tam yükleme gerektirir.
 
-Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açılış şifresi gerektirir. Tam sunumu [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından, şifrelemenin korunduğunu doğrulamak için [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) kullanır ve yeni değerleri doğrulamak için şifre olmadan genel meta verileri yeniden açar:
+Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma parolası gerektirir. Tam sunumu [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) kullanarak şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için parolasız olarak genel meta verileri yeniden açar:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -131,11 +131,11 @@ try {
 }
 ```
 
-Bir uygulama, sunum içeriğini çözmeye veya yüklemeye izin verilmiyorsa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca‑okunur olarak ele almalıdır.
+Bir uygulamanın sunum içeriğini çözmesi veya yüklemesi izin verilmiyorsa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okunabilir olarak ele almalıdır.
 
 ## **Yerleşik Özelliklere Erişim**
 
-[IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) arayüzü, [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--) , [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--) ve [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) gibi getter metodlarıyla yerleşik meta verileri sunar. Bu örnek, mevcut bir sunumu açar ve saklanan meta verileri konsola yazdırır. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
+[IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) arayüzü, [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--) , [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--) ve [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) gibi getter yöntemleriyle yerleşik meta verileri ortaya çıkarır. Bu örnek mevcut bir sunumu açar ve depolanmış meta verilerini konsola yazdırır. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -164,9 +164,50 @@ try {
 }
 ```
 
+### **Revizyon Numarasını ve Düzenleme Süresini Raporla**
+
+`presentations` klasöründeki her PPTX dosyası için bir satır raporlamak amacıyla, slaytları düzenleme amacıyla yüklemeden [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) çağırarak [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) okunur. Java API'si düzenleme süresini milisaniye cinsinden döndürür. Örnek, bunu saat, dakika ve saniye olarak biçimlendirir; 24 saat veya daha fazla süreler için gün sayısı ekler.
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+System.out.println("File | RevisionNumber | TotalEditingTime");
+try (DirectoryStream<Path> files = Files.newDirectoryStream(Paths.get("presentations"), "*.pptx")) {
+    for (Path path : files) {
+        if (!Files.isRegularFile(path)) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(path.toString());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format("%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf("%s | %d | %s%n", path.getFileName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+1 gün, 2 saat ve 5 dakika kaydedilmiş bir düzenleme süresi olan bir sunum için rapor aşağıdaki çıktıyı gösterir.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getRevisionNumber--) uygulamaların [setRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-) ile değiştirebileceği bir değeri okur. Revizyon numarası tek başına sunumun kaç kez kaydedildiğini belirleyemez veya sürüm geçmişini yeniden oluşturamaz.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) dosyada kaydedilen düzenleme süresini okur. `00:00:00` değeri, birisi sunumu düzenlemiş olsa bile depolanan sürenin sıfır olduğunu gösterir.
+
 ## **Yerleşik Özellikleri Değiştirme**
 
-Yerleşik meta verileri güncellemek için, [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) tarafından döndürülen nesnedeki setter metodlarını kullanın. Bu örnek, mevcut bir sunumu açar, [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-), ve [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) metodlarını çağırır, ardından güncellenmiş sunumu [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
+Yerleşik meta verileri güncellemek için, [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) tarafından döndürülen nesnedeki setter yöntemlerini kullanın. Bu örnek mevcut bir sunumu açar, [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-) , [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-) , [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-) , [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-) ve [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) metodlarını çağırır, ardından güncellenen sunumu [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -189,11 +230,11 @@ try {
 }
 ```
 
-## **Köprü Temelini Yönetme**
+## **Bağlantı Temelini Yönetme**
 
-[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) göreceli köprüler için belge düzeyindeki temeli döndürür. Bunu değiştirmek veya temizlemek için [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) kullanın. Bu, bir sunumu ve bağlantılı dosyalarını başka bir konuma taşırken yararlıdır. Bireysel bir köprünün [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) öğesinden ayrıktır: temeli değiştirmek, saklanan köprü adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) göreli bağlantılar için belge seviyesindeki temeli döndürür. [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) kullanarak temeli değiştirebilir veya temizleyebilirsiniz. Bu, bir sunumu ve ona bağlı dosyaları başka bir konuma taşırken faydalıdır. Bireysel bir bağlantının [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) öğesinden ayrıktır: temeli değiştirmek depolanmış bağlantı adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
 
-Örnek, `target.html` gibi bir göreceli köprü ve `https://example.org/absolute.html` gibi bir mutlak köprü içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi atar ve değeri kontrol etmek için sunumu kaydedip yeniden açar. Ardından, temeli boş bir dizeyle temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresini, bağlantılı dosyalarınızın konumu ile değiştirin.
+Örnek, `target.html` gibi göreli ve `https://example.org/absolute.html` gibi mutlak bir bağlantı içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi atar ve değeri kontrol etmek için sunumu kaydedip yeniden açar. Ardından temeli boş bir string ile temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresi, bağlı dosyalarınızın konumuyla değiştirin.
 
 ```java
 import com.aspose.slides.Presentation;
@@ -228,13 +269,13 @@ try {
 }
 ```
 
-İki doğrulama mesajı `true` yazdırmalıdır. Temelin temizlenmesi, bireysel köprü adreslerini bozulmuş bırakmaz.
+İki doğrulama mesajı `true` yazdırmalıdır. Temelin temizlenmesi bireysel bağlantı adreslerini bozulmadan bırakır.
 
-`target.pptx` için bir göreceli köprü, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedildikten ve sunum yeniden açıldıktan sonra aynı köprü `new/target.pptx` dosyasını açtı. Mutlak bir köprü aynı dosyayı açmaya devam etti. Sunumu taşıdıktan veya temelini değiştirdikten önce ve sonra PowerPoint'te göreceli köprülerinizi test edin.
+`target.pptx`'ye göreli bir bağlantı, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedildikten ve sunum yeniden açıldıktan sonra aynı bağlantı `new/target.pptx` dosyasını açtı. Mutlak bir bağlantı aynı dosyayı açmaya devam etti. Sunumu taşıdıktan veya temelini değiştirdikten önce ve sonra PowerPoint'te göreli bağlantılarınızı test edin.
 
 ## **Özel Sunum Özellikleri Ekleme**
 
-Özel özellikler, karşılık gelen yerleşik bir alanı olmayan meta verileri saklar. [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) yöntemi, özellik adını kullanarak bir değer atamanıza izin verir. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve sunumu [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ile kaydeder. Mevcut bir isme değer atamak, o özelliğin değerini değiştirir.
+Özel özellikler, karşılık gelen bir yerleşik alanı olmayan meta verileri depolar. [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) yöntemi, özellik adını kullanarak bir değer atamanıza olanak tanır. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve sunumu [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ile kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -257,7 +298,7 @@ try {
 
 ## **Özel Özelliklere Erişim ve Değiştirme**
 
-Bu örnek, özel özellikler içeren bir sunumu açar ve [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) ile bunlar üzerinde döner. [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) sıfır‑tabanlı bir indeks kabul eder ve [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) tarafından kullanılan adı döndürür. Örnek, her özgün adı ve değeri yazdırır, her değeri orijinal tipine bakılmaksızın numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Özel özellik yoksa, döngü hiçbir değişiklik yapmaz.
+Bu örnek, özel özellikler içeren bir sunumu açar ve [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) kullanarak bunlar üzerinde döner. [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) sıfırdan başlayan bir indeks alır ve [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) tarafından kullanılan adı döndürür. Örnek, her orijinal adı ve değeri yazdırır, her değeri özgün tipine bakılmaksızın numaralı bir string ile değiştirir ve değişiklikleri kaydeder. Eğer özel özellik yoksa, döngü hiçbir değişiklik yapmaz.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -286,28 +327,28 @@ try {
 
 ## **Canlı Örnek**
 
-[**PowerPoint Meta Verilerini Görüntüle & Düzenle**](https://products.aspose.app/slides/metadata) çevrimiçi uygulamasını deneyerek Aspose.Slides API'sı ile belge özellikleriyle nasıl çalışılacağını görebilirsiniz:
+Aspose.Slides API'sını kullanarak belge özellikleriyle nasıl çalışılacağını görmek için çevrimiçi uygulama [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) deneyin:
 
-[![PowerPoint Meta Verilerini Görüntüle & Düzenle](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **SSS**
 
 **Bir sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
 
-Yerleşik özellikler, sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli özellik izin veriyorsa, değerlerini değiştirebilir veya boş olarak ayarlayabilirsiniz.
+Yerleşik özellikler, sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli özelliğin izin vermesi durumunda değerlerini değiştirebilir veya boş olarak ayarlayabilirsiniz.
 
-**Zaten mevcut bir özel özellik eklersem ne olur?**
+**Zaten var olan bir özel özellik eklersem ne olur?**
 
-Eğer zaten mevcut bir özel özellik eklerseniz, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak özelliğin değerini günceller.
+Zaten var olan bir özel özellik eklerseniz, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides özelliğin değerini otomatik olarak günceller.
 
 **Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
 
-Evet. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) ve ardından [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) kullanarak bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) örneği oluşturmadan saklanan belge meta verilerini okuyabilirsiniz. Tam bir raporlama örneği ve format‑özgü sınırlamalar için [Hafif Sunum Envanteri Oluşturma](/slides/tr/java/examine-presentation/) sayfasına bakın.
+Evet. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) ve ardından [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) kullanarak bir [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) örneği oluşturmadan depolanmış belge meta verilerini okuyabilirsiniz. Tam raporlama örneği ve biçim‑özel sınırlamalar için [Hafif Bir Sunum Envanteri Oluşturma](/slides/tr/java/examine-presentation/) bölümüne bakın.
 
-**Şifreli bir sunumun genel özelliklerini açılış şifresi olmadan okuyabilir miyim?**
+**Şifreli bir sunumun genel özelliklerini açma parolası olmadan okuyabilir miyim?**
 
 Evet. Sunum, [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` ile çağrıldıktan sonra şifrelenmiş olmalı ve [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile çağrıldıktan sonra yüklenmiş olmalıdır.
 
-**Belge‑özellikleri‑sadece modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
+**Sadece belge‑özellikleri modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
 
-Hayır. Genel ve şifreli özellik verileri tutarlı olmalı, bu yüzden şifreli bir PPTX dosyasını güncellemek, doğru açılış şifresi ile tam sunumu yüklemeyi gerektirir.
+Hayır. Genel ve şifreli özellik verileri tutarlı olmalı, bu yüzden şifreli bir PPTX dosyasını güncellemek doğru açma parolası ile tam sunumu yüklemeyi gerektirir.

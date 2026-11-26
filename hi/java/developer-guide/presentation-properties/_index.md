@@ -1,57 +1,55 @@
 ---
-title: जावा में प्रस्तुतिकरण गुण प्रबंधित करें
-linktitle: प्रस्तुतिकरण गुण
+title: जावा में प्रस्तुति गुणों का प्रबंधन
+linktitle: प्रस्तुति गुण
 type: docs
 weight: 70
 url: /hi/java/presentation-properties/
 keywords:
 - PowerPoint गुण
-- प्रस्तुतिकरण गुण
+- प्रस्तुति गुण
 - दस्तावेज़ गुण
-- निर्मित गुण
+- बिल्ट‑इन गुण
 - कस्टम गुण
 - उन्नत गुण
-- गुण प्रबंधित करें
-- गुण संशोधित करें
-- दस्तावेज़ मेटाडेटा
-- मेटाडेटा संपादित करें
-- प्रूफिंग भाषा
+- गुणों का प्रबंधन
+- गुणों को संशोधित करें
+- दस्तावेज़ मेटाडाटा
+- मेटाडाटा संपादित करें
+- प्रूफ़िंग भाषा
 - डिफ़ॉल्ट भाषा
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
-- जावा
+- Java
 - Aspose.Slides
-description: "जावा के लिए Aspose.Slides में प्रस्तुतिकरण गुणों को नियंत्रित करें और अपने PowerPoint और OpenDocument फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सुगम बनाएँ।"
+description: "Aspose.Slides for Java में प्रस्तुति गुणों को मास्टर करें और अपने PowerPoint और OpenDocument फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सुगम बनाएं।"
 ---
 ## **परिचय**
 
-Aspose.Slides for Java **निर्मित** और **कस्टम** दस्तावेज़ गुणों को समर्थन देता है। इन गुणों का उपयोग प्रस्तुतिकरण मेटाडेटा को पढ़ने और अपडेट करने के लिए करें, जैसे लेखक, शीर्षक, और उपयोगकर्ता‑परिभाषित मान।
+Aspose.Slides for Java **बिल्ट‑इन** और **कस्टम** दस्तावेज़ गुणों को समर्थन देता है। इन गुणों का उपयोग प्रस्तुति मेटाडाटा को पढ़ने और अपडेट करने के लिए किया जाता है, जैसे कि लेखक, शीर्षक, और उपयोगकर्ता‑परिभाषित मान।
 
-Aspose.Slides आपको प्रस्तुतिकरण दस्तावेज़ गुणों के साथ काम करने की अनुमति देता है [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) इंटरफ़ेस के माध्यम से। इस इंटरफ़ेस का एक उदाहरण [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) द्वारा लौटाया जाता है। निम्नलिखित उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ा, संशोधित और प्रबंधित किया जा सकता है।
+Aspose.Slides आपको प्रस्तुति दस्तावेज़ गुणों के साथ काम करने की अनुमति देता है [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) इंटरफ़ेस के माध्यम से। इस इंटरफ़ेस का एक उदाहरण [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) द्वारा लौटाया जाता है। नीचे दिए गए उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ा, संशोधित और प्रबंधित किया जाए।
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides प्रस्तुतिकरण सहेजते समय एप्लिकेशन और उत्पादकर्ता मेटाडेटा को प्रबंधित करता है; ये फ़ील्ड उस सॉफ़्टवेयर की पहचान करते हैं जिसने आउटपुट बनाया।
-
+Aspose.Slides प्रस्तुति सहेजते समय एप्लिकेशन और उत्पादक मेटाडाटा को प्रबंधित करता है; ये फ़ील्ड वह सॉफ़्टवेयर पहचानते हैं जिसने आउटपुट बनाया।
 {{% /alert %}}
 
-## **प्रस्तुतिकरण गुणों का प्रबंधन**
+## **प्रस्तुति गुणों का प्रबंधन**
 
-दस्तावेज़ गुण प्रस्तुतिकरण सामग्री के साथ वर्णनात्मक जानकारी संग्रहीत करते हैं। ये दो श्रेणियों में विभाजित होते हैं:
+दस्तावेज़ गुण प्रस्तुति सामग्री के साथ वर्णनात्मक जानकारी संग्रहीत करते हैं। वे दो श्रेणियों में आते हैं:
 
-- **निर्मित गुण** मानक मेटाडेटा रखते हैं, जैसे शीर्षक, लेखक, और दस्तावेज़ आँकड़े।
-- **कस्टम गुण** उपयोगकर्ता‑परिभाषित नाम/मान जोड़े रखते हैं।
+- **बिल्ट‑इन गुण** मानक मेटाडाटा रखते हैं, जैसे शीर्षक, लेखक, और दस्तावेज़ सांख्यिकी।
+- **कस्टम गुण** उपयोगकर्ता‑परिभाषित नाम/मान युग्म संग्रहीत करते हैं।
 
-Aspose.Slides for Java दोनों श्रेणियों तक पहुंच प्रदान करता है। PowerPoint में, दस्तावेज़ मेटाडेटा निरीक्षण करने के लिए **File → Info → Properties → Advanced Properties** चुनें। संवाद सूचना को **Summary**, **Statistics**, **Contents**, और **Custom** जैसे टैब में समूहित करता है। उपयोगकर्ता‑परिभाषित गुणों का प्रबंधन करने के लिए **Custom** टैब का उपयोग करें।
+Aspose.Slides for Java दोनों श्रेणियों तक पहुंच प्रदान करता है। PowerPoint में, दस्तावेज़ मेटाडाटा जांचने के लिए **File → Info → Properties → Advanced Properties** चुनें। संवाद जानकारी को **Summary**, **Statistics**, **Contents**, और **Custom** जैसे टैब में समूहित करता है। उपयोगकर्ता‑परिभाषित गुणों का प्रबंधन करने के लिए **Custom** टैब का उपयोग करें।
 
-## **एनक्रिप्टेड प्रस्तुतिकरण से सार्वजनिक गुण पढ़ना**
+## **एन्क्रिप्टेड प्रस्तुति से सार्वजनिक गुण पढ़ें**
 
-एक खोलने वाला पासवर्ड सामान्यतः प्रस्तुतिकरण सामग्री और दस्तावेज़ गुण दोनों को सुरक्षित रखता है। जब एक प्रस्तुतिकरण को [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) को `false` के साथ कॉल करने के बाद एन्क्रिप्ट किया जाता है, तो उसके दस्तावेज़ गुण सार्वजनिक रह जाते हैं। तब एक एप्लिकेशन [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) को `true` के साथ कॉल करके बिना खोलने वाले पासवर्ड के सार्वजनिक मेटाडेटा पढ़ सकता है।
+एक खोलने वाला पासवर्ड सामान्यतः प्रस्तुति सामग्री और दस्तावेज़ गुणों दोनों की सुरक्षा करता है। जब कोई प्रस्तुति [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) को `false` के साथ कॉल करने के बाद एन्क्रिप्ट की जाती है, तो उसके दस्तावेज़ गुण सार्वजनिक रहते हैं। फिर कोई एप्लिकेशन [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) को `true` के साथ कॉल कर सकता है और खोलने वाला पासवर्ड प्रदान किए बिना सार्वजनिक मेटाडाटा पढ़ सकता है।
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) यह नियंत्रित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डिक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन में शामिल थे, तो पासवर्ड के बिना उन्हें लोड करने पर विफल हो जाता है। यदि प्रस्तुतिकरण एन्क्रिप्ट नहीं है, तो यह विकल्प अनदेखा किया जाता है और पूरी प्रस्तुतिकरण लोड हो जाती है।
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) यह नियंत्रित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डिक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन में शामिल थे, तो पासवर्ड के बिना उन्हें लोड करना विफल हो जाता है। यदि प्रस्तुति एन्क्रिप्ट नहीं है, तो यह विकल्प अनदेखा किया जाता है और पूरी प्रस्तुति लोड हो जाती है।
 
-उदाहरण में एक एन्क्रिप्टेड प्रस्तुतिकरण की आवश्यकता है जिसकी दस्तावेज़ गुण सार्वजनिक रखे गए हों। यह [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) द्वारा लोडिंग मोड की जाँच करता है और फिर [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) के माध्यम से निर्मित गुण पढ़ता है:
+उदाहरण के लिए उस एन्क्रिप्टेड प्रस्तुति की आवश्यकता है जिसके दस्तावेज़ गुण सार्वजनिक रखे गए थे। यह लोडिंग मोड को [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) के माध्यम से सत्यापित करता है और फिर [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) के माध्यम से बिल्ट‑इन गुण पढ़ता है:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -77,17 +75,17 @@ try {
 }
 ```
 
-इस मोड में स्लाइड सामग्री लोड नहीं होती। स्लाइड, मास्टर, लेआउट, आकार, मीडिया, और अन्य प्रस्तुतिकरण ऑब्जेक्ट उपलब्ध नहीं होते। एप्लिकेशन को हमेशा [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) की जाँच करनी चाहिए इससे पहले कि वह ऐसी क्रिया करे जिसके लिए पूर्ण प्रस्तुतिकरण ऑब्जेक्ट मॉडल की आवश्यकता हो।
+इस मोड में, स्लाइड सामग्री लोड नहीं होती। स्लाइड्स, मास्टर, लेआउट, शैप, मीडिया, और अन्य प्रस्तुति ऑब्जेक्ट अनुपलब्ध होते हैं। एप्लिकेशन को हमेशा [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) की जाँच करनी चाहिए इससे पहले कि वह ऐसा ऑपरेशन करे जिसके लिए पूर्ण प्रस्तुति ऑब्जेक्ट मॉडल की आवश्यकता हो।
 
 {{% alert color="warning" title="Warning" %}}
-सार्वजनिक मेटाडेटा में लेखक के नाम, शीर्षक, विषय, कीवर्ड, कंपनी जानकारी, टिप्पणियाँ और कस्टम मान शामिल हो सकते हैं। संवेदनशील गुणों को प्रस्तुतिकरण के साथ एन्क्रिप्ट करें। उन्हें केवल तभी सार्वजनिक रखें जब अनुक्रमण, वर्गीकरण, खोज, या दस्तावेज़‑प्रबंधन सिस्टम को पासवर्ड के बिना पहुंच की विशेष आवश्यकता हो।
+सार्वजनिक मेटाडाटा लेखक के नाम, शीर्षक, विषय, कीवर्ड, कंपनी जानकारी, टिप्पणी और कस्टम मान उजागर कर सकता है। संवेदनशील गुणों को प्रस्तुति के साथ एन्क्रिप्ट करें। उन्हें सार्वजनिक तभी रखें जब इंडेक्सिंग, वर्गीकरण, खोज, या दस्तावेज़‑प्रबंधन प्रणालियों को पासवर्ड के बिना उनका एक्सेस करने की विशिष्ट आवश्यकता हो।
 {{% /alert %}}
 
-## **एन्क्रिप्टेड प्रस्तुतिकरण के गुण अपडेट करना**
+## **एन्क्रिप्टेड प्रस्तुति के गुणों को अपडेट करें**
 
-एक एन्क्रिप्टेड PPTX फ़ाइल के लिए, [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) को `true` के साथ कॉल करने के बाद लोड किया गया प्रस्तुतिकरण सार्वजनिक मेटाडेटा पढ़ने के लिए अभिप्रेत है। Aspose.Slides उस केवल‑मेटाडेटा‑ऑब्जेक्ट से बदले गए गुणों को सहेज नहीं सकता क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रस्तुतिकरण के अंदर के डेटा के साथ सुसंगत रहना चाहिए। इस कारण उन्हें सही खोलने वाले पासवर्ड और पूर्ण लोड की आवश्यकता होती है।
+एक एन्क्रिप्टेड PPTX फ़ाइल के लिए, [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) को `true` के साथ कॉल करने के बाद लोड की गई प्रस्तुति सार्वजनिक मेटाडाटा पढ़ने के उद्देश्य से होती है। Aspose.Slides उस मेटाडाटा‑केवल ऑब्जेक्ट से बदलें हुए गुणों को सहेज नहीं सकता क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रस्तुति के भीतर के संबंधित डेटा के साथ संगत रहना चाहिए। इसलिए उन्हें अपडेट करने के लिए सही खोलने वाला पासवर्ड और पूर्ण लोड आवश्यक है।
 
-उदाहरण में एक एन्क्रिप्टेड PPTX प्रस्तुतिकरण की आवश्यकता है जिसके सार्वजनिक दस्तावेज़ गुण हों और एक ज्ञात खोलने वाला पासवर्ड हो। यह [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) के साथ पूरी प्रस्तुतिकरण खोलता है, सार्वजनिक निर्मित गुण अपडेट करता है, और परिणाम सहेजता है। फिर यह [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) का उपयोग करके एन्क्रिप्शन की जाँच करता है और पासवर्ड के बिना सार्वजनिक मेटाडेटा फिर से खोलकर नए मानों की पुष्टि करता है:
+उदाहरण के लिए एक एन्क्रिप्टेड PPTX प्रस्तुति की आवश्यकता है जिसमें सार्वजनिक दस्तावेज़ गुण हों और एक ज्ञात खोलने वाला पासवर्ड हो। यह पूर्ण प्रस्तुति को [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) के साथ खोलता है, सार्वजनिक बिल्ट‑इन गुणों को अपडेट करता है, और परिणाम को सहेजता है। फिर यह [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) का उपयोग करके एन्क्रिप्शन बनी रहे यह सत्यापित करता है और पासवर्ड के बिना सार्वजनिक मेटाडाटा को फिर से खोलकर नए मानों की जाँच करता है:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -133,11 +131,11 @@ try {
 }
 ```
 
-यदि किसी एप्लिकेशन को प्रस्तुतिकरण सामग्री को डिक्रिप्ट या लोड करने की अनुमति नहीं है, तो उसे एन्क्रिप्टेड PPTX फ़ाइल के सार्वजनिक गुणों को केवल‑पढ़ने‑योग्य मानना चाहिए।
+यदि कोई एप्लिकेशन प्रस्तुति सामग्री को डिक्रिप्ट या लोड करने की अनुमति नहीं रखता, तो उसे एन्क्रिप्टेड PPTX फ़ाइल के सार्वजनिक गुणों को केवल‑पढ़ने योग्य मानना चाहिए।
 
-## **निर्मित गुणों तक पहुंच**
+## **बिल्ट‑इन गुणों तक पहुंच**
 
-[IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) इंटरफ़ेस गेटर मेथड्स के माध्यम से निर्मित मेटाडेटा उजागर करता है, जिसमें [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--), [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--), और [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) शामिल हैं। यह उदाहरण मौजूदा प्रस्तुतिकरण खोलता है और उसकी संग्रहीत मेटाडेटा को कंसोल पर प्रिंट करता है। मान इनपुट प्रस्तुतिकरण पर निर्भर करते हैं; कुछ फ़ील्ड खाली हो सकते हैं।
+[IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) इंटरफ़ेसgetter मेथड्स के माध्यम से बिल्ट‑इन मेटाडाटा उजागर करता है, जिसमें [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--), [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--) और [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--) शामिल हैं। यह उदाहरण मौजूदा प्रस्तुति खोलता है और उसके संग्रहीत मेटाडाटा को कंसोल पर प्रिंट करता है। मान इनपुट प्रस्तुति पर निर्भर करते हैं; कुछ फ़ील्ड खाली हो सकते हैं।
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -166,9 +164,50 @@ try {
 }
 ```
 
-## **निर्मित गुणों को संशोधित करना**
+### **संस्करण संख्या और संपादन समय की रिपोर्ट**
 
-निर्मित मेटाडेटा को अपडेट करने के लिए [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) द्वारा लौटाए गए ऑब्जेक्ट पर सेट्टर मेथड्स का उपयोग करें। यह उदाहरण मौजूदा प्रस्तुतिकरण खोलता है, [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-), और [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) को कॉल करता है, फिर [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) के साथ अपडेटेड प्रस्तुतिकरण सहेजता है। सहेजे गए PPTX में नया मेटाडेटा शामिल होता है।
+`presentations` फ़ोल्डर में प्रत्येक PPTX फ़ाइल के लिए एक पंक्ति रिपोर्ट करने के लिए, [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) को कॉल करें जिससे स्लाइड्स को लोड किए बिना उसके [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) पढ़े जा सकें। Java API संपादन अवधि को मिलीसेकंड में लौटाती है। उदाहरण इसे घंटे, मिनट और सेकंड में फ़ॉर्मेट करता है, तथा 24 घंटे या उससे अधिक अवधि के लिए दिन गिनती भी जोड़ता है।
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+System.out.println("File | RevisionNumber | TotalEditingTime");
+try (DirectoryStream<Path> files = Files.newDirectoryStream(Paths.get("presentations"), "*.pptx")) {
+    for (Path path : files) {
+        if (!Files.isRegularFile(path)) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(path.toString());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format("%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf("%s | %d | %s%n", path.getFileName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+एक प्रस्तुति जिसमें रिकॉर्ड किया गया संपादन समय 1 दिन, 2 घंटे और 5 मिनट है, रिपोर्ट निम्नलिखित आउटपुट दिखाती है।
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getRevisionNumber--) एक मान पढ़ता है जिसे एप्लिकेशन [setRevisionNumber](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-) से बदल सकते हैं। केवल संस्करण संख्या यह निर्धारित नहीं कर सकती कि प्रस्तुति कितनी बार सहेजी गई या उसका संस्करण इतिहास कैसे पुनर्निर्मित किया गया।
+
+[getTotalEditingTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) फ़ाइल में रिकॉर्ड की गई संपादन अवधि पढ़ता है। `00:00:00` मान का अर्थ है कि संग्रहीत अवधि शून्य है, भले ही किसी ने प्रस्तुति को संपादित किया हो।
+
+## **बिल्ट‑इन गुणों को संशोधित करें**
+
+बिल्ट‑इन मेटाडाटा को अपडेट करने के लिए, उन ऑब्जेक्ट पर सेट्टर मेथड्स का उपयोग करें जो [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--) द्वारा लौटाया गया है। यह उदाहरण मौजूदा प्रस्तुति खोलता है, [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-), और [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) को कॉल करता है, फिर अपडेट की गई प्रस्तुति को [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) से सहेजता है। सहेजी गई PPTX में नया मेटाडाटा होता है।
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -191,11 +230,11 @@ try {
 }
 ```
 
-## **हाइपरलिंक बेस प्रबंधन**
+## **हाइपरलिंक बेस का प्रबंधन**
 
-[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) दस्तावेज़‑स्तर का बेस देता है जो सापेक्ष हाइपरलिंक के लिए उपयोग होता है। इसे बदलने या साफ़ करने के लिए [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) का उपयोग करें। यह तब उपयोगी होता है जब आप प्रस्तुतिकरण और उसकी लिंक की फ़ाइलों को किसी अन्य स्थान पर ले जाते हैं। यह व्यक्तिगत हाइपरलिंक के [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) से अलग है: बेस बदलने से संग्रहीत लिंक पतों को पुनर्लेखन या निरपेक्ष गंतव्य नहीं बदलता।
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) रिलेटिव हाइपरलिंक्स के लिए दस्तावेज़‑स्तर बेस लौटाता है। इसे बदलने या साफ़ करने के लिए [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) का उपयोग करें। यह प्रस्तुति और उसकी लिंक्ड फ़ाइलों को किसी अन्य स्थान पर ले जाने पर उपयोगी है। यह व्यक्तिगत हाइपरलिंक के [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) से अलग है: बेस बदलने से संग्रहीत लिंक एड्रेस नहीं लिखे जाते और न ही एब्सोल्यूट डेस्टिनेशन बदलता है।
 
-उदाहरण में एक प्रस्तुतिकरण की आवश्यकता है जिसमें एक सापेक्ष लिंक `target.html` और एक निरपेक्ष लिंक `https://example.org/absolute.html` दोनों हों। यह मौजूदा बेस पढ़ता है, नया बेस पता असाइन करता है, और मूल्य की जाँच के लिए प्रस्तुतिकरण सहेज कर फिर से खोलता है। फिर यह खाली स्ट्रिंग के साथ बेस को साफ़ करता है और अलग फाइल में खाली मान की पुष्टि करता है। उदाहरण बेस पते को अपनी लिंक फ़ाइलों के स्थान से बदलें।
+उदाहरण के लिए एक ऐसी प्रस्तुति चाहिए जिसमें एक रिलेटिव लिंक जैसे `target.html` और एक एब्सोल्यूट लिंक जैसे `https://example.org/absolute.html` हो। यह मौजूदा बेस पढ़ता है, नया बेस एड्रेस असाइन करता है, फिर मूल्य जाँचने के लिए प्रस्तुति को सहेजता और फिर खुलता है। इसके बाद यह बेस को खाली स्ट्रिंग से साफ़ करता है और अलग सहेजी फ़ाइल में खाली मूल्य सत्यापित करता है। उदाहरण बेस एड्रेस को अपनी लिंक्ड फ़ाइलों के स्थान से बदलें।
 
 ```java
 import com.aspose.slides.Presentation;
@@ -230,13 +269,13 @@ try {
 }
 ```
 
-दोनों सत्यापन संदेश `true` प्रिंट करेंगे। बेस को साफ़ करने से व्यक्तिगत हाइपरलिंक पते अपरिवर्तित रहते हैं।
+दोनों सत्यापन संदेश `true` प्रिंट करेंगे। बेस को साफ़ करने से व्यक्तिगत हाइपरलिंक एड्रेस अपरिवर्तित रहते हैं।
 
-सापेक्ष लिंक `target.pptx` ने बेस `old` फ़ोल्डर की ओर संकेत करने पर `old/target.pptx` खोला। बेस को `new` फ़ोल्डर में बदलने, सहेजने और फिर प्रस्तुतिकरण खोलने के बाद वही लिंक `new/target.pptx` खोलता है। निरपेक्ष लिंक वही फ़ाइल खोलता रहता है। अपने सापेक्ष लिंक को PowerPoint में प्रस्तुतिकरण को स्थानांतरित करने या बेस बदलने से पहले और बाद में परीक्षण करें।
+`target.pptx` को एक रिलेटिव लिंक ने `old/target.pptx` खोला जब बेस `old` फ़ोल्डर की ओर इशारा कर रहा था। बेस को `new` फ़ोल्डर में बदलने, सहेजने और फिर प्रस्तुति खोलने पर वही लिंक `new/target.pptx` खोलता है। एब्सोल्यूट लिंक वही फ़ाइल खोलता रहा। प्रस्तुति को स्थानांतरित करने या उसका बेस बदलने से पहले और बाद में PowerPoint में अपने रिलेटिव लिंक की जाँच करें।
 
-## **कस्टम प्रस्तुतिकरण गुण जोड़ना**
+## **कस्टम प्रस्तुति गुण जोड़ें**
 
-कस्टम गुण वह मेटाडेटा संग्रहीत करते हैं जिसका कोई निर्मित फ़ील्ड नहीं होता। [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) मेथड आपको गुण नाम द्वारा मूल्य असाइन करने देता है। यह उदाहरण एक प्रस्तुतिकरण बनाता है, दो टेक्स्ट मान और एक पूर्णांक संस्करण मान जोड़ता है, और [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) के साथ प्रस्तुतिकरण सहेजता है। मौजूदा नाम को पुनः असाइन करने से उस गुण का मान बदल जाता है।
+कस्टम गुण ऐसे मेटाडाटा संग्रहीत करते हैं जिनका कोई मेल खाने वाला बिल्ट‑इन फ़ील्ड नहीं होता। [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) मेथड आपको प्रॉपर्टी नाम द्वारा मान असाइन करने देता है। यह उदाहरण एक प्रस्तुति बनाता है, दो टेक्स्ट मान और एक पूर्णांक संस्करण मान जोड़ता है, और प्रस्तुति को [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) से सहेजता है। मौजूदा नाम पर मान असाइन करने से उस गुण का मान बदल जाता है।
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -259,7 +298,7 @@ try {
 
 ## **कस्टम गुणों तक पहुंच और संशोधन**
 
-यह उदाहरण कस्टम गुणों वाले एक प्रस्तुतिकरण को खोलता है और [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) का उपयोग करके उन पर इटररेट करता है। [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) शून्य‑आधारित इंडेक्स लेता है और वह नाम लौटाता है जिसे [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) द्वारा उपयोग किया गया था। उदाहरण प्रत्येक मूल नाम और मान को प्रिंट करता है, मूल प्रकार की परवाह किए बिना हर मान को क्रमांकित स्ट्रिंग से बदलता है, और परिवर्तन सहेजता है। यदि कोई कस्टम गुण नहीं हैं, तो लूप कोई बदलाव नहीं करता।
+यह उदाहरण कस्टम गुणों वाली एक प्रस्तुति खोलता है और उन्हें पार करने के लिए [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) का उपयोग करता है। [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) शून्य‑आधारित इंडेक्स स्वीकार करता है और उस नाम को लौटाता है जिसका उपयोग [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) करता है। उदाहरण प्रत्येक मूल नाम और मान को प्रिंट करता है, मूल प्रकार की परवाह किए बिना प्रत्येक मान को क्रमांकित स्ट्रिंग से बदल देता है, और परिवर्तन सहेजता है। यदि कोई कस्टम गुण नहीं है, तो लूप कोई परिवर्तन नहीं करता।
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -288,28 +327,28 @@ try {
 
 ## **लाइव उदाहरण**
 
-ऑनलाइन एप्लिकेशन [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) आज़माएँ ताकि आप Aspose.Slides API का उपयोग करके दस्तावेज़ गुणों के साथ काम करना देख सकें:
+दस्तावेज़ गुणों के साथ काम करने के लिए Aspose.Slides API का उपयोग करके, ऑनलाइन ऐप [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) को आज़माएँ:
 
-[![PowerPoint मेटाडेटा देखें और संपादित करें](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं किसी निर्मित गुण को प्रस्तुतिकरण से कैसे हटा सकता हूँ?**
+**प्रस्तुति से बिल्ट‑इन गुण को कैसे हटाया जा सकता है?**
 
-निर्मित गुण प्रस्तुतिकरण का अभिन्न भाग होते हैं और उन्हें पूरी तरह हटाया नहीं जा सकता। हालांकि, आप उनके मान को बदल सकते हैं या यदि उस विशिष्ट गुण की अनुमति हो तो उन्हें खाली सेट कर सकते हैं।
+बिल्ट‑इन गुण प्रस्तुति का अभिन्न हिस्सा हैं और उन्हें पूरी तरह हटाया नहीं जा सकता। हालांकि, आप उनके मान बदल सकते हैं या यदि विशिष्ट गुण अनुमति देता है तो उन्हें खाली सेट कर सकते हैं।
 
-**यदि मैं ऐसे कस्टम गुण को जोड़ूँ जो पहले से मौजूद है तो क्या होगा?**
+**यदि मैं एक कस्टम गुण जोड़ता हूं जो पहले से मौजूद है तो क्या होता है?**
 
-यदि आप ऐसा कस्टम गुण जोड़ते हैं जो पहले से मौजूद है, तो उसका मौजूदा मान नए मान से अधिलेखित हो जाएगा। आपको गुण को हटाने या पहले जाँचने की आवश्यकता नहीं है, क्योंकि Aspose.Slides स्वचालित रूप से गुण के मान को अपडेट कर देता है।
+यदि आप एक कस्टम गुण जोड़ते हैं जो पहले से मौजूद है, तो उसका मौजूदा मान नए मान से ओवरराइट हो जाएगा। आपको पहले से गुण को हटाने या जांचने की आवश्यकता नहीं है, क्योंकि Aspose.Slides स्वचालित रूप से गुण के मान को अपडेट कर देता है।
 
-**क्या मैं पूर्ण प्रस्तुतिकरण लोड किए बिना प्रस्तुतिकरण गुणों तक पहुंच सकता हूँ?**
+**क्या मैं पूरी तरह प्रस्तुति लोड किए बिना प्रस्तुति गुणों तक पहुंच सकता हूं?**
 
-हां। [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) का उपयोग करें और फिर [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) के साथ बिना [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) इंस्टांस बनाए संग्रहीत दस्तावेज़ मेटाडेटा पढ़ें। संपूर्ण रिपोर्ट उदाहरण और फ़ॉर्मेट‑विशिष्ट सीमाओं के लिए देखें [Build a Lightweight Presentation Inventory](/slides/hi/java/examine-presentation/)।
+Yes. Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) and then [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) instance. See [हल्की प्रस्तुति सूची बनाना](/slides/hi/java/examine-presentation/) for a complete reporting example and format-specific limitations.
 
-**क्या मैं एन्क्रिप्टेड प्रस्तुतिकरण के सार्वजनिक गुणों को बिना खोलने वाले पासवर्ड के पढ़ सकता हूँ?**
+**क्या मैं एन्क्रिप्टेड प्रस्तुति के सार्वजनिक गुणों को उसके खोलने वाले पासवर्ड के बिना पढ़ सकता हूं?**
 
-हां। प्रस्तुतिकरण को [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) को `false` के साथ कॉल करने के बाद एन्क्रिप्ट किया गया होना चाहिए, और इसे [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) को `true` के साथ कॉल करके लोड किया गया होना चाहिए।
+Yes. The presentation must have been encrypted after calling [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) with `false`, and it must be loaded after calling [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) with `true`.
 
-**क्या मैं दस्तावेज़‑गुण‑केवल मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूँ?**
+**क्या मैं दस्तावेज़‑गुण‑केवल मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूं?**
 
-नहीं। सार्वजनिक और एन्क्रिप्टेड गुण डेटा को सुसंगत रहना चाहिए, इसलिए एन्क्रिप्टेड PPTX फ़ाइल को अपडेट करने के लिए सही खोलने वाले पासवर्ड के साथ पूर्ण प्रस्तुतिकरण लोड करना आवश्यक है।
+No. Public and encrypted property data must remain consistent, so updating an encrypted PPTX file requires loading the complete presentation with the correct opening password.

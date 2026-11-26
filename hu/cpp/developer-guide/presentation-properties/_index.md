@@ -1,55 +1,56 @@
 ---
-title: Prezentációtulajdonságok kezelése C++-ban
-linktitle: Prezentációtulajdonságok
+title: Prezentáció tulajdonságok kezelése C++-ban
+linktitle: Prezentáció tulajdonságok
 type: docs
 weight: 70
 url: /hu/cpp/presentation-properties/
 keywords:
 - PowerPoint tulajdonságok
-- prezentációtulajdonságok
+- prezentáció tulajdonságok
 - dokumentumtulajdonságok
 - beépített tulajdonságok
 - egyéni tulajdonságok
 - haladó tulajdonságok
 - tulajdonságok kezelése
 - tulajdonságok módosítása
-- dokumentum metaadata
+- dokumentum metaadatok
 - metaadatok szerkesztése
-- helyesírási nyelv
+- ellenőrzési nyelv
 - alapértelmezett nyelv
 - PowerPoint
 - OpenDocument
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Kezelje a prezentációtulajdonságokat az Aspose.Slides for C++ segítségével, és egyszerűsítse a keresést, a márkázást és a munkafolyamatot PowerPoint és OpenDocument fájljaiban."
+description: "Kezelje a prezentáció tulajdonságait az Aspose.Slides for C++ segítségével, és egyszerűsítse a keresést, a márkajelzést és a munkafolyamatot a PowerPoint és OpenDocument fájljaiban."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for C++ támogatja a **beépített** és **egyéni** dokumentum tulajdonságokat. Ezeket a tulajdonságokat a bemutató metaadatainak olvasására és frissítésére használhatja, például a szerző, a cím és a felhasználó által meghatározott értékek esetén.
+Az Aspose.Slides for C++ **beépített** és **egyéni** dokumentumtulajdonságokat támogat. Ezeket a tulajdonságokat a prezentáció metaadatainak, például a szerző, a cím és a felhasználó által definiált értékek olvasására és frissítésére használhatja.
 
-Az Aspose.Slides lehetővé teszi, hogy a prezentáció dokumentum tulajdonságokkal dolgozzon az [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) felületen keresztül. Ennek a felületnek egy példánya a [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) hívásával érhető el. A következő példák bemutatják, hogyan olvashatók, módosíthatók és kezelhetők ezek a tulajdonságok.
+Az Aspose.Slides lehetővé teszi, hogy a prezentáció dokumentumtulajdonságokkal a [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) felületen keresztül dolgozzon. Az interfész egy példányát a [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) metódus adja vissza. Az alábbi példák bemutatják, hogyan lehet ezeket a tulajdonságokat olvasni, módosítani és kezelni.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides kezeli az alkalmazás- és termelő metaadatokat a prezentációk mentésekor; ezek a mezők azonosítják a kimenetet létrehozó szoftvert.
+Az Aspose.Slides kezeli az alkalmazás és a gyártó metaadatait a prezentációk mentésekor; ezek a mezők azonosítják a kimenetet létrehozó szoftvert.
 {{% /alert %}}
 
 ## **Prezentációtulajdonságok kezelése**
 
-Dokumentumtulajdonságok tárolják a leíró információkat a prezentáció tartalma mellett. Két kategóriába sorolhatók:
+A dokumentumtulajdonságok leíró információkat tárolnak a prezentációtartalom mellett. Két kategóriába sorolhatók:
 
-- **Beépített tulajdonságok** standard metaadatokat tartalmaznak, például a címet, a szerzőt és a dokumentum statisztikákat.
-- **Egyéni tulajdonságok** felhasználó által definiált név/érték párokat tárolnak.
+- **Beépített tulajdonságok** tartalmazzák a szabványos metaadatokat, például a címet, a szerzőt és a dokumentum statisztikákat.
+- **Egyéni tulajdonságok** tárolják a felhasználó által meghatározott név/érték párokat.
 
-Az Aspose.Slides for C++ hozzáférést biztosít mindkét kategóriához. PowerPointban válassza a **File → Info → Properties → Advanced Properties** menüt a dokumentum metaadatainak megtekintéséhez. A párbeszédablak információkat csoportosít fülekbe, mint például **Summary**, **Statistics**, **Contents** és **Custom**. Használja a **Custom** fület a felhasználó által definiált tulajdonságok kezeléséhez.
+Az Aspose.Slides for C++ mindkét kategóriához hozzáférést biztosít. PowerPointban válassza a **File → Info → Properties → Advanced Properties** lehetőséget a dokumentum metaadatok megtekintéséhez. A párbeszédpanel az információkat **Summary**, **Statistics**, **Contents** és **Custom** lapokra csoportosítja. Az **Custom** lap segítségével kezelheti a felhasználó által definiált tulajdonságokat.
 
-## **Nyilvános tulajdonságok olvasása titkosított prezentációból**
+## **Publikus tulajdonságok olvasása titkosított prezentációból**
 
-A megnyitási jelszó általában védi a prezentáció tartalmát és a dokumentumtulajdonságokat is. Amikor egy prezentációt a [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) metódus `false` értékével titkosítják, a dokumentumtulajdonságai nyilvánosak maradnak. Egy alkalmazás ezután `true` értékkel adhatja át a [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) metódusnak, és a nyilvános metaadatokat a megnyitási jelszó megadása nélkül olvashatja.
+Általában egy nyitó jelszó védi a prezentáció tartalmát és a dokumentumtulajdonságokat egyaránt. Ha egy prezentációt úgy titkosítanak, hogy a [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) metódusnak `false` értéket adnak át, akkor a dokumentumtulajdonságok nyilvánosak maradnak. Az alkalmazás ezután `true` értékkel hívhatja a [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) metódust, és a nyitó jelszó megadása nélkül olvashatja a publikus metaadatokat.
 
-A [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) szabályozza, hogy az Aspose.Slides mit tölt be; nem titkosít fel semmit. Ha a tulajdonságok a titkosítás részei voltak, a jelszó nélkül történő betöltés sikertelen. Ha a prezentáció nincs titkosítva, az opciót figyelmen kívül hagyja, és a teljes prezentáció betöltődik.
+[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) vezérli, hogy az Aspose.Slides mit tölt be; nem fejti meg a titkosítást. Ha a tulajdonságok a titkosítással együtt kerültek be, jelszó nélkül a betöltés nem sikerül. Nem titkosított prezentáció esetén a beállítást figyelmen kívül hagyja, és a teljes prezentációt betölti.
 
-A példához egy titkosított prezentációra van szükség, amelynek a dokumentumtulajdonságai nyilvánosak maradtak. Ellenőrzi a betöltési módot a [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) metódussal, majd a beépített tulajdonságokat a [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) segítségével olvassa:
+A példa egy olyan titkosított prezentációt igényel, amelynek dokumentumtulajdonságai nyilvánosak maradtak. Ellenőrzi a betöltési módot a [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) segítségével, majd a [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) segítségével beolvassa a beépített tulajdonságokat:
+
 ```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
@@ -78,17 +79,18 @@ else
 }
 ```
 
-Ebben a módban a diák tartalma nincs betöltve. Diák, mester- diák, elrendezések, alakzatok, média és egyéb prezentációs objektumok nem érhetők el. Az alkalmazásoknak mindig ellenőrizniük kell a [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) metódust, mielőtt olyan műveletet hajtanának végre, amely a teljes prezentációs objektummodellt igényli.
+Ebben a módban a diák tartalma nem kerül betöltésre. Diák, mesteroldalak, elrendezések, alakzatok, média és egyéb prezentációs objektumok nem érhetők el. Az alkalmazásoknak mindig ellenőrizniük kell a [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) állapotát, mielőtt olyan műveletet végeznek, amely a teljes prezentációs objektummodellt igényli.
 
 {{% alert color="warning" title="Security" %}}
-A nyilvános metaadatok felfedhetik a szerzőneveket, címeket, tárgyakat, kulcsszavakat, céginformációkat, megjegyzéseket és egyéni értékeket. Titkosítsa az érzékeny tulajdonságokat a prezentációval együtt. Hagyja nyilvánosan csak akkor, ha indexelés, osztályozás, keresés vagy dokumentumkezelő rendszereknek konkrét követelménye van arra, hogy jelszó nélkül hozzáférjenek.
+A publikus metaadatok felfedhetik a szerző neveit, címeket, tárgyakat, kulcsszavakat, céginformációkat, megjegyzéseket és egyéni értékeket. Titkosítsa az érzékeny tulajdonságokat a prezentációval együtt. A publikus maradást csak akkor alkalmazza, ha indexelésnek, osztályozásnak, keresésnek vagy dokumentumkezelő rendszereknek kifejezett szükségük van a jelszó nélküli hozzáférésre.
 {{% /alert %}}
 
 ## **Titkosított prezentáció tulajdonságainak frissítése**
 
-Titkosított PPTX fájl esetén a [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) `true` paraméterrel betöltött prezentáció a nyilvános metaadatok olvasására szolgál. Az Aspose.Slides nem tudja menteni a módosított tulajdonságokat ebből a csak metaadatot tartalmazó objektumból, mivel a nyilvános tulajdonságoknak egyezniük kell a titkosított prezentációban lévő megfelelő adatokkaL. Ennek frissítéséhez a helyes megnyitási jelszó és a teljes betöltés szükséges.
+Titkosított PPTX fájl esetén a [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) `true` értékkel történő betöltése csak a publikus metaadatok olvasására szolgál. Az Aspose.Slides nem tudja menteni a módosított tulajdonságokat ebből a csak metaadat-objektumból, mert a publikus tulajdonságoknak összhangban kell lenniük a titkosított prezentációban tárolt adatokkal. Ennek frissítése ezért a helyes nyitó jelszót és a teljes betöltést igényli.
 
-A példához egy titkosított PPTX prezentációra van szükség, amelynek a dokumentumtulajdonságai nyilvánosak, és ismert a megnyitási jelszó. A teljes prezentációt a [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) segítségével nyitja meg, frissíti a nyilvános beépített tulajdonságokat, és elmenti az eredményt. Ezután a [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) segítségével ellenőrzi, hogy a titkosítás megmaradt-e, és jelszó nélkül újra megnyitja a nyilvános metaadatokat az új értékek ellenőrzéséhez:
+A példa egy olyan titkosított PPTX prezentációt igényel, amelynek dokumentumtulajdonságai nyilvánosak és ismert a nyitó jelszó. A teljes prezentációt a [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) segítségével nyitja meg, frissíti a publikus beépített tulajdonságokat, és menti az eredményt. Ezután a [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) segítségével ellenőrzi, hogy a titkosítás megmaradt, és a publikus metaadatot jelszó nélkül újra megnyitja az új értékek ellenőrzésére:
+
 ```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
@@ -135,11 +137,12 @@ else
 }
 ```
 
-Ha egy alkalmazás nem jogosult a prezentáció tartalmának visszafejtésére vagy betöltésére, akkor a titkosított PPTX fájl nyilvános tulajdonságait csak olvashatóként kell kezelnie.
+Ha egy alkalmazás nem rendelkezik jogosultsággal a prezentáció tartalmának visszafejtésére vagy betöltésére, a titkosított PPTX fájl publikus tulajdonságait csak olvasásra tekinthetőnek kell tekinteni.
 
 ## **Beépített tulajdonságok elérése**
 
-Az [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) felület beépített metaadatokat tesz elérhetővé típusos lekérdezőkkel, többek között a [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), a [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) és a [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/) metódusokkal. Ez a példa egy meglévő prezentációt nyit meg, és a tárolt metaadatokat kiírja a konzolra. Az értékek a bemeneti prezentációtól függenek; egyes mezők üresek lehetnek.
+Az [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) felület a beépített metaadatokat típusos getterekkel teszi elérhetővé, beleértve a [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) és [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/) metódusokat. Ez a példa egy meglévő prezentációt nyit meg, és a konzolra írja a tárolt metaadatokat. Az értékek a bemeneti prezentációtól függnek; egyes mezők üresek lehetnek.
+
 ```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
@@ -167,9 +170,49 @@ System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
 System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
 ```
 
+### **Jelentés a revíziószámról és a szerkesztési időről**
+
+Használja a [GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) és a [ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) metódusokat az egyes fájlok [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) beolvasásához anélkül, hogy a diák betöltésre kerülnének a szerkesztéshez. Ez a példa egy sort nyomtat ki PPTX fájlonként a `presentations` mappában. A szabványos `c` formátum tartalmazza a napok számát, amikor a rögzített szerkesztési idő eléri a 24 órát.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/timespan.h>
+
+using namespace Aspose::Slides;
+using namespace System::IO;
+
+System::Console::WriteLine(u"File | RevisionNumber | TotalEditingTime");
+auto paths = Directory::GetFiles(u"presentations", u"*.pptx");
+for (const auto& path : paths)
+{
+    auto info = PresentationFactory::get_Instance()->GetPresentationInfo(path);
+    auto properties = info->ReadDocumentProperties();
+    auto fileName = Path::GetFileName(path);
+    auto editingTime = properties->get_TotalEditingTime().ToString(u"c");
+    System::Console::WriteLine(u"{0} | {1} | {2}", fileName, properties->get_RevisionNumber(), editingTime);
+}
+```
+
+Egy 1 nap, 2 óra és 5 perc rögzített szerkesztési idővel rendelkező prezentáció esetén a jelentés a következőképpen néz ki:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[get_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_revisionnumber/) metaadatértéket olvas, amelyet az alkalmazások a [set_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_revisionnumber/) segítségével módosíthatnak. Ez az érték önmagában nem határozza meg, hányszor mentették a prezentációt, vagy hogyan néz ki a verziótörténet.
+
+[get_TotalEditingTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_totaleditingtime/) visszaadja a fájlban rögzített szerkesztési időtartamot. A `00:00:00` érték azt jelenti, hogy a tárolt időtartam nulla. A prezentációt továbbra is szerkeszthették.
+
 ## **Beépített tulajdonságok módosítása**
 
-A beépített metaadatok frissítéséhez használja a [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) által visszaadott objektum beállítóit. Ez a példa egy meglévő prezentációt nyit meg, meghívja a [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) és [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/) metódusokat, majd a [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) segítségével elmenti a módosított prezentációt. A mentett PPTX tartalmazza az új metaadatokat.
+A beépített metaadatok frissítéséhez használja a [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) által visszaadott objektum setter‑eit. Ez a példa egy meglévő prezentációt nyit meg, meghívja a [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) és [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/) metódusokat, majd a [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) segítségével menti a frissített prezentációt. A mentett PPTX tartalmazza az új metaadatokat.
+
 ```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
@@ -194,9 +237,10 @@ presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
 
 ## **A hiperhivatkozás alapjának kezelése**
 
-Az [IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) beolvassa a relatív hiperhivatkozások dokumentumszintű alapját. Ez akkor hasznos, amikor egy prezentációt és a hozzá kapcsolt fájlokat egy másik helyre mozgatják. Ez különbözik egyedi hiperhivatkozás [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) értékétől: az alap módosítása nem írja át a tárolt hivatkozási címeket, vagy nem változtatja meg a abszolút célpontokat.
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) kiolvassa a dokumentumszintű alapot a relatív hiperhivatkozásokhoz. Ez akkor hasznos, amikor egy prezentációt és a hozzá kapcsolódó fájlokat más helyre mozgatjuk. Különálló az egyes hiperhivatkozások [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) értékétől: az alap megváltoztatása nem írja felül a tárolt hivatkozási címeket, és nem módosítja az abszolút célpontokat.
 
-A példához egy olyan prezentációra van szükség, amely tartalmaz egy relatív hivatkozást, például `target.html`, és egy abszolút hivatkozást, például `https://example.org/absolute.html`. A meglévő alapot beolvassa, egy új alapcímet állít be az [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) segítségével, majd elmenti és újra megnyitja a prezentációt az érték ellenőrzéséhez. Ezután a `u""` értékkel törli az alapot, és egy külön mentett fájlban ellenőrzi az üres értéket. Cserélje le a példában szereplő alapcímét a saját hivatkozott fájljainak helyére.
+A példa egy olyan prezentációt igényel, amely tartalmaz egy relatív linket, például `target.html`, és egy abszolút linket, például `https://example.org/absolute.html`. Kiolvassa a meglévő alapot, egy új alapcímet ad meg a [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) segítségével, majd menti és újra megnyitja a prezentációt az érték ellenőrzéséhez. Ezután a `u""` értékkel törli az alapot, és egy külön mentett fájlban ellenőrzi az üres értéket. Cserélje ki a példában szereplő alapcímet a saját linkfájljainak helyére.
+
 ```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
@@ -224,13 +268,14 @@ auto clearedPresentation = System::MakeObject<Presentation>(u"hyperlinks-cleared
 System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_DocumentProperties()->get_HyperlinkBase() == u""));
 ```
 
-A két ellenőrző üzenetnek `True` értéket kell kiírnia. Az alap törlése nem érinti az egyedi hiperhivatkozási címeket.
+A két ellenőrző üzenetnek `True`‑t kell kiírnia. Az alap törlése nem érinti az egyes hiperhivatkozás-címeket.
 
-Egy relatív hivatkozás a `target.pptx` fájlra a `old/target.pptx`-t nyitotta meg, amikor az alap az `old` mappára mutatott. Az alap `new` mappára történő módosítása, a mentés és a prezentáció újranyitása után ugyanaz a hivatkozás a `new/target.pptx`-t nyitotta meg. Egy abszolút hivatkozás továbbra is ugyanazt a fájlt nyitotta meg. Tesztelje a relatív hivatkozásait a PowerPointban a prezentáció áthelyezése vagy az alap módosítása előtt és után.
+Egy relatív hivatkozás a `target.pptx` fájlra a `old/target.pptx`-t nyitotta meg, amikor az alap a `old` mappára mutatott. Az alap `new` mappára történő módosítása, a mentés és a prezentáció újra megnyitása után ugyanaz a hivatkozás a `new/target.pptx`-t nyitja meg. Az abszolút hivatkozás továbbra is ugyanazt a fájlt nyitja. Tesztelje a relatív hivatkozásokat PowerPointban a prezentáció áthelyezése vagy az alap módosítása előtt és után.
 
 ## **Egyéni prezentációtulajdonságok hozzáadása**
 
-Az egyéni tulajdonságok olyan metaadatokat tárolnak, amelyeknek nincs megfelelő beépített mezője. Az [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) lehetővé teszi érték hozzárendelését a tulajdonság nevével. Ez a példa egy prezentációt hoz létre, két szöveges értéket és egy egész verzióértéket ad hozzá, majd a [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) segítségével elmenti a prezentációt. Egy már létező névhez érték hozzárendelése felülírja a tulajdonság értékét.
+Az egyéni tulajdonságok olyan metaadatot tárolnak, amelyhez nincs megfelelő beépített mező. A [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) lehetővé teszi, hogy a tulajdonság nevét használva értéket rendeljünk hozzá. Ez a példa egy prezentációt hoz létre, két szöveges értéket és egy egész számú verzióértéket ad hozzá, majd a [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) segítségével menti a prezentációt. Meglévő névhez érték hozzárendelése felülírja az adott tulajdonság értékét.
+
 ```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
@@ -254,7 +299,8 @@ presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
 
 ## **Egyéni tulajdonságok elérése és módosítása**
 
-Ez a példa egy egyéni tulajdonságokat tartalmazó prezentációt nyit meg, és a [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) segítségével iterál rajtuk. A [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) nulla alapú indexet fogad, és visszaadja a [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) és [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) által használt nevet. A példa kiírja minden eredeti nevet és értéket, minden értéket számozott karakterlánccal helyettesít az eredeti típusától függetlenül, és elmenti a változtatásokat. Ha nincsenek egyéni tulajdonságok, a ciklus nem végez módosítást.
+Ez a példa egy olyan prezentációt nyit meg, amely egyéni tulajdonságokat tartalmaz, és a [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) segítségével végigiterál rajtuk. A [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) nulla‑bázisú indexet fogad, és visszaadja a [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) és [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) által használt nevet. A példa kiírja az eredeti nevet és értéket, minden értéket egy számozott karakterláncra cserél, függetlenül az eredeti típusától, majd menti a változásokat. Ha nincsenek egyéni tulajdonságok, a ciklus nem végzi el a módosítást.
+
 ```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
@@ -285,27 +331,28 @@ presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 
 ## **Élő példa**
 
-Próbálja ki a [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) online alkalmazást, hogy lássa, hogyan dolgozhat a dokumentumtulajdonságokkal az Aspose.Slides API segítségével:
+Próbálja ki az online [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) alkalmazást, hogy lássa, hogyan dolgozhat a dokumentumtulajdonságokkal az Aspose.Slides API segítségével:
+
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **GYIK**
 
 **Hogyan távolíthatok el egy beépített tulajdonságot egy prezentációból?**
 
-A beépített tulajdonságok a prezentáció szerves részei, és nem távolíthatók el teljesen. Azonban módosíthatja az értéküket, vagy üresre állíthatja őket, ha az adott tulajdonság ezt megengedi.
+A beépített tulajdonságok a prezentáció szerves részei, és nem távolíthatók el teljesen. Azonban megváltoztathatja az értéküket, vagy ha a konkrét tulajdonság megengedi, üresre állíthatja őket.
 
-**Mi történik, ha olyan egyéni tulajdonságot adok hozzá, amely már létezik?**
+**Mi történik, ha egy már meglévő egyéni tulajdonságot adok hozzá?**
 
-Ha olyan egyéni tulajdonságot ad hozzá, amely már létezik, a meglévő érték felül lesz írva az újjal. Nem szükséges előzetesen eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti a tulajdonság értékét.
+Ha egy már létező egyéni tulajdonságot ad hozzá, a meglévő érték felülíródik az újjal. Nem szükséges előre eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti annak értékét.
 
-**Hozzáférek a prezentáció tulajdonságaihoz anélkül, hogy teljesen betölteném a prezentációt?**
+**Elérhetem a prezentáció tulajdonságait a teljes prezentáció betöltése nélkül?**
 
-Igen. Használja a [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) metódust, majd a [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) metódust a tárolt dokumentum metaadatok olvasásához anélkül, hogy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) példányt hozna létre. Tekintse meg a [Build a Lightweight Presentation Inventory](/slides/hu/cpp/examine-presentation/) oldalt egy teljes jelentési példáért és a formátumspecifikus korlátozásokért.
+Igen. Használja a [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) metódust, majd a [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) segítségével olvassa a tárolt dokumentum metaadatait anélkül, hogy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) példányt hozna létre. Lásd a [Build a Lightweight Presentation Inventory](/slides/hu/cpp/examine-presentation/) példát a teljes jelentéshez és a formátumspecifikus korlátozásokhoz.
 
-**Olvashatom a nyilvános tulajdonságokat egy titkosított prezentációból anélkül, hogy megadnám a megnyitási jelszavát?**
+**Olvashatok publikus tulajdonságokat egy titkosított prezentációból a nyitó jelszó nélkül?**
 
-Igen. A prezentációt úgy kell titkosítani, hogy a [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) metódusnak `false` értéket adunk, és a [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) metódusnak `true` értékét kell átadni a betöltéshez.
+Igen. A prezentációt úgy kell titkosítani, hogy a [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) `false` értéket kap, majd a [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) `true` értékkel legyen betöltve.
 
 **Frissíthetek egy titkosított PPTX fájlt csak dokumentumtulajdonságok módjában?**
 
-Nem. A nyilvános és a titkosított tulajdonságadatoknak konzisztensnek kell maradniuk, ezért egy titkosított PPTX fájl frissítéséhez a teljes prezentációt a megfelelő megnyitási jelszóval kell betölteni.
+Nem. A publikus és a titkosított tulajdonságok adatainak összhangban kell maradniuk, így egy titkosított PPTX fájl frissítése a helyes nyitó jelszóval történő teljes betöltést igényli.

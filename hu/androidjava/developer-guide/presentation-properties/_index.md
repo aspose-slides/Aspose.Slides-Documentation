@@ -9,13 +9,13 @@ keywords:
 - prezentáció tulajdonságok
 - dokumentum tulajdonságok
 - beépített tulajdonságok
-- egyéni tulajdonságok
+- egyedi tulajdonságok
 - haladó tulajdonságok
 - tulajdonságok kezelése
 - tulajdonságok módosítása
 - dokumentum metaadatok
 - metaadatok szerkesztése
-- ellenőrző nyelv
+- helyesírási nyelv
 - alapértelmezett nyelv
 - PowerPoint
 - OpenDocument
@@ -27,30 +27,30 @@ description: "Kezelje a prezentáció tulajdonságait az Aspose.Slides for Andro
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for Android via Java támogatja a **beépített** és **egyéni** dokumentumtulajdonságokat. Ezeket a tulajdonságokat használhatja a prezentáció metaadatainak olvasására és frissítésére, például a szerzőre, címre és a felhasználó által meghatározott értékekre.
+Az Aspose.Slides for Android via Java támogatja a **beépített** és **egyedi** dokumentumtulajdonságokat. Használja ezeket a tulajdonságokat a bemutató metaadatainak olvasásához és frissítéséhez, például a szerző, a cím és a felhasználó által meghatározott értékek esetén.
 
-Az Aspose.Slides lehetővé teszi a prezentáció dokumentumtulajdonságokkal való munkát a [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) felületen keresztül. Ennek a felületnek egy példányát a [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) adja vissza. Az alábbi példák bemutatják, hogyan lehet ezeket a tulajdonságokat olvasni, módosítani és kezelni.
+Az Aspose.Slides lehetővé teszi a bemutató dokumentumtulajdonságokkal való munkát a [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) interfészen keresztül. Ennek az interfésznek egy példánya a [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) metódusával érhető el. A következő példák bemutatják, hogyan lehet olvasni, módosítani és kezelni ezeket a tulajdonságokat.
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides a mentéskor kezeli az alkalmazás- és gyártói metaadatokat; ezek a mezők azonosítják a kimenetet létrehozó szoftvert.
+Az Aspose.Slides kezeli az alkalmazás- és gyártói metaadatokat a prezentációk mentésekor; ezek a mezők azonosítják a kimenetet létrehozó szoftvert.
 {{% /alert %}}
 
 ## **A prezentáció tulajdonságainak kezelése**
 
-A dokumentumtulajdonságok leíró információkat tárolnak a prezentáció tartalma mellett. Két kategóriába sorolhatók:
+A dokumentumtulajdonságok leíró információkat tárolnak a bemutató tartalma mellett. Két kategóriába sorolhatók:
 
-- **Beépített tulajdonságok** szabványos metaadatokat tartalmaznak, mint a cím, szerző és a dokumentum statisztikái.
-- **Egyéni tulajdonságok** felhasználó által meghatározott név/érték párokat tárolnak.
+- **Beépített tulajdonságok** szabványos metaadatokat tartalmaznak, például a címet, a szerzőt és a dokumentum statisztikákat.
+- **Egyedi tulajdonságok** felhasználó által meghatározott név/érték párokat tárolnak.
 
-Az Aspose.Slides for Android via Java mindkét kategóriához hozzáférést biztosít. A PowerPointban válassza a **File → Info → Properties → Advanced Properties** menüpontot a dokumentum metaadatainak megtekintéséhez. A párbeszédablak információkat csoportosít fülekre, mint **Summary**, **Statistics**, **Contents** és **Custom**. Használja a **Custom** fület a felhasználó által meghatározott tulajdonságok kezeléséhez.
+Az Aspose.Slides for Android via Java hozzáférést biztosít mindkét kategóriához. A PowerPointban válassza a **File → Info → Properties → Advanced Properties** menüpontot a dokumentum metaadatainak megtekintéséhez. A párbeszédpanel az információkat olyan fülekre csoportosítja, mint a **Summary**, **Statistics**, **Contents** és **Custom**. Használja a **Custom** fület a felhasználó által definiált tulajdonságok kezeléséhez.
 
 ## **Nyilvános tulajdonságok olvasása titkosított prezentációból**
 
-A megnyitási jelszó általában védi a prezentáció tartalmát és a dokumentumtulajdonságokat is. Ha a prezentációt úgy titkosítják, hogy a [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) értéke `false`, a dokumentumtulajdonságok nyilvánosak maradnak. Ezután az alkalmazás hívhatja a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) metódust `true` értékkel, és a nyilvános metaadatokat a megnyitási jelszó megadása nélkül is olvashatja.
+A megnyitási jelszó általában védi a prezentáció tartalmát és a dokumentumtulajdonságokat is. Ha egy prezentációt a [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` értékkel hívás után titkosítanak, a dokumentumtulajdonságai nyilvánosak maradnak. Egy alkalmazás ezután a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` értékkel hívásával olvashatja a nyilvános metaadatokat a megnyitási jelszó megadása nélkül.
 
-A [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) azt szabályozza, hogy az Aspose.Slides mit tölt be; semmit sem titkosít vissza. Ha a tulajdonságok a titkosítás részét képezték, a jelszó nélkül történő betöltés hibát eredményez. Ha a prezentáció nincs titkosítva, a beállítás figyelmen kívül marad, és a teljes prezentáció betöltődik.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) szabályozza, hogy az Aspose.Slides mit tölt be; semmit sem titkosít vissza. Ha a tulajdonságok a titkosítás részei voltak, a jelszó nélkül történő betöltés sikertelen. Ha a prezentáció nincs titkosítva, az opciót figyelmen kívül hagyják, és a teljes prezentáció betöltődik.
 
-A példához egy olyan titkosított prezentációra van szükség, amelynek dokumentumtulajdonságai nyilvánosak. A [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) metódussal ellenőrizzük a betöltési módot, majd a [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) segítségével olvassuk a beépített tulajdonságokat:
+A példához egy olyan titkosított prezentációra van szükség, amelynek dokumentumtulajdonságai nyilvánosak maradtak. A betöltési módot az [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) ellenőrzi, majd a beépített tulajdonságokat a [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) segítségével olvassa:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -76,17 +76,17 @@ try {
 }
 ```
 
-Ebben a módban a dia tartalma nem kerül betöltésre. A diák, a főbb minta, elrendezések, alakzatok, média és egyéb prezentációs objektumok nem érhetők el. Az alkalmazásoknak mindig ellenőrizniük kell a [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) értékét, mielőtt olyan műveletet végeznek, amely a teljes objektummodellt igényli.
+Ebben a módban a dia tartalma nem töltődik be. A diák, mesterdiák, elrendezések, alakzatok, média és egyéb prezentációs objektumok nem állnak rendelkezésre. Az alkalmazásoknak mindig ellenőrizniük kell az [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) metódust, mielőtt olyan műveletet hajtanának végre, amely a teljes prezentációs objektummodellt igényli.
 
 {{% alert color="warning" title="Warning" %}}
-A nyilvános metaadatok felfedhetik a szerző nevét, címét, tárgyát, kulcsszavait, céginformációit, megjegyzéseit és egyéni értékeit. Titkosítsa az érzékeny tulajdonságokat a prezentációval együtt. Csak olyan esetben hagyja nyilvánosnak, ha indexelés, osztályozás, keresés vagy dokumentumkezelő rendszereknek konkrétan szükségük van rá jelszó nélkül.
+A nyilvános metaadatok felfedhetik a szerző neveket, címeket, tárgyakat, kulcsszavakat, vállalati információkat, megjegyzéseket és egyedi értékeket. Titkosítsa az érzékeny tulajdonságokat a prezentációval együtt. Csak akkor hagyja nyilvánosan, ha az indexelés, besorolás, keresés vagy dokumentumkezelő rendszereknek kifejezett igénye van a jelszó nélküli hozzáféréshez.
 {{% /alert %}}
 
 ## **Titkosított prezentáció tulajdonságainak frissítése**
 
-Titkosított PPTX fájl esetén a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` értékkel történő betöltése csak a nyilvános metaadatok olvasására szolgál. Az Aspose.Slides nem tudja menteni a módosított tulajdonságokat ebből a metaadat‑csak objektumból, mert a nyilvános tulajdonságoknak meg kell egyezniük a titkosított prezentációban tárolt adatokkal. A módosításhoz szükség van a helyes megnyitási jelszóra és a teljes betöltésre.
+Titkosított PPTX fájl esetén a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` értékkel hívás után betöltött prezentáció a nyilvános metaadatok olvasására szolgál. Az Aspose.Slides nem tudja menteni a módosított tulajdonságokat ebből a csak metaadatokat tartalmazó objektumból, mivel a nyilvános tulajdonságoknak következetesnek kell maradniuk a titkosított prezentáción belüli megfelelő adatokkal. Ennek frissítéséhez ezért a helyes megnyitási jelszó és a teljes betöltés szükséges.
 
-A példához egy nyilvános dokumentumtulajdonságokkal rendelkező titkosított PPTX‑re és egy ismert megnyitási jelszóra van szükség. A teljes prezentációt a [LoadOptions.setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) segítségével nyitjuk meg, frissítjük a nyilvános beépített tulajdonságokat, és mentjük az eredményt. Ezután a [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#isEncrypted--) metódussal ellenőrizzük, hogy a titkosítás megmaradt, és a nyilvános metaadatokat jelszó nélkül nyitjuk meg az új értékek ellenőrzéséhez:
+A példához egy olyan titkosított PPTX prezentációra van szükség, amelynek dokumentumtulajdonságai nyilvánosak, és a megnyitási jelszó ismert. A teljes prezentációt a [LoadOptions.setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) segítségével nyitja meg, frissíti a nyilvános beépített tulajdonságokat, majd menti az eredményt. Ezután a [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#isEncrypted--) használatával ellenőrzi, hogy a titkosítás megmaradt, és a nyilvános metaadatokat jelszó nélkül nyitja újra a új értékek ellenőrzéséhez:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -132,11 +132,11 @@ try {
 }
 ```
 
-Ha egy alkalmazás nem jogosult a prezentáció tartalmának visszafejtésére vagy betöltésére, a titkosított PPTX nyilvános tulajdonságait csak olvasási módban kezelheti.
+Ha egy alkalmazásnak nem engedélyezett a prezentáció tartalmának visszafejtése vagy betöltése, akkor egy titkosított PPTX fájl nyilvános tulajdonságait csak olvashatóként kell kezelnie.
 
 ## **Beépített tulajdonságok elérése**
 
-Az [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) felület getter metódusokkal teszi elérhetővé a beépített metaadatokat, ideértve a [getAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getAuthor--), a [getTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getTitle--) és a [getCreatedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCreatedTime--) metódusokat. Ez a példa megnyit egy meglévő prezentációt és a konzolra írja a tárolt metaadatokat. Az értékek a bemeneti prezentációtól függenek; egyes mezők üresek lehetnek.
+Az [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) interfész getter metódusokkal teszi elérhetővé a beépített metaadatokat, beleértve a [getAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getAuthor--), [getTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getTitle--) és a [getCreatedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCreatedTime--) metódusokat. Ez a példa megnyit egy meglévő prezentációt, és kiírja a tárolt metaadatait a konzolra. Az értékek a bemeneti prezentációtól függenek; egyes mezők üresek lehetnek.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -165,9 +165,52 @@ try {
 }
 ```
 
+### **Verziószám és szerkesztési idő jelentése**
+
+Ahhoz, hogy egy sort jelentsenek a mappában lévő minden PPTX fájlhoz, amelyet az Android alkalmazás olvasni tud, hívja a [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) metódust, hogy a [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) objektumot a diák betöltése nélkül olvassa. Az Android via Java API a szerkesztési időt ezredmásodpercben adja vissza. Cserélje le a minta mappautat a saját fájljai útvonalára. A példa a időt órákra, percekre és másodpercekre formázza, napokkal a 24 órán vagy annál hosszabb időtartamok esetén.
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.io.File;
+import java.util.Locale;
+
+File folder = new File("/path/to/presentations");
+File[] files = folder.listFiles();
+if (files == null) {
+    System.out.println("Cannot list files in " + folder);
+} else {
+    System.out.println("File | RevisionNumber | TotalEditingTime");
+    for (File file : files) {
+        if (!file.isFile() || !file.getName().toLowerCase(Locale.ROOT).endsWith(".pptx")) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(file.getAbsolutePath());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format(Locale.ROOT, "%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf(Locale.ROOT, "%s | %d | %s%n", file.getName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+Egy, 1 nap, 2 óra és 5 perc szerkesztési idővel rögzített prezentáció esetén a jelentés a következő kimenetet mutatja.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getRevisionNumber--) egy értéket olvas, amelyet az alkalmazások a [setRevisionNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-) segítségével módosíthatnak. A verziószám önmagában nem határozza meg, hogy hányszor mentették a prezentációt, vagy nem állítja helyre annak verziótörténetét.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) a fájlban rögzített szerkesztési időt olvassa. A `00:00:00` érték azt jelenti, hogy a tárolt idő nulla, még akkor is, ha valaki szerkesztette a prezentációt.
+
 ## **Beépített tulajdonságok módosítása**
 
-A beépített metaadatok frissítéséhez használja a [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) által visszaadott objektum setter metódusait. Ez a példa megnyit egy meglévő prezentációt, meghívja a [setAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-), és [setManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) metódusokat, majd a [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) segítségével menti a frissített prezentációt. A mentett PPTX az új metaadatokat tartalmazza.
+A beépített metaadatok frissítéséhez használja a [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) által visszaadott objektum setter metódusait. Ez a példa megnyit egy meglévő prezentációt, meghívja a [setAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-) és [setManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) metódusokat, majd a [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) segítségével menti a frissített prezentációt. A mentett PPTX tartalmazza az új metaadatokat.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -190,11 +233,11 @@ try {
 }
 ```
 
-## **A Hyperlink Base kezelése**
+## **A hivatkozási alap kezelésése**
 
-Az [IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) visszaadja a dokumentumszintű bázist a relatív hiperhivatkozásokhoz. A [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) használatával módosítható vagy törölhető. Ez akkor hasznos, ha egy prezentációt és a hozzá tartozó fájlokat egy másik helyre mozgatja. Ez különálló az egyes hiperhivatkozások [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) metódusától: a bázis módosítása nem írja felül a tárolt linkcímeket, és nem változtatja meg a abszolút célokat.
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) visszaadja a dokumentumszintű alapot a relatív hivatkozásokhoz. A [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) segítségével módosíthatja vagy törölheti azt. Ez hasznos, ha egy prezentációt és a kapcsolódó fájljait egy másik helyre mozgatja. Ez különálló az egyedi hivatkozás [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) metódusától: az alap módosítása nem írja felül a tárolt hivatkozási címeket, és nem változtatja meg a abszolút célokat.
 
-A példa egy olyan prezentációt igényel, amely tartalmaz egy relatív linket (például `target.html`) és egy abszolút linket (például `https://example.org/absolute.html`). A meglévő bázist beolvassa, új báziscímet ad meg, majd menti és újra megnyitja a prezentációt az érték ellenőrzéséhez. Ezután egy üres karakterlánccal törli a bázist, és egy külön mentett fájlban ellenőrzi az üres értéket. Cserélje le a példában szereplő báziscímet a saját hivatkozási fájljai helyére.
+A példához egy olyan prezentációra van szükség, amely tartalmaz egy relatív hivatkozást, például `target.html`, és egy abszolút hivatkozást, például `https://example.org/absolute.html`. A példa beolvassa a meglévő alapot, egy új alapcímet állít be, majd menti és újra megnyitja a prezentációt az érték ellenőrzéséhez. Ezután egy üres karakterlánccal törli az alapot, és egy külön mentett fájlban ellenőrzi az üres értéket. Cserélje le a példában szereplő alapcímet a saját kapcsolt fájljai helyére.
 
 ```java
 import com.aspose.slides.Presentation;
@@ -229,13 +272,13 @@ try {
 }
 ```
 
-A két ellenőrző üzenetnek `true`‑nak kell kiíródnia. A bázis törlése nem érinti az egyéni hiperhivatkozások címét.
+A két ellenőrző üzenetnek `true`-t kell kiíratnia. Az alap törlése nem érinti az egyedi hivatkozási címeket.
 
-Egy relatív link `target.pptx` a `old/target.pptx`‑t nyitotta meg, amikor a bázis az `old` mappára mutatott. A bázist a `new` mappára állítva, mentés után és újra megnyitáskor a link a `new/target.pptx`‑t nyitja meg. Egy abszolút link továbbra is ugyanazt a fájlt nyitja. Tesztelje a relatív hivatkozásokat a PowerPointban a prezentáció mozgatása vagy a bázis módosítása előtt és után.
+Egy relatív `target.pptx` hivatkozás `old/target.pptx`-t nyitott meg, amikor az alap a `old` mappára mutatott. Az alap `new` mappára való módosítása, a mentés és a prezentáció újranyitása után ugyanaz a hivatkozás `new/target.pptx`-t nyitott meg. Egy abszolút hivatkozás továbbra is ugyanazt a fájlt nyitotta meg. Tesztelje a relatív hivatkozásait a PowerPointban a prezentáció mozgatása vagy az alap megváltoztatása előtt és után.
 
-## **Egyéni prezentációs tulajdonságok hozzáadása**
+## **Egyedi prezentációtulajdonságok hozzáadása**
 
-Az egyéni tulajdonságok olyan metaadatokat tárolnak, amelyekhez nincs megfelelő beépített mező. A [IDocumentProperties.set_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) metódus lehetővé teszi egy érték hozzárendelését tulajdonságnév alapján. Ez a példa létrehozza a prezentációt, két szöveges értéket és egy egész szám‑verzióértéket ad hozzá, majd a [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) segítségével menti. Egy már létező névhez történő értékadás felülírja a meglévő tulajdonság értékét.
+Az egyedi tulajdonságok olyan metaadatokat tárolnak, amelyekhez nincs megfelelő beépített mező. A [IDocumentProperties.set_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) metódus lehetővé teszi az érték hozzárendelését a tulajdonság nevéhez. Ez a példa létrehoz egy prezentációt, két szöveges értéket és egy egész verzióértéket ad hozzá, majd a [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) segítségével menti a prezentációt. Egy meglévő névhez érték hozzárendelése felülírja a tulajdonság értékét.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -256,9 +299,9 @@ try {
 }
 ```
 
-## **Egyéni tulajdonságok elérése és módosítása**
+## **Egyedi tulajdonságok elérése és módosítása**
 
-Ez a példa megnyit egy olyan prezentációt, amely egyéni tulajdonságokat tartalmaz, és a [getCountOfCustomProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) segítségével iterál rajtuk. A [getCustomPropertyName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) nullától kezdődő indexet fogad, és visszaadja a [IDocumentProperties.set_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) által használt nevet. A példa minden eredeti nevet és értéket kiír, minden értéket egy számozott sztringgel helyettesít függetlenül az eredeti típustól, majd menti a változtatásokat. Ha nincsenek egyéni tulajdonságok, a ciklus nem hoz létre módosítást.
+Ez a példa megnyit egy olyan prezentációt, amely egyedi tulajdonságokat tartalmaz, és a [getCountOfCustomProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) segítségével iterálja őket. A [getCustomPropertyName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) nulla alapú indexet fogad, és visszaadja azt a nevet, amelyet az [IDocumentProperties.set_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) használ. A példa kiírja minden eredeti nevet és értéket, minden értéket egy számozott sztringre cserél, függetlenül az eredeti típustól, majd menti a módosításokat. Ha nincsenek egyedi tulajdonságok, a ciklus nem hajt végre változtatást.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -287,28 +330,28 @@ try {
 
 ## **Élő példa**
 
-Próbálja ki az online alkalmazást, a [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) segítségével, hogy megismerje a dokumentumtulajdonságokkal való munkát az Aspose.Slides API‑val:
+Próbálja ki a [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) online alkalmazást, hogy lássa, hogyan lehet a dokumentumtulajdonságokkal dolgozni az Aspose.Slides API segítségével:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![Nézet és PowerPoint metaadatok szerkesztése](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **GYIK**
+## **FAQ**
 
-**Hogyan távolíthatok el egy beépített tulajdonságot a prezentációból?**
+**Hogyan távolíthatok el egy beépített tulajdonságot egy prezentációból?**
 
-A beépített tulajdonságok a prezentáció integrált részei, ezért nem távolíthatók el teljesen. Azonban módosíthatja az értéküket vagy üresre állíthatja őket, ha az adott tulajdonság ezt megengedi.
+A beépített tulajdonságok a prezentáció szerves részei, és nem távolíthatók el teljesen. Azonban megváltoztathatja értéküket, vagy ha a konkrét tulajdonság engedi, üresre állíthatja.
 
-**Mi történik, ha olyan egyéni tulajdonságot adok hozzá, amely már létezik?**
+**Mi történik, ha olyan egyedi tulajdonságot adok hozzá, amely már létezik?**
 
-Ha egy már létező egyéni tulajdonságot ad hozzá, a meglévő érték felül lesz írva az újjal. Nem szükséges előzetesen eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti annak értékét.
+Ha olyan egyedi tulajdonságot ad hozzá, amely már létezik, a meglévő értéke felülíródik az újjal. Nem szükséges előzetesen eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti a tulajdonság értékét.
 
-**Elérhetem a prezentáció tulajdonságait a teljes prezentáció betöltése nélkül?**
+**Hozzáférhetek a prezentáció tulajdonságaihoz anélkül, hogy teljesen betölteném a prezentációt?**
 
-Igen. Használja a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) metódust, majd a [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) segítségével olvassa a tárolt dokumentum metaadatait anélkül, hogy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) példányt hozna létre. Lásd a [Build a Lightweight Presentation Inventory](/slides/hu/androidjava/examine-presentation/) cikket a teljes jelentéskészítési példához és a formátumspecifikus korlátozásokért.
+Igen. Használja a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) metódust, majd a [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--)‑t a tárolt dokumentum metaadatok olvasásához anélkül, hogy [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) példányt hozna létre. Tekintse meg a [Könnyűsúlyú prezentációs leltár felépítése](/slides/hu/androidjava/examine-presentation/) oldalt a teljes jelentési példához és a formátum-specifikus korlátozásokhoz.
 
-**Olvashatok nyilvános tulajdonságokat egy titkosított prezentációból a megnyitási jelszó nélkül?**
+**Olvashatom a titkosított prezentáció nyilvános tulajdonságait a megnyitási jelszó nélkül?**
 
-Igen. A prezentációt úgy kell titkosítani, hogy a [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` értékkel legyen meghívva, és a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` értékkel történő betöltés után olvasható a nyilvános metaadat.
+Igen. A prezentációt úgy kell titkosítani, hogy a [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` értékkel legyen meghívva, majd a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` értékkel betöltve legyen.
 
-**Frissíthetem-e a titkosított PPTX‑fájlt dokumentum‑tulajdonság‑csak módba?**
+**Frissíthetek egy titkosított PPTX fájlt csak a dokumentumtulajdonságok módon?**
 
-Nem. A nyilvános és a titkosított tulajdonságadatoknak konzisztensnek kell maradniuk, ezért egy titkosított PPTX‑fájl frissítéséhez a teljes prezentációt a megfelelő megnyitási jelszóval kell betölteni.
+Nem. A nyilvános és titkosított tulajdonság adatoknak konzisztensnek kell maradniuk, ezért egy titkosított PPTX fájl frissítéséhez a teljes prezentációt a megfelelő megnyitási jelszóval kell betölteni.

@@ -19,37 +19,37 @@ keywords:
 - Domyślny język
 - PowerPoint
 - OpenDocument
-- prezentacja
+- Prezentacja
 - C++
 - Aspose.Slides
-description: "Opanuj właściwości prezentacji w Aspose.Slides for C++ i usprawnij wyszukiwanie, branding oraz przepływ pracy w swoich plikach PowerPoint i OpenDocument."
+description: "Opanuj właściwości prezentacji w Aspose.Slides dla C++ i usprawnij wyszukiwanie, branding oraz przepływ pracy w swoich plikach PowerPoint i OpenDocument."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides for C++ obsługuje **wbudowane** i **niestandardowe** właściwości dokumentu. Użyj tych właściwości, aby odczytać i zaktualizować metadane prezentacji, takie jak autor, tytuł i wartości definiowane przez użytkownika.
+Aspose.Slides for C++ obsługuje **wbudowane** i **niestandardowe** właściwości dokumentu. Użyj tych właściwości, aby odczytać i zaktualizować metadane prezentacji, takie jak autor, tytuł i wartości określone przez użytkownika.
 
-Aspose.Slides pozwala pracować z właściwościami dokumentu prezentacji za pomocą interfejsu [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) . Instancja tego interfejsu jest zwracana przez [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). Poniższe przykłady pokazują, jak odczytywać, modyfikować i zarządzać tymi właściwościami.
+Aspose.Slides pozwala pracować z właściwościami dokumentu prezentacji za pośrednictwem interfejsu [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/). Instancja tego interfejsu jest zwracana przez [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). Poniższe przykłady pokazują, jak odczytywać, modyfikować i zarządzać tymi właściwościami.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides zarządza metadanymi aplikacji i producenta podczas zapisywania prezentacji; pola te identyfikują oprogramowanie, które utworzyło wynik.
+Aspose.Slides zarządza metadanymi aplikacji i producenta podczas zapisywania prezentacji; te pola identyfikują oprogramowanie, które utworzyło wynik.
 {{% /alert %}}
 
 ## **Zarządzanie właściwościami prezentacji**
 
-Właściwości dokumentu przechowują opisowe informacje wraz z treścią prezentacji. Dzielą się na dwie kategorie:
+Właściwości dokumentu przechowują opisowe informacje wraz z zawartością prezentacji. Dzielą się na dwie kategorie:
 
 - **Wbudowane właściwości** zawierają standardowe metadane, takie jak tytuł, autor i statystyki dokumentu.
-- **Niestandardowe właściwości** przechowują pary nazw/wartości definiowane przez użytkownika.
+- **Niestandardowe właściwości** przechowują pary nazw/wartości określone przez użytkownika.
 
-Aspose.Slides for C++ zapewnia dostęp do obu kategorii. W programie PowerPoint wybierz **Plik → Informacje → Właściwości → Zaawansowane właściwości**, aby sprawdzić metadane dokumentu. Okno dialogowe grupuje informacje w zakładki, takie jak **Podsumowanie**, **Statystyki**, **Zawartość** i **Niestandardowe**. Użyj zakładki **Niestandardowe**, aby zarządzać właściwościami definiowanymi przez użytkownika.
+Aspose.Slides for C++ zapewnia dostęp do obu kategorii. W programie PowerPoint wybierz **File → Info → Properties → Advanced Properties**, aby sprawdzić metadane dokumentu. Okno dialogowe grupuje informacje w zakładki, takie jak **Summary**, **Statistics**, **Contents** i **Custom**. Użyj zakładki **Custom**, aby zarządzać właściwościami określonymi przez użytkownika.
 
-## **Odczytanie publicznych właściwości z zaszyfrowanej prezentacji**
+## **Odczyt publicznych właściwości z zaszyfrowanej prezentacji**
 
-Hasło otwierające zwykle chroni zarówno treść prezentacji, jak i właściwości dokumentu. Gdy prezentacja jest szyfrowana przez przekazanie `false` do [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), jej właściwości dokumentu pozostają publiczne. Aplikacja może wtedy przekazać `true` do [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) i odczytać publiczne metadane bez podawania hasła otwierającego.
+Hasło otwierające normalnie chroni zarówno zawartość prezentacji, jak i właściwości dokumentu. Gdy prezentacja jest szyfrowana przez przekazanie `false` do [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), jej właściwości dokumentu pozostają publiczne. Aplikacja może następnie przekazać `true` do [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) i odczytać publiczne metadane bez podawania hasła otwierającego.
 
-[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) kontroluje, co Aspose.Slides ładuje; nie odszyfrowuje niczego. Jeśli właściwości były objęte szyfrowaniem, ich ładowanie bez hasła kończy się niepowodzeniem. Jeśli prezentacja nie jest szyfrowana, opcja jest ignorowana i ładowana jest pełna prezentacja.
+[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) kontroluje, co Aspose.Slides ładuje; nie odszyfrowuje niczego. Jeśli właściwości zostały objęte szyfrowaniem, ich ładowanie bez hasła kończy się niepowodzeniem. Jeśli prezentacja nie jest szyfrowana, opcja jest ignorowana i cała prezentacja zostaje załadowana.
 
-Przykład wymaga zaszyfrowanej prezentacji, której właściwości dokumentu zostały pozostawione publiczne. Weryfikuje tryb ładowania za pomocą [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) i następnie odczytuje wbudowane właściwości poprzez [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
+Przykład wymaga zaszyfrowanej prezentacji, której właściwości dokumentu pozostawiono publiczne. Weryfikuje tryb ładowania za pomocą [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) i następnie odczytuje wbudowane właściwości za pomocą [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -79,17 +79,17 @@ else
 }
 ```
 
-W tym trybie zawartość slajdów nie jest ładowana. Slajdy, wzorce, układy, kształty, multimedia i inne obiekty prezentacji są niedostępne. Aplikacje powinny zawsze sprawdzać [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) przed wykonaniem operacji wymagającej pełnego modelu obiektowego prezentacji.
+W tym trybie zawartość slajdów nie jest ładowana. Slajdy, mastery, układy, kształty, multimedia i inne obiekty prezentacji są niedostępne. Aplikacje powinny zawsze sprawdzać [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) przed wykonaniem operacji wymagającej pełnego modelu obiektowego prezentacji.
 
 {{% alert color="warning" title="Security" %}}
-Publiczne metadane mogą ujawniać nazwiska autorów, tytuły, tematy, słowa kluczowe, informacje o firmie, komentarze i niestandardowe wartości. Zaszyfruj wrażliwe właściwości razem z prezentacją. Pozostaw je publiczne tylko wtedy, gdy systemy indeksowania, klasyfikacji, wyszukiwania lub zarządzania dokumentami mają konkretny wymóg dostępu do nich bez hasła.
+Publiczne metadane mogą ujawnić nazwiska autorów, tytuły, tematy, słowa kluczowe, informacje o firmie, komentarze i wartości niestandardowe. Szyfruj wrażliwe właściwości razem z prezentacją. Pozostaw je publiczne tylko wtedy, gdy systemy indeksowania, klasyfikacji, wyszukiwania lub zarządzania dokumentami mają konkretny wymóg dostępu do nich bez hasła.
 {{% /alert %}}
 
 ## **Aktualizacja właściwości zaszyfrowanej prezentacji**
 
-Dla zaszyfrowanego pliku PPTX, prezentacja załadowana przez przekazanie `true` do [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) jest przeznaczona do odczytu publicznych metadanych. Aspose.Slides nie może zapisać zmienionych właściwości z tego obiektu zawierającego tylko metadane, ponieważ publiczne właściwości muszą pozostać zgodne z odpowiadającymi danymi wewnątrz zaszyfrowanej prezentacji. Aktualizacja wymaga więc poprawnego hasła otwierającego i pełnego załadowania.
+Dla zaszyfrowanego pliku PPTX prezentacja załadowana przez przekazanie `true` do [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) służy do odczytu publicznych metadanych. Aspose.Slides nie może zapisać zmienionych właściwości z tego obiektu tylko‑metadane, ponieważ publiczne właściwości muszą pozostać zgodne z odpowiadającymi danymi wewnątrz zaszyfrowanej prezentacji. Aktualizacja wymaga więc poprawnego hasła otwierającego i pełnego załadowania.
 
-Przykład wymaga zaszyfrowanej prezentacji PPTX z publicznymi właściwościami dokumentu i znanym hasłem otwierającym. Otwiera pełną prezentację przy użyciu [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/), aktualizuje publiczne wbudowane właściwości i zapisuje wynik. Następnie używa [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) do weryfikacji, że szyfrowanie zostało zachowane, i ponownie otwiera publiczne metadane bez hasła, aby sprawdzić nowe wartości:
+Przykład wymaga zaszyfrowanej prezentacji PPTX z publicznymi właściwościami dokumentu oraz znanego hasła otwierającego. Otwiera pełną prezentację za pomocą [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/), aktualizuje publiczne wbudowane właściwości i zapisuje wynik. Następnie używa [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) do weryfikacji, że szyfrowanie zostało zachowane, oraz ponownie otwiera publiczne metadane bez hasła, aby sprawdzić nowe wartości:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -137,11 +137,11 @@ else
 }
 ```
 
-Jeśli aplikacja nie ma uprawnień do odszyfrowania lub załadowania treści prezentacji, musi traktować publiczne właściwości zaszyfrowanego pliku PPTX jako tylko do odczytu.
+Jeśli aplikacja nie ma uprawnień do odszyfrowania lub załadowania zawartości prezentacji, musi traktować publiczne właściwości zaszyfrowanego pliku PPTX jako tylko do odczytu.
 
 ## **Dostęp do wbudowanych właściwości**
 
-Interfejs [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) udostępnia wbudowane metadane za pośrednictwem typowanych getterów, w tym [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) i [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/). Ten przykład otwiera istniejącą prezentację i wypisuje jej zapisane metadane w konsoli. Wartości zależą od wejściowej prezentacji; niektóre pola mogą być puste.
+Interfejs [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) udostępnia wbudowane metadane poprzez typowane gettery, w tym [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) i [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/). Ten przykład otwiera istniejącą prezentację i wypisuje jej zapisane metadane w konsoli. Wartości zależą od wejściowej prezentacji; niektóre pola mogą być puste.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -169,6 +169,45 @@ System::Console::WriteLine(u"Is shared between producers: {0}", documentProperti
 System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
 System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
 ```
+
+### **Raport numeru wersji i czasu edycji**
+
+Użyj [GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) i [ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) do odczytania [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) każdego pliku bez ładowania jego slajdów w celu edycji. Ten przykład wypisuje jeden wiersz na każdy plik PPTX w folderze `presentations`. Standardowy format `c` zawiera liczbę dni, gdy zarejestrowany czas edycji przekracza 24 godziny.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/timespan.h>
+
+using namespace Aspose::Slides;
+using namespace System::IO;
+
+System::Console::WriteLine(u"File | RevisionNumber | TotalEditingTime");
+auto paths = Directory::GetFiles(u"presentations", u"*.pptx");
+for (const auto& path : paths)
+{
+    auto info = PresentationFactory::get_Instance()->GetPresentationInfo(path);
+    auto properties = info->ReadDocumentProperties();
+    auto fileName = Path::GetFileName(path);
+    auto editingTime = properties->get_TotalEditingTime().ToString(u"c");
+    System::Console::WriteLine(u"{0} | {1} | {2}", fileName, properties->get_RevisionNumber(), editingTime);
+}
+```
+
+Dla prezentacji o 1 dniu, 2 godzinach i 5 minutach zarejestrowanego czasu edycji raport wygląda następująco:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[get_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_revisionnumber/) odczytuje wartość metadanych, którą aplikacje mogą zmienić przy pomocy [set_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_revisionnumber/). Sama ta wartość nie pozwala ustalić, ile razy prezentacja została zapisana ani odtworzyć jej historii wersji.
+
+[get_TotalEditingTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_totaleditingtime/) zwraca łączny czas edycji zapisany w pliku. Wartość `00:00:00` oznacza, że przechowywany czas jest zerowy. Prezentacja mogła być jednak edytowana.
 
 ## **Modyfikacja wbudowanych właściwości**
 
@@ -198,9 +237,9 @@ presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
 
 ## **Zarządzanie bazą hiperlinków**
 
-[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) odczytuje bazowy adres dokumentu dla względnych hiperlinków. Jest to przydatne przy przenoszeniu prezentacji i powiązanych plików w inne miejsce. To oddzielna wartość od indywidualnego hiperlinku [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/): zmiana bazy nie przepisuje zapisanych adresów linków ani nie zmienia ich bezwzględnych celów.
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) odczytuje bazowy adres dokumentu dla względnych hiperłączy. Jest to przydatne przy przenoszeniu prezentacji i jej powiązanych plików w inne miejsce. Nie jest to to samo co [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/): zmiana bazy nie przepisuje zapisanych adresów linków ani nie zmienia ich docelowych adresów bezwzględnych.
 
-Przykład wymaga prezentacji zawierającej zarówno względny link, np. `target.html`, jak i bezwzględny link, np. `https://example.org/absolute.html`. Odczytuje istniejącą bazę, przypisuje nowy adres bazy przy pomocy [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/), zapisuje i ponownie otwiera prezentację, aby sprawdzić wartość. Następnie czyści bazę przy użyciu `u""` i weryfikuje pustą wartość w osobnym zapisanym pliku. Zastąp przykładowy adres bazy lokalizacją swoich powiązanych plików.
+Przykład wymaga prezentacji zawierającej zarówno względny link, np. `target.html`, jak i bezwzględny link, np. `https://example.org/absolute.html`. Odczytuje istniejącą bazę, przypisuje nowy adres bazy przy pomocy [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/), zapisuje i ponownie otwiera prezentację w celu sprawdzenia wartości. Następnie usuwa bazę przy użyciu `u""` i weryfikuje pustą wartość w osobnym zapisanym pliku. Zamień przykładowy adres bazy na lokalizację swoich plików powiązanych.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -229,13 +268,13 @@ auto clearedPresentation = System::MakeObject<Presentation>(u"hyperlinks-cleared
 System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_DocumentProperties()->get_HyperlinkBase() == u""));
 ```
 
-Dwie wiadomości weryfikacyjne powinny wypisać `True`. Czyszczenie bazy pozostawia niezmienione adresy poszczególnych hiperlinków.
+Oba komunikaty weryfikacyjne powinny wypisać `True`. Usunięcie bazy nie wpływa na adresy poszczególnych hiperłączy.
 
-Względny link do `target.pptx` otwierał `old/target.pptx`, gdy baza wskazywała na folder `old`. Po zmianie bazy na folder `new`, zapisaniu i ponownym otwarciu prezentacji, ten sam link otworzył `new/target.pptx`. Bezpośredni link nadal otwierał ten sam plik. Przetestuj swoje względne linki w PowerPoint przed i po przeniesieniu prezentacji lub zmianie jej bazy.
+Względny link do `target.pptx` otwierał `old/target.pptx`, gdy baza wskazywała folder `old`. Po zmianie bazy na folder `new`, zapisaniu i ponownym otwarciu prezentacji ten sam link otwierał `new/target.pptx`. Bezpośredni link nadal otwierał ten sam plik. Przetestuj swoje względne linki w PowerPoint przed i po przeniesieniu prezentacji lub zmianie jej bazy.
 
 ## **Dodawanie niestandardowych właściwości prezentacji**
 
-Niestandardowe właściwości przechowują metadane, które nie mają odpowiadającego im pola wbudowanego. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) umożliwia przypisanie wartości przez nazwę właściwości. Ten przykład tworzy prezentację, dodaje dwie wartości tekstowe i jedną wartość wersji całkowitej, a następnie zapisuje prezentację przy użyciu [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Przypisanie wartości do istniejącej nazwy zastępuje wartość tej właściwości.
+Niestandardowe właściwości przechowują metadane, które nie mają odpowiednika w wbudowanych polach. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) pozwala przypisać wartość po nazwie właściwości. Ten przykład tworzy prezentację, dodaje dwie wartości tekstowe oraz wartość wersji całkowitej i zapisuje prezentację przy użyciu [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Przypisanie wartości do istniejącej nazwy zastępuje poprzednią wartość tej właściwości.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -260,7 +299,7 @@ presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
 
 ## **Dostęp i modyfikacja niestandardowych właściwości**
 
-Ten przykład otwiera prezentację zawierającą niestandardowe właściwości i używa [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) do iteracji po nich. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) przyjmuje indeks zerowy i zwraca nazwę używaną przez [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) i [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/). Przykład wypisuje każdą oryginalną nazwę i wartość, zastępuje każdą wartość numerowanym ciągiem niezależnie od pierwotnego typu i zapisuje zmiany. Jeśli nie ma niestandardowych właściwości, pętla nie wprowadza żadnych zmian.
+Ten przykład otwiera prezentację zawierającą niestandardowe właściwości i wykorzystuje [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) do iteracji po nich. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) przyjmuje indeks zerowy i zwraca nazwę używaną przez [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) oraz [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/). Przykład wypisuje każdą oryginalną nazwę i wartość, zastępuje każdą wartość numerowanym łańcuchem niezależnie od pierwotnego typu i zapisuje zmiany. Jeśli nie ma żadnych niestandardowych właściwości, pętla nie wprowadza zmian.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -292,28 +331,28 @@ presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 
 ## **Przykład na żywo**
 
-Wypróbuj aplikację online [**Wyświetl i edytuj metadane PowerPoint**](https://products.aspose.app/slides/metadata), aby zobaczyć, jak pracować z właściwościami dokumentu przy użyciu API Aspose.Slides:
+Wypróbuj aplikację online [**Zobacz i edytuj metadane PowerPoint**](https://products.aspose.app/slides/metadata), aby zobaczyć, jak pracować z właściwościami dokumentu przy użyciu API Aspose.Slides:
 
-[![Wyświetl i edytuj metadane PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![Zobacz i edytuj metadane PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
 **Jak mogę usunąć wbudowaną właściwość z prezentacji?**
 
-Wbudowane właściwości są integralną częścią prezentacji i nie mogą być całkowicie usunięte. Można jednak zmienić ich wartości lub ustawić je jako puste, jeśli dana właściwość na to pozwala.
+Wbudowane właściwości są integralną częścią prezentacji i nie mogą być całkowicie usunięte. Można jednak zmienić ich wartości lub ustawić je jako puste, o ile dana właściwość na to pozwala.
 
 **Co się stanie, jeśli dodam niestandardową właściwość, która już istnieje?**
 
-Jeśli dodasz niestandardową właściwość, która już istnieje, jej bieżąca wartość zostanie nadpisana nową. Nie musisz usuwać ani sprawdzać właściwości wcześniej, ponieważ Aspose.Slides automatycznie aktualizuje wartość właściwości.
+Jeśli dodasz niestandardową właściwość, która już istnieje, jej bieżąca wartość zostanie nadpisana nową. Nie musisz usuwać ani sprawdzać właściwości wcześniej, ponieważ Aspose.Slides automatycznie aktualizuje jej wartość.
 
-**Czy mogę uzyskać dostęp do właściwości prezentacji bez pełnego załadowania prezentacji?**
+**Czy mogę uzyskać dostęp do właściwości prezentacji bez pełnego wczytywania prezentacji?**
 
-Tak. Użyj [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) i następnie [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/), aby odczytać zapisane metadane dokumentu bez tworzenia instancji [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Zobacz [Build a Lightweight Presentation Inventory](/slides/pl/cpp/examine-presentation/) po pełny przykład raportowania oraz ograniczenia specyficzne dla formatów.
+Tak. Użyj [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) a następnie [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/), aby odczytać zapisane metadane dokumentu bez tworzenia instancji [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Zobacz [Build a Lightweight Presentation Inventory](/slides/pl/cpp/examine-presentation/) po pełny przykład raportowania i ograniczenia specyficzne dla formatów.
 
 **Czy mogę odczytać publiczne właściwości zaszyfrowanej prezentacji bez jej hasła otwierającego?**
 
-Tak. Prezentacja musi być zaszyfrowana przez przekazanie `false` do [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), a musi być załadowana przez przekazanie `true` do [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/).
+Tak. Prezentacja musi być zaszyfrowana przez przekazanie `false` do [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), a następnie załadowana przez przekazanie `true` do [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/).
 
 **Czy mogę zaktualizować zaszyfrowany plik PPTX w trybie tylko-właściwości-dokumentu?**
 
-Nie. Publiczne i zaszyfrowane dane właściwości muszą pozostawać spójne, więc aktualizacja zaszyfrowanego pliku PPTX wymaga pełnego załadowania prezentacji z prawidłowym hasłem otwierającym.
+Nie. Publiczne i zaszyfrowane dane właściwości muszą pozostać spójne, więc aktualizacja zaszyfrowanego pliku PPTX wymaga pełnego załadowania prezentacji z poprawnym hasłem otwierającym.

@@ -1,5 +1,5 @@
 ---
-title: Android'de Sunum Özelliklerini Yönetme
+title: Android'da Sunum Özelliklerini Yönetin
 linktitle: Sunum Özellikleri
 type: docs
 weight: 70
@@ -7,14 +7,14 @@ url: /tr/androidjava/presentation-properties/
 keywords:
 - PowerPoint özellikleri
 - sunum özellikleri
-- belge özellikleri
+- doküman özellikleri
 - yerleşik özellikler
 - özel özellikler
-- gelişmiş özellikler
-- özellikleri yönetme
-- özellikleri değiştirme
-- belge meta verileri
-- meta verileri düzenleme
+- ileri özellikler
+- özellikleri yönet
+- özellikleri değiştir
+- doküman meta verileri
+- meta verileri düzenle
 - düzeltme dili
 - varsayılan dil
 - PowerPoint
@@ -23,34 +23,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java'da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for Android via Java’da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalamayı ve iş akışını kolaylaştırın."
 ---
-## **Giriş**
+## **Introduction**
 
-Aspose.Slides for Android via Java, **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri, yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
+Aspose.Slides for Android via Java, **yerleşik** ve **özel** doküman özelliklerini destekler. Bu özellikleri, yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
 
-Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) arayüzü üzerinden çalışmanıza olanak tanır. Bu arayüzün bir örneği, [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) tarafından döndürülür. Aşağıdaki örnekler, bu özellikleri nasıl okuyacağınızı, değiştireceğinizi ve yöneteceğinizi gösterir.
+Aspose.Slides, sunum doküman özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) arabirimi üzerinden çalışmanıza olanak tanır. Bu arabirimin bir örneği, [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) tarafından döndürülür. Aşağıdaki örnekler, bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir.
 
 {{% alert color="info" title="Note" %}}
 Aspose.Slides, sunumları kaydederken uygulama ve üretici meta verilerini yönetir; bu alanlar çıktıyı oluşturan yazılımı tanımlar.
 {{% /alert %}}
 
-## **Sunum Özelliklerini Yönetme**
+## **Manage Presentation Properties**
 
-Belge özellikleri, sunum içeriğiyle birlikte açıklayıcı bilgiler depolar. İki kategoriye ayrılırlar:
+Doküman özellikleri, sunum içeriğiyle birlikte tanımlayıcı bilgileri depolar. İki kategoriye ayrılırlar:
 
-- **Yerleşik özellikler** standart meta verileri içerir, örneğin başlık, yazar ve belge istatistikleri.
+- **Yerleşik özellikler** standart meta verileri içerir, örneğin başlık, yazar ve doküman istatistikleri.
 - **Özel özellikler** kullanıcı tanımlı ad/değer çiftlerini saklar.
 
-Aspose.Slides for Android via Java, her iki kategoriye erişim sağlar. PowerPoint'ta belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini seçin. İletişim kutusu bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere gruplar. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
+Aspose.Slides for Android via Java, her iki kategoriye erişim sağlar. PowerPoint'te, doküman meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini seçin. İletişim kutusu, bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere gruplar. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
 
-## **Şifrelenmiş Bir Sunumdan Genel Özellikleri Okuma**
+## **Read Public Properties from an Encrypted Presentation**
 
-Açma parolası genellikle hem sunum içeriğini hem de belge özelliklerini korur. Bir sunum, [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` ile çağrıldıktan sonra şifrelenirse, belge özellikleri genel kalır. Bir uygulama daha sonra [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile çağırarak açma parolasını vermeden genel meta verileri okuyabilir.
+Açma şifresi genellikle hem sunum içeriğini hem de doküman özelliklerini korur. Bir sunum, [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` ile çağrıldıktan sonra şifrelenirse, doküman özellikleri genel olarak bırakılır. Bir uygulama daha sonra [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile çağırarak açma şifresi sağlamadan genel meta verileri okuyabilir.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) Aspose.Slides'ın neyi yükleyeceğini kontrol eder; hiçbir şeyi deşifre etmez. Özellikler şifreleme içinde dahil edilmişse, parola olmadan yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yok sayılır ve tam sunum yüklenir.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) Aspose.Slides'in neyi yükleyeceğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifreleme içine dahil edilmişse, şifre olmadan yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yoksayılır ve tam sunum yüklenir.
 
-Örnek, belge özellikleri genel bırakılmış bir şifreli sunum gerektirir. Yükleme modunu [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) ile doğrular ve ardından [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) aracılığıyla yerleşik özellikleri okur:
+Örnek, doküman özellikleri genel olarak bırakılmış şifreli bir sunum gerektirir. Yükleme modunu [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) ile doğrular ve ardından [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) aracılığıyla yerleşik özellikleri okur:
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.LoadOptions;
@@ -75,17 +76,18 @@ try {
 }
 ```
 
-Bu modda, slayt içeriği yüklenmez. Slaytlar, ana slaytlar, yerleşimler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem gerçekleştirmeden önce her zaman [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) kontrol etmelidir.
+Bu modda slayt içeriği yüklenmez. Slaytlar, masterlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılabilir değildir. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) kontrol etmelidir.
 
 {{% alert color="warning" title="Warning" %}}
-Genel meta veriler, yazar adları, başlıklar, konular, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ortaya çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Bu özellikleri yalnızca indeksleme, sınıflandırma, arama veya belge yönetim sistemlerinin parolasız erişim gerektirdiği durumlarda genel bırakın.
+Genel meta veriler yazar adları, başlıklar, konu başlıkları, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ortaya çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Yalnızca indeksleme, sınıflandırma, arama veya belge yönetim sistemlerinin şifre olmadan erişim gerektirdiği durumlarda genel olarak bırakın.
 {{% /alert %}}
 
-## **Şifrelenmiş Bir Sunumun Özelliklerini Güncelleme**
+## **Update Properties of an Encrypted Presentation**
 
-Şifrelenmiş bir PPTX dosyası için, [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile çağrıldıktan sonra yüklenen sunum, genel meta verileri okumak için tasarlanmıştır. Aspose.Slides, bu yalnızca meta veri nesnesinden değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunumdaki ilgili verilerle tutarlı olmalıdır. Bu nedenle, güncelleme doğru açma parolasını ve tam bir yüklemeyi gerektirir.
+Şifreli bir PPTX dosyası için, [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile çağrıldıktan sonra yüklenen bir sunum, yalnızca genel meta verileri okumak içindir. Aspose.Slides, bu yalnızca meta veri nesnesinden değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunum içindeki ilgili verilerle tutarlı olmalıdır. Bu nedenle güncelleme, doğru açma şifresi ve tam bir yükleme gerektirir.
 
-Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma parolası gerektirir. Sunumu, [LoadOptions.setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) ile tamamen açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#isEncrypted--) kullanarak şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için genel meta verileri parolasız yeniden açar:
+Örnek, genel doküman özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma şifresi gerektirir. Tam sunumu [LoadOptions.setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#isEncrypted--) kullanarak şifrelemenin korunduğunu doğrular ve genel meta verileri şifresiz yeniden açarak yeni değerleri kontrol eder:
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.IPresentationInfo;
@@ -130,11 +132,12 @@ try {
 }
 ```
 
-Bir uygulamanın sunum içeriğini deşifre etmesine veya yüklemesine izin verilmiyorsa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okunabilir olarak ele almalıdır.
+Bir uygulama sunum içeriğini çözmeye veya yüklemeye izin verilmiyorsa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okunabilir olarak ele almalıdır.
 
-## **Yerleşik Özelliklere Erişim**
+## **Access Built-in Properties**
 
-[IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) arayüzü, [getAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getAuthor--) , [getTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getTitle--) ve [getCreatedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCreatedTime--) gibi getter metodları aracılığıyla yerleşik meta verileri ortaya çıkarır. Bu örnek mevcut bir sunumu açar ve kaydedilmiş meta verilerini konsola yazdırır. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
+[IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) arabirimi, [getAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getAuthor--), [getTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getTitle--) ve [getCreatedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCreatedTime--) gibi getter yöntemleri aracılığıyla yerleşik meta verileri ortaya çıkarır. Bu örnek mevcut bir sunumu açar ve saklanan meta verileri konsola yazar. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -162,9 +165,53 @@ try {
 }
 ```
 
-## **Yerleşik Özellikleri Değiştirme**
+### **Report Revision Number and Editing Time**
 
-Yerleşik meta verileri güncellemek için, [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) tarafından döndürülen nesnenin setter metodlarını kullanın. Bu örnek mevcut bir sunumu açar, [setAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-) , [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-) , [setSubject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-) , [setComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-) ve [setManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) metodlarını çağırır, ardından güncellenen sunumu [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
+Bir klasördeki her PPTX dosyası için bir satır raporlamak isteyen Android uygulamanız, [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) çağırarak slaytları yüklemeden [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) öğesini okuyabilir. Android via Java API, düzenleme süresini milisaniye cinsinden döndürür. Örnek klasör yolunu dosyalarınızın yoluyla değiştirin. Örnek, süreci saat, dakika ve saniye olarak biçimlendirir; 24 saat veya daha uzun sürelere gün sayısı ekler.
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.io.File;
+import java.util.Locale;
+
+File folder = new File("/path/to/presentations");
+File[] files = folder.listFiles();
+if (files == null) {
+    System.out.println("Cannot list files in " + folder);
+} else {
+    System.out.println("File | RevisionNumber | TotalEditingTime");
+    for (File file : files) {
+        if (!file.isFile() || !file.getName().toLowerCase(Locale.ROOT).endsWith(".pptx")) {
+            continue;
+        }
+        IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(file.getAbsolutePath());
+        IDocumentProperties properties = info.readDocumentProperties();
+        long totalSeconds = (long) properties.getTotalEditingTime() / 1000;
+        long days = totalSeconds / 86400;
+        String time = String.format(Locale.ROOT, "%02d:%02d:%02d", totalSeconds / 3600 % 24, totalSeconds / 60 % 60, totalSeconds % 60);
+        String editingTime = days > 0 ? days + "." + time : time;
+        System.out.printf(Locale.ROOT, "%s | %d | %s%n", file.getName(), properties.getRevisionNumber(), editingTime);
+    }
+}
+```
+
+1 gün, 2 saat ve 5 dakikalık bir düzenleme süresine sahip bir sunum için rapor aşağıdaki çıktıyı gösterir.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getRevisionNumber--) bir değer okur; uygulamalar bu değeri [setRevisionNumber](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setRevisionNumber-int-) ile değiştirebilir. Sürüm numarası tek başına sunumun kaç kez kaydedildiğini gösteremez veya sürüm geçmişini yeniden oluşturamaz.
+
+[getTotalEditingTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getTotalEditingTime--) dosyada kaydedilen düzenleme süresini okur. `00:00:00` değeri, birisi sunumu düzenlemiş olsa bile saklanan sürenin sıfır olduğunu gösterir.
+
+## **Modify Built-in Properties**
+
+Yerleşik meta verileri güncellemek için, [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) tarafından döndürülen nesnedeki setter yöntemlerini kullanın. Bu örnek mevcut bir sunumu açar, [setAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-), [setTitle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-), [setSubject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-) ve [setManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-) metodlarını çağırır, ardından güncellenmiş sunumu [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -186,11 +233,12 @@ try {
 }
 ```
 
-## **Köprü Temelini Yönetme**
+## **Manage the Hyperlink Base**
 
-[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) , göreceli köprüler için belge düzeyinde temel adresi döndürür. [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) ile bunu değiştirebilir veya temizleyebilirsiniz. Bu, bir sunumu ve bağlı dosyalarını başka bir konuma taşırken faydalıdır. Bu, tek bir köprünün [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) metodundan ayrı bir özelliktir: temeli değiştirmek, saklanan köprü adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
+[IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) belge düzeyinde göreli köprüler için temel adresi döndürür. Bu temel adresi değiştirmek veya temizlemek için [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) kullanın. Bu, bir sunumu ve ona bağlı dosyaları başka bir konuma taşırken yararlıdır. Bu, tek bir köprünün [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) özelliğinden ayrı bir kavramdır: temelin değiştirilmesi depolanan köprü adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
 
-Örnek, `target.html` gibi bir göreceli bağlantı ve `https://example.org/absolute.html` gibi bir mutlak bağlantı içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi atar ve değeri kontrol etmek için sunumu kaydedip yeniden açar. Ardından temeli boş bir dizeyle temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresini, bağlantılı dosyalarınızın konumuyla değiştirin.
+Örnek, `target.html` gibi bir göreli bağlantı ve `https://example.org/absolute.html` gibi bir mutlak bağlantı içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi atar, sunumu kaydeder ve değeri kontrol etmek için yeniden açar. Ardından temeli boş bir dizeye ayarlayarak temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresini bağlantı dosyalarınızın konumuyla değiştirin.
+
 ```java
 import com.aspose.slides.Presentation;
 import com.aspose.slides.SaveFormat;
@@ -224,13 +272,14 @@ try {
 }
 ```
 
-İki doğrulama mesajı `true` yazdırmalıdır. Temelin temizlenmesi, tek tek köprü adreslerini değiştirmez.
+İki doğrulama mesajı `true` yazdırmalıdır. Temelin temizlenmesi bireysel köprü adreslerini etkilemez.
 
-`target.pptx` adlı göreceli bir bağlantı, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedilip sunum yeniden açıldıktan sonra aynı bağlantı `new/target.pptx` dosyasını açtı. Mutlak bir bağlantı aynı dosyayı açmaya devam etti. Sunumu taşıdıktan veya temelini değiştirdikten önce ve sonra PowerPoint'te göreceli bağlantılarınızı test edin.
+Göreli bir bağlantı `target.pptx` için, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedilip sunum yeniden açıldıktan sonra aynı bağlantı `new/target.pptx` dosyasını açtı. Mutlak bir bağlantı aynı dosyayı açmaya devam etti. Göreli bağlantılarınızı PowerPoint’te sunumu taşımadan önce ve sonra test edin.
 
-## **Özel Sunum Özellikleri Ekleme**
+## **Add Custom Presentation Properties**
 
-Özel özellikler, karşılık gelen bir yerleşik alanı olmayan meta verileri depolar. [IDocumentProperties.set_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) metodu, özellik adına göre bir değer atamanızı sağlar. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve sunumu [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ile kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
+Özel özellikler, karşılığı yerleşik bir alan olmayan meta verileri depolar. [IDocumentProperties.set_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) yöntemi, özellik adını kullanarak bir değer atamanızı sağlar. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tamsayı sürüm değeri ekler ve sunumu [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) ile kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -250,9 +299,10 @@ try {
 }
 ```
 
-## **Özel Özelliklere Erişim ve Değiştirme**
+## **Access and Modify Custom Properties**
 
-Bu örnek, özel özellikler içeren bir sunumu açar ve [getCountOfCustomProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) kullanarak bunlar üzerinde döner. [getCustomPropertyName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) , sıfırdan başlayan bir indeks alır ve [IDocumentProperties.set_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) tarafından kullanılan adı döndürür. Örnek, her özgün adı ve değeri yazdırır, ardından her değeri özgün türüne bakılmaksızın numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Özel özellik yoksa, döngü hiçbir değişiklik yapmaz.
+Bu örnek, özel özellikler içeren bir sunumu açar ve [getCountOfCustomProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) metodunu kullanarak bunları döngüyle遍 (iterate) eder. [getCustomPropertyName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) sıfır tabanlı bir indeks alır ve [IDocumentProperties.set_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) tarafından kullanılan adı döndürür. Örnek her özgün adı ve değeri yazdırır, her değeri orijinal tipine bakılmaksızın numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Özel özellik bulunmuyorsa döngü hiçbir değişiklik yapmaz.
+
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.Presentation;
@@ -278,30 +328,30 @@ try {
 }
 ```
 
-## **Canlı Örnek**
+## **Live Example**
 
-Try the [**PowerPoint Meta Verilerini Görüntüle ve Düzenle**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties using the Aspose.Slides API:
+[**PowerPoint Meta Verilerini Görüntüle ve Düzenle**](https://products.aspose.app/slides/metadata) çevrimiçi uygulamasını deneyerek Aspose.Slides API'siyle doküman özellikleriyle nasıl çalışılacağını görebilirsiniz:
 
 [![PowerPoint Meta Verilerini Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **SSS**
+## **FAQ**
 
 **Bir sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
 
-Yerleşik özellikler sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli özellik izin veriyorsa değerlerini değiştirebilir veya boş olarak ayarlayabilirsiniz.
+Yerleşik özellikler sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli bir özellik izin veriyorsa değerlerini değiştirebilir veya boş bir değere ayarlayabilirsiniz.
 
-**Zaten var olan bir özel özellik eklersem ne olur?**
+**Zaten mevcut olan bir özel özelliği eklersem ne olur?**
 
-Eğer zaten var olan bir özel özellik eklerseniz, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak özelliğin değerini günceller.
+Zaten mevcut bir özel özelliği eklerseniz, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak değeri günceller.
 
-**Sunum tamamen yüklenmeden sunum özelliklerine erişebilir miyim?**
+**Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
 
-Evet. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) ardından [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) kullanarak bir [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) örneği oluşturmadan depolanmış belge meta verilerini okuyabilirsiniz. Tam raporlama örneği ve format‑spesifik sınırlamalar için [Hafif Sunum Envanteri Oluşturma](/slides/tr/androidjava/examine-presentation/) sayfasına bakın.
+Evet. Önce [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) metodunu, ardından [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) metodunu kullanarak bir [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) örneği oluşturmadığınız halde saklanan doküman meta verilerini okuyabilirsiniz. Tam raporlama örneği ve format‑spesifik sınırlamalar için [Build a Lightweight Presentation Inventory](/slides/tr/androidjava/examine-presentation/) sayfasına bakın.
 
-**Şifreli bir sunumun genel özelliklerini açma parolası olmadan okuyabilir miyim?**
+**Şifreli bir sunumun genel özelliklerini açma şifresi olmadan okuyabilir miyim?**
 
-Evet. Sunum, [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` ile şifrelenmiş olmalı ve [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile yüklendiğinde bu mümkün olur.
+Evet. Sunum, [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) `false` ile şifrelenmiş ve ardından [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) `true` ile yüklenmiş olmalıdır.
 
-**Belge‑özellikleri‑sadece modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
+**Şifreli bir PPTX dosyasını belge‑özellikleri‑yalnızca modu içinde güncelleyebilir miyim?**
 
-Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır, bu yüzden şifreli bir PPTX dosyasını güncellemek doğru açma parolasıyla tam sunumu yüklemeyi gerektirir.
+Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu nedenle şifreli bir PPTX dosyasını güncellemek, doğru açma şifresiyle tam sunumu yüklemeyi gerektirir.

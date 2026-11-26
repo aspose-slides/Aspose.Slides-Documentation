@@ -1,5 +1,5 @@
 ---
-title: Mengelola Properti Presentasi di PHP
+title: Kelola Properti Presentasi di PHP
 linktitle: Properti Presentasi
 type: docs
 weight: 70
@@ -22,13 +22,13 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Kuasai properti presentasi di Aspose.Slides untuk PHP via Java dan optimalkan pencarian, penjenamaan, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
+description: "Kuasai properti presentasi di Aspose.Slides untuk PHP via Java dan permudah pencarian, penjenamaan, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
 ---
-## **Pengantar**
+## **Introduction**
 
-Aspose.Slides for PHP via Java mendukung **built-in** dan **custom** properti dokumen. Gunakan properti ini untuk membaca dan memperbarui metadata presentasi, seperti penulis, judul, dan nilai yang ditentukan pengguna.
+Aspose.Slides untuk PHP via Java mendukung properti dokumen **built-in** dan **custom**. Gunakan properti ini untuk membaca dan memperbarui metadata presentasi, seperti penulis, judul, dan nilai yang ditentukan pengguna.
 
-Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui kelas [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) . Sebuah instance kelas ini dikembalikan oleh [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti ini. Mereka mengasumsikan bahwa PHP/Java Bridge dan pembungkus Aspose.Slides PHP telah diinisialisasi.
+Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui kelas [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/). Sebuah instance kelas ini dikembalikan oleh [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti ini. Mereka mengasumsikan bahwa PHP/Java Bridge dan wrapper Aspose.Slides PHP telah diinisialisasi.
 
 {{% alert color="info" title="Note" %}}
 Aspose.Slides mengelola metadata aplikasi dan produsen saat menyimpan presentasi; bidang-bidang ini mengidentifikasi perangkat lunak yang membuat output.
@@ -36,20 +36,20 @@ Aspose.Slides mengelola metadata aplikasi dan produsen saat menyimpan presentasi
 
 ## **Kelola Properti Presentasi**
 
-Properti dokumen menyimpan informasi deskriptif bersamaan dengan konten presentasi. Mereka terbagi menjadi dua kategori:
+Properti dokumen menyimpan informasi deskriptif bersama konten presentasi. Mereka terbagi menjadi dua kategori:
 
 - **Built-in properties** berisi metadata standar, seperti judul, penulis, dan statistik dokumen.
 - **Custom properties** menyimpan pasangan nama/nilai yang ditentukan pengguna.
 
-Aspose.Slides for PHP via Java menyediakan akses ke kedua kategori. Di PowerPoint, pilih **File → Info → Properties → Advanced Properties** untuk memeriksa metadata dokumen. Dialog mengelompokkan informasi ke dalam tab seperti **Summary**, **Statistics**, **Contents**, dan **Custom**. Gunakan tab **Custom** untuk mengelola properti yang ditentukan pengguna.
+Aspose.Slides untuk PHP via Java menyediakan akses ke kedua kategori. Di PowerPoint, pilih **File → Info → Properties → Advanced Properties** untuk memeriksa metadata dokumen. Dialog mengelompokkan informasi ke dalam tab seperti **Summary**, **Statistics**, **Contents**, dan **Custom**. Gunakan tab **Custom** untuk mengelola properti yang ditentukan pengguna.
 
-## **Baca Properti Publik dari Presentasi yang Dienkripsi**
+## **Baca Properti Publik dari Presentasi yang Terenkripsi**
 
-Biasanya kata sandi pembuka melindungi baik konten presentasi maupun properti dokumen. Ketika sebuah presentasi dienkripsi setelah memanggil [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) dengan `false`, properti dokumennya tetap publik. Aplikasi kemudian dapat memanggil [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) dengan `true` dan membaca metadata publik tanpa menyertakan kata sandi pembuka.
+Password pembuka biasanya melindungi baik konten presentasi maupun properti dokumen. Ketika sebuah presentasi dienkripsi setelah memanggil [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) dengan `false`, properti dokumennya tetap publik. Sebuah aplikasi kemudian dapat memanggil [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) dengan `true` dan membaca metadata publik tanpa menyediakan password pembuka.
 
-[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) mengontrol apa yang dimuat oleh Aspose.Slides; itu tidak mendekripsi apa pun. Jika properti termasuk dalam enkripsi, memuatnya tanpa kata sandi akan gagal. Jika presentasi tidak dienkripsi, opsi ini diabaikan dan seluruh presentasi dimuat.
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) mengontrol apa yang dimuat Aspose.Slides; ia tidak mendekripsi apa pun. Jika properti termasuk dalam enkripsi, memuatnya tanpa password gagal. Jika presentasi tidak dienkripsi, opsi diabaikan dan seluruh presentasi dimuat.
 
-Contoh ini membutuhkan presentasi yang dienkripsi di mana properti dokumennya dibiarkan publik. Ini memverifikasi mode pemuatan melalui [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) dan kemudian membaca properti built-in melalui [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/):
+Contoh ini membutuhkan presentasi terenkripsi yang properti dokumennya dibiarkan publik. Itu memverifikasi mode pemuatan melalui [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) dan kemudian membaca properti built-in melalui [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -74,17 +74,17 @@ try {
 }
 ```
 
-Dalam mode ini, konten slide tidak dimuat. Slide, master, layout, shape, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
+Dalam mode ini, konten slide tidak dimuat. Slide, master, layout, shape, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
 
 {{% alert color="warning" title="Warning" %}}
-Metadata publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai kustom. Enkripsi properti sensitif bersama dengan presentasi. Biarkan mereka publik hanya ketika proses pengindeksan, klasifikasi, pencarian, atau sistem manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa kata sandi.
+Metadata publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai kustom. Enkripsi properti sensitif bersama presentasi. Biarkan mereka publik hanya ketika sistem pengindeksan, klasifikasi, pencarian, atau manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa password.
 {{% /alert %}}
 
-## **Perbarui Properti Presentasi yang Dienkripsi**
+## **Perbarui Properti Presentasi yang Terenkripsi**
 
-Untuk file PPTX yang dienkripsi, presentasi yang dimuat setelah memanggil [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) dengan `true` ditujukan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang diubah dari objek yang hanya berisi metadata ini karena properti publik harus tetap konsisten dengan data yang sesuai di dalam presentasi yang dienkripsi. Oleh karena itu, memperbarui mereka memerlukan kata sandi pembuka yang benar dan pemuatan lengkap.
+Untuk file PPTX terenkripsi, presentasi yang dimuat setelah memanggil [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) dengan `true` dimaksudkan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang diubah dari objek yang hanya berisi metadata karena properti publik harus tetap konsisten dengan data yang sesuai di dalam presentasi terenkripsi. Oleh karena itu, pembaruan memerlukan password pembuka yang benar dan pemuatan lengkap.
 
-Contoh ini membutuhkan presentasi PPTX yang dienkripsi dengan properti dokumen publik dan kata sandi pembuka yang diketahui. Ia membuka presentasi lengkap dengan [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/), memperbarui properti built-in publik, dan menyimpan hasilnya. Kemudian ia menggunakan [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/) untuk memverifikasi bahwa enkripsi dipertahankan dan membuka kembali metadata publik tanpa kata sandi untuk memverifikasi nilai baru:
+Contoh ini membutuhkan presentasi PPTX terenkripsi dengan properti dokumen publik dan password pembuka yang diketahui. Ia membuka presentasi lengkap dengan [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword), memperbarui properti built-in publik, dan menyimpan hasilnya. Kemudian menggunakan [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#isEncrypted) untuk memverifikasi bahwa enkripsi tetap terjaga dan membuka kembali metadata publik tanpa password untuk memverifikasi nilai baru:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -128,11 +128,11 @@ try {
 }
 ```
 
-Jika aplikasi tidak diizinkan untuk mendekripsi atau memuat konten presentasi, ia harus memperlakukan properti publik dari file PPTX yang dienkripsi sebagai read-only.
+Jika sebuah aplikasi tidak diizinkan mendekripsi atau memuat konten presentasi, maka harus memperlakukan properti publik file PPTX terenkripsi sebagai read‑only.
 
 ## **Akses Properti Built-in**
 
-Kelas [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) menampilkan metadata built-in melalui metode getter, termasuk [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/), dan [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/). Contoh ini membuka presentasi yang ada dan mencetak metadata yang disimpan ke konsol. Nilai tergantung pada presentasi input; beberapa bidang mungkin kosong.
+Kelas [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) mengekspos metadata built-in melalui metode getter, termasuk [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTitle), dan [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCreatedTime). Contoh ini membuka presentasi yang ada dan mencetak metadata yang disimpannya ke konsol. Nilai tergantung pada presentasi masukan; beberapa bidang mungkin kosong.
 
 ```php
 use aspose\slides\Presentation;
@@ -160,9 +160,43 @@ try {
 }
 ```
 
+### **Laporkan Nomor Revisi dan Waktu Penyuntingan**
+
+Untuk melaporkan nomor revisi dan total waktu penyuntingan setiap file PPTX dalam folder `presentations`, gunakan [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) untuk membaca [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/)‑nya tanpa memuat slide untuk penyuntingan. API PHP via Java mengembalikan waktu penyuntingan dalam milidetik. Contoh mengonversinya ke jam, menit, dan detik serta menambahkan hitungan hari untuk durasi 24 jam atau lebih.
+
+```php
+use aspose\slides\PresentationFactory;
+
+echo "File | RevisionNumber | TotalEditingTime\n";
+foreach (new GlobIterator("presentations/*.pptx") as $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    $info = PresentationFactory::getInstance()->getPresentationInfo($file->getRealPath());
+    $properties = $info->readDocumentProperties();
+    $totalSeconds = (int) (java_values($properties->getTotalEditingTime()) / 1000);
+    $days = intdiv($totalSeconds, 86400);
+    $time = sprintf("%02d:%02d:%02d", intdiv($totalSeconds, 3600) % 24, intdiv($totalSeconds, 60) % 60, $totalSeconds % 60);
+    $editingTime = $days > 0 ? $days . "." . $time : $time;
+    printf("%s | %d | %s\n", $file->getFilename(), java_values($properties->getRevisionNumber()), $editingTime);
+}
+```
+
+Untuk presentasi dengan nomor revisi 17 dan waktu penyuntingan tercatat 1 hari, 2 jam, dan 5 menit, laporan menampilkan output berikut.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[DocumentProperties::getRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getRevisionNumber) membaca nilai yang dapat diubah aplikasi dengan [DocumentProperties::setRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setRevisionNumber). Nomor revisi sendiri tidak dapat menentukan berapa kali presentasi disimpan atau merekonstruksi riwayat versinya.
+
+[DocumentProperties::getTotalEditingTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTotalEditingTime) membaca durasi penyuntingan yang tercatat dalam file. Sebuah presentasi dapat memiliki durasi tersimpan nol (`00:00:00`) meskipun ada yang menyuntingnya.
+
 ## **Modifikasi Properti Built-in**
 
-Untuk memperbarui metadata built-in, gunakan metode setter pada objek yang dikembalikan oleh [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/). Contoh ini membuka presentasi yang ada, memanggil [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/), dan [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/), lalu menyimpan presentasi yang diperbarui dengan [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). PPTX yang disimpan berisi metadata baru.
+Untuk memperbarui metadata built-in, gunakan metode setter pada objek yang dikembalikan oleh [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties). Contoh ini membuka presentasi yang ada, memanggil [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setComments), dan [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setManager), lalu menyimpan presentasi yang diperbarui dengan [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). PPTX yang disimpan berisi metadata baru.
 
 ```php
 use aspose\slides\Presentation;
@@ -184,11 +218,11 @@ try {
 }
 ```
 
-## **Kelola Hyperlink Base**
+## **Kelola Dasar Hyperlink**
 
-[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/) mengembalikan basis tingkat dokumen untuk hyperlink relatif. Gunakan [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/) untuk mengubah atau mengosongkannya. Ini berguna saat memindahkan presentasi dan file terkait ke lokasi lain. Ini terpisah dari [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) milik hyperlink individu: mengubah basis tidak menulis ulang alamat tautan yang disimpan atau mengubah tujuan absolut.
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getHyperlinkBase) mengembalikan dasar tingkat dokumen untuk hyperlink relatif. Gunakan [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setHyperlinkBase) untuk mengubah atau mengosongkannya. Ini berguna saat memindahkan presentasi dan file terkait ke lokasi lain. Ini terpisah dari [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/#getExternalUrl) pada hyperlink individual: mengubah dasar tidak menulis ulang alamat tautan yang disimpan atau mengubah tujuan absolut.
 
-Contoh ini membutuhkan presentasi yang berisi tautan relatif, seperti `target.html`, dan tautan absolut, seperti `https://example.org/absolute.html`. Ia membaca basis yang ada, menetapkan alamat basis baru, dan menyimpan serta membuka kembali presentasi untuk memeriksa nilainya. Kemudian ia mengosongkan basis dengan string kosong dan memverifikasi nilai kosong dalam file tersimpan terpisah. Ganti alamat basis contoh dengan lokasi file terkait Anda.
+Contoh ini membutuhkan presentasi yang berisi tautan relatif, misalnya `target.html`, dan tautan absolut, misalnya `https://example.org/absolute.html`. Ia membaca dasar yang ada, menetapkan alamat dasar baru, dan menyimpan serta membuka kembali presentasi untuk memeriksa nilai. Kemudian mengosongkan dasar dengan string kosong dan memverifikasi nilai kosong dalam file tersimpan terpisah. Ganti alamat dasar contoh dengan lokasi file terhubung Anda.
 
 ```php
 use aspose\slides\Presentation;
@@ -223,13 +257,13 @@ try {
 }
 ```
 
-Dua pesan verifikasi harus mencetak `true`. Mengosongkan basis tidak mengubah alamat hyperlink individu.
+Dua pesan verifikasi harus mencetak `true`. Mengosongkan dasar tidak memengaruhi alamat hyperlink individual.
 
-Tautan relatif ke `target.pptx` membuka `old/target.pptx` ketika basis mengarah ke folder `old`. Setelah mengubah basis ke folder `new`, menyimpan, dan membuka kembali presentasi, tautan yang sama membuka `new/target.pptx`. Tautan absolut tetap membuka file yang sama. Uji tautan relatif Anda di PowerPoint sebelum dan sesudah memindahkan presentasi atau mengubah basisnya.
+Tautan relatif ke `target.pptx` membuka `old/target.pptx` ketika dasar menunjuk ke folder `old`. Setelah mengubah dasar ke folder `new`, menyimpan, dan membuka kembali presentasi, tautan yang sama membuka `new/target.pptx`. Tautan absolut terus membuka file yang sama. Uji tautan relatif Anda di PowerPoint sebelum dan sesudah memindahkan presentasi atau mengubah dasarnya.
 
 ## **Tambahkan Properti Presentasi Kustom**
 
-Properti kustom menyimpan metadata yang tidak memiliki bidang built-in yang sesuai. Metode [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) memungkinkan Anda menetapkan nilai berdasarkan nama properti. Contoh ini membuat presentasi, menambahkan dua nilai teks dan satu nilai versi integer, dan menyimpan presentasi dengan [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/). Menetapkan nilai ke nama yang sudah ada menggantikan nilai properti tersebut.
+Properti kustom menyimpan metadata yang tidak memiliki bidang built-in yang bersesuaian. Metode [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) memungkinkan Anda menetapkan nilai berdasarkan nama properti. Contoh ini membuat presentasi, menambahkan dua nilai teks dan satu nilai versi integer, dan menyimpan presentasi dengan [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save). Menetapkan nilai ke nama yang sudah ada menggantikan nilai properti tersebut.
 
 ```php
 use aspose\slides\Presentation;
@@ -251,7 +285,7 @@ try {
 
 ## **Akses dan Modifikasi Properti Kustom**
 
-Contoh ini membuka presentasi yang berisi properti kustom dan menggunakan [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/) untuk mengiterasinya. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/) menerima indeks berbasis nol dan mengembalikan nama yang digunakan oleh [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/). Contoh ini mencetak setiap nama dan nilai asli, mengganti setiap nilai dengan string bernomor terlepas dari tipe aslinya, dan menyimpan perubahan. Jika tidak ada properti kustom, loop tidak membuat perubahan.
+Contoh ini membuka presentasi yang berisi properti kustom dan menggunakan [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCountOfCustomProperties) untuk mengiterasinya. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCustomPropertyName) menerima indeks berbasis nol dan mengembalikan nama yang digunakan oleh [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item). Contoh mencetak setiap nama dan nilai asli, mengganti setiap nilai dengan string bernomor terlepas dari tipe aslinya, dan menyimpan perubahan. Jika tidak ada properti kustom, loop tidak membuat perubahan.
 
 ```php
 use aspose\slides\Presentation;
@@ -285,9 +319,9 @@ Coba aplikasi daring [**Lihat & Edit Metadata PowerPoint**](https://products.asp
 
 ## **FAQ**
 
-**Bagaimana saya dapat menghapus properti built-in dari sebuah presentasi?**
+**Bagaimana cara menghapus properti built-in dari sebuah presentasi?**
 
-Properti built-in merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilai mereka atau mengosongkannya jika properti tersebut mengizinkan.
+Properti built-in merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika diperbolehkan oleh properti tersebut.
 
 **Apa yang terjadi jika saya menambahkan properti kustom yang sudah ada?**
 
@@ -295,12 +329,12 @@ Jika Anda menambahkan properti kustom yang sudah ada, nilai yang ada akan ditimp
 
 **Bisakah saya mengakses properti presentasi tanpa memuat seluruh presentasi?**
 
-Ya. Gunakan [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/) dan kemudian [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Lihat [Build a Lightweight Presentation Inventory](/slides/id/php-java/examine-presentation/) untuk contoh pelaporan lengkap dan keterbatasan format tertentu.
+Ya. Gunakan [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/#getPresentationInfo) kemudian [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). Lihat [Membuat Inventaris Presentasi Ringan](/slides/id/php-java/examine-presentation/) untuk contoh pelaporan lengkap dan batasan spesifik format.
 
-**Bisakah saya membaca properti publik dari presentasi yang dienkripsi tanpa kata sandi pembukanya?**
+**Bisakah saya membaca properti publik dari presentasi terenkripsi tanpa password pembukanya?**
 
-Ya. Presentasi harus dienkripsi setelah memanggil [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) dengan `false`, dan harus dimuat setelah memanggil [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) dengan `true`.
+Ya. Presentasi harus dienkripsi setelah memanggil [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) dengan `false`, dan harus dimuat setelah memanggil [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) dengan `true`.
 
-**Bisakah saya memperbarui file PPTX yang dienkripsi dalam mode hanya properti dokumen?**
+**Bisakah saya memperbarui file PPTX terenkripsi dalam mode hanya properti dokumen?**
 
-Tidak. Data properti publik dan terenkripsi harus tetap konsisten, sehingga memperbarui file PPTX yang dienkripsi memerlukan pemuatan lengkap presentasi dengan kata sandi pembuka yang benar.
+Tidak. Data properti publik dan terenkripsi harus tetap konsisten, sehingga memperbarui file PPTX terenkripsi memerlukan pemuatan lengkap presentasi dengan password pembuka yang benar.

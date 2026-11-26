@@ -5,52 +5,52 @@ type: docs
 weight: 70
 url: /fa/net/presentation-properties/
 keywords:
-- ویژگی‌های پاورپوینت
+- ویژگی‌های PowerPoint
 - ویژگی‌های ارائه
 - ویژگی‌های سند
-- ویژگی‌های درونی
+- ویژگی‌های داخلی
 - ویژگی‌های سفارشی
 - ویژگی‌های پیشرفته
 - مدیریت ویژگی‌ها
 - تغییر ویژگی‌ها
-- متادیتای سند
-- ویرایش متادیتا
-- زبان بررسی
+- فرادادهٔ سند
+- ویرایش فراداده
+- زبان تصحیح
 - زبان پیش‌فرض
-- پاورپوینت
+- PowerPoint
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "ویژگی‌های ارائه را در Aspose.Slides برای .NET به‌صورت پیشرفته مدیریت کنید و جستجو، برندینگ و گردش کار را در فایل‌های پاورپوینت و OpenDocument خود بهینه‌سازی کنید."
+description: "ویژگی‌های اصلی ارائه در Aspose.Slides برای .NET را مدیریت کنید و جستجو، برندینگ و جریان کار را در فایل‌های PowerPoint و OpenDocument خود بهینه‌سازی نمایید."
 ---
-## **مقدمه**
+## **معرفی**
 
-Aspose.Slides for .NET از ویژگی‌های سند **درونی** و **سفارشی** پشتیبانی می‌کند. از این ویژگی‌ها برای خواندن و به‌روزرسانی فراداده‌های ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
+Aspose.Slides for .NET از ویژگی‌های **ساخته‌شده درون‌سیستم** و **سفارشی** برای ویژگی‌های سند پشتیبانی می‌کند. از این ویژگی‌ها برای خواندن و به‌روزرسانی فراداده‌های ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
 
-Aspose.Slides به شما امکان می‌دهد تا با ویژگی‌های سند ارائه از طریق رابط [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) کار کنید. یک نمونه از این رابط توسط [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) برگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
+Aspose.Slides به شما امکان می‌دهد تا با ویژگی‌های سند ارائه از طریق رابط [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) کار کنید. یک نمونه از این رابط توسط [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides متادیتاهای برنامه و تولید‌کننده را هنگام ذخیره‌سازی ارائه‌ها مدیریت می‌کند؛ این فیلدها نرم‌افزاری را که خروجی را ایجاد کرده است شناسایی می‌کنند.
+Aspose.Slides هنگام ذخیره‌سازی ارائه‌ها، فراداده‌های برنامه و تولیدکننده را مدیریت می‌کند؛ این فیلدها نرم‌افزاری که خروجی را ایجاد کرده است شناسایی می‌کنند.
 {{% /alert %}}
 
 ## **مدیریت ویژگی‌های ارائه**
 
-ویژگی‌های سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کنند. آن‌ها به دو دسته تقسیم می‌شوند:
+ویژگی‌های سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کنند. این ویژگی‌ها به دو دسته تقسیم می‌شوند:
 
-- **ویژگی‌های درونی** شامل متادیتای استاندارد مانند عنوان، نویسنده و آمارهای سند هستند.
-- **ویژگی‌های سفارشی** جفت‌های نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
+- **ویژگی‌های داخلی** شامل فراداده‌های استانداردی مانند عنوان، نویسنده و آمارهای سند هستند.
+- **ویژگی‌های سفارشی** جفت‌های نام/مقدار تعریف شده توسط کاربر را ذخیره می‌کنند.
 
-Aspose.Slides for .NET دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، برای بررسی متادیتای سند، **File → Info → Properties → Advanced Properties** را انتخاب کنید. این گفت‌وگو اطلاعات را در برگه‌هایی مانند **Summary**, **Statistics**, **Contents**, و **Custom** گروه‌بندی می‌کند. از برگه **Custom** برای مدیریت ویژگی‌های تعریف‌شده توسط کاربر استفاده کنید.
+Aspose.Slides for .NET دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، **File → Info → Properties → Advanced Properties** را انتخاب کنید تا فراداده‌های سند را بررسی کنید. این گفتگو اطلاعات را در برگه‌هایی مانند **Summary**، **Statistics**، **Contents** و **Custom** گروه‌بندی می‌کند. برای مدیریت ویژگی‌های تعریف‌شده توسط کاربر، از برگه **Custom** استفاده کنید.
 
-## **خواندن ویژگی‌های عمومی از یک ارائه رمزگذاری‌شده**
+## **خواندن ویژگی‌های عمومی از یک ارائهٔ رمزنگاری‌شده**
 
-یک رمز عبور باز کردن معمولاً هر دو محتوای ارائه و ویژگی‌های سند را محافظت می‌کند. وقتی ارائه‌ای با [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) برابر `false` رمزگذاری شود، ویژگی‌های سند آن عمومی می‌مانند. سپس یک برنامه می‌تواند [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) را به `true` تنظیم کند و متادیتای عمومی را بدون ارائه رمز عبور باز کردن بخواند.
+یک رمز عبور باز کردن معمولاً هم محتوای ارائه و هم ویژگی‌های سند را محافظت می‌کند. وقتی ارائه‌ای با [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) که مقدار `false` دارد رمزنگاری می‌شود، ویژگی‌های سند آن عمومی می‌مانند. سپس یک برنامه می‌تواند [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) را به `true` تنظیم کند و فراداده‌های عمومی را بدون ارائهٔ رمز عبور باز کردن بخواند.
 
-[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) کنترل می‌کند که Aspose.Slides چه چیزی را بارگذاری می‌کند؛ هیچ چیزی رمزگشایی نمی‌شود. اگر ویژگی‌ها در رمزگذاری گنجانده شده باشند، بارگذاری آن‌ها بدون رمز عبور ناموفق خواهد بود. اگر ارائه رمزگذاری نشده باشد، گزینه نادیده گرفته می‌شود و ارائه کامل بارگذاری می‌شود.
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) کنترل می‌کند که Aspose.Slides چه چیزی را بارگذاری می‌کند؛ هیچ چیز را رمزگشایی نمی‌کند. اگر ویژگی‌ها در رمزنگاری گنجانده شده باشند، بارگذاری آن‌ها بدون رمز عبور شکست می‌خورد. اگر ارائه رمزنگاری نشده باشد، گزینه نادیده گرفته می‌شود و ارائه کامل بارگذاری می‌شود.
 
-این مثال به یک ارائه رمزگذاری‌شده نیاز دارد که ویژگی‌های سند آن به صورت عمومی باقی مانده‌اند. حالت بارگذاری را از طریق [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) تأیید می‌کند و سپس ویژگی‌های درونی را از طریق [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) می‌خواند:
+مثال نیاز به یک ارائهٔ رمزنگاری‌شده دارد که ویژگی‌های سند آن عمومی باقی مانده باشند. این مثال حالت بارگذاری را از طریق [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) تأیید می‌کند و سپس ویژگی‌های داخلی را از طریق [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) می‌خواند:
 
 ```csharp
 using System;
@@ -73,17 +73,17 @@ else
 }
 ```
 
-در این حالت، محتوای اسلاید بارگذاری نمی‌شود. اسلایدها، صفحه‌های اصلی، چیدمان‌ها، اشکال، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملیاتی که به مدل شیء کامل ارائه نیاز دارد، [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) را بررسی کنند.
+در این حالت، محتوای اسلایدها بارگذاری نمی‌شود. اسلایدها، مسترها، چینش‌ها، اشکال، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملی که نیاز به مدل شیء کامل ارائه دارد، [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) را بررسی کنند.
 
 {{% alert color="warning" title="Security" %}}
-متادیتای عمومی ممکن است نام‌های نویسنده، عناوین، موضوعات، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. ویژگی‌های حساس را همراه با ارائه رمزگذاری کنید. فقط در زمانی که سیستم‌های فهرست‌بندی، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی برای دسترسی به آنها بدون رمز عبور دارند، آن‌ها را عمومی بگذارید.
+فراداده‌های عمومی ممکن است نام نویسندگان، عناوین، موضوعات، کلیدواژه‌ها، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کنند. ویژگی‌های حساس را به همراه ارائه رمزنگاری کنید. آنها را عمومی بگذارید فقط وقتی که سیستم‌های ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی به دسترسی بدون رمز عبور داشته باشند.
 {{% /alert %}}
 
-## **به‌روزرسانی ویژگی‌های یک ارائه رمزگذاری‌شده**
+## **به‌روزرسانی ویژگی‌های یک ارائهٔ رمزنگاری‌شده**
 
-برای یک فایل PPTX رمزگذاری‌شده، ارائه‌ای که با [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) بارگذاری می‌شود، برای خواندن متادیتای عمومی در نظر گرفته شده است. Aspose.Slides نمی‌تواند ویژگی‌های تغییر یافته را از این شیء فقط‑متادیتا ذخیره کند زیرا ویژگی‌های عمومی باید با داده‌های متناظر درون ارائه رمزگذاری‌شده سازگار بمانند. بنابراین به‌روزرسانی آن‌ها نیاز به رمز عبور باز کردن صحیح و یک بارگذاری کامل دارد.
+برای یک فایل PPTX رمزنگاری‌شده، ارائه‌ای که با [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) بارگذاری می‌شود برای خواندن فراداده‌های عمومی در نظر گرفته شده است. Aspose.Slides نمی‌تواند ویژگی‌های تغییر یافته را از آن شیء فقط‑متادیتا ذخیره کند زیرا ویژگی‌های عمومی باید با داده‌های متناظر درون ارائهٔ رمزنگاری شده سازگار باشند. بنابراین به‌روزرسانی آن‌ها نیازمند رمز عبور باز کردن صحیح و بارگذاری کامل است.
 
-این مثال به یک ارائه PPTX رمزگذاری‌شده با ویژگی‌های سند عمومی و رمز عبور باز کردن شناخته‌شده نیاز دارد. آن ارائه کامل را با [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) باز می‌کند، ویژگی‌های درونی عمومی را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌سازد. سپس با استفاده از [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) تأیید می‌کند که رمزگذاری حفظ شده است و متادیتای عمومی را بدون رمز عبور باز می‌کند تا مقادیر جدید را بررسی کند:
+مثال نیاز به یک ارائهٔ PPTX رمزنگاری‌شده دارد که ویژگی‌های سند عمومی داشته باشد و رمز عبور باز کردن آن شناخته شده باشد. این مثال ارائه کامل را با [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) باز می‌کند، ویژگی‌های داخلی عمومی را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌نماید. سپس با استفاده از [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) اطمینان می‌یابد که رمزنگاری حفظ شده و فراداده‌های عمومی را بدون رمز عبور دوباره باز می‌کند تا مقادیر جدید را تأیید کند:
 
 ```csharp
 using System;
@@ -119,11 +119,11 @@ else
 }
 ```
 
-اگر برنامه اجازه‌ی رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید ویژگی‌های عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
+اگر برنامه اجازهٔ رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید ویژگی‌های عمومی یک فایل PPTX رمزنگاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
 
-## **دسترسی به ویژگی‌های درونی**
+## **دسترسی به ویژگی‌های داخلی**
 
-رابط [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) متادیتای درونی را از طریق ویژگی‌های تایپی، از جمله [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), و [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/) در دسترس می‌گذارد. این مثال یک ارائه موجود را باز می‌کند و متادیتای ذخیره‌شده آن را در کنسول چاپ می‌کند. مقادیر وابسته به ارائه ورودی هستند؛ برخی فیلدها ممکن است خالی باشند.
+رابط [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) فراداده‌های داخلی را از طریق ویژگی‌های تایپی، شامل [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)، [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/)، و [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/) افشا می‌کند. این مثال یک ارائهٔ موجود را باز می‌کند و فراداده‌های ذخیره شدهٔ آن را در کنسول چاپ می‌کند. مقادیر بستگی به ارائهٔ ورودی دارد؛ برخی فیلدها ممکن است خالی باشند.
 
 ```csharp
 using System;
@@ -149,9 +149,38 @@ Console.WriteLine("Subject: " + documentProperties.Subject);
 Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
-## **تغییر ویژگی‌های درونی**
+### **گزارش شماره بازبینی و زمان ویرایش**
 
-برای به‌روزرسانی متادیتای درونی، مقادیر را به ویژگی‌های قابل نوشتنی که توسط [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) در دسترس هستند اختصاص دهید. این مثال یک ارائه موجود را باز می‌کند، [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), و [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) را تنظیم می‌کند، سپس ارائه به‌روزشده را با [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ذخیره می‌نماید. فایل PPTX ذخیره‌شده شامل متادیتای جدید است.
+برای گزارش یک ردیف برای هر فایل PPTX در پوشه `presentations`، [ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) را فراخوانی کنید تا [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) آن را بدون بارگذاری اسلایدها برای ویرایش دریافت کنید. قالب استاندارد `c` برای `TimeSpan` شامل تعداد روزها می‌شود زمانی که مدت زمان به ۲۴ ساعت برسد.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+Console.WriteLine("File | RevisionNumber | TotalEditingTime");
+foreach (var path in Directory.EnumerateFiles("presentations", "*.pptx"))
+{
+    var info = PresentationFactory.Instance.GetPresentationInfo(path);
+    var properties = info.ReadDocumentProperties();
+    Console.WriteLine($"{Path.GetFileName(path)} | {properties.RevisionNumber} | {properties.TotalEditingTime:c}");
+}
+```
+
+خروجی نمونه برای یک ارائه با ۱ روز، ۲ ساعت و ۵ دقیقه زمان ویرایش ثبت‌شده:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[RevisionNumber](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/revisionnumber/) یک فرادادهٔ قابل نوشتن است. مقدار آن به تنهایی نمی‌تواند نشان دهد چند بار ارائه ذخیره شده یا تاریخچهٔ نسخهٔ آن را بازسازی کند.
+
+[TotalEditingTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/totaleditingtime/) مدت زمان ویرایش ثبت‌شده در فایل است. مقدار `00:00:00` به این معنی است که مدت زمان ذخیره‌شده صفر است. این نشان نمی‌دهد هیچ‌کس ارائه را ویرایش نکرده است.
+
+## **تغییر ویژگی‌های داخلی**
+
+برای به‌روزرسانی فراداده‌های داخلی، مقادیر را به ویژگی‌های قابل نوشتن که توسط [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) افشا شده‌اند اختصاص دهید. این مثال یک ارائهٔ موجود را باز می‌کند، [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)، [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/)، [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/)، [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/)، و [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) را تنظیم می‌کند، سپس ارائهٔ به‌روزرسانی‌شده را با [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ذخیره می‌نماید. فایل PPTX ذخیره‌شده حاوی فراداده‌های جدید خواهد بود.
 
 ```csharp
 using Aspose.Slides;
@@ -170,11 +199,11 @@ documentProperties.Manager = "Aspose manager";
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **مدیریت پایهٔ ابرپیوند**
+## **مدیریت پایهٔ پیوندها**
 
-[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) پایهٔ سطح سند برای ابرپیوندهای نسبی را ذخیره می‌کند. این زمانی مفید است که یک ارائه و پرونده‌های مرتبط آن را به مکان دیگری منتقل می‌کنید. این پایه جدا از [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) ابرپیوند فردی است: تغییر پایه، آدرس‌های ذخیره‌شده‌ی پیوند را بازنویسی نمی‌کند و مقصدهای مطلق را تغییر نمی‌دهد.
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) پایهٔ سطری سطح سند برای پیوندهای نسبی را ذخیره می‌کند. این هنگام جابه‌جایی یک ارائه و فایل‌های لینک‌شده‌اش به مکان دیگری مفید است. این مقدار مستقل از [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) یک پیوند تک است؛ تغییر پایه، آدرس‌های ذخیره‌شدهٔ پیوندها را بازنویسی نمی‌کند و مقصدهای مطلق را تغییر نمی‌دهد.
 
-این مثال به یک ارائه‌ای نیاز دارد که هم یک پیوند نسبی مانند `target.html` و هم یک پیوند مطلق مانند `https://example.org/absolute.html` داشته باشد. پایهٔ موجود را می‌خواند، آدرس پایهٔ جدیدی اختصاص می‌دهد و برای بررسی مقدار، ارائه را ذخیره و دوباره باز می‌کند. سپس پایه را با `string.Empty` پاک می‌کند و مقدار خالی را در یک فایل ذخیره‌شدهٔ جداگانه تأیید می‌کند. آدرس پایهٔ مثال را با مکان فایل‌های مرتبط خود جایگزین کنید.
+مثال نیاز به یک ارائه دارد که هم یک پیوند نسبی مانند `target.html` و هم یک پیوند مطلق مانند `https://example.org/absolute.html` داشته باشد. پایهٔ موجود را می‌خواند، یک آدرس پایه جدید انتساب می‌دهد و ارائه را ذخیره و دوباره باز می‌کند تا مقدار را بررسی کند. سپس پایه را با `string.Empty` پاک می‌کند و مقدار خالی را در فایل ذخیره‌شدهٔ جداگانه تأیید می‌نماید. آدرس پایهٔ مثال را با مکان فایل‌های لینک‌شدهٔ خود جایگزین کنید.
 
 ```csharp
 using System;
@@ -198,13 +227,13 @@ using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
 Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
 ```
 
-دو پیام تأیید باید `True` چاپ کنند. حذف پایه، آدرس‌های ابرپیوندهای فردی را دست نخورده می‌گذارد.
+دو پیام تأیید باید `True` چاپ کنند. پاک کردن پایه، آدرس‌های پیوندهای تک‌تکی را دست‌نخورده نگه می‌دارد.
 
-یک پیوند نسبی به `target.pptx` زمانی که پایه به پوشهٔ `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشهٔ `new`، ذخیره و باز کردن مجدد ارائه، همان پیوند `new/target.pptx` را باز کرد. یک پیوند مطلق همچنان همان فایل را باز می‌کرد. پیوندهای نسبی خود را در PowerPoint قبل و بعد از جابجایی ارائه یا تغییر پایه تست کنید.
+یک پیوند نسبی به `target.pptx` وقتی پایه به پوشه `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشه `new`، ذخیره و بازکردن مجدد ارائه، همان پیوند `new/target.pptx` را باز می‌کرد. یک پیوند مطلق همچنان همان فایل را باز می‌کرد. پیوندهای نسبی خود را در PowerPoint قبل و بعد از جابه‌جایی ارائه یا تغییر پایه تست کنید.
 
 ## **افزودن ویژگی‌های سفارشی به ارائه**
 
-ویژگی‌های سفارشی متادیتایی را ذخیره می‌کنند که فیلد درونی متناظر ندارند. [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) به شما امکان می‌دهد مقدار را با نام ویژگی اختصاص دهید. این مثال یک ارائه ایجاد می‌کند، دو مقدار متنی و یک مقدار نسخه عددی اضافه می‌کند و ارائه را با [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ذخیره می‌نماید. اختصاص مقدار به یک نام موجود، مقدار آن ویژگی را جایگزین می‌کند.
+ویژگی‌های سفارشی فراداده‌هایی را ذخیره می‌کنند که فیلد داخلی متناظری ندارند. [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) به شما اجازه می‌دهد تا مقدار را بر اساس نام ویژگی اختصاص دهید. این مثال یک ارائه می‌ساشد، دو مقدار متنی و یک مقدار عددی نسخه را اضافه می‌کند، و ارائه را با [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ذخیره می‌نماید. اختصاص مقدار به یک نام موجود، مقدار آن ویژگی را جایگزین می‌کند.
 
 ```csharp
 using Aspose.Slides;
@@ -223,7 +252,7 @@ presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 
 ## **دسترسی و تغییر ویژگی‌های سفارشی**
 
-این مثال یک ارائه حاوی ویژگی‌های سفارشی را باز می‌کند و با استفاده از [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) بر روی آن‌ها تکرار می‌کند. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) یک ایندکس صفر‑محور می‌گیرد و نامی را برمی‌گرداند که توسط [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) استفاده می‌شود. مثال هر نام و مقدار اصلی را چاپ می‌کند، هر مقدار را با یک رشته شماره‌دار صرف‌نظر از نوع اصلی آن جایگزین می‌کند و تغییرات را ذخیره می‌نماید. اگر ویژگی سفارشی‌ای وجود نداشته باشد، حلقه هیچ تغییری اعمال نمی‌کند.
+این مثال یک ارائه حاوی ویژگی‌های سفارشی را باز می‌کند و با استفاده از [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) بر روی آن‌ها پیمایش می‌کند. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) یک شاخص صفر‑محور می‌پذیرد و نامی که توسط [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) استفاده می‌شود، برمی‌گرداند. مثال هر نام و مقدار اصلی را چاپ می‌کند، هر مقدار را با یک رشته شماره‌دار جایگزین می‌کند صرف‌نظر از نوع اصلی آن، و تغییرات را ذخیره می‌نماید. اگر ویژگی سفارشی وجود نداشته باشد، حلقه تغییری ایجاد نمی‌کند.
 
 ```csharp
 using System;
@@ -250,28 +279,28 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 ## **مثال زنده**
 
-سعی کنید برنامهٔ آنلاین [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) را امتحان کنید تا ببینید چگونه با استفاده از API Aspose.Slides با ویژگی‌های سند کار می‌کنید:
+اپلیکیشن آنلاین [**مشاهده و ویرایش فراداده‌های پاورپوینت**](https://products.aspose.app/slides/metadata) را امتحان کنید تا ببینید چگونه با ویژگی‌های سند با استفاده از API Aspose.Slides کار می‌کنید:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![مشاهده و ویرایش فراداده‌های پاورپوینت](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم یک ویژگی درونی را از یک ارائه حذف کنم؟**
+**چگونه می‌توان یک ویژگی داخلی را از یک ارائه حذف کرد؟**
 
-ویژگی‌های درونی جزء جدایی‌ناپذیر ارائه هستند و نمی‌توان آن‌ها را به‌ طور کامل حذف کرد. با این حال، می‌توانید مقادیر آن‌ها را تغییر دهید یا در صورت اجازه ویژگی خاص، به مقدار خالی تنظیم کنید.
+ویژگی‌های داخلی بخش جدایی‌نشدنی ارائه هستند و نمی‌توان آن‌ها را به‌طور کامل حذف کرد. با این حال، می‌توانید مقادیر آن‌ها را تغییر دهید یا اگر ویژگی اجازه دهد به مقدار خالی تنظیم کنید.
 
-**چه اتفاقی می‌افتد اگر یک ویژگی سفارشی که قبلاً وجود دارد را اضافه کنم؟**
+**اگر یک ویژگی سفارشی که قبلاً وجود دارد را اضافه کنم چه می‌شود؟**
 
-اگر یک ویژگی سفارشی که قبلاً وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی ویژگی پیشاپیش نیست، زیرا Aspose.Slides به‌ طور خودکار مقدار ویژگی را به‌روز می‌کند.
+اگر یک ویژگی سفارشی که قبلاً وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی قبلی ویژگی ندارید، زیرا Aspose.Slides به‌ طور خودکار مقدار ویژگی را به‌روزرسانی می‌کند.
 
-**آیا می‌توانم ویژگی‌های ارائه را بدون بارگذاری کامل ارائه دسترسی داشته باشم؟**
+**آیا می‌توانم بدون بارگذاری کامل ارائه، ویژگی‌های ارائه را دسترسی داشته باشم؟**
 
-بله. از [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) و سپس [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) استفاده کنید تا متادیتای ذخیره‌شده سند را بدون ایجاد یک نمونهٔ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) بخوانید. برای مثال کامل گزارش‌دهی و محدودیت‌های قالب‑خاص، به [Build a Lightweight Presentation Inventory](/slides/fa/net/examine-presentation/) مراجعه کنید.
+بله. می‌توانید از [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) استفاده کنید و سپس [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) را فراخوانی کنید تا فرادادهٔ ذخیره‌شدهٔ سند را بدون ایجاد یک شیء [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) بخوانید. برای مثال کامل گزارش‌گیری و محدودیت‌های خاص قالب، به [ساخت یک فهرست سبک ارائه](/slides/fa/net/examine-presentation/) مراجعه کنید.
 
-**آیا می‌توانم ویژگی‌های عمومی یک ارائهٔ رمزگذاری‌شده را بدون رمز عبور باز کردن آن بخوانم؟**
+**آیا می‌توانم ویژگی‌های عمومی یک ارائهٔ رمزنگاری‌شده را بدون رمز عبور باز کردن آن بخوانم؟**
 
-بله. ارائه باید با [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) برابر `false` رمزگذاری شده باشد و باید با [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) برابر `true` بارگذاری شود.
+بله. ارائه باید با [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) که مقدار `false` دارد رمزنگاری شده باشد و با [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) که مقدار `true` دارد بارگذاری شود.
 
-**آیا می‌توانم یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑ویژگی‌های‑سند به‌روزرسانی کنم؟**
+**آیا می‌توانم یک فایل PPTX رمزنگاری‌شده را در حالت فقط‑ویژگی‌های‑سند به‌روزرسانی کنم؟**
 
-خیر. داده‌های ویژگی‌های عمومی و رمزگذاری‌شده باید سازگار بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده نیاز به بارگذاری کامل ارائه با رمز عبور باز کردن صحیح دارد.
+خیر. داده‌های عمومی و رمزنگاری‌شده باید همگام باشند، بنابراین به‌روزرسانی یک فایل PPTX رمزنگاری‌شده مستلزم بارگذاری کامل ارائه با رمز عبور باز کردن صحیح است.

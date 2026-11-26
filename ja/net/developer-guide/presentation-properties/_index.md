@@ -1,56 +1,56 @@
 ---
-title: .NET でプレゼンテーション プロパティを管理する
-linktitle: プレゼンテーション プロパティ
+title: ".NET でプレゼンテーション プロパティを管理する"
+linktitle: "プレゼンテーション プロパティ"
 type: docs
 weight: 70
 url: /ja/net/presentation-properties/
 keywords:
-- PowerPoint プロパティ
-- プレゼンテーション プロパティ
-- ドキュメント プロパティ
-- 組み込みプロパティ
-- カスタムプロパティ
-- 詳細プロパティ
-- プロパティの管理
-- プロパティの変更
-- ドキュメント メタデータ
-- メタデータの編集
-- 校正言語
-- デフォルト言語
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- .NET
-- C#
-- Aspose.Slides
+- "PowerPoint プロパティ"
+- "プレゼンテーション プロパティ"
+- "ドキュメント プロパティ"
+- "組み込みプロパティ"
+- "カスタムプロパティ"
+- "詳細プロパティ"
+- "プロパティの管理"
+- "プロパティの変更"
+- "ドキュメント メタデータ"
+- "メタデータの編集"
+- "校正言語"
+- "デフォルト言語"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
 description: "Aspose.Slides for .NET でプレゼンテーション プロパティをマスターし、PowerPoint および OpenDocument ファイルの検索、ブランディング、ワークフローを効率化します。"
 ---
-## **概要**
+## **イントロダクション**
 
-Aspose.Slides for .NET は **組み込み** と **カスタム** ドキュメント プロパティをサポートしています。これらのプロパティを使用して、作成者、タイトル、ユーザー定義の値などのプレゼンテーション メタデータを読み取り、更新できます。
+Aspose.Slides for .NET は **組み込み** と **カスタム** のドキュメント プロパティをサポートしています。これらのプロパティを使用して、作成者、タイトル、ユーザー定義の値など、プレゼンテーションのメタデータを読み取り、更新できます。
 
-Aspose.Slides では、[IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) インターフェイスを介してプレゼンテーション ドキュメント プロパティを操作できます。このインターフェイスのインスタンスは、[IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) によって返されます。以下の例は、これらのプロパティの読み取り、変更、管理方法を示しています。
+Aspose.Slides は、[IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) インターフェイスを通じてプレゼンテーションのドキュメント プロパティを操作できます。このインターフェイスのインスタンスは、[IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) によって返されます。以下の例は、これらのプロパティを読み取り、変更し、管理する方法を示しています。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides はプレゼンテーションの保存時にアプリケーションおよび作成者のメタデータを管理します。これらのフィールドは、出力を作成したソフトウェアを識別します。
+Aspose.Slides はプレゼンテーションを保存する際にアプリケーションおよびプロデューサーのメタデータを管理します。これらのフィールドは、出力を作成したソフトウェアを特定します。
 {{% /alert %}}
 
 ## **プレゼンテーション プロパティの管理**
 
-ドキュメント プロパティは、プレゼンテーション コンテンツと共に記述情報を保存します。2 つのカテゴリに分類されます。
+ドキュメント プロパティは、プレゼンテーション コンテンツとともに記述情報を保存します。これらは 2 つのカテゴリに分類されます：
 
-- **組み込みプロパティ** は、タイトル、作成者、ドキュメント統計情報などの標準メタデータを含みます。
-- **カスタムプロパティ** は、ユーザー定義の名前/値のペアを保存します。
+- **組み込みプロパティ** は、タイトル、作成者、ドキュメント統計などの標準メタデータを含みます。
+- **カスタムプロパティ** は、ユーザー定義の名前/値のペアを格納します。
 
-Aspose.Slides for .NET は両方のカテゴリへのアクセスを提供します。PowerPoint では **ファイル → 情報 → プロパティ → 詳細プロパティ** を選択してドキュメント メタデータを確認できます。ダイアログは **概要**、**統計**、**コンテンツ**、**カスタム** などのタブに情報を分類します。**カスタム** タブを使用してユーザー定義プロパティを管理します。
+Aspose.Slides for .NET は両方のカテゴリへのアクセスを提供します。PowerPoint では、**ファイル → 情報 → プロパティ → 詳細プロパティ** を選択してドキュメント メタデータを確認します。ダイアログは情報を **概要**、**統計**、**コンテンツ**、**カスタム** などのタブにグループ化します。**カスタム** タブを使用してユーザー定義のプロパティを管理します。
 
-## **暗号化されたプレゼンテーションから公開プロパティを読み取る**
+## **暗号化されたプレゼンテーションからパブリック プロパティを読み取る**
 
-開くパスワードは通常、プレゼンテーション コンテンツとドキュメント プロパティの両方を保護します。[IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) が `false` に設定された暗号化プレゼンテーションでは、ドキュメント プロパティは公開されたままです。アプリケーションは [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) を `true` に設定して、開くパスワードを提供せずに公開メタデータを読み取れます。
+オープン パスワードは通常、プレゼンテーション コンテンツとドキュメント プロパティの両方を保護します。プレゼンテーションが [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) を `false` に設定して暗号化されている場合、ドキュメント プロパティはパブリックのままです。アプリケーションはその後、[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) を `true` に設定し、オープン パスワードを提供せずにパブリック メタデータを読み取ることができます。
 
-[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) は Aspose.Slides が読み込む内容を制御します；暗号化は行いません。プロパティが暗号化に含まれている場合、パスワードなしでの読み込みは失敗します。プレゼンテーションが暗号化されていない場合、このオプションは無視され、プレゼンテーション全体が読み込まれます。
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) は Aspose.Slides がロードするものを制御します。暗号化は行われません。プロパティが暗号化に含まれている場合、パスワードなしでのロードは失敗します。プレゼンテーションが暗号化されていない場合、このオプションは無視され、プレゼンテーション全体がロードされます。
 
-この例は、ドキュメント プロパティが公開された暗号化プレゼンテーションを必要とします。読み込みモードは [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) で確認し、[IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) を通じて組み込みプロパティを読み取ります。
+この例は、ドキュメント プロパティがパブリックのままにされた暗号化プレゼンテーションを必要とします。[IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) でロード モードを確認し、次に [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) を通じて組み込みプロパティを読み取ります：
 
 ```csharp
 using System;
@@ -73,17 +73,17 @@ else
 }
 ```
 
-このモードではスライド コンテンツは読み込まれません。スライド、マスター、レイアウト、シェイプ、メディア、その他のプレゼンテーション オブジェクトは利用できません。アプリケーションは、プレゼンテーション全体のオブジェクト モデルが必要な操作を行う前に必ず [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) を確認すべきです。
+このモードでは、スライド コンテンツはロードされません。スライド、マスタ、レイアウト、シェイプ、メディア、その他のプレゼンテーション オブジェクトは利用できません。アプリケーションは、プレゼンテーション全体のオブジェクト モデルを必要とする操作を行う前に、必ず [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) を確認すべきです。
 
 {{% alert color="warning" title="Security" %}}
-公開メタデータにより、作成者名、タイトル、主題、キーワード、会社情報、コメント、カスタム値が漏洩する可能性があります。機密プロパティはプレゼンテーションとともに暗号化してください。インデックス作成、分類、検索、またはドキュメント管理システムがパスワードなしでアクセスする明確な要件がある場合にのみ、公開のままにしてください。
+パブリック メタデータは、作成者名、タイトル、テーマ、キーワード、会社情報、コメント、カスタム値を公開する可能性があります。機密性の高いプロパティはプレゼンテーションと共に暗号化してください。インデックス作成、分類、検索、またはドキュメント管理システムがパスワードなしでアクセスする特定の要件を持つ場合にのみ、パブリックのままにしてください。
 {{% /alert %}}
 
 ## **暗号化されたプレゼンテーションのプロパティを更新する**
 
-暗号化された PPTX ファイルで、[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) で読み込まれたプレゼンテーションは公開メタデータの読み取りを目的としています。Aspose.Slides はそのメタデータだけのオブジェクトから変更されたプロパティを保存できません。公開プロパティは暗号化されたプレゼンテーション内の対応データと整合性を保つ必要があるため、正しい開くパスワードで完全にロードする必要があります。
+暗号化された PPTX ファイルの場合、[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) でロードされたプレゼンテーションはパブリック メタデータの読み取りを目的としています。Aspose.Slides は、そのメタデータのみのオブジェクトから変更されたプロパティを保存できません。パブリック プロパティは暗号化されたプレゼンテーション内部の対応データと一貫性を保つ必要があるため、更新には正しいオープン パスワードと完全なロードが必要です。
 
-この例は、公開ドキュメント プロパティを持つ暗号化 PPTX プレゼンテーションと既知の開くパスワードを前提とします。[LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) でプレゼンテーション全体を開き、公開の組み込みプロパティを更新し、結果を保存します。その後、[IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) で暗号化が保持されていることを確認し、パスワードなしで公開メタデータを再度開いて新しい値を検証します。
+この例は、パブリックなドキュメント プロパティを持つ暗号化 PPTX プレゼンテーションと既知のオープン パスワードを必要とします。[LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) を使用してプレゼンテーション全体を開き、パブリックな組み込みプロパティを更新して結果を保存します。その後、[IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) を使用して暗号化が維持されていることを確認し、パスワードなしでパブリック メタデータを再度開いて新しい値を検証します：
 
 ```csharp
 using System;
@@ -119,11 +119,11 @@ else
 }
 ```
 
-アプリケーションがプレゼンテーション コンテンツの復号やロードを許可されていない場合、暗号化 PPTX ファイルの公開プロパティは読み取り専用として扱わなければなりません。
+アプリケーションがプレゼンテーション コンテンツの復号またはロードを許可されていない場合、暗号化された PPTX ファイルのパブリック プロパティは読み取り専用として扱わなければなりません。
 
 ## **組み込みプロパティへのアクセス**
 
-[IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) インターフェイスは、[Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)、[Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/)、[CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/) などの型付きプロパティを通じて組み込みメタデータを公開します。この例は既存のプレゼンテーションを開き、保存されたメタデータをコンソールに出力します。値は入力プレゼンテーションに依存し、フィールドが空の場合もあります。
+[IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) インターフェイスは、[Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)、[Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/)、[CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/) などの型付きプロパティを通じて組み込みメタデータを公開します。この例は既存のプレゼンテーションを開き、保存されたメタデータをコンソールに出力します。値は入力プレゼンテーションに依存し、いくつかのフィールドは空の場合があります。
 
 ```csharp
 using System;
@@ -149,9 +149,38 @@ Console.WriteLine("Subject: " + documentProperties.Subject);
 Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
+### **リビジョン番号と編集時間のレポート**
+
+`presentations` フォルダー内の各 PPTX ファイルについて 1 行のレポートを作成するには、[ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) を呼び出してスライドを編集用にロードせずにその [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) を取得します。`TimeSpan` の標準 `c` 形式は、期間が 24 時間に達したときに日数を含みます。
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+Console.WriteLine("File | RevisionNumber | TotalEditingTime");
+foreach (var path in Directory.EnumerateFiles("presentations", "*.pptx"))
+{
+    var info = PresentationFactory.Instance.GetPresentationInfo(path);
+    var properties = info.ReadDocumentProperties();
+    Console.WriteLine($"{Path.GetFileName(path)} | {properties.RevisionNumber} | {properties.TotalEditingTime:c}");
+}
+```
+
+記録された編集時間が 1 日 2 時間 5 分のプレゼンテーションのサンプル出力は次のとおりです：
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[RevisionNumber](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/revisionnumber/) は書き込み可能なメタデータです。その値だけではプレゼンテーションが保存された回数やバージョン履歴を特定することはできません。
+
+[TotalEditingTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/totaleditingtime/) はファイルに記録された編集時間です。`00:00:00` の値は保存された期間がゼロであることを意味します。これがプレゼンテーションが誰も編集していないことを証明するわけではありません。
+
 ## **組み込みプロパティの変更**
 
-組み込みメタデータを更新するには、[IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) が公開する書き込み可能プロパティに値を代入します。この例は既存のプレゼンテーションを開き、[Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)、[Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/)、[Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/)、[Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/)、[Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) を設定し、[Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) で更新されたプレゼンテーションを保存します。保存された PPTX には新しいメタデータが含まれます。
+組み込みメタデータを更新するには、[IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) が公開する書き込み可能プロパティに値を割り当てます。この例は既存のプレゼンテーションを開き、[Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/)、[Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/)、[Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/)、[Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/)、[Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) を設定し、[Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) で更新されたプレゼンテーションを保存します。保存された PPTX には新しいメタデータが含まれます。
 
 ```csharp
 using Aspose.Slides;
@@ -172,9 +201,9 @@ presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 
 ## **ハイパーリンク ベースの管理**
 
-[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) は、相対ハイパーリンク用のドキュメント レベルのベースを保存します。プレゼンテーションとリンクされたファイルを別の場所に移動する際に便利です。これは個々のハイパーリンクの [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) とは別で、ベースを変更しても保存されたリンク アドレスや絶対先は書き換えられません。
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) は相対ハイパーリンク用のドキュメント レベルのベースを保存します。プレゼンテーションとリンクされたファイルを別の場所に移動する際に便利です。個々のハイパーリンクの [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) とは別で、ベースを変更しても保存されたリンク アドレスは書き換えられず、絶対的な宛先も変更されません。
 
-この例は、`target.html` のような相対リンクと `https://example.org/absolute.html` のような絶対リンクの両方を含むプレゼンテーションを前提とします。既存のベースを読み取り、新しいベース アドレスを割り当て、保存して再度プレゼンテーションを開き値を確認します。続いて `string.Empty` でベースをクリアし、別ファイルで空の値を検証します。例のベース アドレスはリンクされたファイルの場所に置き換えてください。
+この例は、相対リンク（例: `target.html`）と絶対リンク（例: `https://example.org/absolute.html`）の両方を含むプレゼンテーションを必要とします。既存のベースを読み取り、新しいベース アドレスを割り当て、プレゼンテーションを保存して再度開き、値を確認します。その後、`string.Empty` でベースをクリアし、別の保存ファイルで空の値を検証します。例のベース アドレスは、リンクされたファイルの場所に置き換えてください。
 
 ```csharp
 using System;
@@ -200,11 +229,11 @@ Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.Hyp
 
 2 つの検証メッセージは `True` と出力されるはずです。ベースをクリアしても個々のハイパーリンク アドレスはそのまま残ります。
 
-相対リンク `target.pptx` はベースが `old` フォルダーを指していたとき `old/target.pptx` を開きました。ベースを `new` フォルダーに変更し、保存して再度プレゼンテーションを開くと同じリンクは `new/target.pptx` を開きます。絶対リンクは同じファイルを開き続けます。プレゼンテーションを移動したりベースを変更したりする前後で、PowerPoint で相対リンクをテストしてください。
+`target.pptx` への相対リンクは、ベースが `old` フォルダーを指しているときは `old/target.pptx` を開きました。ベースを `new` フォルダーに変更し、保存してプレゼンテーションを再度開くと、同じリンクは `new/target.pptx` を開きます。絶対リンクは同じファイルを開き続けます。プレゼンテーションを移動したりベースを変更したりする前後で、PowerPoint で相対リンクをテストしてください。
 
 ## **カスタム プレゼンテーション プロパティの追加**
 
-カスタム プロパティは、組み込みフィールドに対応しないメタデータを保存します。[IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) を使用すると、プロパティ名で値を割り当てられます。この例はプレゼンテーションを作成し、テキスト値 2 つと整数のバージョン値を追加し、[Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) で保存します。既存の名前に値を割り当てるとそのプロパティの値は置き換えられます。
+カスタム プロパティは、組み込みフィールドに対応しないメタデータを保存します。[IDocumentProperties インデクサー](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) を使用すると、プロパティ名で値を割り当てることができます。この例はプレゼンテーションを作成し、2 つのテキスト値と整数のバージョン値を追加し、[Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) でプレゼンテーションを保存します。既存の名前に値を割り当てると、そのプロパティの値が置き換えられます。
 
 ```csharp
 using Aspose.Slides;
@@ -221,9 +250,9 @@ documentProperties["Document version"] = 2;
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **カスタム プロパティのアクセスと変更**
+## **カスタム プロパティへのアクセスと変更**
 
-この例はカスタム プロパティを含むプレゼンテーションを開き、[CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) を使用して列挙します。[GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) は 0 ベースのインデックスを受け取り、[IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) が使用する名前を返します。例は各元の名前と値を出力し、元の型に関係なく番号付き文字列に置き換えて変更を保存します。カスタム プロパティが存在しない場合、ループは何も変更しません。
+この例はカスタム プロパティを含むプレゼンテーションを開き、[CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) を使用してそれらを列挙します。[GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) はゼロベースのインデックスを受け取り、[IDocumentProperties インデクサー](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) が使用する名前を返します。例は各元の名前と値を出力し、元の型に関係なくすべての値を番号付き文字列に置き換えて変更を保存します。カスタム プロパティがない場合、ループは何も変更しません。
 
 ```csharp
 using System;
@@ -250,28 +279,28 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 ## **ライブ例**
 
-[**PowerPoint メタデータの表示と編集**](https://products.aspose.app/slides/metadata) オンライン アプリを試して、Aspose.Slides API を使用したドキュメント プロパティの操作方法を確認してください。
+オンライン アプリの [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) を試して、Aspose.Slides API を使用したドキュメント プロパティの操作方法をご確認ください：
 
-[![PowerPoint メタデータの表示と編集](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **よくある質問**
+## **FAQ**
 
 **プレゼンテーションから組み込みプロパティを削除するにはどうすればよいですか？**
 
-組み込みプロパティはプレゼンテーションの不可欠な部分であり、完全に削除することはできません。ただし、プロパティが許可する場合は値を変更するか、空文字列に設定できます。
+組み込みプロパティはプレゼンテーションの不可欠な部分であり、完全に削除することはできません。ただし、プロパティの値を変更するか、該当プロパティが許可する場合は空に設定することは可能です。
 
-**既に存在するカスタムプロパティを追加した場合はどうなりますか？**
+**既に存在するカスタム プロパティを追加するとどうなりますか？**
 
-既に存在するカスタムプロパティを追加すると、その既存の値は新しい値で上書きされます。事前にプロパティを削除したりチェックしたりする必要はありません。Aspose.Slides が自動的にプロパティの値を更新します。
+既に存在するカスタム プロパティを追加すると、既存の値は新しい値で上書きされます。プロパティを事前に削除したり確認したりする必要はありません。Aspose.Slides が自動的にプロパティの値を更新します。
 
-**プレゼンテーション全体をロードせずにプロパティへアクセスできますか？**
+**プレゼンテーションを完全にロードせずにプロパティにアクセスできますか？**
 
-はい。[PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) を使用し、続いて [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) で [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) インスタンスを作成せずに保存されたドキュメント メタデータを読み取れます。完全なレポート例とフォーマット別の制限については [軽量プレゼンテーション インベントリの作成](/slides/ja/net/examine-presentation/) を参照してください。
+はい。[PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) を使用し、続いて [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) を呼び出すことで、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) インスタンスを作成せずに保存されたドキュメント メタデータを読み取れます。完全なレポート例とフォーマット固有の制限については、[Build a Lightweight Presentation Inventory](/slides/ja/net/examine-presentation/) を参照してください。
 
-**開くパスワードなしで暗号化されたプレゼンテーションの公開プロパティを読み取れますか？**
+**暗号化されたプレゼンテーションのパブリック プロパティをオープン パスワードなしで読み取れますか？**
 
-はい。プレゼンテーションが [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) を `false` に設定して暗号化されており、かつ [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) が `true` に設定されている必要があります。
+はい。プレゼンテーションは [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) を `false` に設定して暗号化されており、さらに [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) を `true` に設定してロードされている必要があります。
 
-**ドキュメント プロパティだけのモードで暗号化された PPTX ファイルを更新できますか？**
+**ドキュメント プロパティのみのモードで暗号化された PPTX ファイルを更新できますか？**
 
-できません。公開プロパティと暗号化されたプロパティ データは一貫性を保つ必要があるため、暗号化された PPTX ファイルを更新するには正しい開くパスワードで完全にロードする必要があります。
+いいえ。パブリック プロパティと暗号化されたプロパティのデータは一貫性を保つ必要があるため、暗号化された PPTX ファイルを更新するには、正しいオープン パスワードでプレゼンテーション全体をロードする必要があります。

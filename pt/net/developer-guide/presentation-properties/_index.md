@@ -6,45 +6,43 @@ weight: 70
 url: /pt/net/presentation-properties/
 keywords:
 - Propriedades do PowerPoint
-- propriedades da apresentação
-- propriedades do documento
-- propriedades integradas
-- propriedades personalizadas
-- propriedades avançadas
-- gerenciar propriedades
-- modificar propriedades
-- metadados do documento
-- editar metadados
-- idioma de revisão
-- idioma padrão
+- Propriedades da apresentação
+- Propriedades do documento
+- Propriedades integradas
+- Propriedades personalizadas
+- Propriedades avançadas
+- Gerenciar propriedades
+- Modificar propriedades
+- Metadados do documento
+- Editar metadados
+- Idioma de revisão
+- Idioma padrão
 - PowerPoint
 - OpenDocument
-- apresentação
+- Apresentação
 - .NET
 - C#
 - Aspose.Slides
-description: "Domine as propriedades da apresentação no Aspose.Slides para .NET e otimize a pesquisa, a identidade visual e o fluxo de trabalho em seus arquivos PowerPoint e OpenDocument."
+description: "Domine as propriedades da apresentação no Aspose.Slides para .NET e otimize a pesquisa, a marca e o fluxo de trabalho em seus arquivos PowerPoint e OpenDocument."
 ---
 ## **Introdução**
 
-Aspose.Slides for .NET oferece suporte a propriedades de documento **integradas** e **personalizadas**. Use essas propriedades para ler e atualizar metadados da apresentação, como autor, título e valores definidos pelo usuário.
+Aspose.Slides for .NET suporta **integradas** e **personalizadas** propriedades de documento. Use essas propriedades para ler e atualizar os metadados da apresentação, como o autor, título e valores definidos pelo usuário.
 
-Aspose.Slides permite trabalhar com propriedades de documento da apresentação por meio da interface [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/). Uma instância dessa interface é retornada por [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Os exemplos a seguir mostram como ler, modificar e gerenciar essas propriedades.
+Aspose.Slides permite trabalhar com propriedades de documento de apresentação através da interface [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) . Uma instância dessa interface é retornada por [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Os exemplos a seguir mostram como ler, modificar e gerenciar essas propriedades.
 
-{{% alert color="info" title="Nota" %}}
-
+{{% alert color="info" title="Note" %}}
 Aspose.Slides gerencia os metadados de aplicação e produtor ao salvar apresentações; esses campos identificam o software que criou a saída.
-
 {{% /alert %}}
 
 ## **Gerenciar Propriedades da Apresentação**
 
-As propriedades de documento armazenam informações descritivas ao lado do conteúdo da apresentação. Elas se dividem em duas categorias:
+Propriedades de documento armazenam informações descritivas junto ao conteúdo da apresentação. Elas se dividem em duas categorias:
 
 - **Propriedades integradas** contêm metadados padrão, como título, autor e estatísticas do documento.
 - **Propriedades personalizadas** armazenam pares nome/valor definidos pelo usuário.
 
-Aspose.Slides for .NET fornece acesso a ambas as categorias. No PowerPoint, selecione **Arquivo → Informações → Propriedades → Propriedades avançadas** para inspecionar os metadados do documento. A caixa de diálogo agrupa as informações em guias como **Resumo**, **Estatísticas**, **Conteúdo** e **Personalizado**. Use a guia **Personalizado** para gerenciar propriedades definidas pelo usuário.
+Aspose.Slides for .NET fornece acesso a ambas as categorias. No PowerPoint, selecione **File → Info → Properties → Advanced Properties** para inspecionar os metadados do documento. A caixa de diálogo agrupa as informações em guias como **Summary**, **Statistics**, **Contents** e **Custom**. Use a guia **Custom** para gerenciar propriedades definidas pelo usuário.
 
 ## **Ler Propriedades Públicas de uma Apresentação Criptografada**
 
@@ -52,7 +50,7 @@ Uma senha de abertura normalmente protege tanto o conteúdo da apresentação qu
 
 [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) controla o que o Aspose.Slides carrega; não descriptografa nada. Se as propriedades foram incluídas na criptografia, carregá‑las sem a senha falha. Se a apresentação não estiver criptografada, a opção é ignorada e a apresentação completa é carregada.
 
-O exemplo requer uma apresentação criptografada cujas propriedades de documento foram deixadas públicas. Ele verifica o modo de carregamento por meio de [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) e então lê propriedades integradas através de [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
+O exemplo requer uma apresentação criptografada cujas propriedades de documento foram deixadas públicas. Ele verifica o modo de carregamento através de [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) e então lê as propriedades integradas via [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
 
 ```csharp
 using System;
@@ -75,17 +73,17 @@ else
 }
 ```
 
-Neste modo, o conteúdo dos slides não é carregado. Slides, mestres, layouts, formas, mídia e outros objetos da apresentação ficam indisponíveis. As aplicações devem sempre verificar [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) antes de executar uma operação que exija o modelo de objeto completo da apresentação.
+Nesse modo, o conteúdo dos slides não é carregado. Slides, mestres, layouts, formas, mídia e outros objetos da apresentação ficam indisponíveis. As aplicações devem sempre verificar [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) antes de executar uma operação que requeira o modelo completo de objetos da apresentação.
 
-{{% alert color="warning" title="Segurança" %}}
-Metadados públicos podem expor nomes de autores, títulos, assuntos, palavras‑chave, informações da empresa, comentários e valores personalizados. Criptografe propriedades sensíveis juntamente com a apresentação. Deixe‑as públicas apenas quando sistemas de indexação, classificação, busca ou gerenciamento de documentos exigirem acesso sem senha.
+{{% alert color="warning" title="Security" %}}
+Metadados públicos podem expor nomes de autores, títulos, assuntos, palavras‑chave, informações da empresa, comentários e valores personalizados. Criptografe propriedades sensíveis juntamente com a apresentação. Deixe‑as públicas apenas quando sistemas de indexação, classificação, pesquisa ou gerenciamento de documentos tiverem um requisito específico para acessá‑las sem senha.
 {{% /alert %}}
 
 ## **Atualizar Propriedades de uma Apresentação Criptografada**
 
-Para um arquivo PPTX criptografado, uma apresentação carregada com [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) destina‑se à leitura de metadados públicos. O Aspose.Slides não pode salvar propriedades alteradas desse objeto somente‑metadados porque as propriedades públicas devem permanecer consistentes com os dados correspondentes dentro da apresentação criptografada. Atualizá‑las, portanto, requer a senha de abertura correta e um carregamento completo.
+Para um arquivo PPTX criptografado, uma apresentação carregada com [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) destina‑se a ler metadados públicos. O Aspose.Slides não pode salvar propriedades alteradas desse objeto somente‑metadata porque as propriedades públicas precisam permanecer consistentes com os dados correspondentes dentro da apresentação criptografada. Atualizá‑las, portanto, requer a senha de abertura correta e um carregamento completo.
 
-O exemplo requer uma apresentação PPTX criptografada com propriedades de documento públicas e uma senha de abertura conhecida. Ele abre a apresentação completa com [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), atualiza propriedades integradas públicas e salva o resultado. Em seguida, usa [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) para verificar que a criptografia foi preservada e reabre os metadados públicos sem senha para verificar os novos valores:
+O exemplo requer uma apresentação PPTX criptografada com propriedades de documento públicas e uma senha de abertura conhecida. Ele abre a apresentação completa com [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), atualiza as propriedades integradas públicas e salva o resultado. Em seguida, usa [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) para verificar se a criptografia foi preservada e reabre os metadados públicos sem senha para validar os novos valores:
 
 ```csharp
 using System;
@@ -121,7 +119,7 @@ else
 }
 ```
 
-Se uma aplicação não estiver autorizada a descriptografar ou carregar o conteúdo da apresentação, ela deve tratar as propriedades públicas de um arquivo PPTX criptografado como somente leitura.
+Se uma aplicação não tem permissão para descriptografar ou carregar o conteúdo da apresentação, ela deve tratar as propriedades públicas de um arquivo PPTX criptografado como somente‑leitura.
 
 ## **Acessar Propriedades Integradas**
 
@@ -151,9 +149,38 @@ Console.WriteLine("Subject: " + documentProperties.Subject);
 Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
+### **Relatar Número de Revisão e Tempo de Edição**
+
+Para relatar uma linha para cada arquivo PPTX na pasta `presentations`, chame [ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) para recuperar seu [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) sem carregar os slides para edição. O formato padrão `c` para `TimeSpan` inclui a contagem de dias quando a duração atinge 24 horas.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+Console.WriteLine("File | RevisionNumber | TotalEditingTime");
+foreach (var path in Directory.EnumerateFiles("presentations", "*.pptx"))
+{
+    var info = PresentationFactory.Instance.GetPresentationInfo(path);
+    var properties = info.ReadDocumentProperties();
+    Console.WriteLine($"{Path.GetFileName(path)} | {properties.RevisionNumber} | {properties.TotalEditingTime:c}");
+}
+```
+
+Exemplo de saída para uma apresentação com 1 dia, 2 horas e 5 minutos de tempo de edição registrado:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[RevisionNumber](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/revisionnumber/) é um metadado gravável. Seu valor isolado não pode determinar quantas vezes a apresentação foi salva nem reconstruir seu histórico de versões.
+
+[TotalEditingTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/totaleditingtime/) é a duração de edição registrada no arquivo. Um valor de `00:00:00` significa que a duração armazenada é zero. Não prova que ninguém editou a apresentação.
+
 ## **Modificar Propriedades Integradas**
 
-Para atualizar metadados integrados, atribua valores às propriedades graváveis expostas por [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Este exemplo abre uma apresentação existente, define [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/) e [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/), então salva a apresentação atualizada com [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). O PPTX salvo contém os novos metadados.
+Para atualizar metadados integrados, atribua valores às propriedades graváveis expostas por [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Este exemplo abre uma apresentação existente, define [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), e [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/), então salva a apresentação atualizada com [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). O PPTX salvo contém os novos metadados.
 
 ```csharp
 using Aspose.Slides;
@@ -172,11 +199,11 @@ documentProperties.Manager = "Aspose manager";
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Gerenciar a Base de Hiperlink**
+## **Gerenciar a Base de Hyperlink**
 
-[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) armazena a base a nível de documento para hiperlinks relativos. Isso é útil ao mover uma apresentação e seus arquivos vinculados para outro local. É independente do [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) de um hiperlink individual: mudar a base não reescreve os endereços armazenados nem altera destinos absolutos.
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) armazena a base a nível de documento para hyperlinks relativos. Isso é útil ao mover uma apresentação e seus arquivos vinculados para outro local. É independente do [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) de um hyperlink individual: alterar a base não reescreve os endereços dos links armazenados nem altera destinos absolutos.
 
-O exemplo requer uma apresentação contendo tanto um link relativo, como `target.html`, quanto um link absoluto, como `https://example.org/absolute.html`. Ele lê a base existente, atribui um novo endereço base e salva e reabre a apresentação para verificar o valor. Em seguida, limpa a base com `string.Empty` e verifica o valor vazio em um arquivo salvo separado. Substitua o endereço base do exemplo pela localização dos seus arquivos vinculados.
+O exemplo requer uma apresentação contendo tanto um link relativo, como `target.html`, quanto um link absoluto, como `https://example.org/absolute.html`. Ele lê a base existente, atribui um novo endereço de base e salva e reabre a apresentação para verificar o valor. Em seguida, limpa a base com `string.Empty` e verifica o valor vazio em um arquivo salvo separado. Substitua o endereço de base de exemplo pela localização dos seus arquivos vinculados.
 
 ```csharp
 using System;
@@ -200,13 +227,13 @@ using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
 Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
 ```
 
-As duas mensagens de verificação devem imprimir `True`. Limpar a base deixa os endereços dos hiperlinks individuais intactos.
+As duas mensagens de verificação devem imprimir `True`. Limpar a base deixa os endereços de hyperlink individuais intactos.
 
-Um link relativo para `target.pptx` abriu `old/target.pptx` quando a base apontava para a pasta `old`. Após mudar a base para a pasta `new`, salvar e reabrir a apresentação, o mesmo link abriu `new/target.pptx`. Um link absoluto continuou a abrir o mesmo arquivo. Teste seus links relativos no PowerPoint antes e depois de mover a apresentação ou mudar sua base.
+Um link relativo para `target.pptx` abriu `old/target.pptx` quando a base apontava para a pasta `old`. Após mudar a base para a pasta `new`, salvar e reabrir a apresentação, o mesmo link abriu `new/target.pptx`. Um link absoluto continuou a abrir o mesmo arquivo. Teste seus links relativos no PowerPoint antes e depois de mover a apresentação ou alterar sua base.
 
-## **Adicionar Propriedades Personalizadas à Apresentação**
+## **Adicionar Propriedades Personalizadas de Apresentação**
 
-Propriedades personalizadas armazenam metadados que não têm um campo integrado correspondente. O indexador [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) permite atribuir um valor pelo nome da propriedade. Este exemplo cria uma apresentação, adiciona dois valores de texto e um valor inteiro de versão, e salva a apresentação com [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Atribuir um valor a um nome já existente substitui o valor da propriedade.
+Propriedades personalizadas armazenam metadados que não têm um campo integrado correspondente. O indexador [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) permite atribuir um valor por nome de propriedade. Este exemplo cria uma apresentação, adiciona dois valores de texto e um valor de versão inteiro, e salva a apresentação com [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Atribuir um valor a um nome existente substitui o valor da propriedade.
 
 ```csharp
 using Aspose.Slides;
@@ -225,7 +252,7 @@ presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 
 ## **Acessar e Modificar Propriedades Personalizadas**
 
-Este exemplo abre uma apresentação contendo propriedades personalizadas e usa [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) para iterar sobre elas. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) aceita um índice base zero e devolve o nome usado pelo indexador [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/). O exemplo imprime cada nome e valor originais, substitui cada valor por uma string numerada independentemente do tipo original e salva as alterações. Se não houver propriedades personalizadas, o loop não faz alterações.
+Este exemplo abre uma apresentação contendo propriedades personalizadas e usa [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) para iterar sobre elas. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) aceita um índice baseado em zero e retorna o nome usado pelo [indexador IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/). O exemplo imprime cada nome e valor original, substitui cada valor por uma string numerada independentemente do tipo original, e salva as alterações. Se não houver propriedades personalizadas, o loop não faz alterações.
 
 ```csharp
 using System;
@@ -252,28 +279,28 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 ## **Exemplo ao Vivo**
 
-Experimente o aplicativo online [**Visualizar e Editar Metadados do PowerPoint**](https://products.aspose.app/slides/metadata) para ver como trabalhar com propriedades de documento usando a API Aspose.Slides:
+Experimente o aplicativo online [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) para ver como trabalhar com propriedades de documento usando a API Aspose.Slides:
 
 [![Visualizar e Editar Metadados do PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **FAQ**
+## **Perguntas Frequentes**
 
 **Como posso remover uma propriedade integrada de uma apresentação?**
 
-Propriedades integradas são parte integrante da apresentação e não podem ser removidas totalmente. No entanto, você pode alterar seus valores ou defini‑las como vazias, se a propriedade específica permitir.
+As propriedades integradas são parte integrante da apresentação e não podem ser removidas completamente. No entanto, você pode alterar seus valores ou defini‑‑las como vazias, se a propriedade específica permitir.
 
 **O que acontece se eu adicionar uma propriedade personalizada que já existe?**
 
-Se você adicionar uma propriedade personalizada que já existe, seu valor atual será sobrescrito pelo novo. Não é necessário remover ou verificar a propriedade antes, pois o Aspose.Slides atualiza automaticamente o valor da propriedade.
+Se você adicionar uma propriedade personalizada que já existe, seu valor atual será sobrescrito com o novo. Não é necessário remover ou verificar a propriedade previamente, pois o Aspose.Slides atualiza automaticamente o valor da propriedade.
 
-**Posso acessar as propriedades da apresentação sem carregar a apresentação completa?**
+**Posso acessar propriedades da apresentação sem carregar totalmente a apresentação?**
 
-Sim. Use [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) e depois [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) para ler os metadados de documento armazenados sem criar uma instância de [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Consulte [Criar um Inventário Leve de Apresentação](/slides/pt/net/examine-presentation/) para um exemplo completo de relatório e limitações específicas de formato.
+Sim. Use [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) e depois [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) para ler os metadados de documento armazenados sem criar uma instância [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Veja [Build a Lightweight Presentation Inventory](/slides/pt/net/examine-presentation/) para um exemplo completo de relatório e limitações específicas de formato.
 
 **Posso ler propriedades públicas de uma apresentação criptografada sem sua senha de abertura?**
 
-Sim. A apresentação deve ter sido criptografada com [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) definido como `false` e deve ser carregada com [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) definido como `true`.
+Sim. A apresentação deve ter sido criptografada com [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) definido como `false`, e deve ser carregada com [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) definido como `true`.
 
-**Posso atualizar um arquivo PPTX criptografado no modo somente‑propriedades‑de‑documento?**
+**Posso atualizar um arquivo PPTX criptografado no modo apenas‑propriedades‑de‑documento?**
 
-Não. Dados de propriedades públicas e criptografadas devem permanecer consistentes, portanto, atualizar um arquivo PPTX criptografado requer o carregamento completo da apresentação com a senha de abertura correta.
+Não. Dados de propriedades públicas e criptografadas devem permanecer consistentes, portanto atualizar um arquivo PPTX criptografado requer carregar a apresentação completa com a senha de abertura correta.

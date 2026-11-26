@@ -14,43 +14,43 @@ keywords:
 - إدارة الخصائص
 - تعديل الخصائص
 - بيانات تعريف المستند
-- تحرير بيانات التعريف
+- تحرير البيانات الوصفية
 - لغة التدقيق
 - اللغة الافتراضية
 - PowerPoint
 - OpenDocument
-- عرض تقديمي
+- العرض التقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تحكم في خصائص العرض التقديمي في Aspose.Slides لـ Node.js عبر Java وسهل عملية البحث والعلامة التجارية وسير العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
+description: "تحكم في خصائص العرض التقديمي في Aspose.Slides لـ Node.js عبر Java وسهّل عملية البحث والهوية والسير العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
 ---
-## **المقدمة**
+## **مقدمة**
 
-Aspose.Slides for Node.js عبر Java يدعم خصائص المستند **المدمجة** و **المخصصة**. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف، العنوان، والقيم المعرفة من قبل المستخدم.
+يدعم Aspose.Slides لـ Node.js عبر Java **الخصائص المدمجة** و**الخصائص المخصصة** للمستند. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف، العنوان، والقيم التي يحددها المستخدم.
 
-Aspose.Slides يتيح لك العمل مع خصائص مستند العرض التقديمي عبر الفئة [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties). يتم إرجاع نسخة من هذه الفئة بواسطة [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). تعرض الأمثلة التالية كيفية قراءة هذه الخصائص وتعديلها وإدارتها.
+يتيح Aspose.Slides العمل مع خصائص مستند العرض التقديمي عبر الفئة [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties). تُعيد مثيل هذه الفئة من خلال [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). تُظهر الأمثلة التالية كيفية قراءة، تعديل، وإدارة هذه الخصائص.
 
 {{% alert color="info" title="Note" %}}
-تدير Aspose.Slides بيانات التعريف الخاصة بالتطبيق والمنتج عند حفظ العروض التقديمية؛ هذه الحقول تحدد البرنامج الذي أنشأ النتيجة.
+يدير Aspose.Slides بيانات تعريف التطبيق والمنتج عند حفظ العروض التقديمية؛ تُحدد هذه الحقول البرنامج الذي أنشأ المخرجات.
 {{% /alert %}}
 
 ## **إدارة خصائص العرض التقديمي**
 
-تخزن خصائص المستند معلومات وصفية إلى جانب محتوى العرض التقديمي. تنقسم إلى فئتين:
+تخزن خصائص المستند معلومات وصفية إلى جانب محتوى العرض التقديمي. وتنقسم إلى فئتين:
 
-- **الخصائص المدمجة** تحتوي على بيانات تعريف قياسية، مثل العنوان، المؤلف، وإحصاءات المستند.
+- **الخصائص المدمجة** تحتوي على بيانات تعريف قياسية، مثل العنوان، المؤلف، وإحصائيات المستند.
 - **الخصائص المخصصة** تخزن أزواج اسم/قيمة يحددها المستخدم.
 
-Aspose.Slides for Node.js عبر Java يوفر الوصول إلى كلا الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لتفقد بيانات تعريف المستند. تقوم النافذة بتجميع المعلومات في علامات تبويب مثل **Summary**، **Statistics**، **Contents**، و **Custom**. استخدم علامة التبويب **Custom** لإدارة الخصائص المعرفة من قبل المستخدم.
+يتيح Aspose.Slides لـ Node.js عبر Java الوصول إلى كلتا الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لتفقد بيانات تعريف المستند. تُصنف النافذة المعلومات في علامات تبويب مثل **Summary** و**Statistics** و**Contents** و**Custom**. استخدم علامة تبويب **Custom** لإدارة الخصائص التي يحددها المستخدم.
 
 ## **قراءة الخصائص العامة من عرض تقديمي مشفر**
 
-كلمة المرور المفتوحة تحمي عادةً كل من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير العرض التقديمي بعد استدعاء [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) بـ `false`، تظل خصائص المستند عامة. يمكن للتطبيق بعد ذلك استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) بـ `true` وقراءة البيانات العامة دون تزويد كلمة المرور المفتوحة.
+عادةً ما يحمي كلمة مرور الفتح كلًا من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير عرض تقديمي بعد استدعاء [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) مع `false`، تظل خصائص المستند عامة. يمكن لتطبيق بعد ذلك استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) مع `true` وقراءة البيانات العامة دون تقديم كلمة مرور الفتح.
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) يتحكم فيما يقوم Aspose.Slides بتحميله؛ لا يقوم بفك التشفير. إذا تم تضمين الخصائص في عملية التشفير، سيؤدي تحميلها بدون كلمة المرور إلى فشل. إذا لم يكن العرض التقديمي مشفرًا، يتم تجاهل الخيار ويتم تحميل العرض التقديمي بالكامل.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) يتحكم في ما يقوم Aspose.Slides بتحميله؛ ولا يقوم بفك التشفير. إذا تم تضمين الخصائص في التشفير، فستفشل عملية التحميل دون كلمة المرور. إذا لم يكن العرض مشفرًا، فإن الخيار يُتجاهل وتُحمَّل النسخة الكاملة من العرض.
 
-يتطلب المثال عرضًا تقديميًا مشفرًا تُركت خصائصه العامة. يتحقق من وضع التحميل عبر [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) ثم يقرأ الخصائص المدمجة عبر [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
+يتطلب المثال عرضًا تقديميًا مشفرًا تُركت خصائص المستند فيه عامة. يتحقق من وضع التحميل عبر [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) ثم يقرأ الخصائص المدمجة عبر [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -74,17 +74,17 @@ try {
 }
 ```
 
-في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، القوالب، التخطيطات، الأشكال، الوسائط، والكائنات الأخرى غير متاحة. يجب على التطبيقات دائمًا التحقق من [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) قبل إجراء أي عملية تتطلب نموذج كائن العرض التقديمي الكامل.
+في هذا الوضع، لا يتم تحميل محتوى الشريحة. الشرائح، القواعد، التخطيطات، الأشكال، الوسائط، وغيرها من كائنات العرض غير متاحة. يجب على التطبيقات دائمًا فحص [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) قبل تنفيذ عملية تتطلب نموذج كائن العرض الكامل.
 
 {{% alert color="warning" title="Warning" %}}
-قد تكشف البيانات العامة عن أسماء المؤلفين، العناوين، المواضيع، الكلمات المفتاحية، معلومات الشركة، التعليقات، والقيم المخصصة. شفر الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما تتطلب أنظمة الفهرسة أو التصنيف أو البحث أو إدارة المستندات الوصول إليها دون كلمة مرور.
+قد تكشف البيانات العامة عن أسماء المؤلفين، العناوين، المواضيع، الكلمات المفتاحية، معلومات الشركة، التعليقات، والقيم المخصصة. شفر الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما تتطلب أنظمة الفهرسة أو التصنيف أو البحث أو إدارة المستندات الوصول إليها بدون كلمة مرور.
 {{% /alert %}}
 
 ## **تحديث خصائص عرض تقديمي مشفر**
 
-بالنسبة لملف PPTX مشفر، فإن العرض المُحمَّل بعد استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) بـ `true` يهدف إلى قراءة البيانات العامة فقط. لا يمكن لـ Aspose.Slides حفظ الخصائص المعدلة من ذلك الكائن الذي يحمل البيانات العامة فقط لأن الخصائص العامة يجب أن تظل متسقة مع البيانات المقابلة داخل العرض المشفر. لذا فإن تحديثها يتطلب كلمة المرور المفتوحة الصحيحة وتحميلًا كاملاً.
+بالنسبة لملف PPTX مشفر، يُقصد بالعرض المحمل بعد استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) مع `true` أنه للقراءة فقط للبيانات العامة. لا يمكن لـ Aspose.Slides حفظ الخصائص المتغيرة من ذلك الكائن القائم على البيانات العامة لأن الخصائص العامة يجب أن تبقى متسقة مع البيانات المقابلة داخل العرض المشفر. لذا فإن التحديث يتطلب كلمة مرور الفتح الصحيحة وتحميلًا كاملاً.
 
-يتطلب المثال عرضًا تقديميًا PPTX مشفرًا يحتوي على خصائص مستند عامة وكلمة مرور مفتوحة معروفة. يفتح العرض الكامل باستخدام [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword)، يحدّث الخصائص المدمجة العامة، ويحفظ النتيجة. ثم يستخدم [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) للتحقق من بقاء التشفير ويعيد فتح البيانات العامة دون كلمة مرور للتحقق من القيم الجديدة:
+يتطلب المثال عرض تقديمي PPTX مشفر بخصائص مستند عامة وكلمة مرور فتح معروفة. يفتح العرض الكامل باستخدام [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword)، يحدّث الخصائص المدمجة العامة، ويحفظ النتيجة. ثم يستخدم [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) للتحقق من بقاء التشفير ويعيد فتح البيانات العامة بدون كلمة مرور للتحقق من القيم الجديدة:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -125,11 +125,11 @@ try {
 }
 ```
 
-إذا لم يُسمح للتطبيق بفك تشفير أو تحميل محتوى العرض، يجب أن يتعامل مع الخصائص العامة لملف PPTX مشفر على أنها للقراءة فقط.
+إذا لم يُسمح لتطبيق بفك تشفير أو تحميل محتوى العرض، يجب معاملة الخصائص العامة لملف PPTX مشفر على أنها للقراءة فقط.
 
 ## **الوصول إلى الخصائص المدمجة**
 
-الفئة [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) تكشف عن بيانات التعريف المدمجة عبر طرق getter، بما في ذلك [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor)، [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle)، و [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع بياناته المخزنة إلى وحدة التحكم. القيم تعتمد على العرض المدخل؛ قد تكون بعض الحقول فارغة.
+تُظهر فئة [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) البيانات الوصفية المدمجة عبر طرق الجلب، بما في ذلك [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor)، [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle)، و[getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع البيانات الوصفية المخزنة إلى وحدة التحكم. القيم تعتمد على العرض المدخل؛ قد تكون بعض الحقول فارغة.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -157,9 +157,52 @@ try {
 }
 ```
 
+### **الإبلاغ عن رقم المراجعة ووقت التحرير**
+
+لإعداد تقرير عن رقم المراجعة وإجمالي وقت التحرير لكل ملف PPTX في مجلد `presentations`، استخدم [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties). تُعيد هذه الطريقة [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) للملف دون تحميل الشرائح للتحرير. يحوّل المثال المدة المسجَّلة من ملليثانية إلى ساعات ودقائق وثوانٍ. للمدة التي تبلغ 24 ساعة أو أكثر، يسبق الوقت عدد الأيام الكاملة.
+
+```javascript
+const fs = require("fs");
+const path = require("path");
+const slides = require("aspose.slides.via.java");
+
+const folder = "presentations";
+const files = fs.readdirSync(folder, { withFileTypes: true });
+const factory = slides.PresentationFactory.getInstance();
+
+console.log("File | RevisionNumber | TotalEditingTime");
+for (const file of files) {
+    if (!file.isFile() || path.extname(file.name).toLowerCase() !== ".pptx") {
+        continue;
+    }
+    const filePath = path.join(folder, file.name);
+    const info = factory.getPresentationInfo(filePath);
+    const properties = info.readDocumentProperties();
+    const totalSeconds = Math.floor(properties.getTotalEditingTime() / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor(totalSeconds / 3600) % 24;
+    const minutes = Math.floor(totalSeconds / 60) % 60;
+    const seconds = totalSeconds % 60;
+    const time = [hours, minutes, seconds].map(value => String(value).padStart(2, "0")).join(":");
+    const editingTime = days > 0 ? `${days}.${time}` : time;
+    console.log(`${file.name} | ${properties.getRevisionNumber()} | ${editingTime}`);
+}
+```
+
+لعرض تقديمي فيه مدة تحرير مسجَّلة تبلغ يومًا واحدًا وساعتين وخمس دقائق، سيظهر التقرير النتيجة التالية.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[ getRevisionNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getRevisionNumber) يقرأ قيمة يمكن للتطبيقات تعديلها باستخدام [setRevisionNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setRevisionNumber). لا يمكن لرقم المراجعة وحده تحديد عدد مرات حفظ العرض أو إعادة بناء تاريخ إصداراته.
+
+[ getTotalEditingTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTotalEditingTime) يقرأ مدة التحرير المسجَّلة في الملف. القيمة `00:00:00` تعني أن المدة المخزَّنة صفر، حتى وإن قام شخص ما بتحرير العرض.
+
 ## **تعديل الخصائص المدمجة**
 
-لتحديث البيانات المدمجة، استخدم طرق setter على الكائن المرتجع من [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). يفتح هذا المثال عرضًا تقديميًا موجودًا، يستدعي [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor)، [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle)، [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject)، [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments)، و [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager)، ثم يحفظ العرض المحدث باستخدام [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). يحتوي ملف PPTX المحفوظ على البيانات التعريفية الجديدة.
+لتحديث البيانات الوصفية المدمجة، استخدم طرق الضبط على الكائن الذي تُعيده [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). يفتح هذا المثال عرضًا تقديميًا موجودًا، يستدعي [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor)، [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle)، [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject)، [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments)، و[setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager)، ثم يحفظ العرض المحدث باستخدام [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). يحتوي ملف PPTX المحفوظ على البيانات الوصفية الجديدة.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -180,11 +223,11 @@ try {
 }
 ```
 
-## **إدارة أساس الارتباط التشعبي**
+## **إدارة قاعدة الارتباط التشعبي**
 
-[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) يُعيد الأساس على مستوى المستند للارتباطات التشعبية النسبية. استخدم [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) لتغييره أو مسحه. هذا مفيد عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. وهو منفصل عن [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) الخاص بكل ارتباط تشعبي: تعديل الأساس لا يُعيد كتابة عناوين الروابط المخزنة ولا يغير الوجهات المطلقة.
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) تُعيد القاعدة على مستوى المستند للروابط التشعبية النسبية. استخدم [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) لتغييرها أو مسحها. هذا مفيد عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. وهو منفصل عن [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) الخاص بالارتباط التشعبي الفردي: تغيير القاعدة لا يُعيد كتابة عناوين الروابط المخزَّنة ولا يغيّر الوجهات المطلقة.
 
-يتطلب المثال عرضًا تقديميًا يحتوي على كل من ارتباط نسبي، مثل `target.html`، وارتباط مطلق، مثل `https://example.org/absolute.html`. يقرأ الأساس الحالي، يعيّن أساسًا جديدًا، ثم يحفظ ويعيد فتح العرض للتحقق من القيمة. بعدها يمسح الأساس بسلسلة فارغة ويتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل عنوان الأساس في المثال بموقع ملفاتك المرتبطة.
+يتطلب المثال عرضًا يحتوي على رابط نسبي مثل `target.html` ورابط مطلق مثل `https://example.org/absolute.html`. يقرأ القاعدة الحالية، يُعيّن قاعدة جديدة، ثم يحفظ ويعيد فتح العرض للتحقق من القيمة. ثم يمسح القاعدة بسلسلة فارغة ويتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل قاعدة المثال بموقع ملفاتك المرتبطة.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -218,13 +261,13 @@ try {
 }
 ```
 
-يجب أن تُظهر رسائلي التحقق `true`. مسح الأساس يترك عناوين الروابط التشعبية الفردية كما هي.
+يجب أن تُظهر رسالتا التحقق `true`. مسح القاعدة يترك عناوين الروابط الفردية دون تغيير.
 
-ارتباط نسبي إلى `target.pptx` فتح `old/target.pptx` عندما كان الأساس يشير إلى المجلد `old`. بعد تغيير الأساس إلى المجلد `new`، وحفظ وإعادة فتح العرض، فتح نفس الرابط `new/target.pptx`. الرابط المطلق استمر في فتح نفس الملف. اختبر روابطك النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير أسسه.
+رابط نسبي إلى `target.pptx` كان يفتح `old/target.pptx` عندما كانت القاعدة تشير إلى المجلد `old`. بعد تغيير القاعدة إلى المجلد `new`، وحفظ العرض وإعادة فتحه، يفتح نفس الرابط `new/target.pptx`. يظل الرابط المطلق يفتح نفس الملف. اختبر روابطك النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير قاعدته.
 
 ## **إضافة خصائص عرض تقديمي مخصصة**
 
-تخزن الخصائص المخصصة بيانات تعريف لا يوجد لها حقل مدمج مكافئ. تسمح طريقة [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) لك بتعيين قيمة بحسب اسم الخاصية. يخلق هذا المثال عرضًا تقديميًا، يضيف قيمتي نص وقيمة عددية للإصدار، ويحفظ العرض باستخدام [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية الحالية.
+تخزن الخصائص المخصصة بيانات وصفية لا تقابلها حقل مدمج. تسمح طريقة [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) بتعيين قيمة حسب اسم الخاصية. يخلق هذا المثال عرضًا تقديميًا، يضيف قيمتي نص وقيمة عددية للإصدار، ويحفظ العرض باستخدام [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -245,7 +288,7 @@ try {
 
 ## **الوصول إلى الخصائص المخصصة وتعديلها**
 
-يفتح هذا المثال عرضًا تقديميًا يحتوي على خصائص مخصصة ويستخدم [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) للتكرار عليها. تُعيد [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) اسمًا بناءً على فهرس يبدأ من الصفر، وهو الاسم المستخدم في [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). يطبع المثال كل اسم وقيمة أصلية، يستبدل كل قيمة بسلسلة مرقمة بغض النظر عن نوعها الأصلي، ثم يحفظ التغييرات. إذا لم توجد خصائص مخصصة، لا يُجري الحلقة أي تعديل.
+يفتح هذا المثال عرضًا يحتوي على خصائص مخصصة ويستخدم [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) للتنقل بينها. [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) يقبل فهرسًا يبدأ من الصفر ويُعيد الاسم المستخدم في [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). يطبع المثال كل اسم وقيمة أصلية، يُستبدل كل قيمة بسلسلة مرقّمة بغض النظر عن نوعها الأصلي، ثم يحفظ التغييرات. إذا لم توجد خصائص مخصصة، لن يُجري الحلقة أي تغييرات.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -272,28 +315,28 @@ try {
 
 ## **مثال حي**
 
-جرب التطبيق عبر الإنترنت [**عرض وتعديل بيانات تعريف PowerPoint**](https://products.aspose.app/slides/metadata) لرؤية كيفية العمل مع خصائص المستند باستخدام واجهة Aspose.Slides API:
+جرّب التطبيق عبر الإنترنت [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) لتعرف كيف تتعامل مع خصائص المستند باستخدام واجهة برمجة تطبيقات Aspose.Slides:
 
-[![عرض وتعديل بيانات تعريف PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني إزالة خاصية مدمجة من العرض التقديمي؟**
+**كيف يمكنني إزالة خاصية مدمجة من عرض تقديمي؟**
 
-الخصائص المدمجة جزء لا يتجزأ من العرض ولا يمكن إزالتها بالكامل. مع ذلك، يمكنك إما تغيير قيمتها أو تعيينها إلى فارغ إذا سمحت الخاصية بذلك.
+الخصائص المدمجة جزء لا يتجزأ من العرض ولا يمكن إزالتها تمامًا. ومع ذلك، يمكنك إما تغيير قيمتها أو تعيينها كقيمة فارغة إذا سمح ذلك للخاصية المحددة.
 
-**ماذا يحدث إذا أضفت خاصية مخصصة موجودة مسبقًا؟**
+**ماذا يحدث إذا أضفت خاصية مخصصة موجودة بالفعل؟**
 
-إذا أضفت خاصية مخصصة موجودة مسبقًا، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. ليس عليك إزالة الخاصية أو التحقق منها مسبقًا، فـ Aspose.Slides ستقوم بتحديث قيمة الخاصية تلقائيًا.
+إذا أضفت خاصية مخصصة موجودة مسبقًا، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى حذف الخاصية أو فحصها مسبقًا، حيث يقوم Aspose.Slides تلقائيًا بتحديث قيمة الخاصية.
 
-**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميل العرض بالكامل؟**
+**هل يمكنني الوصول إلى خصائص العرض دون تحميل العرض بالكامل؟**
 
-نعم. استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) ثم [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) لقراءة بيانات التعريف المخزنة دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). انظر [بناء جرد عرض تقديمي خفيف الوزن](/slides/ar/nodejs-java/examine-presentation/) للحصول على مثال تقرير كامل والقيود الخاصة بكل تنسيق.
+نعم. استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) ثم [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) لقراءة بيانات تعريف المستند المخزَّنة دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). راجع [Build a Lightweight Presentation Inventory](/slides/ar/nodejs-java/examine-presentation/) للحصول على مثال تقريبي كامل والقيود الخاصة بكل تنسيق.
 
-**هل يمكنني قراءة الخصائص العامة لعرض تقديمي مشفر دون كلمة المرور المفتوحة؟**
+**هل يمكنني قراءة الخصائص العامة لعرض مشفر بدون كلمة مرور الفتح؟**
 
-نعم. يجب أن يكون العرض قد تم تشفيره بعد استدعاء [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) بـ `false`، ويجب تحميله بعد استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) بـ `true`.
+نعم. يجب أن يكون العرض قد تم تشفيره بعد استدعاء [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) مع `false`، ويجب تحميله بعد استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) مع `true`.
 
-**هل يمكنني تحديث ملف PPTX مشفر في وضع تحميل الخصائص فقط؟**
+**هل يمكنني تحديث ملف PPTX مشفر في وضع خصائص المستند فقط؟**
 
-لا. يجب أن تظل بيانات الخصائص العامة والمشفرة متسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض بالكامل مع كلمة المرور المفتوحة الصحيحة.
+لا. يجب أن تبقى بيانات الخصائص العامة المشفرة متسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض بالكامل مع كلمة مرور الفتح الصحيحة.

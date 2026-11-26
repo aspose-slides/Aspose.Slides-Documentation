@@ -1,57 +1,55 @@
 ---
-title: จัดการคุณสมบัติงานนำเสนอใน Python
-linktitle: คุณสมบัติงานนำเสนอ
+title: จัดการคุณสมบัติการนำเสนอใน Python
+linktitle: คุณสมบัติการนำเสนอ
 type: docs
 weight: 70
 url: /th/python-java/presentation-properties/
 keywords:
 - คุณสมบัติ PowerPoint
-- คุณสมบัติงานนำเสนอ
+- คุณสมบัติการนำเสนอ
 - คุณสมบัติเอกสาร
 - คุณสมบัติมาตรฐาน
-- คุณสมบัติที่กำหนดเอง
-- คุณสมบัติขั้นสูง
+- คุณสมบัติกำหนดเอง
+- คุณสมบัติเพิ่มเติม
 - จัดการคุณสมบัติ
 - แก้ไขคุณสมบัติ
-- เมตาดาต้าเอกสาร
-- แก้ไขเมตาดาต้า
-- ภาษาการตรวจสอบ
+- เมทาดาต้าเอกสาร
+- แก้ไขเมทาดาต้า
+- ภาษาตรวจสอบ
 - ภาษาตั้งค่าเริ่มต้น
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Python
 - Aspose.Slides
-description: "ควบคุมคุณสมบัติงานนำเสนอใน Aspose.Slides for Python via Java และทำให้การค้นหา การสร้างแบรนด์ และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณเป็นไปอย่างราบรื่น"
+description: "ควบคุมคุณสมบัติการนำเสนอใน Aspose.Slides for Python via Java และทำให้การค้นหา การสร้างแบรนด์ และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณเป็นเรื่องง่ายและรวดเร็ว"
 ---
-## **คำนำ**
+## **บทนำ**
 
-Aspose.Slides for Python via Java รองรับ **built-in** และ **custom** property ของเอกสาร ใช้ property เหล่านี้เพื่ออ่านและอัปเดตเมตาดาตาของงานนำเสนอ เช่น ผู้เขียน, ชื่อเรื่อง, และค่าที่ผู้ใช้กำหนด
+Aspose.Slides for Python via Java รองรับคุณสมบัติเอกสาร **built-in** และ **custom** ใช้คุณสมบัติเหล่านี้เพื่ออ่านและอัปเดตเมทาดาต้าของงานพรีเซนเทชัน เช่น ผู้เขียน, ชื่อเรื่อง, และค่าที่กำหนดโดยผู้ใช้
 
-Aspose.Slides ให้คุณทำงานกับ property ของเอกสารงานนำเสนอผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) ตัวอย่างของคลาสนี้จะถูกส่งคืนโดย [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข, และจัดการกับ property เหล่านี้
+Aspose.Slides ให้คุณทำงานกับคุณสมบัติเอกสารของพรีเซนเทชันผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) อินสแตนซ์ของคลาสนี้จะถูกส่งคืนโดย [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข, และจัดการคุณสมบัติเหล่านี้
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides จัดการเมตาดาต้าแอปพลิเคชันและผู้ผลิตเมื่อบันทึกงานนำเสนอ; ฟิลด์เหล่านี้ระบุซอฟต์แวร์ที่สร้างผลลัพธ์
-
+Aspose.Slides จัดการเมทาดาต้าแอปพลิเคชันและผู้ผลิตเมื่อบันทึกพรีเซนเทชัน; ฟิลด์เหล่านี้ระบุซอฟต์แวร์ที่สร้างผลลัพธ์
 {{% /alert %}}
 
-## **จัดการ Property ของงานนำเสนอ**
+## **จัดการคุณสมบัติการนำเสนอ**
 
-Property ของเอกสารเก็บข้อมูลเชิงบรรยายควบคู่กับเนื้อหาของงานนำเสนอ พวกมันแบ่งเป็นสองประเภท:
+คุณสมบัติเอกสารเก็บข้อมูลเชิงบรรยายควบคู่กับเนื้อหาการนำเสนอ แบ่งออกเป็นสองประเภท
 
-- **Built-in properties** มีเมตาดาต้ามาตรฐาน เช่น ชื่อเรื่อง, ผู้เขียน, และสถิติของเอกสาร
-- **Custom properties** เก็บคู่ชื่อ/ค่า ที่ผู้ใช้กำหนดเอง
+- **Built-in properties** มีเมทาดาต้ามาตรฐาน เช่น ชื่อเรื่อง, ผู้เขียน, และสถิติของเอกสาร
+- **Custom properties** เก็บคู่ค่า ชื่อ/ค่า ที่ผู้ใช้กำหนดเอง
 
-Aspose.Slides for Python via Java ให้เข้าถึงทั้งสองประเภท ใน PowerPoint ให้เลือก **File → Info → Properties → Advanced Properties** เพื่อดูเมตาดาต้าเอกสาร กล่องโต้ตอบจะแบ่งข้อมูลเป็นแท็บเช่น **Summary**, **Statistics**, **Contents**, และ **Custom** ใช้แท็บ **Custom** เพื่อจัดการ property ที่ผู้ใช้กำหนดเอง
+Aspose.Slides for Python via Java ให้เข้าถึงทั้งสองประเภท ใน PowerPoint ให้เลือก **File → Info → Properties → Advanced Properties** เพื่อดูเมทาดาต้าเอกสาร ไดอะล็อกจะจัดกลุ่มข้อมูลเป็นแท็บเช่น **Summary**, **Statistics**, **Contents**, และ **Custom** ใช้แท็บ **Custom** เพื่อจัดการคุณสมบัติที่ผู้ใช้กำหนดเอง
 
-## **อ่าน Property สาธารณะจากงานนำเสนอที่ถูกเข้ารหัส**
+## **อ่านคุณสมบัติสาธารณะจากพรีเซนเทชันที่เข้ารหัส**
 
-รหัสผ่านเปิดไฟล์ทั่วไปจะปกป้องทั้งเนื้อหาและ property ของเอกสาร เมื่อทำการเข้ารหัสงานนำเสนอหลังจากเรียก [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) ด้วยค่า `False` property ของเอกสารจะยังคงเป็นสาธารณะ แอปพลิเคชันจึงสามารถเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) ด้วยค่า `True` และอ่านเมตาดาต้าสาธารณะโดยไม่ต้องใส่รหัสผ่านเปิดไฟล์
+รหัสผ่านเปิดไฟล์โดยปกติคุ้มครองทั้งเนื้อหาและคุณสมบัติเอกสาร เมื่อพรีเซนเทชันถูกเข้ารหัสหลังจากเรียก [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) ด้วย `False` คุณสมบัติเอกสารจะยังคงเป็นสาธารณะ แอปพลิเคชันสามารถเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) ด้วย `True` แล้วอ่านเมทาดาต้าสาธารณะโดยไม่ต้องใส่รหัสผ่านเปิดไฟล์
 
-[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) ควบคุมสิ่งที่ Aspose.Slides โหลด; มันไม่ทำการถอดรหัสใด ๆ หาก property ถูกเข้ารหัสไว้ การโหลดโดยไม่ใช้รหัสผ่านจะล้มเหลว หากงานนำเสนอไม่ได้ถูกเข้ารหัส ตัวเลือกนี้จะถูกละเว้นและโหลดงานนำเสนอทั้งหมด
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) ควบคุมสิ่งที่ Aspose.Slides โหลด; ไม่ทำการถอดรหัสใด ๆ หากคุณสมบัติเฉพาะถูกเข้ารหัส การโหลดโดยไม่มีรหัสผ่านจะล้มเหลว หากพรีเซนเทชันไม่ถูกเข้ารหัส ตัวเลือกจะถูกละเว้นและพรีเซนเทชันทั้งหมดจะถูกโหลด
 
-ตัวอย่างนี้ต้องการงานนำเสนอที่ถูกเข้ารหัสโดยมี property ของเอกสารเป็นสาธารณะ มันตรวจสอบโหมดการโหลดผ่าน [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) แล้วอ่าน built-in properties ผ่าน [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties):
+ตัวอย่างนี้ต้องการพรีเซนเทชันที่เข้ารหัสโดยที่คุณสมบัติเอกสารถูกปล่อยให้เป็นสาธารณะ ตรวจสอบโหมดการโหลดผ่าน [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) แล้วอ่านคุณสมบัติ built‑in ผ่าน [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```python
 import jpype
@@ -80,17 +78,17 @@ finally:
     presentation.dispose()
 ```
 
-ในโหมดนี้ เนื้อหาสไลด์จะไม่ถูกโหลด ทั้งสไลด์, มาสเตอร์, เลย์เอาต์, รูปร่าง, สื่อ, และวัตถุอื่น ๆ ของงานนำเสนอจะไม่พร้อมใช้งาน แอปพลิเคชันควรตรวจสอบ [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) เสมอก่อนทำการดำเนินการที่ต้องใช้โมเดลวัตถุของงานนำเสนอทั้งหมด
+ในโหมดนี้ เนื้อหาสไลด์จะไม่ถูกโหลด สไลด์, มาสเตอร์, เลย์เอาต์, รูปร่าง, สื่อ, และอ็อบเจ็กต์อื่น ๆ ของพรีเซนเทชันจะไม่พร้อมใช้งาน แอปพลิเคชันควรตรวจสอบ [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) ก่อนทำการปฏิบัติการที่ต้องการโมเดลอ็อบเจ็กต์พรีเซนเทชันเต็มรูปแบบ
 
 {{% alert color="warning" title="Warning" %}}
-เมตาดาต้าสาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, หัวเรื่อง, คีย์เวิร์ด, ข้อมูลบริษัท, ความคิดเห็น, และค่า custom รหัสผ่าน property ที่สำคัญร่วมกับงานนำเสนอหรือปล่อยให้เป็นสาธารณะเฉพาะเมื่อต้องการจัดทำดัชนี, การจัดประเภท, การค้นหา, หรือระบบจัดการเอกสารที่ต้องการเข้าถึงโดยไม่ต้องใช้รหัสผ่าน
+เมทาดาต้าสาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, หัวเรื่อง, คำสำคัญ, ข้อมูลบริษัท, ความคิดเห็น, และค่าที่กำหนดเอง ควรเข้ารหัสคุณสมบัติที่ละเอียดอ่อนพร้อมกับพรีเซนเทชัน ให้ปล่อยเป็นสาธารณะเฉพาะเมื่อระบบจัดทำดัชนี, การจัดประเภท, การค้นหา, หรือระบบจัดการเอกสารมีความต้องการเฉพาะในการเข้าถึงโดยไม่ต้องใช้รหัสผ่าน
 {{% /alert %}}
 
-## **อัปเดต Property ของงานนำเสนอที่ถูกเข้ารหัส**
+## **อัปเดตคุณสมบัติของพรีเซนเทชันที่เข้ารหัส**
 
-สำหรับไฟล์ PPTX ที่ถูกเข้ารหัส งานนำเสนอที่โหลดหลังจากเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) ด้วย `True` มีจุดมุ่งหมายเพื่ออ่านเมตาดาต้าสาธารณะ Aspose.Slides ไม่สามารถบันทึกการเปลี่ยนแปลง property จากอ็อบเจ็กต์แบบเมตาดาต้า‑เพียงอย่างเดียวได้ เพราะ property สาธารณะต้องสอดคล้องกับข้อมูลที่อยู่ภายในงานนำเสนอที่เข้ารหัส การอัปเดตจึงต้องใช้รหัสผ่านเปิดไฟล์ที่ถูกต้องและการโหลดเต็มรูปแบบ
+สำหรับไฟล์ PPTX ที่เข้ารหัส พรีเซนเทชันที่โหลดหลังจากเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) ด้วย `True` มีจุดประสงค์เพื่ออ่านเมทาดาต้าสาธารณะ Aspose.Slides ไม่สามารถบันทึกการเปลี่ยนแปลงคุณสมบัติจากอ็อบเจ็กต์ที่โหลดเฉพาะเมทาดาต้านี้ได้ เนื่องจากคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลที่อยู่ภายในพรีเซนเทชันที่เข้ารหัส การอัปเดตจึงต้องใช้รหัสผ่านเปิดไฟล์ที่ถูกต้องและการโหลดเต็มรูปแบบ
 
-ตัวอย่างนี้ต้องการไฟล์ PPTX ที่เข้ารหัสพร้อม property ของเอกสารเป็นสาธารณะและมีรหัสผ่านเปิดไฟล์ที่รู้จัก มันเปิดงานนำเสนอเต็มรูปแบบด้วย [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword), อัปเดต built-in properties สาธารณะ, แล้วบันทึกผลลัพธ์ จากนั้นใช้ [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) เพื่อตรวจสอบว่าการเข้ารหัสยังคงอยู่และเปิดเมตาดาต้าสาธารณะโดยไม่ต้องใช้รหัสผ่านเพื่อยืนยันค่าที่ใหม่:
+ตัวอย่างนี้ต้องการพรีเซนเทชัน PPTX ที่เข้ารหัสพร้อมคุณสมบัติเอกสารสาธารณะและรหัสผ่านเปิดไฟล์ที่รู้จัก เปิดพรีเซนเทชันทั้งหมดด้วย [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword) แล้วอัปเดตคุณสมบัติ built‑in สาธารณะ จากนั้นบันทึกผลลัพธ์ ใช้ [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) เพื่อตรวจสอบว่าการเข้ารหัสยังคงอยู่และเปิดเมทาดาต้าสาธารณะโดยไม่ใช้รหัสผ่านเพื่อตรวจสอบค่าที่อัปเดต:
 
 ```python
 import jpype
@@ -134,11 +132,11 @@ finally:
     metadata_presentation.dispose()
 ```
 
-หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหางานนำเสนอ จะต้องถือว่า property สาธารณะของไฟล์ PPTX ที่เข้ารหัสเป็นแบบอ่าน‑อย่างเดียว
+หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหาพรีเซนเทชัน จะต้องถือว่าคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสเป็นแบบอ่าน‑อย่างเดียว
 
-## **เข้าถึง Built-in Properties**
+## **เข้าถึงคุณสมบัติ Built‑in**
 
-คลาส [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) เปิดเผยเมตาดาต้ารุ่น built‑in ผ่านเมธอด getter รวมถึง [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle), และ [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime) ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่และพิมพ์เมตาดาต้าที่บันทึกไว้ลงคอนโซล ค่าต่าง ๆ ขึ้นกับงานนำเข้าที่ใช้; บางฟิลด์อาจเป็นค่าว่าง
+คลาส [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) เปิดเผยเมทาดาต้า built‑in ผ่านเมธอด getter เช่น [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle), และ [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime) ตัวอย่างนี้เปิดพรีเซนเทชันที่มีอยู่และพิมพ์เมทาดาต้าที่เก็บไว้ในคอนโซล ค่าต่าง ๆ จะขึ้นอยู่กับพรีเซนเทชันที่ป้อน; บางฟิลด์อาจว่างเปล่า
 
 ```python
 import jpype
@@ -171,9 +169,54 @@ finally:
     presentation.dispose()
 ```
 
-## **แก้ไข Built-in Properties**
+### **รายงานหมายเลขรุ่นและเวลาแก้ไข**
 
-เพื่ออัปเดตเมตาดาต้า built‑in ให้ใช้เมธอด setter บนวัตถุที่ส่งคืนจาก [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่, เรียก [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments), และ [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager), แล้วบันทึกงานนำเสนอที่อัปเดตด้วย [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) PPTX ที่บันทึกไว้จะมีเมตาดาต้าใหม่
+เพื่อรายงานหนึ่งแถวต่อไฟล์ PPTX ในโฟลเดอร์ `presentations` ให้ใช้ [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) และ [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) เพื่ออ่าน [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) โดยไม่โหลดสไลด์สำหรับการแก้ไข API Python via Java จะคืนค่าระยะเวลาแก้ไขเป็นมิลลิวินาที ตัวอย่างจัดรูปแบบเป็นชั่วโมง, นาที, และวินาที พร้อมจำนวนวันสำหรับช่วงเวลาที่มากกว่า 24 ชั่วโมง
+
+```python
+from pathlib import Path
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PresentationFactory
+
+factory = PresentationFactory.getInstance()
+print("File | RevisionNumber | TotalEditingTime")
+for path in sorted(Path("presentations").glob("*.pptx")):
+    if not path.is_file():
+        continue
+
+    info = factory.getPresentationInfo(str(path))
+    properties = info.readDocumentProperties()
+    total_seconds = int(properties.getTotalEditingTime()) // 1000
+    days, remaining_seconds = divmod(total_seconds, 86400)
+    hours, remaining_seconds = divmod(remaining_seconds, 3600)
+    minutes, seconds = divmod(remaining_seconds, 60)
+    editing_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    if days:
+        editing_time = f"{days}.{editing_time}"
+
+    print(f"{path.name} | {properties.getRevisionNumber()} | {editing_time}")
+```
+
+สำหรับพรีเซนเทชันที่บันทึกเวลาแก้ไขเป็น 1 วัน, 2 ชั่วโมง, และ 5 นาที รายงานจะแสดงผลลัพธ์ดังนี้
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[getRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getRevisionNumber) อ่านค่าที่แอปพลิเคชันสามารถเปลี่ยนแปลงได้ด้วย [setRevisionNumber](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setRevisionNumber) หมายเลขรุ่นเพียงอย่างเดียวไม่สามารถบ่งบอกว่าพรีเซนเทชันถูกบันทึกกี่ครั้งหรือกู้ประวัติโดยละเอียดได้
+
+[getTotalEditingTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTotalEditingTime) อ่านระยะเวลาแก้ไขที่บันทึกในไฟล์ ค่า `00:00:00` หมายถึงระยะเวลาที่เก็บเป็นศูนย์ แม้ว่าจะมีการแก้ไขพรีเซนเทชันก็ตาม
+
+## **แก้ไขคุณสมบัติ Built‑in**
+
+เพื่ออัปเดตเมทาดาต้า built‑in ให้ใช้เมธอด setter บนวัตถุที่คืนจาก [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) ตัวอย่างนี้เปิดพรีเซนเทชันที่มีอยู่, เรียก [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments), และ [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager) แล้วบันทึกพรีเซนเทชันที่อัปเดตด้วย [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) PPTX ที่บันทึกจะมีเมทาดาต้าใหม่
 
 ```python
 import jpype
@@ -201,9 +244,9 @@ finally:
 
 ## **จัดการ Hyperlink Base**
 
-[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) คืนค่าฐานระดับเอกสารสำหรับลิงก์แบบ relative ใช้ [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) เพื่อเปลี่ยนหรือเคลียร์ค่า นี้มีประโยชน์เมื่อย้ายงานนำเสนอและไฟล์ที่ลิงก์ไปยังตำแหน่งใหม่ แยกจาก [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) ของลิงก์เดี่ยว: การเปลี่ยนฐานไม่ทำการเขียนทับที่อยู่ลิงก์ที่บันทึกไว้หรือเปลี่ยนปลายทางแบบ absolute
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) คืนค่าฐานระดับเอกสารสำหรับลิงก์แบบสัมพันธ์ ใช้ [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) เพื่อเปลี่ยนหรือเคลียร์ค่า ซึ่งมีประโยชน์เมื่อย้ายพรีเซนเทชันและไฟล์ที่ลิงก์ไปยังตำแหน่งอื่น มันแยกจาก [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) ของลิงก์แต่ละอัน: การเปลี่ยนฐานจะไม่เขียนทับที่อยู่ลิงก์ที่เก็บไว้หรือเปลี่ยนปลายทางแบบคงที่
 
-ตัวอย่างนี้ต้องการงานนำเสนอที่มีลิงก์ relative เช่น `target.html` และลิงก์ absolute เช่น `https://example.org/absolute.html` มันอ่านฐานที่มีอยู่, กำหนดฐานใหม่, แล้วบันทึกและเปิดงานนำเสนอใหม่เพื่อตรวจสอบค่า จากนั้นเคลียร์ฐานด้วยสตริงว่างและตรวจสอบค่าว่างในไฟล์ที่บันทึกแยกกัน แทนที่ฐานตัวอย่างด้วยตำแหน่งไฟล์ที่ลิงก์ของคุณ
+ตัวอย่างนี้ต้องการพรีเซนเทชันที่มีลิงก์สัมพันธ์ เช่น `target.html` และลิงก์คงที่ เช่น `https://example.org/absolute.html` อ่านฐานที่มีอยู่, ตั้งค่าฐานใหม่, แล้วบันทึกและเปิดพรีเซนเทชันเพื่อตรวจสอบค่า จากนั้นเคลียร์ฐานด้วยสตริงว่างและตรวจสอบค่าที่ว่างในไฟล์ที่บันทึกแยกต่างหาก แทนที่ฐานตัวอย่างด้วยตำแหน่งของไฟล์ลิงก์ของคุณ
 
 ```python
 import jpype
@@ -240,13 +283,13 @@ finally:
     presentation.dispose()
 ```
 
-ข้อความตรวจสอบสองข้อความควรพิมพ์ `True` การเคลียร์ฐานจะไม่กระทบที่อยู่ลิงก์เดี่ยว
+ข้อความตรวจสอบสองข้อความควรพิมพ์ `True` การเคลียร์ฐานจะไม่กระทบที่อยู่ลิงก์แต่ละอัน
 
-ลิงก์ relative ไปยัง `target.pptx` จะเปิด `old/target.pptx` เมื่อฐานชี้ไปที่โฟลเดอร์ `old` หลังจากเปลี่ยนฐานเป็นโฟลเดอร์ `new` แล้วบันทึกและเปิดงานนำเสนอใหม่ ลิงก์เดียวกันจะเปิด `new/target.pptx` ลิงก์ absolute ยังคงเปิดไฟล์เดียวกัน ทดสอบลิงก์ relative ของคุณใน PowerPoint ก่อนและหลังย้ายงานนำเสนอหรือเปลี่ยนฐาน
+ลิงก์สัมพันธ์ `target.pptx` จะเปิด `old/target.pptx` เมื่อฐานชี้ไปยังโฟลเดอร์ `old` หลังจากเปลี่ยนฐานเป็นโฟลเดอร์ `new`, บันทึกและเปิดพรีเซนเทชันใหม่ ลิงก์เดียวกันจะเปิด `new/target.pptx` ลิงก์คงที่จะยังคงเปิดไฟล์เดิม ตรวจสอบลิงก์สัมพันธ์ของคุณใน PowerPoint ก่อนและหลังการย้ายพรีเซนเทชันหรือเปลี่ยนฐาน
 
-## **เพิ่ม Custom Presentation Properties**
+## **เพิ่มคุณสมบัติ Presentation แบบกำหนดเอง**
 
-Custom properties เก็บเมตาดาต้าที่ไม่มีฟิลด์ built‑in ตรงกัน วิธี [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) ให้คุณกำหนดค่าโดยใช้ชื่อ property ตัวอย่างนี้สร้างงานนำเสนอ, เพิ่มค่า text สองค่าและค่าเวอร์ชั่นแบบจำนวนเต็ม (โดยใช้ `jpype.JInt` เพื่อส่งค่าจำนวนเต็ม Java) แล้วบันทึกงานนำเสนอด้วย [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) การกำหนดค่าให้กับชื่อที่มีอยู่แล้วจะแทนที่ค่าของ property นั้น
+คุณสมบัติแบบกำหนดเองเก็บเมทาดาต้าที่ไม่มีฟิลด์ built‑in ที่สอดคล้องกัน เมธอด [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) ให้คุณกำหนดค่าโดยใช้ชื่อคุณสมบัติ ตัวอย่างนี้สร้างพรีเซนเทชัน, เพิ่มค่าข้อความสองค่าและค่ารุ่นแบบจำนวนเต็ม (ใช้ `jpype.JInt` เพื่อส่งผ่านจำนวนเต็ม Java) แล้วบันทึกพรีเซนเทชันด้วย [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) การกำหนดค่าชื่อที่มีอยู่แล้วจะทำให้ค่าที่เก่าถูกแทนที่
 
 ```python
 import jpype
@@ -270,9 +313,9 @@ finally:
     presentation.dispose()
 ```
 
-## **เข้าถึงและแก้ไข Custom Properties**
+## **เข้าถึงและแก้ไขคุณสมบัติแบบกำหนดเอง**
 
-ตัวอย่างนี้เปิดงานนำเสนอที่มี custom properties และใช้ [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) เพื่อนับจำนวน จากนั้นใช้ [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) รับชื่อโดยอ้างอิงตามดัชนีเริ่มจากศูนย์และคืนชื่อที่ใช้ใน [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) ตัวอย่างพิมพ์ชื่อและค่าต้นฉบับแต่ละรายการ, แทนที่ค่าทั้งหมดด้วยสตริงลำดับเลขโดยไม่คำนึงถึงชนิดดั้งเดิม, แล้วบันทึกการเปลี่ยนแปลง หากไม่มี custom properties ลูปจะไม่ทำการเปลี่ยนใด ๆ
+ตัวอย่างนี้เปิดพรีเซนเทชันที่มีคุณสมบัติแบบกำหนดเองและใช้ [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) เพื่อวนซ้ำผ่านแต่ละคุณสมบัติ [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) รับอินเด็กซ์เริ่มจากศูนย์และคืนชื่อที่ใช้โดย [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) ตัวอย่างพิมพ์ชื่อและค่าต้นฉบับแต่ละรายการ, แทนที่ค่าทั้งหมดด้วยสตริงลำดับตัวเลขโดยไม่คำนึงถึงประเภทเดิม, แล้วบันทึกการเปลี่ยนแปลง หากไม่มีคุณสมบัติกำหนดเอง ลูปจะไม่ทำการเปลี่ยนแปลงใด ๆ
 
 ```python
 import jpype
@@ -301,30 +344,30 @@ finally:
     presentation.dispose()
 ```
 
-## **Live Example**
+## **ตัวอย่างสด**
 
-ลองใช้แอปออนไลน์ [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) เพื่อดูวิธีทำงานกับ property ของเอกสารโดยใช้ Aspose.Slides API:
+ลองใช้แอปออนไลน์ [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติเอกสารโดยใช้ API ของ Aspose.Slides:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
-**ฉันจะลบ built‑in property ออกจากงานนำเสนอได้อย่างไร?**
+**ฉันจะลบคุณสมบัติ built‑in ออกจากพรีเซนเทชันได้อย่างไร?**
 
-Built‑in properties เป็นส่วนสำคัญของงานนำเสนอและไม่สามารถลบออกได้โดยสมบูรณ์ อย่างไรก็ตามคุณสามารถเปลี่ยนค่า หรือกำหนดให้เป็นค่าว่างได้หาก property นั้นอนุญาตให้ทำเช่นนั้น
+คุณสมบัติ built‑in เป็นส่วนหนึ่งของพรีเซนเทชันและไม่สามารถลบออกได้ทั้งหมด อย่างไรก็ตามคุณสามารถเปลี่ยนค่า หรือกำหนดให้เป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาต
 
-**ถ้าฉันเพิ่ม custom property ที่มีอยู่แล้ว จะเกิดอะไรขึ้น?**
+**ถ้าฉันเพิ่มคุณสมบัติแบบกำหนดเองที่มีอยู่แล้วจะเกิดอะไรขึ้น?**
 
-หากคุณเพิ่ม custom property ที่มีอยู่แล้ว ค่าเดิมจะถูกเขียนทับด้วยค่ใหม่ ไม่จำเป็นต้องลบหรือเช็คก่อน เนื่องจาก Aspose.Slides จะอัปเดตค่าให้โดยอัตโนมัติ
+ถ้าคุณเพิ่มคุณสมบัติแบบกำหนดเองที่มีอยู่แล้ว ค่าที่มีอยู่จะถูกเขียนทับด้วยค่าที่ใหม่ คุณไม่จำเป็นต้องลบหรือเช็คคุณสมบัติก่อน เนื่องจาก Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ
 
-**ฉันสามารถเข้าถึง property ของงานนำเสนอโดยไม่โหลดงานนำเสนอทั้งหมดได้หรือไม่?**
+**ฉันสามารถเข้าถึงคุณสมบัติการนำเสนอโดยไม่ต้องโหลดพรีเซนเทชันเต็มรูปแบบได้หรือไม่?**
 
-ได้ ใช้ [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) แล้วตามด้วย [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) เพื่ออ่านเมตาดาต้าเอกสารที่บันทึกไว้โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ดูตัวอย่างการสร้างรายงานแบบเบาใน [Build a Lightweight Presentation Inventory](/slides/th/python-java/examine-presentation/) สำหรับข้อจำกัดตามรูปแบบไฟล์
+ได้ ใช้ [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) แล้วตามด้วย [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) เพื่ออ่านเมทาดาต้าเอกสารที่เก็บไว้โดยไม่ต้องสร้างอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) ดูตัวอย่างการรายงานเต็มรูปแบบและข้อจำกัดของฟอร์แมตในบทความ [Build a Lightweight Presentation Inventory](/slides/th/python-java/examine-presentation/)
 
-**ฉันสามารถอ่าน property สาธารณะของงานนำเสนอที่ถูกเข้ารหัสโดยไม่มีรหัสผ่านเปิดไฟล์ได้หรือไม่?**
+**ฉันสามารถอ่านคุณสมบัติสาธารณะของพรีเซนเทชันที่เข้ารหัสโดยไม่ต้องใช้รหัสผ่านเปิดไฟล์ได้หรือไม่?**
 
-ได้ งานนำเสนอจะต้องถูกเข้ารหัสหลังจากเรียก [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) ด้วย `False` และต้องโหลดด้วย [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) ด้วย `True`
+ได้ พรีเซนเทชันต้องถูกเข้ารหัสหลังจากเรียก [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) ด้วย `False` และต้องโหลดโดยเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) ด้วย `True`
 
-**ฉันสามารถอัปเดตไฟล์ PPTX ที่ถูกเข้ารหัสในโหมด document‑properties‑only ได้หรือไม่?**
+**ฉันสามารถอัปเดตไฟล์ PPTX ที่เข้ารหัสในโหมด document‑properties‑only ได้หรือไม่?**
 
-ไม่ได้ Property สาธารณะและที่เข้ารหัสต้องสอดคล้องกัน ดังนั้นการอัปเดตไฟล์ PPTX ที่ถูกเข้ารหัสต้องโหลดงานนำเสนอเต็มรูปแบบพร้อมรหัสผ่านเปิดไฟล์ที่ถูกต้อง
+ไม่ได้ ข้อมูลคุณสมบัติสาธารณะและเข้ารหัสต้องสอดคล้องกัน ดังนั้นการอัปเดตไฟล์ PPTX ที่เข้ารหัสต้องโหลดพรีเซนเทชันเต็มรูปแบบพร้อมรหัสผ่านเปิดไฟล์ที่ถูกต้อง

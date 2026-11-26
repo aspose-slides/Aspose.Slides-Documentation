@@ -6,7 +6,7 @@ weight: 70
 url: /sv/cpp/presentation-properties/
 keywords:
 - PowerPoint-egenskaper
-- presentations egenskaper
+- presentationsegenskaper
 - dokumentegenskaper
 - inbyggda egenskaper
 - anpassade egenskaper
@@ -26,32 +26,30 @@ description: "Behärska presentationsegenskaper i Aspose.Slides för C++ och eff
 ---
 ## **Introduktion**
 
-Aspose.Slides för C++ stöder **inbyggda** och **anpassade** dokumentegenskaper. Använd dessa egenskaper för att läsa och uppdatera presentationsmetadata, såsom författaren, titel och användardefinierade värden.
+Aspose.Slides för C++ stöder **inbyggda** och **anpassade** dokumentegenskaper. Använd dessa egenskaper för att läsa och uppdatera presentationsmetadata, såsom författare, titel och användardefinierade värden.
 
-Aspose.Slides låter dig arbeta med presentationsdokumentegenskaper via gränssnittet [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/). En instans av detta gränssnitt returneras av [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). Följande exempel visar hur man läser, modifierar och hanterar dessa egenskaper.
+Aspose.Slides låter dig arbeta med presentationsdokumentegenskaper via gränssnittet [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) . En instans av detta gränssnitt returneras av [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). De följande exemplen visar hur man läser, ändrar och hanterar dessa egenskaper.
 
-{{% alert color="info" title="Obs" %}}
-
-Aspose.Slides hanterar program‑ och producentmetadata när presentationer sparas; dessa fält identifierar programvaran som skapade utdata.
-
+{{% alert color="info" title="Note" %}}
+Aspose.Slides hanterar applikations- och producentmetadata när presentationer sparas; dessa fält identifierar mjukvaran som skapade utdata.
 {{% /alert %}}
 
 ## **Hantera presentationsegenskaper**
 
-Dokumentegenskaper lagrar beskrivande information tillsammans med presentationsinnehållet. De faller in i två kategorier:
+Dokumentegenskaper lagrar beskrivande information tillsammans med presentationsinnehållet. De delas in i två kategorier:
 
 - **Inbyggda egenskaper** innehåller standardmetadata, såsom titel, författare och dokumentstatistik.
 - **Anpassade egenskaper** lagrar användardefinierade namn/värde‑par.
 
 Aspose.Slides för C++ ger åtkomst till båda kategorierna. I PowerPoint, välj **File → Info → Properties → Advanced Properties** för att inspektera dokumentmetadata. Dialogrutan grupperar information i flikar som **Summary**, **Statistics**, **Contents** och **Custom**. Använd fliken **Custom** för att hantera användardefinierade egenskaper.
 
-## **Läsa offentliga egenskaper från en krypterad presentation**
+## **Läs offentliga egenskaper från en krypterad presentation**
 
-Ett öppningslösenord skyddar normalt både presentationsinnehåll och dokumentegenskaper. När en presentation krypteras genom att skicka `false` till [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), förblir dess dokumentegenskaper offentliga. En applikation kan då skicka `true` till [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) och läsa den offentliga metadata utan att ange öppningslösenordet.
+Ett öppningslösenord skyddar normalt både presentationsinnehåll och dokumentegenskaper. När en presentation krypteras genom att skicka `false` till [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), kvarstår dess dokumentegenskaper som offentliga. En applikation kan sedan skicka `true` till [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) och läsa den offentliga metadatan utan att ange öppningslösenordet.
 
-[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) styr vad Aspose.Slides laddar; den dekrypterar inget. Om egenskaperna inkluderades i krypteringen misslyckas laddning utan lösenord. Om presentationen inte är krypterad ignoreras alternativet och hela presentationen laddas.
+[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) styr vad Aspose.Slides laddar; den dekrypterar ingenting. Om egenskaperna inkluderades i krypteringen misslyckas laddning utan lösenordet. Om presentationen inte är krypterad ignoreras alternativet och hela presentationen laddas.
 
-Exemplet kräver en krypterad presentation där dokumentegenskaperna lämnades offentliga. Det verifierar laddningsläget via [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) och läser sedan inbyggda egenskaper via [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
+Exemplet kräver en krypterad presentation vars dokumentegenskaper lämnades offentliga. Det verifierar laddningsläget via [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) och läser sedan inbyggda egenskaper via [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -81,17 +79,17 @@ else
 }
 ```
 
-I detta läge laddas inte bildinnehållet. Bilder, master‑bilder, layouter, former, media och andra presentationsobjekt är otillgängliga. Applikationer bör alltid kontrollera [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) innan de utför en operation som kräver hela presentationsobjektmodellen.
+I detta läge laddas inte bildinnehållet. Bildrutor, masterbilder, layouter, former, media och andra presentationsobjekt är otillgängliga. Applikationer bör alltid kontrollera [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) innan en operation som kräver hela presentationsobjektmodellen utförs.
 
-{{% alert color="warning" title="Säkerhet" %}}
-Offentlig metadata kan avslöja författarnamn, titlar, ämnen, nyckelord, företagsinformation, kommentarer och anpassade värden. Kryptera känsliga egenskaper tillsammans med presentationen. Lämna dem offentliga endast när indexering, klassificering, sökning eller dokumenthanteringssystem har ett specifikt krav på åtkomst utan lösenord.
+{{% alert color="warning" title="Security" %}}
+Offentlig metadata kan avslöja författarnamn, titlar, ämnen, nyckelord, företagsinformation, kommentarer och anpassade värden. Kryptera känsliga egenskaper tillsammans med presentationen. Lämna dem offentliga endast när indexering, klassificering, sökning eller dokumenthanteringssystem har ett specifikt krav på att komma åt dem utan lösenord.
 {{% /alert %}}
 
 ## **Uppdatera egenskaper för en krypterad presentation**
 
-För en krypterad PPTX‑fil är en presentation som laddas genom att skicka `true` till [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) avsedd för att läsa offentlig metadata. Aspose.Slides kan inte spara ändrade egenskaper från det metadata‑endast‑objektet eftersom de offentliga egenskaperna måste förbli konsistenta med motsvarande data i den krypterade presentationen. Att uppdatera dem kräver därför korrekt öppningslösenord och en fullständig laddning.
+För en krypterad PPTX‑fil är en presentation som laddas genom att skicka `true` till [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) avsedd för att läsa offentlig metadata. Aspose.Slides kan inte spara ändrade egenskaper från det objektet som endast innehåller metadata eftersom de offentliga egenskaperna måste vara konsekventa med motsvarande data i den krypterade presentationen. Uppdatering av dem kräver därför rätt öppningslösenord och en fullständig laddning.
 
-Exemplet kräver en krypterad PPTX‑presentation med offentliga dokumentegenskaper och ett känt öppningslösenord. Det öppnar hela presentationen med [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/), uppdaterar offentliga inbyggda egenskaper och sparar resultatet. Därefter använder det [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) för att verifiera att krypteringen bevaras och öppnar den offentliga metadata utan lösenord för att kontrollera de nya värdena:
+Exemplet kräver en krypterad PPTX‑presentation med offentliga dokumentegenskaper och ett känt öppningslösenord. Det öppnar hela presentationen med [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/), uppdaterar offentliga inbyggda egenskaper och sparar resultatet. Därefter använder det [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) för att verifiera att krypteringen bevaras och öppnar den offentliga metadatan utan lösenord för att verifiera de nya värdena:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -139,11 +137,11 @@ else
 }
 ```
 
-Om en applikation inte har behörighet att dekryptera eller ladda presentationsinnehållet måste den behandla offentliga egenskaper i en krypterad PPTX‑fil som skrivskyddade.
+Om en applikation inte får dekryptera eller ladda presentationsinnehållet måste den behandla offentliga egenskaper i en krypterad PPTX‑fil som skrivskyddade.
 
 ## **Åtkomst till inbyggda egenskaper**
 
-Gränssnittet [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) exponerar inbyggd metadata via typade getters, inklusive [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) och [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/). Detta exempel öppnar en befintlig presentation och skriver dess lagrade metadata till konsolen. Värdena beror på indata‑presentationen; vissa fält kan vara tomma.
+Gränssnittet [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) exponerar inbyggd metadata via typade getters, inklusive [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) och [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/). Detta exempel öppnar en befintlig presentation och skriver ut dess lagrade metadata till konsolen. Värdena beror på inmatningspresentationen; vissa fält kan vara tomma.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -172,9 +170,48 @@ System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
 System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
 ```
 
+### **Rapportera revisionsnummer och redigeringstid**
+
+Använd [GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) och [ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) för att läsa varje fils [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) utan att ladda dess bilder för redigering. Detta exempel skriver ut en rad per PPTX‑fil i mappen `presentations`. Det standardiserade formatet `c` inkluderar dagantalet när den registrerade redigeringstiden når 24 timmar.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/timespan.h>
+
+using namespace Aspose::Slides;
+using namespace System::IO;
+
+System::Console::WriteLine(u"File | RevisionNumber | TotalEditingTime");
+auto paths = Directory::GetFiles(u"presentations", u"*.pptx");
+for (const auto& path : paths)
+{
+    auto info = PresentationFactory::get_Instance()->GetPresentationInfo(path);
+    auto properties = info->ReadDocumentProperties();
+    auto fileName = Path::GetFileName(path);
+    auto editingTime = properties->get_TotalEditingTime().ToString(u"c");
+    System::Console::WriteLine(u"{0} | {1} | {2}", fileName, properties->get_RevisionNumber(), editingTime);
+}
+```
+
+För en presentation med 1 dag, 2 timmar och 5 minuter av registrerad redigeringstid ser rapporten ut så här:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[get_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_revisionnumber/) läser ett metadata‑värde som applikationer kan ändra med [set_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_revisionnumber/). Det värdet ensam kan inte fastställa hur många gånger presentationen sparades eller återskapa dess versionshistorik.
+
+[get_TotalEditingTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_totaleditingtime/) returnerar den redigeringstid som registrerats i filen. Ett värde på `00:00:00` betyder att den lagrade varaktigheten är noll. Presentationen kan ändå ha redigerats.
+
 ## **Modifiera inbyggda egenskaper**
 
-För att uppdatera inbyggd metadata, använd set‑metoderna på objektet som returneras av [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). Detta exempel öppnar en befintlig presentation, anropar [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/), och [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/), och sparar sedan den uppdaterade presentationen med [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Den sparade PPTX‑filen innehåller den nya metadata.
+För att uppdatera inbyggd metadata, använd set‑metoderna på objektet som returneras av [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). Detta exempel öppnar en befintlig presentation, anropar [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) och [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/), och sparar sedan den uppdaterade presentationen med [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Den sparade PPTX‑filen innehåller den nya metadatan.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -198,11 +235,11 @@ documentProperties->set_Manager(u"Aspose manager");
 presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
 ```
 
-## **Hantera hyperlänkbasen**
+## **Hantera hyperlänksbasen**
 
-[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) läser den dokument‑nivåbas för relativa hyperlänkar. Detta är användbart när en presentation och dess länkade filer flyttas till en annan plats. Det är skilt från en enskild hyperlänks [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/): att ändra basen skriver inte om de lagrade länkadresserna eller ändrar absoluta destinationer.
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) läser dokumentnivåbasen för relativa hyperlänkar. Detta är användbart när en presentation och dess länkade filer flyttas till en annan plats. Det är separat från en individuell hyperlänks [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/): att ändra basen skriv inte om de lagrade länkadresserna eller ändrar absoluta destinationer.
 
-Exemplet kräver en presentation som innehåller både en relativ länk, t.ex. `target.html`, och en absolut länk, t.ex. `https://example.org/absolute.html`. Det läser den befintliga basen, tilldelar en ny basadress med [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/), och sparar och öppnar sedan presentationen igen för att kontrollera värdet. Därefter rensar det basen med `u""` och verifierar det tomma värdet i en separat sparad fil. Ersätt exempel‑basadressen med platsen för dina länkade filer.
+Exemplet kräver en presentation som innehåller både en relativ länk, t.ex. `target.html`, och en absolut länk, t.ex. `https://example.org/absolute.html`. Det läser den befintliga basen, tilldelar en ny basadress med [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) och sparar samt öppnar presentationen igen för att kontrollera värdet. Därefter rensar det basen med `u""` och verifierar det tomma värdet i en separat sparad fil. Ersätt exempelbasadressen med platsen för dina länkade filer.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -233,11 +270,11 @@ System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_Docum
 
 De två verifieringsmeddelandena bör skriva ut `True`. Att rensa basen lämnar de individuella hyperlänkadresserna intakta.
 
-En relativ länk till `target.pptx` öppnade `old/target.pptx` när basen pekade på mappen `old`. Efter att ha ändrat basen till mappen `new`, sparat och öppnat presentationen igen, öppnade samma länk `new/target.pptx`. En absolut länk fortsatte att öppna samma fil. Testa dina relativa länkar i PowerPoint före och efter att du flyttat presentationen eller förändrat dess bas.
+En relativ länk till `target.pptx` öppnade `old/target.pptx` när basen pekade på mappen `old`. Efter att ha ändrat basen till mappen `new`, sparat och öppnat presentationen igen, öppnade samma länk `new/target.pptx`. En absolut länk fortsatte att öppna samma fil. Testa dina relativa länkar i PowerPoint före och efter att du flyttar presentationen eller ändrar dess bas.
 
 ## **Lägg till anpassade presentationsegenskaper**
 
-Anpassade egenskaper lagrar metadata som saknar motsvarande inbyggt fält. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) låter dig tilldela ett värde med egenskapsnamn. Detta exempel skapar en presentation, lägger till två textvärden och ett heltalsversionsvärde, och sparar presentationen med [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Att tilldela ett värde till ett befintligt namn ersätter det egenskapens värde.
+Anpassade egenskaper lagrar metadata som saknar motsvarande inbyggt fält. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) låter dig tilldela ett värde efter egenskapsnamn. Detta exempel skapar en presentation, lägger till två textvärden och ett heltalsversionsvärde, och sparar presentationen med [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Att tilldela ett värde till ett befintligt namn ersätter den egenskapens värde.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -262,7 +299,7 @@ presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
 
 ## **Åtkomst och modifiering av anpassade egenskaper**
 
-Detta exempel öppnar en presentation som innehåller anpassade egenskaper och använder [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) för att iterera över dem. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) accepterar ett nollbaserat index och returnerar namnet som används av [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) och [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/). Exemplet skriver ut varje originalnamn och -värde, ersätter varje värde med en numrerad sträng oavsett ursprunglig typ, och sparar ändringarna. Om det inte finns några anpassade egenskaper gör loopen inga förändringar.
+Detta exempel öppnar en presentation som innehåller anpassade egenskaper och använder [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) för att iterera över dem. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) accepterar ett nollbaserat index och returnerar namnet som används av [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) och [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/). Exemplet skriver ut varje ursprungligt namn och värde, ersätter varje värde med en numrerad sträng oavsett dess ursprungstyp, och sparar ändringarna. Om det inte finns några anpassade egenskaper gör loopen inga förändringar.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -294,9 +331,9 @@ presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 
 ## **Live‑exempel**
 
-Prova den online‑appen [**Visa och redigera PowerPoint‑metadata**](https://products.aspose.app/slides/metadata) för att se hur du arbetar med dokumentegenskaper via Aspose.Slides‑API‑t:
+Prova den onlinetjänst [**Visa & redigera PowerPoint‑metadata**](https://products.aspose.app/slides/metadata) för att se hur du arbetar med dokumentegenskaper med Aspose.Slides API:
 
-[![Visa och redigera PowerPoint‑metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![Visa & redigera PowerPoint‑metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
@@ -310,12 +347,12 @@ Om du lägger till en anpassad egenskap som redan finns, kommer dess befintliga 
 
 **Kan jag komma åt presentationsegenskaper utan att ladda hela presentationen?**
 
-Ja. Använd [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) och sedan [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) för att läsa lagrad dokumentmetadata utan att skapa en [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑instans. Se [Build a Lightweight Presentation Inventory](/slides/sv/cpp/examine-presentation/) för ett komplett rapportexempel och format‑specifika begränsningar.
+Ja. Använd [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) och sedan [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) för att läsa lagrad dokumentmetadata utan att skapa en [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)‑instans. Se [**Bygg en lättviktig presentationsinventering**](/slides/sv/cpp/examine-presentation/) för ett komplett rapportexempel och format‑specifika begränsningar.
 
 **Kan jag läsa offentliga egenskaper i en krypterad presentation utan dess öppningslösenord?**
 
 Ja. Presentationen måste ha krypterats genom att skicka `false` till [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), och den måste laddas genom att skicka `true` till [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/).
 
-**Kan jag uppdatera en krypterad PPTX‑fil i läge med endast dokumentegenskaper?**
+**Kan jag uppdatera en krypterad PPTX‑fil i endast‑dokumentegenskaper‑läge?**
 
-Nej. Offentliga och krypterade egenskapsdata måste förbli konsistenta, så för att uppdatera en krypterad PPTX‑fil krävs att hela presentationen laddas med korrekt öppningslösenord.
+Nej. Offentliga och krypterade egenskapsdata måste vara konsekventa, så för att uppdatera en krypterad PPTX‑fil krävs att hela presentationen laddas med rätt öppningslösenord.

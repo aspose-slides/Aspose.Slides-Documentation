@@ -1,5 +1,5 @@
 ---
-title: C++'ta Sunum Özelliklerini Yönet
+title: C++'da Sunum Özelliklerini Yönetme
 linktitle: Sunum Özellikleri
 type: docs
 weight: 70
@@ -8,13 +8,13 @@ keywords:
 - PowerPoint özellikleri
 - sunum özellikleri
 - belge özellikleri
-- yerleşik özellikler
+- gömülü özellikler
 - özel özellikler
-- gelişmiş özellikler
-- özellikleri yönet
-- özellikleri değiştir
-- belge üst verileri
-- üst verileri düzenle
+- ileri düzey özellikler
+- özellikleri yönetme
+- özellikleri değiştirme
+- belge meta verileri
+- meta verileri düzenleme
 - düzeltme dili
 - varsayılan dil
 - PowerPoint
@@ -22,34 +22,36 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'ta sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda arama, markalaşma ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for C++'da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
 ---
 ## **Giriş**
 
-Aspose.Slides for C++ **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri yazar, başlık ve kullanıcı tanımlı değerler gibi sunum üst verilerini okumak ve güncellemek için kullanın.
+Aspose.Slides for C++ **gömülü** ve **özelleştirilmiş** belge özelliklerini destekler. Bu özellikleri, yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
 
-Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) arayüzü üzerinden çalışmanıza olanak tanır. Bu arayüzün bir örneği [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) tarafından döndürülür. Aşağıdaki örnekler bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir.
+Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) arayüzü üzerinden çalışmanıza olanak tanır. Bu arayüzün bir örneği, [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) tarafından döndürülür. Aşağıdaki örnekler, bu özellikleri nasıl okuyacağınızı, değiştireceğinizi ve yöneteceğinizi gösterir.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides, sunumları kaydederken uygulama ve üretici üst verilerini yönetir; bu alanlar çıktıyı oluşturan yazılımı tanımlar.
+
+Aspose.Slides, sunumları kaydederken uygulama ve üretici meta verilerini yönetir; bu alanlar, çıktıyı oluşturan yazılımı tanımlar.
+
 {{% /alert %}}
 
-## **Sunum Özelliklerini Yönet**
+## **Sunum Özelliklerini Yönetme**
 
-Belge özellikleri, sunum içeriğiyle birlikte tanımlayıcı bilgileri depolar. İki kategoriye ayrılırlar:
+Belge özellikleri, sunum içeriğiyle birlikte tanımlayıcı bilgiler saklar. İki kategoriye ayrılırlar:
 
-- **Yerleşik özellikler** standart üst verileri içerir, örneğin başlık, yazar ve belge istatistikleri.
-- **Özel özellikler** kullanıcı tanımlı ad/değer çiftlerini depolar.
+- **Yapılandırılmış özellikler** başlık, yazar ve belge istatistikleri gibi standart meta verileri içerir.
+- **Özelleştirilmiş özellikler** kullanıcı tanımlı ad/değer çiftlerini saklar.
 
-Aspose.Slides for C++ her iki kategoriye de erişim sağlar. PowerPoint'ta belge üst verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini seçin. İletişim kutusu bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere gruplar. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
+Aspose.Slides for C++ her iki kategoriye de erişim sağlar. PowerPoint’te belge meta verilerini incelemek için **Dosya → Bilgi → Özellikler → Gelişmiş Özellikler** seçeneğini seçin. İletişim kutusu, **Özet**, **İstatistikler**, **İçerik** ve **Özelleştirilmiş** gibi sekmelere bilgi gruplar. Kullanıcı tanımlı özellikleri yönetmek için **Özelleştirilmiş** sekmesini kullanın.
 
-## **Şifrelenmiş Bir Sunumdan Genel Özellikleri Okuma**
+## **Şifreli Bir Sunumdan Genel Özellikleri Okuma**
 
-Açma parolası genellikle hem sunum içeriğini hem de belge özelliklerini korur. Bir sunum, [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) metoduna `false` geçirildiğinde şifrelenirse, belge özellikleri genel kalır. Bir uygulama daha sonra [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) metoduna `true` geçirerek açma parolasını girmeden genel üst verileri okuyabilir.
+Açma şifresi genellikle hem sunum içeriğini hem de belge özelliklerini korur. Belge özellikleri, [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) metoduna `false` aktarılarak şifrelenirse, bu özellikler hâlâ genel olarak kalır. Bir uygulama daha sonra [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) metoduna `true` aktararak, açma şifresi vermeden genel meta verileri okuyabilir.
 
-[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) Aspose.Slides'in neyi yükleyeceğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifrelemeye dahil edilmişse, parolasız yükleme başarısız olur. Sunum şifreli değilse, seçenek yok sayılır ve tam sunum yüklenir.
+[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) Aspose.Slides’in neyi yükleyeceğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifreleme içinde yer alıyorsa, şifre olmadan yükleme başarısız olur. Sunum şifreli değilse, seçenek göz ardı edilir ve tam sunum yüklenir.
 
-Örnek, belge özellikleri genel bırakılmış bir şifreli sunum gerektirir. Yükleme modunu [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) ile doğrular ve ardından [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) üzerinden yerleşik özellikleri okur:
+Örnek, belge özellikleri genel bırakılmış şifreli bir sunumu gerektirir. Yükleme modunu [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) ile doğrular ve ardından [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) aracılığıyla gömülü özellikleri okur:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -79,17 +81,17 @@ else
 }
 ```
 
-Bu modda, slayt içeriği yüklenmez. Slaytlar, ana slaytlar, yerleşimler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) kontrol etmelidir.
+Bu modda slayt içeriği yüklenmez. Slaytlar, ana şablonlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) kontrol etmelidir.
 
 {{% alert color="warning" title="Security" %}}
-Genel üst veriler, yazar adlarını, başlıkları, konuları, anahtar kelimeleri, şirket bilgilerini, yorumları ve özel değerleri ortaya çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Bunları yalnızca indeksleme, sınıflandırma, arama veya belge‑yönetim sistemlerinin parolasız erişim gerektirdiği durumlarda genel bırakın.
+Genel meta veriler yazar adları, başlıklar, konu, anahtar kelimeler, şirket bilgileri, yorumlar ve özelleştirilmiş değerleri açığa çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Yalnızca indeksleme, sınıflandırma, arama veya belge yönetim sistemlerinin şifre olmadan erişim gerektirdiği durumlarda genel bırakın.
 {{% /alert %}}
 
 ## **Şifreli Bir Sunumun Özelliklerini Güncelleme**
 
-Şifreli bir PPTX dosyası için, [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) metoduna `true` geçirilerek yüklenen bir sunum, genel üst verileri okumak için tasarlanmıştır. Aspose.Slides, yalnızca üst veri nesnesinden değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunumdaki ilgili verilerle tutarlı olmalıdır. Bu nedenle güncelleme, doğru açma parolasını ve tam bir yüklemeyi gerektirir.
+Şifreli bir PPTX dosyası için, [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) metoduna `true` aktararak yüklenen sunum, yalnızca genel meta verileri okumak içindir. Aspose.Slides, bu yalnızca meta veri nesnesinden değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunum içindeki karşılık gelen verilerle tutarlı olmalıdır. Bu nedenle güncelleme için doğru açma şifresi ve tam yükleme gerekir.
 
-Örnek, genel belge özellikleri olan şifreli bir PPTX sunumu ve bilinen bir açma parolası gerektirir. Sunumu, [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) ile tam olarak açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) kullanarak şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için parolasız olarak genel üst verileri tekrar açar:
+Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma şifresi gerektirir. Sunumu, [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) ile tamamen açar, genel gömülü özellikleri günceller ve sonucu kaydeder. Ardından [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) kullanarak şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için şifresiz olarak genel meta verileri yeniden açar:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -137,11 +139,11 @@ else
 }
 ```
 
-Bir uygulamaya sunum içeriğini çözme veya yükleme izni verilmemişse, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okunabilir olarak ele almalıdır.
+Uygulama, sunum içeriğini çözümleyemiyor veya yükleyemiyorsa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okuma amaçlı kullanmalıdır.
 
-## **Yerleşik Özelliklere Erişim**
+## **Yapılandırılmış Özelliklere Erişim**
 
-[IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) arayüzü, [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) ve [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/) gibi tiplenmiş alıcılar aracılığıyla yerleşik üst verileri ortaya çıkarır. Bu örnek mevcut bir sunumu açar ve depolanan üst verileri konsola yazdırır. Değerler girdi sunumuna bağlıdır; bazı alanlar boş olabilir.
+[IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) arayüzü, [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) ve [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/) gibi tiplenmiş getter’lar aracılığıyla gömülü meta verileri ortaya çıkarır. Bu örnek mevcut bir sunumu açar ve saklanan meta verileri konsola yazar. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -170,9 +172,48 @@ System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
 System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
 ```
 
-## **Yerleşik Özellikleri Değiştirme**
+### **Revizyon Numarası ve Düzenleme Süresini Raporlama**
 
-Yerleşik üst verileri güncellemek için [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) tarafından döndürülen nesnenin ayarlayıcılarını kullanın. Bu örnek mevcut bir sunumu açar, [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) ve [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/) metodlarını çağırır, ardından [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ile güncellenmiş sunumu kaydeder. Kaydedilen PPTX yeni üst verileri içerir.
+[GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) ve [ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) kullanarak, slaytları yüklemeden her dosyanın [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) okunabilir. Bu örnek, `presentations` klasöründeki her PPTX dosyası için bir satır yazdırır. Standart `c` biçimi, kaydedilen düzenleme süresi 24 saate ulaştığında gün sayılarını içerir.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/PresentationFactory.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/timespan.h>
+
+using namespace Aspose::Slides;
+using namespace System::IO;
+
+System::Console::WriteLine(u"File | RevisionNumber | TotalEditingTime");
+auto paths = Directory::GetFiles(u"presentations", u"*.pptx");
+for (const auto& path : paths)
+{
+    auto info = PresentationFactory::get_Instance()->GetPresentationInfo(path);
+    auto properties = info->ReadDocumentProperties();
+    auto fileName = Path::GetFileName(path);
+    auto editingTime = properties->get_TotalEditingTime().ToString(u"c");
+    System::Console::WriteLine(u"{0} | {1} | {2}", fileName, properties->get_RevisionNumber(), editingTime);
+}
+```
+
+1 gün, 2 saat ve 5 dakika kaydedilmiş düzenleme süresi olan bir sunum için rapor şu şekilde görünür:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[get_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_revisionnumber/) bir meta veri değerini okur; uygulamalar bunu [set_RevisionNumber](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_revisionnumber/) ile değiştirebilir. Bu değer tek başına, sunumun kaç kez kaydedildiğini ya da sürüm geçmişini göstermez.
+
+[get_TotalEditingTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_totaleditingtime/) dosyada kaydedilen düzenleme süresini döndürür. `00:00:00` değeri, saklanan sürenin sıfır olduğunu gösterir. Sunum hâlâ düzenlenmiş olabilir.
+
+## **Yapılandırılmış Özellikleri Değiştirme**
+
+Yapılandırılmış meta verileri güncellemek için, [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) tarafından döndürülen nesnenin setter’larını kullanın. Bu örnek mevcut bir sunumu açar, [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) ve [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/) metodlarını çağırır ve ardından [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ile güncellenmiş sunumu kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -198,9 +239,9 @@ presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
 
 ## **Köprü Temelini Yönetme**
 
-[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) göreli köprüler için belge düzeyinde temel adresi okur. Bu, bir sunumu ve ona bağlı dosyaları başka bir konuma taşırken faydalıdır. Bu, tek bir köprünün [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) metodundan ayrı bir özelliktir; temeli değiştirmek saklanan köprü adreslerini yeniden yazmaz ya da mutlak hedefleri değiştirmez.
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) belge düzeyindeki göreli köprüler için temeli okur. Bu, bir sunumu ve ilişkilendirilmiş dosyalarını başka bir konuma taşırken faydalıdır. Bu, bireysel bir köprünün [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) özelliğinden ayrı bir ayardır; temeli değiştirmek saklanan bağlantı adreslerini yeniden yazmaz ya da mutlak hedefleri değiştirmez.
 
-Örnek, `target.html` gibi bir göreli bağlantı ve `https://example.org/absolute.html` gibi bir mutlak bağlantı içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) ile atar ve değeri kontrol etmek için sunumu kaydedip tekrar açar. Ardından temeli `u""` ile temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresi, bağladığınız dosyaların konumuyla değiştirin.
+Örnek, `target.html` gibi bir göreli bağlantı ve `https://example.org/absolute.html` gibi bir mutlak bağlantı içeren bir sunum gerektirir. Mevcut temeli okur, [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) ile yeni bir temel adresi atar, sunumu kaydeder ve temelin değerini kontrol etmek için tekrar açar. Ardından temeli `u""` ile temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresi, bağlantılı dosyalarınızın konumuyla değiştirin.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -229,13 +270,13 @@ auto clearedPresentation = System::MakeObject<Presentation>(u"hyperlinks-cleared
 System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_DocumentProperties()->get_HyperlinkBase() == u""));
 ```
 
-İki doğrulama mesajı `True` yazdırmalıdır. Temelin temizlenmesi, bireysel köprü adreslerini etkilenmemiş bırakır.
+İki doğrulama mesajı da `True` yazdırmalıdır. Temelin temizlenmesi, bireysel köprü adreslerini etkilemez.
 
-`target.pptx` öğesine göreli bir bağlantı, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedilip sunum tekrar açıldıktan sonra aynı bağlantı `new/target.pptx` dosyasını açtı. Mutlak bir bağlantı aynı dosyayı açmaya devam etti. Sunumu taşımadan önce ve sonra ya da temelini değiştirdikten sonra PowerPoint'te göreli bağlantılarınızı test edin.
+Temel `old` klasörüne işaret ederken `target.pptx` göreli bağlantısı `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedilip sunum tekrar açıldığında aynı bağlantı `new/target.pptx` dosyasını açtı. Mutlak bağlantı aynı dosyayı açmaya devam etti. PowerPoint’te, sunumu taşıma veya temelini değiştirmeden önce ve sonra göreli bağlantılarınızı test edin.
 
-## **Özel Sunum Özellikleri Ekleme**
+## **Özelleştirilmiş Sunum Özellikleri Ekleme**
 
-Özel özellikler, karşılık gelen yerleşik bir alanı olmayan üst verileri depolar. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) bir özellik adına değer atamanıza izin verir. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tamsayı sürüm değeri ekler ve [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ile sunumu kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
+Özelleştirilmiş özellikler, karşılık gelen bir gömülü alanı olmayan meta verileri saklar. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) bir özelliğin adını kullanarak değer atamanıza olanak verir. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve sunumu [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ile kaydeder. Var olan bir ada değer atamak, o özelliğin değerini değiştirir.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -258,9 +299,9 @@ documentProperties->idx_set(u"Document version", System::ObjectExt::Box(2));
 presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
 ```
 
-## **Özel Özelliklere Erişim ve Değiştirme**
+## **Özelleştirilmiş Özellikleri Erişme ve Değiştirme**
 
-Bu örnek, özel özellikler içeren bir sunumu açar ve [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) ile bunlar üzerinde döner. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) sıfır‑bazlı bir indeks alır ve [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) ve [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) tarafından kullanılan adı döndürür. Örnek, her orijinal adı ve değeri yazdırır, her değeri orijinal tipine bakılmaksızın numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Özel özellik yoksa, döngü hiçbir değişiklik yapmaz.
+Bu örnek, özelleştirilmiş özellikler içeren bir sunumu açar ve [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) ile bunları dolaşır. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) sıfır tabanlı bir dizin alır ve [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) ve [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) tarafından kullanılan adı döndürür. Örnek, her özgün adı ve değeri yazdırır, her değeri tipine bakılmaksızın numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Özelleştirilmiş özellik yoksa döngü hiçbir değişiklik yapmaz.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -292,28 +333,28 @@ presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 
 ## **Canlı Örnek**
 
-Aspose.Slides API'sını kullanarak belge özellikleriyle nasıl çalışılacağını görmek için çevrimiçi uygulama olan [**PowerPoint Üst Bilgilerini Görüntüle ve Düzenle**](https://products.aspose.app/slides/metadata)'yi deneyin:
+Belge özellikleriyle Aspose.Slides API’si kullanarak nasıl çalışılacağını görmek için çevrimiçi uygulama **[View & Edit PowerPoint Metadata](https://products.aspose.app/slides/metadata)**’yi deneyin:
 
-[![PowerPoint Üst Bilgilerini Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **SSS**
 
-**Bir sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
+**Bir sunumdan gömülü bir özelliği nasıl kaldırabilirim?**
 
-Yerleşik özellikler, bir sunumun bütünleyici parçasıdır ve tamamen kaldırılamaz. Ancak, değerlerini değiştirebilir veya ilgili özellik izin veriyorsa boş olarak ayarlayabilirsiniz.
+Gömülü özellikler sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli bir özellik izin veriyorsa değerlerini değiştirebilir veya boş olarak ayarlayabilirsiniz.
 
-**Zaten var olan bir özel özelliği eklersem ne olur?**
+**Zaten mevcut bir özelleştirilmiş özellik eklersem ne olur?**
 
-Eğer zaten var olan bir özel özellik eklenirse, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak özelliğin değerini günceller.
+Zaten mevcut bir özelleştirilmiş özellik eklerseniz, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak özelliğin değerini günceller.
 
-**Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
+**Sunumu tam olarak yüklemeden sunum özelliklerine erişebilir miyim?**
 
-Evet. [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) kullanın ve ardından [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) ile bir [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) örneği oluşturmadan saklanan belge üst verilerini okuyun. Tam bir raporlama örneği ve format‑spesifik sınırlamalar için [Hafif Sunum Envanteri Oluşturma](/slides/tr/cpp/examine-presentation/) sayfasına bakın.
+Evet. [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) ardından [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) kullanarak bir [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) örneği oluşturmadan saklanan belge meta verilerini okuyabilirsiniz. Tam raporlama örneği ve biçime özgü sınırlamalar için **[Build a Lightweight Presentation Inventory](/slides/tr/cpp/examine-presentation/)** bölümüne bakın.
 
-**Şifreli bir sunumun genel özelliklerini açma parolasına sahip olmadan okuyabilir miyim?**
+**Şifreli bir sunumun genel özelliklerini açma şifresi olmadan okuyabilir miyim?**
 
-Evet. Sunum, [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) metoduna `false` geçirilerek şifrelenmiş olmalı ve [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) metoduna `true` geçirilerek yüklenmiş olmalıdır.
+Evet. Sunum, [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) metoduna `false` aktararak şifrelenmiş olmalı ve [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) metoduna `true` aktararak yüklenmiş olmalıdır.
 
-**Belge‑özellikleri‑sadece modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
+**Belge‑özellikleri‑yalnızca modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
 
-Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu nedenle şifreli bir PPTX dosyasını güncellemek, doğru açma parolasıyla tam sunumu yüklemeyi gerektirir.
+Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu nedenle şifreli bir PPTX dosyasını güncellemek, doğru açma şifresiyle tam sunumu yüklemeyi gerektirir.

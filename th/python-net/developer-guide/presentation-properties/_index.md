@@ -8,48 +8,50 @@ keywords:
 - คุณสมบัติ PowerPoint
 - คุณสมบัติงานนำเสนอ
 - คุณสมบัติเอกสาร
-- คุณสมบัติมาตรฐาน
-- คุณสมบัติที่กำหนดเอง
-- คุณสมบัติชั้นสูง
+- คุณสมบัติตัวสร้าง
+- คุณสมบัติกำหนดเอง
+- คุณสมบัติขั้นสูง
 - จัดการคุณสมบัติ
-- แก้ไขคุณสมบัติ
+- ปรับแก้คุณสมบัติ
 - เมตาดาต้าเอกสาร
 - แก้ไขเมตาดาต้า
-- ภาษาการพิสูจน์อักษร
-- ภาษาปริยาย
+- ภาษาการพิสูจน์
+- ภาษาตั้งต้น
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "ควบคุมคุณสมบัติงานนำเสนอใน Aspose.Slides สำหรับ Python via .NET และทำให้การค้นหา การสร้างแบรนด์ และกระบวนการทำงานในไฟล์ PowerPoint ของคุณเป็นระบบระเบียบมากขึ้น"
+description: "ควบคุมคุณสมบัติงานนำเสนอใน Aspose.Slides for Python via .NET และทำให้การค้นหา การสร้างแบรนด์และกระบวนการทำงานในไฟล์ PowerPoint ของคุณเป็นเรื่องง่าย"
 ---
-## **บทนำ**
+## **คำนำ**
 
-Aspose.Slides for Python via .NET รองรับคุณสมบัติเอกสาร **built-in** และ **custom**. ใช้คุณสมบัติเหล่านี้เพื่ออ่านและอัปเดตเมตาดาต้าของงานนำเสนอ เช่น ผู้เขียน ชื่อเรื่อง และค่าที่ผู้ใช้กำหนด.
+Aspose.Slides for Python via .NET รองรับคุณสมบัติเ�เอกสาร **built-in** และ **custom** ใช้คุณสมบัติเหล่านี้เพื่ออ่านและอัปเดตข้อมูลเมตาของงานนำเสนอ เช่น ผู้เขียน ชื่อเรื่อง และค่าที่ผู้ใช้กำหนดเอง
 
-Aspose.Slides ให้คุณทำงานกับคุณสมบัติของเอกสารงานนำเสนอผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) . อินสแตนซ์ของคลาสนี้จะถูกส่งคืนโดย [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน แก้ไข และจัดการคุณสมบัติเหล่านี้.
+Aspose.Slides ให้คุณทำงานกับคุณสมบัติเขียนเอกสารผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) ตัวอย่างของคลาสนี้จะได้จาก [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) ตัวอย่างต่อไปจะแสดงวิธีการอ่าน แก้ไข และจัดการคุณสมบัติเหล่านี้
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides จัดการเมตาดาต้าแอปพลิเคชันและผู้ผลิตเมื่อบันทึกงานนำเสนอ; ฟิลด์เหล่านี้ระบุตัวซอฟต์แวร์ที่สร้างผลลัพธ์.
+
+Aspose.Slides จัดการเมตาดาต้าของแอปพลิเคชันและผู้ผลิตเมื่อตัวบันทึกงานนำเสนอ; ฟิลด์เหล่านี้ระบุซอฟต์แวร์ที่สร้างผลลัพธ์
+
 {{% /alert %}}
 
 ## **จัดการคุณสมบัติงานนำเสนอ**
 
-คุณสมบัติของเอกสารเก็บข้อมูลเชิงบรรยายควบคู่กับเนื้อหางานนำเสนอ แบ่งเป็นสองประเภท:
+คุณสมบัติเขียนเอกสารเก็บข้อมูลอธิบายพร้อมกับเนื้อหางานนำเสนอ แบ่งออกเป็นสองประเภท
 
 - **Built-in properties** มีเมตาดาต้ามาตรฐาน เช่น ชื่อเรื่อง ผู้เขียน และสถิติเอกสาร
-- **Custom properties** เก็บคู่ชื่อ/ค่า ที่ผู้กำหนดเอง
+- **Custom properties** เก็บคู่ชื่อ/ค่า ที่ผู้ใช้กำหนดเอง
 
-Aspose.Slides for Python via .NET ให้การเข้าถึงทั้งสองประเภท ใน PowerPoint เลือก **File → Info → Properties → Advanced Properties** เพื่อดูเมตาดาต้าเอกสาร กล่องโต้ตอบจะจัดกลุ่มข้อมูลเป็นแท็บเช่น **Summary**, **Statistics**, **Contents**, และ **Custom** ใช้แท็บ **Custom** เพื่อจัดการคุณสมบัติที่ผู้กำหนดเอง.
+Aspose.Slides for Python via .NET ให้เข้าถึงทั้งสองประเภท ใน PowerPoint ให้เลือก **File → Info → Properties → Advanced Properties** เพื่อตรวจสอบเมตาดาต้าเอกสาร กล่องโต้ตอบจะจัดข้อมูลเป็นแท็บ เช่น **Summary**, **Statistics**, **Contents**, และ **Custom** ใช้แท็บ **Custom** เพื่อจัดการคุณสมบัติที่ผู้ใช้กำหนด
 
-## **อ่านคุณสมบัติสาธารณะจากงานนำเสนอที่เข้ารหัส**
+## **อ่านคุณสมบัตสาธารณะจากงานนำเสนอที่เข้ารหัส**
 
-รหัสผ่านเปิดไฟล์โดยปกติจะปกป้องเนื้อหางานนำเสนอและคุณสมบัติของเอกสารทั้งสอง. เมื่อการเข้ารหัสงานนำเสนอใช้ [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) ตั้งค่าเป็น `False` คุณสมบัติของเอกสารจะเปิดเป็นสาธารณะ. แอปพลิเคชันสามารถตั้งค่า [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) เป็น `True` และอ่านเมตาดาต้าสาธารณะโดยไม่ต้องระบุรหัสผ่านเปิดไฟล์. 
+รหัสผ่านเปิดไฟล์มักปกป้องทั้งเนื้อหางานนำเสนอและคุณสมบัติเขียนเอกสาร เมื่องานนำเสนอถูกเข้ารหัสด้วย [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) ตั้งค่าเป็น `False` คุณสมบัติเขียนเอกสารจะยังคงเป็นสาธารณะ แอปพลิเคชันจึงสามารถตั้งค่า [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) เป็น `True` และอ่านเมตาดาต้าสาธารณะโดยไม่ต้องให้รหัสผ่านเปิดไฟล์
 
-[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) ควบคุมสิ่งที่ Aspose.Slides โหลด; มันไม่มีการถอดรหัสใดๆ. หากคุณสมบัตถูกรวมเข้ากับการเข้ารหัส การโหลดโดยไม่มีรหัสผ่านจะล้มเหลว. หากงานนำเสนอไม่ได้เข้ารหัส ตัวเลือกจะถูกละเลยและจะโหลดงานนำเสนอเต็มรูปแบบ.
+[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) ควบคุมสิ่งที่ Aspose.Slides โหลด; มันไม่ทำการถอดรหัสใด ๆ หากคุณสมบัติเบิลอยู่ในขั้นตอนการเข้ารหัส การโหลดโดยไม่ใช้รหัสผ่านจะล้มเหลว หากงานนำเสนอไม่ได้เข้ารหัส ตัวเลือกจะถูกละเว้นและงานนำเสนอทั้งหมดจะถูกโหลด
 
-ตัวอย่างนี้ต้องการงานนำเสนอที่เข้ารหัสซึ่งคุณสมบัติของเอกสารถูกปล่อยให้เป็นสาธารณะ. มันตรวจสอบโหมดการโหลดผ่าน [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) และจากนั้นอ่านคุณสมบัติ built-in ผ่าน [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
+ตัวอย่างนี้ต้องการงานนำเสนอที่เข้ารหัสโดยที่คุณสมบัติเขียนเอกสารเปิดไว้สาธารณะ มันตรวจสอบโหมดการโหลดผ่าน [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) แล้วอ่านคุณสมบัติ built‑in ผ่าน [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) :
 
 ```python
 import aspose.slides as slides
@@ -68,17 +70,17 @@ with slides.Presentation("public-properties-encrypted.pptx", load_options) as pr
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-ในโหมดนี้ เนื้อหาแผ่นสไลด์จะไม่ถูกโหลด. สไลด์, มาสเตอร์, เค้าโครง, รูปร่าง, สื่อ และอ็อบเจกต์ของงานนำเสนออื่นๆ จะไม่พร้อมใช้งาน. แอปพลิเคชันควรตรวจสอบ [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) เสมอก่อนทำการดำเนินการที่ต้องการโมเดลอ็อบเจกต์ของงานนำเสนอเต็มรูปแบบ.
+ในโหมดนี้เนื้อหาสไลด์จะไม่ถูกโหลด สไลด์ มาสเตอร์ เค้าโครง รูปร่าง สื่อ และวัตถุอื่น ๆ ของงานนำเสนอจะไม่พร้อมใช้งาน แอปพลิเคชันควรตรวจสอบ [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) ก่อนทำการใด ๆ ที่ต้องการโมเดลวัตถุของงานนำเสนอเต็มรูปแบบ
 
 {{% alert color="warning" title="Security" %}}
-เมตาดาต้าสาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, หัวข้อ, คำสำคัญ, ข้อมูลบริษัท, ความคิดเห็น, และค่าที่กำหนดเอง. ควรเข้ารหัสคุณสมบัติที่สำคัญพร้อมกับงานนำเสนอ. ให้เปิดเป็นสาธารณะเฉพาะเมื่อระบบจัดทำดัชนี, การจัดประเภท, การค้นหา, หรือระบบจัดการเอกสารต้องการเข้าถึงโดยไม่ต้องใช้รหัสผ่าน.
+เมตาดาต้าสาธารณะอาจเปิดเผยชื่อผู้เขียน ชื่อเรื่อง เรื่องย่อย คำสำคัญ ข้อมูลบริษัท คอมเมนต์ และค่าที่กำหนดเอง ให้เข้ารหัสคุณสมบัติเชิงลับพร้อมกับงานนำเสนอ ควรปล่อยให้เป็นสาธารณะเฉพาะเมื่อระบบจัดทำดัชนี การจัดประเภท การค้นหา หรือระบบการจัดการเอกสารมีความต้องการเข้าถึงโดยไม่ต้องใช้รหัสผ่าน
 {{% /alert %}}
 
 ## **อัปเดตคุณสมบัติของงานนำเสนอที่เข้ารหัส**
 
-สำหรับไฟล์ PPTX ที่เข้ารหัส การโหลดงานนำเสนอด้วย [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) มีจุดประสงค์เพื่ออ่านเมตาดาต้าสาธารณะ. Aspose.Slides ไม่สามารถบันทึกคุณสมบัติที่เปลี่ยนแปลงจากอ็อบเจกต์ที่มีเมตาดาต้าเท่านั้นได้ เพราะคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลที่อยู่ภายในงานนำเสนอที่เข้ารหัส. การอัปเดตจึงต้องใช้รหัสผ่านเปิดไฟล์ที่ถูกต้องและการโหลดเต็ม.
+สำหรับไฟล์ PPTX ที่เข้ารหัส งานนำเสนอที่โหลดด้วย [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) มีจุดประสงค์เพื่ออ่านเมตาดาต้าสาธารณะ Aspose.Slides ไม่สามารถบันทึกการเปลี่ยนแปลงคุณสมบัติจากอ็อบเจ็กต์ที่โหลดเฉพาะเมตาดาต้าได้ เพราะคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลที่อยู่ภายในงานนำเสนอที่เข้ารหัส การอัปเดตจึงต้องใช้รหัสผ่านเปิดไฟล์ที่ถูกต้องและการโหลดแบบครบถ้วน
 
-ตัวอย่างนี้ต้องการงานนำเสนอ PPTX ที่เข้ารหัสซึ่งมีคุณสมบัติของเอกสารเป็นสาธารณะและรหัสผ่านเปิดไฟล์ที่ทราบ. มันเปิดงานนำเสนอเต็มด้วย [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), อัปเดตคุณสมบัติ built-in สาธารณะ, และบันทึกผลลัพธ์. จากนั้นใช้ [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) เพื่อตรวจสอบว่าการเข้ารหัสยังคงอยู่และเปิดเมตาดาต้าสาธารณะอีกครั้งโดยไม่ใช้รหัสผ่านเพื่อยืนยันค่าที่ใหม่:
+ตัวอย่างนี้ต้องการงานนำเสนอ PPTX ที่เข้ารหัสพร้อมคุณสมบัติเขียนเอกสารสาธารณะและรหัสผ่านเปิดไฟล์ที่ทราบ มันเปิดงานนำเสนอทั้งหมดด้วย [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) อัปเดตคุณสมบัติ built‑in สาธารณะ แล้วบันทึกผลลัพธ์ จากนั้นใช้ [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) เพื่อตรวจสอบว่าการเข้ารหัสยังคงอยู่ และเปิดเมตาดาต้าสาธารณะโดยไม่ใช้รหัสผ่านเพื่อยืนยันค่าที่ใหม่ :
 
 ```python
 import aspose.slides as slides
@@ -110,11 +112,11 @@ with slides.Presentation(output_path, metadata_load_options) as metadata_present
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหางานนำเสนอ มันต้องถือว่าคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสเป็นแบบอ่านอย่างเดียว.
+หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหางานนำเสนอ จะต้องถือคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสเป็นแบบอ่าน‑อย่างเดียว
 
-## **เข้าถึงคุณสมบัติ Built-in**
+## **เข้าถึง Built‑in Properties**
 
-คลาส [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) เปิดเผยเมตาดาต้า built-in ผ่านคุณสมบัติแบบกำหนดประเภท รวมถึง [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), และ [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/). ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่และพิมพ์เมตาดาต้าที่จัดเก็บไว้บนคอนโซล. ค่าต่างๆ ขึ้นอยู่กับงานนำเข้าที่ใช้; บางฟิลด์อาจว่างเปล่า.
+คลาส [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) แสดงเมตาดาต้าตัวสร้างผ่านคุณสมบัติที่พิมพ์ชนิดรวมถึง [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), และ [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/) ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่และพิมพ์เมตาดาต้าที่เก็บไว้ลงคอนโซล ค่าต่าง ๆ จะขึ้นอยู่กับงานนำเข้าที่ใช้; บางฟิลด์อาจว่าง
 
 ```python
 import aspose.slides as slides
@@ -138,9 +140,37 @@ with slides.Presentation("AccessBuiltInProperties.pptx") as presentation:
     print("Title:", document_properties.title)
 ```
 
-## **แก้ไขคุณสมบัติ Built-in**
+### **รายงานหมายเลขรุ่นและเวลาการแก้ไข**
 
-เพื่ออัปเดตเมตาดาต้า built-in ให้กำหนดค่าต่างๆ ให้กับคุณสมบัติที่เขียนได้ที่เปิดเผยโดย [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่, ตั้งค่า [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/), และ [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/), จากนั้นบันทึกงานนำเสนอที่อัปเดตด้วย [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). PPTX ที่บันทึกจะมีเมตาดาต้าใหม่.
+เพื่อรายงานหมายเลขรุ่นและเวลาการแก้ไขรวมของแต่ละไฟล์ PPTX ในโฟลเดอร์ `presentations` ให้ใช้ [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) เพื่อดึง [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) โดยไม่ต้องโหลดสไลด์เพื่อแก้ไข Python จะแสดงระยะเวลาเป็น `timedelta` รวมจำนวนวันเมื่อเวลาที่บันทึกครบ 24 ชั่วโมง
+
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+print("File | RevisionNumber | TotalEditingTime")
+for path in Path("presentations").glob("*.pptx"):
+    if path.is_file():
+        info = slides.PresentationFactory.instance.get_presentation_info(str(path))
+        properties = info.read_document_properties()
+        print(f"{path.name} | {properties.revision_number} | {properties.total_editing_time}")
+```
+
+สำหรับงานนำเสนอที่บันทึกเวลาการแก้ไข 1 วัน 2 ชั่วโมง 5 นาที รายงานจะมีแถวดังต่อไปนี้
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1 day, 2:05:00
+```
+
+[DocumentProperties.revision_number](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/revision_number/) เป็นเมตาดาต้าที่สามารถเขียนได้ ค่าเดียวของมันไม่สามารถบ่งบอกจำนวนครั้งที่งานนำเสนอถูกบันทึกหรือสร้างประวัติรุ่นได้
+
+[DocumentProperties.total_editing_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/total_editing_time/) แสดงระยะเวลาการแก้ไขที่บันทึกในไฟล์ ค่า `0:00:00` หมายถึงระยะเวลาที่บันทึกเป็นศูนย์ แม้จะมีผู้แก้ไขงานนำเสนอก็ตาม
+
+## **แก้ไข Built‑in Properties**
+
+เพื่ออัปเดตเมตาดาต้าตัวสร้าง ให้กำหนดค่าให้กับคุณสมบัติที่เขียนได้ที่เผยโดย [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่ ตั้งค่า [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/), และ [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/) แล้วบันทึกงานนำเสนอที่อัปเดตด้วย [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) PPTX ที่บันทึกจะมีเมตาดาต้าใหม่
 
 ```python
 import aspose.slides as slides
@@ -157,11 +187,11 @@ with slides.Presentation("ModifyBuiltInProperties.pptx") as presentation:
     presentation.save("DocumentProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **จัดการฐานไฮเปอร์ลิงก์**
+## **จัดการ Hyperlink Base**
 
-[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) เก็บฐานระดับเอกสารสำหรับไฮเปอร์ลิงก์แบบ relative. สิ่งนี้มีประโยชน์เมื่อย้ายงานนำเสนอและไฟล์ที่เชื่อมโยงไปยังตำแหน่งอื่น. มันแยกจาก [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/): การเปลี่ยนฐานจะไม่เขียนทับที่อยู่ลิงก์ที่จัดเก็บหรือเปลี่ยนปลายทางแบบ absolute.
+[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) เก็บฐานระดับเอกสารสำหรับลิงก์แบบสัมพันธ์ ซึ่งมีประโยชน์เมื่อย้ายงานนำเสนอและไฟล์ลิงก์ไปยังตำแหน่งอื่น มันแยกจาก [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) ของลิงก์แต่ละรายการ: การเปลี่ยนฐานจะไม่เขียนทับที่อยู่ลิงก์ที่เก็บไว้หรือเปลี่ยนปลายทางแบบสัมบูรณ์
 
-ตัวอย่างนี้ต้องการงานนำเสนอที่มีทั้งลิงก์ relative เช่น `target.html` และลิงก์ absolute ไปยังไฟล์หรือเว็บไซต์. มันอ่านฐานที่มีอยู่, กำหนดฐานใหม่, แล้วบันทึกและเปิดงานนำเสนอใหม่เพื่อตรวจสอบค่า. จากนั้นล้างฐานด้วย `""` และยืนยันค่าที่ว่างในไฟล์ที่บันทึกแยกต่างหาก. แทนที่ที่อยู่ฐานตัวอย่างด้วยตำแหน่งของไฟล์ที่เชื่อมโยงของคุณ.
+ตัวอย่างนี้ต้องการงานนำเสนอที่มีลิงก์สัมพันธ์ เช่น `target.html` และลิงก์สัมบูรณ์ไปยังไฟล์หรือเว็บไซต์ มันอ่านฐานเดิม กำหนดฐานใหม่ แล้วบันทึกและเปิดงานนำเสนอใหม่เพื่อตรวจสอบค่า จากนั้นล้างฐานด้วย `""` และตรวจสอบค่าว่างในไฟล์ที่บันทึกแยกออกมา แทนที่ฐานตัวอย่างด้วยตำแหน่งไฟล์ลิงก์ของคุณ
 
 ```python
 import aspose.slides as slides
@@ -183,13 +213,13 @@ with slides.Presentation("hyperlinks-cleared.pptx") as cleared_presentation:
     print("Base cleared:", cleared_presentation.document_properties.hyperlink_base == "")
 ```
 
-ข้อความตรวจสอบสองข้อความควรพิมพ์ `True`. การล้างฐานจะไม่กระทบที่อยู่ไฮเปอร์ลิงก์แต่ละรายการ.
+ข้อความตรวจสอบทั้งสองควรพิมพ์ `True` การล้างฐานจะไม่กระทบที่อยู่ลิงก์แต่ละรายการ
 
-ลิงก์ relative ไปยัง `target.pptx` เปิด `old/target.pptx` เมื่อฐานชี้ไปที่โฟลเดอร์ `old`. หลังจากเปลี่ยนฐานเป็นโฟลเดอร์ `new`, บันทึกและเปิดงานนำเสนอใหม่ ลิงก์เดียวกันจะเปิด `new/target.pptx`. ลิงก์ absolute ยังคงเปิดไฟล์เดียวกัน. ทดสอบลิงก์ relative ของคุณใน PowerPoint ก่อนและหลังการย้ายงานนำเสนอหรือเปลี่ยนฐาน.
+ลิงก์สัมพันธ์ `target.pptx` จะเปิด `old/target.pptx` เมื่อฐานชี้ไปยังโฟลเดอร์ `old` หลังจากเปลี่ยนฐานเป็นโฟลเดอร์ `new` บันทึกและเปิดงานนำเสนอใหม่ ลิงก์เดียวกันจะเปิด `new/target.pptx` ลิงก์สัมบูรณ์จะยังคงเปิดไฟล์เดิม ทดสอบลิงก์สัมพันธ์ใน PowerPoint ก่อนและหลังย้ายงานนำเสนอหรือเปลี่ยนฐาน
 
-## **เพิ่มคุณสมบัติที่กำหนดเองของงานนำเสนอ**
+## **เพิ่ม Custom Presentation Properties**
 
-คุณสมบัติที่กำหนดเองเก็บเมตาดาต้าที่ไม่มีฟิลด์ built-in ที่สอดคล้อง. วิธี [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) ให้คุณกำหนดค่าตามชื่อคุณสมบัติ. ตัวอย่างนี้สร้างงานนำเสนอ, เพิ่มค่าเท็กซ์สองค่าและค่าเวอร์ชันแบบจำนวนเต็ม, แล้วบันทึกงานนำเสนอด้วย [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). การกำหนดค่าที่ชื่อที่มีอยู่แล้วจะแทนที่ค่าของคุณสมบัตินั้น.
+คุณสมบัติแบบกำหนดเองเก็บเมตาดาต้าที่ไม่มีฟิลด์ built‑in ที่สอดคล้องกัน วิธี [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) ให้คุณกำหนดค่าโดยใช้ชื่อคุณสมบัติ ตัวอย่างนี้สร้างงานนำเสนอ เพิ่มค่าข้อความสองค่าและค่าตัวเลขเวอร์ชัน แล้วบันทึกงานนำเสนอด้วย [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) การกำหนดค่าที่ชื่อซ้ำจะทับค่าที่มีอยู่
 
 ```python
 import aspose.slides as slides
@@ -204,9 +234,9 @@ with slides.Presentation() as presentation:
     presentation.save("CustomDocumentProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เข้าถึงและแก้ไขคุณสมบัติที่กำหนดเอง**
+## **เข้าถึงและแก้ไข Custom Properties**
 
-ตัวอย่างนี้เปิดงานนำเสนอที่มีคุณสมบัติที่กำหนดเองและใช้ [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) เพื่อวนลูปผ่านมัน. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) รับดัชนีเริ่มจากศูนย์และคืนชื่อที่ใช้โดย [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/). ตัวอย่างต้องการงานนำเสนอที่คุณสมบัติที่กำหนดเองทั้งหมดเป็นสตริง. มันพิมพ์ชื่อและค่าต้นฉบับแต่ละรายการ, แทนที่ค่าทุกค่าเป็นสตริงที่มีหมายเลข, และบันทึกการเปลี่ยนแปลง. หากไม่มีคุณสมบัติที่กำหนดเอง, ลูปจะไม่ทำการเปลี่ยนแปลงใดๆ.
+ตัวอย่างนี้เปิดงานนำเสนอที่มีคุณสมบัติแบบกำหนดเองและใช้ [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) เพื่อนับและวนลูปผ่านพวกมัน [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) รับอินเด็กซ์จากศูนย์และคืนชื่อที่ใช้โดย [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) ตัวอย่างนี้ต้องการงานนำเสนอที่คุณสมบัติแบบกำหนดเองทั้งหมดเป็นสตริง พิมพ์ชื่อและค่าต้นฉบับแต่ละรายการ แทนที่ค่าทั้งหมดด้วยสตริงลำดับเลข แล้วบันทึกการเปลี่ยนแปลง หากไม่มีคุณสมบัติแบบกำหนดเอง ลูปจะไม่มีการเปลี่ยนแปลงใด ๆ
 
 ```python
 import aspose.slides as slides
@@ -227,32 +257,32 @@ with slides.Presentation("AccessAndModifyProperties.pptx") as presentation:
     presentation.save("CustomProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) คืนค่าผ่านรายการหนึ่งองค์ประกอบที่ส่งเป็นอาร์กิวเมนต์ที่สอง. ตัวแทนต้องตรงกับประเภทของคุณสมบัติที่จัดเก็บ: ใช้ `[""]` สำหรับสตริงหรือ `[0]` สำหรับจำนวนเต็ม. ประเภทที่ไม่ตรงกันจะทำให้เกิด `InvalidCastException`; เลือกตัวแทนให้ตรงกับสคีมาของคุณสมบัติที่กำหนดเองของคุณ.
+[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) คืนค่าผ่านรายการที่มีองค์ประกอบเดียวที่ส่งเป็นอาร์กิวเมนต์ที่สอง ตัวแทนต้องตรงกับชนิดของคุณสมบัติที่เก็บไว้: ใช้ `[""]` สำหรับสตริงหรือ `[0]` สำหรับจำนวนเต็ม การใช้ชนิดไม่ตรงจะทำให้เกิด `InvalidCastException` เลือกตัวแทนตามสคีมาของคุณสมบัติแบบกำหนดเองของคุณ
 
-## **ตัวอย่างสด**
+## **Live Example**
 
-ลองแอปออนไลน์ [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติของเอกสารโดยใช้ Aspose.Slides API:
+ลองใช้แอปออนไลน์ [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติเขียนเอกสารโดยใช้ Aspose.Slides API:
 
-[![ดูและแก้ไขเมตาดาต้า PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันจะลบคุณสมบัติ built-in จากงานนำเสนอได้อย่างไร?**
+**ฉันจะลบคุณสมบัติ built‑in ออกจากงานนำเสนอได้อย่างไร?**
 
-คุณสมบัติ built-in เป็นส่วนหนึ่งของงานนำเสนอและไม่สามารถลบออกทั้งหมดได้. อย่างไรก็ตาม คุณสามารถเปลี่ยนค่า หรือกำหนดให้เป็นค่าว่างได้ หากคุณสมบัตินั้นอนุญาต.
+คุณสมบัติ built‑in เป็นส่วนหนึ่งของงานนำเสนอและไม่สามารถลบออกได้ทั้งหมด อย่างไรก็ตาม คุณสามารถเปลี่ยนค่า หรือกำหนดให้เป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาตให้ทำเช่นนั้น
 
-**ถ้าฉันเพิ่มคุณสมบัติที่กำหนดเองที่มีอยู่แล้ว จะเกิดอะไรขึ้น?**
+**ถ้าฉันเพิ่มคุณสมบัติแบบกำหนดเองที่มีอยู่แล้วจะเกิดอะไรขึ้น?**
 
-หากคุณเพิ่มคุณสมบัติที่กำหนดเองที่มีอยู่แล้ว ค่าเดิมจะถูกเขียนทับด้วยค่ใหม่. คุณไม่จำเป็นต้องลบหรือเช็คคุณสมบัติก่อน, เนื่องจาก Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ.
+หากเพิ่มคุณสมบัติแบบกำหนดเองที่มีอยู่แล้ว ค่าที่มีอยู่จะถูกเขียนทับด้วยค่ใหม่ คุณไม่จำเป็นต้องลบหรือเช็คคุณสมบัติก่อน เพราะ Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ
 
-**ฉันสามารถเข้าถึงคุณสมบัติของงานนำเสนอโดยไม่ต้องโหลดงานนำเสนอเต็มรูปแบบได้หรือไม่?**
+**ฉันสามารถเข้าถึงคุณสมบัติงานนำเสนอโดยไม่โหลดงานนำเสนอทั้งหมดได้หรือไม่?**
 
-ใช่. ใช้ [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) แล้วตามด้วย [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) เพื่ออ่านเมตาดาต้าเอกสารที่จัดเก็บโดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). ดู [Build a Lightweight Presentation Inventory](/slides/th/python-net/examine-presentation/) สำหรับตัวอย่างการรายงานครบถ้วนและข้อจำกัดตามรูปแบบไฟล์.
+ได้ ใช้ [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) แล้วตามด้วย [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) เพื่ออ่านเมตาดาต้าเอกสารที่เก็บไว้โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) ดูตัวอย่างการรายงานเต็มรูปแบบและข้อจำกัดตามฟอร์แมตได้ใน [Build a Lightweight Presentation Inventory](/slides/th/python-net/examine-presentation/)
 
 **ฉันสามารถอ่านคุณสมบัติสาธารณะของงานนำเสนอที่เข้ารหัสโดยไม่ต้องใช้รหัสผ่านเปิดไฟล์ได้หรือไม่?**
 
-ใช่. งานนำเสนอจะต้องถูกเข้ารหัสด้วย [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) ตั้งค่าเป็น `False`, และต้องโหลดด้วย [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) ตั้งค่าเป็น `True`.
+ได้ งานนำเสนอจะต้องถูกเข้ารหัสด้วย [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) ตั้งค่าเป็น `False` และต้องโหลดด้วย [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) ตั้งค่าเป็น `True`
 
-**ฉันสามารถอัปเดตไฟล์ PPTX ที่เข้ารหัสในโหมด document-properties-only ได้หรือไม่?**
+**ฉันสามารถอัปเดตไฟล์ PPTX ที่เข้ารหัสในโหมด document‑properties‑only ได้หรือไม่?**
 
-ไม่. ข้อมูลคุณสมบัติสาธารณะและที่เข้ารหัสต้องสอดคล้องกัน, ดังนั้นการอัปเดตไฟล์ PPTX ที่เข้ารหัสต้องโหลดงานนำเสนอเต็มรูปแบบพร้อมรหัสผ่านเปิดไฟล์ที่ถูกต้อง.
+ไม่ได้ ข้อมูลคุณสมบัติสาธารณะและที่เข้ารหัสต้องสอดคล้องกัน ดังนั้นการอัปเดตไฟล์ PPTX ที่เข้ารหัสต้องโหลดงานนำเสนอเต็มรูปแบบพร้อมรหัสผ่านเปิดไฟล์ที่ถูกต้อง

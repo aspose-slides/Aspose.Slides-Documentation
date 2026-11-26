@@ -11,10 +11,10 @@ keywords:
 - yerleşik özellikler
 - özel özellikler
 - gelişmiş özellikler
-- özellikleri yönet
-- özellikleri değiştir
+- özellikleri yönetme
+- özellikleri değiştirme
 - belge meta verileri
-- meta verileri düzenle
+- meta verileri düzenleme
 - düzeltme dili
 - varsayılan dil
 - PowerPoint
@@ -23,16 +23,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'te sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalamayı ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for .NET'te sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
 ---
 ## **Giriş**
 
-Aspose.Slides for .NET **yerleşik** ve **özel** belge özelliklerini destekler. Sunum meta verilerini, yazar, başlık ve kullanıcı tanımlı değerler gibi, okumak ve güncellemek için bu özellikleri kullanın.
+Aspose.Slides for .NET **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
 
-Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) arayüzü aracılığıyla çalışmanıza olanak tanır. Bu arayüzün bir örneği [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) tarafından döndürülür. Aşağıdaki örnekler, bu özellikleri nasıl okuyacağınızı, değiştireceğinizi ve yöneteceğinizi gösterir.
+Aspose.Slides, sunum belge özellikleriyle çalışmanıza izin verir; bunu [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) arayüzü üzerinden yapabilirsiniz. Bu arayüzün bir örneği [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) tarafından döndürülür. Aşağıdaki örnekler bu özellikleri nasıl okuyacağınızı, değiştireceğinizi ve yöneteceğinizi gösterir.
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Not" %}}
+
 Aspose.Slides, sunumları kaydederken uygulama ve üretici meta verilerini yönetir; bu alanlar çıktıyı oluşturan yazılımı tanımlar.
+
 {{% /alert %}}
 
 ## **Sunum Özelliklerini Yönet**
@@ -42,15 +44,15 @@ Belge özellikleri, sunum içeriğiyle birlikte tanımlayıcı bilgiler depolar.
 - **Yerleşik özellikler** başlık, yazar ve belge istatistikleri gibi standart meta verileri içerir.
 - **Özel özellikler** kullanıcı tanımlı ad/değer çiftlerini depolar.
 
-Aspose.Slides for .NET her iki kategoriye de erişim sağlar. PowerPoint'te belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini seçin. İletişim kutusu bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere ayırır. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
+Aspose.Slides for .NET her iki kategoriye de erişim sağlar. PowerPoint’te **File → Info → Properties → Advanced Properties** seçeneğini seçerek belge meta verilerini inceleyebilirsiniz. İletişim kutusu bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** sekmelerine ayırır. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
 
-## **Şifrelenmiş Bir Sunumdan Genel Özellikleri Okuma**
+## **Şifreli Sunumdan Genel Özellikleri Okuma**
 
-Bir açma şifresi genellikle sunum içeriğini ve belge özelliklerini korur. Bir sunum, [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) `false` olarak ayarlandığında şifrelenirse, belge özellikleri genel kalır. Bir uygulama daha sonra [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) `true` olarak ayarlayıp açma şifresi vermeden genel meta verileri okuyabilir.
+Açma şifresi genellikle hem sunum içeriğini hem de belge özelliklerini korur. Bir sunum, [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) `false` olarak ayarlandığında şifrelenirse, belge özellikleri genel kalır. Uygulama daha sonra [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) `true` olarak ayarlayabilir ve açma şifresi sağlamadan genel meta verileri okuyabilir.
 
-[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) Aspose.Slides'ın neyi yükleyeceğini kontrol eder; hiçbir şeyi şifre çözmez. Özellikler şifreleme içine dahil edilmişse, şifre olmadan yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yok sayılır ve tam sunum yüklenir.
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) Aspose.Slides’ın neyi yükleyeceğini kontrol eder; hiçbir şeyi çözmez. Özellikler şifrelemeye dahil edilmişse, şifre olmadan yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yok sayılır ve tam sunum yüklenir.
 
-Örnek, belge özellikleri genel bırakılmış şifreli bir sunum gerektirir. Yükleme modunu [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) aracılığıyla doğrular ve ardından [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) üzerinden yerleşik özellikleri okur:
+Örnek, belge özellikleri genel bırakılmış bir şifreli sunum gerektirir. Yükleme modunu [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) ile doğrular ve ardından [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) üzerinden yerleşik özellikleri okur:
 
 ```csharp
 using System;
@@ -73,17 +75,17 @@ else
 }
 ```
 
-Bu modda slayt içeriği yüklenmez. Slaytlar, masterlar, düzenler, şekiller, medya ve diğer sunum nesneleri erişilemez. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) kontrol etmelidir.
+Bu modda slayt içeriği yüklenmez. Slaytlar, ana şablonlar, yerleşimler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) kontrol etmelidir.
 
-{{% alert color="warning" title="Security" %}}
-Genel meta veriler, yazar adları, başlıklar, konular, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ortaya çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Yalnızca indeksleme, sınıflandırma, arama veya belge yönetim sistemlerinin şifre olmadan erişim gerektirdiği durumlarda genel bırakın.
+{{% alert color="warning" title="Güvenlik" %}}
+Genel meta veriler yazar adları, başlıklar, konular, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ifşa edebilir. Hassas özellikleri sunumla birlikte şifreleyin. Yalnızca indeksleme, sınıflandırma, arama veya belge yönetim sistemlerinin şifresiz erişim gereksinimi olduğunda genel bırakın.
 {{% /alert %}}
 
-## **Şifreli Bir Sunumun Özelliklerini Güncelleme**
+## **Şifreli Sunumun Özelliklerini Güncelleme**
 
-Şifreli bir PPTX dosyası için, [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) ile yüklenen bir sunum, genel meta verileri okumak içindir. Aspose.Slides, bu yalnızca meta veri nesnesindeki değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunum içindeki karşılık gelen verilerle tutarlı olmalıdır. Bu nedenle güncelleme, doğru açma şifresi ve tam bir yükleme gerektirir.
+Şifrelenmiş bir PPTX dosyası için, [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) ile yüklenen bir sunum yalnızca genel meta verileri okumak içindir. Aspose.Slides, bu yalnızca meta veri nesnesinden değiştirilen özellikleri kaydedemez çünkü genel özellikler şifreli sunum içindeki ilgili verilerle tutarlı kalmalıdır. Bu nedenle güncelleme, doğru açma şifresi ve tam yükleme gerektirir.
 
-Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma şifresi gerektirir. Tam sunumu [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından şifrelemenin korunduğunu doğrulamak için [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) kullanır ve yeni değerleri doğrulamak amacıyla şifre olmadan genel meta verileri yeniden açar:
+Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma şifresi gerektirir. Tam sunumu [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) ile şifrelemenin korunduğunu doğrular ve yeni değerleri teyit etmek için şifresiz olarak genel meta verileri yeniden açar:
 
 ```csharp
 using System;
@@ -119,11 +121,11 @@ else
 }
 ```
 
-Bir uygulamanın sunum içeriğini şifre çözer veya yükler izni yoksa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okunabilir olarak ele almalıdır.
+Bir uygulama sunum içeriğini çözmeye ya da yüklemeye izin verilmemişse, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okuma‑yazma gibi davranmak zorundadır.
 
 ## **Yerleşik Özelliklere Erişim**
 
-[IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) arayüzü, [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/) gibi tiplenmiş özellikler aracılığıyla yerleşik meta verileri ortaya çıkarır. Bu örnek mevcut bir sunumu açar ve depolanmış meta verilerini konsola yazdırır. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
+[IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) arayüzü, [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/) ve [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/) gibi tiplenmiş özellikler aracılığıyla yerleşik meta verileri ortaya çıkarır. Bu örnek, mevcut bir sunumu açar ve depolanmış meta verilerini konsola yazar. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
 
 ```csharp
 using System;
@@ -149,9 +151,38 @@ Console.WriteLine("Subject: " + documentProperties.Subject);
 Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
-## **Yerleşik Özellikleri Değiştirme**
+### **Revizyon Numarasını ve Düzenleme Süresini Raporla**
 
-Yerleşik meta verileri güncellemek için, [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) tarafından sunulan yazılabilir özelliklere değer atayın. Bu örnek mevcut bir sunumu açar, [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), ve [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) ayarlar, ardından güncellenmiş sunumu [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
+`presentations` klasöründeki her PPTX dosyası için bir satır raporlamak amacıyla, slaytları düzenleme için yüklemeden [ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) çağırarak [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) alınır. `TimeSpan` için standart `c` biçimi, süre 24 saate ulaştığında gün sayısını da içerir.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+Console.WriteLine("File | RevisionNumber | TotalEditingTime");
+foreach (var path in Directory.EnumerateFiles("presentations", "*.pptx"))
+{
+    var info = PresentationFactory.Instance.GetPresentationInfo(path);
+    var properties = info.ReadDocumentProperties();
+    Console.WriteLine($"{Path.GetFileName(path)} | {properties.RevisionNumber} | {properties.TotalEditingTime:c}");
+}
+```
+
+1 gün, 2 saat ve 5 dakikalık kayıtlı düzenleme süresine sahip bir sunumun örnek çıktısı:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[RevisionNumber](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/revisionnumber/) yazılabilir meta veridir. Tek başına değeri, sunumun kaç kez kaydedildiğini veya sürüm geçmişini belirleyemez.
+
+[TotalEditingTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/totaleditingtime/) dosyada kaydedilen düzenleme süresidir. `00:00:00` değeri saklanan sürenin sıfır olduğunu gösterir. Bu, kimsenin sunumu düzenlemediğini kanıtlamaz.
+
+## **Yerleşik Özellikleri Değiştir**
+
+Yerleşik meta verileri güncellemek için, [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) tarafından sunulan yazılabilir özelliklere değer atayın. Bu örnek, mevcut bir sunumu açar, [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/) ve [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) ayarlar, ardından güncellenmiş sunumu [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
 
 ```csharp
 using Aspose.Slides;
@@ -170,11 +201,11 @@ documentProperties.Manager = "Aspose manager";
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Hipermetin Temelini Yönetme**
+## **Köprü Temelini Yönet**
 
-[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) belge düzeyinde göreceli hipermetinler için temel adresi saklar. Bu, bir sunumu ve ona bağlı dosyaları başka bir konuma taşırken faydalıdır. Bu, tek bir hipermetnin [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) öğesinden ayrı bir özelliktir; temeli değiştirmek saklanan bağlantı adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) göreli köprüler için belge‑düzeyinde bir temel depolar. Sunumu ve bağlı dosyalarını başka bir konuma taşırken bu yararlıdır. Bireysel bir köprünün [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) adresinden ayrı bir şeydir; temeli değiştirmek saklanan köprü adreslerini yeniden yazmaz ya da mutlak hedefleri değiştirmez.
 
-Örnek, `target.html` gibi bir göreceli bağlantı ve `https://example.org/absolute.html` gibi bir mutlak bağlantı içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adres atar ve değeri kontrol etmek için sunumu kaydedip yeniden açar. Ardından temeli `string.Empty` ile temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresini bağlantılı dosyalarınızın konumuyla değiştirin.
+Örnek, `target.html` gibi bir göreli köprü ve `https://example.org/absolute.html` gibi bir mutlak köprü içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi atar ve değeri kontrol etmek için sunumu kaydedip yeniden açar. Ardından temeli `string.Empty` ile temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresini bağlı dosyalarınızın konumuyla değiştirin.
 
 ```csharp
 using System;
@@ -198,13 +229,13 @@ using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
 Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
 ```
 
-İki doğrulama mesajı `True` yazdırmalıdır. Temelin temizlenmesi, tek tek hipermetin adreslerini bozulmadan bırakır.
+İki doğrulama mesajı `True` yazdırmalıdır. Temelin temizlenmesi, bireysel köprü adreslerini bozulmaz.
 
-Bir göreceli bağlantı `target.pptx` `old/target.pptx` dosyasını, temel `old` klasörüne işaret ettiğinde açtı. Temel `new` klasörüne değiştirildikten, kaydedilip sunum yeniden açıldığında aynı bağlantı `new/target.pptx` dosyasını açtı. Mutlak bir bağlantı aynı dosyayı açmaya devam etti. Göreceli bağlantılarınızı PowerPoint'te sunumu taşımadan önce ve sonra test edin.
+`target.pptx` adlı göreli bir köprü, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedildikten ve sunum yeniden açıldıktan sonra aynı köprü `new/target.pptx` dosyasını açtı. Mutlak köprü aynı dosyayı açmaya devam etti. Sunumu taşıdıktan veya temelini değiştirdikten sonra göreli köprülerinizi PowerPoint’te test edin.
 
-## **Sunuma Özel Özellikler Ekleme**
+## **Özel Sunum Özellikleri Ekle**
 
-Özel özellikler, karşılık gelen bir yerleşik alanı olmayan meta verileri depolar. [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) bir özellik adına değer atamanıza izin verir. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tamsayı sürüm değeri ekler ve sunumu [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ile kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
+Özel özellikler, karşılık gelen bir yerleşik alanı olmayan meta verileri depolar. [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) adla bir değer atamanızı sağlar. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve sunumu [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) ile kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
 
 ```csharp
 using Aspose.Slides;
@@ -221,9 +252,9 @@ documentProperties["Document version"] = 2;
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Özel Özelliklere Erişim ve Değiştirme**
+## **Özel Özelliklere Eriş ve Değiştir**
 
-Bu örnek, özel özellikler içeren bir sunumu açar ve [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) kullanarak bunlar üzerinde döner. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) sıfır tabanlı bir indeks alır ve [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) tarafından kullanılan adı döndürür. Örnek, her özgün adı ve değeri yazdırır, her değeri orijinal türünden bağımsız olarak numaralı bir metinle değiştirir ve değişiklikleri kaydeder. Özel özellik yoksa, döngü herhangi bir değişiklik yapmaz.
+Bu örnek, özel özellikler içeren bir sunumu açar ve bunlar üzerinde gezinmek için [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) kullanır. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) sıfır‑tabanlı bir indeks alır ve [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) tarafından kullanılan adı döndürür. Örnek, her orijinal adı ve değeri yazdırır, her değeri türünden bağımsız olarak numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Özel özellik yoksa, döngü hiçbir değişiklik yapmaz.
 
 ```csharp
 using System;
@@ -250,28 +281,28 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 ## **Canlı Örnek**
 
-[Try the **View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties using the Aspose.Slides API:
+[**PowerPoint Metaveri Görüntüle ve Düzenle**](https://products.aspose.app/slides/metadata) çevrimiçi uygulamasını deneyin; Aspose.Slides API’sı ile belge özelliklerini nasıl kullanacağınızı görebilirsiniz:
 
-[![Görüntüle & Düzenle PowerPoint Meta Verileri](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![PowerPoint Metaveri Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **SSS**
 
-**Bir sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
+**Sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
 
-Yerleşik özellikler, sunumun bütünleyici bir parçasıdır ve tamamen kaldırılamaz. Ancak, değerlerini değiştirebilir veya ilgili özellik izin veriyorsa boş olarak ayarlayabilirsiniz.
+Yerleşik özellikler sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli bir özellik izin veriyorsa değerlerini değiştirebilir veya boş olarak ayarlayabilirsiniz.
 
-**Zaten mevcut olan bir özel özellik eklersem ne olur?**
+**Zaten var olan bir özel özellik eklersem ne olur?**
 
-Zaten var olan bir özel özellik eklenirse, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides özelliğin değerini otomatik olarak günceller.
+Zaten var olan bir özel özellik eklediğinizde, mevcut değeri yeniyle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak değeri günceller.
 
-**Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
+**Sunum özelliklerine tamamen yüklemeden erişebilir miyim?**
 
-Evet. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) kullanın ve ardından [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) aracılığıyla bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) örneği oluşturmadan depolanmış belge meta verilerini okuyun. Tam raporlama örneği ve format‑spesifik sınırlamalar için [**Hafif Sunum Envanteri Oluşturma**](/slides/tr/net/examine-presentation/) sayfasına bakın.
+Evet. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) kullanın ve ardından [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) ile bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) örneği oluşturulmadan depolanmış belge meta verilerini okuyun. Tam raporlama örneği ve biçim‑spesifik sınırlamalar için [Hafif Sunum Envanteri Oluştur](/slides/tr/net/examine-presentation/) sayfasına bakın.
 
-**Şifreli bir sunumun açma şifresi olmadan genel özelliklerini okuyabilir miyim?**
+**Şifreli bir sunumun genel özelliklerini açma şifresi olmadan okuyabilir miyim?**
 
-Evet. Sunum, [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) `false` olarak ayarlanmış şekilde şifrelenmiş olmalı ve [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) `true` olarak ayarlanarak yüklenmelidir.
+Evet. Sunum, [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) `false` olarak ayarlanmış şekilde şifrelenmiş olmalı ve [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) `true` olarak yüklenmiş olmalıdır.
 
-**Belge‑özellikleri‑sadece modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
+**Belge‑özellikleri‑yalnızca modu içinde şifreli bir PPTX dosyasını güncelleyebilir miyim?**
 
-Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu yüzden şifreli bir PPTX dosyasını güncellemek, doğru açma şifresiyle tam sunumu yüklemeyi gerektirir.
+Hayır. Genel ve şifreli özellik verileri tutarlı kalmak zorundadır; bu nedenle şifreli bir PPTX dosyasını güncellemek doğru açma şifresiyle tam sunumu yüklemeyi gerektirir.

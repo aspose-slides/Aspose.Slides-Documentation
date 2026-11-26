@@ -13,7 +13,7 @@ keywords:
 - Erweiterte Eigenschaften
 - Eigenschaften verwalten
 - Eigenschaften ändern
-- Dokument-Metadaten
+- Dokumentmetadaten
 - Metadaten bearbeiten
 - Korrektursprache
 - Standardsprache
@@ -23,36 +23,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Verwalten Sie Präsentationseigenschaften in Aspose.Slides für .NET und optimieren Sie Suche, Branding und Workflows in Ihren PowerPoint- und OpenDocument-Dateien."
+description: "Verwalten Sie Präsentationseigenschaften in Aspose.Slides für .NET und optimieren Sie Suche, Branding und Arbeitsabläufe in Ihren PowerPoint- und OpenDocument-Dateien."
 ---
 ## **Einführung**
 
-Aspose.Slides für .NET unterstützt **eingebaute** und **benutzerdefinierte** Dokumenteigenschaften. Verwenden Sie diese Eigenschaften, um Metadaten der Präsentation zu lesen und zu aktualisieren, z. B. Autor, Titel und benutzerdefinierte Werte.
+Aspose.Slides für .NET unterstützt **eingebaute** und **benutzerdefinierte** Dokumenteigenschaften. Verwenden Sie diese Eigenschaften, um Präsentationsmetadaten zu lesen und zu aktualisieren, beispielsweise den Autor, den Titel und benutzerdefinierte Werte.
 
-Aspose.Slides ermöglicht die Arbeit mit Dokumenteigenschaften von Präsentationen über das [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/)‑Interface. Eine Instanz dieses Interfaces wird von [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) zurückgegeben. Die folgenden Beispiele zeigen, wie man diese Eigenschaften liest, ändert und verwaltet.
+Aspose.Slides ermöglicht die Arbeit mit Dokumenteigenschaften von Präsentationen über die Schnittstelle [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) . Eine Instanz dieser Schnittstelle wird von [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) zurückgegeben. Die folgenden Beispiele zeigen, wie man diese Eigenschaften liest, ändert und verwaltet.
 
 {{% alert color="info" title="Note" %}}
-
-Aspose.Slides verwaltet die Anwendungs‑ und Produzent‑Metadaten beim Speichern von Präsentationen; diese Felder geben die Software an, die die Ausgabe erstellt hat.
-
+Aspose.Slides verwaltet die Anwendungs- und Produzenten-Metadaten beim Speichern von Präsentationen; diese Felder geben die Software an, die die Ausgabe erzeugt hat.
 {{% /alert %}}
 
-## **Verwalten von Präsentationseigenschaften**
+## **Präsentationseigenschaften verwalten**
 
-Dokumenteigenschaften speichern beschreibende Informationen zusammen mit dem Präsentationsinhalt. Sie fallen in zwei Kategorien:
+Dokumenteigenschaften speichern beschreibende Informationen zusammen mit dem Präsentationsinhalt. Sie gehören zu zwei Kategorien:
 
-- **Eingebaute Eigenschaften** enthalten Standard‑Metadaten wie Titel, Autor und Dokumentstatistiken.
-- **Benutzerdefinierte Eigenschaften** speichern vom Benutzer definierte Name‑/Wert‑Paare.
+- **Eingebaute Eigenschaften** enthalten standardisierte Metadaten, wie Titel, Autor und Dokumentstatistiken.
+- **Benutzerdefinierte Eigenschaften** speichern vom Benutzer definierte Namens-/Wert-Paare.
 
-Aspose.Slides für .NET bietet Zugriff auf beide Kategorien. In PowerPoint wählen Sie **Datei → Informationen → Eigenschaften → Erweiterte Eigenschaften**, um die Dokument‑Metadaten zu inspizieren. Der Dialog gruppiert Informationen in Registerkarten wie **Zusammenfassung**, **Statistiken**, **Inhalte** und **Benutzerdefiniert**. Verwenden Sie die Registerkarte **Benutzerdefiniert**, um benutzerdefinierte Eigenschaften zu verwalten.
+Aspose.Slides für .NET bietet Zugriff auf beide Kategorien. In PowerPoint wählen Sie **Datei → Info → Eigenschaften → Erweiterte Eigenschaften**, um die Dokumentmetadaten zu prüfen. Der Dialog gruppiert Informationen in Registerkarten wie **Zusammenfassung**, **Statistiken**, **Inhalt** und **Benutzerdefiniert**. Verwenden Sie die Registerkarte **Benutzerdefiniert**, um benutzerdefinierte Eigenschaften zu verwalten.
 
-## **Öffentliche Eigenschaften aus einer verschlüsselten Präsentation lesen**
+## **Öffentliche Eigenschaften einer verschlüsselten Präsentation lesen**
 
 Ein Öffnungspasswort schützt normalerweise sowohl den Präsentationsinhalt als auch die Dokumenteigenschaften. Wenn eine Präsentation mit [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) auf `false` verschlüsselt wird, bleiben ihre Dokumenteigenschaften öffentlich. Eine Anwendung kann dann [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) auf `true` setzen und die öffentlichen Metadaten lesen, ohne das Öffnungspasswort anzugeben.
 
-[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) bestimmt, was Aspose.Slides lädt; es entschlüsselt nichts. Wenn die Eigenschaften in die Verschlüsselung einbezogen wurden, schlägt das Laden ohne Passwort fehl. Ist die Präsentation nicht verschlüsselt, wird die Option ignoriert und die komplette Präsentation geladen.
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) steuert, was Aspose.Slides lädt; es entschlüsselt nichts. Wenn die Eigenschaften in die Verschlüsselung einbezogen wurden, schlägt das Laden ohne Passwort fehl. Ist die Präsentation nicht verschlüsselt, wird die Option ignoriert und die gesamte Präsentation geladen.
 
-Das Beispiel benötigt eine verschlüsselte Präsentation, deren Dokumenteigenschaften öffentlich bleiben. Es prüft den Lademodus über [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) und liest dann eingebaute Eigenschaften über [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
+Das Beispiel erfordert eine verschlüsselte Präsentation, deren Dokumenteigenschaften öffentlich belassen wurden. Es überprüft den Lademodus über [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) und liest anschließend eingebaute Eigenschaften über [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
 
 ```csharp
 using System;
@@ -75,17 +73,17 @@ else
 }
 ```
 
-In diesem Modus wird der Folieninhalt nicht geladen. Folien, Masterfolien, Layouts, Formen, Medien und andere Präsentationsobjekte stehen nicht zur Verfügung. Anwendungen sollten stets [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) prüfen, bevor sie eine Operation ausführen, die das komplette Präsentations‑Objektmodell erfordert.
+In diesem Modus wird der Folieninhalt nicht geladen. Folien, Folienmaster, Layouts, Formen, Medien und andere Präsentationsobjekte stehen nicht zur Verfügung. Anwendungen sollten stets [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) prüfen, bevor sie eine Operation ausführen, die das komplette Präsentationsobjektmodell erfordert.
 
 {{% alert color="warning" title="Security" %}}
-Öffentliche Metadaten können Autorennamen, Titel, Themen, Schlüsselwörter, Unternehmensinformationen, Kommentare und benutzerdefinierte Werte preisgeben. Verschlüsseln Sie sensible Eigenschaften zusammen mit der Präsentation. Lassen Sie sie nur dann öffentlich, wenn Indexierungs‑, Klassifizierungs‑, Such‑ oder Dokumenten‑Management‑Systeme einen spezifischen Bedarf haben, ohne Passwort darauf zuzugreifen.
+Öffentliche Metadaten können Autorennamen, Titel, Themen, Schlüsselwörter, Unternehmensinformationen, Kommentare und benutzerdefinierte Werte preisgeben. Verschlüsseln Sie sensible Eigenschaften zusammen mit der Präsentation. Lassen Sie sie nur öffentlich, wenn Indexierungs‑, Klassifizierungs‑, Such‑ oder Dokumentmanagement‑Systeme eine spezifische Anforderung haben, ohne Passwort darauf zuzugreifen.
 {{% /alert %}}
 
 ## **Eigenschaften einer verschlüsselten Präsentation aktualisieren**
 
-Für eine verschlüsselte PPTX‑Datei ist eine Präsentation, die mit [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) geladen wurde, zum Lesen öffentlicher Metadaten vorgesehen. Aspose.Slides kann geänderte Eigenschaften aus diesem reinen Metadaten‑Objekt nicht speichern, weil die öffentlichen Eigenschaften mit den entsprechenden Daten in der verschlüsselten Präsentation konsistent bleiben müssen. Die Aktualisierung erfordert daher das korrekte Öffnungspasswort und ein vollständiges Laden.
+Für eine verschlüsselte PPTX‑Datei ist eine mit [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) geladene Präsentation zum Lesen öffentlicher Metadaten gedacht. Aspose.Slides kann geänderte Eigenschaften aus diesem reinen Metadaten‑Objekt nicht speichern, da die öffentlichen Eigenschaften mit den entsprechenden Daten in der verschlüsselten Präsentation konsistent bleiben müssen. Eine Aktualisierung erfordert daher das richtige Öffnungspasswort und einen vollständigen Ladevorgang.
 
-Das Beispiel benötigt eine verschlüsselte PPTX‑Präsentation mit öffentlichen Dokumenteigenschaften und einem bekannten Öffnungspasswort. Es öffnet die komplette Präsentation mit [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), aktualisiert öffentliche eingebaute Eigenschaften und speichert das Ergebnis. Anschließend wird über [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) verifiziert, dass die Verschlüsselung erhalten bleibt, und die öffentlichen Metadaten werden ohne Passwort erneut geöffnet, um die neuen Werte zu prüfen:
+Das Beispiel erfordert eine verschlüsselte PPTX‑Präsentation mit öffentlichen Dokumenteigenschaften und einem bekannten Öffnungspasswort. Es öffnet die komplette Präsentation mit [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), aktualisiert öffentliche eingebaute Eigenschaften und speichert das Ergebnis. Anschließend wird [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) verwendet, um zu prüfen, dass die Verschlüsselung erhalten bleibt, und öffnet die öffentlichen Metadaten erneut ohne Passwort, um die neuen Werte zu verifizieren:
 
 ```csharp
 using System;
@@ -121,11 +119,11 @@ else
 }
 ```
 
-Ist einer Anwendung das Entschlüsseln oder Laden des Präsentationsinhalts nicht gestattet, muss sie öffentliche Eigenschaften einer verschlüsselten PPTX‑Datei als schreibgeschützt behandeln.
+Wenn einer Anwendung das Entschlüsseln oder Laden des Präsentationsinhalts nicht gestattet ist, muss sie öffentliche Eigenschaften einer verschlüsselten PPTX‑Datei als schreibgeschützt behandeln.
 
-## **Zugriff auf eingebaute Eigenschaften**
+## **Auf eingebaute Eigenschaften zugreifen**
 
-Das [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/)‑Interface stellt eingebaute Metadaten über typisierte Eigenschaften bereit, darunter [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/) und [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). Dieses Beispiel öffnet eine vorhandene Präsentation und gibt deren gespeicherte Metadaten auf der Konsole aus. Die Werte hängen von der Eingabepäsentation ab; einige Felder können leer sein.
+Die Schnittstelle [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) stellt eingebaute Metadaten über typisierte Eigenschaften bereit, darunter [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/) und [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). Dieses Beispiel öffnet eine vorhandene Präsentation und gibt deren gespeicherte Metadaten in der Konsole aus. Die Werte hängen von der Eingabepäsentation ab; einige Felder können leer sein.
 
 ```csharp
 using System;
@@ -151,9 +149,38 @@ Console.WriteLine("Subject: " + documentProperties.Subject);
 Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
+### **Revisionsnummer und Bearbeitungszeit melden**
+
+Um für jede PPTX‑Datei im Ordner `presentations` eine Zeile zu melden, rufen Sie [ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) auf, um dessen [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) ohne das Laden der Folien für die Bearbeitung abzurufen. Das Standardformat `c` für `TimeSpan` enthält die Tagesanzahl, wenn die Dauer 24 Stunden erreicht.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+Console.WriteLine("File | RevisionNumber | TotalEditingTime");
+foreach (var path in Directory.EnumerateFiles("presentations", "*.pptx"))
+{
+    var info = PresentationFactory.Instance.GetPresentationInfo(path);
+    var properties = info.ReadDocumentProperties();
+    Console.WriteLine($"{Path.GetFileName(path)} | {properties.RevisionNumber} | {properties.TotalEditingTime:c}");
+}
+```
+
+Beispielausgabe für eine Präsentation mit 1 Tag, 2 Stunden und 5 Minuten aufgezeichneter Bearbeitungszeit:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[RevisionNumber](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/revisionnumber/) ist schreibbare Metadaten. Sein Wert allein kann nicht bestimmen, wie oft die Präsentation gespeichert wurde, noch die Versionsgeschichte rekonstruieren.
+
+[TotalEditingTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/totaleditingtime/) ist die im Dateiformat aufgezeichnete Bearbeitungsdauer. Ein Wert von `00:00:00` bedeutet, dass die gespeicherte Dauer null ist. Das beweist nicht, dass niemand die Präsentation bearbeitet hat.
+
 ## **Eingebaute Eigenschaften ändern**
 
-Um eingebaute Metadaten zu aktualisieren, weisen Sie den schreibbaren Eigenschaften zu, die von [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) bereitgestellt werden. Dieses Beispiel öffnet eine vorhandene Präsentation, setzt [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/) und [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/), und speichert die aktualisierte Präsentation mit [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Die gespeicherte PPTX‑Datei enthält die neuen Metadaten.
+Um eingebaute Metadaten zu aktualisieren, weisen Sie den schreibbaren Eigenschaften zu, die von [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/) bereitgestellt werden. Dieses Beispiel öffnet eine bestehende Präsentation, legt [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/) und [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/) fest und speichert die aktualisierte Präsentation mit [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Das gespeicherte PPTX enthält die neuen Metadaten.
 
 ```csharp
 using Aspose.Slides;
@@ -172,11 +199,11 @@ documentProperties.Manager = "Aspose manager";
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Verwalten der Hyperlink‑Basis**
+## **Hyperlink‑Basis verwalten**
 
-[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) speichert die dokumentweite Basis für relative Hyperlinks. Dies ist nützlich, wenn eine Präsentation und ihre verknüpften Dateien an einen anderen Ort verschoben werden. Sie ist unabhängig von der einzelnen Hyperlink‑Eigenschaft [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/): Das Ändern der Basis überschreibt nicht die gespeicherten Linkadressen und ändert keine absoluten Ziele.
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) speichert die dokumentweite Basis für relative Hyperlinks. Das ist nützlich, wenn eine Präsentation und ihre verknüpften Dateien an einen anderen Ort verschoben werden. Sie ist getrennt von der einzelnen Hyperlink‑Eigenschaft [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/): Das Ändern der Basis überschreibt nicht die gespeicherten Linkadressen und ändert keine absoluten Ziele.
 
-Das Beispiel benötigt eine Präsentation, die sowohl einen relativen Link wie `target.html` als auch einen absoluten Link wie `https://example.org/absolute.html` enthält. Es liest die vorhandene Basis, weist eine neue Basis‑Adresse zu und speichert sowie öffnet die Präsentation erneut, um den Wert zu prüfen. Anschließend wird die Basis mit `string.Empty` geleert und der leere Wert in einer separaten Datei überprüft. Ersetzen Sie die Beispiel‑Basis‑Adresse durch den Ort Ihrer verknüpften Dateien.
+Das Beispiel benötigt eine Präsentation, die sowohl einen relativen Link, wie `target.html`, als auch einen absoluten Link, wie `https://example.org/absolute.html`, enthält. Es liest die vorhandene Basis, weist eine neue Basisadresse zu und speichert und öffnet die Präsentation erneut, um den Wert zu prüfen. Anschließend wird die Basis mit `string.Empty` geleert und der leere Wert in einer separaten gespeicherten Datei überprüft. Ersetzen Sie die Beispiel‑Basisadresse durch den Speicherort Ihrer verknüpften Dateien.
 
 ```csharp
 using System;
@@ -202,11 +229,11 @@ Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.Hyp
 
 Die beiden Verifizierungsnachrichten sollten `True` ausgeben. Das Leeren der Basis lässt die einzelnen Hyperlink‑Adressen unverändert.
 
-Ein relativer Link zu `target.pptx` öffnete `old/target.pptx`, als die Basis auf den Ordner `old` zeigte. Nach dem Ändern der Basis auf den Ordner `new`, dem Speichern und erneutem Öffnen der Präsentation öffnete derselbe Link `new/target.pptx`. Ein absoluter Link öffnete weiterhin dieselbe Datei. Testen Sie Ihre relativen Links in PowerPoint vor und nach dem Verschieben der Präsentation oder dem Ändern ihrer Basis.
+Ein relativer Link zu `target.pptx` öffnete `old/target.pptx`, als die Basis auf den Ordner `old` zeigte. Nach dem Ändern der Basis auf den Ordner `new`, dem Speichern und erneuten Öffnen der Präsentation öffnete derselbe Link `new/target.pptx`. Ein absoluter Link öffnete weiterhin dieselbe Datei. Testen Sie Ihre relativen Links in PowerPoint vor und nach dem Verschieben der Präsentation oder dem Ändern ihrer Basis.
 
 ## **Benutzerdefinierte Präsentationseigenschaften hinzufügen**
 
-Benutzerdefinierte Eigenschaften speichern Metadaten, für die es kein entsprechendes eingebautes Feld gibt. Der [IDocumentProperties‑Indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) ermöglicht das Zuweisen eines Werts über den Eigenschaftsnamen. Dieses Beispiel erstellt eine Präsentation, fügt zwei Textwerte und einen ganzzahligen Versionswert hinzu und speichert die Präsentation mit [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Das Zuweisen eines Werts zu einem bestehenden Namen überschreibt den Wert dieser Eigenschaft.
+Benutzerdefinierte Eigenschaften speichern Metadaten, für die kein entsprechendes eingebautes Feld existiert. Der [IDocumentProperties‑Indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) ermöglicht das Zuweisen eines Werts anhand des Eigenschaftsnamens. Dieses Beispiel erstellt eine Präsentation, fügt zwei Textwerte und einen Ganzzahl‑Versionswert hinzu und speichert die Präsentation mit [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Das Zuweisen eines Werts zu einem bestehenden Namen ersetzt den Wert dieser Eigenschaft.
 
 ```csharp
 using Aspose.Slides;
@@ -223,9 +250,9 @@ documentProperties["Document version"] = 2;
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Zugriff auf und Ändern benutzerdefinierter Eigenschaften**
+## **Benutzerdefinierte Eigenschaften lesen und ändern**
 
-Dieses Beispiel öffnet eine Präsentation mit benutzerdefinierten Eigenschaften und verwendet [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/), um über sie zu iterieren. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) akzeptiert einen nullbasierten Index und gibt den Namen zurück, der vom [IDocumentProperties‑Indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) verwendet wird. Das Beispiel gibt jeden ursprünglichen Namen und Wert aus, ersetzt jeden Wert durch einen nummerierten String, unabhängig vom ursprünglichen Typ, und speichert die Änderungen. Gibt es keine benutzerdefinierten Eigenschaften, führt die Schleife keine Änderungen durch.
+Dieses Beispiel öffnet eine Präsentation, die benutzerdefinierte Eigenschaften enthält, und verwendet [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/), um über sie zu iterieren. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) akzeptiert einen nullbasierten Index und gibt den Namen zurück, der vom [IDocumentProperties‑Indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) verwendet wird. Das Beispiel gibt jeden ursprünglichen Namen und Wert aus, ersetzt jeden Wert durch einen nummerierten String unabhängig vom ursprünglichen Typ und speichert die Änderungen. Gibt es keine benutzerdefinierten Eigenschaften, nimmt die Schleife keine Änderungen vor.
 
 ```csharp
 using System;
@@ -260,20 +287,20 @@ Probieren Sie die Online‑App [**View & Edit PowerPoint Metadata**](https://pro
 
 **Wie kann ich eine eingebaute Eigenschaft aus einer Präsentation entfernen?**
 
-Eingebaute Eigenschaften sind ein integraler Bestandteil der Präsentation und können nicht vollständig entfernt werden. Sie können jedoch deren Werte ändern oder, sofern die jeweilige Eigenschaft es zulässt, auf leer setzen.
+Eingebaute Eigenschaften sind ein integraler Bestandteil der Präsentation und können nicht vollständig entfernt werden. Sie können jedoch deren Werte ändern oder sie, sofern die jeweilige Eigenschaft dies zulässt, auf leer setzen.
 
-**Was passiert, wenn ich eine benutzerdefinierte Eigenschaft hinzufüge, die bereits existiert?**
+**Was passiert, wenn ich eine bereits vorhandene benutzerdefinierte Eigenschaft hinzufüge?**
 
-Wird eine bereits vorhandene benutzerdefinierte Eigenschaft hinzugefügt, wird ihr vorhandener Wert durch den neuen überschrieben. Sie müssen die Eigenschaft nicht vorher entfernen oder prüfen, da Aspose.Slides den Wert automatisch aktualisiert.
+Wenn Sie eine bereits vorhandene benutzerdefinierte Eigenschaft hinzufügen, wird ihr vorhandener Wert durch den neuen überschrieben. Sie müssen die Eigenschaft nicht vorher entfernen oder prüfen, da Aspose.Slides den Wert automatisch aktualisiert.
 
-**Kann ich auf Präsentationseigenschaften zugreifen, ohne die komplette Präsentation zu laden?**
+**Kann ich auf Präsentationseigenschaften zugreifen, ohne die gesamte Präsentation zu laden?**
 
-Ja. Verwenden Sie [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) und anschließend [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/), um gespeicherte Dokumentmetadaten zu lesen, ohne eine [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Instanz zu erstellen. Siehe [Build a Lightweight Presentation Inventory](/slides/de/net/examine-presentation/) für ein vollständiges Berichtsexempel und formatspezifische Einschränkungen.
+Ja. Verwenden Sie [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) und anschließend [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/), um gespeicherte Dokumentmetadaten zu lesen, ohne eine [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Instanz zu erstellen. Siehe [Build a Lightweight Presentation Inventory](/slides/de/net/examine-presentation/) für ein vollständiges Berichtbeispiel und formatabhängige Einschränkungen.
 
 **Kann ich öffentliche Eigenschaften einer verschlüsselten Präsentation ohne ihr Öffnungspasswort lesen?**
 
-Ja. Die Präsentation muss mit [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) auf `false` verschlüsselt sein und mit [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) auf `true` geladen werden.
+Ja. Die Präsentation muss mit [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) auf `false` verschlüsselt worden sein und mit [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) auf `true` geladen werden.
 
 **Kann ich eine verschlüsselte PPTX‑Datei im Nur‑Dokument‑Eigenschaften‑Modus aktualisieren?**
 
-Nein. Öffentliche und verschlüsselte Eigenschaftsdaten müssen konsistent bleiben, daher erfordert das Aktualisieren einer verschlüsselten PPTX‑Datei das vollständige Laden der Präsentation mit dem korrekten Öffnungspasswort.
+Nein. Öffentliche und verschlüsselte Eigenschaftsdaten müssen konsistent bleiben, daher erfordert das Aktualisieren einer verschlüsselten PPTX‑Datei das Laden der kompletten Präsentation mit dem richtigen Öffnungspasswort.

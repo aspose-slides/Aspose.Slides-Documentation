@@ -1,5 +1,5 @@
 ---
-title: PHPでプレゼンテーション プロパティを管理
+title: PHP でプレゼンテーション プロパティを管理する
 linktitle: プレゼンテーション プロパティ
 type: docs
 weight: 70
@@ -7,10 +7,10 @@ url: /ja/php-java/presentation-properties/
 keywords:
 - PowerPoint プロパティ
 - プレゼンテーション プロパティ
-- ドキュメントプロパティ
+- ドキュメント プロパティ
 - 組み込みプロパティ
 - カスタムプロパティ
-- 詳細プロパティ
+- 高度なプロパティ
 - プロパティの管理
 - プロパティの変更
 - ドキュメント メタデータ
@@ -22,35 +22,34 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java でプレゼンテーション プロパティをマスターし、PowerPoint および OpenDocument ファイルの検索、ブランディング、ワークフローを効率化します。"
+description: "Aspose.Slides for PHP via Java でプレゼンテーション プロパティを管理し、PowerPoint および OpenDocument ファイルの検索、ブランディング、ワークフローを効率化します。"
 ---
 ## **はじめに**
 
-Aspose.Slides for PHP via Java は **組み込み** と **カスタム** のドキュメントプロパティをサポートしています。これらのプロパティを使用して、作者、タイトル、ユーザー定義値などのプレゼンテーション メタデータを読み取りおよび更新できます。
+Aspose.Slides for PHP via Java は **組み込み** と **カスタム** のドキュメント プロパティをサポートしています。これらのプロパティを使用して、作成者、タイトル、ユーザー定義値などのプレゼンテーション メタデータを読み取り、更新します。
 
-Aspose.Slides では、[DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) クラスを通じてプレゼンテーションのドキュメントプロパティを操作できます。このクラスのインスタンスは[Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/)で取得されます。以下の例は、これらのプロパティの読み取り、変更、管理方法を示しています。PHP/Java Bridge と Aspose.Slides PHP ラッパーが初期化されていることを前提としています。
+Aspose.Slides を使用すると、[DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) クラスを介してプレゼンテーションのドキュメント プロパティを操作できます。このクラスのインスタンスは [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) によって返されます。以下の例は、これらのプロパティを読み取り、変更し、管理する方法を示します。これらは PHP/Java Bridge と Aspose.Slides PHP ラッパーが初期化されていることを前提としています。
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides はプレゼンテーションを保存する際にアプリケーションと製作者のメタデータを管理します。これらのフィールドは出力を作成したソフトウェアを識別します。
+Aspose.Slides はプレゼンテーションを保存する際にアプリケーションおよびプロデューサーのメタデータを管理します。これらのフィールドは出力を作成したソフトウェアを特定します。
 {{% /alert %}}
 
 ## **プレゼンテーション プロパティの管理**
 
-ドキュメントプロパティは、プレゼンテーション コンテンツと共に記述情報を保存します。これらは 2 つのカテゴリに分かれます：
+ドキュメント プロパティは、プレゼンテーション コンテンツとともに記述情報を保存します。これらは 2 つのカテゴリに分かれます:
 
-- **組み込みプロパティ** は、タイトル、作者、ドキュメント統計などの標準メタデータを含みます。
+- **組み込みプロパティ** は、タイトル、作成者、ドキュメント統計情報などの標準メタデータを含みます。
 - **カスタムプロパティ** は、ユーザー定義の名前/値のペアを保存します。
 
-Aspose.Slides for PHP via Java は両方のカテゴリへのアクセスを提供します。PowerPoint では、**ファイル → 情報 → プロパティ → 詳細プロパティ** を選択してドキュメントメタデータを確認します。ダイアログは情報を **概要**、**統計**、**コンテンツ**、**カスタム** といったタブに分類します。ユーザー定義プロパティを管理するには **カスタム** タブを使用します。
+Aspose.Slides for PHP via Java は両方のカテゴリへのアクセスを提供します。PowerPoint では、**File → Info → Properties → Advanced Properties** を選択してドキュメント メタデータを確認します。ダイアログは情報を **Summary**、**Statistics**、**Contents**、**Custom** といったタブに分けます。ユーザー定義プロパティを管理するには **Custom** タブを使用します。
 
-## **暗号化されたプレゼンテーションから公開プロパティを読み取る**
+## **暗号化されたプレゼンテーションからパブリック プロパティを読み取る**
 
-通常、開始パスワードはプレゼンテーションのコンテンツとドキュメントプロパティの両方を保護します。[ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) を `false` で呼び出した後にプレゼンテーションが暗号化されると、ドキュメントプロパティは公開されたままになります。アプリケーションはその後、[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) を `true` で呼び出し、開始パスワードを提供せずに公開メタデータを読み取ることができます。
+開くパスワードは通常、プレゼンテーション コンテンツとドキュメント プロパティの両方を保護します。[ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) を `false` で呼び出した後にプレゼンテーションを暗号化すると、ドキュメント プロパティはパブリックのままになります。アプリケーションはその後、[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) を `true` で呼び出すことで、開くパスワードを提供せずにパブリック メタデータを読み取れます。
 
-[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) は Aspose.Slides の読み込み対象を制御します。暗号化は行われません。プロパティが暗号化に含まれている場合、パスワードなしでの読み込みは失敗します。プレゼンテーションが暗号化されていない場合、このオプションは無視され、プレゼンテーション全体が読み込まれます。
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) は Aspose.Slides がロードする内容を制御します。復号は行いません。プロパティが暗号化に含まれている場合、パスワードなしでロードすると失敗します。プレゼンテーションが暗号化されていない場合、このオプションは無視され、プレゼンテーション全体がロードされます。
 
-この例では、ドキュメントプロパティが公開されたままの暗号化プレゼンテーションが必要です。[ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) でロードモードを確認し、続いて [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/) を使用して組み込みプロパティを読み取ります。
-
+この例では、ドキュメント プロパティがパブリックのままの暗号化されたプレゼンテーションが必要です。[ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) でロード モードを確認し、その後 [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) で組み込みプロパティを読み取ります:
 ```php
 use aspose\slides\LoadOptions;
 use aspose\slides\Presentation;
@@ -74,18 +73,17 @@ try {
 }
 ```
 
-このモードではスライド コンテンツは読み込まれません。スライド、マスター、レイアウト、シェイプ、メディア、その他のプレゼンテーション オブジェクトは利用できません。完全なプレゼンテーション オブジェクト モデルが必要な操作を実行する前に、必ず [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/) を確認してください。
+このモードでは、スライド コンテンツはロードされません。スライド、マスター、レイアウト、シェイプ、メディア、その他のプレゼンテーション オブジェクトは利用できません。完全なプレゼンテーション オブジェクト モデルが必要な操作を行う前に、必ず [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) を確認してください。
 
 {{% alert color="warning" title="Warning" %}}
-公開メタデータにより、作者名、タイトル、主題、キーワード、会社情報、コメント、カスタム値が漏洩する可能性があります。機密性の高いプロパティはプレゼンテーションとともに暗号化してください。インデックス作成、分類、検索、またはドキュメント管理システムがパスワードなしでアクセスする特定の要件がある場合にのみ、公開のままにしてください。
+パブリック メタデータは、作成者名、タイトル、主題、キーワード、会社情報、コメント、カスタム値などを公開する可能性があります。機密プロパティはプレゼンテーションと共に暗号化してください。インデックス作成、分類、検索、またはドキュメント管理システムがパスワードなしでアクセスする特定の要件がある場合にのみ、パブリックのままにしてください。
 {{% /alert %}}
 
-## **暗号化されたプレゼンテーションのプロパティ更新**
+## **暗号化されたプレゼンテーションのプロパティを更新する**
 
-暗号化された PPTX ファイルの場合、[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) を `true` で呼び出して読み込まれたプレゼンテーションは、公開メタデータを読み取ることを目的としています。Aspose.Slides はそのメタデータのみのオブジェクトから変更されたプロパティを保存できません。公開プロパティは暗号化されたプレゼンテーション内の対応するデータと一貫性を保つ必要があるため、更新には正しい開始パスワードと完全なロードが必要です。
+暗号化された PPTX ファイルの場合、[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) を `true` で呼び出した後にロードされたプレゼンテーションは、パブリック メタデータの読み取りを目的としています。Aspose.Slides は、そのメタデータのみのオブジェクトから変更されたプロパティを保存できません。パブリック プロパティは暗号化されたプレゼンテーション内の対応するデータと一貫性を保つ必要があるためです。したがって、更新には正しい開くパスワードと完全なロードが必要です。
 
-この例では、公開ドキュメントプロパティを持つ暗号化 PPTX プレゼンテーションと既知の開始パスワードが必要です。[LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/) を使用してプレゼンテーション全体を開き、公開組み込みプロパティを更新して結果を保存します。その後、[PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/) で暗号化が保持されていることを確認し、パスワードなしで公開メタデータを再度開いて新しい値を検証します：
-
+この例では、パブリック ドキュメント プロパティを持つ暗号化された PPTX プレゼンテーションと、既知の開くパスワードが必要です。[LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword) でプレゼンテーション全体を開き、パブリック 組み込みプロパティを更新して結果を保存します。その後 [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#isEncrypted) を使用して暗号化が保持されていることを確認し、パスワードなしでパブリック メタデータを再度開き、新しい値を検証します:
 ```php
 use aspose\slides\LoadOptions;
 use aspose\slides\Presentation;
@@ -128,12 +126,11 @@ try {
 }
 ```
 
-アプリケーションがプレゼンテーション コンテンツの復号またはロードを許可されていない場合、暗号化された PPTX ファイルの公開プロパティは読み取り専用として扱う必要があります。
+アプリケーションがプレゼンテーション コンテンツの復号やロードを許可されていない場合、暗号化された PPTX ファイルのパブリック プロパティは読み取り専用として扱う必要があります。
 
-## **組み込みプロパティへのアクセス**
+## **組み込みプロパティへアクセスする**
 
-[DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) クラスは、[getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/)、[getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/)、[getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/) などの getter メソッドを通じて組み込みメタデータを公開します。この例は既存のプレゼンテーションを開き、保存されたメタデータをコンソールに出力します。値は入力プレゼンテーションに依存し、いくつかのフィールドは空の場合があります。
-
+[DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) クラスは、[getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getAuthor)、[getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTitle)、[getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCreatedTime) などのゲッターメソッドを通じて組み込みメタデータを公開します。この例は既存のプレゼンテーションを開き、保存されたメタデータをコンソールに出力します。値は入力プレゼンテーションに依存し、いくつかのフィールドは空の場合があります。
 ```php
 use aspose\slides\Presentation;
 
@@ -160,10 +157,41 @@ try {
 }
 ```
 
-## **組み込みプロパティの変更**
+### **リビジョン番号と編集時間のレポート**
 
-組み込みメタデータを更新するには、[Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/) が返すオブジェクトの setter メソッドを使用します。この例は既存のプレゼンテーションを開き、[setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/)、[setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/)、[setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/)、[setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/)、[setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/) を呼び出し、[Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) で更新したプレゼンテーションを保存します。保存された PPTX には新しいメタデータが含まれます。
+`presentations` フォルダー内の各 PPTX ファイルのリビジョン番号と総編集時間をレポートするには、[PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) を使用してスライドをロードせずにその [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) を読み取ります。PHP via Java API は編集時間をミリ秒で返します。この例では、時間、分、秒に変換し、24 時間以上の場合は日数も含めます。
+```php
+use aspose\slides\PresentationFactory;
 
+echo "File | RevisionNumber | TotalEditingTime\n";
+foreach (new GlobIterator("presentations/*.pptx") as $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    $info = PresentationFactory::getInstance()->getPresentationInfo($file->getRealPath());
+    $properties = $info->readDocumentProperties();
+    $totalSeconds = (int) (java_values($properties->getTotalEditingTime()) / 1000);
+    $days = intdiv($totalSeconds, 86400);
+    $time = sprintf("%02d:%02d:%02d", intdiv($totalSeconds, 3600) % 24, intdiv($totalSeconds, 60) % 60, $totalSeconds % 60);
+    $editingTime = $days > 0 ? $days . "." . $time : $time;
+    printf("%s | %d | %s\n", $file->getFilename(), java_values($properties->getRevisionNumber()), $editingTime);
+}
+```
+
+リビジョン番号が 17、記録された編集時間が 1 日 2 時間 5 分のプレゼンテーションの場合、レポートは次の出力を示します。
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[DocumentProperties::getRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getRevisionNumber) は、アプリケーションが [DocumentProperties::setRevisionNumber](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setRevisionNumber) で変更できる値を取得します。リビジョン番号だけでは、プレゼンテーションが何回保存されたかやバージョン履歴を再構築することはできません。
+
+[DocumentProperties::getTotalEditingTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getTotalEditingTime) はファイルに記録された編集時間を取得します。誰かが編集した場合でも、プレゼンテーションの記録時間がゼロ (`00:00:00`) になることがあります。
+
+## **組み込みプロパティを変更する**
+
+組み込みメタデータを更新するには、[Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDocumentProperties) が返すオブジェクトのセッターメソッドを使用します。この例では既存のプレゼンテーションを開き、[setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setAuthor)、[setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setTitle)、[setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setSubject)、[setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setComments)、[setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setManager) を呼び出し、[Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) で更新されたプレゼンテーションを保存します。保存された PPTX には新しいメタデータが含まれます。
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -184,12 +212,11 @@ try {
 }
 ```
 
-## **ハイパーリンクベースの管理**
+## **ハイパーリンク ベースの管理**
 
-[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/) は相対ハイパーリンク用のドキュメント レベルのベースを返します。[DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/) を使用して変更またはクリアできます。プレゼンテーションとリンクされたファイルを別の場所に移動する際に便利です。これは個々のハイパーリンクの[Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/)とは別で、ベースを変更しても保存されたリンクアドレスや絶対的な宛先は書き換えられません。
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getHyperlinkBase) は相対ハイパーリンク用のドキュメント レベルのベースを返します。[DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#setHyperlinkBase) を使用して変更またはクリアできます。プレゼンテーションとリンクされたファイルを別の場所に移動する際に便利です。これは個々のハイパーリンクの [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/#getExternalUrl) とは別物で、ベースを変更しても保存されたリンク アドレスは書き換えられず、絶対的な宛先も変わりません。
 
-この例では、`target.html` のような相対リンクと `https://example.org/absolute.html` のような絶対リンクの両方を含むプレゼンテーションが必要です。既存のベースを読み取り、新しいベース アドレスを設定し、プレゼンテーションを保存して再度開き値を確認します。その後、空文字列でベースをクリアし、別の保存ファイルで空の値を検証します。例のベース アドレスはリンクされたファイルの場所に置き換えてください。
-
+この例では、相対リンク（例: `target.html`）と絶対リンク（例: `https://example.org/absolute.html`）の両方を含むプレゼンテーションが必要です。既存のベースを読み取り、新しいベース アドレスを設定し、プレゼンテーションを保存して再度開き値を確認します。その後、空文字列でベースをクリアし、別の保存ファイルで空の値を検証します。例のベース アドレスは、リンクされたファイルの場所に置き換えてください。
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -225,12 +252,11 @@ try {
 
 2 つの検証メッセージは `true` と出力されるはずです。ベースをクリアしても個々のハイパーリンク アドレスはそのまま残ります。
 
-`target.pptx` への相対リンクは、ベースが `old` フォルダーを指しているときに `old/target.pptx` を開きました。ベースを `new` フォルダーに変更し、保存してプレゼンテーションを再度開くと、同じリンクは `new/target.pptx` を開きます。絶対リンクは同じファイルを開き続けます。プレゼンテーションを移動したりベースを変更したりする前後で、PowerPoint で相対リンクをテストしてください。
+`target.pptx` への相対リンクは、ベースが `old` フォルダーを指しているときは `old/target.pptx` を開きました。ベースを `new` フォルダーに変更し、保存してプレゼンテーションを再度開くと、同じリンクは `new/target.pptx` を開きます。絶対リンクは同じファイルを開き続けます。プレゼンテーションを移動したりベースを変更したりする前後で、PowerPoint で相対リンクをテストしてください。
 
 ## **カスタム プレゼンテーション プロパティの追加**
 
-カスタムプロパティは、対応する組み込みフィールドがないメタデータを保存します。[DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) メソッドを使用すると、プロパティ名で値を割り当てられます。この例はプレゼンテーションを作成し、2 つのテキスト値と整数のバージョン値を追加し、[Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/) で保存します。既存の名前に値を割り当てると、そのプロパティの値が置き換えられます。
-
+カスタム プロパティは、対応する組み込みフィールドがないメタデータを保存します。[DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) メソッドを使用すると、プロパティ名で値を割り当てられます。この例ではプレゼンテーションを作成し、2 つのテキスト値と整数のバージョン値を追加し、[Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) でプレゼンテーションを保存します。既存の名前に値を割り当てると、そのプロパティの値が置き換えられます。
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -249,10 +275,9 @@ try {
 }
 ```
 
-## **カスタムプロパティへのアクセスと変更**
+## **カスタム プロパティへのアクセスと変更**
 
-この例はカスタムプロパティを含むプレゼンテーションを開き、[getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/) を使用してそれらを反復処理します。[getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/) は 0 ベースのインデックスを受け取り、[DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) で使用される名前を返します。例では各元の名前と値を出力し、元の型に関係なくすべての値を番号付き文字列に置き換えて変更を保存します。カスタムプロパティがない場合、ループは何も変更しません。
-
+この例ではカスタム プロパティを含むプレゼンテーションを開き、[getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCountOfCustomProperties) を使用してそれらを列挙します。[getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#getCustomPropertyName) は 0 から始まるインデックスを受け取り、[DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#set_Item) で使用される名前を返します。例では各元の名前と値を出力し、元の型に関係なくすべての値を番号付き文字列に置き換えて変更を保存します。カスタム プロパティがない場合、ループは何も変更しません。
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -279,28 +304,27 @@ try {
 
 ## **ライブ例**
 
-Aspose.Slides API を使用してドキュメントプロパティを操作する方法を確認するには、オンライン アプリの[**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata)を試してください：
-
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[**PowerPoint メタデータの表示と編集**](https://products.aspose.app/slides/metadata) オンライン アプリを試して、Aspose.Slides API を使用したドキュメント プロパティの操作方法をご確認ください:
+[![PowerPoint メタデータの表示と編集](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
 **プレゼンテーションから組み込みプロパティを削除するにはどうすればよいですか？**
 
-組み込みプロパティはプレゼンテーションの不可欠な部分であり、完全に削除することはできません。ただし、プロパティの値を変更するか、該当プロパティが許可する場合は空に設定することは可能です。
+組み込みプロパティはプレゼンテーションの不可欠な部分であり、完全に削除することはできません。ただし、特定のプロパティが許可する場合は、その値を変更するか空に設定できます。
 
-**既に存在するカスタムプロパティを追加した場合、どうなりますか？**
+**既に存在するカスタムプロパティを追加した場合はどうなりますか？**
 
-既に存在するカスタムプロパティを追加すると、既存の値は新しい値で上書きされます。プロパティを事前に削除したり確認したりする必要はなく、Aspose.Slides が自動的にプロパティの値を更新します。
+既に存在するカスタムプロパティを追加すると、既存の値は新しい値で上書きされます。事前にプロパティを削除したりチェックしたりする必要はありません。Aspose.Slides が自動的にプロパティの値を更新します。
 
 **プレゼンテーションを完全にロードせずにプロパティにアクセスできますか？**
 
-はい。[PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/) を使用し、続いて [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/) を呼び出すことで、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) インスタンスを作成せずに保存されたドキュメントメタデータを読み取れます。完全なレポート例とフォーマット固有の制限については、[Build a Lightweight Presentation Inventory](/slides/ja/php-java/examine-presentation/) を参照してください。
+はい。まず [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/#getPresentationInfo) を使用し、次に [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/#readDocumentProperties) を使用して、[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) インスタンスを作成せずに保存されたドキュメント メタデータを読み取ります。完全なレポート例とフォーマット固有の制限については、[Build a Lightweight Presentation Inventory](/slides/ja/php-java/examine-presentation/) を参照してください。
 
-**暗号化されたプレゼンテーションの公開プロパティを開始パスワードなしで読み取れますか？**
+**暗号化されたプレゼンテーションのパブリック プロパティを開くパスワードなしで読み取れますか？**
 
-はい。プレゼンテーションは[ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/) を `false` で呼び出した後に暗号化されており、[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/) を `true` で呼び出してロードされている必要があります。
+はい。プレゼンテーションは、[ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) を `false` で呼び出した後に暗号化され、さらに [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) を `true` で呼び出してロードされている必要があります。
 
-**ドキュメントプロパティのみモードで暗号化された PPTX ファイルを更新できますか？**
+**ドキュメント プロパティのみモードで暗号化された PPTX ファイルを更新できますか？**
 
-いいえ。公開プロパティと暗号化プロパティのデータは一貫性を保つ必要があるため、暗号化された PPTX ファイルを更新するには、正しい開始パスワードでプレゼンテーション全体をロードする必要があります。
+いいえ。パブリック プロパティと暗号化されたプロパティ データは一貫性を保つ必要があるため、暗号化された PPTX ファイルを更新するには、正しい開くパスワードでプレゼンテーション全体をロードする必要があります。
