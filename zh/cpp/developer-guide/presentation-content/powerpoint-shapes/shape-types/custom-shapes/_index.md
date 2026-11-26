@@ -14,72 +14,72 @@ keywords:
 - 路径点
 - 编辑点
 - 添加点
-- 移除点
+- 删除点
 - 编辑操作
-- 圆角
+- 曲线角
 - PowerPoint
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建和自定义形状：几何路径、圆角、复合形状。"
+description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建和自定义形状：几何路径、曲线角、复合形状。"
 ---
 ## **概述**
 
-本文介绍如何通过编辑点和几何路径编辑形状几何来自定义 Aspose.Slides 中的呈现形状。它展示了如何使用 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) 和 [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) 修改现有形状、执行基本路径编辑操作、添加或删除点，并将更新后的几何重新应用到形状。
+本文阐述了如何通过编辑点和几何路径编辑形状几何，以自定义 Aspose.Slides 中的演示文稿形状。它展示了如何使用 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) 和 [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) 修改现有形状、执行基本路径编辑操作、添加或删除点，并将更新后的几何重新应用到形状。
 
-还演示了如何创建自定义和复合形状、构建带圆角的形状，以及如何判断形状几何是否闭合。
+它还演示了如何创建自定义和复合形状、构建带曲线角的形状，以及判断形状几何是否闭合。
 
 ## **使用编辑点更改形状**
 
-在 PowerPoint 中，您可以使用 **编辑点** 修改正方形：
+在 PowerPoint 中，您可以使用 **编辑点** 来修改正方形：
 
-* 将角点向内或向外移动。
-* 调整点处的曲率。
+* 把角向内或向外移动。
+* 调整该点的曲率。
 * 添加新点。
 
-编辑点允许您修改形状的轮廓，或以现有形状为基础创建新形状。
+编辑点可以让您修改形状的轮廓，或以现有形状为基础创建新形状。
 
-## **形状编辑提示**
+## **形状编辑技巧**
 
 ![overview_image](custom_shape_0.png)
 
-编辑 PowerPoint 形状时，请记住以下概念：
+编辑 PowerPoint 形状时，请牢记以下概念：
 
-* 一个形状（或其路径）可以是闭合的也可以是开放的。
-* 形状的路径由通过段链接的锚点组成。
-* 段可以是直线或曲线。锚点和控制手柄决定其形状。
-* 锚点可以是角点、直点或平滑点：
-  * 在角点处，相邻段可以形成角度。
-  * 在平滑点处，两个控制手柄对齐且与锚点的距离相等。
-  * 在直点处，两个控制手柄对齐但距离锚点的距离可能不同。
-* 移动锚点或调整其手柄会改变形状的轮廓。
+* 形状（或其路径）可以是闭合的，也可以是打开的。
+* 形状的路径由锚点通过线段相连组成。
+* 线段可以是直线或曲线。锚点和控制柄决定其形状。
+* 锚点有三种类型：拐角点、直线点或平滑点：
+  * 在拐角点，邻接的线段可以形成角度。
+  * 在平滑点，两个控制柄共线且与锚点的距离相等。
+  * 在直线点，两个控制柄共线但与锚点的距离可以不同。
+* 移动锚点或调整其控制柄会改变形状的轮廓。
 
-Aspose.Slides 为通过编辑点编辑 PowerPoint 形状提供了 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) 类和 [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) 接口。
+要通过编辑点编辑 PowerPoint 形状，**Aspose.Slides** 提供了 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) 类和 [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) 接口。
 
 * 一个 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) 实例表示 [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) 对象的几何路径。
-* 要从 [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) 实例获取 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/)，可以使用 [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) 方法。
-* 要为形状设置 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/)，可以使用以下方法：单路径形状使用 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/)，多路径形状使用 [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/)。
-* 要添加段，可以使用 [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) 下的相关方法。
-* 通过 [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) 和 [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) 方法，可以设置几何路径的外观。
+* 若要从 [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) 实例检索 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/)，可以使用 [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) 方法。
+* 若要为形状设置 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/)，可以使用以下方法：单路径形状使用 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/)，多路径形状使用 [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/)。
+* 若要添加线段，可使用 [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) 下的方法。
+* 使用 [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) 和 [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) 方法，可设置几何路径的外观。
 * 使用 [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) 方法，可将 [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) 的几何路径作为路径段数组检索。
 
 ## **简单编辑操作**
 
-使用以下方法编辑几何路径。接受索引的重载会在路径段数组的相应零基位置插入段。
+使用以下方法编辑几何路径。接受索引的重载会在路径的段数组中零基位置插入段。
 
 | 操作 | 方法 |
 | --- | --- |
 | 追加或插入直线。 | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
-| 追加或插入带有两个控制点和终点的三次 Bézier 曲线。 | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
-| 追加或插入带有一个控制点和终点的二次 Bézier 曲线。 | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
-| 追加指定尺寸和角度（度）的椭圆弧。 | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
-| 通过将终点连接到起点关闭当前图形。 | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| 追加或插入具有两个控制点和终点的三次贝塞尔曲线。 | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| 追加或插入具有一个控制点和终点的二次贝塞尔曲线。 | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| 追加具有指定尺寸和角度（以度为单位）的椭圆弧。 | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| 通过将端点连接到起始点来闭合当前图形。 | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
 | 设置图形的起始点。 | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
-| 删除零基索引处的段。 | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
+| 删除指定零基索引处的段。 | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
 ## **向形状添加自定义点**
 
-以下示例使用 [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) 向矩形形状插入两个点，并使用 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 应用编辑后的路径。坐标相对于形状本身：两个新点位于其中心，左侧偏移 100 点、顶部偏移 50 点。段索引 1 和 4 将它们放在上、下边缘，向内拉动这些边缘。
+此示例使用 [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) 向矩形形状插入两个点，并使用 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 应用编辑后的路径。坐标相对于形状本身：两个新点位于形状中心，左侧偏移 100 点，顶部偏移 50 点。段索引 1 和 4 将它们分别放置在顶部和底部边缘，向内拉动这些边缘。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -110,7 +110,7 @@ shape->SetGeometryPath(geometryPath);
 
 ## **从形状中移除点**
 
-此示例使用 [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) 删除零基索引 2 处的段，从而更改心形轮廓。使用 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 应用修改后的路径后，形状的轮廓得到更新。
+此示例通过使用 [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) 删除零基索引 2 处的段，改变心形轮廓。随后使用 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 应用修改后的路径，以更新形状的轮廓。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -139,7 +139,7 @@ shape->SetGeometryPath(path);
 
 ## **创建自定义形状**
 
-此示例使用 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) 构建五角星。外半径 100 点、内半径 50 点交替定义星尖和凹槽；72 度的步进使五个星尖等距分布。路径通过 [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) 闭合，并使用 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 应用于矩形形状，替换其轮廓。
+此示例使用 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) 构建五角星。交替的外半径 100 点和内半径 50 点定义了星尖和凹陷；每隔 72 度设置一个步长，使五个星尖均匀分布。路径使用 [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) 闭合，并通过 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 应用于矩形形状，替换其轮廓。
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -198,7 +198,7 @@ shape->SetGeometryPath(starPath);
 
 ## **创建复合自定义形状**
 
-此示例为形状的上、下三分之一分别定义两个闭合的 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) 对象。使用 [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) 同时应用两个路径，生成一个在中间三分之一存在间隙的单一复合形状。
+此示例为形状的上三分之一和下三分之一分别定义了两个闭合的 [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) 对象。使用 [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) 同时应用两条路径，可创建一个在中部三分之一处留有间隙的单一复合形状。
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -239,9 +239,9 @@ shape->SetGeometryPaths(paths);
 ```
 ![example4_image](custom_shape_4.png)
 
-## **创建带圆角的自定义形状**
+## **创建带曲线角的自定义形状**
 
-此示例将直线段与 [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) 组合，创建一个带内凹圆角的形状。每个角的大小决定弧的宽度和高度（单位为点），-90 度的扫角绘制逆时针四分之一椭圆。完成的路径通过 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 应用，并以 PPTX 格式保存演示文稿。
+此示例将直线段与 [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) 结合，创建一个角部向内弯曲的形状。每个角的大小决定弧线的宽高（以点为单位），-90 度的扫掠角绘制逆时针四分之一椭圆。完成的路径使用 [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 应用，并以 PPTX 格式保存演示文稿。
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -298,7 +298,7 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 
 ## **判断形状几何是否闭合**
 
-下面的辅助方法检查每个非空几何路径是否以闭合段结束。它读取 [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) 并将最后一段的 [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) 与 [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/) 进行比较。当不存在非空路径时返回 false。该检查仅针对每条路径的最终命令，而不检查路径内部的每个子图形。示例对矩形输出 `True`。
+以下辅助方法检查每个非空几何路径是否以闭合段结束。它读取 [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) 并将最后一段的 [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) 与 [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/) 对比。若不存在非空路径则返回 false。该检查仅关注每条路径的最后一条指令，不会检查路径内部的每个子图形。示例对矩形输出 `True`。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -345,11 +345,84 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 2
 Console::WriteLine(isGeometryClosed(shape));
 ```
 
+## **检查几何路径指令**
+
+下载 [contour.pptx](contour.pptx) 并将其放置在应用程序的工作目录中。第一张幻灯片的第一个形状拥有一条直的顶部边、一条三次贝塞尔曲线以及一条直的闭合边。使用 [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) 读取其路径。对于每条路径，[get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) 按绘制顺序返回段。由 [get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) 返回的指令决定如何解释 [get_SegmentData](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_segmentdata/) 返回的数值。
+
+```cpp
+#include <DOM/IGeometryPath.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/PathCommandType.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"contour.pptx");
+
+auto shape = ExplicitCast<IGeometryShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paths = shape->GetGeometryPaths();
+
+for (auto i = 0; i < paths->get_Length(); ++i)
+{
+    auto segments = paths->idx_get(i)->get_PathData();
+    for (auto j = 0; j < segments->get_Length(); ++j)
+    {
+        auto segment = segments->idx_get(j);
+        auto command = segment->get_PathCommand();
+        auto data = segment->get_SegmentData();
+        String detail;
+        switch (command)
+        {
+            case PathCommandType::MoveTo:
+            case PathCommandType::LineTo:
+                detail = String::Format(u"destination=({0}, {1})", data->idx_get(0), data->idx_get(1));
+                break;
+            case PathCommandType::CubicBezierTo:
+                detail = String::Format(u"control1=({0}, {1}) control2=({2}, {3}) end=({4}, {5})", data);
+                break;
+            case PathCommandType::Close:
+                detail = u"no coordinates";
+                break;
+            default:
+            {
+                auto values = MakeArray<String>(data->get_Length());
+                for (auto k = 0; k < data->get_Length(); ++k)
+                {
+                    values->idx_set(k, String::Format(u"{0}", data->idx_get(k)));
+                }
+                detail = String::Format(u"raw=[{0}]", String::Join(u", ", values));
+                break;
+            }
+        }
+        Console::WriteLine(u"Path {0}, segment {1}: {2} {3}", i, j, Enum<PathCommandType>::GetName(command), detail);
+    }
+}
+```
+
+该形状位于幻灯片坐标 (200, 100) 点处。报告的点是相对于形状本身的，本地坐标原点 (0, 0) 位于左上角，X 向右递增，Y 向下递增。闭合段通过不使用其它坐标返回起始点。
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **提取并检查形状元素**
 
-使用 [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) 可将现有形状检查为包含路径点和点类型的元素。将每个返回的 [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) 强制转换为 [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/)，读取其 [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) 和 [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/) 返回的数组。此表示形式对轮廓分析或将几何传递给自定义绘图工具非常有用。
+使用 [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) 可以将现有形状查看为包含路径点和点类型的元素。将每个返回的 [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) 强制转换为 [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) ，即可读取 [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) 和 [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/) 返回的数组。这种表示方式适用于轮廓分析或将几何传递给自定义绘图工具。
 
-示例打开一个演示文稿，直接在第一张幻灯片上查找第一个几何形状，并打印其路径段。使用包含直线段和曲线段的形状进行演示，以看到两种输出。它不在组内部搜索。
+示例打开一个演示文稿，直接在第一张幻灯片上查找第一个几何形状，并打印其路径段。请使用包含直线段和曲线段的形状进行测试。该方法不在组内部搜索。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -406,7 +479,7 @@ for (auto&& element : shape->CreateShapeElements())
                 break;
             case 3:
                 Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
-                i += 2; // 消耗两个控制点和终点。
+                i += 2; // Consume both control points and the endpoint.
                 break;
         }
         if ((types[i] & 0x80) != 0)
@@ -417,30 +490,30 @@ for (auto&& element : shape->CreateShapeElements())
 }
 ```
 
-数组通过索引对应：`points[i]` 为一个点，`types[i]` 描述其角色。类型 `0` 开始一个图形，类型 `1` 从前一个点绘制直线到当前点。三次 Bézier 段从前一个终点开始，使用连续的三个类型 `3` 条目：两个控制点后跟新的终点。循环一次性消费这三个条目，并检查终点是否闭合。
+数组通过索引对应：`points[i]` 为一个点，`types[i]` 描述其角色。类型 `0` 表示开始图形，类型 `1` 表示从前一点绘制到当前点的直线。三次贝塞尔段在前一个端点后使用连续的三个类型 `3` 条目：两个控制点随后是新的端点。循环一次性消费这三个条目，并检查端点是否闭合。
 
-点类型还包含标志。通过与 `0x07` 掩码可识别段类型，单独检测 `0x80` 可判断闭合子路径。例如，`129` (`0x81`) 表示闭合子路径的直线终点，`131` (`0x83`) 表示闭合的 Bézier 终点。仅与 `1` 或 `3` 比较原始值会遗漏这些情况。其他标志如虚线 (`0x10`) 和标记 (`0x20`) 不会改变基本段类型。
+点类型还包含标志位。使用 `0x07` 掩码可识别段类型，使用 `0x80` 可单独检测闭合子路径。例如，`129`（`0x81`）表示闭合子路径的线段端点，`131`（`0x83`）表示闭合子路径的贝塞尔端点。仅比较原始值为 `1` 或 `3` 会遗漏这些情况。其他标志如虚线 (`0x10`) 和标记 (`0x20`) 不会改变基础段类型。
 
-**坐标与变换。** 点的单位是点（1/72 英寸），X 向右递增，Y 向下递增。对于未分组的形状，提取的坐标已经包含由 [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) 和 [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) 返回的位置，并反映其当前宽度和高度。例如，左上角在 `(100, 200)`、尺寸为 `120 × 80` 的未旋转矩形，其轮廓边界为 `(100, 200)`–`(220, 280)`。不要再次添加形状的位置。减去其 X 和 Y 可获得相对于未旋转框架的坐标。
+**坐标与变换。** 点的单位为点 (1/72 英寸)，X 向右递增，Y 向下递增。对于未分组的形状，提取的坐标已包含 [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) 和 [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) 返回的位置，并反映当前宽高。例如，未旋转的矩形位于 `(100, 200)`，大小为 `120 × 80`，其轮廓界限为 `(100, 200)`–`(220, 280)`。请勿再次加上形状的位置。若需相对于未旋转框架的坐标，请减去其 X 和 Y。
 
-提取的点不考虑通过 [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) 设置的旋转或水平、垂直翻转。若要复现显示的轮廓，需要围绕形状中心应用这些变换。对于分组形状，还需考虑组坐标映射和变换；不要假设提取的点是最终渲染的幻灯片坐标，也不要在已在子对象框架中反映的情况下再次平移或缩放。
+提取的点不考虑通过 [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) 设置的旋转以及水平/垂直翻转。若要复现显示的轮廓，需要围绕形状中心应用这些变换。对分组形状，还需考虑组坐标映射和变换；请不要假设提取的点已经是最终渲染到幻灯片的坐标，也不要对已经在子框架中体现的平移或缩放再次应用。
 
-**检查 vs. 编辑。** 提取的数组仅描述轮廓，修改它们不会更新原始形状。当您的分析或绘图代码需要点/类型数组时请选择此方式。若需要在形状本地坐标系中获取几何命令或编辑几何，请使用 [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/)。通过 [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 或 [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) 应用编辑后的路径。
+**检查 vs. 编辑。** 提取的数组仅描述轮廓，修改它们不会更新原始形状。仅当你的分析或绘图代码需要点/类型数组时才使用此方式。若需要在形状本地坐标系中获取几何指令或编辑几何，请使用 [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/)。编辑后通过 [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) 或 [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) 应用。
 
 ## **将 GeometryPath 转换为 GraphicsPath**
 
-当前 Aspose.Slides for C++ 公共 API 未公开几何路径与图形路径之间的转换。要检查轮廓，请使用上文所述的形状元素。要编辑形状，请使用几何路径并将更新后的路径应用到形状。
+当前 Aspose.Slides for C++ 公共 API 并未公开几何路径与图形路径之间的转换。若需检查轮廓，请使用上文描述的形状元素。若需编辑形状，请使用几何路径并将更新后的路径应用到形状。
 
-## **常见问题解答**
+## **FAQ**
 
-**替换几何后填充和轮廓会怎样？**
+**替换几何后填充和轮廓会如何？**
 
-样式仍然保留在形状上，只有轮廓发生变化。填充和轮廓会自动应用到新几何上。
+样式仍然保留在形状上，只有轮廓会改变。填充和轮廓会自动应用到新的几何上。
 
-**如何在旋转自定义形状时一起旋转其几何？**
+**如何让自定义形状连同其几何一起正确旋转？**
 
-使用形状的 [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) 方法；几何会随形状一起旋转，因为它绑定到形状自己的坐标系。
+使用形状的 [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) 方法；几何会随形状一起旋转，因为它绑定到形状自身的坐标系。
 
-**可以将自定义形状转换为图像以“锁定”结果吗？**
+**能否将自定义形状转换为图像以“锁定”结果？**
 
-可以。将所需的 [slide](/slides/zh/cpp/convert-powerpoint-to-png/) 区域或 [shape](/slides/zh/cpp/shape-thumbnails/) 本身导出为光栅格式，这会简化后续对复杂几何的处理。
+可以。将所需的 [slide](/slides/zh/cpp/convert-powerpoint-to-png/) 区域或 [shape](/slides/zh/cpp/shape-thumbnails/) 本身导出为栅格格式，这样更便于后续处理复杂几何。

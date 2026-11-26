@@ -1,5 +1,5 @@
 ---
-title: Προσαρμογή Σχημάτων Παρουσίασης σε C++
+title: Προσαρμοσμός Σχημάτων Παρουσίασης σε C++
 linktitle: Προσαρμοσμένο Σχήμα
 type: docs
 weight: 20
@@ -21,65 +21,65 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Δημιουργία και προσαρμογή σχημάτων σε παρουσιάσεις PowerPoint με Aspose.Slides για C++: διαδρομές γεωμετρίας, καμπυλωτές γωνίες, σύνθετα σχήματα."
+description: "Δημιουργήστε και προσαρμόστε σχήματα σε παρουσιάσεις PowerPoint με το Aspose.Slides για C++: διαδρομές γεωμετρίας, καμπυλωτές γωνίες, σύνθετα σχήματα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τα σχήματα παρουσίασης στο Aspose.Slides επεξεργάζοντας τη γεωμετρία του σχήματος μέσω σημείων επεξεργασίας και διαδρομών γεωμετρίας. Δείχνει πώς να εργάζεστε με [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) και [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας διαδρομής, να προσθέσετε ή να αφαιρέσετε σημεία και να εφαρμόσετε τη ενημερωμένη γεωμετρία πίσω σε ένα σχήμα.
+Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τα σχήματα παρουσίασης στο Aspose.Slides επεξεργάζοντας τη γεωμετρία του σχήματος μέσω σημείων επεξεργασίας και διαδρομών γεωμετρίας. Δείχνει πώς να εργαστείτε με [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) και [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας διαδρομής, να προσθέσετε ή να αφαιρέσετε σημεία, και να εφαρμόσετε την ενημερωμένη γεωμετρία πίσω σε ένα σχήμα.
 
-Επίσης, παρουσιάζει πώς να δημιουργήσετε προσαρμοσμένα και σύνθετα σχήματα, να δημιουργήσετε σχήματα με καμπυλωτές γωνίες και να προσδιορίσετε αν η γεωμετρία ενός σχήματος είναι κλειστή.
+Δείχνει επίσης πώς να δημιουργήσετε προσαρμοσμένα και σύνθετα σχήματα, να κατασκευάσετε σχήματα με καμπυλωτές γωνίες, και να καθορίσετε αν η γεωμετρία ενός σχήματος είναι κλειστή.
 
-## **Αλλαγή σχήματος χρησιμοποιώντας σημεία επεξεργασίας**
+## **Αλλαγή Σχήματος Χρησιμοποιώντας Σημεία Επεξεργασίας**
 
-Στο PowerPoint, μπορείτε να χρησιμοποιήσετε **Edit Points** για να τροποποιήσετε ένα τετράγωνο:
+Στο PowerPoint, μπορείτε να χρησιμοποιήσετε **Σημεία Επεξεργασίας** για να τροποποιήσετε ένα τετράγωνο:
 
 * Μετακινήστε μια γωνία προς τα μέσα ή προς τα έξω.
-* Ρυθμίστε την καμπυλότητα σε ένα σημείο.
+* Ρυθμίστε την κυρτότητα σε ένα σημείο.
 * Προσθέστε νέα σημεία.
 
 Η επεξεργασία σημείων σας επιτρέπει να τροποποιήσετε το περίγραμμα ενός σχήματος ή να χρησιμοποιήσετε ένα υπάρχον σχήμα ως βάση για ένα νέο.
 
-## **Συμβουλές επεξεργασίας σχήματος**
+## **Συμβουλές Επεξεργασίας Σχήματος**
 
 ![overview_image](custom_shape_0.png)
 
-Κατά την επεξεργασία σχήματος στο PowerPoint, θυμηθείτε τις παρακάτω έννοιες:
+Κατά την επεξεργασία σ shapes στο PowerPoint, διατηρήστε αυτά τα concepts στο μυαλό σας:
 
-* Ένα σχήμα (ή η διαδρομή του) μπορεί να είναι είτε κλειστό είτε ανοιχτό.
-* Η διαδρομή ενός σχήματος αποτελείται από άγκυρες σημεία συνδεδεμένα με τμήματα.
-* Ένα τμήμα μπορεί να είναι ευθύ ή καμπυλωτό. Τα άγκυρα σημεία και τα χειριστήρια ελέγχου καθορίζουν το σχήμα του.
-* Τα άγκυρα σημεία υπάρχουν ως γωνιακά σημεία, ευθεία σημεία ή λείες σημεία:
-  * Σε γωνιακό σημείο, τα δύο γειτονικά τμήματα μπορούν να συναντηθούν με γωνία.
-  * Σε λείο σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα και ίσου αποστάσεως από το άγκυρα σημείο.
-  * Σε ευθύ σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα αλλά μπορεί να έχουν διαφορετικές αποστάσεις από το άγκυρα σημείο.
-* Η μετακίνηση των άγκυρων σημείων ή η ρύθμιση των χειριστηρίων τους αλλάζει το περίγραμμα του σχήματος.
+* Ένα σ shape (ή η διαδρομή του) μπορεί να είναι κλειστό ή ανοιχτό.
+* Η διαδρομή ενός σ shape αποτελείται από σημεία αγκύρωσης (anchor points) συνδεδεμένα με τμήματα (segments).
+* Ένα τμήμα μπορεί να είναι ευθείο ή καμπύλο. Τα σημεία αγκύρωσης και τα χειριστήρια ελέγχου (control handles) καθορίζουν το σχήμα του.
+* Τα σημεία αγκύρωσης υπάρχουν ως σημεία γωνίας, ευθύγραμμα σημεία ή λείες (smooth) σημεία:
+  * Σε σημείο γωνίας, τα υφιστάμενα τμήματα μπορούν να συναντηθούν με γωνία.
+  * Σε λείο σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα και εξίσου μακριά από το σημείο αγκύρωσης.
+  * Σε ευθύγραμμο σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα αλλά μπορεί να έχουν διαφορετικές αποστάσεις από το σημείο αγκύρωσης.
+* Η μετακίνηση των σημείων αγκύρωσης ή η ρύθμιση των χειριστηρίων τους αλλάζει το περίγραμμα του σχήματος.
 
-Για να επεξεργαστείτε σχήματα PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) και το interface [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+Για να επεξεργαστείτε σ shapes του PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) και τη διεπαφή [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
 
 * Μια παρουσίαση του [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) αντιπροσωπεύει μια διαδρομή γεωμετρίας του αντικειμένου [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
-* Για να ανακτήσετε το [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) από την παρουσίαση του [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), μπορείτε να χρησιμοποιήσετε τη μέθοδο [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
-* Για να ορίσετε το [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) για ένα σχήμα, μπορείτε να χρησιμοποιήσετε αυτές τις μεθόδους: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) για σχήματα με μία διαδρομή και [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) για σχήματα με πολλαπλές διαδρομές.
-* Για να προσθέσετε τμήματα, μπορείτε να χρησιμοποιήσετε τις μεθόδους του [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
-* Χρησιμοποιώντας τις μεθόδους [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) και [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/), μπορείτε να καθορίσετε την εμφάνιση μιας διαδρομής γεωμετρίας.
-* Με τη μέθοδο [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/), μπορείτε να ανακτήσετε τη διαδρομή γεωμετρίας ενός [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) ως πίνακα τμημάτων διαδρομής.
+* Για την ανάκτηση του [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) από την παρουσίαση του [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), μπορείτε να χρησιμοποιήσετε τη μέθοδο [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* Για να ορίσετε το [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) για ένα σ shape, μπορείτε να χρησιμοποιήσετε αυτές τις μεθόδους: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) για σ shapes με μία μόνο διαδρομή και [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) για σ shapes με πολλαπλές διαδρομές.
+* Για να προσθέσετε τμήματα, μπορείτε να χρησιμοποιήσετε τις μεθόδους υπό το [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+* Χρησιμοποιώντας τις μεθόδους [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) και [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/), μπορείτε να ορίσετε την εμφάνιση μιας διαδρομής γεωμετρίας.
+* Με τη μέθοδο [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/), μπορείτε να λάβετε τη διαδρομή γεωμετρίας ενός [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) ως πίνακα τμημάτων διαδρομής.
 
-## **Απλές λειτουργίες επεξεργασίας**
+## **Απλές Λειτουργίες Επεξεργασίας**
 
-Χρησιμοποιήστε τις παρακάτω μεθόδους για να επεξεργαστείτε μια διαδρομή γεωμετρίας. Οι υπερφορτώσεις που δέχονται δείκτη εισάγουν ένα τμήμα στη θέση αυτή (μηδενικής βάσης) στον πίνακα τμημάτων της διαδρομής.
+Χρησιμοποιήστε τις παρακάτω μεθόδους για να επεξεργαστείτε μια διαδρομή γεωμετρίας. Οι υπερφορτώσεις που δέχονται δείκτη (index) εισάγουν ένα τμήμα στη μηδενική θέση (zero‑based) του πίνακα τμημάτων της διαδρομής.
 
-| Operation | Method |
+| Λειτουργία | Μέθοδος |
 | --- | --- |
-| Προσθήκη ή εισαγωγή μιας ευθείας γραμμής. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
-| Προσθήκη ή εισαγωγή μιας κυβικής καμπύλης Bézier με δύο σημεία ελέγχου και ένα τελικό σημείο. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
-| Προσθήκη ή εισαγωγή μιας τετραγωνικής καμπύλης Bézier με ένα σημείο ελέγχου και ένα τελικό σημείο. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
-| Προσθήκη ενός ελλειπτικού τόξου με τις καθορισμένες διαστάσεις και γωνίες σε μοίρες. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
-| Κλείσιμο του τρέχοντος σχήματος συνδέοντας το τελικό σημείο του με το αρχικό του. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Προσθήκη ή εισαγωγή ευθείου τμήματος. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| Προσθήκη ή εισαγωγή κυρτίου Bézier καμπύλης κύβου με δύο σημεία ελέγχου και ένα σημείο τερματισμού. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Προσθήκη ή εισαγωγή τετραγωνικής Bézier καμπύλης με ένα σημείο ελέγχου και ένα σημείο τερματισμού. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Προσθήκη ελλειπτικού τόξου με τις καθορισμένες διαστάσεις και γωνίες σε μοίρες. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| Κλείσιμο του τρέχοντος σχήματος συνδέοντας το σημείο τερματισμού του με το αρχικό του σημείο. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
 | Ορισμός του αρχικού σημείου ενός σχήματος. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
 | Αφαίρεση τμήματος σε δείκτη μηδενικής βάσης. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-## **Προσθήκη προσαρμοσμένων σημείων σε σχήμα**
+## **Προσθήκη Προσαρμοσμένων Σημείων σε Σ Shape**
 
-Αυτό το παράδειγμα εισάγει δύο σημεία σε ένα ορθογώνιο σχήμα χρησιμοποιώντας το [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) και εφαρμόζει τη επεξεργασμένη διαδρομή με το [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Οι συντεταγμένες είναι τοπικές στο σχήμα: και τα δύο νέα σημεία βρίσκονται στο κέντρο του, 100 μονάδες από τα αριστερά και 50 μονάδες από τα πάνω. Οι δείκτες τμημάτων 1 και 4 τα τοποθετούν στις άνω και κάτω άκρες, τραβώντας αυτές τις άκρες προς τα μέσα.
+Αυτό το παράδειγμα εισάγει δύο σημεία σε ένα ορθογώνιο σ shape χρησιμοποιώντας [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) και εφαρμόζει τη μονωμένη διαδρομή με [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Οι συντεταγμένες είναι τοπικές στο σ shape: και τα δύο νέα σημεία βρίσκονται στο κέντρο του, 100 μονάδες από την αριστερά και 50 μονάδες από την κορυφή. Οι δείκτες τμημάτων 1 και 4 τα τοποθετούν στα άνω και κάτω άκρα, τραβώντας αυτά τα άκρα προς το εσωτερικό.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -108,9 +108,9 @@ shape->SetGeometryPath(geometryPath);
 
 ![example1_image](custom_shape_1.png)
 
-## **Αφαίρεση σημείων από σχήμα**
+## **Αφαίρεση Σημείων από Σ Shape**
 
-Αυτό το παράδειγμα αλλάζει το περίγραμμα μιας καρδιάς αφαιρώντας το τμήμα στο δείκτη μηδενικής βάσης 2 με το [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Η εφαρμογή της τροποποιημένης διαδρομής με το [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) ενημερώνει το περίγραμμα του σχήματος.
+Αυτό το παράδειγμα αλλάζει το περίγραμμα μιας καρδιάς αφαιρώντας το τμήμα με δείκτη μηδενικής βάσης 2 μέσω [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Η εφαρμογή της τροποποιημένης διαδρομής με [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) ενημερώνει το περίγραμμα του σ shape.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -137,9 +137,9 @@ shape->SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
-## **Δημιουργία προσαρμοσμένου σχήματος**
+## **Δημιουργία Προσαρμοσμένου Σ Shape**
 
-Αυτό το παράδειγμα δημιουργεί ένα πέντε‑άκρονο αστέρι με το [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Εναλλασσόμενες εξωτερικές και εσωτερικές ακτίνες 100 και 50 μονάδες ορίζουν τις άκρες και τις εσοχές· ένα βήμα 72 μοιρών τοποθετεί τις πέντε άκρες ομοιόμορφα. Η διαδρομή κλείνει με το [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) και εφαρμόζεται σε ένα ορθογώνιο σχήμα χρησιμοποιώντας το [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), αντικαθιστώντας το περίγραμμά του.
+Αυτό το παράδειγμα κατασκευάζει ένα πενταπλόσκοπο αστέρι με [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Εναλλασσόμενες εξωτερικές και εσωτερικές ακτίνες 100 και 50 μονάδες καθορίζουν τις άκρες και τις εσοχές· ένα βήμα 72 μοιρών διανέμει ίσα τα πέντε άκρα. Η διαδρομή κλείνει με το [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) και εφαρμόζεται σε ένα ορθογώνιο σ shape μέσω [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), αντικαθιστώντας το περίγραμμά του.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -196,9 +196,9 @@ shape->SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
-## **Δημιουργία σύνθετου προσαρμοσμένου σχήματος**
+## **Δημιουργία Σύνθετου Προσαρμοσμένου Σ Shape**
 
-Αυτό το παράδειγμα ορίζει δύο κλειστές αντικειμενικές [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) για το πάνω και το κάτω τρίτο ενός σχήματος. Η εφαρμογή και των δύο διαδρομών με το [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) δημιουργεί ένα ενιαίο σύνθετο σχήμα με ένα κενό στη μέση του τρίτου.
+Αυτό το παράδειγμα ορίζει δύο κλειστές διαδρομές [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) για το πάνω και το κάτω τρίτο ενός σ shape. Η εφαρμογή και των δύο διαδρομών με [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) δημιουργεί ένα ενιαίο σύνθετο σ shape με κενό στη μέση τρίτη περιοχή.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -227,7 +227,7 @@ topPath->LineTo(0.0f, shape->get_Height() / 3);
 topPath->CloseFigure();
 
 auto bottomPath = System::MakeObject<GeometryPath>();
-bottomPath->MoveTo(shape->get_Height() / 3 * 2, 0.0f);
+bottomPath->MoveTo(0.0f, shape->get_Height() / 3 * 2);
 bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
 bottomPath->LineTo(shape->get_Width(), shape->get_Height());
 bottomPath->LineTo(0.0f, shape->get_Height());
@@ -239,9 +239,9 @@ shape->SetGeometryPaths(paths);
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Δημιουργία προσαρμοσμένου σχήματος με καμπυλωτές γωνίες**
+## **Δημιουργία Προσαρμοσμένου Σ Shape με Καμπυλωτές Γωνίες**
 
-Αυτό το παράδειγμα συνδυάζει ευθεία τμήματα με το [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) για να δημιουργήσει ένα σχήμα με καμπυλωτές γωνίες προς το εσωτερικό. Το μέγεθος κάθε γωνίας ορίζει το πλάτος και το ύψος του τόξου σε μονάδες, και η σάρωση -90 μοιρών σχεδιάζει ένα αντίστροφα δεξιόστροφο τέταρτο έλλειψη. Η ολοκληρωμένη διαδρομή εφαρμόζεται με το [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), και η παρουσίαση αποθηκεύεται σε μορφή PPTX.
+Αυτό το παράδειγμα συνδυάζει ευθύγραμμα τμήματα με [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) για να δημιουργήσει σ shape με εσωτερικές καμπυλωτές γωνίες. Κάθε μέγεθος γωνίας ορίζει το πλάτος και το ύψος του τόξου σε μονάδες, και το σκέλος -90 μοιρών σχεδιάζει ένα αντίστροφα ρολόι τεταρτημόριο έλλειψης. Η τελική διαδρομή εφαρμόζεται με [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), και η παρουσίαση αποθηκεύεται σε μορφή PPTX.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -296,9 +296,9 @@ shape->SetGeometryPath(geometryPath);
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Εύρεση εάν η γεωμετρία ενός σχήματος είναι κλειστή**
+## **Εντοπισμός Αν Το Geometry ενός Σ Shape Είναι Κλειστό**
 
-Ο παρακάτω βοηθός ελέγχει εάν κάθε μη κενή διαδρομή γεωμετρίας λήγει με τμήμα κλεισίματος. Διαβάζει το [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) και συγκρίνει την εντολή του τελικού τμήματος [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) με το [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Επιστρέφει false όταν δεν υπάρχουν μη κενές διαδρομές. Αυτό ελέγχει την τελική εντολή κάθε διαδρομής· δεν εξετάζει κάθε υποσχήμα μέσα σε μια διαδρομή. Το παράδειγμα εκτυπώνει `True` για ένα ορθογώνιο.
+Ο ακόλουθος βοηθός ελέγχει αν κάθε μη κενή διαδρομή γεωμετρίας λήγει με τμήμα κλεισίματος. Διαβάζει το [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) και συγκρίνει την τελική εντολή του τμήματος [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) με το [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Επιστρέφει false όταν δεν υπάρχουν μη κενές διαδρομές. Ο έλεγχος αφορά την τελική εντολή κάθε διαδρομής· δεν εξετάζει κάθε υπο‑σχήμα μέσα στη διαδρομή. Το παράδειγμα εκτυπώνει `True` για ένα ορθογώνιο.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -345,11 +345,84 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 2
 Console::WriteLine(isGeometryClosed(shape));
 ```
 
-## **Εξαγωγή και εξέταση στοιχείων σχήματος**
+## **Επιθεώρηση Εντολών Διαδρομής Geometry**
 
-Χρησιμοποιήστε το [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) για να εξετάσετε ένα υπάρχον σχήμα ως στοιχεία που περιέχουν σημεία διαδρομής και τύπους σημείων. Μετατρέψτε κάθε επιστρεφόμενο [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) στο [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) για να διαβάσετε τους πίνακες που επιστρέφουν τα [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) και [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Αυτή η αναπαράσταση είναι χρήσιμη για ανάλυση περιγράμματος ή για μεταβίβαση γεωμετρίας σε προσαρμοσμένα εργαλεία σχεδίασης.
+Κατεβάστε το [contour.pptx](contour.pptx) και τοποθετήστε το στον κατάλογο εργασίας της εφαρμογής. Το πρώτο σ shape στην πρώτη διαφάνεια έχει μια ευθεία άνω άκρη, μια κυρτή Bézier καμπύλη, και μια ευθεία κλείσιμο άκρη. Χρησιμοποιήστε το [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) για να διαβάσετε τις διαδρομές του. Για κάθε διαδρομή, το [get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) επιστρέφει τα τμήματα με σειρά σχεδίασης. Η εντολή που επιστρέφει το [get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) καθορίζει πώς να ερμηνευτούν οι τιμές που επιστρέφει το [get_SegmentData](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_segmentdata/).
 
-Το παράδειγμα ανοίγει μια παρουσίαση, εντοπίζει το πρώτο γεωμετρικό σχήμα άμεσα στην πρώτη διαφάνεια και εκτυπώνει τα τμήματα της διαδρομής του. Χρησιμοποιήστε μια παρουσίαση που περιέχει ένα σχήμα με ευθείες και καμπυλωτές διαδρομές για να δείτε και τους δύο τύπους εξόδου. Δεν αναζητά μέσα σε ομάδες.
+```cpp
+#include <DOM/IGeometryPath.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/PathCommandType.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"contour.pptx");
+
+auto shape = ExplicitCast<IGeometryShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paths = shape->GetGeometryPaths();
+
+for (auto i = 0; i < paths->get_Length(); ++i)
+{
+    auto segments = paths->idx_get(i)->get_PathData();
+    for (auto j = 0; j < segments->get_Length(); ++j)
+    {
+        auto segment = segments->idx_get(j);
+        auto command = segment->get_PathCommand();
+        auto data = segment->get_SegmentData();
+        String detail;
+        switch (command)
+        {
+            case PathCommandType::MoveTo:
+            case PathCommandType::LineTo:
+                detail = String::Format(u"destination=({0}, {1})", data->idx_get(0), data->idx_get(1));
+                break;
+            case PathCommandType::CubicBezierTo:
+                detail = String::Format(u"control1=({0}, {1}) control2=({2}, {3}) end=({4}, {5})", data);
+                break;
+            case PathCommandType::Close:
+                detail = u"no coordinates";
+                break;
+            default:
+            {
+                auto values = MakeArray<String>(data->get_Length());
+                for (auto k = 0; k < data->get_Length(); ++k)
+                {
+                    values->idx_set(k, String::Format(u"{0}", data->idx_get(k)));
+                }
+                detail = String::Format(u"raw=[{0}]", String::Join(u", ", values));
+                break;
+            }
+        }
+        Console::WriteLine(u"Path {0}, segment {1}: {2} {3}", i, j, Enum<PathCommandType>::GetName(command), detail);
+    }
+}
+```
+
+Το σ shape βρίσκεται στο (200, 100) μονάδες στη διαφάνεια. Τα σημεία που αναφέρονται είναι τοπικά στο σ shape, με το (0, 0) στην επάνω‑αριστερή γωνία, x αυξάνεται προς τα δεξιά, και y αυξάνεται προς τα κάτω. Το τμήμα κλεισίματος επιστρέφει στο αρχικό σημείο χωρίς επιπλέον συντεταγμένες.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Εξαγωγή και Επιθεώρηση Στοιχείων Σ Shape**
+
+Χρησιμοποιήστε το [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) για να επιθεωρήσετε ένα υπάρχον σ shape ως στοιχεία που περιέχουν σημεία διαδρομής και τύπους σημείου. Μετατρέψτε κάθε [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) σε [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) ώστε να διαβάσετε τους πίνακες που επιστρέφουν τα [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) και [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Αυτή η αναπαράσταση είναι χρήσιμη για ανάλυση περιγραμμάτων ή για μεταβίβαση γεωμετρίας σε προσαρμοσμένα εργαλεία σχεδίασης.
+
+Το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο σ shape geometry απευθείας στην πρώτη διαφάνεια, και εκτυπώνει τα τμήματα της διαδρομής του. Χρησιμοποιήστε μια παρουσίαση που περιέχει σ shape με ευθείες και καμπυλωτές ακμές για να δείτε και τις δύο μορφές εξόδου. Δεν ψάχνει μέσα σε ομάδες.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -395,7 +468,7 @@ for (auto&& element : shape->CreateShapeElements())
 
     for (auto i = 0; i < points->get_Length(); i++)
     {
-        auto pointType = types[i] & 0x07; // Διατηρήστε τον τύπο τμήματος, εξαιρώντας τις σημαίες.
+        auto pointType = types[i] & 0x07; // Διατήρηση του τύπου τμήματος, εξαιρώντας τις σημαίες.
         switch (pointType)
         {
             case 0:
@@ -417,30 +490,30 @@ for (auto&& element : shape->CreateShapeElements())
 }
 ```
 
-Οι πίνακες αντιστοιχούν κατά δείκτη: `points[i]` είναι ένα σημείο και `types[i]` περιγράφει τον ρόλο του. Ο τύπος `0` ξεκινά ένα σχήμα, και ο τύπος `1` σχεδιάζει μια γραμμή από το προηγούμενο σημείο στο τρέχον. Ένα κυβικό τμήμα Bézier ξεκινά από το προηγούμενο τελικό σημείο και χρησιμοποιεί τρεις διαδοχικές καταχωρίσεις τύπου `3`: δύο σημεία ελέγχου και έπειτα το νέο τελικό σημείο. Η επανάληψη καταναλώνει αυτές τις τρεις καταχωρίσεις μαζί και ελέγχει το τελικό σημείο για κλείσιμο.
+Οι πίνακες αντιστοιχούν ανά δείκτη: `points[i]` είναι ένα σημείο και `types[i]` περιγράφει τον ρόλο του. Ο τύπος `0` αρχίζει ένα σ figure, και ο τύπος `1` σχεδιάζει μια γραμμή από το προηγούμενο σημείο στο τρέχον σημείο. Ένα τμήμα κυρτής Bézier αρχίζει από το προηγούμενο τέλος και χρησιμοποιεί τρεις διαδοχικές καταχωρίσεις τύπου `3`: δύο σημεία ελέγχου ακολουθούμενα από το νέο σημείο τερματισμού. Ο βρόχος καταναλώνει αυτές τις τρεις εγγραφές μαζί και ελέγχει το σημείο τερματισμού για κλείσιμο.
 
-Οι τύποι σημείων περιέχουν επίσης σημαίες. Χρησιμοποιήστε τη μάσκα `0x07` για να προσδιορίσετε τον τύπο του τμήματος και ελέγξτε ξεχωριστά το `0x80` για να εντοπίσετε ένα κλειστό υποσύνολο. Για παράδειγμα, `129` (`0x81`) σημαίνει ένα τελικό σημείο γραμμής που κλείνει ένα υποσύνολο, και `131` (`0x83`) σημαίνει ένα τελικό σημείο Bézier που κλείνει ένα. Η σύγκριση της ακατέργαστης τιμής μόνο με `1` ή `3` θα χάσει αυτές τις περιπτώσεις. Άλλες σημαίες, όπως dash (`0x10`) και marker (`0x20`), δεν αλλάζουν τον βασικό τύπο τμήματος.
+Οι τύποι σημείων περιέχουν επίσης σημαίες. Μάσκα με `0x07` για να προσδιορίσετε τον τύπο τμήματος, και ελέγξτε το `0x80` ξεχωριστά για να εντοπίσετε κλειστό υπο‑μονοπάτι. Για παράδειγμα, `129` (`0x81`) σημαίνει σημείο άκρης γραμμής που κλείνει ένα υπο‑μονοπάτι, και `131` (`0x83`) σημαίνει σημείο άκρης Bézier που κλείνει ένα. Η σύγκριση της ωμής τιμής μόνο με `1` ή `3` θα χάσει αυτές τις περιπτώσεις. Άλλες σημαίες, όπως η παύλα (`0x10`) και ο δείκτης (`0x20`), δεν αλλάζουν τον βασικό τύπο τμήματος.
 
-**Συντεταγμένες και μετασχηματισμοί.** Τα σημεία μετρώνται σε points (1/72 ίντσα), με το X να αυξάνεται προς τα δεξιά και το Y προς τα κάτω. Για ένα μη ομαδοποιημένο σχήμα, οι εξαγόμενες συντεταγμένες περιλαμβάνουν ήδη τη θέση που επιστρέφει το [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) και το [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) και αντανακλούν το τρέχον πλάτος και ύψος του. Για παράδειγμα, ένα μη περιστραμμένο ορθογώνιο στο `(100, 200)` με μέγεθος `120 × 80` έχει σύνορα περιγράμματος `(100, 200)`–`(220, 280)`. Μην προσθέτετε ξανά τη θέση του σχήματος. Αφαίρεστε το X και Y του για να λάβετε τις συντεταγμένες σε σχέση με το μη περιστρεφμένο πλαίσιο του.
+**Συντεταγμένες και μετασχηματισμοί.** Τα σημεία μετρώνται σε μονάδες (1/72 ίντσας), με X να αυξάνεται προς τα δεξιά και Y προς τα κάτω. Για ένα σ shape χωρίς ομαδοποίηση, οι εξαγόμενες συντεταγμένες περιλαμβάνουν ήδη τη θέση που επιστρέφει το [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) και το [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) και αντανακλούν το τρέχον πλάτος και ύψος του. Π.χ., ένα μη περιστραμένο ορθογώνιο στο `(100, 200)` με μέγεθος `120 × 80` έχει όρια περιγράμματος `(100, 200)`–`(220, 280)`. Μην προσθέσετε ξανά τη θέση του σ shape. Αφαιρέστε το X και Y του για να αποκτήσετε συντεταγμένες σχετικές με το μη περιστραμένο πλαίσιο του.
 
-Τα εξαγόμενα σημεία δεν εφαρμόζουν την περιστροφή που ορίζεται μέσω του [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) ή τις οριζόντιες και κάθετες αντιστροφές. Για να αναπαραγάγετε το εμφανιζόμενο περίγραμμα, εφαρμόστε εκείνους τους μετασχηματισμούς γύρω από το κέντρο του σχήματος. Για ομαδοποιημένα σχήματα, ληφθείτε υπόψη επίσης τη χαρτογράφηση συντεταγμένων της ομάδας και τους μετασχηματισμούς· μην υποθέτετε ότι τα εξαγόμενα σημεία είναι οι τελικές συντεταγμένες που αποδίδονται στη διαφάνεια ή εφαρμόστε μια μετάθεση ή κλίμακα δύο φορές εάν ήδη εμφανίζεται στο πλαίσιο του παιδιού.
+Τα εξαγόμενα σημεία δεν εφαρμόζουν την περιστροφή που ορίζεται μέσω του [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) ή τις οριζόντιες και κάθετες αναστροφές. Για να αναπαράγετε το εμφανιζόμενο περίγραμμα, εφαρμόστε εκείνους τους μετασχηματισμούς γύρω από το κέντρο του σ shape. Για σ shapes σε ομάδες, λάβετε υπόψη τη χαρτογράφηση και τους μετασχηματισμούς συντεταγμένων της ομάδας· μην υποθέσετε ότι τα εξαγόμενα σημεία είναι οι τελικές συντεταγμένες της διαφάνειας ή ότι πρέπει να εφαρμόσετε ξανά μια μετάφραση ή κλίμακα αν ήδη περιλαμβάνονται στο πλαίσιο του παιδιού.
 
-**Εξέταση έναντι επεξεργασίας.** Οι εξαγόμενοι πίνακες περιγράφουν το περίγραμμα· η αλλαγή τους δεν ενημερώνει το αρχικό σχήμα. Επιλέξτε αυτή τη μέθοδο όταν η ανάλυση ή ο κώδικας σχεδίασής σας απαιτεί πίνακες σημείου/τύπου. Χρησιμοποιήστε το [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) όταν χρειάζεστε εντολές γεωμετρίας στο τοπικό σύστημα συντεταγμένων του σχήματος ή θέλετε να επεξεργαστείτε τη γεωμετρία του. Εφαρμόστε τις επεξεργασμένες διαδρομές μέσω των [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) ή [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
+**Επιθεώρηση έναντι επεξεργασίας.** Οι εξαγόμενοι πίνακες περιγράφουν το περίγραμμα· η αλλαγή τους δεν ενημερώνει το αρχικό σ shape. Επιλέξτε αυτήν τη μέθοδο όταν η ανάλυση ή ο κώδικας σχεδίασης χρειάζεται πίνακες σημείου/τύπου. Χρησιμοποιήστε το [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) όταν χρειάζεστε εντολές γεωμετρίας στο τοπικό σύστημα συντεταγμένων του σ shape ή θέλετε να επεξεργαστείτε τη γεωμετρία του. Εφαρμόστε τις επεξεργασμένες διαδρομές μέσω του [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) ή του [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
 
 ## **Μετατροπή GeometryPath σε GraphicsPath**
 
-Το τρέχον δημόσιο API του Aspose.Slides για C++ δεν αποκαλύπτει μετατροπές μεταξύ διαδρομών γεωμετρίας και διαδρομών γραφικών. Για να εξετάσετε ένα περίγραμμα, χρησιμοποιήστε τα στοιχεία σχήματος όπως περιγράφηκε παραπάνω. Για να επεξεργαστείτε ένα σχήμα, χρησιμοποιήστε διαδρομές γεωμετρίας και εφαρμόστε τις ενημερωμένες διαδρομές στο σχήμα.
+Το τρέχον δημόσιο API του Aspose.Slides για C++ δεν εκθέτει μετατροπές μεταξύ διαδρομών γεωμετρίας και διαδρομών γραφικών. Για την επιθεώρηση περιγράμματος, χρησιμοποιήστε στοιχεία σ shape όπως περιγράφηκε παραπάνω. Για την επεξεργασία σ shape, χρησιμοποιήστε διαδρομές γεωμετρίας και εφαρμόστε τις ενημερωμένες διαδρομές στο σ shape.
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Τι θα συμβεί στο γέμισμα και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
+**Τι συμβαίνει στο γέμισμα και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
 
-Το στυλ παραμένει στο σχήμα· μόνο το περίγραμμα αλλάζει. Το γέμισμα και το περίγραμμα εφαρμόζονται αυτόματα στη νέα γεωμετρία.
+Το στυλ παραμένει στο σ shape· μόνο το περίγραμμα αλλάζει. Το γέμισμα και το περίγραμμα εφαρμόζονται αυτόματα στη νέα γεωμετρία.
 
-**Πώς να περιστρέψω σωστά ένα προσαρμοσμένο σχήμα μαζί με τη γεωμετρία του;**
+**Πώς περιστρέφω σωστά ένα προσαρμοσμένο σ shape μαζί με τη γεωμετρία του;**
 
-Χρησιμοποιήστε τη μέθοδο [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) του σχήματος· η γεωμετρία περιστρέφεται μαζί με το σχήμα επειδή είναι δεσμευμένη στο δικό του σύστημα συντεταγμένων.
+Χρησιμοποιήστε τη μέθοδο [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) του σ shape· η γεωμετρία περιστρέφεται μαζί με το σ shape επειδή είναι δεσμευμένη στο δικό του σύστημα συντεταγμένων.
 
-**Μπορώ να μετατρέψω ένα προσαρμοσμένο σχήμα σε εικόνα για να "κλειδώσω" το αποτέλεσμα;**
+**Μπορώ να μετατρέψω ένα προσαρμοσμένο σ shape σε εικόνα για να “κλειδώσω” το αποτέλεσμα;**
 
-Ναι. Εξάγετε την απαιτούμενη περιοχή της [διαφάνειας](/slides/el/cpp/convert-powerpoint-to-png/) ή του [σχήματος](/slides/el/cpp/shape-thumbnails/) σε μορφή raster· αυτό απλοποιεί την περαιτέρω εργασία με σύνθετες γεωμετρίες.
+Ναι. Εξάγετε την απαιτούμενη περιοχή [slide](/slides/el/cpp/convert-powerpoint-to-png/) ή το ίδιο το [shape](/slides/el/cpp/shape-thumbnails/) σε μορφή raster· αυτό απλοποιεί περαιτέρω εργασία με πολύπλοκες γεωμετρίες.

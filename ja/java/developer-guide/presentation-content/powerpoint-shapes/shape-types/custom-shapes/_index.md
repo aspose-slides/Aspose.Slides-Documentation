@@ -1,83 +1,86 @@
 ---
-title: "Javaでプレゼンテーションシェイプをカスタマイズする"
-linktitle: "カスタムシェイプ"
+title: Javaでプレゼンテーション形状をカスタマイズ
+linktitle: カスタム形状
 type: docs
 weight: 20
 url: /ja/java/custom-shape/
 keywords:
-- "カスタムシェイプ"
-- "シェイプを追加"
-- "シェイプを作成"
-- "シェイプを変更"
-- "シェイプジオメトリ"
-- "ジオメトリパス"
-- "パスポイント"
-- "編集ポイント"
-- "ポイントを追加"
-- "ポイントを削除"
-- "編集操作"
-- "曲線コーナー"
-- "PowerPoint"
-- "プレゼンテーション"
-- "Java"
-- "Aspose.Slides"
-description: "Aspose.Slides for Java を使用して PowerPoint プレゼンテーションのシェイプを作成およびカスタマイズする：ジオメトリパス、曲線コーナー、複合シェイプ。"
+- カスタム形状
+- 形状の追加
+- 形状の作成
+- 形状の変更
+- 形状ジオメトリ
+- ジオメトリパス
+- パスポイント
+- 編集ポイント
+- ポイントの追加
+- ポイントの削除
+- 編集操作
+- 曲線コーナー
+- PowerPoint
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java を使用して PowerPoint プレゼンテーションの形状を作成・カスタマイズ：ジオメトリパス、曲線コーナー、複合形状。"
 ---
 ## **概要**
 
-この記事では、編集ポイントとジオメトリパスを使用してシェイプジオメトリを編集し、Aspose.Slides のプレゼンテーションシェイプをカスタマイズする方法を説明します。[GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) と [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) を使用して既存のシェイプを変更し、基本的なパス編集操作を実行し、ポイントを追加または削除し、更新されたジオメトリをシェイプに適用する方法を示します。
+この記事では、編集ポイントとジオメトリパスを使用して形状ジオメトリを編集することで、Aspose.Slides のプレゼンテーション形状をカスタマイズする方法を説明します。既存の形状を変更し、基本的なパス編集操作を実行し、ポイントを追加または削除し、更新されたジオメトリを形状に適用するために、[GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) と [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) の使用方法を示します。
 
-また、カスタムシェイプや複合シェイプの作成、曲線コーナーを持つシェイプの構築、シェイプジオメトリが閉じているかの判定、シェイプ要素の検査、Java AWT のテキストアウトラインをジオメトリパスに変換する方法も示しています。
+また、カスタム形状や複合形状の作成、曲線コーナーを持つ形状の構築、形状ジオメトリが閉じているかどうかの判定、形状要素の検査、Java AWT のテキストアウトラインをジオメトリパスに変換する方法も示します。
 
-## **編集ポイントを使用してシェイプを変更する**
+## **編集ポイントを使用して形状を変更する**
 
-PowerPoint では、**Edit Points** を使用して四角形を変更できます:
+PowerPoint では、**編集ポイント** を使用して正方形を変更できます：
+
 * 角を内側または外側に移動する。
 * ポイントの曲率を調整する。
 * 新しいポイントを追加する。
 
-ポイントを編集することで、シェイプのアウトラインを変更したり、既存のシェイプを新しいシェイプのベースとして使用したりできます。
+編集ポイントを使用すると、形状のアウトラインを変更したり、既存の形状を新しい形状の基礎として使用したりできます。
 
-## **シェイプ編集のヒント**
+## **形状編集のヒント**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint のシェイプを編集する際は、次の概念を念頭に置いてください:
-* シェイプ（またはそのパス）は閉じている場合と開いている場合があります。
-* シェイプのパスは、セグメントで接続されたアンカーポイントで構成されます。
-* セグメントは直線または曲線のいずれかです。アンカーポイントと制御ハンドルがその形状を決定します。
-* アンカーポイントはコーナーポイント、ストレートポイント、スムーズポイントとして存在します:
-  * コーナーポイントでは、隣接するセグメントが角度で合わさります。
-  * スムーズポイントでは、2 つの制御ハンドルが整列し、アンカーポイントから等距離にあります。
-  * ストレートポイントでは、2 つの制御ハンドルが整列していますが、アンカーポイントからの距離は異なる場合があります。
-* アンカーポイントを移動したり、ハンドルを調整したりすると、シェイプのアウトラインが変わります。
+PowerPoint の形状を編集するときは、次の概念を覚えておいてください：
 
-編集ポイントを使用して PowerPoint のシェイプを編集するには、**Aspose.Slides** が [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) クラスと [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) インターフェイスを提供します。
+* 形状（またはそのパス）は閉じている場合と開いている場合があります。
+* 形状のパスは、セグメントで接続されたアンカーポイントで構成されます。
+* セグメントは直線または曲線になり得ます。アンカーポイントと制御ハンドルがその形状を決定します。
+* アンカーポイントは、コーナーポイント、ストレートポイント、スムーズポイントのいずれかです：
+  * コーナーポイントでは、隣接するセグメントが角度を持って接続できます。
+  * スムーズポイントでは、2 つの制御ハンドルが揃っており、アンカーポイントから等距離です。
+  * ストレートポイントでは、2 つの制御ハンドルは揃っていますが、アンカーポイントからの距離は異なる場合があります。
+* アンカーポイントを移動したりハンドルを調整したりすると、形状のアウトラインが変わります。
+
+編集ポイントを使用して PowerPoint の形状を編集するには、**Aspose.Slides** が [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) クラスと [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) インターフェイスを提供します。
+
 * [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) のインスタンスは、[IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/) オブジェクトのジオメトリパスを表します。
 * [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/) インスタンスから [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) を取得するには、[IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) メソッドを使用できます。
-* シェイプに [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) を設定するには、単一パスのシェイプの場合は [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) を、複数パスのシェイプの場合は [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) を使用します。
-* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) の下にあるメソッドを使用できます。
+* 形状の [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) を設定するには、単一パスの形状には [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) を、複数パスの形状には [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) を使用できます。
+* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) のメソッドを利用できます。
 * [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setStroke-boolean-) と [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) メソッドを使用して、ジオメトリパスの外観を設定できます。
-* [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) メソッドを使用して、[GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/geometryshape/) のジオメトリパスをパスセグメントの配列として取得できます。
-* 追加のシェイプジオメトリカスタマイズオプションへアクセスするには、[java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) をその [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) で読み取り、セグメントを [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) に再現できます。
+* [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) メソッドを使用すると、[GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/geometryshape/) のジオメトリパスをパスセグメントの配列として取得できます。
+* 形状ジオメトリのカスタマイズオプションにさらにアクセスするには、[java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) をその [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) で読み取り、セグメントを [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) に再現できます。
 
 ## **シンプルな編集操作**
 
-ジオメトリパスを編集するには、以下のメソッドを使用します。インデックスを受け取るオーバーロードは、パスのセグメント配列のゼロベース位置にセグメントを挿入します。
+以下のメソッドを使用してジオメトリパスを編集します。インデックスを受け取るオーバーロードは、パスのセグメント配列のゼロベース位置にセグメントを挿入します。
 
 | 操作 | メソッド |
 | --- | --- |
 | 直線を追加または挿入する。 | [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) |
-| 2 つの制御点と終点を持つ三次ベジエ曲線を追加または挿入する。 | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
-| 1 つの制御点と終点を持つ二次ベジエ曲線を追加または挿入する。 | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| 2 つの制御ポイントと終点を持つ三次ベジエ曲線を追加または挿入する。 | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| 1 つの制御ポイントと終点を持つ二次ベジエ曲線を追加または挿入する。 | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
 | 指定された寸法と角度（度）で楕円弧を追加する。 | [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
-| 終点と開始点を接続して現在の図形を閉じる。 | [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) |
+| 終点を開始点に接続して現在の図形を閉じる。 | [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) |
 | 図形の開始点を設定する。 | [GeometryPath.moveTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#moveTo-float-float-) |
 | ゼロベースインデックスでセグメントを削除する。 | [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-## **シェイプにカスタムポイントを追加する**
+## **形状にカスタムポイントを追加する**
 
-この例では、[GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) を使用して長方形シェイプに 2 つのポイントを挿入し、編集されたパスを [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) で適用します。座標はシェイプに対してローカルで、2 つの新しいポイントはシェイプの中心にあり、左側から 100 ポイント、上側から 50 ポイントの位置です。セグメントインデックス 1 と 4 がそれぞれ上部と下部のエッジに配置され、これらのエッジを内側に引っ張ります。
+この例では、[GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) を使用して矩形形状に 2 つのポイントを挿入し、[IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) で編集されたパスを適用します。座標は形状に対してローカルで、2 つの新しいポイントは中心にあり、左から 100 ポイント、上から 50 ポイントの位置です。セグメントインデックス 1 と 4 はそれらを上部と下部のエッジに配置し、エッジを内側に引っ張ります。
 
 ```java
 import com.aspose.slides.*;
@@ -100,9 +103,9 @@ try {
 
 ![example1_image](custom_shape_1.png)
 
-## **シェイプからポイントを削除する**
+## **形状からポイントを削除する**
 
-この例では、[GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) を使用してゼロベースインデックス 2 のセグメントを削除し、ハート形のアウトラインを変更します。[IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) で変更されたパスを適用すると、シェイプの輪郭が更新されます。
+この例では、ゼロベースインデックス 2 のセグメントを [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) で削除してハート形のアウトラインを変更します。[IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) で変更されたパスを適用すると、形状の輪郭が更新されます。
 
 ```java
 import com.aspose.slides.*;
@@ -121,12 +124,11 @@ try {
     presentation.dispose();
 }
 ```
-
 ![example2_image](custom_shape_2.png)
 
-## **カスタムシェイプを作成する**
+## **カスタム形状を作成する**
 
-この例では、[GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) を使用して5角形の星形を構築します。外側半径 100 ポイントと内側半径 50 ポイントを交互に設定して先端と凹みを定義し、72 度のステップで5つの先端を等間隔に配置します。[GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) でパスを閉じ、[IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) を使用して長方形シェイプに適用し、アウトラインを置き換えます。
+この例では、[GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) を使用して五角星を作成します。外側と内側の半径を 100 と 50 ポイントで交互に設定し、先端と凹みを定義します。72 度のステップで五つの先端が均等に配置されます。パスは [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) で閉じられ、[IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) を使用して矩形形状に適用され、アウトラインが置き換えられます。
 
 ```java
 import com.aspose.slides.*;
@@ -175,12 +177,11 @@ try {
     presentation.dispose();
 }
 ```
-
 ![example3_image](custom_shape_3.png)
 
-## **複合カスタムシェイプを作成する**
+## **複合カスタム形状を作成する**
 
-この例では、シェイプの上部と下部の三分の一に対して 2 つの閉じた [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) オブジェクトを定義します。[IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) で両方のパスを適用すると、中央の三分の一に隙間のある単一の複合シェイプが作成されます。
+この例では、形状の上部と下部の 3 分の 1 に対応する 2 つの閉じた [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) オブジェクトを定義します。[IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) で両方のパスを適用すると、中央の 3 分の 1 にギャップのある単一の複合形状が作成されます。
 
 ```java
 import com.aspose.slides.*;
@@ -210,12 +211,11 @@ try {
     presentation.dispose();
 }
 ```
-
 ![example4_image](custom_shape_4.png)
 
-## **曲線コーナー付きカスタムシェイプを作成する**
+## **曲線コーナー付きカスタム形状を作成する**
 
-この例では、直線セグメントと [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) を組み合わせて内側に曲がったコーナーを持つシェイプを作成します。各コーナーサイズはアークの幅と高さ（ポイント）を設定し、-90 度のスイープで反時計回りの四分円弧を描きます。完成したパスは [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) で適用され、プレゼンテーションは PPTX 形式で保存されます。
+この例では、直線セグメントと [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) を組み合わせて、内側に曲がったコーナーを持つ形状を作成します。各コーナーサイズは弧の幅と高さ（ポイント）を設定し、-90 度のスイープで反時計回りの四分円弧を描きます。完成したパスは [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) で適用され、プレゼンテーションは PPTX 形式で保存されます。
 
 ```java
 import com.aspose.slides.*;
@@ -263,9 +263,9 @@ try {
 }
 ```
 
-## **シェイプジオメトリが閉じているかを確認する**
+## **形状ジオメトリが閉じているか確認する**
 
-以下のヘルパーは、すべての非空ジオメトリパスが閉じるセグメントで終わっているかを確認します。[IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) を読み取り、最終セグメントの [IPathSegment.getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) と [PathCommandType.Close](https://reference.aspose.com/slides/java/com.aspose.slides/pathcommandtype/) を比較します。非空パスがない場合は false を返します。このチェックは各パスの最終コマンドを確認するもので、パス内のすべてのサブフィギュアを検査するわけではありません。例では矩形に対して `true` を出力します。
+以下のヘルパーは、すべての非空ジオメトリパスが閉じるセグメントで終わるかどうかを確認します。[IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) を読み取り、最後のセグメントの [IPathSegment.getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) を [PathCommandType.Close](https://reference.aspose.com/slides/java/com.aspose.slides/pathcommandtype/) と比較します。非空パスがない場合は false を返します。各パスの最終コマンドをチェックするだけで、パス内のすべてのサブフィギュアは検査しません。この例では矩形に対して `true` を出力します。
 
 ```java
 import com.aspose.slides.*;
@@ -305,11 +305,64 @@ try {
 }
 ```
 
-## **シェイプ要素の抽出と検査**
+## **ジオメトリパスコマンドを検査する**
 
-[IGeometryShape.createShapeElements](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#createShapeElements--) を使用して、パスポイントとポイントタイプを含む要素として既存のシェイプを検査します。返された各 [IShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/ishapeelement/) を [ShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/) にキャストし、[getPathPoints](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathPoints--) と [getPathTypes](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathTypes--) メソッドでポイント配列とタイプ配列を取得します。この表現は輪郭解析やジオメトリをカスタム描画ツールに渡す際に便利です。
+アプリケーションの作業ディレクトリに [contour.pptx](contour.pptx) をダウンロードして配置します。最初のスライドの最初の形状は、直線の上端、三次ベジエ曲線、直線の閉じる端を持ちます。[getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) を使用して形状のパスを読み取り、[getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) で各パスのセグメントを描画順に取得します。各セグメントについて、[getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) がコマンドを識別し、[getSegmentData](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getSegmentData--) が返す値の解釈方法を決定します。
 
-この例では input.pptx を開き、最初のスライド上の最初のジオメトリシェイプを直接見つけてそのパスセグメントを出力します。直線と曲線のセグメントを持つシェイプが含まれるプレゼンテーションを使用すると、両方の出力を確認できます。グループ内は検索しません。
+```java
+import com.aspose.slides.*;
+import java.util.Arrays;
+
+Presentation presentation = new Presentation("contour.pptx");
+try {
+    IGeometryShape shape = (IGeometryShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IGeometryPath[] paths = shape.getGeometryPaths();
+
+    for (int i = 0; i < paths.length; i++) {
+        IPathSegment[] segments = paths[i].getPathData();
+        for (int j = 0; j < segments.length; j++) {
+            byte command = segments[j].getPathCommand();
+            float[] data = segments[j].getSegmentData();
+            String detail;
+            switch (command) {
+                case PathCommandType.MoveTo:
+                case PathCommandType.LineTo:
+                    detail = String.format("destination=(%s, %s)", data[0], data[1]);
+                    break;
+                case PathCommandType.CubicBezierTo:
+                    detail = String.format("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", data[0], data[1], data[2], data[3], data[4], data[5]);
+                    break;
+                case PathCommandType.Close:
+                    detail = "no coordinates";
+                    break;
+                default:
+                    detail = "raw=" + Arrays.toString(data);
+            }
+            String name = PathCommandType.getName(PathCommandType.class, command);
+            System.out.printf("Path %d, segment %d: %s %s%n", i, j, name, detail);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+形状はスライド上で (200, 100) ポイントに配置されています。報告される座標は形状に対してローカルで、(0, 0) が左上隅にあり、x は右方向に、y は下方向に増加します。閉じるセグメントは追加の座標なしで開始点に戻ります。
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **形状要素の抽出と検査**
+
+[IGeometryShape.createShapeElements](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#createShapeElements--) を使用して、パス点と点タイプを含む要素として既存の形状を検査します。返された各 [IShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/ishapeelement/) を [ShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/) にキャストし、[getPathPoints](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathPoints--) と [getPathTypes](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathTypes--) メソッドで点とタイプの配列を取得します。この表現は輪郭解析やジオメトリをカスタム描画ツールに渡す際に役立ちます。
+
+この例では input.pptx を開き、最初のスライド上の最初のジオメトリ形状を直接見つけて、そのパスセグメントを出力します。直線と曲線のセグメントを持つ形状が含まれるプレゼンテーションを使用すると、両方の出力を確認できます。グループ内部は検索しません。
 
 ```java
 import com.aspose.slides.*;
@@ -337,7 +390,7 @@ try {
             System.out.println("Shape element:");
 
             for (int i = 0; i < points.length; i++) {
-                int pointType = types[i] & 0x07; // Keep the segment type, excluding flags.
+                int pointType = types[i] & 0x07; // セグメントタイプを保持し、フラグは除外します。
                 switch (pointType) {
                     case 0:
                         System.out.println("Start figure at " + points[i]);
@@ -362,22 +415,21 @@ try {
 }
 ```
 
-配列はインデックスで対応しています: `points[i]` は点、`types[i]` はその役割を示します。タイプ `0` は図形の開始を表し、タイプ `1` は前の点から現在の点へ線を描きます。三次ベジエセグメントは前の終点から開始し、連続するタイプ `3` のエントリ3つ（2 つの制御点と新しい終点）を使用します。ループはこれら3つのエントリをまとめて処理し、終点が閉じているかを確認します。
+配列はインデックスで対応します：`points[i]` は点、`types[i]` はその役割を示します。タイプ `0` は図形の開始、タイプ `1` は前の点から現在の点へ線を描きます。三次ベジエセグメントは前の終点から開始し、連続する 3 つのタイプ `3` エントリ（2 つの制御点と新しい終点）を使用します。ループはこれら 3 エントリをまとめて消費し、終点が閉じているかをチェックします。
 
-ポイントタイプにはフラグも含まれます。`0x07` でマスクしてセグメントタイプを識別し、`0x80` を別途テストして閉じたサブパスかどうかを検出します。例として、`129`（`0x81`）はサブパスを閉じる線の終点、`131`（`0x83`）はサブパスを閉じるベジエの終点を意味します。Java はこれらのフラグを符号付きバイトで保持しているため、マスク処理で意図したビット値が保たれます。生の値を `1` や `3` のみと比較するとこれらのケースを見逃します。ダッシュ（`0x10`）やマーカー（`0x20`）などの他のフラグは基礎セグメントタイプを変更しません。
+ポイントタイプにはフラグも含まれます。`0x07` でマスクしてセグメントタイプを特定し、`0x80` を別途テストして閉じたサブパスかどうかを検出します。例として、`129`（`0x81`）はサブパスを閉じる線の終点を意味し、`131`（`0x83`）はサブパスを閉じるベジエの終点を意味します。Java はこれらのフラグを符号付きバイトで保持しており、マスクすることで意図したビット値が保たれます。生の値を `1` または `3` とだけ比較するとこれらのケースを見逃します。ダッシュ（`0x10`）やマーカー（`0x20`）などの他のフラグは、基本セグメントタイプを変更しません。
 
-**座標と変換.**  
-ポイントはポイント単位（1 イン­チの 1/72）で測定され、X は右方向に、Y は下方向に増加します。グループ化されていないシェイプの場合、抽出された座標はすでに [getX](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getX--) と [getY](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getY--) が返す位置を含み、現在の幅と高さを反映しています。たとえば、サイズ `120 × 80` の回転していない矩形が `(100, 200)` にある場合、輪郭の境界は `(100, 200)`–`(220, 280)` です。シェイプの位置を再度加算しないでください。X と Y を減算して、回転していないフレームに対する相対座標を取得します。
+**座標と変換。** ポイントは points（1/72 インチ）で測定され、X は右方向に、Y は下方向に増加します。グループ化されていない形状の場合、抽出された座標はすでに [getX](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getX--) と [getY](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getY--) が返す位置を含み、現在の幅と高さを反映しています。例として、サイズ `120 × 80` の回転していない矩形が `(100, 200)` にある場合、輪郭境界は `(100, 200)`–`(220, 280)` となります。形状の位置を再度加算しないでください。X と Y を減算して、回転していないフレームに対する相対座標を取得します。
 
-抽出されたポイントは、[getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getRotation--) が返すシェイプの回転や水平・垂直の反転は適用されません。表示された輪郭を再現するには、シェイプの中心を基準にそれらの変換を適用してください。グループ化されたシェイプの場合、グループ座標のマッピングと変換も考慮します。抽出されたポイントが最終的なスライド座標であると想定したり、子フレームに既に反映されている平行移動やスケールを二重に適用したりしないでください。
+抽出されたポイントは、[getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getRotation--) が返す形状の回転や水平・垂直の反転は適用されていません。表示された輪郭を再現するには、形状の中心を基準にこれらの変換を適用してください。グループ化された形状の場合は、グループ座標のマッピングと変換も考慮してください。抽出されたポイントが最終的なスライド座標であると想定したり、子フレームにすでに反映されている平行移動やスケールを二重に適用したりしないでください。
 
-**検査と編集の違い.** 抽出された配列は輪郭を記述しますが、変更しても元のシェイプは更新されません。ポイント/タイプ配列が必要な解析や描画コードの場合にこの方法を選択してください。シェイプのローカル座標系でジオメトリコマンドが必要な場合やジオメトリを編集したい場合は [getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) を使用します。編集したパスは [setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) または [setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) を通じて適用します。
+**検査と編集の違い。** 抽出された配列は輪郭を記述しており、それらを変更しても元の形状は更新されません。ポイント/タイプ配列が必要な分析や描画コードの場合にこの方法を選択してください。形状のローカル座標系でジオメトリコマンドが必要、またはジオメトリを編集したい場合は [getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) を使用します。編集したパスは [setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) または [setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) を通じて適用してください。
 
 ## **Java AWT Shape を GeometryPath に変換する**
 
-この例では、矩形のアウトラインとジオメトリに変換されたテキストを組み合わせます。アウトラインの [setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) メソッドで塗りつぶしを無効にします。[GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) が [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) にテキストのアウトラインを作成します。その [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) は move、line、quadratic、cubic、closing の各セグメントを提供し、例ではそれらを [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) に再現します。
+この例では、矩形のアウトラインとジオメトリに変換されたテキストを組み合わせます。アウトラインの [setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) メソッドで塗りつぶしを無効にします。[GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) が [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) にテキストのアウトラインを作成します。その [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) が move、line、quadratic、cubic、閉じるセグメントを提供し、例ではそれらを [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) に再生します。
 
-テキストは 40 ポイントの Arial フォントを使用します。アウトラインは水平方向に 20 ポイントオフセットされ、視覚的な上端がシェイプの上端から 10 ポイント下に配置されます。テキストパスは塗りつぶされ、元の矩形はアウトラインのままです。[IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) で両方のパスを適用すると、矩形とテキストを含む単一のシェイプが生成されます。
+テキストは 40 ポイントの Arial フォントを使用します。アウトラインは水平方向に 20 ポイントオフセットし、視覚的な上部が形状の上端より 10 ポイント下に配置されます。テキストパスは塗りつぶされ、元の矩形はアウトラインのままです。[IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) で両方のパスを適用すると、矩形とテキストを含む単一の形状が作成されます。
 
 ```java
 import com.aspose.slides.*;
@@ -392,16 +444,16 @@ import java.awt.image.BufferedImage;
 
 Presentation presentation = new Presentation();
 try {
-    // 新しいシェイプを作成
+    // 新しい形状を作成
     ISlide slide = presentation.getSlides().get_Item(0);
 
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
-    // シェイプのジオメトリパスを取得
+    // 形状のジオメトリパスを取得
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
     originalPath.setFillMode(PathFillModeType.None);
 
-    // テキストで新しいグラフィックパスを作成
+    // テキスト付きの新しいグラフィックパスを作成
     Shape graphicsPath;
     Font font = new Font("Arial", Font.PLAIN, 40);
     String text = "Text in shape";
@@ -451,22 +503,24 @@ try {
 
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // シェイプに新しいジオメトリパスと元のジオメトリパスの組み合わせを設定
+    // 新しいジオメトリパスと元のジオメトリパスの組み合わせを形状に設定
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
     presentation.dispose();
 }
 ```
-
 ![example5_image](custom_shape_5.png)
 
-## **よくある質問**
+## **FAQ**
 
-**ジオメトリを置き換えた後、塗りつぶしとアウトラインはどうなりますか？**  
-スタイルはシェイプに残り、輪郭だけが変わります。塗りつぶしとアウトラインは自動的に新しいジオメトリに適用されます。
+**ジオメトリを置き換えた後、塗りつぶしとアウトラインはどうなりますか？**
 
-**ジオメトリとともにカスタムシェイプを正しく回転させるにはどうすればよいですか？**  
-[setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) メソッドを使用します。ジオメトリはシェイプの座標系にバインドされているため、シェイプとともに回転します。
+スタイルは形状に残り、輪郭だけが変わります。塗りつぶしとアウトラインは新しいジオメトリに自動的に適用されます。
 
-**カスタムシェイプを画像に変換して結果を「ロック」できますか？**  
-はい。必要な [slide](/slides/ja/java/convert-powerpoint-to-png/) 領域または [shape](/slides/ja/java/create-shape-thumbnails/) 自体をラスタ形式でエクスポートしてください。これにより、複雑なジオメトリの追加作業が簡略化されます。
+**ジオメトリとともにカスタム形状を正しく回転させるにはどうすればよいですか？**
+
+形状の [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) メソッドを使用してください。ジオメトリは形状にバインドされた座標系に従うため、形状とともに回転します。
+
+**カスタム形状を画像に変換して結果を「固定」できますか？**
+
+はい。必要な [slide](/slides/ja/java/convert-powerpoint-to-png/) エリアもしくは [shape](/slides/ja/java/create-shape-thumbnails/) 自体をラスター形式でエクスポートしてください。これにより、複雑なジオメトリの後続処理が簡素化されます。

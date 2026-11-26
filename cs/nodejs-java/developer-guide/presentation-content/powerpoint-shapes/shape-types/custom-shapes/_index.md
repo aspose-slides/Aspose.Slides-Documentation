@@ -22,38 +22,40 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Vytvořte a přizpůsobte tvary v PowerPoint prezentacích pomocí JavaScriptu a Aspose.Slides pro Node.js: geometrické cesty, zakřivené rohy, kompozitní tvary."
+description: "Vytvářejte a přizpůsobujte tvary v prezentacích PowerPoint pomocí JavaScriptu a Aspose.Slides pro Node.js: geometrické cesty, zakřivené rohy, složené tvary."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak přizpůsobit tvary prezentace v Aspose.Slides úpravou geometrie tvaru pomocí editovacích bodů a geometrických cest. Ukazuje, jak pracovat s [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) pro úpravu existujících tvarů, provádět základní operace úpravy cesty, přidávat nebo odstraňovat body a použít aktualizovanou geometrii zpět na tvar. Také demonstruje, jak vytvořit vlastní a kompozitní tvary, stavět tvary s zakřivenými rohy, zjistit, zda je geometrie tvaru uzavřená, prohlížet prvky tvaru a převést obrysy textu Java AWT na geometrické cesty.
+Tento článek vysvětluje, jak přizpůsobit tvary prezentace v Aspose.Slides úpravou geometrie tvaru pomocí editačních bodů a geometrických cest. Ukazuje, jak pracovat s [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) k úpravě existujících tvarů, provádění základních operací úpravy cest, přidávání nebo odstraňování bodů a aplikaci aktualizované geometrie zpět na tvar.
 
-## **Změna tvaru pomocí editovacích bodů**
+Také ukazuje, jak vytvořit vlastní a složené tvary, sestavit tvary se zakřivenými rohy, zjistit, zda je geometrie tvaru uzavřená, prozkoumat elementy tvaru a převést obrysy textu Java AWT na geometrické cesty.
+
+## **Změna tvaru pomocí editačních bodů**
 
 V PowerPointu můžete použít **Edit Points** k úpravě čtverce:
 
-* Pohněte rohem dovnitř nebo ven.
-* Upravte zakřivení v bodě.
-* Přidejte nové body.
+* Posunout roh dovnitř nebo ven.
+* Upravit zakřivení v bodě.
+* Přidat nové body.
 
-Úprava bodů vám umožní měnit obrys tvaru nebo použít existující tvar jako základ pro nový.
+Úprava bodů vám umožní změnit obrys tvaru nebo použít existující tvar jako základ pro nový.
 
 ## **Tipy pro úpravu tvarů**
 
-![overview_image](custom_shape_0.png)
+![přehled_obrázek](custom_shape_0.png)
 
 Při úpravě tvarů v PowerPointu si pamatujte následující pojmy:
 
 * Tvar (nebo jeho cesta) může být buď uzavřený, nebo otevřený.
-* Cesta tvaru se skládá z kotečních bodů spojených segmenty.
-* Segment může být přímý nebo zakřivený. Koteční body a ovládací úchyty určují jeho tvar.
-* Koteční body existují jako rohové body, přímé body nebo hladké body:
+* Cesta tvaru se skládá z ukotvených bodů spojených segmenty.
+* Segment může být přímý nebo zakřivený. Ukotvené body a ovládací úchyty určují jeho tvar.
+* Ukotvené body existují jako rohové body, přímé body nebo hladké body:
   * U rohového bodu se sousední segmenty mohou setkat pod úhlem.
-  * U hladkého bodu jsou dva ovládací úchyty zarovnané a stejně vzdálené od kotečního bodu.
-  * U přímého bodu jsou dva ovládací úchyty zarovnané, ale mohou mít různou vzdálenost od kotečního bodu.
-* Přesunutí kotečních bodů nebo úprava jejich úchytných úchytů mění obrys tvaru.
+  * U hladkého bodu jsou dva ovládací úchyty zarovnány a stejně vzdálené od ukotveného bodu.
+  * U přímého bodu jsou dva ovládací úchyty zarovnány, ale mohou mít různou vzdálenost od ukotveného bodu.
+* Přesun ukotvených bodů nebo úprava jejich úchytů mění obrys tvaru.
 
-Pro úpravu tvarů v PowerPointu pomocí editovacích bodů poskytuje **Aspose.Slides** třídu [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+Pro úpravu tvarů v PowerPointu pomocí editačních bodů poskytuje **Aspose.Slides** třídu [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
 * Instance [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) představuje geometrickou cestu objektu [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/).
 * Pro získání [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) z instance [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) můžete použít metodu [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths).
@@ -61,25 +63,25 @@ Pro úpravu tvarů v PowerPointu pomocí editovacích bodů poskytuje **Aspose.S
 * Pro přidání segmentů můžete použít metody pod [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 * Pomocí metod [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) a [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) můžete nastavit vzhled geometrické cesty.
 * Pomocí metody [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) můžete získat geometrickou cestu [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) jako pole segmentů cesty.
-* Pro přístup k dalším možnostem přizpůsobení geometrie tvaru můžete načíst [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) pomocí jeho [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) a přehrát segmenty na [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+* Pro přístup k dalším možnostem přizpůsobení geometrie tvaru můžete číst [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) pomocí jeho [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) a přehrát segmenty na [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
 ## **Jednoduché operace úpravy**
 
-Použijte následující metody pro úpravu geometrické cesty. Přetížení, která přijímají index, vloží segment na tuto nulovou pozici v poli segmentů cesty.
+Použijte následující metody k úpravě geometrické cesty. Přetížení, která přijímají index, vloží segment na nultou pozici v poli segmentů cesty.
 
 | Operace | Metoda |
 | --- | --- |
 | Přidat nebo vložit přímou čáru. | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
-| Přidat nebo vložit kubickou Bézierovu křivku se dvěma řídicími body a koncovým bodem. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| Přidat nebo vložit kvadratickou Bézierovu křivku s jedním řídicím bodem a koncovým bodem. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Přidat nebo vložit kubickou Bézierovu křivku se dvěma ovládacími body a koncovým bodem. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Přidat nebo vložit kvadratickou Bézierovu křivku s jedním ovládacím bodem a koncovým bodem. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
 | Přidat eliptický oblouk se zadanými rozměry a úhly ve stupních. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
-| Uzavřít aktuální obrazec spojením jeho koncového bodu se startovacím bodem. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
-| Nastavit výchozí bod obrazce. | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
-| Odstranit segment na nulovém indexu. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
+| Uzavřít aktuální figurku spojením koncového bodu se startovacím bodem. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
+| Nastavit počáteční bod figury. | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
+| Odstranit segment na nultém indexu. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **Přidání vlastních bodů do tvaru**
 
-Tento příklad vloží dva body do obdélníkového tvaru pomocí [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) a použije upravenou cestu s [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). Souřadnice jsou místní k tvaru: oba nové body jsou ve jeho středu, 100 bodů od levého okraje a 50 bodů od horního. Indexy segmentů 1 a 4 je umístí na horní a spodní hranu, které přitáhne dovnitř.
+Tento příklad vloží dva body do obdélníkového tvaru pomocí [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) a aplikuje upravenou cestu pomocí [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). Souřadnice jsou lokální k tvaru: oba nové body jsou uprostřed, 100 bodů od levého okraje a 50 bodů od horního. Indexy segmentů 1 a 4 je umístí na horní a dolní okraj, čímž tyto okraje stáhnou dovnitř.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -99,12 +101,11 @@ try {
     presentation.dispose();
 }
 ```
-
-![example1_image](custom_shape_1.png)
+![příklad1_obrázek](custom_shape_1.png)
 
 ## **Odstranění bodů z tvaru**
 
-Tento příklad mění obrys ve tvaru srdce odstraněním segmentu na nulovém indexu 2 pomocí [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). Použití upravené cesty s [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) aktualizuje konturu tvaru.
+Tento příklad mění obrys ve tvaru srdce odstraněním segmentu na nultém indexu 2 pomocí [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). Aplikace upravené cesty pomocí [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) aktualizuje konturu tvaru.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -123,12 +124,11 @@ try {
     presentation.dispose();
 }
 ```
-
-![example2_image](custom_shape_2.png)
+![příklad2_obrázek](custom_shape_2.png)
 
 ## **Vytvoření vlastního tvaru**
 
-Tento příklad vytvoří pěticípou hvězdu pomocí [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). Střídavé vnější a vnitřní poloměry 100 a 50 bodů definují špičky a zapuštění; krok 72 stupňů rovnoměrně rozmístí pět špiček. Cesta je uzavřena pomocí [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) a aplikována na obdélníkový tvar pomocí [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), čímž nahradí jeho obrys.
+Tento příklad vytvoří pětihrotou hvězdu pomocí [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). Střídavé vnější a vnitřní poloměry 100 a 50 bodů definují špičky a zapuštění; krok 72 stupňů rovnoměrně rozmístí pět špiček. Cesta je uzavřena pomocí [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) a aplikována na obdélníkový tvar pomocí [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), čímž nahradí jeho obrys.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -163,12 +163,11 @@ try {
     presentation.dispose();
 }
 ```
+![příklad3_obrázek](custom_shape_3.png)
 
-![example3_image](custom_shape_3.png)
+## **Vytvoření složeného vlastního tvaru**
 
-## **Vytvoření kompozitního vlastního tvaru**
-
-Tento příklad definuje dva uzavřené objekty [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) pro horní a spodní třetinu tvaru. Aplikace obou cest pomocí [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) vytvoří jeden kompozitní tvar s mezerou přes jeho střední třetinu.
+Tento příklad definuje dva uzavřené objekty [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) pro horní a dolní třetinu tvaru. Aplikace obou cest pomocí [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) vytvoří jedinečný složený tvar s mezerou přes střední třetinu.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -200,12 +199,11 @@ try {
     presentation.dispose();
 }
 ```
-
-![example4_image](custom_shape_4.png)
+![příklad4_obrázek](custom_shape_4.png)
 
 ## **Vytvoření vlastního tvaru se zakřivenými rohy**
 
-Tento příklad kombinuje přímé segmenty s [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) k vytvoření tvaru se zakřivenými rohy dovnitř. Velikost každého rohu určuje šířku a výšku oblouku v bodech a -90° úhlový oblouk nakreslí proti směru hodinových ručiček čtvrtkruh. Dokončená cesta je použita pomocí [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) a prezentace je uložena ve formátu PPTX.
+Tento příklad kombinuje přímé segmenty s [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo), aby vytvořil tvar se zakřivenými rohy dovnitř. Velikost každého rohu určuje šířku a výšku oblouku v bodech a úhel -90 stupňů kreslí proti směru hodinových ručiček čtvrtkruh. Dokončená cesta je aplikována pomocí [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), a prezentace je uložena ve formátu PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -246,9 +244,9 @@ try {
 }
 ```
 
-## **Zjištění, zda je geometrie tvaru uzavřená**
+## **Zjistit, zda je geometrie tvaru uzavřená**
 
-Následující pomocná metoda kontroluje, zda každá neprázdná geometrická cesta končí uzavíracím segmentem. Načte [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) a porovná poslední segmentův [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) s [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). Vrátí false, pokud neexistují neprázdné cesty. Tato metoda kontroluje poslední příkaz každé cesty; neprohlíží každou podfigurku v cestě. Příklad vytiskne `true` pro obdélník.
+Následující pomocná funkce kontroluje, zda každá neprázdná geometrická cesta končí uzavíracím segmentem. Načte [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData), a porovná poslední segmentův [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) s [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). Vrátí false, pokud neexistují neprázdné cesty. Tato kontrola zkoumá poslední příkaz každé cesty; neinspektuje každou podfiguru uvnitř cesty. Příklad vypíše `true` pro obdélník.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -282,11 +280,61 @@ try {
 }
 ```
 
-## **Extrahování a kontrola prvků tvaru**
+## **Prozkoumání příkazů geometrické cesty**
 
-Použijte [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) k prozkoumání existujícího tvaru jako prvky obsahující body cesty a typy bodů. Každý vrácený [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) použijte k získání polí bodů a typů pomocí metod [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) a [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes). Toto znázornění je užitečné pro analýzu obrysu nebo předání geometrie vlastním nástrojům pro kreslení.
+Stáhněte [contour.pptx](contour.pptx) a umístěte jej do pracovního adresáře aplikace. První tvar na první snímku má rovnou horní hranu, kubickou Bézierovu křivku a rovnou uzavírací hranu. Použijte [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths), abyste načetli cesty tvaru, a [getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData), abyste přečetli segmenty každé cesty ve pořadí kreslení. Pro každý segment [getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) určuje příkaz a stanoví, jak interpretovat hodnoty vrácené metodou [getSegmentData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getSegmentData).
 
-Příklad otevře input.pptx, najde první geometrický tvar přímo na první snímku a vytiskne jeho segmenty cesty. Použijte prezentaci obsahující tvar s přímými i zakřivenými segmenty, abyste viděli oba typy výstupu. Neprohledává skupiny.
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("contour.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paths = shape.getGeometryPaths();
+    for (const [i, path] of paths.entries()) {
+        const segments = path.getPathData();
+        for (const [j, segment] of segments.entries()) {
+            const command = segment.getPathCommand();
+            const data = segment.getSegmentData();
+            let detail;
+            switch (command) {
+                case slides.PathCommandType.MoveTo:
+                case slides.PathCommandType.LineTo:
+                    const name = command === slides.PathCommandType.MoveTo ? "MoveTo" : "LineTo";
+                    detail = `${name} destination=(${data[0]}, ${data[1]})`;
+                    break;
+                case slides.PathCommandType.CubicBezierTo:
+                    detail = `CubicBezierTo control1=(${data[0]}, ${data[1]}) control2=(${data[2]}, ${data[3]}) end=(${data[4]}, ${data[5]})`;
+                    break;
+                case slides.PathCommandType.Close:
+                    detail = "Close no coordinates";
+                    break;
+                default:
+                    detail = `command=${command} raw=[${data.join(", ")}]`;
+            }
+            console.log(`Path ${i}, segment ${j}: ${detail}`);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Tvar leží na (200, 100) bodech na snímku. Zobrazené souřadnice jsou lokální k tvaru, s (0, 0) v levém horním rohu, x roste doprava a y roste dolů. Uzavírací segment se vrací na počáteční bod bez dalších souřadnic.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+![PowerPoint tvar s rovnou horní hranou, zakřivenou hranou od pravého horního ke spodnímu levému a rovnou levou hranou](contour.png)
+
+## **Extrahování a prozkoumání elementů tvaru**
+
+Použijte [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements), abyste prozkoumali existující tvar jako elementy obsahující body cesty a typy bodů. Použijte každou vrácenou [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/), k získání polí bodů a typů prostřednictvím metod [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) a [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes). Toto znázornění je užitečné pro analýzu kontury nebo předání geometrie do vlastních kreslicích nástrojů.
+
+Příklad otevírá input.pptx, najde první geometrický tvar přímo na první snímku a vytiskne jeho segmenty cesty. Použijte prezentaci obsahující tvar s přímými i zakřivenými segmenty, abyste viděli oba typy výstupu. Nepřepočítává uvnitř skupin.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -314,7 +362,7 @@ try {
             console.log("Shape element:");
 
             for (let i = 0; i < points.length; i++) {
-                const pointType = types[i] & 0x07; // Zachovat typ segmentu, bez příznaků.
+                const pointType = types[i] & 0x07; // Zachovat typ segmentu, vyjma příznaků.
                 switch (pointType) {
                     case 0:
                         console.log("Start figure at " + points[i]);
@@ -324,7 +372,7 @@ try {
                         break;
                     case 3:
                         console.log("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
-                        i += 2; // Consume both control points and the endpoint.
+                        i += 2; // Spotřebovat oba řídící body i koncový bod.
                         break;
                 }
 
@@ -339,21 +387,21 @@ try {
 }
 ```
 
-Pole odpovídají podle indexu: `points[i]` je bod a `types[i]` popisuje jeho roli. Typ `0` zahajuje obrazec a typ `1` kreslí čáru od předchozího bodu k aktuálnímu bodu. Kubický Bézier segment začíná na předchozím koncovém bodu a používá tři po sobě jdoucí záznamy typu `3`: dva řídicí body následované novým koncovým bodem. Smyčka tyto tři záznamy zpracuje společně a kontroluje koncový bod, zda uzavírá.
+Pole odpovídají podle indexu: `points[i]` je bod a `types[i]` popisuje jeho roli. Typ `0` začíná figurku a typ `1` kreslí čáru od předchozího bodu k aktuálnímu bodu. Kubický Bézier segment začíná na předchozím koncovém bodu a používá tři po sobě jdoucí záznamy typu `3`: dva ovládací body následované novým koncovým bodem. Smyčka spotřebuje těchto tři záznamy najednou a kontroluje koncový bod na uzavření.
 
-Typy bodů také obsahují příznaky. Maskou `0x07` identifikujte typ segmentu a testujte `0x80` samostatně pro zjištění uzavřeného podcesty. Například `129` (`0x81`) znamená koncový bod čáry, který uzavře podcestu, a `131` (`0x83`) znamená koncový bod Bézieru, který uzavře podcestu. Java ukládá tyto příznaky v podepsaných bytech; maskování zachová zamýšlené bitové hodnoty. Porovnání surové hodnoty pouze s `1` nebo `3` by tyto případy nezachytilo. Další příznaky, jako pomlčka (`0x10`) a značky (`0x20`), nemění základní typ segmentu.
+Typy bodů také obsahují příznaky. Maskujte s `0x07` k určení typu segmentu a testujte `0x80` samostatně k detekci uzavřené podcesty. Například `129` (`0x81`) znamená koncový bod čáry, který uzavírá podcestu, a `131` (`0x83`) znamená koncový bod Bézieru, který ji uzavírá. Java ukládá tyto příznaky do podepsaných bajtů; maskování zachovává zamýšlené bitové hodnoty. Porovnání surové hodnoty pouze s `1` nebo `3` by tyto případy minulo. Další příznaky, jako pomlčka (`0x10`) a marker (`0x20`), nemění základní typ segmentu.
 
-**Souřadnice a transformace.** Body jsou měřeny v bodech (1/72 palce), přičemž X roste doprava a Y roste dolů. Pro neseskupený tvar již extrahované souřadnice zahrnují pozici vrácenou metodou [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) a [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) a odrážejí jeho aktuální šířku a výšku. Například neotočený obdélník na `(100, 200)` s rozměry `120 × 80` má obrysové limity `(100, 200)`–`(220, 280)`. Nepřidávejte pozici tvaru znovu. Odečtěte jeho X a Y pro získání souřadnic relativně k jeho neotočenému rámci.
+**Souřadnice a transformace.** Body se měří v bodech (1/72 palce), s X rostoucím doprava a Y rostoucím dolů. Pro negroupovaný tvar již extrahované souřadnice zahrnují pozici vrácenou metodou [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) a [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) a odrážejí jeho aktuální šířku a výšku. Například neotočený obdélník na `(100, 200)` s velikostí `120 × 80` má hranice kontury `(100, 200)`–`(220, 280)`. Nepřidávejte pozici tvaru znovu. Odečtěte jeho X a Y pro získání souřadnic relativních k jeho neotočenému rámci.
 
-Extrahované body neaplikují rotaci tvaru, vrácenou metodou [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation), ani vodorovné a svislé převrácení. Pro reprodukci zobrazeného obrysu aplikujte tyto transformace kolem středu tvaru. U seskupených tvarů také zohledněte mapování souřadnic skupiny a transformace; nepředpokládejte, že extrahované body jsou konečné vykreslené souřadnice snímku, ani neaplikujte posunutí nebo měřítko dvakrát, pokud už je zahrnuto v rámci dítěte.
+Extrahované body neaplikují rotaci tvaru, vrácenou metodou [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation), ani horizontální a vertikální převrácení. Pro reprodukci zobrazené kontury aplikujte tyto transformace kolem středu tvaru. U skupinových tvarů také zohledněte mapování souřadnic skupiny a transformace; nepředpokládejte, že extrahované body jsou finální vykreslené souřadnice snímku nebo nepoužívejte translační či škálovací operaci dvakrát, pokud již je zahrnuta ve rámci dítěte.
 
-**Kontrola versus úprava.** Extrahovaná pole popisují obrys; jejich změna neaktualizuje původní tvar. Zvolte tento přístup, když vaše analytické nebo kreslicí kódy potřebují pole bodů/typů. Použijte [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths), pokud potřebujete geometrické příkazy v lokálním souřadnicovém systému tvaru nebo chcete upravit jeho geometrii. Použijte upravené cesty pomocí [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) nebo [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Inspekce vs. úprava.** Extrahovaná pole popisují konturu; jejich změna neaktualizuje původní tvar. Zvolte tento přístup, pokud vaše analýza nebo kreslicí kód potřebuje pole bodů/typů. Použijte [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths), pokud potřebujete geometrické příkazy v lokálním souřadnicovém systému tvaru nebo chcete upravit jeho geometrii. Aplikujte upravené cesty přes [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) nebo [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
 
-## **Převod Java AWT Shape na GeometryPath**
+## **Převod Java AWT tvaru na GeometryPath**
 
-Tento příklad kombinuje obrys obdélníka s textem převedeným na geometrii. Metoda [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) obrysu zakáže jeho výplň. [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) vytvoří obrys textu v [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Jeho [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) poskytuje segmenty move, line, quadratic, cubic a closing, které příklad přehrává na [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+Tento příklad kombinuje obdélníkový obrys s textem převedeným na geometrii. Metoda [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) obrysu zakáže jeho výplň. [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) vytvoří obrys textu v [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Jeho [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) poskytuje příkazy move, line, quadratic, cubic a closing, které příklad přehrává na [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
-Java most používá explicitní float a byte hodnoty pro odpovídající Java parametry. Iterátor zapisuje souřadnice do Java float pole; reflexe načte jeho aktualizované hodnoty zpět do JavaScriptu. Text používá písmo Arial o velikosti 40 bodů. Obrys je posunut o 20 bodů vodorovně a umístěn tak, aby jeho vizuální horní část byla 10 bodů pod horním okrajem tvaru. Textová cesta je vyplněná, zatímco původní obdélník zůstává obrysem. Aplikace obou cest pomocí [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) vytvoří jeden tvar obsahující obdélník a text.
+Java most používá explicitní float a byte hodnoty pro odpovídající Java parametry. Iterátor zapisuje souřadnice do Java float pole; reflexe načte jeho aktualizované hodnoty zpět do JavaScriptu. Text používá 40-bodové písmo Arial. Obrys je posunut o 20 bodů horizontálně a umístěn tak, že jeho vizuální horní část je 10 bodů pod horní hranou tvaru. Textová cesta je vyplněná, zatímco původní obdélník zůstává obrysem. Aplikace obou cest pomocí [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) vytvoří jeden tvar obsahující obdélník a text.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -406,7 +454,7 @@ try {
             case 3: // Kubická Bézierova křivka.
                 textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
                 break;
-            case 4: // Uzavřít obrazec.
+            case 4: // Uzavřít figuru.
                 textPath.closeFigure();
                 break;
         }
@@ -419,19 +467,18 @@ try {
     presentation.dispose();
 }
 ```
+![příklad5_obrázek](custom_shape_5.png)
 
-![example5_image](custom_shape_5.png)
-
-## **FAQ**
+## **Často kladené otázky**
 
 **Co se stane s výplní a obrysem po nahrazení geometrie?**
 
-Styl zůstává u tvaru; mění se pouze obrys. Výplň a obrys jsou automaticky použity na novou geometrii.
+Styl zůstává u tvaru; mění se jen kontura. Výplň a obrys jsou automaticky aplikovány na novou geometrii.
 
-**Jak správně otočit vlastní tvar spolu s jeho geometrií?**
+**Jak správně otočit vlastní tvar společně s jeho geometrií?**
 
-Použijte metodu [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) tvaru; geometrie se otáčí spolu s tvarem, protože je svázána s jeho vlastním souřadnicovým systémem.
+Použijte metodu [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) tvaru; geometrie se otáčí s tvarem, protože je vázána na vlastní souřadnicový systém tvaru.
 
 **Mohu převést vlastní tvar na obrázek, aby byl výsledek „uzamčen“?**
 
-Ano. Exportujte požadovanou [slide](/slides/cs/nodejs-java/convert-powerpoint-to-png/) oblast nebo samotný [shape](/slides/cs/nodejs-java/create-shape-thumbnails/) do rastrového formátu; to usnadní další práci s komplexními geometriemi.
+Ano. Exportujte požadovanou oblast [slide](/slides/cs/nodejs-java/convert-powerpoint-to-png/) nebo samotný [shape](/slides/cs/nodejs-java/create-shape-thumbnails/) do rastrového formátu; to zjednoduší další práci se složitými geometriemi.

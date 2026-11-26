@@ -1,17 +1,17 @@
 ---
-title: ปรับแต่งรูปร่างการนำเสนอใน C++
-linktitle: รูปร่างกำหนดเอง
+title: ปรับแต่งรูปทรงการนำเสนอใน C++
+linktitle: รูปทรงกำหนดเอง
 type: docs
 weight: 20
 url: /th/cpp/custom-shape/
 keywords:
-- รูปร่างกำหนดเอง
-- เพิ่มรูปร่าง
-- สร้างรูปร่าง
-- เปลี่ยนรูปร่าง
-- เรขาคณิตของรูปร่าง
+- รูปทรงกำหนดเอง
+- เพิ่มรูปทรง
+- สร้างรูปทรง
+- เปลี่ยนรูปทรง
+- เรขาคณิตรูปทรง
 - เส้นทางเรขาคณิต
-- จุดของเส้นทาง
+- จุดเส้นทาง
 - จุดแก้ไข
 - เพิ่มจุด
 - ลบจุด
@@ -21,64 +21,65 @@ keywords:
 - การนำเสนอ
 - C++
 - Aspose.Slides
-description: "สร้างและปรับแต่งรูปร่างในการนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ C++: เส้นทางเรขาคณิต, มุมโค้ง, รูปร่างคอมโพสิต."
+description: "สร้างและปรับแต่งรูปทรงในพรีเซนเทชัน PowerPoint ด้วย Aspose.Slides สำหรับ C++: เส้นทางเรขาคณิต, มุมโค้ง, รูปทรงคอมโพสิต."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการปรับแต่งรูปร่างในการนำเสนอบน Aspose.Slides โดยการแก้ไขเรขาคณิตของรูปร่างผ่านจุดแก้ไขและเส้นทางเรขาคณิต มันแสดงวิธีการใช้ [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) และ [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) เพื่อแก้ไขรูปร่างที่มีอยู่, ทำการดำเนินการแก้ไขเส้นทางพื้นฐาน, เพิ่มหรือ ลบ จุด, และนำเรขาคณิตที่อัปเดตกลับไปยังรูปร่าง  
-นอกจากนี้ยังแสดงวิธีการสร้างรูปร่างที่กำหนดเองและแบบคอมโพสิต, สร้างรูปร่างที่มีมุมโค้ง, และตรวจสอบว่ารูปร่างเรขาคณิตเป็นแบบปิดหรือไม่
+บทความนี้อธิบายวิธีการปรับแต่งรูปทรงการนำเสนอใน Aspose.Slides ด้วยการแก้ไขรูปทรงเรขาคณิตผ่านจุดแก้ไขและเส้นทางเรขาคณิต โดยแสดงวิธีการทำงานกับ [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) และ [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) เพื่อแก้ไขรูปทรงที่มีอยู่, ทำการแก้ไขเส้นทางพื้นฐาน, เพิ่มหรือเอาจุดออก, และนำเรขาคณิตที่อัปเดตกลับไปยังรูปทรง
 
-## **เปลี่ยนรูปร่างโดยใช้จุดแก้ไข**
+มันยังแสดงวิธีการสร้างรูปทรงแบบกำหนดเองและแบบคอมโพซิต, สร้างรูปทรงที่มีมุมโค้ง, และตรวจสอบว่ารูปทรงเรขาคณิตเป็นแบบปิดหรือไม่
 
-ใน PowerPoint คุณสามารถใช้ **Edit Points** เพื่อแก้ไขสี่เหลี่ยมได้:
+## **เปลี่ยนรูปทรงโดยใช้จุดแก้ไข**
 
-* ย้ายมุมเข้าหรือออกจากศูนย์กลาง
-* ปรับความโค้งที่จุดหนึ่ง
-* เพิ่มจุดใหม่
+ใน PowerPoint คุณสามารถใช้ **Edit Points** เพื่อแก้ไขสี่เหลี่ยมจัตุรัสได้:
 
-การแก้ไขจุดทำให้คุณสามารถปรับเปลี่ยนโครงร่างของรูปร่างหรือใช้รูปร่างที่มีอยู่เป็นฐานสำหรับสร้างรูปร่างใหม่ได้
+* ย้ายมุมเข้าหรือออกจากศูนย์กลาง.
+* ปรับความโค้งที่จุดหนึ่ง.
+* เพิ่มจุดใหม่.
 
-## **เคล็ดลับการแก้ไขรูปร่าง**
+การแก้ไขจุดทำให้คุณสามารถปรับเปลี่ยนอ outline ของรูปทรงหรือใช้รูปทรงที่มีอยู่เป็นฐานสำหรับรูปทรงใหม่ได้.
+
+## **เคล็ดลับการแก้ไขรูปทรง**
 
 ![overview_image](custom_shape_0.png)
 
-เมื่อแก้ไขรูปร่างใน PowerPoint ให้นึกถึงแนวคิดต่อไปนี้:
+เมื่อแก้ไขรูปทรง PowerPoint ให้คำนึงถึงแนวคิดต่อไปนี้:
 
-* รูปร่าง (หรือเส้นทางของมัน) สามารถเป็นแบบปิดหรือเปิดได้
-* เส้นทางของรูปร่างประกอบด้วยจุดยึดที่เชื่อมต่อด้วยเซกเมนต์
-* เซกเมนต์อาจเป็นเส้นตรงหรือโค้ง จุดยึดและตัวจัดการควบคุมกำหนดรูปร่างของมัน
+* รูปทรง (หรือเส้นทางของมัน) สามารถเป็นแบบปิดหรือเปิดได้.
+* เส้นทางของรูปทรงประกอบด้วยจุดยึดที่เชื่อมต่อด้วยเซกเมนต์.
+* เซกเมนต์อาจเป็นเส้นตรงหรือโค้ง เซกเมนต์อาจเป็นเส้นตรงหรือโค้ง จุดยึดและมือควบคุมกำหนดรูปร่างของมัน.
 * จุดยึดมีอยู่ในรูปแบบจุดมุม, จุดตรง, หรือจุดเรียบ:
-  - ที่จุดมุม เซกเมนต์ที่ต่อกันสามารถพบกันเป็นมุม
-  - ที่จุดเรียบ ตัวจัดการควบคุมสองตัวจะอยู่ในแนวเดียวกันและห่างจากจุดยึดเท่ากัน
-  - ที่จุดตรง ตัวจัดการควบคุมสองตัวจะอยู่ในแนวเดียวกันแต่ระยะห่างจากจุดยึดอาจต่างกัน
-* การย้ายจุดยึดหรือการปรับตัวจัดการของพวกมันจะทำให้โครงร่างของรูปร่างเปลี่ยนแปลง
+  * ที่จุดมุม, เซกเมนต์ที่เชื่อมต่ออาจมาบรรจบกันเป็นมุม.
+  * ที่จุดเรียบ, มือควบคุมสองตัวจะอยู่ในแนวเดียวกันและห่างจากจุดยึดเท่ากัน.
+  * ที่จุดตรง, มือควบคุมสองตัวอยู่ในแนวเดียวกันแต่ระยะห่างจากจุดยึดอาจต่างกัน.
+* การย้ายจุดยึดหรือปรับมือควบคุมของมันจะเปลี่ยน outline ของรูปทรง.
 
-เพื่อแก้ไขรูปร่าง PowerPoint ผ่านจุดแก้ไข, **Aspose.Slides** มีคลาส [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) และอินเทอร์เฟซ [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) ให้ใช้
+เพื่อแก้ไขรูปทรง PowerPoint ผ่านจุดแก้ไข, **Aspose.Slides** มีคลาส [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) และอินเทอร์เฟซ [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) ให้ใช้.
 
-* อินสแตนซ์ของ [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) แทนเส้นทางเรขาคณิตของอ็อบเจกต์ [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/)
-* เพื่อดึง [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) จากอินสแตนซ์ของ [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), คุณสามารถใช้เมธอด [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/)
-* เพื่อกำหนด [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) ให้กับรูปร่าง, คุณสามารถใช้เมธอดต่อไปนี้: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) สำหรับรูปร่างที่มีเส้นทางเดียวและ [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) สำหรับรูปร่างที่มีหลายเส้นทาง
-* เพื่อเพิ่มเซกเมนต์, คุณสามารถใช้เมธอดภายใต้ [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/)
-* โดยใช้เมธอด [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) และ [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) คุณสามารถกำหนดลักษณะการแสดงผลของเส้นทางเรขาคณิต
-* โดยใช้เมธอด [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) คุณสามารถดึงเส้นทางเรขาคณิตของ [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) เป็นอาเรย์ของเซกเมนต์
+* ตัวอย่างของ [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) แสดงเส้นทางเรขาคณิตของอ็อบเจ็กต์ [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
+* เพื่อดึง [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) จากอินสแตนซ์ของ [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) คุณสามารถใช้เมธอด [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* เพื่อกำหนด [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) ให้กับรูปทรง, คุณสามารถใช้เมธอดเหล่านี้: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) สำหรับรูปทรงที่มีเส้นทางเดียวและ [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) สำหรับรูปทรงที่มีหลายเส้นทาง.
+* เพื่อเพิ่มเซกเมนต์, คุณสามารถใช้เมธอดภายใต้ [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+* ด้วยเมธอด [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) และ [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) คุณสามารถกำหนดรูปลักษณ์ของเส้นทางเรขาคณิตได้.
+* ด้วยเมธอด [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) คุณสามารถดึงเส้นทางเรขาคณิตของ [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) เป็นอาร์เรย์ของเซกเมนต์ได้.
 
 ## **การดำเนินการแก้ไขอย่างง่าย**
 
-ใช้เมธอดต่อไปนี้เพื่อแก้ไขเส้นทางเรขาคณิต. การโอเวอร์โหลดที่รับดัชนีจะใส่เซกเมนต์ที่ตำแหน่งศูนย์ฐานในอาเรย์เซกเมนต์ของเส้นทาง
+ใช้เมธอดต่อไปนี้เพื่อแก้ไขเส้นทางเรขาคณิต. การเรียกที่รับดัชนีจะใส่เซกเมนต์ในตำแหน่งที่เริ่มจากศูนย์ในอาร์เรย์ของเซกเมนต์ของเส้นทาง.
 
-| Operation | Method |
+| การดำเนินการ | เมธอด |
 | --- | --- |
 | เพิ่มหรือแทรกเส้นตรง. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
-| เพิ่มหรือแทรกเส้นโค้ง Bézier แบบคิวบิกด้วยจุดควบคุมสองจุดและจุดปลาย. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
-| เพิ่มหรือแทรกเส้นโค้ง Bézier แบบกำลังสองด้วยจุดควบคุมหนึ่งจุดและจุดปลาย. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
-| เพิ่มส่วนโค้งวงรีตามขนาดและมุมที่ระบุเป็นองศา. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
-| ปิดรูปภาพปัจจุบันโดยเชื่อมจุดปลายกับจุดเริ่มต้น. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
-| กำหนดจุดเริ่มต้นของรูปภาพ. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
-| ลบเซกเมนต์ที่ตำแหน่งดัชนีศูนย์ฐาน. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
+| เพิ่มหรือแทรกโค้ง Bézier แบบคิวบิกที่มีจุดควบคุมสองจุดและจุดสิ้นสุด. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| เพิ่มหรือแทรกโค้ง Bézier แบบกำลังสองที่มีจุดควบคุมหนึ่งจุดและจุดสิ้นสุด. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| เพิ่มส่วนโค้งวงรีด้วยมิติและมุมที่กำหนดเป็นระดับ. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| ปิดรูปปัจจุบันโดยเชื่อมจุดสิ้นสุดกับจุดเริ่มต้น. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| ตั้งค่าจุดเริ่มต้นของรูป. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| ลบเซกเมนต์ที่ตำแหน่งดัชนีเริ่มจากศูนย์. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-## **เพิ่มจุดกำหนดเองไปยังรูปร่าง**
+## **เพิ่มจุดกำหนดเองให้กับรูปทรง**
 
-ตัวอย่างนี้แทรกจุดสองจุดลงในรูปร่างสี่เหลี่ยมโดยใช้ [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) และนำเส้นทางที่แก้ไขไปใช้ด้วย [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). พิกัดเป็นตำแหน่งภายในรูป: ทั้งสองจุดใหม่อยู่ที่ศูนย์กลางของรูป, ห่างจากด้านซ้าย 100 พิกเซลและจากด้านบน 50 พิกเซล. ดัชนีเซกเมนต์ 1 และ 4 จะวางจุดบนขอบบนและขอบล่าง, ดึงขอบเหล่านั้นเข้าหากัน.
+ตัวอย่างนี้แทรกจุดสองจุดลงในรูปสี่เหลี่ยมโดยใช้ [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) และนำเส้นทางที่แก้ไขไปใช้กับ [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). พิกัดเป็นพิกัดภายในรูป: จุดใหม่ทั้งสองอยู่ที่ศูนย์กลางของรูป, ห่างจากด้านซ้าย 100 จุดและจากด้านบน 50 จุด. ดัชนีเซกเมนต์ 1 และ 4 จะวางจุดเหล่านี้บนขอบบนและขอบล่าง, ดึงขอบเหล่านั้นเข้ามา.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -107,9 +108,9 @@ shape->SetGeometryPath(geometryPath);
 
 ![example1_image](custom_shape_1.png)
 
-## **ลบจุดจากรูปร่าง**
+## **ลบจุดจากรูปทรง**
 
-ตัวอย่างนี้เปลี่ยนโครงร่างรูปหัวใจโดยการลบเซกเมนต์ที่ตำแหน่งดัชนีศูนย์ฐาน 2 ด้วย [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). การนำเส้นทางที่แก้ไขไปใช้ด้วย [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) จะอัปเดตคอนทัวร์ของรูปร่าง.
+ตัวอย่างนี้เปลี่ยนโครงร่างรูปหัวใจโดยลบเซกเมนต์ที่ตำแหน่งดัชนีเริ่มจากศูนย์ที่ 2 ด้วย [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). การนำเส้นทางที่แก้ไขไปใช้ด้วย [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) จะอัปเดตเส้นขอบของรูป.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -134,11 +135,12 @@ path->RemoveAt(2);
 
 shape->SetGeometryPath(path);
 ```
+
 ![example2_image](custom_shape_2.png)
 
-## **สร้างรูปร่างกำหนดเอง**
+## **สร้างรูปทรงกำหนดเอง**
 
-ตัวอย่างนี้สร้างดาวห้าแฉกโดยใช้ [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). รัศมีนอกและในที่สลับกัน 100 และ 50 พิกเซลกำหนดปลายและร่อง, ขั้นที่ 72 องศาแบ่งดาวห้าจุดให้เท่าเทียมกัน. เส้นทางถูกปิดด้วย [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) และนำไปใช้กับรูปร่างสี่เหลี่ยมโดยใช้ [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), แทนที่โครงร่างเดิม.
+ตัวอย่างนี้สร้างดาวห้าแฉกด้วย [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). รัศมีภายนอกและภายในสลับกันที่ 100 และ 50 จุดกำหนดปลายและการเว้นระยะ; การก้าว 72 องศาจะเว้นระยะห้าปลายให้เท่าเทียม. เส้นทางถูกปิดด้วย [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) และใช้กับรูปสี่เหลี่ยมโดยใช้ [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), แทนที่โครงร่างเดิม.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -193,11 +195,12 @@ auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
+
 ![example3_image](custom_shape_3.png)
 
-## **สร้างรูปร่างกำหนดเองแบบคอมโพสิต**
+## **สร้างรูปทรงกำหนดเองแบบคอมโพสิต**
 
-ตัวอย่างนี้กำหนดอ็อบเจกต์ [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) ปิดสองอันสำหรับส่วนบนและส่วนล่างของรูปแบบสามส่วน. การนำเส้นทางทั้งสองไปใช้ด้วย [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) จะสร้างรูปร่างคอมโพสิตเดียวที่มีช่องว่างตรงส่วนกลางของรูป.
+ตัวอย่างนี้กำหนดอ็อบเจ็กต์สองชุดของ [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) ที่ปิดสำหรับส่วนบนและล่างของรูป. การใช้ทั้งสองเส้นทางด้วย [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) จะสร้างรูปคอมโพสิตเดียวที่มีช่องว่างตรงส่วนกลางของรูป.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -236,11 +239,12 @@ auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath }
 
 shape->SetGeometryPaths(paths);
 ```
+
 ![example4_image](custom_shape_4.png)
 
-## **สร้างรูปร่างกำหนดเองพร้อมมุมโค้ง**
+## **สร้างรูปทรงกำหนดเองด้วยมุมโค้ง**
 
-ตัวอย่างนี้ผสานเซกเมนต์ตรงกับ [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) เพื่อสร้างรูปร่างที่มีมุมโค้งเข้าด้านใน. ขนาดของแต่ละมุมกำหนดความกว้างและความสูงของส่วนโค้งเป็นพิกเซล, และการสวิง -90 องศาจะวาดส่วนโค้งสี่เหลี่ยมครึ่งวงรีตามเข็มนาฬิกา. เส้นทางที่เสร็จสมบูรณ์จะนำไปใช้ด้วย [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), และการนำเสนอจะถูกบันทึกในรูปแบบ PPTX.
+ตัวอย่างนี้ผสมเซกเมนต์ตรงกับ [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) เพื่อสร้างรูปที่มุมโค้งเข้าด้านใน. ขนาดของแต่ละมุมกำหนดความกว้างและความสูงของส่วนโค้งในหน่วยจุด, และการสวิง -90 องศาจะวาดส่วนโค้งจัตุรัสเป็นครึ่งวงรีทวนเข็มนาฬิกา. เส้นทางที่เสร็จสมบูรณ์ถูกนำไปใช้ด้วย [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), และการนำเสนอถูกบันทึกในรูปแบบ PPTX.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -295,9 +299,9 @@ shape->SetGeometryPath(geometryPath);
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **ตรวจสอบว่ารูปร่างเรขาคณิตเป็นแบบปิดหรือไม่**
+## **ตรวจสอบว่ารูปทรงเรขาคณิตเป็นแบบปิดหรือไม่**
 
-ตัวช่วยต่อไปนี้ตรวจสอบว่าทุกเส้นทางเรขาคณิตที่ไม่ว่างเปล่ามีเซกเมนต์ปิดเป็นท้ายหรือไม่. มันอ่าน [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) และเปรียบเทียบคำสั่งของเซกเมนต์สุดท้าย [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) กับ [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). จะคืนค่า false เมื่อไม่มีเส้นทางที่ไม่ว่างเปล่า. การตรวจสอบนี้ดูคำสั่งสุดท้ายของแต่ละเส้นทาง; ไม่ได้ตรวจสอบทุกรูปย่อยภายในเส้นทาง. ตัวอย่างพิมพ์ `True` สำหรับสี่เหลี่ยม.
+ส่วนช่วยเหลือด้านล่างนี้ตรวจสอบว่าทุกเส้นทางเรขาคณิตที่ไม่ว่างเปล่าจะสิ้นสุดด้วยเซกเมนต์ปิดหรือไม่. มันอ่านค่า [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) และเปรียบเทียบ [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) ของเซกเมนต์สุดท้ายกับ [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). จะคืนค่า false หากไม่มีเส้นทางที่ไม่ว่างเปล่า. การตรวจสอบนี้ดูที่คำสั่งสุดท้ายของแต่ละเส้นทาง; ไม่ตรวจสอบทุกสับฟิกเกอร์ภายในเส้นทาง. ตัวอย่างพิมพ์ `True` สำหรับสี่เหลี่ยม.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -344,11 +348,84 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 2
 Console::WriteLine(isGeometryClosed(shape));
 ```
 
-## **สกัดและตรวจสอบองค์ประกอบของรูปร่าง**
+## **ตรวจสอบคำสั่งของเส้นทางเรขาคณิต**
 
-ใช้ [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) เพื่อสังเกตรูปร่างที่มีอยู่เป็นองค์ประกอบที่ประกอบด้วยจุดเส้นทางและประเภทจุด. แคสท์แต่ละ [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) ที่ส่งกลับเป็น [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) เพื่ออ่านอาเรย์ที่ส่งกลับโดย [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) และ [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). การแสดงผลนี้มีประโยชน์สำหรับการวิเคราะห์คอนทัวร์หรือการส่งเรขาคณิตไปยังเครื่องมือวาดแบบกำหนดเอง  
+ดาวน์โหลด [contour.pptx](contour.pptx) แล้ววางไว้ในไดเรคทอรีทำงานของแอปพลิเคชัน. รูปแรกบนสไลด์แรกมีขอบบนตรง, โค้ง Bézier แบบคิวบิก, และขอบปิดตรง. ใช้ [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) เพื่ออ่านเส้นทางของมัน. สำหรับแต่ละเส้นทาง, [get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) คืนค่าเซกเมนต์ตามลำดับการวาด. คำสั่งที่คืนค่าจาก [get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) กำหนดวิธีการตีความค่าที่คืนจาก [get_SegmentData](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_segmentdata/).
 
-ตัวอย่างนี้เปิดไฟล์การนำเสนอ, ค้นหารูปร่างเรขาคณิตแรกบนสไลด์แรก, และพิมพ์เซกเมนต์ของเส้นทาง. ใช้การนำเสนอที่มีรูปร่างที่มีเซกเมนต์ตรงและโค้งเพื่อดูผลลัพธ์ทั้งสองแบบ. มันไม่ค้นหาในกลุ่ม.
+```cpp
+#include <DOM/IGeometryPath.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/PathCommandType.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"contour.pptx");
+
+auto shape = ExplicitCast<IGeometryShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paths = shape->GetGeometryPaths();
+
+for (auto i = 0; i < paths->get_Length(); ++i)
+{
+    auto segments = paths->idx_get(i)->get_PathData();
+    for (auto j = 0; j < segments->get_Length(); ++j)
+    {
+        auto segment = segments->idx_get(j);
+        auto command = segment->get_PathCommand();
+        auto data = segment->get_SegmentData();
+        String detail;
+        switch (command)
+        {
+            case PathCommandType::MoveTo:
+            case PathCommandType::LineTo:
+                detail = String::Format(u"destination=({0}, {1})", data->idx_get(0), data->idx_get(1));
+                break;
+            case PathCommandType::CubicBezierTo:
+                detail = String::Format(u"control1=({0}, {1}) control2=({2}, {3}) end=({4}, {5})", data);
+                break;
+            case PathCommandType::Close:
+                detail = u"no coordinates";
+                break;
+            default:
+            {
+                auto values = MakeArray<String>(data->get_Length());
+                for (auto k = 0; k < data->get_Length(); ++k)
+                {
+                    values->idx_set(k, String::Format(u"{0}", data->idx_get(k)));
+                }
+                detail = String::Format(u"raw=[{0}]", String::Join(u", ", values));
+                break;
+            }
+        }
+        Console::WriteLine(u"Path {0}, segment {1}: {2} {3}", i, j, Enum<PathCommandType>::GetName(command), detail);
+    }
+}
+```
+
+รูปอยู่ที่ตำแหน่ง (200, 100) จุดบนสไลด์. จุดที่รายงานเป็นจุดภายในรูป, โดย (0, 0) อยู่ที่มุมบนซ้าย, x เพิ่มไปทางขวา, y เพิ่มลงด้านล่าง. เซกเมนต์ปิดจะกลับไปยังจุดเริ่มต้นโดยไม่มีพิกัดเพิ่มเติม.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![รูป PowerPoint ที่มีขอบบนตรง, ขอบโค้งจากมุมขวาบนไปมุมซ้ายล่าง, และขอบซ้ายตรง](contour.png)
+
+## **สกัดและตรวจสอบองค์ประกอบของรูปทรง**
+
+ใช้ [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) เพื่อตรวจสอบรูปที่มีอยู่เป็นองค์ประกอบที่มีจุดเส้นทางและประเภทของจุด. แคสท์แต่ละ [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) ที่คืนเป็น [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) เพื่ออ่านอาร์เรย์ที่คืนจาก [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) และ [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). การแสดงผลนี้เป็นประโยชน์สำหรับการวิเคราะห์คอนทัวร์หรือการส่งเรขาคณิตไปยังเครื่องมือวาดแบบกำหนดเอง.
+
+ตัวอย่างนี้เปิดไฟล์พรีเซนเทชัน, ค้นหารูปเรขาคณิตแรกตรงบนสไลด์แรก, และพิมพ์เซกเมนต์ของเส้นทาง. ใช้พรีเซนเทชันที่มีรูปที่มีเซกเมนต์ตรงและโค้งเพื่อดูผลลัพธ์ของทั้งสองแบบ. ไม่ค้นหาภายในกลุ่ม.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -394,7 +471,7 @@ for (auto&& element : shape->CreateShapeElements())
 
     for (auto i = 0; i < points->get_Length(); i++)
     {
-        auto pointType = types[i] & 0x07; // เก็บประเภทของเซกเมนต์โดยไม่รวมแฟล็ก
+        auto pointType = types[i] & 0x07; // เก็บประเภทเซกเมนต์, ไม่รวมแฟล็ก.
         switch (pointType)
         {
             case 0:
@@ -405,7 +482,7 @@ for (auto&& element : shape->CreateShapeElements())
                 break;
             case 3:
                 Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
-                i += 2; // Consume both control points and the endpoint.
+                i += 2; // ใช้ทั้งจุดควบคุมสองจุดและจุดสิ้นสุด.
                 break;
         }
         if ((types[i] & 0x80) != 0)
@@ -416,27 +493,30 @@ for (auto&& element : shape->CreateShapeElements())
 }
 ```
 
-อาเรย์สอดคล้องกันตามดัชนี: `points[i]` คือจุดและ `types[i]` บรรยายบทบาทของมัน. ประเภท `0` เริ่มรูป, และประเภท `1` วาดเส้นจากจุดก่อนหน้าไปยังจุดปัจจุบัน. เซกเมนต์ Bézier แบบคิวบิกเริ่มที่จุดปลายของเซกเมนต์ก่อนหน้าและใช้รายการประเภท `3` ต่อเนื่องสามรายการ: จุดควบคุมสองจุดตามด้วยจุดปลายใหม่. ลูปจะรับสามรายการนี้พร้อมกันและตรวจสอบจุดปลายเพื่อความปิด.  
+อาร์เรย์สอดคล้องตามดัชนี: `points[i]` คือจุดและ `types[i]` บรรยายบทบาทของมัน. ประเภท `0` เริ่มรูป, และประเภท `1` วาดเส้นจากจุดก่อนหน้าไปยังจุดปัจจุบัน. เซกเมนต์ Bézier แบบคิวบิกเริ่มจากจุดสิ้นสุดก่อนหน้าและใช้รายการประเภท `3` สามรายการต่อกัน: จุดควบคุมสองจุดตามด้วยจุดสิ้นสุดใหม่. ลูปจะใช้สามรายการนี้ร่วมกันและตรวจสอบจุดสิ้นสุดสำหรับการปิด.
 
-ประเภทจุดยังมีแฟล็ก. ใช้มาสก์ `0x07` เพื่อตรวจสอบประเภทเซกเมนต์, และทดสอบ `0x80` แยกต่างหากเพื่อค้นหาซับพาธที่ปิด. ตัวอย่างเช่น, `129` (`0x81`) หมายถึงจุดปลายของเส้นที่ปิดซับพาธ, และ `131` (`0x83`) หมายถึงจุดปลายของ Bézier ที่ปิดซับพาธ. การเปรียบเทียบค่าดิบเพียง `1` หรือ `3` จะทำให้พลาดกรณีเหล่านี้. แฟล็กอื่น ๆ เช่น dash (`0x10`) และ marker (`0x20`) ไม่เปลี่ยนประเภทฐานของเซกเมนต์.  
+ประเภทจุดยังมีแฟล็ก. ใช้มาสก์ `0x07` เพื่อระบุประเภทของเซกเมนต์, และตรวจสอบ `0x80` แยกต่างหากเพื่อค้นพบซับพาธที่ปิด. ตัวอย่างเช่น `129` (`0x81`) หมายถึงจุดปลายของเส้นที่ปิดซับพาธ, และ `131` (`0x83`) หมายถึงจุดปลายของ Bézier ที่ปิด. การเปรียบเทียบค่าดิบเฉพาะกับ `1` หรือ `3` จะพลาดกรณีเหล่านี้. แฟล็กอื่นๆ เช่น dash (`0x10`) และ marker (`0x20`) ไม่เปลี่ยนประเภทฐานของเซกเมนต์.
 
-**พิกัดและการแปลง.** จุดวัดเป็นพอยต์ (1/72 นิ้ว), โดย X เพิ่มไปทางขวาและ Y เพิ่มลงล่าง. สำหรับรูปร่างที่ไม่ได้อยู่ในกลุ่ม, พิกัดที่สกัดแล้วรวมตำแหน่งที่ได้จาก [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) และ [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) แล้วสะท้อนความกว้างและความสูงปัจจุบันของมัน. ตัวอย่างเช่น, สี่เหลี่ยมที่ไม่ได้หมุนที่ตำแหน่ง `(100, 200)` ขนาด `120 × 80` มีขอบคอนทัวร์เป็น `(100, 200)`–`(220, 280)`. อย่าเพิ่มตำแหน่งของรูปร่างอีกครั้ง. ให้ลบค่า X และ Y ของมันเพื่อให้ได้พิกัดสัมพัทธ์กับกรอบที่ไม่ได้หมุน.  
+**พิกัดและการแปลง** จุดวัดเป็นหน่วยจุด (1/72 นิ้ว), โดย X เพิ่มไปทางขวาและ Y เพิ่มลงด้านล่าง. สำหรับรูปที่ไม่ได้อยู่ในกลุ่ม, พิกัดที่สกัดมามีตำแหน่งที่ได้จาก [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) และ [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) อยู่แล้วและสะท้อนความกว้างและความสูงปัจจุบันของรูป. ตัวอย่างเช่น สี่เหลี่ยมที่ไม่ได้หมุนที่ตำแหน่ง `(100, 200)` ขนาด `120 × 80` มีขอบคอนทัวร์ `(100, 200)`–`(220, 280)`. อย่าเพิ่มตำแหน่งของรูปอีกครั้ง. หักค่า X และ Y เพื่อให้ได้พิกัดสัมพันธ์กับกรอบที่ไม่ได้หมุน.
 
-จุดที่สกัดจะไม่รวมการหมุนที่ตั้งผ่าน [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) หรือการพลิกแนวนอนและแนวตั้ง. เพื่อสร้างคอนทัวร์ที่แสดง, ให้ใช้การแปลงเหล่านั้นรอบศูนย์กลางของรูปร่าง. สำหรับรูปร่างที่อยู่ในกลุ่ม, ควรคำนึงถึงการแม็พพิกัดของกลุ่มและการแปลง; อย่าสันนิษฐานว่าจุดที่สกัดเป็นพิกัดสไลด์ที่แสดงสุดท้ายหรือทำการแปลงการย้ายหรือสเกลสองครั้งหากมันได้รวมอยู่ในกรอบของลูกแล้ว.  
+จุดที่สกัดจะไม่รวมการหมุนที่ตั้งผ่าน [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) หรือการพลิกแนวนอนและแนวตั้ง. เพื่อทำให้คอนทัวร์ที่แสดงออกมาถูกต้อง, ให้ใช้การแปลงเหล่านั้นรอบศูนย์กลางของรูป. สำหรับรูปที่อยู่ในกลุ่ม, ต้องคำนึงถึงการแมพพิกัดของกลุ่มและการแปลง; อย่าสันนิษฐานว่าจุดที่สกัดเป็นพิกัดสุดท้ายที่แสดงบนสไลด์หรือทำการแปลหรือสเกลสองครั้งหากมันได้ถูกสะท้อนแล้วในเฟรมของลูก.
 
-**การตรวจสอบเทียบกับการแก้ไข.** อาเรย์ที่สกัดอธิบายคอนทัวร์; การเปลี่ยนแปลงพวกมันจะไม่อัปเดตรูปร่างต้นฉบับ. เลือกวิธีนี้เมื่อการวิเคราะห์หรือโค้ดวาดของคุณต้องการอาเรย์จุด/ประเภท. ใช้ [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) เมื่อคุณต้องการคำสั่งเรขาคณิตในระบบพิกัดภายในของรูปร่างหรือต้องการแก้ไขเรขาคณิตของมัน. นำเส้นทางที่แก้ไขไปใช้ผ่าน [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) หรือ [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
+**การตรวจสอบกับการแก้ไข** อาร์เรย์ที่สกัดอธิบายคอนทัวร์; การเปลี่ยนแปลงมันจะไม่อัปเดตรูปเดิม. เลือกวิธีนี้เมื่อการวิเคราะห์หรือโค้ดวาดของคุณต้องการอาร์เรย์จุด/ประเภท. ใช้ [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) เมื่อคุณต้องการคำสั่งเรขาคณิตในระบบพิกัดท้องถิ่นของรูปหรือต้องการแก้ไขเรขาคณิตของมัน. ใช้เส้นทางที่แก้ไขผ่าน [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) หรือ [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
 
 ## **แปลง GeometryPath เป็น GraphicsPath**
 
-API สาธารณะของ Aspose.Slides for C++ ปัจจุบันไม่เปิดเผยการแปลงระหว่างเส้นทางเรขาคณิตและเส้นทางกราฟิก. เพื่อสังเกตคอนทัวร์, ใช้องค์ประกอบของรูปร่างตามที่อธิบายข้างบน. เพื่อแก้ไขรูปร่าง, ใช้เส้นทางเรขาคณิตและนำเส้นทางที่อัปเดตไปใช้กับรูปร่าง.
+API สาธารณะของ Aspose.Slides สำหรับ C++ ปัจจุบันไม่มีการเปิดเผยการแปลงระหว่างเส้นทางเรขาคณิตและเส้นทางกราฟิก. เพื่อตรวจสอบคอนทัวร์, ใช้ส่วนประกอบของรูปตามที่อธิบายข้างต้น. เพื่อแก้ไขรูป, ใช้เส้นทางเรขาคณิตและนำเส้นทางที่อัปเดตไปใช้กับรูป.
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**รูปแบบการเติมและโครงร่างจะเป็นอย่างไรหลังจากเปลี่ยนเรขาคณิต?**  
-รูปแบบยังคงอยู่กับรูปร่าง; มีเพียงคอนทัวร์ที่เปลี่ยนไป. การเติมและโครงร่างจะถูกนำไปใช้โดยอัตโนมัติกับเรขาคณิตใหม่.
+**อะไรจะเกิดขึ้นกับการเติมและขอบหลังจากเปลี่ยนเรขาคณิต?**
 
-**ฉันจะหมุนรูปร่างกำหนดเองพร้อมกับเรขาคณิตอย่างถูกต้องได้อย่างไร?**  
-ใช้เมธอด [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) ของรูปร่าง; เรขาคณิตจะหมุนพร้อมกับรูปร่างเนื่องจากถูกผูกกับระบบพิกัดของรูปร่างเอง.
+สไตล์จะคงอยู่กับรูป; เพียงคอนทัวร์เปลี่ยน. การเติมและขอบจะถูกนำไปใช้โดยอัตโนมัติกับเรขาคณิตใหม่.
 
-**ฉันสามารถแปลงรูปร่างกำหนดเองเป็นภาพเพื่อ "ล็อก" ผลลัพธ์ได้หรือไม่?**  
-ได้. ส่งออกส่วน [slide](/slides/th/cpp/convert-powerpoint-to-png/) ที่ต้องการหรือ [shape](/slides/th/cpp/shape-thumbnails/) เองเป็นรูปแบบราสเตอร์; นี้ทำให้การทำงานต่อกับเรขาคณิตซับซ้อนง่ายขึ้น.
+**ฉันจะหมุนรูปกำหนดเองพร้อมกับเรขาคณิตได้อย่างถูกต้องอย่างไร?**
+
+ใช้เมธอด [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) ของรูป; เรขาคณิตจะหมุนพร้อมกับรูปเนื่องจากผูกกับระบบพิกัดของรูปเอง.
+
+**ฉันสามารถแปลงรูปกำหนดเองเป็นภาพเพื่อ "ล็อค" ผลลัพธ์ได้หรือไม่?**
+
+ได้. ส่งออกพื้นที่ [slide](/slides/th/cpp/convert-powerpoint-to-png/) ที่ต้องการหรือ [shape](/slides/th/cpp/shape-thumbnails/) เองเป็นรูปแบบแรสเตอร์; นี้ทำให้การทำงานต่อกับเรขาคณิตซับซ้อนง่ายขึ้น.

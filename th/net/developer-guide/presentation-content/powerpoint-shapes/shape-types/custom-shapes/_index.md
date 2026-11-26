@@ -9,9 +9,9 @@ keywords:
 - เพิ่มรูปทรง
 - สร้างรูปทรง
 - เปลี่ยนรูปทรง
-- เรขาคณิตรูปทรง
+- เรขาคณิตของรูปทรง
 - เส้นทางเรขาคณิต
-- จุดเส้นทาง
+- จุดของเส้นทาง
 - จุดแก้ไข
 - เพิ่มจุด
 - ลบจุด
@@ -22,67 +22,67 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "สร้างและปรับแต่งรูปทรงในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ .NET: เส้นทางเรขาคณิต, มุมโค้ง, รูปทรงผสม."
+description: "สร้างและปรับแต่งรูปทรงในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ .NET: เส้นทางเรขาคณิต, มุมโค้ง, รูปทรงประกอบ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการปรับแต่งรูปทรงของงานนำเสนอใน Aspose.Slides โดยการแก้ไขเรขาคณิตของรูปทรงผ่านจุดแก้ไขและเส้นทางเรขาคณิต มันแสดงให้เห็นวิธีการทำงานกับ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) และ [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) เพื่อแก้ไขรูปทรงที่มีอยู่, ทำการดำเนินการแก้ไขเส้นทางพื้นฐาน, เพิ่มหรือเอาจุดออก, และนำเรขาคณิตที่อัปเดตกลับไปยังรูปทรง
+บทความนี้อธิบายวิธีการปรับแต่งรูปทรงการนำเสนอใน Aspose.Slides โดยการแก้ไขเรขาคณิตของรูปทรงผ่านจุดแก้ไขและเส้นทางเรขาคณิต มันแสดงวิธีการทำงานกับ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) และ [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) เพื่อแก้ไขรูปทรงที่มีอยู่, ทำการแก้ไขเส้นทางพื้นฐาน, เพิ่มหรือเอาจุดออก, และนำเรขาคณิตที่อัปเดตกลับไปยังรูปทรง
 
-นอกจากนี้ยังสาธิตวิธีสร้างรูปทรงกำหนดเองและรูปทรงผสม, สร้างรูปทรงที่มีมุมโค้ง, ตรวจสอบว่ารูปทรงเรขาคณิตเป็นแบบปิดหรือไม่, และใช้การแปลงแบบเก่าระหว่าง [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) กับ [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) สำหรับกรณีการปรับแต่งเรขาคณิตเพิ่มเติม
+นอกจากนี้ยังสาธิตวิธีสร้างรูปทรงแบบกำหนดเองและแบบประกอบ, สร้างรูปทรงที่มีมุมโค้ง, ตรวจสอบว่ารูปทรงเรขาคณิตเป็นแบบปิดหรือไม่, และใช้การแปลงแบบเก่าระหว่าง [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) และ [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) สำหรับสถานการณ์การปรับแต่งเรขาคณิตเพิ่มเติม
 
 ## **เปลี่ยนรูปทรงโดยใช้จุดแก้ไข**
 
-ใน PowerPoint คุณสามารถใช้ **Edit Points** เพื่อแก้ไขสี่เหลี่ยม:
+ใน PowerPoint คุณสามารถใช้ **Edit Points** เพื่อแก้ไขสี่เหลี่ยมจัตุรัส:
 
-* ย้ายมุมเข้าไปหรือออกไป
-* ปรับความโค้งที่จุดหนึ่ง
-* เพิ่มจุดใหม่
+* ย้ายมุมเข้าหรือออกจากศูนย์กลาง.
+* ปรับความโค้งที่จุดหนึ่ง.
+* เพิ่มจุดใหม่.
 
-การแก้ไขจุดช่วยให้คุณปรับเส้นรอบรูปของรูปทรงหรือใช้รูปทรงที่มีอยู่เป็นพื้นฐานสำหรับรูปใหม่ได้
+การแก้ไขจุดทำให้คุณสามารถปรับเปลี่ยนโครงร่างของรูปทรงหรือใช้รูปทรงที่มีอยู่เป็นพื้นฐานสำหรับรูปแบบใหม่ได้.
 
 ## **เคล็ดลับการแก้ไขรูปทรง**
 
 ![overview_image](custom_shape_0.png)
 
-เมื่อแก้ไขรูปทรงใน PowerPoint ให้คำนึงถึงแนวคิดต่อไปนี้:
+เมื่อแก้ไขรูปทรงใน PowerPoint โปรดจำแนวคิดต่อไปนี้ไว้ในใจ:
 
-* รูปทรง (หรือเส้นทางของมัน) อาจเป็นแบบปิดหรือเปิด
-* เส้นทางของรูปทรงประกอบด้วยจุดยึดที่เชื่อมต่อด้วยส่วนเส้น
-* ส่วนเส้นสามารถเป็นเส้นตรงหรือเส้นโค้ง จุดยึดและจุดควบคุมกำหนดรูปร่างของมัน
-* จุดยึดมีอยู่ในรูปแบบมุม, จุดตรง, หรือจุดเรียบ:
-  * ที่จุดมุม ส่วนเส้นที่เชื่อมต่อสามารถมาบรรจบกันเป็นมุม
-  * ที่จุดเรียบ จุดควบคุมสองจุดจะอยู่ในแนวเดียวกันและห่างจากจุดยึดเท่ากัน
-  * ที่จุดตรง จุดควบคุมสองจุดจะอยู่ในแนวเดียวกันแต่ระยะห่างจากจุดยึดอาจแตกต่างกัน
-* การย้ายจุดยึดหรือปรับจุดควบคุมจะเปลี่ยนเส้นรอบรูปของรูปทรง
+* รูปทรง (หรือเส้นทางของมัน) สามารถเป็นแบบปิดหรือเปิดได้.
+* เส้นทางของรูปทรงประกอบด้วยจุดยึดที่เชื่อมต่อด้วยส่วนต่าง ๆ.
+* ส่วนหนึ่งอาจเป็นเส้นตรงหรือโค้ง จุดยึดและตัวควบคุมกำหนดรูปร่างของมัน.
+* จุดยึดมีรูปแบบเป็นจุดมุม, จุดตรง, หรือจุดเรียบ:
+  * ที่จุดมุม, ส่วนที่เชื่อมต่อกันสามารถพบกันเป็นมุม.
+  * ที่จุดเรียบ, ตัวควบคุมสองตัวจะอยู่ในแนวเดียวกันและห่างจากจุดยึดเท่ากัน.
+  * ที่จุดตรง, ตัวควบคุมสองตัวอยู่ในแนวเดียวกันแต่ระยะห่างจากจุดยึดอาจต่างกัน.
+* การย้ายจุดยึดหรือปรับตัวควบคุมของมันจะเปลี่ยนโครงร่างของรูปทรง.
 
-เพื่อแก้ไขรูปทรง PowerPoint ผ่านจุดแก้ไข, **Aspose.Slides** ให้คลาส [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) และอินเทอร์เฟซ [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/)
+เพื่อแก้ไขรูปทรง PowerPoint ผ่านจุดแก้ไข, **Aspose.Slides** ให้คลาส [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) และอินเทอร์เฟซ [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
 
-* อินสแตนซ์ของ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) แสดงถึงเส้นทางเรขาคณิตของอ็อบเจ็กต์ [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/)
-* เพื่อนำ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) มาใช้จากอินสแตนซ์ของ [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/), คุณสามารถใช้เมธอด [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/)
-* เพื่อตั้งค่า [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ให้กับรูปทรง, คุณสามารถใช้เมธอดเหล่านี้: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) สำหรับรูปที่มีเส้นทางเดียวและ [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) สำหรับรูปที่มีหลายเส้นทาง
-* เพื่อเพิ่มส่วนเส้น, คุณสามารถใช้เมธอดภายใต้ [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/)
-* ด้วยคุณสมบัติ [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) และ [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) คุณสามารถกำหนดลักษณะการแสดงผลของเส้นทางเรขาคณิต
-* ด้วยคุณสมบัติ [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) คุณสามารถดึงเส้นทางเรขาคณิตของ [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) เป็นอาร์เรย์ของส่วนเส้น
-* ในเวอร์ชันเก่าที่สนับสนุนเมธอดแปลงด้านล่าง, คุณสามารถแปลง [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ไปเป็น [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath)
-* ใช้เมธอด [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) และ [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (จากคลาส [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) เพื่อแปลงระหว่าง [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) กับ [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath)
+* อินสแตนซ์ของ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) แสดงเส้นทางเรขาคณิตของอ็อบเจ็กต์ [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
+* เพื่อดึง [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) จากอินสแตนซ์ของ [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) คุณสามารถใช้เมธอด [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/).
+* เพื่อตั้งค่า [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ให้กับรูปทรง, คุณสามารถใช้เมธอดต่อไปนี้: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) สำหรับรูปทรงที่มีเส้นทางเดียวและ [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) สำหรับรูปทรงที่มีหลายเส้นทาง.
+* เพื่อเพิ่มส่วน, คุณสามารถใช้เมธอดภายใต้ [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
+* โดยใช้คุณสมบัติ [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) และ [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) คุณสามารถตั้งค่าลักษณะการแสดงผลของเส้นทางเรขาคณิต.
+* โดยใช้คุณสมบัติ [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) คุณสามารถดึงเส้นทางเรขาคณิตของ [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) เป็นอาเรย์ของส่วนของเส้นทาง.
+* ในเวอร์ชันเก่าที่สนับสนุนเมธอดการแปลงด้านล่าง, คุณสามารถแปลง [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ไปเป็น [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
+* ใช้เมธอด [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) และ [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (จากคลาส [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) เพื่อแปลงระหว่าง [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) และ [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
 
-## **การดำเนินการแก้ไขแบบง่าย**
+## **การดำเนินการแก้ไขอย่างง่าย**
 
-ใช้เมธอดต่อไปนี้เพื่อแก้ไขเส้นทางเรขาคณิต การโอเวอร์โหลดที่รับดัชนีจะใส่ส่วนเส้นที่ตำแหน่งศูนย์ฐานในอาเรย์ของส่วนเส้น
+ใช้เมธอดต่อไปนี้เพื่อแก้ไขเส้นทางเรขาคณิต การโอเวอร์โหลดที่รับดัชนีจะใส่ส่วนในตำแหน่งศูนย์ฐานในอาเรย์ส่วนของเส้นทาง.
 
 | การดำเนินการ | เมธอด |
 | --- | --- |
-| เพิ่มหรือแทรกเส้นตรง | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
-| เพิ่มหรือแทรกเส้นโค้ง Bézier แบบลูกบาศก์ที่มีจุดควบคุมสองจุดและจุดสิ้นสุด | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
-| เพิ่มหรือแทรกเส้นโค้ง Bézier แบบกำลังสองที่มีจุดควบคุมหนึ่งจุดและจุดสิ้นสุด | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
-| เพิ่มส่วนโค้งวงรีโดยระบุขนาดและมุมเป็นองศา | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
-| ปิดรูปแบบปัจจุบันโดยเชื่อมจุดสิ้นสุดกับจุดเริ่มต้น | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
-| ตั้งค่าจุดเริ่มต้นของรูปแบบ | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
-| ลบส่วนเส้นที่ตำแหน่งดัชนีศูนย์ฐาน | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
+| เพิ่มหรือแทรกเส้นตรง. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
+| เพิ่มหรือแทรกเส้นโค้งคิวบิก Bézier พร้อมจุดควบคุมสองจุดและจุดสิ้นสุด. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| เพิ่มหรือแทรกเส้นโค้งควอดราติก Bézier พร้อมจุดควบคุมหนึ่งจุดและจุดสิ้นสุด. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| เพิ่มโค้งวงรีตามมิติและมุมที่ระบุเป็นองศา. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| ปิดรูปภาพปัจจุบันโดยเชื่อมจุดสิ้นสุดกับจุดเริ่มต้น. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| ตั้งค่าจุดเริ่มต้นของรูปภาพ. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| ลบส่วนที่ตำแหน่งดัชนีศูนย์ฐาน. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
-## **เพิ่มจุดกำหนดเองลงในรูปทรง**
+## **เพิ่มจุดกำหนดเองให้กับรูปทรง**
 
-ตัวอย่างนี้ใส่จุดสองจุดลงในรูปสี่เหลี่ยมโดยใช้ [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) และนำเส้นทางที่แก้ไขไปใช้ด้วย [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) พิกัดเป็นค่าท้องถิ่นของรูปทรง: จุดใหม่ทั้งสองอยู่ที่ศูนย์กลางของรูป, ห่างจากด้านซ้าย 100 จุดและด้านบน 50 จุด ดัชนีส่วนเส้น 1 และ 4 จะวางจุดบนขอบบนและล่าง, ดึงขอบเหล่านั้นเข้าไป
+ตัวอย่างนี้แทรกสองจุดลงในรูปสี่เหลี่ยมโดยใช้ [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) และใช้เส้นทางที่แก้ไขกับ [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). พิกัดเป็นค่าท้องถิ่นของรูปทรง: จุดใหม่ทั้งสองอยู่ที่ศูนย์กลางของรูป, ห่างจากด้านซ้าย 100 จุดและจากด้านบน 50 จุด. ดัชนีส่วนที่ 1 และ 4 วางจุดเหล่านี้บนขอบบนและขอบล่าง, ดึงขอบเหล่านั้นเข้าหากลาง.
 
 ```csharp
 using Aspose.Slides;
@@ -103,7 +103,7 @@ shape.SetGeometryPath(geometryPath);
 
 ## **ลบจุดออกจากรูปทรง**
 
-ตัวอย่างนี้เปลี่ยนโครงร่างหัวใจโดยลบส่วนเส้นที่ตำแหน่งดัชนีศูนย์ฐาน 2 ด้วย [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) การนำเส้นทางที่แก้ไขไปใช้ด้วย [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) จะอัปเดตโครงร่างของรูปทรง
+ตัวอย่างนี้เปลี่ยนโครงร่างรูปหัวใจกโดยการลบส่วนที่ตำแหน่งดัชนีศูนย์ฐาน 2 ด้วย [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). การใช้เส้นทางที่แก้ไขด้วย [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) จะอัปเดตคอนทัวร์ของรูปทรง.
 
 ```csharp
 using Aspose.Slides;
@@ -122,7 +122,7 @@ shape.SetGeometryPath(path);
 
 ## **สร้างรูปทรงกำหนดเอง**
 
-ตัวอย่างนี้สร้างดาวห้ารูปด้วย [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) รัศมีภายนอกและภายในสลับกันที่ 100 และ 50 จุดกำหนดปลายและส่วนโค้ง; ขั้นตอน 72 องศาจะเว้นระยะห่างดาวห้ารูปเท่า ๆ กัน เส้นทางถูกปิดด้วย [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) แล้วนำไปใช้กับรูปสี่เหลี่ยมโดยใช้ [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) แทนโครงร่างเดิม
+ตัวอย่างนี้สร้างดาวห้าแฉกโดยใช้ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). รัศมีภายนอกและภายในสลับกันที่ 100 และ 50 จุดกำหนดจุดยอดและการเว้นช่อง; การก้าว 72 องศาจัดให้จุดยอดห้าแฉกเท่า ๆ กัน. เส้นทางถูกปิดด้วย [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) và นำไปใช้กับรูปสี่เหลี่ยมโดยใช้ [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), แทนที่โครงร่างเดิม.
 
 ```csharp
 using System;
@@ -167,9 +167,9 @@ shape.SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
-## **สร้างรูปทรงกำหนดเองแบบผสม**
+## **สร้างรูปทรงกำหนดเองแบบประกอบ**
 
-ตัวอย่างนี้กำหนดสองอ็อบเจ็กต์ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ที่ปิดสำหรับส่วนบนและล่างของรูปทรง การนำสองเส้นทางไปใช้ด้วย [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) จะสร้างรูปทรงผสมเดียวที่มีช่องว่างตัดผ่านช่วงกลางของรูป
+ตัวอย่างนี้กำหนดสองอ็อบเจ็กต์ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ปิดสำหรับส่วนบนและล่างของรูปทรงที่แบ่งเป็นสามส่วน. การใช้ทั้งสองเส้นทางด้วย [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) สร้างรูปทรงประกอบเดียวที่มีช่องว่างตรงส่วนกลางของรูป.
 
 ```csharp
 using Aspose.Slides;
@@ -187,7 +187,7 @@ topPath.LineTo(0, shape.Height / 3);
 topPath.CloseFigure();
 
 var bottomPath = new GeometryPath();
-bottomPath.MoveTo(0, shape.Height / 3 * 2);
+bottomPath.MoveTo(shape.Height / 3 * 2, 0);
 bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
 bottomPath.LineTo(shape.Width, shape.Height);
 bottomPath.LineTo(0, shape.Height);
@@ -197,9 +197,9 @@ shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
 ![example4_image](custom_shape_4.png)
 
-## **สร้างรูปทรงกำหนดเองพร้อมมุมโค้ง**
+## **สร้างรูปทรงกำหนดเองด้วยมุมโค้ง**
 
-ตัวอย่างนี้ผสมส่วนเส้นตรงกับ [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) เพื่อสร้างรูปทรงที่มุมโค้งเข้าแต่ละมุม กำหนดขนาดมุมแต่ละมุมเป็นความกว้างและความสูงของเส้นโค้งเป็นจุด, และการสวิง -90 องศาจะวาดส่วนโค้งไตรมาสของวงรีทวนเข็มนาฬิกา เส้นทางที่เสร็จสมบูรณ์จะนำไปใช้ด้วย [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) แล้วบันทึกการนำเสนอเป็นรูปแบบ PPTX
+ตัวอย่างนี้รวมส่วนตรงกับ [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) เพื่อสร้างรูปทรงที่มุมโค้งเข้าด้านใน. ขนาดแต่ละมุมกำหนดความกว้างและความสูงของโค้งในหน่วยจุด, และการสวิง -90 องศาวาดรูปสี่เหลี่ยมวงรีทวนเข็มนาฬิกา. เส้นทางที่เสร็จสมบูรณ์ถูกนำไปใช้ด้วย [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), และงานนำเสนอจะถูกบันทึกในรูปแบบ PPTX.
 
 ```csharp
 using System.Drawing;
@@ -243,9 +243,9 @@ shape.SetGeometryPath(geometryPath);
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **ตรวจสอบว่ารูปร่างเรขาคณิตเป็นแบบปิดหรือไม่**
+## **ตรวจสอบว่ารูปทรงเรขาคณิตปิดหรือไม่**
 
-ตัวช่วยต่อไปนี้ตรวจสอบว่าทุกเส้นทางเรขาคณิตที่ไม่ว่างเปล่าจะจบด้วยส่วนเส้นปิดหรือไม่ มันอ่าน [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) และเปรียบเทียบคำสั่งส่วนเส้นสุดท้ายของ [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) กับ [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/) จะคืนค่า false เมื่อไม่มีเส้นทางที่ไม่ว่างเปล่า ตัวตรวจสอบจะดูคำสั่งสุดท้ายของแต่ละเส้นทาง; มันไม่ได้ตรวจสอบทุกรูปย่อยภายในเส้นทาง ตัวอย่างพิมพ์ `True` สำหรับสี่เหลี่ยม
+ตัวช่วยต่อไปนี้ตรวจสอบว่าทุกเส้นทางเรขาคณิตที่ไม่ว่างเปล่าจะสิ้นสุดด้วยส่วนปิดหรือไม่. มันอ่าน [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) และเปรียบเทียบคำสั่งของส่วนสุดท้าย [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) กับ [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). จะคืนค่า false หากไม่มีเส้นทางที่ไม่ว่างเปล่า. การตรวจสอบนี้ดูที่คำสั่งสุดท้ายของแต่ละเส้นทาง; ไม่ได้ตรวจสอบแต่ละรูปย่อยภายในเส้นทาง. ตัวอย่างจะแสดงค่า `True` สำหรับสี่เหลี่ยม.
 
 ```csharp
 using System;
@@ -281,11 +281,54 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
 }
 ```
 
+## **ตรวจสอบคำสั่งของเส้นทางเรขาคณิต**
+
+ดาวน์โหลด [contour.pptx](contour.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน. สไลด์แรกมีรูปทรงที่มีขอบบนเป็นเส้นตรง, เส้นโค้งคิวบิก Bézier, และขอบปิดเป็นเส้นตรง. ใช้ [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) เพื่ออ่านเส้นทางของมัน. แต่ละเส้นทางจะแสดงส่วนของมันตามลำดับการวาดใน [PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/). คำสั่งของแต่ละส่วน [PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) กำหนดวิธีการอ่าน [SegmentData](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/segmentdata/).
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("contour.pptx");
+
+var shape = (IGeometryShape)presentation.Slides[0].Shapes[0];
+var paths = shape.GetGeometryPaths();
+
+for (int i = 0; i < paths.Length; i++)
+{
+    var segments = paths[i].PathData;
+    for (int j = 0; j < segments.Length; j++)
+    {
+        var command = segments[j].PathCommand;
+        var data = segments[j].SegmentData;
+        var detail = command switch
+        {
+            PathCommandType.MoveTo or PathCommandType.LineTo => $"destination=({data[0]}, {data[1]})",
+            PathCommandType.CubicBezierTo => $"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})",
+            PathCommandType.Close => "no coordinates",
+            _ => $"raw=[{string.Join(", ", data)}]"
+        };
+        Console.WriteLine($"Path {i}, segment {j}: {command} {detail}");
+    }
+}
+```
+
+รูปทรงอยู่ที่ตำแหน่ง (200, 100) จุดบนสไลด์. จุดที่รายงานเป็นค่าท้องถิ่นของรูปทรง, โดย (0, 0) อยู่ที่มุมซ้ายบน, ค่า x เพิ่มไปทางขวา, และค่า y เพิ่มลงล่าง. ส่วนปิดจะกลับไปที่จุดเริ่มต้นโดยไม่มีพิกัดเพิ่มเติม.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![รูป PowerPoint ที่มีขอบบนเป็นเส้นตรง, ขอบโค้งจากมุมบนขวาไปยังมุมล่างซ้าย, และขอบซ้ายเป็นเส้นตรง](contour.png)
+
 ## **สกัดและตรวจสอบส่วนประกอบของรูปทรง**
 
-ใช้เมธอด [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) เพื่อสแกนรูปทรงที่มีอยู่เป็นส่วนประกอบที่บรรจุจุดเส้นทางและประเภทจุด แปลงแต่ละ [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) ที่ได้เป็น [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) เพื่ออ่านอาร์เรย์ [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) และ [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/) การแสดงผลนี้มีประโยชน์สำหรับการวิเคราะห์โครงร่างหรือการส่งเรขาคณิตไปยังเครื่องมือวาดแบบกำหนดเอง
+ใช้ [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) เพื่อตรวจสอบรูปทรงที่มีอยู่เป็นองค์ประกอบที่ประกอบด้วยจุดเส้นทางและประเภทจุด. แปลงแต่ละ [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) ที่คืนค่าเป็น [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) เพื่ออ่านอาเรย์ [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) และ [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/). การแสดงผลนี้มีประโยชน์สำหรับการวิเคราะห์โครงร่างหรือการส่งเรขาคณิตไปยังเครื่องมือวาดแบบกำหนดเอง.
 
-ตัวอย่างเปิดงานนำเสนอ, ค้นหารูปเรขาคณิตแรกโดยตรงบนสไลด์แรก, และพิมพ์ส่วนเส้นของมัน ใช้งานนำเสนอที่มีรูปที่มีส่วนเส้นตรงและส่วนโค้งเพื่อดูผลลัพธ์ของทั้งสองประเภท ไม่ได้ค้นหาในกลุ่มย่อย
+ตัวอย่างนี้เปิดงานนำเสนอ, ค้นหารูปเรขาคณิตแรกบนสไลด์แรกโดยตรง, และพิมพ์ส่วนของเส้นทางของมัน. ใช้งานนำเสนอที่มีรูปทรงที่มีส่วนเส้นตรงและโค้งเพื่อดูผลลัพธ์ทั้งสองประเภท. มันไม่ได้ค้นหาภายในกลุ่ม.
 
 ```csharp
 using System;
@@ -311,7 +354,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 
     for (var i = 0; i < points.Length; i++)
     {
-        var pointType = types[i] & 0x07; // เก็บประเภทส่วนเส้นไว้, ไม่รวมแฟล็ก.
+        var pointType = types[i] & 0x07; // เก็บประเภทส่วน, ไม่รวมแฟล็ก.
         switch (pointType)
         {
             case 0:
@@ -322,7 +365,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
                 break;
             case 3:
                 Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
-                i += 2; // ใช้จุดควบคุมทั้งสองจุดและจุดสิ้นสุด.
+                i += 2; // ใช้จุดควบคุมทั้งสองและจุดสิ้นสุด.
                 break;
         }
 
@@ -334,21 +377,21 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 }
 ```
 
-อาร์เรย์สอดคล้องตามดัชนี: `points[i]` คือจุดและ `types[i]` บรรยายบทบาทของจุดนั้น ประเภท `0` เริ่มรูป, ประเภท `1` วาดเส้นจากจุดก่อนหน้ามาถึงจุดปัจจุบัน ส่วนเส้น Bézier แบบลูกบาศก์เริ่มจากจุดสิ้นสุดก่อนหน้าและใช้รายการประเภท `3` สามรายการต่อเนื่อง: จุดควบคุมสองจุดตามด้วยจุดสิ้นสุดใหม่ ลูปจะอ่านสามรายการนี้พร้อมกันและตรวจสอบจุดสิ้นสุดเพื่อดูว่าปิดหรือไม่
+อาเรย์สอดคล้องกันตามดัชนี: `points[i]` คือจุดและ `types[i]` บรรยายบทบาทของมัน. ประเภท `0` เริ่มรูป, และประเภท `1` วาดเส้นจากจุดก่อนหน้ามายังจุดปัจจุบัน. ส่วนคิวบิก Bézier เริ่มจากจุดสิ้นสุดก่อนหน้าและใช้รายการประเภท `3` ต่อเนื่องสามรายการ: สองจุดควบคุมตามด้วยจุดสิ้นสุดใหม่. ลูปจะใช้สามรายการนี้ร่วมกันและตรวจสอบจุดสิ้นสุดเพื่อปิด.
 
-ประเภทจุดยังมีค่าสถานะด้วย ให้ทำ Mask ด้วย `0x07` เพื่อตรวจจับประเภทส่วนเส้น, และทดสอบ `0x80` แยกต่างหากเพื่อค้นหาเส้นทางย่อยที่ปิด ตัวอย่างเช่น `129` (`0x81`) หมายถึงจุดสิ้นสุดเส้นที่ปิดเส้นทางย่อย, `131` (`0x83`) หมายถึงจุดสิ้นสุด Bézier ที่ปิดเส้นทาง ยกเว้นการเปรียบเทียบค่าดิบกับ `1` หรือ `3` จะทำให้พลาดกรณีเหล่านี้ ค่าสถานะอื่น ๆ เช่น dash (`0x10`) และ marker (`0x20`) ไม่ส่งผลต่อประเภทส่วนเส้นพื้นฐาน
+ประเภทจุดยังมีแฟล็ก. ใช้มาสก์ `0x07` เพื่อระบุประเภทส่วน, และตรวจสอบ `0x80` แยกต่างหากเพื่อค้นพบเส้นทางย่อยที่ปิด. ตัวอย่างเช่น, `129` (`0x81`) หมายถึงจุดสิ้นสุดของเส้นที่ปิดเส้นทางย่อย, และ `131` (`0x83`) หมายถึงจุดสิ้นสุดของ Bézier ที่ปิดเส้นทางย่อย. การเปรียบเทียบค่าดิบแค่กับ `1` หรือ `3` จะพลาดกรณีเหล่านี้. แฟล็กอื่น ๆ เช่น dash (`0x10`) และ marker (`0x20`) ไม่เปลี่ยนประเภทส่วนพื้นฐาน.
 
-**พิกัดและการแปลง** จุดวัดเป็นจุด (1/72 นิ้ว) โดย X เพิ่มไปทางขวาและ Y เพิ่มลงด้านล่าง สำหรับรูปที่ไม่ได้จัดกลุ่ม, พิกัดที่สกัดมาแล้วรวมตำแหน่ง [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) และ [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) ของรูปและสะท้อนความกว้างและความสูงปัจจุบัน ตัวอย่างสี่เหลี่ยมที่ไม่มีการหมุนที่ตำแหน่ง `(100, 200)` ขนาด `120 × 80` มีขอบโครงร่าง `(100, 200)`–`(220, 280)` อย่าเพิ่มตำแหน่งของรูปอีกครั้ง ให้ลบค่า X และ Y เพื่อให้ได้พิกัดสัมพันธ์กับกรอบที่ไม่ได้หมุน
+**พิกัดและการแปลง**. จุดวัดเป็นหน่วยจุด (1/72 นิ้ว), โดย X เพิ่มไปทางขวาและ Y เพิ่มลงล่าง. สำหรับรูปทรงที่ไม่ได้อยู่ในกลุ่ม, พิกัดที่สกัดออกมาจะรวมตำแหน่ง [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) และ [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) ของมันแล้วและสะท้อนความกว้างและความสูงปัจจุบัน. ตัวอย่างเช่น, สี่เหลี่ยมที่ไม่ได้หมุนที่ตำแหน่ง `(100, 200)` ขนาด `120 × 80` มีขอบโครงร่าง `(100, 200)`–`(220, 280)`. อย่าเพิ่มตำแหน่งของรูปอีกรอบหนึ่ง. ให้ลบค่า X และ Y เพื่อให้ได้พิกัดสัมพันธ์กับกรอบที่ไม่หมุน.
 
-จุดที่สกัดไม่รวมการหมุนของรูป ([Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/)) หรือการพลิกแนวนอนและแนวตั้ง เพื่อให้ได้โครงร่างที่แสดงผลตามจริง ต้องนำการแปลงเหล่านี้ไปใช้รอบศูนย์กลางของรูป สำหรับรูปที่อยู่ในกลุ่ม ต้องคำนึงถึงการแม็พพิกัดและการแปลงของกลุ่ม; อย่าสมมติว่าจุดที่สกัดเป็นพิกัดสุดท้ายบนสไลด์หรือทำการแปลหรือสเกลซ้ำหากมันได้ถูกสะท้อนไว้แล้วในกรอบของลูก
+จุดที่สกัดออกมาไม่ได้ใช้ [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) หรือการพลิกแนวนอนและแนวตั้งของรูป. เพื่อสร้างโครงร่างที่แสดง, ให้ใช้การแปลงเหล่านั้นรอบศูนย์กลางของรูป. สำหรับรูปที่อยู่ในกลุ่ม, ควรคำนึงถึงการแมพพิกัดของกลุ่มและการแปลง; อย่า Assume ว่าจุดที่สกัดเป็นพิกัดสุดท้ายของสไลด์ที่เรนเดอร์ หรือไม่ให้ทำการแปลหรือสเกลสองครั้งหากมันได้ถูกสะท้อนไว้แล้วในกรอบของลูก.
 
-**การตรวจสอบเทียบกับการแก้ไข** อาร์เรย์ที่สกัดอธิบายโครงร่าง; การเปลี่ยนแปลงอาร์เรย์เหล่านี้จะไม่อัปเดตรูปต้นฉบับ ใช้วิธีนี้เมื่อการวิเคราะห์หรือโค้ดวาดของคุณต้องการอาร์เรย์จุด/ประเภท ใช้เมธอด [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) เมื่อคุณต้องการคำสั่งเรขาคณิตในระบบพิกัดท้องถิ่นของรูปหรือเมื่อคุณต้องการแก้ไขเรขาคณิตของรูป ใช้เมธอด [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) หรือ [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) เพื่อใช้เส้นทางที่แก้ไข
+**การตรวจสอบเทียบกับการแก้ไข**. อาเรย์ที่สกัดอธิบายโครงร่าง; การเปลี่ยนแปลงอาเรย์เหล่านั้นจะไม่อัปเดตรูปต้นฉบับ. เลือกวิธีนี้เมื่อการวิเคราะห์หรือโค้ดวาดของคุณต้องการอาเรย์จุด/ประเภท. ใช้ [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) เมื่อคุณต้องการคำสั่งเรขาคณิตในระบบพิกัดท้องถิ่นของรูปหรืออยากแก้ไขเรขาคณิตของมัน. นำเส้นทางที่แก้ไขไปใช้ผ่าน [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) หรือ [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
 
-## **แปลง GeometryPath ไปเป็น GraphicsPath (System.Drawing.Drawing2D)**
+## **แปลง GeometryPath เป็น GraphicsPath (System.Drawing.Drawing2D)**
 
-ตัวอย่างต่อไปนี้ต้องใช้แอสเซมบลี Aspose.Slides for .NET รุ่นเก่าที่สนับสนุน [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), เช่น เวอร์ชัน 25.10, และสภาพแวดล้อม Windows ที่มี `System.Drawing.Common` เมธอดแปลงถูกลบออกใน [version 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/)
+ตัวอย่างต่อไปนี้ต้องการชุดแอสเซมบลี Aspose.Slides for .NET รุ่นเก่าที่สนับสนุน [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), เช่นรุ่น 25.10, และสภาพแวดล้อม Windows ที่มี `System.Drawing.Common`. เมธอดการแปลงถูกลบใน [version 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
 
-ตัวอย่างนี้รวมโครงร่างสี่เหลี่ยมกับข้อความที่แปลงเป็นเรขาคณิต โครงร่างของ [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) ถูกตั้งค่าให้ปิดการเติมสี [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) เก็บโครงร่างข้อความซึ่ง [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) แปลงเป็นเส้นทางเรขาคณิตที่เต็ม การใช้ทั้งสองเส้นทางกับ [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) จะสร้างรูปเดียวที่ประกอบด้วยสี่เหลี่ยมและข้อความ สำหรับการแปลงในทิศทางตรงกันข้าม ให้ใช้ [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/)
+ตัวอย่างนี้รวมโครงร่างสี่เหลี่ยมกับข้อความที่แปลงเป็นเรขาคณิต. [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) ของโครงร่างถูกตั้งค่าให้ปิดการเติม. [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) เก็บโครงร่างข้อความ, ซึ่ง [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) แปลงเป็นเส้นทางเรขาคณิตที่เติม. การใช้ทั้งสองเส้นทางด้วย [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) สร้างรูปเดียวที่มีสี่เหลี่ยมและข้อความ. สำหรับการแปลงในทิศทางตรงกันข้าม, ใช้ [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
 
 ```csharp
 using System.Drawing;
@@ -377,16 +420,16 @@ shape.SetGeometryPaths(new[] { originalPath, textPath });
 ```
 ![example5_image](custom_shape_5.png)
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**การเติมสีและโครงร่างจะเปลี่ยนแปลงอย่างไรหลังจากแทนที่เรขาคณิต?**
+**อะไรจะเกิดขึ้นกับการเติมและโครงร่างหลังจากการเปลี่ยนเรขาคณิต?**
 
-สไตล์จะคงอยู่กับรูปทรง; เพียงแต่โครงร่างจะเปลี่ยนแปลง การเติมสีและโครงร่างจะถูกนำไปใช้โดยอัตโนมัติกับเรขาคณิตใหม่
+สไตล์ยังคงอยู่กับรูป; เพียงโครงร่างที่เปลี่ยน. การเติมและโครงร่างจะถูกใช้กับเรขาคณิตใหม่โดยอัตโนมัติ.
 
-**ฉันจะหมุนรูปทรงกำหนดเองพร้อมกับเรขาคณิตอย่างถูกต้องได้อย่างไร?**
+**ฉันจะทำการหมุนรูปกำหนดเองพร้อมกับเรขาคณิตอย่างถูกต้องได้อย่างไร?**
 
-ใช้คุณสมบัติ [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) ของรูป; เรขาคณิตจะหมุนพร้อมกับรูปเพราะผูกกับระบบพิกัดของรูปเอง
+ใช้คุณสมบัติ [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) ของรูป; เรขาคณิตจะหมุนพร้อมกับรูปเนื่องจากมันถูกผูกกับระบบพิกัดของรูปเอง.
 
-**ฉันสามารถแปลงรูปทรงกำหนดเองเป็นภาพเพื่อ “ล็อก” ผลลัพธ์ได้หรือไม่?**
+**ฉันสามารถแปลงรูปกำหนดเองเป็นภาพเพื่อ “ล็อก” ผลลัพธ์ได้หรือไม่?**
 
-ได้. ให้ส่งออก [slide](/slides/th/net/convert-powerpoint-to-png/) ที่ต้องการหรือ [shape](/slides/th/net/create-shape-thumbnails/) เองเป็นรูปแบบราสเตอร์; วิธีนี้ทำให้งานกับเรขาคณิตที่ซับซ้อนต่อไปง่ายขึ้น
+ได้. ส่งออกพื้นที่ [slide](/slides/th/net/convert-powerpoint-to-png/) ที่ต้องการหรือ [shape](/slides/th/net/create-shape-thumbnails/) เองเป็นรูปแบบราสเตอร์; นี้จะทำให้งานกับเรขาคณิตซับซ้อนง่ายขึ้น.

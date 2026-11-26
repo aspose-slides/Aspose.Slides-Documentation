@@ -12,11 +12,11 @@ keywords:
 - γεωμετρία σχήματος
 - διαδρομή γεωμετρίας
 - σημεία διαδρομής
-- σημεία επεξεργασίας
+- σημείες επεξεργασίας
 - προσθήκη σημείου
 - αφαίρεση σημείου
 - λειτουργία επεξεργασίας
-- καμπυλωμένη γωνία
+- καμπυλωτή γωνία
 - PowerPoint
 - παρουσίαση
 - PHP
@@ -25,17 +25,17 @@ description: "Δημιουργήστε και προσαρμόστε σχήμα�
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τα σχήματα παρουσίασης στο Aspose.Slides επεξεργάζοντας τη γεωμετρία του σχήματος μέσω σημείων επεξεργασίας και διαδρομών γεωμετρίας. Δείχνει πώς να εργαστείτε με [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας διαδρομής, να προσθέσετε ή να αφαιρέσετε σημεία και να εφαρμόσετε την ενημερωμένη γεωμετρία σε ένα σχήμα.
+Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τα σχήματα παρουσίασης στο Aspose.Slides επεξεργάζοντας τη γεωμετρία του σχήματος μέσω σημείων επεξεργασίας και διαδρομών γεωμετρίας. Δείχνει πώς να εργαστείτε με [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας διαδρομής, να προσθέσετε ή να αφαιρέσετε σημεία και να εφαρμόσετε την ενημερωμένη γεωμετρία πίσω σε ένα σχήμα.
 
-Δemonstra επίσης πώς να δημιουργήσετε προσαρμοσμένα και σύνθετα σχήματα, να χτίσετε σχήματα με καμπυλωμένες γωνίες, να καθορίσετε εάν η γεωμετρία ενός σχήματος είναι κλειστή, να επιθεωρήσετε τα στοιχεία του σχήματος και να μετατρέψετε τα περίγραμμα κειμένου Java AWT σε διαδρομές γεωμετρίας.
+Δείχνει επίσης πώς να δημιουργήσετε προσαρμοσμένα και σύνθετα σχήματα, να χτίσετε σχήματα με καμπυλωμένες γωνίες, να προσδιορίσετε αν μια γεωμετρία σχήματος είναι κλειστή, να εξετάσετε τα στοιχεία του σχήματος και να μετατρέψετε τα περιγράμματα κειμένου Java AWT σε διαδρομές γεωμετρίας.
 
 ## **Αλλαγή Σχήματος Χρησιμοποιώντας Σημεία Επεξεργασίας**
 
 Στο PowerPoint, μπορείτε να χρησιμοποιήσετε **Σημεία Επεξεργασίας** για να τροποποιήσετε ένα τετράγωνο:
 
-* Μετακινήστε μια γωνία προς τα μέσα ή προς τα έξω.
+* Μετακινήστε μια γωνία προς το εσωτερικό ή το εξωτερικό.
 * Ρυθμίστε την καμπυλότητα σε ένα σημείο.
-* Προσθέστε νέα σημεία.
+* Προσθήκη νέων σημείων.
 
 Η επεξεργασία σημείων σας επιτρέπει να τροποποιήσετε το περίγραμμα ενός σχήματος ή να χρησιμοποιήσετε ένα υπάρχον σχήμα ως βάση για ένα νέο.
 
@@ -43,44 +43,44 @@ description: "Δημιουργήστε και προσαρμόστε σχήμα�
 
 ![overview_image](custom_shape_0.png)
 
-Κατά την επεξεργασία σχημάτων PowerPoint, κρατήστε αυτά τα concepts στο μυαλό:
+Κατά την επεξεργασία σχημάτων PowerPoint, κρατήστε αυτές τις έννοιες στο μυαλό:
 
-* Ένα σχήμα (ή η διαδρομή του) μπορεί να είναι είτε κλειστό είτε ανοιχτό.
-* Η διαδρομή ενός σχήματος αποτελείται από anchor points συνδεδεμένα με segments.
-* Ένα segment μπορεί να είναι straight ή curved. Τα anchor points και τα control handles καθορίζουν το σχήμα του.
-* Τα anchor points υπάρχουν ως corner points, straight points ή smooth points:
-  * Σε ένα corner point, τα γειτονικά segments μπορούν να συναντιούνται με γωνία.
-  * Σε ένα smooth point, τα δύο control handles είναι ευθυγραμμισμένα και ισαπέχουν από το anchor point.
-  * Σε ένα straight point, τα δύο control handles είναι ευθυγραμμισμένα αλλά μπορούν να έχουν διαφορετικές αποστάσεις από το anchor point.
-* Η μετακίνηση των anchor points ή η προσαρμογή των handles τους αλλάζει το περίγραμμα του σχήματος.
+* Ένα σχήμα (ή η διαδρομή του) μπορεί να είναι κλειστό ή ανοικτό.
+* Η διαδρομή ενός σχήματος αποτελείται από σημεία αγκύρωσης που συνδέονται με τμήματα.
+* Ένα τμήμα μπορεί να είναι ευθύ ή κυρτό. Τα σημεία αγκύρωσης και οι χειρολαβές ελέγχου καθορίζουν το σχήμα του.
+* Τα σημεία αγκύρωσης εμφανίζονται ως γωνιακά σημεία, ευθείες ή απαλοποιημένα:
+  * Σε ένα γωνιακό σημείο, τα γειτονικά τμήματα μπορούν να συναντηθούν με γωνία.
+  * Σε ένα απαλοποιημένο σημείο, οι δύο χειρολαβές ελέγχου είναι ευθυγραμμισμένες και ίσου αποστάσεων από το σημείο αγκύρωσης.
+  * Σε ένα ευθύ σημείο, οι δύο χειρολαβές ελέγχου είναι ευθυγραμμισμένες αλλά μπορεί να έχουν διαφορετικές αποστάσεις από το σημείο αγκύρωσης.
+* Η μετακίνηση των σημείων αγκύρωσης ή η ρύθμιση των χειρολαβών τους αλλάζει το περίγραμμα του σχήματος.
 
-Για επεξεργασία σχημάτων PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+Για την επεξεργασία σχημάτων PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-* Ένα αντικείμενο [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) αντιπροσωπεύει μια διαδρομή γεωμετρίας του αντικειμένου [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
-* Για να ανακτήσετε το [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) από το αντικείμενο [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/), μπορείτε να χρησιμοποιήσετε τη μέθοδο [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
-* Για να ορίσετε το [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) για ένα σ Shape, μπορείτε να χρησιμοποιήσετε αυτές τις μεθόδους: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) για σ Shape με μία διαδρομή και [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) για σ Shape με πολλαπλές διαδρομές.
-* Για να προσθέσετε segments, μπορείτε να χρησιμοποιήσετε τις μεθόδους κάτω από [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* Μία παρουσίαση του [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) αντιπροσωπεύει μια διαδρομή γεωμετρίας του αντικειμένου [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
+* Για να λάβετε το [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) από την παρουσίαση του [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/), μπορείτε να χρησιμοποιήσετε τη μέθοδο [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
+* Για να ορίσετε το [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) για ένα σχήμα, μπορείτε να χρησιμοποιήσετε αυτές τις μεθόδους: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) για σχήματα με μία μόνο διαδρομή και [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) για σχήματα με πολλαπλές διαδρομές.
+* Για να προσθέσετε τμήματα, μπορείτε να χρησιμοποιήσετε τις μεθόδους στο [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 * Χρησιμοποιώντας τις μεθόδους [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) και [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode), μπορείτε να ορίσετε την εμφάνιση μιας διαδρομής γεωμετρίας.
-* Με τη μέθοδο [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData), μπορείτε να ανακτήσετε τη διαδρομή γεωμετρίας ενός [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) ως πίνακα δια segments.
-* Για πρόσβαση σε πρόσθετες επιλογές προσαρμογής γεωμετρίας σχήματος, μπορείτε να διαβάσετε ένα [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) μέσω του [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) και να επαναλάβετε τα segments σε ένα [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* Με τη μέθοδο [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData), μπορείτε να λάβετε τη διαδρομή γεωμετρίας ενός [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) ως πίνακα τμημάτων διαδρομής.
+* Για πρόσβαση σε επιπλέον επιλογές προσαρμογής γεωμετρίας σχήματος, μπορείτε να διαβάσετε ένα [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) μέσω του [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) και να επαναλάβετε τα τμήματα σε ένα [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
 ## **Απλές Λειτουργίες Επεξεργασίας**
 
-Χρησιμοποιήστε τις παρακάτω μεθόδους για να επεξεργαστείτε μια διαδρομή γεωμετρίας. Οι υπερφορτώσεις που δέχονται δείκτη εισάγουν ένα segment στη συγκεκριμένη θέση μηδενικής βάσης στον πίνακα segments της διαδρομής.
+Χρησιμοποιήστε τις παρακάτω μεθόδους για να επεξεργαστείτε μια διαδρομή γεωμετρίας. Οι υπερφορτώσεις που δέχονται δείκτη εισάγουν ένα τμήμα στη μηδενική θέση του πίνακα τμημάτων της διαδρομής.
 
 | Λειτουργία | Μέθοδος |
 | --- | --- |
-| Προσθήκη ή εισαγωγή ευθείας γραμμής. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
-| Προσθήκη ή εισαγωγή κυρτής Bézier καμπύλης με δύο control points και ένα endpoint. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| Προσθήκη ή εισαγωγή τετραγωνικής Bézier καμπύλης με ένα control point και ένα endpoint. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| Προσθήκη ελλειπτικού τόξου με τις καθορισμένες διαστάσεις και γωνίες σε μοίρες. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
-| Κλείσιμο του τρέχοντος σχήματος συνδέοντας το endpoint του με το αρχικό του σημείο. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| Προσθήκη ή εισαγωγή μιας ευθείας γραμμής. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
+| Προσθήκη ή εισαγωγή μιας κυβικής καμπύλης Bézier με δύο σημεία ελέγχου και ένα τελικό σημείο. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Προσθήκη ή εισαγωγή μιας τετραγωνικής καμπύλης Bézier με ένα σημείο ελέγχου και ένα τελικό σημείο. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Προσθήκη ενός ελλειπτικού τόξου με τις καθορισμένες διαστάσεις και γωνίες σε μοίρες. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| Κλείσιμο του τρέχοντος σχήματος συνδέοντας το τελικό του σημείο με το αρχικό του σημείο. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
 | Ορισμός του αρχικού σημείου ενός σχήματος. | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
-| Αφαίρεση segment σε δείκτη μηδενικής βάσης. | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
+| Αφαίρεση ενός τμήματος σε δείκτη μηδενικής βάσης. | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **Προσθήκη Προσαρμοσμένων Σημείων σε Σχήμα**
 
-Αυτό το παράδειγμα εισάγει δύο σημεία σε ένα ορθογώνιο σχήμα χρησιμοποιώντας [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) και εφαρμόζει τη διόρθωση διαδρομής με [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). Οι συντεταγμένες είναι τοπικές στο σ Shape: και τα δύο νέα σημεία βρίσκονται στο κέντρο του, 100 σημεία από τα αριστερά και 50 σημεία από την κορυφή. Οι δείκτες των segments 1 και 4 τα τοποθετούν στις άνω και κάτω άκρες, τραβώντας αυτές τις άκρες προς το εσωτερικό.
+Αυτό το παράδειγμα εισάγει δύο σημεία σε ένα ορθογωνικό σχήμα χρησιμοποιώντας [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) και εφαρμόζει τη επεξεργασμένη διαδρομή με [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). Οι συντεταγμένες είναι τοπικές στο σχήμα: και τα δύο νέα σημεία βρίσκονται στο κέντρο του, 100 μονάδες από τα αριστερά και 50 μονάδες από την κορυφή. Οι δείκτες τμημάτων 1 και 4 τα τοποθετούν στις άνω και κάτω άκρες, τραβώντας αυτές τις άκρες προς το εσωτερικό.
 
 ```php
 use aspose\slides\Presentation;
@@ -106,7 +106,7 @@ try {
 
 ## **Αφαίρεση Σημείων από Σχήμα**
 
-Αυτό το παράδειγμα αλλάζει το περίγραμμα ενός σχήματος σε σχήμα καρδιάς αφαιρώντας το segment στη θέση μηδενικής βάσης 2 με [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). Η εφαρμογή της τροποποιημένης διαδρομής με [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ενημερώνει το περίγραμμα του σ Shape.
+Αυτό το παράδειγμα τροποποιεί το περίγραμμα μιας καρδιάς αφαιρώντας το τμήμα στον δείκτη μηδενικής βάσης 2 με [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). Η εφαρμογή της τροποποιημένης διαδρόμου με [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ενημερώνει το περίγραμμα του σχήματος.
 
 ```php
 use aspose\slides\Presentation;
@@ -130,7 +130,7 @@ try {
 
 ## **Δημιουργία Προσαρμοσμένου Σχήματος**
 
-Αυτό το παράδειγμα χτίζει ένα πεντάγωνο αστέρι με το [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). Εναλλασσόμενες εξωτερικές και εσωτερικές ακτίνες 100 και 50 points ορίζουν τα άκρα και τις εσοχές· ένα βήμα 72 μοιρών χωρίζει τα πέντε άκρα ισότιμα. Η διαδρομή κλείνει με το [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) και εφαρμόζεται σε ένα ορθογώνιο σ Shape με το [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), αντικαθιστώντας το περίγραμμά του.
+Αυτό το παράδειγμα δημιουργεί ένα πεντάγωνο αστέρι με το [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). Εναλλασσόμενες εξωτερικές και εσωτερικές ακτίνες των 100 και 50 μονάδων καθορίζουν τις άκρες και τις εγκοπές· ένα βήμα 72 μοιρών χωρίζει ομοιόμορφα τις πέντε άκρες. Η διαδρομή κλείνει με το [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) και εφαρμόζεται σε ένα ορθογώνιο σχήμα μέσω του [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), αντικαθιστώντας το περίγραμμα του.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -168,7 +168,7 @@ try {
 
 ## **Δημιουργία Σύνθετου Προσαρμοσμένου Σχήματος**
 
-Αυτό το παράδειγμα ορίζει δύο κλειστές [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) για το άνω και το κάτω τρίτο ενός σ Shape. Η εφαρμογή και των δύο διαδρομών με το [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) δημιουργεί ένα ενιαίο σύνθετο σ Shape με κενό στο μεσαίο τρίτο.
+Αυτό το παράδειγμα ορίζει δύο κλειστές [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) αντικείμενα για το πάνω και το κάτω τρίτο ενός σχήματος. Η εφαρμογή και των δύο διαδρομών με το [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) δημιουργεί ένα ενιαίο σύνθετο σχήμα με ένα κενό διαμέσου του κεντρικού τριτάτου του.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -202,9 +202,9 @@ try {
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Δημιουργία Προσαρμοσμένου Σχήματος με Καμπυλωμένες Γωνίες**
+## **Δημιουργία Προσαρμοσμένου Σχήματος με Καμπυλωτές Γωνίες**
 
-Αυτό το παράδειγμα συνδυάζει ευθείες segments με το [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) για να δημιουργήσει ένα σ Shape με εσωτερικά καμπυλωμένες γωνίες. Κάθε μέγεθος γωνίας ορίζει το πλάτος και το ύψος του τόξου σε points, και η σάρωση -90 μοιρών σχεδιάζει ένα αντίστροφο ανοιγμένο τέταρτο έλλειψης. Η ολοκληρωμένη διαδρομή εφαρμόζεται με το [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), και η παρουσίαση αποθηκεύεται σε μορφή PPTX.
+Αυτό το παράδειγμα συνδυάζει ευθείες τμηματικές με το [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) για να δημιουργήσει ένα σχήμα με εσωτερικά καμπυλωτές γωνίες. Κάθε μέγεθος γωνίας ορίζει το πλάτος και το ύψος του τόξου σε μονάδες, και η στροφή -90 μοιρών σχεδιάζει ένα τέταρτο έλλειψα αριστερόστροφα. Η ολοκληρωμένη διαδρομή εφαρμόζεται με το [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), και η παρουσία αποθηκεύεται σε μορφή PPTX.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -255,9 +255,9 @@ try {
 }
 ```
 
-## **Έλεγχος Εάν η Γεωμετρία Σχήματος Είναι Κλειστή**
+## **Εύρεση Εάν η Γεωμετρία Σχήματος Είναι Κλειστή**
 
-Ο παρακάτω βοηθός ελέγχει εάν κάθε μη κενή διαδρομή γεωμετρίας λήγει με segment κλεισίματος. Διαβάζει το [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) και συγκρίνει την τελική εντολή του segment [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) με το [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). Επιστρέφει false όταν δεν υπάρχουν μη κενές διαδρομές. Αυτό ελέγχει την τελική εντολή κάθε διαδρομής· δεν επιθεωρεί κάθε υποσχήμα μέσα σε μια διαδρομή. Το παράδειγμα εκτυπώνει `true` για ένα ορθογώνιο.
+Ο παρακάτω βοηθός ελέγχει εάν κάθε μη-κενή διαδρομή γεωμετρίας τελειώνει με τμήμα κλεισίματος. Διαβάζει το [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) και συγκρίνει την τελική εντολή του τμήματος [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) με το [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). Επιστρέφει false όταν δεν υπάρχουν μη-κενές διαδρομές. Ο έλεγχος αυτός αφορά την τελική εντολή κάθε διαδρομής· δεν εξετάζει κάθε υποσχήμα εντός μιας διαδρομής. Το παράδειγμα εκτυπώνει `true` για ένα ορθογώνιο.
 
 ```php
 use aspose\slides\PathCommandType;
@@ -292,11 +292,64 @@ try {
 }
 ```
 
+## **Επιθεώρηση Εντολών Διαδρομής Γεωμετρίας**
+
+Κατεβάστε το [contour.pptx](contour.pptx) και τοποθετήστε το στον φάκελο εργασίας της εφαρμογής. Το πρώτο σχήμα στην πρώτη διαφάνεια έχει μια ευθεία άνω άκρη, μια κυβική καμπύλη Bézier και μια ευθεία κλειστή άκρη. Χρησιμοποιήστε το [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) για να διαβάσετε τις διαδρομές του σχήματος και το [getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) για να διαβάσετε τα τμήματα κάθε διαδρομής με τη σειρά σχεδίασης. Για κάθε τμήμα, το [getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) αναγνωρίζει την εντολή και καθορίζει πώς να ερμηνεύσετε τις τιμές που επιστρέφει το [getSegmentData](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getSegmentData).
+
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("contour.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+    foreach ($shape->getGeometryPaths() as $pathIndex => $path) {
+        foreach ($path->getPathData() as $segmentIndex => $segment) {
+            $command = java_values($segment->getPathCommand());
+            $data = java_values($segment->getSegmentData());
+            switch ($command) {
+                case PathCommandType::MoveTo:
+                case PathCommandType::LineTo:
+                    $name = $command === PathCommandType::MoveTo ? "MoveTo" : "LineTo";
+                    $detail = sprintf("destination=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::CubicBezierTo:
+                    $name = "CubicBezierTo";
+                    $detail = sprintf("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::Close:
+                    $name = "Close";
+                    $detail = "no coordinates";
+                    break;
+                default:
+                    $name = "Command " . $command;
+                    $detail = "raw=" . json_encode($data);
+            }
+            printf("Path %d, segment %d: %s %s\n", $pathIndex, $segmentIndex, $name, $detail);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Το σχήμα βρίσκεται στο (200, 100) μονάδες στη διαφάνεια. Οι αναφερόμενες συντεταγμένες είναι τοπικές στο σχήμα, με το (0, 0) στην επάνω‑αριστερή γωνία, x αυξάνεται προς τα δεξιά και y προς τα κάτω. Το τμήμα κλεισίματος επιστρέφει στο αρχικό σημείο χωρίς πρόσθετες συντεταγμένες.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **Εξαγωγή και Επιθεώρηση Στοιχείων Σχήματος**
 
-Χρησιμοποιήστε το [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) για να επιθεωρήσετε ένα υπάρχον σ Shape ως στοιχεία που περιέχουν σημεία διαδρομής και τύπους σημείων. Χρησιμοποιήστε κάθε επιστρεφόμενο [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) για να ανακτήσετε τους πίνακες σημείων και τύπων μέσω των μεθόδων [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) και [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). Αυτή η αναπαράσταση είναι χρήσιμη για ανάλυση περιγράμματος ή για περαιτέρω επεξεργασία γεωμετρίας σε προσαρμοσμένα εργαλεία σχεδίασης.
+Χρησιμοποιήστε το [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) για να εξετάσετε ένα υπάρχον σχήμα ως στοιχεία που περιέχουν σημεία διαδρομής και τύπους σημείων. Κάθε επιστρεφόμενα [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) μπορεί να χρησιμοποιηθεί για να ανακτήσει τους πίνακες σημείων και τύπων μέσω των μεθόδων [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) και [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). Αυτή η αναπαράσταση είναι χρήσιμη για ανάλυση περιγράμματος ή για μεταφορά γεωμετρίας σε προσαρμοσμένα εργαλεία σχεδίασης.
 
-Το παράδειγμα ανοίγει το input.pptx, βρίσκει το πρώτο σ Shape γεωμετρίας απευθείας στην πρώτη διαφάνεια και εκτυπώνει τα segments της διαδρομής. Χρησιμοποιήστε μια παρουσίαση που περιέχει σ Shape με ευθείες και καμπυλωτές segments για να δείτε και τις δύο εκδοχές εξόδου. Δεν ψάχνει μέσα σε ομάδες.
+Το παράδειγμα ανοίγει το input.pptx, εντοπίζει το πρώτο σχήμα γεωμετρίας απευθείας στην πρώτη διαφάνεια και εκτυπώνει τα τμήματα της διαδρομής του. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχήμα με ευθείες και καμπύλες τμημάτων για να δείτε και τις δύο μορφές εξόδου. Δεν ψάχνει μέσα σε ομάδες.
 
 ```php
 use aspose\slides\Presentation;
@@ -323,7 +376,7 @@ try {
             $types = array_values(unpack("C*", java_values($element->getPathTypes())));
             echo "Shape element:" . PHP_EOL;
             for ($i = 0; $i < count($points); $i++) {
-                $pointType = $types[$i] & 0x07; // Διατήρηση του τύπου του τμήματος, εξαιρώντας τις σημαίες.
+                $pointType = $types[$i] & 0x07; // Κρατήστε τον τύπο τμήματος, εξαιρώντας τις σημαίες.
                 switch ($pointType) {
                     case 0:
                         echo "Start figure at " . $points[$i] . PHP_EOL;
@@ -333,7 +386,7 @@ try {
                         break;
                     case 3:
                         echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
-                        $i += 2; // Consume both control points and the endpoint.
+                        $i += 2; // Καταναλώστε και τα δύο σημεία ελέγχου και το τελικό σημείο.
                         break;
                 }
                 if (($types[$i] & 0x80) !== 0) {
@@ -347,21 +400,21 @@ try {
 }
 ```
 
-Οι πίνακες αντιστοιχούν κατά δείκτη: `$points[$i]` είναι ένα σημείο και `$types[$i]` περιγράφει το ρόλο του. Ο τύπος `0` ξεκινά μια μορφή, και ο τύπος `1` σχεδιάζει μια γραμμή από το προηγούμενο σημείο στο τρέχον. Ένα segment cubic Bézier ξεκινά από το προηγούμενο endpoint και χρησιμοποιεί τρία διαδοχικά στοιχεία τύπου `3`: δύο control points ακολουθούμενα από το νέο endpoint. Η λούπα καταναλώνει αυτά τα τρία στοιχεία μαζί και ελέγχει το endpoint για κλείσιμο.
+Οι πίνακες αντιστοιχούν κατά δείκτη: `$points[$i]` είναι ένα σημείο και `$types[$i]` περιγράφει τον ρόλο του. Ο τύπος `0` ξεκινάει ένα σχήμα, και ο τύπος `1` σχεδιάζει μια γραμμή από το προηγούμενο σημείο στο τρέχον. Ένα τμήμα κυβικής Bézier ξεκινάει στο προηγούμενο τελικό σημείο και χρησιμοποιεί τρία διαδοχικά στοιχεία τύπου `3`: δύο σημεία ελέγχου ακολουθούμενα από το νέο τελικό σημείο. Ο βρόχος καταναλώνει αυτά τα τρία στοιχεία μαζί και ελέγχει το τελικό σημείο για κλείσιμο.
 
-Οι τύποι σημείων περιέχουν επίσης flags. Χρησιμοποιήστε μάσκα `0x07` για να προσδιορίσετε τον τύπο του segment, και ελέγξτε το `0x80` ξεχωριστά για να εντοπίσετε υποδιαδρομή κλειστή. Για παράδειγμα, `129` (`0x81`) σημαίνει ένα endpoint γραμμής που κλείνει μια υποδιαδρομή, και `131` (`0x83`) σημαίνει ένα endpoint Bézier που κλείνει μία. Η γέφυρα PHP/Java επιστρέφει τον πίνακα byte ως δυαδική συμβολοσειρά· η αποσυμπίεση με `"C*"` παράγει αμεταβλητές τιμές byte. Η μάσκα διατηρεί τις προγραμματισμένες τιμές bit. Η σύγκριση της ακατέργαστης τιμής μόνο με `1` ή `3` θα παρέλειπε αυτές τις περιπτώσεις. Άλλα flags, όπως dash (`0x10`) και marker (`0x20`), δεν αλλάζουν τον βασικό τύπο του segment.
+Οι τύποι σημείων περιέχουν επίσης σημαίες. Εφαρμόστε μάσκα `0x07` για να προσδιορίσετε τον τύπο τμήματος, και δοκιμάστε `0x80` ξεχωριστά για να εντοπίσετε κλειστό υπο‑διαδρομή. Για παράδειγμα, `129` (`0x81`) σημαίνει ένα τελικό σημείο γραμμής που κλείνει μια υπο‑διαδρομή, και `131` (`0x83`) σημαίνει τελικό σημείο Bézier που κλείνει μια. Η γέφυρα PHP/Java επιστρέφει τον πίνακα byte ως δυαδική συμβολοσειρά· η αποσυμπίεση με `"C*"` παράγει ακατέργαστες τιμές byte. Η μάσκα διατηρεί τις προβλεπόμενες τιμές bit. Η σύγκριση της ακατέργαστης τιμής μόνο με `1` ή `3` θα παρέλεινε αυτές τις περιπτώσεις. Άλλες σημαίες, όπως η παύλα (`0x10`) και ο δείκτης (`0x20`), δεν αλλάζουν τον βασικό τύπο τμήματος.
 
-**Συντεταγμένες και μετασχηματισμοί.** Τα σημεία μετριούνται σε points (1/72 ίντσας), με το X να αυξάνεται προς τα δεξιά και το Y προς τα κάτω. Για ένα μη ομαδοποιημένο σ Shape, οι εξαγόμενες συντεταγμένες περιλαμβάνουν ήδη τη θέση που επιστρέφεται από το [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) και το [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) και αντανακλούν το τρέχον πλάτος και ύψος του. Για παράδειγμα, ένα μη περιστρεφόμενο ορθογώνιο στο `(100, 200)` με μέγεθος `120 × 80` έχει όρια περιγράμματος `(100, 200)`–`(220, 280)`. Μην προσθέσετε ξανά τη θέση του σ Shape. Αφαιρέστε το X και Y του για να πάρετε συντεταγμένες σχετικά με το μη περιστραμμένο πλαίσιο του.
+**Συντεταγμένες και μετασχηματισμοί.** Τα σημεία μετρώνται σε μονάδες (1/72 ίντσας), με το X να αυξάνεται προς τα δεξιά και το Y προς τα κάτω. Για ένα μη ομαδοποιημένο σχήμα, οι εξαγόμενες συντεταγμένες περιλαμβάνουν ήδη τη θέση που επιστρέφουν οι μέθοδοι [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) και [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) και αντικατοπτρίζουν το τρέχον πλάτος και ύψος του. Για παράδειγμα, ένα μη περιστρεφόμενο ορθογώνιο στο `(100, 200)` με μέγεθος `120 × 80` έχει όρια περιγράμματος `(100, 200)`–`(220, 280)`. Μην προσθέτετε ξανά τη θέση του σχήματος. Αφαιρέστε το X και Y του για να πάρετε συντεταγμένες σχετικές με το μη περιστρεφόμενο πλαίσιο του.
 
-Τα εξαγόμενα σημεία δεν εφαρμόζουν την περιστροφή του σ Shape, που επιστρέφεται από το [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation), ή τις οριζόντιες και κάθετες αναστροφές. Για να αναπαραγάγετε το εμφανιζόμενο περίγραμμα, εφαρμόστε αυτούς τους μετασχηματισμούς γύρω από το κέντρο του σ Shape. Για σ Shape σε ομάδες, λάβετε επίσης υπόψη τη χαρτογράφηση συντεταγμένων της ομάδας και τους μετασχηματισμούς· μην υποθέτετε ότι τα εξαγόμενα σημεία είναι οι τελικές συντεταγμένες της διαφάνειας ή εφαρμόστε μετάφραση ή κλίμακα δύο φορές αν είναι ήδη ενσωματωμένα στο πλαίσιο του παιδιού.
+Οι εξαγόμενα σημεία δεν εφαρμόζουν την περιστροφή του σχήματος, που επιστρέφεται από το [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation), ή τις οριζόντιες/κατακόρυφες αντιστροφές. Για να αναπαραγάγετε το εμφανιζόμενο περίγραμμα, εφαρμόστε αυτούς τους μετασχηματισμούς γύρω από το κέντρο του σχήματος. Για ομαδοποιημένα σχήματα, λάβετε επίσης υπόψη τη χαρτογράφηση συντεταγμένων της ομάδας και τους μετασχηματισμούς· μην υποθέτετε ότι τα εξαγόμενα σημεία είναι οι τελικές συντεταγμένες της διαφάνειας ή εφαρμόστε διπλή μετάφραση ή κλιμάκωση εάν αυτά ήδη αντικατοπτρίζονται στο πλαίσιο του παιδιού.
 
-**Επιθεώρηση εναντίον επεξεργασίας.** Οι εξαγόμενοι πίνακες περιγράφουν το περίγραμμα· η αλλαγή τους δεν ενημερώνει το αρχικό σ Shape. Επιλέξτε αυτήν την προσέγγιση όταν η ανάλυση ή ο κώδικας σχεδίασής σας χρειάζεται πίνακες σημείων/τύπων. Χρησιμοποιήστε το [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) όταν χρειάζεστε εντολές γεωμετρίας στο τοπικό σύστημα συντεταγμένων του σ Shape ή θέλετε να επεξεργαστείτε τη γεωμετρία του. Εφαρμόστε τις επεξεργασμένες διαδρομές μέσω του [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ή του [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Επιθεώρηση έναντι επεξεργασίας.** Οι εξαγόμενοι πίνακες περιγράφουν το περίγραμμα· η αλλαγή τους δεν ενημερώνει το αρχικό σ shape. Επιλέξτε αυτήν την προσέγγιση όταν η ανάλυση ή ο κώδικας σχεδίασής σας χρειάζεται πίνακες σημείων/τύπων. Χρησιμοποιήστε το [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) όταν χρειάζεστε εντολές γεωμετρίας στο τοπικό σύστημα συντεταγμένων του σχήματος ή θέλετε να επεξεργαστείτε τη γεωμετρία του. Εφαρμόστε τις επεξεργασμένες διαδρομές μέσω του [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ή του [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
 
-## **Μετατροπή Java AWT Shape σε GeometryPath**
+## **Μετατροπή Σχήματος Java AWT σε GeometryPath**
 
-Αυτό το παράδειγμα συνδυάζει ένα ορθογώνιο περίγραμμα με κείμενο που μετατράπηκε σε γεωμετρία. Η μέθοδος [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) του περιγράμματος απενεργοποιεί το γέμισμα. Ένα [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) δημιουργεί το περίγραμμα κειμένου σε ένα [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Ο [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) του παρέχει εντολές μετακίνησης, γραμμής, τετραγωνικής, κυρτής και κλεισίματος, που το παράδειγμα επαναλαμβάνει σε ένα [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+Αυτό το παράδειγμα συνδυάζει ένα ορθογώνιο περίγραμμα με κείμενο που μετατράπηκε σε γεωμετρία. Η μέθοδος [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) του περιγράμματος απενεργοποιεί τη γέμιση. Ένα [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) δημιουργεί το περίγραμμα κειμένου σε ένα [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Ο [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) του παρέχει κινήσεις, γραμμές, τετραγωνικές, κυβικές και τμήματα κλεισίματος, τα οποία το παράδειγμα επαναλαμβάνει σε ένα [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-Το παράδειγμα χρησιμοποιεί έναν πίνακα Java float ώστε η γέφυρα PHP/Java να διατηρήσει τις συντεταγμένες που γράφτηκαν από τον iterator. Το κείμενο χρησιμοποιεί γραμματοσειρά Arial 40 points. Το περίγραμμα μετατοπίζεται 20 points οριζόντια και τοποθετείται ώστε το οπτικό του πάνω έχει 10 points κάτω από την άνω άκρη του σ Shape. Η διαδρομή κειμένου γεμίζει, ενώ το αρχικό ορθογώνιο παραμένει περίγραμμα. Η εφαρμογή και των δύο διαδρομών με το [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) παράγει ένα ενιαίο σ Shape που περιέχει το ορθογώνιο και το κείμενο.
+Το παράδειγμα χρησιμοποιεί έναν πίνακα float Java ώστε η γέφυρα PHP/Java να διατηρήσει τις συντεταγμένες που γράφει ο iterator. Το κείμενο χρησιμοποιεί γραμματοσειρά Arial 40 μονάδων. Το περίγραμμα μετατοπίζεται 20 μονάδες οριζόντια και τοποθετείται με το οπτικό του επάνω μέρος 10 μονάδες κάτω από την άνω άκρη του σχήματος. Η διαδρομή κειμένου γεμίζεται, ενώ το αρχικό ορθογώνιο παραμένει περίγραμμα. Η εφαρμογή και των δύο διαδρομών με το [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) παράγει ένα ενιαίο σχήμα που περιέχει το ορθογώνιο και το κείμενο.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -432,14 +485,14 @@ try {
 
 ## **Συχνές Ερωτήσεις**
 
-**Τι συμβαίνει με το γέμισμα και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
+**Τι συμβαίνει με τη γέμιση και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
 
-Το στυλ παραμένει στο σ Shape· μόνο το περίγραμμα αλλάζει. Το γέμισμα και το περίγραμμα εφαρμόζονται αυτόματα στη νέα γεωμετρία.
+Το στυλ παραμένει στο σχήμα· μόνο το περίγραμμα αλλάζει. Η γέμιση και το περίγραμμα εφαρμόζονται αυτόματα στη νέα γεωμετρία.
 
-**Πώς να περιστρέψω σωστά ένα προσαρμοσμένο σ Shape μαζί με τη γεωμετρία του;**
+**Πώς να περιστρέψω σωστά ένα προσαρμοσμένο σχήμα μαζί με τη γεωμετρία του;**
 
-Χρησιμοποιήστε τη μέθοδο [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) του σ Shape· η γεωμετρία περιστρέφεται με το σ Shape επειδή είναι δεσμευμένη στο δικό του σύστημα συντεταγμένων.
+Χρησιμοποιήστε τη μέθοδο [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) του σχήματος· η γεωμετρία περιστρέφεται με το σχήμα επειδή είναι δεσμευμένη στο δικό του σύστημα συντεταγμένων.
 
-**Μπορώ να μετατρέψω ένα προσαρμοσμένο σ Shape σε εικόνα για να «κλειδώσω» το αποτέλεσμα;**
+**Μπορώ να μετατρέψω ένα προσαρμοσμένο σχήμα σε εικόνα για να “κλειδώσω” το αποτέλεσμα;**
 
-Ναι. Εξάγετε την απαιτούμενη [slide](/slides/el/php-java/convert-powerpoint-to-png/) περιοχή ή το [shape](/slides/el/php-java/create-shape-thumbnails/) ίδιο σε μορφή raster· αυτό απλοποιεί την περαιτέρω εργασία με σύνθετες γεωμετρίες.
+Ναι. Εξάγετε την απαιτούμενη [διαφάνεια](/slides/el/php-java/convert-powerpoint-to-png/) ή το [σχήμα](/slides/el/php-java/create-shape-thumbnails/) στον εαυτό του σε μορφή raster· αυτό απλοποιεί την περαιτέρω εργασία με σύνθετες γεωμετρίες.

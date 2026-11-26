@@ -1,6 +1,6 @@
 ---
-title: Presentatievormen aanpassen in JavaScript
-linktitle: Aangepaste Vorm
+title: Aangepaste presentatievormen in JavaScript
+linktitle: Aangepaste vorm
 type: docs
 weight: 20
 url: /nl/nodejs-java/custom-shape/
@@ -9,79 +9,77 @@ keywords:
 - vorm toevoegen
 - vorm maken
 - vorm wijzigen
-- vormgeometrie
+- vorm geometrie
 - geometriepad
 - padpunten
 - bewerkingspunten
 - punt toevoegen
 - punt verwijderen
 - bewerkingsoperatie
-- afgeronde hoek
+- gebogen hoek
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Maak en pas vormen aan in PowerPoint-presentaties met JavaScript en Aspose.Slides voor Node.js: geometriepaden, afgeronde hoeken, samengestelde vormen."
+description: "Maak en pas vormen aan in PowerPoint‑presentaties met JavaScript en Aspose.Slides voor Node.js: geometrie‑paden, gebogen hoeken, samengestelde vormen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je presentatiesvormen in Aspose.Slides kunt aanpassen door de vormgeometrie te bewerken via bewerkingspunten en geometriepaden. Het laat zien hoe je werkt met [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) om bestaande vormen te wijzigen, basisbewerkingsbewerkingen uit te voeren, punten toe te voegen of te verwijderen, en de bijgewerkte geometrie terug toe te passen op een vorm.
+Dit artikel legt uit hoe je presentatieshapes in Aspose.Slides kunt aanpassen door de vormgeometrie te bewerken via bewerkingspunten en geometriepaden. Het laat zien hoe je werkt met [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) om bestaande shapes te wijzigen, basisbewerkingsbewerkingen uit te voeren, punten toe te voegen of te verwijderen, en de bijgewerkte geometrie terug toe te passen op een shape.
 
-Het toont ook hoe je aangepaste en samengestelde vormen maakt, vormen met afgeronde hoeken bouwt, bepaalt of een vormgeometrie gesloten is, vormelementen inspecteert, en Java AWT-tekstopmaken converteert naar geometriepaden.
+Het laat bovendien zien hoe je aangepaste en samengestelde shapes maakt, shapes bouwt met gebogen hoeken, bepaalt of een shape-geometrie gesloten is, shape‑elementen inspecteert, en Java‑AWT‑tekstopmaken omzet naar geometriepaden.
 
-## **Een vorm wijzigen met bewerkingspunten**
-
-In PowerPoint kun je **Bewerkingspunten** gebruiken om een vierkant te wijzigen:
+## **Vorm wijzigen met bewerkingspunten**
 
 * Verplaats een hoek naar binnen of naar buiten.
 * Pas de kromming op een punt aan.
 * Voeg nieuwe punten toe.
 
-Door punten te bewerken kun je de omtrek van een vorm aanpassen of een bestaande vorm als basis voor een nieuwe gebruiken.
+Bewerkingspunten laten je de omtrek van een shape wijzigen of een bestaande shape als basis voor een nieuwe shape gebruiken.
 
-## **Tips voor het bewerken van vormen**
+## **Tips voor vormbewerking**
 
 ![overview_image](custom_shape_0.png)
 
-Houd bij het bewerken van PowerPoint‑vormen rekening met de volgende concepten:
+Wanneer je PowerPoint‑shapes bewerkt, houd dan rekening met de volgende concepten:
 
-* Een vorm (of het pad ervan) kan gesloten of open zijn.
-* Het pad van een vorm bestaat uit ankerpunten die verbonden zijn door segmenten.
+* Een shape (of het pad) kan zowel gesloten als open zijn.
+* Het pad van een shape bestaat uit ankerpunten verbonden door segmenten.
 * Een segment kan recht of gebogen zijn. Ankerpunten en controlehandvatten bepalen de vorm.
 * Ankerpunten bestaan als hoekpunten, rechte punten of vloeiende punten:
   * Bij een hoekpunt kunnen aangrenzende segmenten onder een hoek samenkomen.
   * Bij een vloeiend punt zijn de twee controlehandvatten uitgelijnd en even ver van het ankerpunt.
-  * Bij een recht punt zijn de twee controlehandvatten uitgelijnd, maar kunnen ze verschillende afstanden tot het ankerpunt hebben.
-* Door ankerpunten te verplaatsen of hun handvatten aan te passen, verandert de omtrek van de vorm.
+  * Bij een recht punt zijn de twee controlehandvatten uitgelijnd maar kunnen ze verschillende afstanden van het ankerpunt hebben.
+* Het verplaatsen van ankerpunten of het aanpassen van hun handvatten verandert de omtrek van de shape.
 
-Om PowerPoint‑vormen via bewerkingspunten te bewerken, biedt **Aspose.Slides** de klasse [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) aan.
+Om PowerPoint‑shapes te bewerken via bewerkingspunten, levert **Aspose.Slides** de [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)‑klasse.
 
-* Een [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)‑instantie stelt een geometriepad van het [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/)‑object voor.
-* Om de [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) op te halen van de [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/)‑instantie, kun je de methode [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) gebruiken.
-* Om de [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) voor een vorm in te stellen, kun je de volgende methoden gebruiken: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) voor vormen met één enkel pad en [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) voor vormen met meerdere paden.
+* Een [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)‑instantie vertegenwoordigt een geometriepad van het [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/)‑object.
+* Om het [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) van een [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/)‑instantie op te halen, kun je de methode [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) gebruiken.
+* Om het [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) voor een shape in te stellen, kun je deze methoden gebruiken: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) voor shapes met één pad en [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) voor shapes met meerdere paden.
 * Om segmenten toe te voegen, kun je de methoden onder [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) gebruiken.
-* Met de methoden [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) en [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) kun je het uiterlijk van een geometriepad instellen.
-* Met de methode [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) kun je het geometriepad van een [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) ophalen als een array van padhsegmenten.
-* Om extra opties voor het aanpassen van vormgeometrie te benaderen, kun je een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) lezen via zijn [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) en de segmenten opnieuw afspelen op een [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+* Met behulp van de methoden [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) en [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) kun je het uiterlijk van een geometriepad definiëren.
+* Met de methode [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) kun je het geometriepad van een [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) als een array van padsegmenten ophalen.
+* Voor extra opties voor shape‑geometrie‑aanpassing kun je een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) via zijn [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) uitlezen en de segmenten opnieuw afspelen op een [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
-## **Eenvoudige bewerkingsbewerkingen**
+## **Simple Editing Operations**
 
-Gebruik de volgende methoden om een geometriepad te bewerken. Overloads die een index accepteren, voegen een segment in op die nulgebaseerde positie in de segmentarray van het pad.
+Gebruik de volgende methoden om een geometriepad te bewerken. Overloads die een index accepteren voegen een segment in op die nul‑gebaseerde positie in de segmentarray van het pad.
 
-| Bewerking | Methode |
+| Operatie | Methode |
 | --- | --- |
 | Een rechte lijn toevoegen of invoegen. | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
 | Een kubieke Bézier‑curve met twee controlepunten en een eindpunt toevoegen of invoegen. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
 | Een kwadratische Bézier‑curve met één controlepunt en een eindpunt toevoegen of invoegen. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| Een elliptische boog met de opgegeven afmetingen en hoeken in graden toevoegen. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
-| De huidige figuur sluiten door het eindpunt met het beginpunt te verbinden. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
+| Een elliptische boog met de opgegeven afmetingen en hoeken (in graden) toevoegen. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
+| De huidige figuur sluiten door het eindpunt met het startpunt te verbinden. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
 | Het startpunt van een figuur instellen. | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
-| Een segment op een nulgebaseerde index verwijderen. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
+| Een segment verwijderen op een nul‑gebaseerde index. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
 
-## **Aangepaste punten aan een vorm toevoegen**
+## **Aangepaste punten aan een shape toevoegen**
 
-Dit voorbeeld voegt twee punten toe aan een rechthoekige vorm met behulp van [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) en past het bewerkte pad toe met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). De coördinaten zijn lokaal ten opzichte van de vorm: beide nieuwe punten liggen in het midden, 100 punten vanaf de linkerkant en 50 punten vanaf de bovenkant. Segment‑indexen 1 en 4 plaatsen ze op de boven‑ en onderrand, waardoor die randen naar binnen worden getrokken.
+Dit voorbeeld voegt twee punten toe aan een rechthoekige shape met behulp van [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) en past het bewerkte pad toe met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). De coördinaten zijn lokaal voor de shape: beide nieuwe punten liggen in het midden, 100 punten van de linkerkant en 50 punten van de bovenkant. Segmentindices 1 en 4 plaatsen ze respectievelijk op de boven‑ en onderrand, waardoor die randen naar binnen worden getrokken.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -104,9 +102,9 @@ try {
 
 ![example1_image](custom_shape_1.png)
 
-## **Punten uit een vorm verwijderen**
+## **Punten van een shape verwijderen**
 
-Dit voorbeeld wijzigt een hartvormige omtrek door het segment op nulgebaseerde index 2 te verwijderen met [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). Het toepassen van het gewijzigde pad met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) werkt de contour van de vorm bij.
+Dit voorbeeld wijzigt een hartvormige omtrek door het segment op nul‑gebaseerde index 2 te verwijderen met [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). Het toepassen van het aangepaste pad met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) werkt de contour van de shape bij.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -127,9 +125,9 @@ try {
 ```
 ![example2_image](custom_shape_2.png)
 
-## **Een aangepaste vorm maken**
+## **Aangepaste shape maken**
 
-Dit voorbeeld bouwt een ster met vijf punten met behulp van [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). Afwisselend buiten- en binnenstraal van 100 en 50 punten bepalen de toppen en inkepingen; een stap van 72 graden verdeelt de vijf toppen gelijkmatig. Het pad wordt gesloten met [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) en toegepast op een rechthoekige vorm met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), waarmee de omtrek wordt vervangen.
+Dit voorbeeld bouwt een vijfpuntige ster met [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). Afwisselend buiten‑ en binnenstraal van respectievelijk 100 en 50 punten bepalen de toppen en inkepingen; een stap van 72 graden verdeelt de vijf toppen gelijkmatig. Het pad wordt gesloten met [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) en toegepast op een rechthoekige shape via [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), waardoor de bestaande omtrek wordt vervangen.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -166,9 +164,9 @@ try {
 ```
 ![example3_image](custom_shape_3.png)
 
-## **Een samengestelde aangepaste vorm maken**
+## **Samengestelde aangepaste shape maken**
 
-Dit voorbeeld definieert twee gesloten [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)‑objecten voor het bovenste en onderste derde deel van een vorm. Het toepassen van beide paden met [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) creëert één samengestelde vorm met een opening over het middelste derde deel.
+Dit voorbeeld definieert twee gesloten [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)-objecten voor respectievelijk het boven‑ en onderste derde deel van een shape. Het toepassen van beide paden met [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) creëert één samengestelde shape met een opening over het middelste derde deel.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -202,9 +200,9 @@ try {
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Een aangepaste vorm met afgeronde hoeken maken**
+## **Aangepaste shape met gebogen hoeken maken**
 
-Dit voorbeeld combineert rechte segmenten met [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) om een vorm met naar binnen gebogen hoeken te maken. Elke hoekgrootte bepaalt de breedte en hoogte van de boog in punten, en de -90‑graden sweep tekent een ellipskwartje tegen de klok in. Het voltooide pad wordt toegepast met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), en de presentatie wordt opgeslagen in PPTX‑formaat.
+Dit voorbeeld combineert rechte segmenten met [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) om een shape met naar binnen gebogen hoeken te maken. Elke hoekgrootte bepaalt de breedte en hoogte van de boog in punten, en de -90‑graden sweep tekent een tegen de klok in gerichte kwart‑ellips. Het voltooide pad wordt toegepast met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), en de presentatie wordt opgeslagen in PPTX‑formaat.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -245,9 +243,9 @@ try {
 }
 ```
 
-## **Controleren of een vormgeometrie gesloten is**
+## **Controleren of een shape-geometrie gesloten is**
 
-De volgende helper controleert of elk niet‑leeg geometriepad eindigt met een sluitssegment. Het leest [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) en vergelijkt het laatste segment‑[PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) met [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). Het geeft false terug wanneer er geen niet‑lege paden zijn. Deze controle kijkt naar het laatste commando van elk pad; het inspecteert niet elke subfiguur binnen een pad. Het voorbeeld geeft `true` weer voor een rechthoek.
+De volgende helper controleert of elk niet‑lege geometriepad eindigt met een sluit‑segment. Hij leest [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) en vergelijkt het commando van het laatste segment ([PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand)) met [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). Hij geeft **false** terug wanneer er geen niet‑lege paden zijn. Deze controle kijkt alleen naar het laatste commando van elk pad; hij inspecteert niet elke sub‑figuur binnen een pad. Het voorbeeld print `true` voor een rechthoek.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -281,11 +279,62 @@ try {
 }
 ```
 
-## **Vormelementen extraheren en inspecteren**
+## **Geometriepad‑commando's inspecteren**
 
-Gebruik [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) om een bestaande vorm te inspecteren als elementen die padpunten en punt‑types bevatten. Gebruik elk geretourneerd [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) om de punt‑ en type‑arrays op te halen via de methoden [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) en [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes). Deze weergave is nuttig voor contouranalyse of het doorgeven van geometrie aan aangepaste tekenhulpmiddelen.
+Download [contour.pptx](contour.pptx) en plaats het in de werkmap van de applicatie. De eerste shape op de eerste dia heeft een rechte bovenrand, een kubieke Bézier‑curve en een rechte sluitrand. Gebruik [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) om de paden van de shape te lezen en [getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) om elk pad‑segment in tekenvolgorde uit te lezen. Voor elk segment identificeert [getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) het commando en bepaalt het hoe de waarden van [getSegmentData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getSegmentData) geïnterpreteerd moeten worden.
 
-Het voorbeeld opent input.pptx, zoekt de eerste geometrievorm direct op de eerste dia, en drukt de padhsegmenten af. Gebruik een presentatie met een vorm met rechte en gebogen segmenten om beide soorten output te zien. Het zoekt niet binnen groepen.
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("contour.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paths = shape.getGeometryPaths();
+    for (const [i, path] of paths.entries()) {
+        const segments = path.getPathData();
+        for (const [j, segment] of segments.entries()) {
+            const command = segment.getPathCommand();
+            const data = segment.getSegmentData();
+            let detail;
+            switch (command) {
+                case slides.PathCommandType.MoveTo:
+                case slides.PathCommandType.LineTo:
+                    const name = command === slides.PathCommandType.MoveTo ? "MoveTo" : "LineTo";
+                    detail = `${name} destination=(${data[0]}, ${data[1]})`;
+                    break;
+                case slides.PathCommandType.CubicBezierTo:
+                    detail = `CubicBezierTo control1=(${data[0]}, ${data[1]}) control2=(${data[2]}, ${data[3]}) end=(${data[4]}, ${data[5]})`;
+                    break;
+                case slides.PathCommandType.Close:
+                    detail = "Close no coordinates";
+                    break;
+                default:
+                    detail = `command=${command} raw=[${data.join(", ")}]`;
+            }
+            console.log(`Path ${i}, segment ${j}: ${detail}`);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+De shape bevindt zich op (200, 100) punten op de dia. De gerapporteerde coördinaten zijn lokaal voor de shape, met (0, 0) links‑boven, x stijgt naar rechts en y naar beneden. Het sluit‑segment keert terug naar het startpunt zonder extra coördinaten.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint‑shape met een rechte bovenrand, een gebogen rand van rechts‑boven naar links‑onder, en een rechte linker rand](contour.png)
+
+## **Shape‑elementen extraheren en inspecteren**
+
+Gebruik [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) om een bestaande shape te inspecteren als elementen die padpunten en punt‑typen bevatten. Gebruik elk teruggegeven [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) om via [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) en [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes) de punten‑ en type‑arrays op te halen. Deze weergave is nuttig voor contouranalyse of om geometrie door te geven aan aangepaste teken‑tools.
+
+Het voorbeeld opent **input.pptx**, vindt de eerste geometrische shape direct op de eerste dia, en print diens padsegmenten. Gebruik een presentatie met een shape die rechte en gebogen segmenten bevat om beide soorten output te zien. Het doorzoekt geen groepen.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -323,7 +372,7 @@ try {
                         break;
                     case 3:
                         console.log("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
-                        i += 2; // Verwerk beide controlepunten en het eindpunt.
+                        i += 2; // Verbruik beide controlepunten en het eindpunt.
                         break;
                 }
 
@@ -338,21 +387,21 @@ try {
 }
 ```
 
-De arrays corresponderen per index: `points[i]` is een punt en `types[i]` beschrijft zijn rol. Type `0` start een figuur, en type `1` tekent een lijn van het vorige punt naar het huidige punt. Een kubisch Bézier‑segment start bij het vorige eindpunt en gebruikt drie opeenvolgende type‑`3`‑items: twee controlepunten gevolgd door het nieuwe eindpunt. De lus verwerkt deze drie items samen en controleert of het eindpunt gesloten is.
+De arrays correleren op index: `points[i]` is een punt en `types[i]` beschrijft de rol. Type `0` start een figuur, type `1` tekent een lijn van het vorige punt naar het huidig punt. Een kubieke Bézier‑segment start bij het vorige eindpunt en gebruikt drie opeenvolgende type‑`3`‑items: twee controlepunten gevolgd door het nieuwe eindpunt. De lus verwerkt deze drie items samen en controleert of het eindpunt sluit.
 
-Punt‑types bevatten ook vlaggen. Masker met `0x07` om het segmenttype te identificeren, en test `0x80` apart om een gesloten subpad te detecteren. Bijvoorbeeld, `129` (`0x81`) betekent een lijn‑eindpunt dat een subpad sluit, en `131` (`0x83`) betekent een Bézier‑eindpunt dat er een sluit. Java slaat deze vlaggen op in signed bytes; maskeren behoudt de bedoelde bitwaarden. Alleen vergelijken met `1` of `3` zou deze gevallen missen. Andere vlaggen, zoals dash (`0x10`) en marker (`0x20`), wijzigen het basissegmenttype niet.
+Punt‑typen kunnen ook vlaggen bevatten. Maskeer met `0x07` om het segmenttype te bepalen, en test `0x80` afzonderlijk om een gesloten sub‑pad te detecteren. Bijvoorbeeld, `129` (`0x81`) betekent een lijn‑eindpunt dat een sub‑pad sluit, en `131` (`0x83`) betekent een Bézier‑eindpunt dat sluit. Java slaat deze vlaggen op in signed bytes; maskeren behoudt de bedoelde bits. Alleen vergelijken met `1` of `3` zou deze gevallen missen. Andere vlaggen, zoals dash (`0x10`) en marker (`0x20`), wijzigen het basistype niet.
 
-**Coördinaten en transformaties.** Punten worden gemeten in points (1/72 inch), waarbij X naar rechts toeneemt en Y naar beneden. Voor een niet‑gegroepeerde vorm bevatten de geëxtraheerde coördinaten reeds de positie die door [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) en [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) wordt geretourneerd en weerspiegelen de huidige breedte en hoogte. Bijvoorbeeld, een niet‑geroteerde rechthoek op `(100, 200)` met grootte `120 × 80` heeft contourgrenzen `(100, 200)`–`(220, 280)`. Voeg de positie van de vorm niet opnieuw toe. Trek X en Y af om coördinaten te krijgen ten opzichte van het niet‑geroteerde frame.
+**Coördinaten en transformaties.** Punten worden gemeten in points (1/72 inch), waarbij X naar rechts en Y naar beneden groeit. Voor een niet‑gegroepeerde shape bevatten de geëxtraheerde coördinaten reeds de positie die je krijgt via [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) en [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) en weerspiegelen ze de huidige breedte en hoogte. Een ongeroteerde rechthoek op `(100, 200)` met afmeting `120 × 80` heeft contourgrenzen `(100, 200)`–`(220, 280)`. Voeg de positie van de shape **niet** opnieuw toe. Trek X en Y af om coördinaten te krijgen relatief ten opzichte van het ongeroteerde kader.
 
-De geëxtraheerde punten passen de rotatie van de vorm, geretourneerd door [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation), of horizontale en verticale spiegels niet toe. Om de weergegeven contour te reproduceren, pas die transformaties toe rond het midden van de vorm. Voor gegroepeerde vormen, houd ook rekening met de groep‑coördinatenmapping en transformaties; ga er niet van uit dat de geëxtraheerde punten de definitieve gerenderde dia‑coördinaten zijn of pas een translatie of schaal twee keer toe als die al in het kader van het kind is weerspiegeld.
+De geëxtraheerde punten houden geen rekening met de rotatie van de shape die je krijgt via [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation), noch met horizontale of verticale flips. Om de getoonde contour te reproduceren, moet je die transformaties rond het middelpunt van de shape toepassen. Voor gegroepeerde shapes moet je bovendien rekening houden met de coördinatenmapping en transformaties van de groep; ga er niet van uit dat de geëxtraheerde punten de uiteindelijke render‑coördinaten op de dia zijn of dat je een translatie‑ of schaaltransformatie twee keer toepast.
 
-**Inspectie versus bewerking.** Geëxtraheerde arrays beschrijven de contour; wijzigen ervan werkt de oorspronkelijke vorm niet bij. Kies deze aanpak als je analyse‑ of teken‑code punt‑/type‑arrays nodig heeft. Gebruik [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) wanneer je geometrie‑commando’s nodig hebt in het lokale coördinatensysteem van de vorm of de geometrie wilt bewerken. Pas bewerkte paden toe via [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) of [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Inspectie versus bewerking.** Geëxtraheerde arrays beschrijven de contour; wijzigen ervan werkt de oorspronkelijke shape niet bij. Kies deze aanpak wanneer je analyse‑ of teken‑code punt‑/type‑arrays nodig heeft. Gebruik [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) wanneer je geometrie‑commando’s in het lokale coördinatensysteem van de shape wilt of wanneer je de geometrie wilt bewerken. Pas bewerkte paden toe via [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) of [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
 
-## **Een Java AWT‑vorm naar GeometryPath converteren**
+## **Java AWT‑shape omzetten naar GeometryPath**
 
-Dit voorbeeld combineert een rechthoekige omtrek met tekst die naar geometrie is geconverteerd. De [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode)‑methode van de omtrek schakelt de vulling uit. Een [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) creëert de tekstopmaak in een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Zijn [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) levert move‑, line‑, quadratic‑, cubic‑ en sluit‑segmenten, die het voorbeeld opnieuw afspeelt op een [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+Dit voorbeeld combineert een rechthoekige omtrek met tekst die is omgezet naar geometrie. De omtrek‑methode [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) schakelt de vulling uit. Een [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) maakt de tekstomtrek in een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). De bijbehorende [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) levert verplaatsings‑, lijn‑, kwadratische, kubieke en sluit‑segmenten, die het voorbeeld opnieuw afspeelt op een [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
-De Java‑brug gebruikt expliciete float‑ en byte‑waarden voor de overeenkomstige Java‑parameters. De iterator schrijft coördinaten naar een Java‑float‑array; reflectie leest de bijgewerkte waarden terug in JavaScript. De tekst gebruikt een 40‑point Arial‑lettertype. De omtrek is horizontaal 20 punten verschoven en gepositioneerd met de visuele bovenkant 10 punten onder de bovenrand van de vorm. Het tekstpad is gevuld, terwijl de oorspronkelijke rechthoek een omtrek blijft. Het toepassen van beide paden met [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) resulteert in één vorm die zowel de rechthoek als de tekst bevat.
+De Java‑brug gebruikt expliciete float‑ en byte‑waarden voor de overeenkomstige Java‑parameters. De iterator schrijft coördinaten naar een Java‑float‑array; reflectie leest de bijgewerkte waarden terug in JavaScript. De tekst gebruikt een Arial‑lettertype van 40 points. De omtrek wordt horizontaal 20 points verschoven en geplaatst met de visuele bovenkant 10 points onder de bovenrand van de shape. Het tekstpad wordt gevuld, terwijl de oorspronkelijke rechthoek een omtrek blijft. Het toepassen van beide paden met [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) levert één shape op die de rechthoek en de tekst bevat.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -422,14 +471,14 @@ try {
 
 ## **FAQ**
 
-**Wat gebeurt er met de vulling en omtrek na het vervangen van de geometrie?**
+**Wat gebeurt er met de vulling en de omlijning nadat de geometrie is vervangen?**
 
-De stijl blijft bij de vorm; alleen de contour verandert. De vulling en omtrek worden automatisch toegepast op de nieuwe geometrie.
+De stijl blijft behouden bij de shape; alleen de contour verandert. De vulling en omlijning worden automatisch op de nieuwe geometrie toegepast.
 
-**Hoe roteer ik een aangepaste vorm correct samen met zijn geometrie?**
+**Hoe roteer ik een aangepaste shape correct samen met zijn geometrie?**
 
-Gebruik de [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation)‑methode van de vorm; de geometrie roteert mee met de vorm omdat hij gebonden is aan het eigen coördinatensysteem van de vorm.
+Gebruik de methode [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) van de shape; de geometrie draait mee omdat deze gekoppeld is aan het eigen coördinatensysteem van de shape.
 
-**Kan ik een aangepaste vorm converteren naar een afbeelding om het resultaat 'vast te leggen'?**
+**Kan ik een aangepaste shape omzetten naar een afbeelding om het resultaat vast te zetten?**
 
-Ja. Exporteer het benodigde [slide](/slides/nl/nodejs-java/convert-powerpoint-to-png/)‑gebied of de [shape](/slides/nl/nodejs-java/create-shape-thumbnails/) zelf naar een rasterformaat; dit vereenvoudigt verdere bewerkingen met complexe geometrieën.
+Ja. Exporteer het gewenste [dia](/slides/nl/nodejs-java/convert-powerpoint-to-png/) of de [shape](/slides/nl/nodejs-java/create-shape-thumbnails/) zelf naar een rasterformaat; dit maakt verdere verwerking van complexe geometrieën eenvoudiger.

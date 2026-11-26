@@ -1,6 +1,6 @@
 ---
-title: تخصيص أشكال العرض التقديمي في PHP
-linktitle: شكل مخصص
+title: "تخصيص أشكال العروض التقديمية في PHP"
+linktitle: "شكل مخصص"
 type: docs
 weight: 20
 url: /ar/php-java/custom-shape/
@@ -12,7 +12,7 @@ keywords:
 - هندسة الشكل
 - مسار الهندسة
 - نقاط المسار
-- نقاط تحرير
+- نقاط التحرير
 - إضافة نقطة
 - إزالة نقطة
 - عملية تحرير
@@ -21,23 +21,23 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ PHP عبر Java: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
+description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ PHP عبر Java: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تخصيص أشكال العرض التقديمي في Aspose.Slides عن طريق تحرير هندسة الشكل من خلال نقاط التحرير ومسارات الهندسة. توضح كيفية العمل مع [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) لتعديل الأشكال الموجودة، وإجراء عمليات تحرير أساسية للمسار، وإضافة أو إزالة نقاط، وتطبيق الهندسة المحدثة مرة أخرى على الشكل.
+توضح هذه المقالة كيفية تخصيص أشكال العروض التقديمية في Aspose.Slides عن طريق تحرير هندسة الشكل من خلال نقاط التحرير ومسارات الهندسة. تُظهر كيفية العمل مع [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) لتعديل الأشكال الموجودة، وإجراء عمليات تحرير مسار أساسية، وإضافة أو إزالة نقاط، وتطبيق الهندسة المحدثة مرة أخرى على الشكل.
 
-كما توضح كيفية إنشاء أشكال مخصصة ومركبة، وبناء أشكال ذات زوايا منحنية، وتحديد ما إذا كانت هندسة الشكل مغلقة، وفحص عناصر الشكل، وتحويل خطوط مخططات نص Java AWT إلى مسارات هندسية.
+كما تظهر كيفية إنشاء أشكال مخصصة ومركبة، وبناء أشكال بزوايا منحنية، وتحديد ما إذا كانت هندسة الشكل مغلقة، وفحص عناصر الشكل، وتحويل مخططات نص Java AWT إلى مسارات هندسية.
 
 ## **تغيير شكل باستخدام نقاط التحرير**
 
 في PowerPoint، يمكنك استخدام **نقاط التحرير** لتعديل مربع:
 
 * تحريك زاوية إلى الداخل أو الخارج.
-* ضبط الانحناء عند نقطة.
+* تعديل الانحناء عند نقطة.
 * إضافة نقاط جديدة.
 
-تسمح لك نقاط التحرير بتعديل حدود الشكل أو استخدام شكل موجود كأساس للحصول على شكل جديد.
+تسمح لك تحرير النقاط بتعديل مخطط الشكل أو استخدام شكل موجود كأساس لشكل جديد.
 
 ## **نصائح تحرير الشكل**
 
@@ -45,42 +45,42 @@ description: "إنشاء وتخصيص الأشكال في عروض PowerPoint ا
 
 عند تحرير أشكال PowerPoint، احرص على مراعاة المفاهيم التالية:
 
-* يمكن أن يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.
-* يتكوّن مسار الشكل من نقاط ربط متصلة بقطاعات.
-* يمكن أن تكون القطعة مستقيمة أو منحنية. تحدد نقاط الربط ومقابض التحكم شكلها.
-* توجد نقاط الربط كزاوين، أو نقاط مستقيمة، أو نقاط ناعمة:
-  * في نقطة الزاوية، يمكن للقطاعات المتجاورة أن تلتقي بزاوية.
-  * في النقطة الناعمة، تكون مقبضا التحكم محاذيين وبعيدين مسافة متساوية عن نقطة الربط.
-  * في النقطة المستقيمة، تكون مقبضا التحكم محاذيين لكن قد تكون المسافة عنهما مختلفة.
-* تحريك نقاط الربط أو تعديل مقابضها يغيّر حدود الشكل.
+* يمكن أن يكون الشكل (أو مساره) إما مغلقًا أو مفتوحًا.
+* يتكون مسار الشكل من نقاط ارتكاز متصلة بمقاطع.
+* يمكن أن يكون المقطع مستقيمًا أو منحنيًا. تحدد نقاط الارتكاز ومقابض التحكم شكله.
+* توجد نقاط الارتكاز كنقاط زاوية، أو نقاط مستقيمة، أو نقاط سلسة:
+  * في نقطة زاوية، يمكن للمقاطع المتاخمة أن تلتقي بزاوية.
+  * في نقطة سلسة، يكون مقبضان التحكم متوازيين ويبعدان مسافة متساوية عن نقطة الارتكاز.
+  * في نقطة مستقيمة، يكون مقبضان التحكم متوازيين ولكن قد يكونان على مسافات مختلفة عن نقطة الارتكاز.
+* تحريك نقاط الارتكاز أو تعديل مقابضها يغير مخطط الشكل.
 
 لتحرير أشكال PowerPoint عبر نقاط التحرير، توفر **Aspose.Slides** الفئة [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-* تمثّل نسخة [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) مسار هندسي لكائن [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
-* لاسترجاع [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) من نسخة [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/)، يمكنك استخدام طريقة [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
-* لتعيين [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) لشكل، يمكنك استخدام الطريقتين: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) للأشكال ذات المسار الواحد و[GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) للأشكال ذات المسارات المتعددة.
-* لإضافة قطاعات، يمكنك استخدام الطرائق المتوفرة تحت [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
-* باستخدام طريقتي [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) و[GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode)، يمكنك ضبط مظهر مسار الهندسة.
-* باستخدام طريقة [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData)، يمكنك استرجاع مسار الهندسة لكائن [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) كمصفوفة من قطاعات المسار.
-* للوصول إلى خيارات تخصيص هندسة الشكل الإضافية، يمكنك قراءة كائن [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) عبر [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) وإعادة تشغيل القطاعات على [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* تمثل نسخة من [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) مسار هندسي لكائن [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
+* لاسترداد [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) من نسخة [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) يمكنك استخدام طريقة [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
+* لتعيين [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) لشكل، يمكنك استخدام هذه الطرق: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) للأشكال ذات مسار واحد و[GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) للأشكال ذات مسارات متعددة.
+* لإضافة مقاطع، يمكنك استخدام الطرق الموجودة تحت [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* باستخدام طرق [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) و[GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode)، يمكنك تعيين مظهر لمسار هندسي.
+* باستخدام طريقة [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData)، يمكنك استرجاع مسار الهندسة لشكل [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) كمصفوفة من مقاطع المسار.
+* للوصول إلى خيارات تخصيص هندسة الشكل الإضافية، يمكنك قراءة [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) عبر [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) وإعادة تشغيل المقاطع على [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-## **عمليات تحرير بسيطة**
+## **عمليات التحرير البسيطة**
 
-استخدم الطرق التالية لتحرير مسار هندسي. التحميلات التي تقبل فهرسًا تُدرج قطاعًا في الموضع الصفري‑المستند إلى الفهرس داخل مصفوفة قطاعات المسار.
+استخدم الطرق التالية لتحرير مسار هندسي. التحميلات التي تقبل فهرسًا تُدرج مقطعًا في ذلك الموضع الصفري القائم في مصفوفة مقاطع المسار.
 
-| عملية | طريقة |
+| العملية | الطريقة |
 | --- | --- |
-| إلحاق أو إدراج خط مستقيم. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
-| إلحاق أو إدراج منحنى بيزيه مكعب مع نقطتي تحكم ونقطة نهائية. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| إلحاق أو إدراج منحنى بيزيه تربيعي مع نقطة تحكم واحدة ونقطة نهائية. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| إلحاق قوس بيضاوي بالأبعاد والزوايا المحددة بالدرجات. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
-| إغلاق الشكل الحالي بربط نقطته النهائية بنقطة البداية. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
-| تعيين نقطة البداية لشكل. | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
-| إزالة قطاع عند فهرس صفري‑مستند إلى الفهرس. | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
+| إضافة أو إدراج خط مستقيم. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
+| إضافة أو إدراج منحنى بيزييه مكعب بنقطتي تحكم ونقطة النهاية. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| إضافة أو إدراج منحنى بيزييه تربيعي بنقطة تحكم واحدة ونقطة النهاية. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| إضافة قوس بيضاوي بالأبعاد والزوايا المحددة بالدرجات. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| إغلاق الشكل الحالي بربط نقطة النهاية بنقطة البداية. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| تعيين نقطة البداية للشكل. | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
+| إزالة مقطع عند فهرس يبدأ من الصفر. | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
 
-## **إضافة نقاط مخصصة إلى الشكل**
+## **إضافة نقاط مخصصة إلى شكل**
 
-تُدرج هذه العينة نقطتين في شكل مستطيل باستخدام [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) وتطبيق المسار المعدل عبر [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). الإحداثيات محلية إلى الشكل: النقطتان الجديدتان في مركزه، 100 نقطة من اليسار و50 نقطة من الأعلى. تُوضع مؤشرات القطاعات 1 و4 على الحافتين العلوية والسفلية، مما يجذب هاتين الحافتين إلى الداخل.
+هذا المثال يُدرج نقطتين في شكل مستطيل باستخدام [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) ويُطبق المسار المُعدَّل باستخدام [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). الإحداثيات محلية إلى الشكل: النقطتان الجديدتان تقعان في مركزه، على مسافة 100 نقطة من اليسار و50 نقطة من الأعلى. تُضع مؤشرات المقاطع 1 و4 النقطتين على الحافتين العلوية والسفلية، مما يسحب هاتين الحافتين إلى الداخل.
 
 ```php
 use aspose\slides\Presentation;
@@ -104,9 +104,9 @@ try {
 
 ![example1_image](custom_shape_1.png)
 
-## **إزالة نقاط من الشكل**
+## **إزالة نقاط من شكل**
 
-تُغيّر هذه العينة مخطط القلب بإزالة القطاع عند الفهرس الصفري‑مستند إلى الفهرس 2 باستخدام [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). تطبيق المسار المعدل عبر [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) يُحدّث محيط الشكل.
+هذا المثال يغيّر مخطط شكل على شكل قلب عبر إزالة المقطع عند الفهرس الصفري 2 باستخدام [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). تطبيق المسار المعدَّل باستخدام [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) يُحدِّث محيط الشكل.
 
 ```php
 use aspose\slides\Presentation;
@@ -130,7 +130,7 @@ try {
 
 ## **إنشاء شكل مخصص**
 
-تبني هذه العينة نجمة خماسية باستخدام [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). تُعرّف الأنصاف القطرية المتناوبة للعينتين الخارجية والداخلية بـ 100 و50 نقطة لتحديد القمم والانحناءات؛ خطوة 72 درجة تُوزّع الخمس قمم بالتساوي. يُغلق المسار عبر [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) ويُطبق على شكل مستطيل باستخدام [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath)، مستبدلًا مخططه.
+هذا المثال يبني نجمة خماسية باستخدام [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). تُعرِّف نصفا القطر المتناوبين الخارجي والداخلي بـ 100 و50 نقطة لتحديد الحواف والفراغات؛ خطوة 72 درجة تُوزِّع الخمس رؤوس بانتظام. يُغلق المسار باستخدام [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) ويُطبق على شكل مستطيل باستخدام [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath)، مستبدلًا مخططه.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -166,9 +166,9 @@ try {
 ```
 ![example3_image](custom_shape_3.png)
 
-## **إنشاء شكل مدمج مخصص**
+## **إنشاء شكل مخصص مركب**
 
-تحدّد هذه العينة كائنين [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) مغلقين للثلثين العلوي والسفلي من الشكل. يُنشئ تطبيق كلا المسارين عبر [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) شكلاً مركبًا واحدًا به فجوة عبر الثلث الأوسط.
+هذا المثال يُعرِّف مسارين مغلقين من نوع [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) للثلث العلوي والسفلي من الشكل. تطبيق كلا المسارين باستخدام [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) يُنشئ شكلًا مركبًا واحدًا به فجوة عبر الثلث الأوسط.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -204,7 +204,7 @@ try {
 
 ## **إنشاء شكل مخصص بزوايا منحنية**
 
-تمزج هذه العينة القطاعات المستقيمة مع [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) لإنشاء شكل بزوايا منحنية إلى الداخل. تحدد كل زاوية حجم القوس بالعرض والارتفاع بالنقاط، وتُرسم القطعة ذات القوس –90 درجة قوسًا إهليلجيًا ربعًا باتجاه عكس عقارب الساعة. يُطبق المسار المكتمل عبر [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath)، وتُحفظ العرض التقديمي بصيغة PPTX.
+هذا المثال يجمع مقاطع مستقيمة مع [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) لإنشاء شكل بزوايا منحنية إلى الداخل. يحدد حجم كل زاوية عرض وارتفاع القوس بالنقاط، وتُرسم القطعة القوسية بزاوية –90 درجة لتشكيل ربع إهليلجي عكس اتجاه عقارب الساعة. يُطبق المسار المكتمل باستخدام [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath)، ويتم حفظ العرض التقديمي بصيغة PPTX.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -255,9 +255,9 @@ try {
 }
 ```
 
-## **التحقق مما إذا كانت هندسة الشكل مغلقة**
+## **معرفة ما إذا كانت هندسة الشكل مغلقة**
 
-تتحقق الدالة المساعدة التالية ما إذا كان كل مسار هندسي غير فارغ ينتهي بقطاع إغلاق. تقرأ [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) وتقارن أمر القطاع النهائي عبر [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) مع [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). تُعيد false عندما لا توجد مسارات غير فارغة. تتحقق هذه الدالة من الأمر النهائي لكل مسار؛ لا تقوم بفحص كل شكل فرعي داخل المسار. تطبع العينة `true` لمستطيل.
+المساعد التالي يتحقق مما إذا كان كل مسار هندسي غير فارغ ينتهي بمقطع إغلاق. يقرأ [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) ويقارن أمر المقطع النهائي [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) مع [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). يُعيد false عندما لا تكون هناك مسارات غير فارغة. هذا يتحقق من الأمر النهائي لكل مسار؛ ولا يفحص كل شكل فرعي داخل المسار. المثال يُطبع `true` لمستطيل.
 
 ```php
 use aspose\slides\PathCommandType;
@@ -292,11 +292,64 @@ try {
 }
 ```
 
+## **فحص أوامر مسار الهندسة**
+
+حمّل [contour.pptx](contour.pptx) وضعه في دليل عمل التطبيق. الشكل الأول في الشريحة الأولى يحتوي على حافة علوية مستقيمة، ومنحنٍ بيزييه مكعب، وحافة إغلاق مستقيمة. استخدم [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) لقراءة مسارات الشكل و[ getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) لقراءة مقاطع كل مسار بترتيب الرسم. لكل مقطع، يحدد [getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) الأمر ويُحدد كيفية تفسير القيم التي تُعيدها [getSegmentData](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getSegmentData).
+
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("contour.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+    foreach ($shape->getGeometryPaths() as $pathIndex => $path) {
+        foreach ($path->getPathData() as $segmentIndex => $segment) {
+            $command = java_values($segment->getPathCommand());
+            $data = java_values($segment->getSegmentData());
+            switch ($command) {
+                case PathCommandType::MoveTo:
+                case PathCommandType::LineTo:
+                    $name = $command === PathCommandType::MoveTo ? "MoveTo" : "LineTo";
+                    $detail = sprintf("destination=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::CubicBezierTo:
+                    $name = "CubicBezierTo";
+                    $detail = sprintf("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::Close:
+                    $name = "Close";
+                    $detail = "no coordinates";
+                    break;
+                default:
+                    $name = "Command " . $command;
+                    $detail = "raw=" . json_encode($data);
+            }
+            printf("Path %d, segment %d: %s %s\n", $pathIndex, $segmentIndex, $name, $detail);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+الشكل يقع عند (200, 100) نقطة على الشريحة. الإحداثيات المبلَّغ عنها محلية إلى الشكل، بحيث يكون (0, 0) في الزاوية العليا اليسرى، وتزداد القيمة X إلى اليمين وتزداد القيمة Y إلى الأسفل. يُعيد المقطع الإغلاق إلى نقطة البداية دون إحداثيات إضافية.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **استخراج وفحص عناصر الشكل**
 
-استخدم [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) لفحص شكل موجود كعناصر تحتوي على نقاط المسار وأنواع النقاط. استخدم كل [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) مُرجع لاسترجاع مصفوفات النقاط والأنواع عبر طريقتي [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) و[getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). يُعدّ هذا التمثيل مفيدًا لتحليل الحدود أو لتمرير الهندسة إلى أدوات رسم مخصصة.
+استخدم [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) لفحص شكل موجود كعناصر تحتوي على نقاط المسار وأنواع النقاط. استخدم كل [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) مسترجعة للحصول على مصفوفات النقاط والأنواع عبر طُرُق [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) و[getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). هذا التمثيل مفيد لتحليل المخطط أو لتمرير الهندسة إلى أدوات رسم مخصصة.
 
-تفتح العينة ملف input.pptx، وتجد أول شكل هندسي مباشرة على الشريحة الأولى، وتطبع قطاعات مساره. استخدم عرضًا يحتوي على شكل بقطاعات مستقيمة ومنحنية لتُظهر كلا النوعين من الإخراج. لا تبحث داخل المجموعات.
+يفتح المثال input.pptx، يجد الشكل الهندسي الأول مباشرةً على الشريحة الأولى، ويطبع مقاطع مساره. استخدم عرضًا يحتوي على شكل به مقاطع مستقيمة ومنحنية لرؤية كلا النوعين من النتائج. لا يبحث داخل المجموعات.
 
 ```php
 use aspose\slides\Presentation;
@@ -323,7 +376,7 @@ try {
             $types = array_values(unpack("C*", java_values($element->getPathTypes())));
             echo "Shape element:" . PHP_EOL;
             for ($i = 0; $i < count($points); $i++) {
-                $pointType = $types[$i] & 0x07; // احتفظ بنوع القطعة، مع استبعاد العلامات.
+                $pointType = $types[$i] & 0x07; // احتفظ بنوع المقطع، مع استثناء العلامات.
                 switch ($pointType) {
                     case 0:
                         echo "Start figure at " . $points[$i] . PHP_EOL;
@@ -333,7 +386,7 @@ try {
                         break;
                     case 3:
                         echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
-                        $i += 2; // Consume both control points and the endpoint.
+                        $i += 2; // استهلك نقطتي التحكم والنقطة النهائية.
                         break;
                 }
                 if (($types[$i] & 0x80) !== 0) {
@@ -347,21 +400,21 @@ try {
 }
 ```
 
-المصفوفات تتطابق بحسب الفهرس: `$points[$i]` هو نقطة و`$types[$i]` يصف دورها. النوع `0` يبدأ الشكل، والنوع `1` يرسم خطًا من النقطة السابقة إلى النقطة الحالية. يبدأ قطاع بيزيه مكعب من النقطة النهائية السابقة ويستخدم ثلاث إدخالات من النوع `3` متتالية: نقطتا تحكم ثم النقطة النهائية الجديدة. يستهلك الحلقة هذه الثلاث إدخالات معًا ويفحص النقطة النهائية للإغلاق.
+المصفوفات تتطابق وفق الفهرس: `$points[$i]` هي نقطة و`$types[$i]` تصف دورها. النوع `0` يبدأ شكلًا، والنوع `1` يرسم خطًا من النقطة السابقة إلى الحالية. يبدأ مقطع بيزييه مكعب عند نقطة النهاية السابقة ويستخدم ثلاث مدخلات من النوع `3` متتالية: نقطتا تحكم ثم نقطة النهاية الجديدة. الحلقة تستهلك هذه الثلاث مدخلات معًا وتتحقق من إغلاق نقطة النهاية.
 
-تحتوي أنواع النقاط أيضًا على أعلام. قُم بالـ mask بـ `0x07` لتحديد نوع القطاع، واختبر `0x80` منفصلًا لاكتشاف مسار فرعي مغلق. على سبيل المثال، `129` (`0x81`) يعني نقطة نهاية خط تُغلق مسارًا فرعيًا، و`131` (`0x83`) يعني نقطة نهاية بيزيه تُغلق واحدًا. تُعيد جسر PHP/Java المصفوفة البايتية كسلسلة ثنائية؛ فكّها باستخدام `"C*"` لتنتج قيم بايت غير موقّعة. يحافظ الـ masking على القيم البتية المقصودة. مقارنة القيمة الخام فقط بـ `1` أو `3` سيفوت هذه الحالات. الأعلام الأخرى، مثل الواصل (`0x10`) والعلامة (`0x20`)، لا تغير نوع القطاع الأساسي.
+أنواع النقاط تحتوي أيضًا على أعلام. استخدم القناع `0x07` لتحديد نوع المقطع، واختبر `0x80` بشكل منفصل لاكتشاف مسار فرعي مغلق. مثال ذلك، `129` (`0x81`) يعني نقطة نهاية خط تغلق مسارًا فرعيًا، و`131` (`0x83`) يعني نقطة نهاية بيزييه تغلق واحدًا. يُعيد جسر PHP/Java مصفوفة البايت كسلسلة ثنائية؛ فكّها باستخدام `"C*"` يُنتج قيم بايت غير موقعة. القناع يحافظ على قيم البت المقصودة. مقارنة القيمة الخام فقط مع `1` أو `3` سيفوت هذه الحالات. الأعلام الأخرى، مثل الفاصل (`0x10`) والعلامة (`0x20`)، لا تغير نوع المقطع الأساسي.
 
-**الإحداثيات والتحويلات.** تُقاس النقاط بوحدات النقاط (1/72 بوصة)، مع زيادة X إلى اليمين وزيادة Y إلى الأسفل. بالنسبة لشكل غير مجمع، تضم الإحداثيات المستخرجة بالفعل الموضع الذي تُرجعه [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) و[getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) وتعكس عرضه وارتفاعه الحالي. على سبيل المثال، مستطيل غير مدوَّر عند `(100, 200)` بالحجم `120 × 80` له حدود محيط `(100, 200)`–`(220, 280)`. لا تُضيف موضع الشكل مرة أخرى. اطرح قيم X وY للحصول على إحداثيات نسبية لإطار الشكل غير المدوَّر.
+**الإحداثيات والتحويلات.** تُقاس النقاط بوحدات النقاط (1/72 بوصة)، وتزداد X إلى اليمين وتزداد Y إلى الأسفل. بالنسبة لشكل غير مجموعة، تشمل الإحداثيات المستخرجة بالفعل الموضع المسترجع من [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) و[getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) وتعكس عرضه وارتفاعه الحاليين. على سبيل المثال، مستطيل غير مُدوَّر عند `(100, 200)` بحجم `120 × 80` له حدود مخطط `(100, 200)`–`(220, 280)`. لا تُضيف موضع الشكل مرة أخرى. اطرح X وY للحصول على إحداثيات نسبية لإطار الشكل غير المُدوَّر.
 
-لا تطبق الإحداثيات المستخرجة دوران الشكل، الذي تُرجعه [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation)، أو الانعكاسات الأفقية والعمودية. لتكرار المخطط المعروض، طبّق تلك التحويلات حول مركز الشكل. بالنسبة للأشكال المجمعة، احسب أيضًا تحويلات وإسقاطات إحداثيات المجموعة؛ لا تفترض أن الإحداثيات المستخرجة هي إحداثيات الشريحة النهائية أو تُطبق ترجمة أو مقياسًا مرتين إذا كان مُعكسًا بالفعل في إطار الطفل.
+النقاط المستخرجة لا تُطبق دوران الشكل المسترجع من [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) أو الانعكاسات الأفقية والعمودية. لإعادة إنتاج المخطط المعروض، طبّق هذه التحويلات حول مركز الشكل. بالنسبة للأشكال المجمَّعة، احسب أيضًا تحويلات إحداثيات المجموعة؛ لا تفترض أن النقاط المستخرجة هي إحداثيات الشريحة النهائية ولا تطبق ترجمة أو مقياسًا مرتين إذا كان مُعكسًا بالفعل في إطار الطفل.
 
-**الفحص مقابل التحرير.** تصف المصفوفات المستخرجة المحيط؛ تعديلها لا يُحدّث الشكل الأصلي. اختر هذا الأسلوب عندما تحتاج إلى مصفوفات نقطة/نوع لتحليل أو رسمك. استخدم [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) عندما تحتاج إلى أوامر هندسية في نظام إحداثيات الشكل المحلي أو ترغب في تحرير هندسته. طبّق المسارات المعدلة عبر [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) أو [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
+**الفحص مقابل التحرير.** تصف المصفوفات المستخرجة المخطط؛ تعديلها لا يُحدِّث الشكل الأصلي. اختر هذا النهج عندما تحتاج إلى مصفوفات نقطة/نوع لتحليل أو رسمك. استخدم [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) عندما تحتاج إلى أوامر هندسة في نظام إحداثيات الشكل المحلي أو تريد تحرير هندسته. طبّق المسارات المُعدَّلة عبر [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) أو [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
 
 ## **تحويل شكل Java AWT إلى GeometryPath**
 
-تجمع هذه العينة مخططًا مستطیلیًا مع نص محوَّل إلى هندسة. تُعطّل طريقة [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) ملء المخطط. تُنشئ فئة [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) مخطط النص في كائن [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). يوفّر [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) تحركات، خطوط، منحنيات تربيعية، مكعبة، وقطاعات إغلاق، والتي يُعيد تنفيذها على [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+هذا المثال يجمع مخططًا مستطيليًا مع نص مُحوَّل إلى هندسة. تُعطِّل طريقة [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) للخط الخارجي ملئه. يُنشئ [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) مخطط النص في [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). يزوِّد [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) بحركات، خطوط، منحنيات تربيعية، مكعبة، ومقاطع إغلاق، والتي يعيد المثال تشغيلها على [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-تستخدم العينة مصفوفة عائمة Java حتى يحتفظ جسر PHP/Java بالإحداثيات التي كتبها المتiter. يستخدم النص خطًا Arial بحجم 40 نقطة. يُزاح المخطط أفقياً 20 نقطة ويُوضَع بحيث أعلىه البصري 10 نقاط أسفل حافة أعلى الشكل. يُملأ مسار النص، بينما يبقى المستطيل الأصلي مخططًا فقط. يدمج تطبيق كلا المسارين عبر [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) شكلًا واحدًا يحتوي على المستطيل والنص.
+يستخدم المثال مصفوفة عائمة Java بحيث يحتفظ جسر PHP/Java بالإحداثيات التي كتبها المُتِر. النص يستخدم خط Arial بحجم 40 نقطة. يُزيَّح المخطط أفقيًا 20 نقطة ويوضع بأعلى بصرية 10 نقاط تحت الحافة العليا للشكل. يُملأ مسار النص، بينما يبقى المستطيل الأصلي مخططًا فقط. تطبيق كلا المسارين باستخدام [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) ينتج شكلًا واحدًا يحتوي على المستطيل والنص.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -430,16 +483,16 @@ try {
 ```
 ![example5_image](custom_shape_5.png)
 
-## **الأسئلة المتكررة**
+## **FAQ**
 
-**ماذا سيحدث للملء والحدّ بعد استبدال الهندسة؟**
+**ماذا سيحدث للملء والمخطط بعد استبدال الهندسة؟**
 
-يبقى النمط مع الشكل؛ يتغيّر فقط المخطط. يُطبّق الملء والحدّ تلقائيًا على الهندسة الجديدة.
+يستمر النمط مع الشكل؛ يتغيَّر المخطط فقط. يتم تطبيق الملء والمخطط تلقائيًا على الهندسة الجديدة.
 
-**كيف يمكنني تدوير شكل مخصص مع هندسته بشكل صحيح؟**
+**كيف أقوم بتدوير شكل مخصص بشكل صحيح مع هندسته؟**
 
-استخدم طريقة [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) الخاصة بالشكل؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.
+استخدم طريقة الشكل [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation)؛ الهندسة تدور مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.
 
 **هل يمكنني تحويل شكل مخصص إلى صورة لتثبيت النتيجة؟**
 
-نعم. صدّر منطقة [slide](/slides/ar/php-java/convert-powerpoint-to-png/) المطلوبة أو الـ [shape](/slides/ar/php-java/create-shape-thumbnails/) نفسها إلى صيغة نقطية؛ يُبسّط هذا العمل اللاحق مع الهندسات المعقّدة.
+نعم. صدِّر الـ[slide](/slides/ar/php-java/convert-powerpoint-to-png/) المطلوب أو الـ[shape](/slides/ar/php-java/create-shape-thumbnails/) نفسه إلى صيغة نقطية؛ فهذا يُبسِّط العمل اللاحق مع الهندسات المعقدة.

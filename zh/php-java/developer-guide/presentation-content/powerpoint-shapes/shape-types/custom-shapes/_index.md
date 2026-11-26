@@ -16,71 +16,69 @@ keywords:
 - 添加点
 - 删除点
 - 编辑操作
-- 圆角
+- 弯曲角
 - PowerPoint
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 在 PowerPoint 演示文稿中创建和自定义形状：几何路径、圆角、复合形状。"
+description: "通过 Java 使用 Aspose.Slides for PHP 在 PowerPoint 演示文稿中创建和自定义形状：几何路径、弯曲角、复合形状。"
 ---
 ## **概述**
 
-本文介绍了如何通过编辑点和几何路径来自定义 Aspose.Slides 中的演示文稿形状几何。它展示了如何使用 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 修改现有形状、执行基本的路径编辑操作、添加或删除点，并将更新后的几何应用回形状。
+本文解释了如何通过编辑点和几何路径来编辑形状几何，从而自定义 Aspose.Slides 中的演示文稿形状。它展示了如何使用 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 来修改现有形状，执行基本的路径编辑操作，添加或删除点，并将更新后的几何应用回形状。
 
-本文还演示了如何创建自定义和复合形状、构建带圆角的形状、判断形状几何是否闭合、检查形状元素，以及将 Java AWT 文本轮廓转换为几何路径。
+它还演示了如何创建自定义和复合形状，构建带弯曲角的形状，判断形状几何是否闭合，检查形状元素，以及将 Java AWT 文本轮廓转换为几何路径。
 
 ## **使用编辑点更改形状**
 
-在 PowerPoint 中，您可以使用 **编辑点** 来修改正方形：
-
-* 将角向内或向外移动。
+* 将角点向内或向外移动。
 * 调整点处的曲率。
 * 添加新点。
 
-编辑点可让您修改形状的轮廓，或以现有形状为基础创建新形状。
+编辑点可以让您修改形状的轮廓，或将现有形状用作新形状的基础。
 
 ## **形状编辑技巧**
 
-![概览图](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
 编辑 PowerPoint 形状时，请记住以下概念：
 
 * 形状（或其路径）可以是闭合的，也可以是开放的。
-* 形状的路径由锚点和连接它们的段组成。
-* 段可以是直线或曲线。锚点和控制手柄决定其形状。
-* 锚点有三种形式：拐角点、直线点或平滑点：
-  * 在拐角点，相邻段可以形成角度。
-  * 在平滑点，两个控制手柄共线且与锚点的距离相等。
-  * 在直线点，两个控制手柄共线，但与锚点的距离可以不同。
+* 形状的路径由通过线段连接的锚点组成。
+* 线段可以是直的或曲的。锚点和控制手柄决定其形状。
+* 锚点可以是拐角点、直线点或平滑点：
+  * 在拐角点，相邻线段可以成角相接。
+  * 在平滑点，两个控制手柄对齐且与锚点的距离相等。
+  * 在直线点，两个控制手柄仍然对齐，但与锚点的距离可以不同。
 * 移动锚点或调整其手柄会改变形状的轮廓。
 
 要通过编辑点编辑 PowerPoint 形状，**Aspose.Slides** 提供了 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 类。
 
 * 一个 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 实例表示 [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) 对象的几何路径。
-* 要从 [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) 实例获取 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)，可以使用 [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) 方法。
-* 要为形状设置 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)，可以使用以下方法：单路径形状使用 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath)；多路径形状使用 [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths)。
-* 要添加段，可使用 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 下的相应方法。
+* 要从 [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) 实例检索 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)，可以使用 [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) 方法。
+* 要为形状设置 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)，可以使用以下方法：单路径形状使用 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath)，多路径形状使用 [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths)。
+* 要添加线段，可使用 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 下的方法。
 * 使用 [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) 和 [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) 方法，可设置几何路径的外观。
 * 使用 [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) 方法，可将 [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) 的几何路径检索为路径段数组。
-* 若要访问其他形状几何自定义选项，可通过读取 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) 的 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 并在 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 上重放段来实现。
+* 若要访问其他形状几何自定义选项，可通过其 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 读取 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html)，并在 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 上重放这些线段。
 
 ## **简单编辑操作**
 
-使用以下方法编辑几何路径。接受索引的重载将在路径段数组的零基位置插入段。
+使用以下方法编辑几何路径。接受索引的重载会在路径的线段数组中零基位置插入线段。
 
 | 操作 | 方法 |
 | --- | --- |
-| 追加或插入直线段。 | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
-| 追加或插入带两个控制点和终点的三次贝塞尔曲线。 | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| 追加或插入带一个控制点和终点的二次贝塞尔曲线。 | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| 追加具有指定尺寸和角度（以度为单位）的椭圆弧。 | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
-| 通过将端点连接到起点来关闭当前图形。 | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| 追加或插入直线。 | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
+| 追加或插入具有两个控制点和一个终点的三次 Bézier 曲线。 | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| 追加或插入具有一个控制点和一个终点的二次 Bézier 曲线。 | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| 追加具有指定尺寸和角度（度）的椭圆弧。 | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| 通过将终点连接到起点来闭合当前图形。 | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
 | 设置图形的起始点。 | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
-| 删除零基索引处的段。 | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
+| 删除指定零基索引处的线段。 | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **向形状添加自定义点**
 
-此示例使用 [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) 向矩形形状插入两个点，并使用 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 应用编辑后的路径。坐标相对于形状本身：两个新点位于形状中心，左侧 100 点、顶部 50 点。段索引 1 和 4 将它们放在顶部和底部边缘，向内拉动这些边缘。
+此示例使用 [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) 向矩形形状插入两个点，并使用 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 应用编辑后的路径。坐标相对于形状本身：两个新点位于形状中心，左侧距离 100 点，顶部距离 50 点。线段索引 1 和 4 将它们放在上、下边缘，向内拉动这些边缘。
 
 ```php
 use aspose\slides\Presentation;
@@ -102,11 +100,11 @@ try {
 }
 ```
 
-![示例1图](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
-## **从形状中移除点**
+## **从形状中删除点**
 
-此示例通过使用 [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) 删除零基索引 2 处的段来更改心形轮廓。使用 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 应用修改后的路径后，形状轮廓将被更新。
+此示例通过使用 [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) 删除零基索引 2 处的线段来更改心形轮廓。使用 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 应用修改后的路径后，形状的轮廓被更新。
 
 ```php
 use aspose\slides\Presentation;
@@ -126,11 +124,11 @@ try {
     $presentation->dispose();
 }
 ```
-![示例2图](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
 ## **创建自定义形状**
 
-此示例使用 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 构建一个五角星。外半径 100 点、内半径 50 点交替定义尖端和凹陷；每隔 72 度放置一个尖端，使五个尖端均匀分布。路径通过 [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) 闭合，并使用 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 应用于矩形形状，替换其轮廓。
+此示例使用 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 构建一个五角星。交替的外半径和内半径分别为 100 点和 50 点，定义了星尖和凹陷；72 度的步进使五个星尖均匀分布。路径使用 [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) 闭合，并通过 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 应用于矩形形状，替换其轮廓。
 
 ```php
 use aspose\slides\GeometryPath;
@@ -164,11 +162,11 @@ try {
     $presentation->dispose();
 }
 ```
-![示例3图](custom_shape_3.png)
+![example3_image](custom_shape_3.png)
 
 ## **创建复合自定义形状**
 
-此示例为形状的上三分之一和下三分之一定义了两个闭合的 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 对象。使用 [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) 同时应用两个路径，可创建一个在中间三分之一处有间隙的单一复合形状。
+此示例为形状的上、下三分之一分别定义了两个闭合的 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 对象。使用 [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) 同时应用两条路径，可创建一个在中间三分之一处留有间隙的单一复合形状。
 
 ```php
 use aspose\slides\GeometryPath;
@@ -200,11 +198,11 @@ try {
     $presentation->dispose();
 }
 ```
-![示例4图](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
-## **创建带圆角的自定义形状**
+## **创建带弯曲角的自定义形状**
 
-此示例将直线段与 [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) 结合，创建一个内凹圆角的形状。每个角的大小决定了弧的宽度和高度（单位为点），-90 度的扫掠角绘制逆时针四分之一椭圆。完成的路径通过 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 应用，演示文稿以 PPTX 格式保存。
+此示例将直线段与 [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) 组合，以创建具有向内弯曲角的形状。每个角的大小决定了弧的宽度和高度（单位为点），-90 度的扫过角绘制出逆时针四分之一椭圆。完成的路径通过 [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 应用，演示文稿以 PPTX 格式保存。
 
 ```php
 use aspose\slides\GeometryPath;
@@ -257,7 +255,7 @@ try {
 
 ## **判断形状几何是否闭合**
 
-以下帮助程序检查每个非空几何路径是否以闭合段结束。它读取 [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData)，并将最终段的 [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) 与 [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/) 进行比较。当不存在非空路径时返回 false。该检查仅针对每条路径的最后指令，不会检查路径内部的每个子图形。示例对矩形输出 `true`。
+以下辅助方法检查每个非空几何路径是否以闭合线段结束。它读取 [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) 并将最终线段的 [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) 与 [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/) 进行比较。当没有非空路径时返回 false。此检查每条路径的最终命令；它不检查路径内部的每个子图形。示例对矩形输出 `true`。
 
 ```php
 use aspose\slides\PathCommandType;
@@ -292,11 +290,64 @@ try {
 }
 ```
 
+## **检查几何路径命令**
+
+下载 [contour.pptx](contour.pptx) 并放置在应用程序的工作目录中。第一张幻灯片的第一个形状具有直的顶部边缘、一个三次 Bézier 曲线和一条直的闭合边缘。使用 [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) 读取形状的路径，使用 [getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) 读取每条路径按绘制顺序的线段。对于每个线段， [getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) 确定命令并决定如何解释 [getSegmentData](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getSegmentData) 返回的数值。
+
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("contour.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+    foreach ($shape->getGeometryPaths() as $pathIndex => $path) {
+        foreach ($path->getPathData() as $segmentIndex => $segment) {
+            $command = java_values($segment->getPathCommand());
+            $data = java_values($segment->getSegmentData());
+            switch ($command) {
+                case PathCommandType::MoveTo:
+                case PathCommandType::LineTo:
+                    $name = $command === PathCommandType::MoveTo ? "MoveTo" : "LineTo";
+                    $detail = sprintf("destination=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::CubicBezierTo:
+                    $name = "CubicBezierTo";
+                    $detail = sprintf("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::Close:
+                    $name = "Close";
+                    $detail = "no coordinates";
+                    break;
+                default:
+                    $name = "Command " . $command;
+                    $detail = "raw=" . json_encode($data);
+            }
+            printf("Path %d, segment %d: %s %s\n", $pathIndex, $segmentIndex, $name, $detail);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+该形状位于幻灯片上的 (200, 100) 点。报告的坐标相对于形状本身，形状左上角为 (0, 0)，X 向右递增，Y 向下递增。闭合线段返回起始点，不带额外坐标。
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint 形状，顶部直边，右上到左下的弧形边，左侧直边](contour.png)
+
 ## **提取并检查形状元素**
 
-使用 [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) 可将现有形状检查为包含路径点和点类型的元素。对每个返回的 [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) 使用 [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) 与 [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes) 方法检索点数组和类型数组。此表示形式对轮廓分析或将几何传递给自定义绘图工具非常有用。
+使用 [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) 可将现有形状检查为包含路径点和点类型的元素。对每个返回的 [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) 使用 [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) 和 [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes) 方法检索点数组和类型数组。此表示法对于轮廓分析或将几何传递给自定义绘图工具非常有用。
 
-示例打开 `input.pptx`，在第一张幻灯片上直接查找第一个几何形状，并打印其路径段。使用包含直线段和曲线段的形状进行演示，以观察两种输出。该示例不在组内部搜索。
+示例打开 input.pptx，直接在第一张幻灯片上找到第一个几何形状，并打印其路径线段。使用包含直线段和曲线段的演示文稿即可看到两种输出。它不会在组内部搜索。
 
 ```php
 use aspose\slides\Presentation;
@@ -323,7 +374,7 @@ try {
             $types = array_values(unpack("C*", java_values($element->getPathTypes())));
             echo "Shape element:" . PHP_EOL;
             for ($i = 0; $i < count($points); $i++) {
-                $pointType = $types[$i] & 0x07; // 保留段类型，排除标志。
+                $pointType = $types[$i] & 0x07; // 保持线段类型，排除标志。
                 switch ($pointType) {
                     case 0:
                         echo "Start figure at " . $points[$i] . PHP_EOL;
@@ -333,7 +384,7 @@ try {
                         break;
                     case 3:
                         echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
-                        $i += 2; // 消耗两个控制点和终点。
+                        $i += 2; // Consume both control points and the endpoint.
                         break;
                 }
                 if (($types[$i] & 0x80) !== 0) {
@@ -347,21 +398,21 @@ try {
 }
 ```
 
-数组通过索引对应：`$points[$i]` 为点，`$types[$i]` 描述其角色。类型 `0` 表示开始一个图形，类型 `1` 表示从前一点到当前点绘制直线。三次贝塞尔段从前一个端点开始，使用连续的三个类型 `3` 条目：两个控制点随后是新的端点。循环一次性消费这三个条目并检查端点是否闭合。
+数组通过索引对应：`$points[$i]` 为点，`$types[$i]` 描述其角色。类型 `0` 表示启动图形，类型 `1` 表示从前一点绘制到当前点的直线。三次 Bézier 线段以之前的终点开始，使用连续的三个类型 `3` 条目：两个控制点随后是新的终点。循环一次性消费这三个条目并检查终点是否闭合。
 
-点类型还包含标志。使用 `0x07` 掩码可识别段类型，单独检测 `0x80` 可判断是否闭合子路径。例如，`129`（`0x81`）表示闭合的直线端点，`131`（`0x83`）表示闭合的贝塞尔端点。PHP/Java Bridge 将字节数组返回为二进制字符串；使用 `"C*"` 解包可得到无符号字节值。掩码保留了预期的位值，仅比较原始值为 `1` 或 `3` 会遗漏这些情况。其他标志，如虚线 (`0x10`) 和标记 (`0x20`)，不会改变基础段类型。
+点类型还包含标志。使用 `0x07` 掩码可识别线段类型，使用 `0x80` 单独检测闭合子路径。例如，`129` (`0x81`) 表示闭合子路径的直线终点，`131` (`0x83`) 表示闭合的 Bézier 终点。PHP/Java Bridge 将字节数组作为二进制字符串返回；使用 `"C*"` 进行 unpack 可得到无符号字节值。掩码保留了预期的位值。仅比较原始值为 `1` 或 `3` 会遗漏这些情况。其他标志，如虚线 (`0x10`) 和标记 (`0x20`)，不会改变基础线段类型。
 
-**坐标与变换。** 点的单位为点（1/72 英寸），X 向右递增，Y 向下递增。对于未分组的形状，提取的坐标已包含由 [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) 和 [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) 返回的位置，并反映当前宽高。例如，未旋转的矩形位于 `(100, 200)`，大小为 `120 × 80`，其轮廓边界为 `(100, 200)`–`(220, 280)`。请勿再次加上形状的位置。应减去其 X 与 Y，以获得相对于未旋转框架的坐标。
+**坐标和变换。** 点的单位为点 (1/72 英寸)，X 向右递增，Y 向下递增。对于未分组的形状，提取的坐标已经包含了 [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) 和 [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) 返回的位置，并且反映了当前的宽度和高度。例如，未旋转的矩形位于 `(100, 200)`，尺寸为 `120 × 80`，其轮廓范围为 `(100, 200)`–`(220, 280)`。不要再次添加形状的位置。将其 X 和 Y 抵消即可得到相对于未旋转框架的坐标。
 
-提取的点不考虑由 [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) 返回的形状旋转，或水平、垂直翻转。若要恢复显示的轮廓，需要围绕形状中心应用这些变换。对于分组形状，还需考虑组坐标映射和变换；不要假设提取的点已经是最终渲染的幻灯片坐标，亦不要在已经在子框架中体现的情况下再次平移或缩放。
+提取的点不包含由 [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) 返回的形状旋转，也不包含水平和垂直翻转。要复现显示的轮廓，需要围绕形状中心应用这些变换。对于分组形状，还必须考虑组坐标映射和变换；不要假设提取的点已经是最终渲染在幻灯片上的坐标，也不要在已经反映在子框架中的情况下再次平移或缩放。
 
-**检查与编辑的区别。** 提取的数组仅描述轮廓，修改它们不会更新原始形状。当您的分析或绘图代码需要点/类型数组时使用此方法。若需要在形状本地坐标系中获取几何指令或编辑几何，请使用 [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths)。编辑后通过 [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 或 [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) 应用。
+**检查与编辑。** 提取的数组仅描述轮廓；更改它们不会更新原始形状。当您的分析或绘图代码需要点/类型数组时，可采用此方法。需要在形状本地坐标系中获得几何命令或编辑其几何时，请使用 [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths)。通过 [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) 或 [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) 应用编辑后的路径。
 
 ## **将 Java AWT Shape 转换为 GeometryPath**
 
-此示例将矩形轮廓与转换后的文本结合。轮廓的 [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) 方法关闭填充。[GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) 在 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) 中创建文本轮廓。其 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 提供移动、直线、二次、三次和闭合段，示例将这些段重新播放到 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 上。
+此示例将矩形轮廓与转换后的文本轮廓组合。轮廓的 [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) 方法关闭了填充。[GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) 在 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) 中创建文本轮廓。其 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 提供 move、line、quadratic、cubic 和闭合线段，示例将在 [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) 上重放这些线段。
 
-示例使用 Java 浮点数组，以便 PHP/Java Bridge 保留迭代器写入的坐标。文本使用 40 点 Arial 字体。轮廓水平偏移 20 点，视觉顶部位于形状顶部以下 10 点。文本路径填充，而原始矩形保持轮廓。通过 [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) 同时应用两条路径，生成包含矩形和文本的单一形状。
+示例使用 Java float 数组，以便 PHP/Java Bridge 保留迭代器写入的坐标。文本使用 40 点 Arial 字体。轮廓水平偏移 20 点，并将其可视顶部定位在形状顶部以下 10 点处。文本路径被填充，而原始矩形仍保持为轮廓。通过 [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) 同时应用两条路径，可生成包含矩形和文本的单一形状。
 
 ```php
 use aspose\slides\GeometryPath;
@@ -428,18 +479,18 @@ try {
     $presentation->dispose();
 }
 ```
-![示例5图](custom_shape_5.png)
+![example5_image](custom_shape_5.png)
 
 ## **常见问题**
 
-**替换几何后，填充和轮廓会怎样？**
+**替换几何后填充和描边会怎样？**
 
-样式仍然保留在形状上，只是轮廓发生了改变。填充和轮廓会自动应用到新几何上。
+样式仍然保留在形状上；仅轮廓会改变。填充和描边会自动应用到新的几何上。
 
-**如何在旋转自定义形状时同时旋转其几何？**
+**如何在几何一起旋转的情况下正确旋转自定义形状？**
 
-使用形状的 [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) 方法；几何会随形状一起旋转，因为它绑定到形状自身的坐标系。
+使用形状的 [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) 方法；几何会随形状一起旋转，因为它绑定在形状自身的坐标系上。
 
-**能否将自定义形状转换为图像以“锁定”结果？**
+**我可以将自定义形状转换为图像以“锁定”结果吗？**
 
-可以。将所需的 [slide](/slides/zh/php-java/convert-powerpoint-to-png/) 区域或 [shape](/slides/zh/php-java/create-shape-thumbnails/) 本身导出为栅格格式，这样可简化后续对复杂几何的处理。
+可以。导出所需的 [幻灯片](/slides/zh/php-java/convert-powerpoint-to-png/) 区域或 [形状](/slides/zh/php-java/create-shape-thumbnails/) 本身为光栅格式；这可以简化对复杂几何的后续处理。

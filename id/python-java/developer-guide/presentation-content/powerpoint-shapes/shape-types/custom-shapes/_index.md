@@ -4,16 +4,16 @@ linktitle: Bentuk Kustom
 type: docs
 weight: 20
 url: /id/python-java/custom-shape/
-keywords:
+keywords: 
 - bentuk kustom
-- tambahkan bentuk
+- tambah bentuk
 - buat bentuk
 - ubah bentuk
 - geometri bentuk
 - jalur geometri
 - titik jalur
 - titik edit
-- tambahkan titik
+- tambah titik
 - hapus titik
 - operasi penyuntingan
 - sudut melengkung
@@ -21,13 +21,13 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Buat dan sesuaikan bentuk dalam presentasi PowerPoint dengan Aspose.Slides untuk Python melalui Java: jalur geometri, sudut melengkung, bentuk komposit."
+description: "Buat dan sesuaikan bentuk dalam presentasi PowerPoint dengan Aspose.Slides untuk Python melalui Java: jalur geometri, sudut melengkung, bentuk gabungan."
 ---
 ## **Ikhtisar**
 
-Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan mengedit geometri bentuk melalui titik edit dan jalur geometri. Artikel ini menunjukkan cara menggunakan [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) untuk memodifikasi bentuk yang ada, melakukan operasi penyuntingan jalur dasar, menambahkan atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke sebuah bentuk.
+Artikel ini menjelaskan cara menyesuaikan bentuk presentasi di Aspose.Slides dengan mengedit geometri bentuk melalui titik edit dan jalur geometri. Artikel ini menunjukkan cara bekerja dengan [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) untuk memodifikasi bentuk yang ada, melakukan operasi penyuntingan jalur dasar, menambah atau menghapus titik, dan menerapkan geometri yang diperbarui kembali ke sebuah bentuk.
 
-Artikel ini juga mendemonstrasikan cara membuat bentuk kustom dan komposit, membangun bentuk dengan sudut melengkung, menentukan apakah geometri bentuk tertutup, memeriksa elemen bentuk, dan mengonversi outline teks Java AWT menjadi jalur geometri.
+Artikel ini juga memperlihatkan cara membuat bentuk khusus dan gabungan, membangun bentuk dengan sudut melengkung, menentukan apakah geometri bentuk tertutup, memeriksa elemen bentuk, dan mengonversi kontur teks Java AWT menjadi jalur geometri.
 
 ## **Ubah Bentuk Menggunakan Titik Edit**
 
@@ -35,34 +35,34 @@ Di PowerPoint, Anda dapat menggunakan **Edit Points** untuk memodifikasi sebuah 
 
 * Memindahkan sudut ke dalam atau ke luar.
 * Menyesuaikan kelengkungan pada sebuah titik.
-* Menambahkan titik baru.
+* Menambah titik baru.
 
-Menyunting titik memungkinkan Anda mengubah kontur bentuk atau menggunakan bentuk yang ada sebagai dasar untuk bentuk baru.
+Mengedit titik memungkinkan Anda mengubah kontur sebuah bentuk atau menggunakan bentuk yang ada sebagai dasar untuk bentuk baru.
 
 ## **Tips Penyuntingan Bentuk**
 
 ![overview_image](custom_shape_0.png)
 
-Ketika menyunting bentuk PowerPoint, ingat konsep berikut:
+Saat menyunting bentuk PowerPoint, perhatikan konsep berikut:
 
 * Sebuah bentuk (atau jalurnya) dapat berupa tertutup atau terbuka.
-* Jalur bentuk terdiri dari titik jangkar yang dihubungkan oleh segmen.
+* Jalur sebuah bentuk terdiri dari titik jangkar yang dihubungkan oleh segmen.
 * Sebuah segmen dapat lurus atau melengkung. Titik jangkar dan pegangan kontrol menentukan bentuknya.
 * Titik jangkar dapat berupa titik sudut, titik lurus, atau titik halus:
   * Pada titik sudut, segmen yang bersebelahan dapat bertemu dengan sudut.
-  * Pada titik halus, dua pegangan kontrol sejajar dan berjarak sama dari titik jangkar.
-  * Pada titik lurus, dua pegangan kontrol sejajar tetapi dapat memiliki jarak berbeda dari titik jangkar.
-* Memindahkan titik jangkar atau menyesuaikan pegangan mengubah kontur bentuk.
+  * Pada titik halus, dua pegangan kontrol berada pada garis lurus dan berjarak sama dari titik jangkar.
+  * Pada titik lurus, dua pegangan kontrol berada pada garis lurus tetapi dapat memiliki jarak yang berbeda dari titik jangkar.
+* Memindahkan titik jangkar atau menyesuaikan pegangan mereka mengubah kontur bentuk.
 
 Untuk menyunting bentuk PowerPoint melalui titik edit, **Aspose.Slides** menyediakan kelas [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
 
-* Sebuah instance [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) mewakili jalur geometri objek [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/).
+* Sebuah instance [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) mewakili jalur geometri dari objek [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/).
 * Untuk mengambil [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) dari instance [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/), Anda dapat menggunakan metode [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths).
-* Untuk menetapkan [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) ke sebuah bentuk, Anda dapat menggunakan metode ini: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) untuk bentuk dengan satu jalur dan [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) untuk bentuk dengan beberapa jalur.
-* Untuk menambahkan segmen, Anda dapat menggunakan metode di bawah [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
-* Dengan menggunakan metode [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) dan [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode), Anda dapat mengatur tampilan sebuah jalur geometri.
-* Dengan menggunakan metode [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData), Anda dapat mengambil jalur geometri sebuah [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) sebagai array segmen jalur.
-* Untuk mengakses opsi kustomisasi geometri bentuk tambahan, Anda dapat membaca sebuah [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) melalui [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)‑nya dan memutar ulang segmen‑segmen pada sebuah [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
+* Untuk mengatur [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) pada sebuah bentuk, Anda dapat menggunakan metode ini: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) untuk bentuk dengan satu jalur dan [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) untuk bentuk dengan beberapa jalur.
+* Untuk menambah segmen, Anda dapat menggunakan metode di bawah [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
+* Dengan menggunakan metode [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) dan [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode), Anda dapat mengatur tampilan untuk sebuah jalur geometri.
+* Dengan menggunakan metode [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData), Anda dapat mengambil jalur geometri dari sebuah [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) sebagai array segmen jalur.
+* Untuk mengakses opsi kustomisasi geometri bentuk tambahan, Anda dapat membaca sebuah [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) melalui [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) dan memutar ulang segmen‑segmen tersebut pada sebuah [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
 
 ## **Operasi Penyuntingan Sederhana**
 
@@ -74,13 +74,13 @@ Gunakan metode berikut untuk menyunting sebuah jalur geometri. Overload yang men
 | Menambahkan atau menyisipkan kurva Bézier kubik dengan dua titik kontrol dan satu titik akhir. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
 | Menambahkan atau menyisipkan kurva Bézier kuadratik dengan satu titik kontrol dan satu titik akhir. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
 | Menambahkan busur elips dengan dimensi dan sudut yang ditentukan dalam derajat. | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
-| Menutup figur saat ini dengan menghubungkan titik akhirnya ke titik awalnya. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
-| Menetapkan titik awal sebuah figur. | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
-| Menghapus sebuah segmen pada indeks berbasis nol. | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
+| Menutup gambar saat ini dengan menghubungkan titik akhirnya ke titik awalnya. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
+| Menetapkan titik awal sebuah gambar. | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
+| Menghapus segmen pada indeks berbasis nol. | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
 
-## **Tambahkan Titik Kustom ke Sebuah Bentuk**
+## **Menambahkan Titik Kustom ke Bentuk**
 
-Contoh ini menyisipkan dua titik ke dalam sebuah bentuk persegi panjang menggunakan [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) dan menerapkan jalur yang disunting dengan [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath). Koordinat bersifat lokal terhadap bentuk: kedua titik baru berada di tengahnya, 100 poin dari kiri dan 50 poin dari atas. Indeks segmen 1 dan 4 menempatkannya pada tepi atas dan bawah, menarik tepi‑tepi tersebut ke dalam.
+Contoh ini menyisipkan dua titik ke dalam bentuk persegi panjang menggunakan [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) dan menerapkan jalur yang telah disunting dengan [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath). Koordinat bersifat lokal terhadap bentuk: kedua titik baru berada di tengahnya, 100 poin dari kiri dan 50 poin dari atas. Indeks segmen 1 dan 4 menempatkannya pada tepi atas dan bawah, menarik tepi‑tepi tersebut ke dalam.
 
 ```python
 import jpype
@@ -108,9 +108,9 @@ finally:
 
 ![example1_image](custom_shape_1.png)
 
-## **Hapus Titik dari Sebuah Bentuk**
+## **Menghapus Titik dari Bentuk**
 
-Contoh ini mengubah outline berbentuk hati dengan menghapus segmen pada indeks berbasis nol 2 menggunakan [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt). Menerapkan jalur yang dimodifikasi dengan [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) memperbarui kontur bentuk.
+Contoh ini mengubah kontur bentuk hati dengan menghapus segmen pada indeks berbasis nol 2 menggunakan [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt). Menerapkan jalur yang dimodifikasi dengan [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) memperbarui kontur bentuk.
 
 ```python
 import jpype
@@ -136,9 +136,9 @@ finally:
 ```
 ![example2_image](custom_shape_2.png)
 
-## **Buat Bentuk Kustom**
+## **Membuat Bentuk Kustom**
 
-Contoh ini membangun bintang lima sudut menggunakan [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/). Jari‑jari luar dan dalam yang bergantian sebesar 100 dan 50 poin menentukan ujung dan lekukan; langkah 72 derajat menempatkan lima ujung secara merata. Jalur ditutup dengan [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) dan diterapkan ke bentuk persegi panjang menggunakan [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), menggantikan outline‑nya.
+Contoh ini membangun bintang lima sudut dengan [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/). Radius luar dan dalam yang bergantian sebesar 100 dan 50 poin menentukan puncak serta lekukan; langkah 72‑derajat menempatkan kelima puncak secara merata. Jalur ditutup dengan [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) dan diterapkan ke bentuk persegi panjang menggunakan [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), menggantikan konturnya.
 
 ```python
 import jpype
@@ -184,9 +184,9 @@ finally:
 ```
 ![example3_image](custom_shape_3.png)
 
-## **Buat Bentuk Kustom Komposit**
+## **Membuat Bentuk Kustom Gabungan**
 
-Contoh ini mendefinisikan dua [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) tertutup untuk sepertiga atas dan bawah sebuah bentuk. Menerapkan kedua jalur dengan [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) menghasilkan satu bentuk komposit dengan celah di sepertiga tengahnya.
+Contoh ini mendefinisikan dua objek [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) tertutup untuk sepertiga atas dan sepertiga bawah sebuah bentuk. Menerapkan kedua jalur dengan [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) menghasilkan satu bentuk gabungan dengan celah di sepertiga tengahnya.
 
 ```python
 import jpype
@@ -223,9 +223,9 @@ finally:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Buat Bentuk Kustom dengan Sudut Melengkung**
+## **Membuat Bentuk Kustom dengan Sudut Melengkung**
 
-Contoh ini menggabungkan segmen lurus dengan [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) untuk membuat bentuk dengan sudut melengkung ke dalam. Setiap ukuran sudut menentukan lebar dan tinggi busur dalam poin, dan ayunan -90 derajat menggambar seperempat elips berlawanan arah jarum jam. Jalur yang selesai diterapkan dengan [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), dan presentasi disimpan dalam format PPTX.
+Contoh ini menggabungkan segmen lurus dengan [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) untuk membuat bentuk dengan sudut melengkung ke dalam. Setiap ukuran sudut menentukan lebar dan tinggi busur dalam poin, dan sapuan -90‑derajat menggambar seperempat elips berlawanan arah jarum jam. Jalur selesai diterapkan dengan [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), dan presentasi disimpan dalam format PPTX.
 
 ```python
 import jpype
@@ -271,9 +271,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Temukan Apakah Geometri Bentuk Tertutup**
+## **Menentukan Apakah Geometri Bentuk Tertutup**
 
-Pembantu berikut memeriksa apakah setiap jalur geometri yang tidak kosong diakhiri dengan segmen penutup. Ia membaca [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) dan membandingkan perintah segmen terakhir [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) dengan [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/). Ia mengembalikan `False` ketika tidak ada jalur yang tidak kosong. Pemeriksaan ini memperhatikan perintah akhir tiap jalur; tidak memeriksa setiap sub‑figur dalam sebuah jalur. Contoh menampilkan `True` untuk persegi panjang.
+Helper berikut memeriksa apakah setiap jalur geometri yang tidak kosong diakhiri dengan segmen penutup. Ia membaca [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) dan membandingkan perintah segmen akhir [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) dengan [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/). Metode ini mengembalikan `False` bila tidak ada jalur yang tidak kosong. Pemeriksaan ini memperhatikan perintah akhir setiap jalur; ia tidak memeriksa setiap sub‑gambar di dalam jalur. Contoh mencetak `True` untuk sebuah persegi panjang.
 
 ```python
 import jpype
@@ -306,11 +306,56 @@ finally:
     presentation.dispose()
 ```
 
-## **Ekstrak dan Periksa Elemen Bentuk**
+## **Memeriksa Perintah Jalur Geometri**
 
-Gunakan [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) untuk memeriksa sebuah bentuk yang ada sebagai elemen‑elemen yang berisi titik‑titik jalur dan jenis titik. Cast setiap elemen yang dikembalikan ke [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) dengan `jpype.JObject` untuk mengambil array titik dan tipe melalui metode [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) dan [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes). Representasi ini berguna untuk analisis kontur atau mengirim geometri ke alat gambar kustom.
+Unduh [contour.pptx](contour.pptx) dan letakkan di direktori kerja aplikasi. Bentuk pertama pada slide pertama memiliki tepi atas lurus, sebuah kurva Bézier kubik, dan tepi penutup lurus. Gunakan [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) untuk membaca jalur bentuk dan [getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) untuk membaca segmen‑segmen setiap jalur dalam urutan menggambar. Untuk setiap segmen, [getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) mengidentifikasi perintah dan menentukan cara menafsirkan nilai yang dikembalikan oleh [getSegmentData](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getSegmentData).
 
-Contoh membuka `input.pptx`, menemukan bentuk geometri pertama langsung pada slide pertama, dan mencetak segmen‑segmen jalurnya. Gunakan presentasi yang berisi bentuk dengan segmen lurus dan melengkung untuk melihat kedua jenis output. Ia tidak mencari di dalam grup.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PathCommandType, Presentation
+
+presentation = Presentation("contour.pptx")
+try:
+    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    for i, path in enumerate(shape.getGeometryPaths()):
+        for j, segment in enumerate(path.getPathData()):
+            command = segment.getPathCommand()
+            data = segment.getSegmentData()
+            if command in (PathCommandType.MoveTo, PathCommandType.LineTo):
+                detail = f"destination=({data[0]}, {data[1]})"
+            elif command == PathCommandType.CubicBezierTo:
+                detail = f"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})"
+            elif command == PathCommandType.Close:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={list(data)}"
+            name = PathCommandType.getName(PathCommandType.class_, command)
+            print(f"Path {i}, segment {j}: {name} {detail}")
+finally:
+    presentation.dispose()
+```
+
+Bentuk berada pada posisi (200, 100) poin pada slide. Koordinat yang dilaporkan bersifat lokal terhadap bentuk, dengan (0, 0) di sudut kiri‑atasnya, x meningkat ke kanan, dan y meningkat ke bawah. Segmen penutup kembali ke titik awal tanpa koordinat tambahan.
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Mengekstrak dan Memeriksa Elemen Bentuk**
+
+Gunakan [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) untuk memeriksa sebuah bentuk yang ada sebagai elemen‑elemen yang berisi titik‑titik jalur dan tipe titik. Cast setiap elemen yang dikembalikan ke [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) dengan `jpype.JObject` untuk mengambil array titik dan tipe melalui metode [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) dan [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes). Representasi ini berguna untuk analisis kontur atau mengirim geometri ke alat gambar khusus.
+
+Contoh membuka input.pptx, menemukan bentuk geometri pertama langsung pada slide pertama, dan mencetak segmen‑segmen jalurnya. Gunakan presentasi yang berisi bentuk dengan segmen lurus dan melengkung untuk melihat kedua jenis keluaran. Contoh tidak mencari di dalam grup.
 
 ```python
 import jpype
@@ -342,14 +387,14 @@ try:
 
             i = 0
             while i < len(points):
-                point_type = types[i] & 0x07  # Keep the segment type, excluding flags.
+                point_type = types[i] & 0x07  # Pertahankan tipe segmen, kecuali flag.
                 if point_type == 0:
                     print(f"Start figure at {points[i]}")
                 elif point_type == 1:
                     print(f"Line to {points[i]}")
                 elif point_type == 3:
                     print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
-                    i += 2  # Consume both control points and the endpoint.
+                    i += 2  # Gunakan kedua titik kontrol dan titik akhir.
 
                 if types[i] & 0x80:
                     print("Close subpath back to its starting point.")
@@ -358,21 +403,21 @@ finally:
     presentation.dispose()
 ```
 
-Array‑array tersebut bersesuaian berdasarkan indeks: `points[i]` adalah sebuah titik dan `types[i]` menggambarkan perannya. Tipe `0` memulai sebuah figur, dan tipe `1` menggambar garis dari titik sebelumnya ke titik saat ini. Sebuah segmen Bézier kubik dimulai pada ujung titik sebelumnya dan menggunakan tiga entri tipe `3` berurutan: dua titik kontrol diikuti oleh titik akhir baru. Loop mengonsumsi ketiga entri tersebut secara bersamaan dan memeriksa titik akhir untuk penutupan.
+Array berkorespondensi berdasarkan indeks: `points[i]` adalah sebuah titik dan `types[i]` menjelaskan perannya. Tipe `0` memulai sebuah gambar, dan tipe `1` menggambar garis dari titik sebelumnya ke titik saat ini. Sebuah segmen Bézier kubik dimulai pada titik akhir sebelumnya dan menggunakan tiga entri tipe‑`3` berurutan: dua titik kontrol diikuti oleh titik akhir baru. Loop mengonsumsi ketiga entri tersebut sekaligus dan memeriksa titik akhir untuk penutupan.
 
-Jenis titik juga mengandung flag. Lakukan masking dengan `0x07` untuk mengidentifikasi tipe segmen, dan uji `0x80` secara terpisah untuk mendeteksi sub‑path tertutup. Misalnya, `129` (`0x81`) berarti titik akhir garis yang menutup sub‑path, dan `131` (`0x83`) berarti titik akhir Bézier yang menutup satu sub‑path. Java menyimpan flag ini dalam byte bertanda; masking mempertahankan nilai bit yang dimaksud. Membandingkan nilai mentah hanya dengan `1` atau `3` akan melewatkan kasus ini. Flag lain, seperti dash (`0x10`) dan marker (`0x20`), tidak mengubah tipe segmen dasar.
+Tipe titik juga mengandung flag. Mask dengan `0x07` untuk mengidentifikasi tipe segmen, dan uji `0x80` secara terpisah untuk mendeteksi sub‑path tertutup. Misalnya, `129` (`0x81`) berarti titik akhir garis yang menutup sub‑path, dan `131` (`0x83`) berarti titik akhir Bézier yang menutup satu. Java menyimpan flag‑flag ini dalam byte bertanda; masking mempertahankan nilai bit yang dimaksud. Membandingkan nilai mentah hanya dengan `1` atau `3` akan melewatkan kasus‑kasus ini. Flag lain, seperti dash (`0x10`) dan marker (`0x20`), tidak mengubah tipe segmen dasar.
 
-**Koordinat dan transformasi.** Titik diukur dalam poin (1/72 inci), dengan X meningkat ke kanan dan Y meningkat ke bawah. Untuk bentuk yang tidak berada dalam grup, koordinat yang diekstrak sudah mencakup posisi yang dikembalikan oleh [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) dan [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) serta mencerminkan lebar dan tinggi saat ini. Contohnya, sebuah persegi panjang tidak berotasi pada `(100, 200)` dengan ukuran `120 × 80` mempunyai batas kontur `(100, 200)`–`(220, 280)`. Jangan menambahkan posisi bentuk lagi. Kurangi X dan Y untuk memperoleh koordinat relatif terhadap bingkai tak berotasi.
+**Koordinat dan transformasi.** Titik diukur dalam poin (1/72 inci), dengan X meningkat ke kanan dan Y meningkat ke bawah. Untuk sebuah bentuk yang tidak dikelompokkan, koordinat yang diekstrak sudah mencakup posisi yang dikembalikan oleh [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) dan [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) serta mencerminkan lebar dan tinggi saat ini. Misalnya, sebuah persegi panjang yang tidak diputar pada `(100, 200)` dengan ukuran `120 × 80` memiliki batas kontur `(100, 200)`–`(220, 280)`. Jangan menambahkan posisi bentuk lagi. Kurangi X dan Y untuk memperoleh koordinat relatif terhadap bingkai yang tidak diputar.
 
-Titik‑titik yang diekstrak tidak menerapkan rotasi bentuk, yang dikembalikan oleh [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation), atau flip horizontal dan vertikal. Untuk mereproduksi kontur yang ditampilkan, terapkan transformasi tersebut di sekitar pusat bentuk. Untuk bentuk yang berada dalam grup, perhitungkan pula pemetaan koordinat grup dan transformasinya; jangan mengasumsikan bahwa titik yang diekstrak adalah koordinat akhir slide yang dirender atau menerapkan translasi atau skala dua kali bila sudah tercermin dalam bingkai anak.
+Titik yang diekstrak tidak menerapkan rotasi bentuk, yang dikembalikan oleh [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation), atau pembalikan horizontal dan vertikal. Untuk mereproduksi kontur yang terlihat, terapkan transformasi tersebut di sekitar pusat bentuk. Untuk bentuk yang dikelompokkan, perhitungkan juga pemetaan koordinat grup dan transformasinya; jangan menganggap titik yang diekstrak adalah koordinat slide yang sudah dirender akhir atau menerapkan translasi atau skala dua kali jika sudah tercermin dalam bingkai anak.
 
-**Inspeksi vs penyuntingan.** Array yang diekstrak menggambarkan kontur; mengubahnya tidak memperbarui bentuk asli. Pilih pendekatan ini ketika analisis atau kode gambar Anda memerlukan array titik/tipe. Gunakan [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) ketika Anda memerlukan perintah geometri dalam sistem koordinat lokal bentuk atau ingin menyunting geometri tersebut. Terapkan jalur yang disunting melalui [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) atau [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Pemeriksaan vs penyuntingan.** Array yang diekstrak menggambarkan kontur; mengubahnya tidak memperbarui bentuk asli. Gunakan pendekatan ini bila analisis atau kode gambar Anda memerlukan array titik/tipe. Gunakan [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) bila Anda memerlukan perintah geometri dalam sistem koordinat lokal bentuk atau ingin menyunting geometri tersebut. Terapkan jalur yang disunting melalui [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) atau [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths).
 
-## **Konversi Java AWT Shape ke GeometryPath**
+## **Mengonversi Java AWT Shape menjadi GeometryPath**
 
-Contoh ini menggabungkan outline persegi panjang dengan teks yang dikonversi menjadi geometri. Metode [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) pada outline menonaktifkan isinya. Sebuah [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) membuat outline teks dalam sebuah [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)‑nya menyediakan segmen move, line, quadratic, cubic, dan closing, yang kemudian diputar ulang pada sebuah [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
+Contoh ini menggabungkan kontur persegi panjang dengan teks yang dikonversi menjadi geometri. Metode [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) pada kontur menonaktifkan isinya. Sebuah [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) membuat kontur teks dalam sebuah [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html)‑nya menyediakan segmen move, line, quadratic, cubic, dan closing, yang contoh ini mainkan kembali pada sebuah [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
 
-Teks menggunakan font Arial 40 poin. Outline dipindahkan 20 poin secara horizontal dan diposisikan dengan bagian atas visualnya 10 poin di bawah tepi atas bentuk. Jalur teks diisi, sementara persegi panjang asli tetap menjadi outline. Menerapkan kedua jalur dengan [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) menghasilkan satu bentuk yang berisi persegi panjang dan teks.
+Teks menggunakan font Arial 40 poin. Kontur digeser 20 poin secara horizontal dan diposisikan dengan bagian atas visualnya 10 poin di bawah tepi atas bentuk. Jalur teks diisi, sementara persegi panjang asli tetap menjadi kontur. Menerapkan kedua jalur dengan [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) menghasilkan satu bentuk yang berisi persegi panjang dan teks.
 
 ```python
 import jpype
@@ -411,7 +456,7 @@ try:
     finally:
         graphics.dispose()
 
-    # Konversi jalur grafis ke jalur geometri.
+    # Konversi jalur grafis menjadi jalur geometri.
     text_path = GeometryPath()
     path_iterator = graphics_path.getPathIterator(None)
     points = jpype.JArray(jpype.JFloat)(6)
@@ -439,14 +484,14 @@ finally:
 
 ## **FAQ**
 
-**Apa yang terjadi pada isian dan outline setelah mengganti geometri?**
+**Apa yang terjadi pada isian dan kontur setelah mengganti geometri?**
 
-Gaya tetap pada bentuk; hanya kontur yang berubah. Isian dan outline secara otomatis diterapkan pada geometri baru.
+Gaya tetap melekat pada bentuk; hanya konturnya yang berubah. Isian dan kontur secara otomatis diterapkan pada geometri baru.
 
-**Bagaimana cara memutar bentuk kustom bersama geometrinya secara benar?**
+**Bagaimana cara memutar bentuk kustom bersama geometri secara benar?**
 
-Gunakan metode [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) pada bentuk; geometri berotasi bersama bentuk karena terikat pada sistem koordinat bentuk itu sendiri.
+Gunakan metode [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) pada bentuk; geometri berputar bersama bentuk karena terikat pada sistem koordinat bentuk itu sendiri.
 
-**Bisakah saya mengonversi bentuk kustom menjadi gambar untuk “mengunci” hasilnya?**
+**Apakah saya dapat mengonversi bentuk kustom menjadi gambar untuk “mengunci” hasilnya?**
 
-Ya. Ekspor area [slide](/slides/id/python-java/convert-powerpoint-to-png/) yang diperlukan atau [shape](/slides/id/python-java/create-shape-thumbnails/) itu sendiri ke format raster; ini mempermudah pekerjaan selanjutnya dengan geometri yang kompleks.
+Ya. Ekspor area [slide](/slides/id/python-java/convert-powerpoint-to-png/) yang diperlukan atau [shape](/slides/id/python-java/create-shape-thumbnails/) itu sendiri ke format raster; hal ini menyederhanakan pekerjaan lanjutan dengan geometri yang kompleks.

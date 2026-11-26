@@ -1,17 +1,17 @@
 ---
-title: ปรับแต่งรูปทรงการนำเสนอใน Python ผ่าน Java
-linktitle: รูปทรงกำหนดเอง
+title: ปรับแต่งรูปร่างการนำเสนอใน Python ผ่าน Java
+linktitle: รูปร่างกำหนดเอง
 type: docs
 weight: 20
 url: /th/python-java/custom-shape/
-keywords:
-- รูปทรงกำหนดเอง
-- เพิ่มรูปทรง
-- สร้างรูปทรง
-- เปลี่ยนรูปทรง
-- เรขาคณิตรูปทรง
+keywords: 
+- รูปร่างกำหนดเอง
+- เพิ่มรูปร่าง
+- สร้างรูปร่าง
+- เปลี่ยนรูปร่าง
+- เรขาคณิตของรูปร่าง
 - เส้นทางเรขาคณิต
-- จุดเส้นทาง
+- จุดของเส้นทาง
 - จุดแก้ไข
 - เพิ่มจุด
 - ลบจุด
@@ -21,66 +21,66 @@ keywords:
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "สร้างและปรับแต่งรูปทรงในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Python ผ่าน Java: เส้นทางเรขาคณิต, มุมโค้ง, รูปทรงประกอบ."
+description: "สร้างและปรับแต่งรูปร่างในการนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Python ผ่าน Java: เส้นทางเรขาคณิต, มุมโค้ง, รูปร่างแบบผสม."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการปรับแต่งรูปทรงการนำเสนอใน Aspose.Slides โดยการแก้ไขเรขาคณิตของรูปทรงผ่านจุดแก้ไขและเส้นทางเรขาคณิต แสดงวิธีการใช้ [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) เพื่อแก้ไขรูปทรงที่มีอยู่ ทำการแก้ไขเส้นทางพื้นฐาน เพิ่มหรือเอาจุดออก และนำเรขาคณิตที่อัปเดตกลับไปใช้กับรูปทรง
+บทความนี้อธิบายวิธีการปรับแต่งรูปร่างในการนำเสนอใน Aspose.Slides โดยการแก้ไขรูปทรงของรูปร่างผ่านจุดแก้ไขและเส้นทางเรขาคณิต มันแสดงวิธีการทำงานกับ [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) เพื่อแก้ไขรูปร่างที่มีอยู่, ทำการแก้ไขเส้นทางขั้นพื้นฐาน, เพิ่มหรือเอาจุดออก, และนำเรขาคณิตที่อัปเดตกลับไปยังรูปร่าง
 
-มันยังแสดงวิธีการสร้างรูปทรงแบบกำหนดเองและรูปทรงประกอบ สร้างรูปทรงที่มีมุมโค้ง ตรวจสอบว่ารูปร่างเรขาคณิตเป็นแบบปิดหรือไม่ ตรวจสอบองค์ประกอบของรูปทรง และแปลงโครงร่างข้อความจาก Java AWT เป็นเส้นทางเรขาคณิต
+นอกจากนี้ยังสาธิตวิธีการสร้างรูปร่างกำหนดเองและแบบผสม, สร้างรูปร่างที่มีมุมโค้ง, ตรวจสอบว่ารูปร่างเรขาคณิตเป็นปิดหรือไม่, ตรวจสอบส่วนประกอบของรูปร่าง, และแปลงเส้นขอบข้อความของ Java AWT ให้เป็นเส้นทางเรขาคณิต
 
-## **เปลี่ยนรูปทรงโดยใช้จุดแก้ไข**
+## **เปลี่ยนรูปร่างโดยใช้จุดแก้ไข**
 
-ใน PowerPoint คุณสามารถใช้ **Edit Points** เพื่อแก้ไขรูปสี่เหลี่ยม:
+ใน PowerPoint คุณสามารถใช้ **Edit Points** เพื่อแก้ไขสี่เหลี่ยม:
 
-* ย้ายมุมเข้าในหรือออกนอก
+* ย้ายมุมเข้าไปหรือออกไป
 * ปรับความโค้งที่จุดหนึ่ง
 * เพิ่มจุดใหม่
 
-การแก้ไขจุดทำให้คุณปรับเปลี่ยนโครงร่างของรูปทรง หรือใช้รูปทรงที่มีอยู่เป็นฐานสำหรับรูปใหม่
+การแก้ไขจุดช่วยให้คุณปรับเปลี่ยนโครงร่างของรูปร่างหรือใช้รูปร่างที่มีอยู่เป็นฐานสำหรับรูปร่างใหม่ได้
 
-## **เคล็ดลับการแก้ไขรูปทรง**
+## **เคล็ดลับการแก้ไขรูปร่าง**
 
 ![overview_image](custom_shape_0.png)
 
-เมื่อแก้ไขรูปทรงใน PowerPoint ให้คำนึงถึงแนวคิดต่อไปนี้:
+เมื่อตัดแก้รูปร่างใน PowerPoint ให้คำนึงถึงแนวคิดต่อไปนี้:
 
-* รูปทรง (หรือเส้นทางของมัน) อาจเป็นแบบปิดหรือเปิด
-* เส้นทางของรูปทรงประกอบด้วยจุดยึดที่เชื่อมต่อด้วยส่วนต่าง ๆ
-* ส่วนอาจเป็นเส้นตรงหรือโค้ง จุดยึดและมือควบคุมกำหนดรูปร่างของส่วน
-* จุดยึดมีอยู่ในรูปแบบของจุดมุม จุดตรง หรือจุดเรียบ:
-  * ที่จุดมุม ส่วนที่เชื่อมต่ออาจมาบรรจบกันเป็นมุม
-  * ที่จุดเรียบ มือควบคุมสองอันจะจัดแนวและห่างจากจุดยึดเท่ากัน
-  * ที่จุดตรง มือควบคุมสองอันจัดแนวแต่ระยะห่างจากจุดยึดอาจแตกต่างกัน
-* การย้ายจุดยึดหรือปรับมือควบคุมจะเปลี่ยนโครงร่างของรูปทรง
+* รูปร่าง (หรือเส้นทางของมัน) สามารถเป็นแบบปิดหรือเปิดได้
+* เส้นทางของรูปร่างประกอบด้วยจุดยึดที่เชื่อมต่อด้วยส่วนต่าง ๆ
+* ส่วนหนึ่งอาจเป็นเส้นตรงหรือเส้นโค้ง จุดยึดและตัวควบคุมกำหนดรูปทรงของมัน
+* จุดยึดมีสามประเภท: จุดมุม, จุดตรง, หรือจุดเรียบ
+  * ที่จุดมุม ส่วนที่เชื่อมต่ออาจตัดกันเป็นมุม
+  * ที่จุดเรียบ ตัวควบคุมสองตัวจะเรียงตรงและอยู่ระยะห่างเท่ากันจากจุดยึด
+  * ที่จุดตรง ตัวควบคุมสองตัวเรียงตรงแต่ระยะห่างอาจแตกต่างกัน
+* การย้ายจุดยึดหรือปรับตัวควบคุมจะเปลี่ยนโครงร่างของรูปร่าง
 
-เพื่อแก้ไขรูปทรง PowerPoint ผ่านจุดแก้ไข **Aspose.Slides** มีคลาส [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)
+เพื่อแก้ไขรูปร่าง PowerPoint ผ่านจุดแก้ไข, **Aspose.Slides** ให้คลาส [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)
 
-* อินสแตนซ์ของ [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) แทนเส้นทางเรขาคณิตของวัตถุ [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/)
-* เพื่อดึง [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) จากอินสแตนซ์ของ [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) คุณสามารถใช้เมธอด [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths)
-* เพื่อตั้งค่า [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) ให้กับรูปทรง คุณสามารถใช้เมธอดเหล่านี้: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) สำหรับรูปทรงที่มีเส้นทางเดียวและ [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) สำหรับรูปทรงที่มีหลายเส้นทาง
-* เพื่อเพิ่มส่วน คุณสามารถใช้เมธอดภายใต้ [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)
-* ด้วยเมธอด [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) และ [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) คุณสามารถกำหนดลักษณะการแสดงผลของเส้นทางเรขาคณิต
-* ด้วยเมธอด [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) คุณสามารถดึงเส้นทางเรขาคณิตของ [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) เป็นอาร์เรย์ของส่วนเส้นทาง
-* เพื่อเข้าถึงตัวเลือกการปรับแต่งเรขาคณิตของรูปทรงเพิ่มเติม คุณสามารถอ่าน [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ผ่าน [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) แล้วทำซ้ำส่วนต่าง ๆ บน [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)
+* ตัวอย่าง [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) แทนเส้นทางเรขาคณิตของวัตถุ [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/)
+* เพื่อดึง [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) จากอินสแตนซ์ [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/), ใช้เมธอด [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths)
+* เพื่อกำหนด [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) ให้กับรูปร่าง, ใช้เมธอด [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) สำหรับรูปร่างที่มีเส้นทางเดียวและ [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) สำหรับรูปร่างที่มีหลายเส้นทาง
+* เพื่อเพิ่มส่วนต่าง ๆ, สามารถใช้เมธอดต่าง ๆ ภายใต้ [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)
+* ด้วยเมธอด [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) และ [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) คุณสามารถกำหนดลักษณะการวาดของเส้นทางเรขาคณิตได้
+* ด้วยเมธอด [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) คุณสามารถดึงเส้นทางเรขาคณิตของ [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) เป็นอาเรย์ของส่วนเส้นได้
+* เพื่อเข้าถึงตัวเลือกการปรับแต่งเรขาคณิตเพิ่มเติม, สามารถอ่าน [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ผ่าน [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) แล้วทำซ้ำส่วนต่าง ๆ บน [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)
 
 ## **การดำเนินการแก้ไขอย่างง่าย**
 
-ใช้เมธอดต่อไปนี้เพื่อแก้ไขเส้นทางเรขาคณิต เมธอดที่รับดัชนีจะทำการแทรกส่วนที่ตำแหน่งตามลำดับศูนย์ฐานในอาร์เรย์ของส่วน
+ใช้เมธอดต่อไปนี้เพื่อแก้ไขเส้นทางเรขาคณิต การโอเวอร์โหลดที่รับดัชนีจะใส่ส่วนเส้นที่ตำแหน่งนั้นในอาเรย์ส่วนเส้นของเส้นทาง
 
-| Operation | Method |
+| การดำเนินการ | เมธอด |
 | --- | --- |
 | เพิ่มหรือแทรกเส้นตรง | [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) |
-| เพิ่มหรือแทรกเส้นโค้ง Bézier cubic พร้อมจุดควบคุมสองจุดและจุดสิ้นสุด | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| เพิ่มหรือแทรกเส้นโค้ง Bézier quadratic พร้อมจุดควบคุมหนึ่งจุดและจุดสิ้นสุด | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| เพิ่มส่วนโค้งวงรีตามขนาดและมุมที่ระบุเป็นองศา | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
-| ปิดรูปแบบปัจจุบันโดยเชื่อมจุดสิ้นสุดกับจุดเริ่มต้น | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
-| ตั้งค่าจุดเริ่มต้นของรูปแบบ | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
-| ลบส่วนที่ตำแหน่งดัชนีศูนย์ฐาน | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
+| เพิ่มหรือแทรกเส้นโค้ง Bézier แบบลูกบาศก์ที่มีจุดควบคุมสองจุดและจุดสิ้นสุด | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| เพิ่มหรือแทรกเส้นโค้ง Bézier แบบควอดราติกที่มีจุดควบคุมหนึ่งจุดและจุดสิ้นสุด | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| เพิ่มโค้งรูปวงรีตามขนาดและมุมที่ระบุ (องศา) | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
+| ปิดรูปภาพปัจจุบันโดยเชื่อมจุดสิ้นสุดกับจุดเริ่มต้น | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
+| ตั้งค่าจุดเริ่มต้นของรูปภาพ | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
+| ลบส่วนเส้นที่ตำแหน่งดัชนีศูนย์ | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
 
-## **เพิ่มจุดกำหนดเองให้กับรูปทรง**
+## **เพิ่มจุดกำหนดเองให้กับรูปร่าง**
 
-ตัวอย่างนี้แทรกสองจุดเข้าไปในรูปสี่เหลี่ยมโดยใช้ [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) และนำเส้นทางที่แก้ไขไปใช้กับ [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) พิกัดเป็นพิกัดภายในของรูปทรง: จุดใหม่ทั้งสองอยู่ที่ศูนย์กลางของรูปทรง ห่างจากด้านซ้าย 100 จุดและจากด้านบน 55 จุด ดัชนีส่วน 1 และ 4 ทำให้จุดเหล่านั้นอยู่บนขอบบนและล่าง ดึงขอบเหล่านั้นเข้าหากลาง
+ตัวอย่างนี้ใส่สองจุดลงในรูปร่างสี่เหลี่ยมโดยใช้ [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) และนำเส้นทางที่แก้ไขแล้วไปใช้กับ [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) พิกัดเป็นค่าท้องถิ่นของรูปร่าง: จุดใหม่สองจุดอยู่ที่ศูนย์กลางของรูปร่าง, ห่างจากด้านซ้าย 100 พ้อยnts และจากด้านบน 50 พ้อยnts ดัชนีส่วนเส้น 1 และ 4 วางจุดเหล่านี้บนขอบบนและขอบล่าง, ดึงขอบเหล่านั้นเข้าไป
 
 ```python
 import jpype
@@ -108,9 +108,9 @@ finally:
 
 ![example1_image](custom_shape_1.png)
 
-## **ลบจุดออกจากรูปทรง**
+## **ลบจุดออกจากรูปร่าง**
 
-ตัวอย่างนี้เปลี่ยนโครงร่างหัวใจโดยลบส่วนที่ตำแหน่งดัชนีศูนย์ฐาน 2 ด้วย [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) การนำเส้นทางที่แก้ไขไปใช้กับ [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) จะอัปเดตเส้นขอบของรูปทรง
+ตัวอย่างนี้เปลี่ยนโครงร่างหัวใจโดยลบส่วนเส้นที่ดัชนีศูนย์ 2 ด้วย [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) การใช้เส้นทางที่แก้ไขแล้วกับ [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) จะอัปเดตโครงร่างของรูปร่าง
 
 ```python
 import jpype
@@ -136,9 +136,9 @@ finally:
 ```
 ![example2_image](custom_shape_2.png)
 
-## **สร้างรูปทรงกำหนดเอง**
+## **สร้างรูปร่างกำหนดเอง**
 
-ตัวอย่างนี้สร้างดาวห้าจุดโดยใช้ [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) รัศมีนอกและรัศมีในสลับกันที่ 100 และ 50 จุดกำหนดปลายและรอยแผล; การก้าว 72 องศาทำให้ดาวห้าแฉกกระจายอย่างเท่าเทียม เส้นทางถูกปิดด้วย [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) และนำไปใช้กับรูปสี่เหลี่ยมโดยใช้ [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) แทนที่โครงร่างเดิม
+ตัวอย่างนี้สร้างดาวห้าแฉกโดยใช้ [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) รัศมีนอกและรัศมีในสลับกันที่ 100 และ 50 พ้อยnts เพื่อกำหนดปลายและช่องเว้น; การก้าว 72° ทำให้ดาวห้าแฉกกระจายเท่า ๆ กัน เส้นทางถูกปิดด้วย [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) และนำไปใช้กับสี่เหลี่ยมโดยใช้ [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) แทนที่โครงร่างเดิม
 
 ```python
 import jpype
@@ -184,9 +184,9 @@ finally:
 ```
 ![example3_image](custom_shape_3.png)
 
-## **สร้างรูปทรงกำหนดเองแบบประกอบ**
+## **สร้างรูปร่างกำหนดเองแบบผสม**
 
-ตัวอย่างนี้กำหนดสองอ็อบเจ็กต์ [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) ที่ปิดสำหรับส่วนบนและส่วนล่างของรูปทรง การนำทั้งสองเส้นทางไปใช้ด้วย [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) จะสร้างรูปทรงประกอบเดียวที่มีช่องว่างอยู่ตรงกลางสามส่วนของรูปทรง
+ตัวอย่างนี้กำหนดสองอ็อบเจกต์ [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) ปิดสำหรับส่วนบนและส่วนล่างของรูปร่าง การใช้ทั้งสองเส้นทางพร้อมกันด้วย [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) จะสร้างรูปร่างผสมเดียวที่มีช่องว่างตรงกลางส่วนที่สามของรูปร่าง
 
 ```python
 import jpype
@@ -223,9 +223,9 @@ finally:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **สร้างรูปทรงกำหนดเองที่มีมุมโค้ง**
+## **สร้างรูปร่างกำหนดเองด้วยมุมโค้ง**
 
-ตัวอย่างนี้ผสมส่วนตรงกับ [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) เพื่อสร้างรูปทรงที่มุมโค้งเข้าด้านใน แต่ละขนาดมุมกำหนดความกว้างและความสูงของโค้งในหน่วยจุด และการสวิง -90 องศาจะวาดส่วนหนึ่งของวงรีตามเข็มนาฬิกา เส้นทางที่เสร็จสมบูรณ์ถูกนำไปใช้ด้วย [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) และการนำเสนอจะถูกบันทึกเป็นรูปแบบ PPTX
+ตัวอย่างนี้ผสมส่วนเส้นตรงกับ [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) เพื่อสร้างรูปร่างที่มุมโค้งเข้าด้านใน แต่ละขนาดมุมกำหนดความกว้างและความสูงของโค้งเป็นพ้อยnts, และการสวิง -90° วาดส่วนสี่เหลี่ยมเอ็มลิปส์แบบทวนเข็มนาฬิกา เส้นทางที่สมบูรณ์ถูกนำไปใช้ด้วย [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) และงานนำเสนอจะถูกบันทึกเป็นรูปแบบ PPTX
 
 ```python
 import jpype
@@ -271,9 +271,9 @@ finally:
     presentation.dispose()
 ```
 
-## **ตรวจสอบว่ารูปร่างเรขาคณิตเป็นแบบปิดหรือไม่**
+## **ตรวจสอบว่ารูปร่าง Geometry ปิดหรือไม่**
 
-ตัวช่วยต่อไปนี้ตรวจสอบว่าเส้นทางเรขาคณิตที่ไม่ว่างเปล่าทุกเส้นทางจบด้วยส่วนปิดหรือไม่ มันอ่าน [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) แล้วเปรียบเทียบคำสั่งของส่วนสุดท้ายที่ [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) กับ [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/) จะคืนค่า `False` เมื่อไม่มีเส้นทางที่ไม่ว่างเปล่า การตรวจสอบนี้ดูที่คำสั่งสุดท้ายของแต่ละเส้นทาง ไม่ได้ตรวจสอบทุกส่วนย่อยภายในเส้นทาง ตัวอย่างจะแสดง `True` สำหรับสี่เหลี่ยม
+ตัวช่วยต่อไปนี้ตรวจสอบว่าเส้นทางเรขาคณิตที่ไม่ว่างทั้งหมดจบด้วยส่วนเส้นปิดหรือไม่ มันอ่าน [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) แล้วเปรียบเทียบคำสั่งของส่วนสุดท้าย [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) กับ [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/) หากไม่มีเส้นทางที่ไม่ว่าง จะคืนค่า `False` การตรวจสอบนี้ดูคำสั่งสุดท้ายของแต่ละเส้นทาง; ไม่ได้ตรวจสอบทุกส่วนย่อยภายในเส้นทาง ตัวอย่างจะแสดง `True` สำหรับสี่เหลี่ยม
 
 ```python
 import jpype
@@ -306,11 +306,56 @@ finally:
     presentation.dispose()
 ```
 
-## **ดึงข้อมูลและตรวจสอบองค์ประกอบของรูปทรง**
+## **ตรวจสอบคำสั่ง Geometry Path**
 
-ใช้ [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) เพื่อสแกนรูปทรงที่มีอยู่เป็นองค์ประกอบที่มีจุดเส้นทางและประเภทของจุด แปลงแต่ละองค์ประกอบที่ได้เป็น [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) ด้วย `jpype.JObject` เพื่อดึงอาร์เรย์ของจุดและประเภทผ่านเมธอด [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) และ [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) ตัวแทนนี้มีประโยชน์สำหรับการวิเคราะห์โครงร่างหรือส่งเรขาคณิตไปยังเครื่องมือวาดภาพแบบกำหนดเอง
+ดาวน์โหลดไฟล์ [contour.pptx](contour.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน รูปแรกบนสไลด์แรกมีขอบด้านบนตรง, เส้นโค้ง Bézier แบบลูกบาศก์, และขอบปิดแบบตรง ใช้เมธอด [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) เพื่ออ่านเส้นทางของรูปร่างและ [getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) เพื่ออ่านส่วนเส้นของแต่ละเส้นทางตามลำดับการวาด สำหรับแต่ละส่วนเส้น, เมธอด [getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) จะระบุคำสั่งและบ่งบอกวิธีการตีความค่าที่คืนจาก [getSegmentData](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getSegmentData)
 
-ตัวอย่างเปิดไฟล์ input.pptx ค้นหารูปร่างเรขาคณิตแรกที่อยู่บนสไลด์แรก แล้วพิมพ์ส่วนเส้นทางของมัน ใช้พรีเซนเทชันที่มีรูปทรงที่มีส่วนตรงและโค้งเพื่อดูผลลัพธ์ทั้งสองประเภท ไม่ได้ค้นหาภายในกลุ่ม
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PathCommandType, Presentation
+
+presentation = Presentation("contour.pptx")
+try:
+    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    for i, path in enumerate(shape.getGeometryPaths()):
+        for j, segment in enumerate(path.getPathData()):
+            command = segment.getPathCommand()
+            data = segment.getSegmentData()
+            if command in (PathCommandType.MoveTo, PathCommandType.LineTo):
+                detail = f"destination=({data[0]}, {data[1]})"
+            elif command == PathCommandType.CubicBezierTo:
+                detail = f"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})"
+            elif command == PathCommandType.Close:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={list(data)}"
+            name = PathCommandType.getName(PathCommandType.class_, command)
+            print(f"Path {i}, segment {j}: {name} {detail}")
+finally:
+    presentation.dispose()
+```
+
+รูปร่างอยู่ที่ตำแหน่ง (200, 100) พ้อยnts บนสไลด์ พิกัดที่รายงานเป็นค่าท้องถิ่นของรูปร่าง, โดย (0, 0) อยู่ที่มุมซ้ายบน, x เพิ่มไปทางขวา, และ y เพิ่มลงด้านล่าง ส่วนเส้นปิดจะกลับไปยังจุดเริ่มต้นโดยไม่มีพิกัดเพิ่มเติม
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **ดึงและตรวจสอบองค์ประกอบรูปร่าง**
+
+ใช้เมธอด [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) เพื่อตรวจสอบรูปร่างที่มีอยู่เป็นองค์ประกอบที่บรรจุดทางและประเภทของจุด แปลงแต่ละองค์ประกอบที่คืนเป็น [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) ด้วย `jpype.JObject` เพื่อดึงอาเรย์ของจุดและประเภทผ่านเมธอด [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) และ [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) การแสดงผลนี้มีประโยชน์สำหรับการวิเคราะห์คอนทัวร์หรือการส่งเรขาคณิตไปยังเครื่องมือวาดแบบกำหนดเอง
+
+ตัวอย่างเปิดไฟล์ input.pptx, ค้นหา GeometryShape แรกบนสไลด์แรกโดยตรง, แล้วพิมพ์ส่วนเส้นของมัน ใช้งานไฟล์นำเสนอที่มีรูปร่างที่มีส่วนเส้นตรงและโค้งเพื่อดูผลลัพธ์ทั้งสองประเภท ไม่ได้ค้นหาภายในกลุ่ม
 
 ```python
 import jpype
@@ -358,21 +403,21 @@ finally:
     presentation.dispose()
 ```
 
-อาร์เรย์สอดคล้องกันตามดัชนี: `points[i]` คือจุดและ `types[i]` บรรยายบทบาทของมัน ประเภท `0` เริ่มรูปแบบ และประเภท `1` วาดเส้นจากจุดก่อนหน้าไปยังจุดปัจจุบัน ส่วน Bézier cubic เริ่มจากจุดสิ้นสุดก่อนหน้าและใช้รายการประเภท `3` ติดต่อกันสามรายการ: จุดควบคุมสองจุดตามด้วยจุดสิ้นสุดใหม่ ลูปจะใช้สามรายการนี้พร้อมกันและตรวจสอบจุดสิ้นสุดเพื่อดูว่าปิดหรือไม่
+อาเรย์สอดคล้องกันตามดัชนี: `points[i]` คือจุดและ `types[i]` ระบุบทบาทของจุดนั้น ประเภท `0` เริ่มรูปภาพ, ประเภท `1` วาดเส้นจากจุดก่อนหน้าไปยังจุดปัจจุบัน ส่วนเส้น Bézier ลูกบาศก์เริ่มจากจุดปลายก่อนหน้าและใช้รายการประเภท `3` สามรายการต่อเนื่อง: สองจุดควบคุมตามด้วยจุดสิ้นสุดใหม่ ลูปจะอ่านสามรายการนี้พร้อมกันและตรวจสอบจุดสิ้นสุดเพื่อดูว่าปิดหรือไม่
 
-ประเภทจุดยังมีแฟล็กด้วย การทำ Mask ด้วย `0x07` จะระบุประเภทส่วน และการทดสอบ `0x80` แยกออกมาจะตรวจจับส่วนย่อยที่ปิด ตัวอย่างเช่น `129` (`0x81`) หมายถึงจุดสิ้นสุดของเส้นที่ปิดส่วนย่อย และ `131` (`0x83`) หมายถึงจุดสิ้นสุดของ Bézier ที่ปิดส่วนหนึ่ง Java เก็บแฟล็กเหล่านี้ในไบต์ที่เป็น signed; การทำ Mask จะคงค่าบิตตามที่ต้องการ การเปรียบเทียบค่าดิบเพียง `1` หรือ `3` จะพลาดกรณีเหล่านี้ แฟล็กอื่น ๆ เช่น dash (`0x10`) และ marker (`0x20`) ไม่เปลี่ยนประเภทส่วนพื้นฐาน
+ประเภทจุดยังมีแฟล็กด้วย ให้ทำมาสก์ด้วย `0x07` เพื่อระบุประเภทส่วนเส้น, และทดสอบ `0x80` แยกต่างหากเพื่อค้นหาส่วนย่อยที่ปิด ตัวอย่างเช่น `129` (`0x81`) หมายถึงจุดปลายของเส้นที่ปิดส่วนย่อย, `131` (`0x83`) หมายถึงจุดปลายของ Bézier ที่ปิดส่วนย่อย Java เก็บแฟล็กเหล่านี้ในไบต์ที่เป็น signed; การทำมาสก์จะรักษาค่าบิตตามที่ตั้งใจ การเปรียบเทียบค่าดิบเพียง `1` หรือ `3` จะพลาดกรณีเหล่านี้ แฟล็กอื่น ๆ เช่น dash (`0x10`) และ marker (`0x20`) ไม่ส่งผลต่อประเภทส่วนพื้นฐาน
 
-**พิกัดและการแปลง** จุดวัดเป็นหน่วย point (1/72 นิ้ว) โดย X เพิ่มไปทางขวาและ Y เพิ่มลงด้านล่าง สำหรับรูปทรงที่ไม่ได้อยู่ในกลุ่ม พิกัดที่ดึงออกมาจะรวมตำแหน่งที่คืนค่าโดย [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) และ [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) พร้อมกับความกว้างและความสูงปัจจุบันของมัน ตัวอย่างสี่เหลี่ยมที่ไม่หมุนที่ตำแหน่ง `(100, 200)` ขนาด `120 × 80` จะมีขอบโครงร่างเป็น `(100, 200)`–`(220, 280)` อย่าเพิ่มตำแหน่งของรูปทรงอีกครั้ง ให้ลบค่า X และ Y เพื่อให้ได้พิกัดสัมพันธ์กับกรอบที่ไม่หมุน
+**พิกัดและการแปลง** จุดวัดเป็นพ้อยnts (1/72 นิ้ว) โดย X เพิ่มไปทางขวาและ Y เพิ่มลงด้านล่าง สำหรับรูปร่างที่ไม่ได้อยู่ในกลุ่ม, พิกัดที่ดึงออกมาจะรวมตำแหน่งที่คืนจากเมธอด [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) และ [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) และสะท้อนความกว้างและความสูงปัจจุบันของมัน ตัวอย่างเช่น สี่เหลี่ยมที่ไม่ได้หมุนที่ตำแหน่ง `(100, 200)` ขนาด `120 × 80` มีขอบคอนทัวร์ `(100, 200)`–`(220, 280)` ไม่ต้องเพิ่มตำแหน่งของรูปร่างอีกครั้ง ให้ลบ X และ Y เพื่อให้ได้พิกัดสัมพันธ์กับกรอบที่ไม่ได้หมุน
 
-พิกัดที่ดึงออกมาไม่ได้บังคับใช้การหมุนของรูปทรงที่คืนค่าจาก [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation) หรือการพลิกแนวนอนและแนวตั้ง เพื่อทำให้โครงร่างที่แสดงผลตรงกัน ให้ทำการแปลงเหล่านั้นรอบจุดศูนย์กลางของรูปทรง สำหรับรูปทรงที่อยู่ในกลุ่ม ต้องคำนึงถึงการแมปพิกัดของกลุ่มและการแปลงด้วย อย่าสมมติว่าพิกัดที่ดึงออกมาคือพิกัดสุดท้ายบนสไลด์หรือทำการแปลหรือสเกลซ้ำหากมันได้สะท้อนไว้แล้วในกรอบของลูก
+จุดที่ดึงออกมาไม่ได้พิจารณาการหมุนของรูปร่างที่คืนจากเมธอด [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation) หรือการพลิกแนวนอน/แนวตั้ง เพื่อสร้างคอนทัวร์ที่แสดงจริง ให้ทำการแปลงเหล่านี้รอบศูนย์กลางของรูปร่าง สำหรับรูปร่างในกลุ่มต้องคำนึงถึงการแมปพิกัดของกลุ่มและการแปลง; อย่าสมมติว่าจุดที่ดึงออกมาเป็นพิกัดสุดท้ายบนสไลด์ หรือทำการแปลงหรือสเกลสองครั้งหากมันถูกสะท้อนแล้วในกรอบของลูก
 
-**การตรวจสอบเทียบกับการแก้ไข** อาร์เรย์ที่ดึงออกมานั้นอธิบายโครงร่าง; การเปลี่ยนแปลงอาร์เรย์เหล่านี้จะไม่อัปเดตรูปทรงต้นฉบับ ใช้วิธีนี้เมื่อการวิเคราะห์หรือโค้ดวาดของคุณต้องการอาร์เรย์จุด/ประเภท ใช้ [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) เมื่อคุณต้องการคำสั่งเรขาคณิตในระบบพิกัดท้องถิ่นของรูปทรงหรือเมื่อต้องการแก้ไขเรขาคณิตของมัน แล้วนำเส้นทางที่แก้ไขไปใช้ผ่าน [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) หรือ [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)
+**การตรวจสอบเทียบกับการแก้ไข** อาเรย์ที่ดึงออกมานำเสนอคอนทัวร์; การเปลี่ยนแปลงอาเรย์เหล่านี้จะไม่อัปเดตรูปร่างเดิม ใช้วิธีนี้เมื่อการวิเคราะห์หรือโค้ดวาดของคุณต้องการอาเรย์จุด/ประเภท ใช้เมธอด [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) หากคุณต้องการคำสั่งเรขาคณิตในระบบพิกัดของรูปร่างหรืออยากแก้ไขเรขาคณิตของมัน แล้วใช้เส้นทางที่แก้ไขผ่านเมธอด [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) หรือ [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)
 
 ## **แปลง Java AWT Shape เป็น GeometryPath**
 
-ตัวอย่างนี้รวมโครงร่างสี่เหลี่ยมกับข้อความที่แปลงเป็นเรขาคณิต เมธอด [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) ของโครงร่างทำให้ไม่เติมสี [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) สร้างโครงร่างข้อความใน [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) โดย [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) จะส่งส่วนการย้าย, เส้น, quadratic, cubic, และส่วนปิด ซึ่งตัวอย่างจะทำซ้ำส่วนเหล่านี้บน [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)
+ตัวอย่างนี้ผสานโครงร่างสี่เหลี่ยมกับข้อความที่แปลงเป็นเรขาคณิต วิธี `setFillMode` ของโครงร่างถูกใช้เพื่อปิดการเติมสี [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) สร้างโครงร่างข้อความใน [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ตัว [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) ให้ข้อมูลการย้าย, เส้น, โค้งควอดราติก, โค้งลูกบาศก์, และส่วนปิด ซึ่งตัวอย่างจะทำซ้ำบน [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)
 
-ข้อความใช้ฟอนต์ Arial ขนาด 40 จุด โครงร่างเลื่อนแนวนอน 20 จุดและจัดตำแหน่งให้ด้านบนของรูปแบบอยู่ 10 จุดใต้ขอบบนของรูปทรง ส่วนเส้นทางข้อความจะถูกเติมสี ส่วนสี่เหลี่ยมดั้งเดิมยังคงเป็นโครงร่างเท่านั้น การนำทั้งสองเส้นทางไปใช้ด้วย [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) จะสร้างรูปทรงเดียวที่ประกอบด้วยสี่เหลี่ยมและข้อความ
+ข้อความใช้ฟอนต์ Arial ขนาด 40 พ้อยnts โครงร่างถูกย้าย 20 พ้อยnts แนวนอนและวางให้ด้านบนของรูปภาพอยู่ 10 พ้อยnts ต่ำกว่าเส้นบนของรูปร่าง โครงร่างของข้อความถูกเติมสี ในขณะที่สี่เหลี่ยมต้นฉบับคงเป็นเพียงเส้นขอบ การใช้ทั้งสองเส้นทางร่วมกับเมธอด [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) จะสร้างรูปร่างเดียวที่ประกอบด้วยสี่เหลี่ยมและข้อความ
 
 ```python
 import jpype
@@ -393,11 +438,11 @@ try:
 
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
 
-    # รับเส้นทางเรขาคณิตของรูปทรง
+    # รับเส้นทางเรขาคณิตของรูปร่าง.
     original_path = shape.getGeometryPaths()[0]
     original_path.setFillMode(PathFillModeType.None_)
 
-    # สร้างกราฟิกพาธใหม่ด้วยข้อความ
+    # สร้างกราฟิกพาธใหม่ด้วยข้อความ.
     font = Font("Arial", Font.PLAIN, 40)
     text = "Text in shape"
     image = BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB)
@@ -411,7 +456,7 @@ try:
     finally:
         graphics.dispose()
 
-    # แปลงกราฟิกพาธเป็นเส้นทางเรขาคณิต
+    # แปลงกราฟิกพาธเป็นเส้นทางเรขาคณิต.
     text_path = GeometryPath()
     path_iterator = graphics_path.getPathIterator(None)
     points = jpype.JArray(jpype.JFloat)(6)
@@ -430,23 +475,23 @@ try:
         path_iterator.next()
     text_path.setFillMode(PathFillModeType.Normal)
 
-    # นำพาธข้อความไปใช้พร้อมกับพาธเรขาคณิตดั้งเดิม
+    # นำพาธข้อความไปใช้พร้อมกับเส้นทางเรขาคณิตเดิม.
     shape.setGeometryPaths([original_path, text_path])
 finally:
     presentation.dispose()
 ```
 ![example5_image](custom_shape_5.png)
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**อะไรจะเกิดขึ้นกับการเติมสีและโครงร่างหลังจากเปลี่ยนเรขาคณิต?**
+**อะไรจะเกิดขึ้นกับการเติมสีและเส้นขอบหลังจากแทนที่เรขาคณิต?**
 
-สไตล์จะคงอยู่กับรูปทรง; มีเพียงโครงร่างที่เปลี่ยน การเติมสีและโครงร่างจะถูกนำไปใช้โดยอัตโนมัติกับเรขาคณิตใหม่
+สไตล์ยังคงอยู่กับรูปร่าง; เพียงแค่คอนทัวร์เปลี่ยนแปลง การเติมสีและเส้นขอบจะถูกนำไปใช้โดยอัตโนมัติกับเรขาคณิตใหม่
 
-**ฉันจะหมุนรูปทรงกำหนดเองพร้อมกับเรขาคณิตได้อย่างถูกต้องอย่างไร?**
+**ฉันจะหมุนรูปร่างกำหนดเองพร้อมกับเรขาคณิตอย่างถูกต้องได้อย่างไร?**
 
-ใช้เมธอด [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) ของรูปทรง; เรขาคณิตจะหมุนพร้อมกับรูปทรงเนื่องจากผูกกับระบบพิกัดของรูปทรงเอง
+ใช้เมธอด [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) ของรูปร่าง; เรขาคณิตจะหมุนพร้อมกับรูปร่างเนื่องจากมันผูกกับระบบพิกัดของรูปร่างเอง
 
-**ฉันสามารถแปลงรูปทรงกำหนดเองเป็นภาพเพื่อ “ล็อค” ผลลัพธ์ได้หรือไม่?**
+**ฉันสามารถแปลงรูปร่างกำหนดเองเป็นรูปภาพเพื่อ “ล็อก” ผลลัพธ์ได้หรือไม่?**
 
-ได้ ส่งออกพื้นที่ [slide](/slides/th/python-java/convert-powerpoint-to-png/) ที่ต้องการหรือ [shape](/slides/th/python-java/create-shape-thumbnails/) เองเป็นรูปแบบเรสเตอร์; วิธีนี้ทำให้การทำงานต่อกับเรขาคณิตที่ซับซ้อนง่ายขึ้น
+ได้. ส่งออก [slide](/slides/th/python-java/convert-powerpoint-to-png/) ที่ต้องการหรือ [shape](/slides/th/python-java/create-shape-thumbnails/) เองเป็นรูปแบบราสเตอร์; วิธีนี้ช่วยลดความซับซ้อนเมื่อทำงานต่อกับเรขาคณิตที่ซับซ้อน.

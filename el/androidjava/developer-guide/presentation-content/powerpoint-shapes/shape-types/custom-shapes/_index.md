@@ -1,5 +1,5 @@
 ---
-title: Προσαρμογή Σχημάτων Παρουσίασης στο Android
+title: Προσαρμογή Σχημάτων Παρουσίασης σε Android
 linktitle: Προσαρμοσμένο Σχήμα
 type: docs
 weight: 20
@@ -16,21 +16,21 @@ keywords:
 - προσθήκη σημείου
 - αφαίρεση σημείου
 - λειτουργία επεξεργασίας
-- καμπυλωτή γωνία
+- καμπυλωμένη γωνία
 - PowerPoint
 - παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Δημιουργία και προσαρμογή σχημάτων σε παρουσιάσεις PowerPoint με το Aspose.Slides για Android μέσω Java: διαδρομές γεωμετρίας, καμπυλωτές γωνίες, σύνθετα σχήματα."
+description: "Δημιουργήστε και προσαρμόστε σχήματα σε παρουσιάσεις PowerPoint με το Aspose.Slides για Android μέσω Java: διαδρομές γεωμετρίας, καμπυλωτές γωνίες, σύνθετα σχήματα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τα σχήματα παρουσίασης στο Aspose.Slides επεξεργάζοντας τη γεωμετρία του σχήματος μέσω σημείων επεξεργασίας και διαδρομών γεωμετρίας. Δείχνει πώς να εργαστείτε με [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) και [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας διαδρομής, να προσθέσετε ή να αφαιρέσετε σημεία και να εφαρμόσετε την ενημερωμένη γεωμετρία πίσω σε ένα σχήμα.
+Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τα σχήματα παρουσίασης στο Aspose.Slides επεξεργάζοντας τη γεωμετρία των σχημάτων μέσω σημείων επεξεργασίας και διαδρομών γεωμετρίας. Δείχνει πώς να εργάζεστε με [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) και [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας διαδρομών, να προσθέσετε ή να αφαιρέσετε σημεία και να εφαρμόσετε την ενημερωμένη γεωμετρία πίσω σε ένα σχήμα.
 
-Επίσης, δείχνει πώς να δημιουργήσετε προσαρμοσμένα και σύνθετα σχήματα, να κατασκευάσετε σχήματα με καμπυλωτές γωνίες, να προσδιορίσετε εάν μια γεωμετρία σχήματος είναι κλειστή και να εξετάσετε τα στοιχεία του σχήματος χρησιμοποιώντας πίνακες σημείων Android.
+Επίσης παρουσιάζεται πώς να δημιουργήσετε προσαρμοσμένα και σύνθετα σχήματα, να δημιουργήσετε σχήματα με καμπυλωτές γωνίες, να προσδιορίσετε εάν μια γεωμετρία σχήματος είναι κλειστή και να εξετάσετε τα στοιχεία του σχήματος χρησιμοποιώντας πίνακες σημείων Android.
 
-## **Αλλαγή σχήματος χρησιμοποιώντας σημεία επεξεργασίας**
+## **Αλλαγή Σχήματος μέσω Σημείων Επεξεργασίας**
 
 Στο PowerPoint, μπορείτε να χρησιμοποιήσετε **Edit Points** για να τροποποιήσετε ένα τετράγωνο:
 
@@ -40,47 +40,47 @@ description: "Δημιουργία και προσαρμογή σχημάτων 
 
 Η επεξεργασία σημείων σάς επιτρέπει να τροποποιήσετε το περίγραμμα ενός σχήματος ή να χρησιμοποιήσετε ένα υπάρχον σχήμα ως βάση για ένα νέο.
 
-## **Συμβουλές επεξεργασίας σχήματος**
+## **Συμβουλές Επεξεργασίας Σχήματος**
 
 ![overview_image](custom_shape_0.png)
 
-Όταν επεξεργάζεστε σχήματα PowerPoint, κρατήστε αυτές τις έννοιες στο μυαλό:
+Καθώς επεξεργάζεστε σχήματα PowerPoint, να θυμάστε τα εξής:
 
-* Ένα σχήμα (ή η διαδρομή του) μπορεί να είναι κλειστό ή ανοιχτό.
-* Η διαδρομή ενός σχήματος αποτελείται από σημεία αγκύρωσης συνδεδεμένα με τμήματα.
-* Ένα τμήμα μπορεί να είναι ευθύ ή καμπυλωτό. Τα σημεία αγκύρωσης και τα χειριστήρια ελέγχου καθορίζουν το σχήμα του.
-* Τα σημεία αγκύρωσης υπάρχουν ως σημεία γωνίας, ευθείες σημεία ή ομαλά σημεία:
-  * Σε σημείο γωνίας, τα γειτονικά τμήματα μπορούν να συναντηθούν με γωνία.
-  * Σε ομαλό σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα και ισαποστά από το σημείο αγκύρωσης.
-  * Σε ευθύ σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα αλλά μπορούν να είναι σε διαφορετικές αποστάσεις από το σημείο αγκύρωσης.
-* Η μετακίνηση των σημείων αγκύρωσης ή η ρύθμιση των χειριστηρίων τους αλλάζει το περίγραμμα του σχήματος.
+* Ένα σχήμα (ή η διαδρομή του) μπορεί να είναι είτε κλειστό είτε ανοιχτό.
+* Η διαδρομή ενός σχήματος αποτελείται από σημεία άγκυρας που συνδέονται με τμήματα.
+* Ένα τμήμα μπορεί να είναι ευθύ ή καμπυλωτό. Τα σημεία άγκυρας και οι χειρολαβές ελέγχουν το σχήμα του.
+* Τα σημεία άγκυρας υπάρχουν ως γωνιακά σημεία, ευθύγραμμα σημεία ή ομαλά σημεία:
+  * Σε γωνιακό σημείο, τα σύμπλεγγα τμήματα μπορούν να συναντηθούν σε γωνία.
+  * Σε ομαλό σημείο, οι δύο χειρολαβές ελέγχου είναι ευθυγραμμισμένες και ισαπέχουν από το σημείο άγκυρας.
+  * Σε ευθύγραμμο σημείο, οι δύο χειρολαβές ελέγχου είναι ευθυγραμμισμένες αλλά μπορεί να έχουν διαφορετικές αποστάσεις από το σημείο άγκυρας.
+* Η μετακίνηση των σημείων άγκυρας ή η ρύθμιση των χειρολαβών τους αλλάζει το περίγραμμα του σχήματος.
 
-Για να επεξεργαστείτε σχήματα PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) και το interface [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
+Για την επεξεργασία σχημάτων PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) και τη διεπαφή [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
 
-* Ένα αντικείμενο [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) αντιπροσωπεύει μια διαδρομή γεωμετρίας του αντικειμένου [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/).
-* Για να ανακτήσετε το [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) από το αντικείμενο [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) μπορείτε να χρησιμοποιήσετε τη μέθοδο [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--).
+* Μία παρουσίαση [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) αντιπροσωπεύει τη διαδρομή γεωμετρίας του αντικειμένου [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/).
+* Για να λάβετε το [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) από την παρουσίαση [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/), μπορείτε να χρησιμοποιήσετε τη μέθοδο [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--).
 * Για να ορίσετε το [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) για ένα σχήμα, μπορείτε να χρησιμοποιήσετε τις μεθόδους: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) για σχήματα με μία μόνο διαδρομή και [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) για σχήματα με πολλαπλές διαδρομές.
-* Για να προσθέσετε τμήματα, μπορείτε να χρησιμοποιήσετε τις μεθόδους του [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
-* Χρησιμοποιώντας τις μεθόδους [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) και [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-) μπορείτε να ορίσετε την εμφάνιση μιας διαδρομής γεωμετρίας.
-* Χρησιμοποιώντας τη μέθοδο [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) μπορείτε να ανακτήσετε τη διαδρομή γεωμετρίας ενός [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) ως έναν πίνακα τμημάτων διαδρομής.
+* Για να προσθέσετε τμήματα, μπορείτε να χρησιμοποιήσετε τις μεθόδους της [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
+* Χρησιμοποιώντας τις μεθόδους [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) και [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-), μπορείτε να ορίσετε την εμφάνιση μιας διαδρομής γεωμετρίας.
+* Μέσω της μεθόδου [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--), μπορείτε να ανακτήσετε τη διαδρομή γεωμετρίας ενός [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) ως έναν πίνακα τμημάτων διαδρομής.
 
-## **Απλές λειτουργίες επεξεργασίας**
+## **Απλές Λειτουργίες Επεξεργασίας**
 
-Χρησιμοποιήστε τις παρακάτω μεθόδους για να επεξεργαστείτε μια διαδρομή γεωμετρίας. Οι υπερφορτώσεις που δέχονται δείκτη εισάγουν ένα τμήμα στη μηδενική θέση που αντιστοιχεί στον πίνακα τμημάτων της διαδρομής.
+Χρησιμοποιήστε τις παρακάτω μεθόδους για να επεξεργαστείτε μια διαδρομή γεωμετρίας. Οι υπερφορτώσεις που δέχονται δείκτη εισάγουν ένα τμήμα στη θέση αυτή στο μηδενικό‑βάση πίνακα τμημάτων της διαδρομής.
 
 | Λειτουργία | Μέθοδος |
 | --- | --- |
 | Προσθήκη ή εισαγωγή ευθείας γραμμής. | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
-| Προσθήκη ή εισαγωγή κυρτής Bézier καμπύλης με δύο σημεία ελέγχου και ένα τελικό σημείο. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
-| Προσθήκη ή εισαγωγή τετραγωνικής Bézier καμπύλης με ένα σημείο ελέγχου και ένα τελικό σημείο. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Προσθήκη ή εισαγωγή κυρτής καμπύλης Bézier τρίτου βαθμού με δύο σημεία ελέγχου και σημείο λήξης. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Προσθήκη ή εισαγωγή τετραγωνικής καμπύλης Bézier με ένα σημείο ελέγχου και σημείο λήξης. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
 | Προσθήκη ελλειπτικού τόξου με τις καθορισμένες διαστάσεις και γωνίες σε μοίρες. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
-| Κλείσιμο του τρέχοντος σχήματος συνδέοντας το τελικό του σημείο με το αρχικό. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
-| Ορισμός του αρχικού σημείου ενός σχήματος. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
-| Αφαίρεση τμήματος σε δείκτη μηδενικής βάσης. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
+| Κλείσιμο του τρέχοντος σχήματος συνδέοντας το σημείο λήξης του με το σημείο εκκίνησης. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| Ορισμός του σημείου εκκίνησης ενός σχήματος. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Αφαίρεση τμήματος με μηδενική‑βάση δείκτη. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-## **Προσθήκη προσαρμοσμένων σημείων σε σχήμα**
+## **Προσθήκη Προσαρμοσμένων Σημείων σε Σχήμα**
 
-Αυτό το παράδειγμα εισάγει δύο σημεία σε ένα ορθογώνιο σχήμα χρησιμοποιώντας το [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) και εφαρμόζει τη επεξεργασμένη διαδρομή με το [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Οι συντεταγμένες είναι τοπικές στο σχήμα: και τα δύο νέα σημεία βρίσκονται στο κέντρο του, 100 μονάδες από τα αριστερά και 50 μονάδες από τα πάνω. Οι δείκτες τμημάτων 1 και 4 τα τοποθετούν στις άνω και κάτω άκρες, τραβώντας αυτές τις άκρες προς τα μέσα.
+Αυτό το παράδειγμα εισάγει δύο σημεία σε ένα ορθογώνιο σχήμα χρησιμοποιώντας το [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) και εφαρμόζει τη διορθωμένη διαδρομή με το [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Οι συντεταγμένες είναι τοπικές στο σχήμα: και τα δύο νέα σημεία βρίσκονται στο κέντρο του, 100 μονάδες από τα αριστερά και 50 μονάδες από το πάνω. Οι δείκτες τμημάτων 1 και 4 τα τοποθετούν πάνω και κάτω πλευρά, τραβώντας αυτές τις πλευρές προς τα μέσα.
 
 ```java
 import com.aspose.slides.*;
@@ -103,9 +103,9 @@ try {
 
 ![example1_image](custom_shape_1.png)
 
-## **Αφαίρεση σημείων από σχήμα**
+## **Αφαίρεση Σημείων από Σχήμα**
 
-Αυτό το παράδειγμα τροποποιεί το περίγραμμα μιας καρδιάς αφαιρώντας το τμήμα στη μηδενική θέση δείκτη 2 με το [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-). Η εφαρμογή της τροποποιημένης διαδρομής με το [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ενημερώνει το περίγραμμα του σχήματος.
+Αυτό το παράδειγμα τροποποιεί το περίγραμμα μιας καρδιάς αφαιρώντας το τμήμα με μηδενική‑βάση δείκτη 2 χρησιμοποιώντας το [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-). Η εφαρμογή της τροποποιημένης διαδρομής με το [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ενημερώνει το περίγραμμα του σχήματος.
 
 ```java
 import com.aspose.slides.*;
@@ -124,12 +124,11 @@ try {
     presentation.dispose();
 }
 ```
-
 ![example2_image](custom_shape_2.png)
 
-## **Δημιουργία προσαρμοσμένου σχήματος**
+## **Δημιουργία Προσαρμοσμένου Σχήματος**
 
-Αυτό το παράδειγμα δημιουργεί ένα πεντάκοπο αστέρι με το [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/). Εναλλασσόμενες εξωτερικές και εσωτερικές ακτίνες 100 και 50 μονάδες ορίζουν τις άκρες και τις εσοχές· ένα βήμα 72 μοιρών χωρίζει τις πέντε άκρες ομοιόμορφα. Η διαδρομή κλείνεται με το [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) και εφαρμόζεται σε ένα ορθογώνιο σχήμα χρησιμοποιώντας το [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), αντικαθιστώντας το περίγραμμά του.
+Αυτό το παράδειγμα δημιουργεί ένα πεντάπλευρο αστέρι με τη [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/). Εναλλασσόμενες εξωτερικές και εσωτερικές ακτίνες 100 και 50 μονάδες καθορίζουν τις άκρες και τις εσοχές· βήμα 72 μοιρών χωρίζει ισόποσα τις πέντε κορυφές. Η διαδρομή κλείνεται με τη [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) και εφαρμόζεται σε ένα ορθογώνιο σχήμα μέσω του [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), αντικαθιστώντας το προηγούμενο περίγραμμα.
 
 ```java
 import com.aspose.slides.*;
@@ -178,12 +177,11 @@ try {
     presentation.dispose();
 }
 ```
-
 ![example3_image](custom_shape_3.png)
 
-## **Δημιουργία σύνθετου προσαρμοσμένου σχήματος**
+## **Δημιουργία Σύνθετου Προσαρμοσμένου Σχήματος**
 
-Αυτό το παράδειγμα ορίζει δύο κλειστές αντικειμένα [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) για το άνω και το κάτω τρίτο ενός σχήματος. Η εφαρμογή και των δύο διαδρομών με το [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) δημιουργεί ένα ενιαίο σύνθετο σχήμα με ένα κενό στο μεσαίο τρίτο του.
+Αυτό το παράδειγμα ορίζει δύο κλειστές [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) για το επάνω και το κάτω τρίτο ενός σχήματος. Η εφαρμογή και των δύο διαδρομών με το [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) δημιουργεί ένα ενιαίο σύνθετο σχήμα με κενό στη μέση του.
 
 ```java
 import com.aspose.slides.*;
@@ -213,12 +211,11 @@ try {
     presentation.dispose();
 }
 ```
-
 ![example4_image](custom_shape_4.png)
 
-## **Δημιουργία προσαρμοσμένου σχήματος με καμπυλωτές γωνίες**
+## **Δημιουργία Προσαρμοσμένου Σχήματος με Καμπυλωτές Γωνίες**
 
-Αυτό το παράδειγμα συνδυάζει ευθείες διαδρομές με το [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) για να δημιουργήσει ένα σχήμα με εσωτερικά καμπυλωτές γωνίες. Κάθε μέγεθος γωνίας ορίζει το πλάτος και το ύψος του τόξου σε μονάδες, και η περιστροφή -90 μοιρών σχεδιάζει ένα αντεντάσξει τέταρτο έλλειψη. Η ολοκληρωμένη διαδρομή εφαρμόζεται με το [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), και η παρουσίαση αποθηκεύεται σε μορφή PPTX.
+Αυτό το παράδειγμα συνδυάζει ευθείες τμήματα με το [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) για να δημιουργήσει ένα σχήμα με εσωτερικές καμπυλωτές γωνίες. Κάθε μέγεθος γωνίας ορίζει το πλάτος και το ύψος του τόξου σε μονάδες, και το άνοιγμα -90 μοιρών σχεδιάζει ένα αντίστροφο τετράγωνο ελλειπτικό τόξο. Η ολοκληρωμένη διαδρομή εφαρμόζεται με το [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), και η παρουσίαση αποθηκεύεται σε μορφή PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -266,9 +263,9 @@ try {
 }
 ```
 
-## **Εύρεση εάν η γεωμετρία σχήματος είναι κλειστή**
+## **Έλεγχος Εάν η Γεωμετρία Σχήματος είναι Κλειστή**
 
-Ο παρακάτω βοηθός ελέγχει εάν κάθε μη κενή διαδρομή γεωμετρίας τελειώνει με τμήμα κλεισίματος. Διαβάζει το [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) και συγκρίνει την τελική εντολή του τμήματος με το [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) και το [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/). Επιστρέφει false όταν δεν υπάρχουν μη κενές διαδρομές. Αυτό ελέγχει την τελική εντολή κάθε διαδρομής· δεν εξετάζει κάθε υποσχήμα μέσα σε μια διαδρομή. Το παράδειγμα εκτυπώνει `true` για ένα ορθογώνιο.
+Ο παρακάτω βοηθός ελέγχει εάν κάθε μη κενή διαδρομή γεωμετρίας τελειώνει με τμήμα κλεισίματος. Διαβάζει το [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) και συγκρίνει την τελική εντολή του τμήματος [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) με το [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/). Επιστρέφει false όταν δεν υπάρχουν μη κενές διαδρομές. Ο έλεγχος αφορά μόνο την τελική εντολή κάθε διαδρομής· δεν εξετάζει κάθε υποσχήμα εντός μιας διαδρομής. Το παράδειγμα εκτυπώνει `true` για ένα ορθογώνιο.
 
 ```java
 import com.aspose.slides.*;
@@ -308,11 +305,64 @@ try {
 }
 ```
 
-## **Εξαγωγή και εξέταση στοιχείων σχήματος**
+## **Εξέταση Εντολών Διαδρομής Γεωμετρίας**
 
-Χρησιμοποιήστε το [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) για να εξετάσετε ένα υπάρχον σχήμα ως στοιχεία που περιέχουν σημεία διαδρομής και τύπους σημείων. Μετατρέψτε κάθε επιστραφέν [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) σε [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) για να ανακτήσετε τους πίνακες σημείων και τύπων μέσω των μεθόδων [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) και [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--). Αυτή η αναπαράσταση είναι χρήσιμη για ανάλυση περιγράμματος ή για μεταφορά γεωμετρίας σε προσαρμοσμένα εργαλεία σχεδίασης.
+Κατεβάστε το αρχείο [contour.pptx](contour.pptx) και αντικαταστήστε το όνομα δείγματος με τη διαδρομή του στο τηλέφωνό σας. Το πρώτο σχήμα στην πρώτη διαφάνεια έχει μια ευθεία πάνω άκρη, μια κυρτή Bézier καμπύλη και μια ευθεία κλειστική άκρη. Χρησιμοποιήστε το [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) για να διαβάσετε τις διαδρομές του σχήματος και το [getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) για να διαβάσετε τα τμήματα κάθε διαδρομής με τη σειρά σχεδίασης. Για κάθε τμήμα, η μέθοδος [getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) προσδιορίζει την εντολή και καθορίζει πώς να ερμηνευτούν οι τιμές που επιστρέφει το [getSegmentData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getSegmentData--).
 
-Το παράδειγμα ανοίγει το input.pptx, βρίσκει το πρώτο σχήμα γεωμετρίας απευθείας στην πρώτη διαφάνεια και εκτυπώνει τα τμήματα της διαδρομής του. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχήμα με ευθείες και καμπύλες διαδρομές για να δείτε και τους δύο τύπους εξόδου. Δεν ψάχνει εντός ομάδων.
+```java
+import com.aspose.slides.*;
+import java.util.Arrays;
+
+Presentation presentation = new Presentation("contour.pptx");
+try {
+    IGeometryShape shape = (IGeometryShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IGeometryPath[] paths = shape.getGeometryPaths();
+
+    for (int i = 0; i < paths.length; i++) {
+        IPathSegment[] segments = paths[i].getPathData();
+        for (int j = 0; j < segments.length; j++) {
+            byte command = segments[j].getPathCommand();
+            float[] data = segments[j].getSegmentData();
+            String detail;
+            switch (command) {
+                case PathCommandType.MoveTo:
+                case PathCommandType.LineTo:
+                    detail = String.format("destination=(%s, %s)", data[0], data[1]);
+                    break;
+                case PathCommandType.CubicBezierTo:
+                    detail = String.format("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", data[0], data[1], data[2], data[3], data[4], data[5]);
+                    break;
+                case PathCommandType.Close:
+                    detail = "no coordinates";
+                    break;
+                default:
+                    detail = "raw=" + Arrays.toString(data);
+            }
+            String name = PathCommandType.getName(PathCommandType.class, command);
+            System.out.printf("Path %d, segment %d: %s %s%n", i, j, name, detail);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Το σχήμα βρίσκεται στη θέση (200, 100) μονάδες στη διαφάνεια. Οι αναφερόμενες συντεταγμένες είναι τοπικές στο σχήμα, με (0, 0) στην άνω αριστερή γωνία, το x αυξάνει προς τα δεξιά και το y αυξάνει προς τα κάτω. Το τμήμα κλεισίματος επιστρέφει στο σημείο εκκίνησης χωρίς επιπλέον συντεταγμένες.
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Εξαγωγή και Εξέταση Στοιχείων Σχήματος**
+
+Χρησιμοποιήστε το [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) για να εξετάσετε ένα υπάρχον σχήμα ως στοιχεία που περιέχουν σημεία διαδρομής και τύπους σημείων. Μετατρέψτε κάθε επιστραφόμενο [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) σε [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) για να λάβετε τους πίνακες σημείων και τύπων μέσω των μεθόδων [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) και [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--). Αυτή η αναπαράσταση είναι χρήσιμη για ανάλυση περιγραμμάτων ή για μετάδοση γεωμετρίας σε προσαρμοσμένα εργαλεία σχεδίασης.
+
+Το παράδειγμα ανοίγει το `input.pptx`, βρίσκει το πρώτο σχήμα γεωμετρίας απευθείας στην πρώτη διαφάνεια και εκτυπώνει τα τμήματα της διαδρομής του. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχήμα με ευθείες και καμπυλωτές πλευρές για να δείτε και τις δύο μορφές εξόδου. Δεν γίνεται αναζήτηση εντός ομάδων.
 
 ```java
 import com.aspose.slides.*;
@@ -340,7 +390,7 @@ try {
             System.out.println("Shape element:");
 
             for (int i = 0; i < points.length; i++) {
-                int pointType = types[i] & 0x07; // Διατήρηση του τύπου τμήματος, εξαιρώντας τις σημαίες.
+                int pointType = types[i] & 0x07; // Διατηρήστε τον τύπο τμήματος, εξαιρουμένων των σημαιών.
                 switch (pointType) {
                     case 0:
                         System.out.println("Start figure at " + points[i]);
@@ -350,7 +400,7 @@ try {
                         break;
                     case 3:
                         System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
-                        i += 2; // Κατανάλωση και των σημείων ελέγχου και του τελικού σημείου.
+                        i += 2; // Consume both control points and the endpoint.
                         break;
                 }
 
@@ -365,26 +415,26 @@ try {
 }
 ```
 
-Οι πίνακες αντιστοιχούν κατά δείκτη: `points[i]` είναι σημείο και `types[i]` περιγράφει το ρόλο του. Ο τύπος `0` αρχίζει ένα σχήμα, και ο τύπος `1` σχεδιάζει μια γραμμή από το προηγούμενο σημείο στο τρέχον. Ένα τμήμα κυρτής Bézier ξεκινά από το προηγούμενο άκρο και χρησιμοποιεί τρεις διαδοχικές καταχωρήσεις τύπου `3`: δύο σημεία ελέγχου ακολουθούμενα από το νέο άκρο. Η βρόγχος καταναλώνει αυτές τις τρεις καταχωρήσεις μαζί και ελέγχει το άκρο για κλείσιμο.
+Οι πίνακες αντιστοιχούν κατά δείκτη: `points[i]` είναι ένα σημείο και `types[i]` περιγράφει το ρόλο του. Ο τύπος `0` ξεκινά ένα σχήμα, και ο τύπος `1` σχεδιάζει μια γραμμή από το προηγούμενο σημείο στο τρέχον. Ένα τμήμα Bézier τρίτου βαθμού ξεκινά από το προηγούμενο σημείο λήξης και χρησιμοποιεί τρεις διαδοχικές τιμές τύπου `3`: δύο σημεία ελέγχου και το νέο σημείο λήξης. Ο βρόχος καταναλώνει αυτές τις τρεις καταχωρήσεις μαζί και ελέγχει το σημείο λήξης για κλείσιμο.
 
-Οι τύποι σημείων περιέχουν επίσης σημαίες. Κάντε μάσκα με `0x07` για να προσδιορίσετε τον τύπο τμήματος, και ελέγξτε `0x80` χωριστά για να εντοπίσετε κλειστό υποδιάστημα. Για παράδειγμα, `129` (`0x81`) σημαίνει ένα άκρο γραμμής που κλείνει ένα υποδιάστημα, και `131` (`0x83`) σημαίνει ένα άκρο Bézier που κλείσει ένα. Η Java αποθηκεύει αυτές τις σημαίες σε υπογεγραμμένα byte· η μάσκα διατηρεί τις προθέσιμες τιμές bit. Η σύγκριση της ακατέργαστης τιμής μόνο με `1` ή `3` θα χάσει αυτές τις περιπτώσεις. Άλλες σημαίες, όπως η παύλα (`0x10`) και ο δείκτης (`0x20`), δεν αλλάζουν τον βασικό τύπο τμήματος.
+Οι τύποι σημείων περιέχουν επίσης σημαίες. Κάντε μάσκα με `0x07` για να εντοπίσετε τον τύπο τμήματος, και ελέγξτε το `0x80` ξεχωριστά για να ανιχνεύσετε μια κλειστή υποδιαδρομή. Για παράδειγμα, `129` (`0x81`) σημαίνει σημείο λήξης γραμμής που κλείνει μια υποδιαδρομή, και `131` (`0x83`) σημαίνει σημείο λήξης Bézier που κλείνει μια. Η Java αποθηκεύει αυτές τις σημαίες σε υπογραφόμενα bytes· η μάσκα διατηρεί τις προοριζόμενες τιμές bit. Η σύγκριση της ακατέργαστης τιμής μόνο με `1` ή `3` θα χάσει αυτές τις περιπτώσεις. Άλλες σημαίες, όπως το dash (`0x10`) και το marker (`0x20`), δεν αλλάζουν τον βασικό τύπο τμήματος.
 
-**Συντεταγμένες και μετασχηματισμοί.** Τα σημεία μετρώνται σε μονάδες (1/72 ίντσα), με το X να αυξάνεται προς τα δεξιά και το Y να αυξάνεται προς τα κάτω. Για ένα μη ομαδοποιημένο σχήμα, οι εξαγόμενες συντεταγμένες περιλαμβάνουν ήδη τη θέση που επιστρέφεται από τα [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) και [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) και αντανακλούν το τρέχον πλάτος και ύψος του. Για παράδειγμα, ένα μη περιστραμμένο ορθογώνιο στο `(100, 200)` με μέγεθος `120 × 80` έχει όρια περιγράμματος `(100, 200)`–`(220, 280)`. Μην προσθέσετε ξανά τη θέση του σχήματος. Αφαιρέστε το X και Y του για να λάβετε συντεταγμένες σχετικά με το μη περιστραμμένο πλαίσιο.
+**Συντεταγμένες και μετασχηματισμοί.** Τα σημεία μετρώνται σε μονάδες (1/72 ίντσας), με το X να αυξάνει προς τα δεξιά και το Y προς τα κάτω. Για ένα μη ομαδοποιημένο σχήμα, οι εξαγόμενες συντεταγμένες περιλαμβάνουν ήδη τη θέση που επιστρέφουν οι μέθοδοι [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) και [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--), καθώς και το τρέχον πλάτος και ύψος. Π.χ., ένα μη περιστραμένο ορθογώνιο στο `(100, 200)` με μέγεθος `120 × 80` έχει όρια περιγράμματος `(100, 200)`–`(220, 280)`. Μην προσθέτετε ξανά τη θέση του σχήματος. Αφαιρέστε το X και Y για να λάβετε συντεταγμένες σχετικές με το μη περιστραμένο πλαίσιο.
 
-Οι εξαγόμενα σημεία δεν εφαρμόζουν την περιστροφή του σχήματος, που επιστρέφεται από το [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--), ούτε τις οριζόντιες και κατακόρυφες αναστροφές. Για να αναπαράγετε το εμφανιζόμενο περίγραμμα, εφαρμόστε αυτούς τους μετασχηματισμούς γύρω από το κέντρο του σχήματος. Για ομαδοποιημένα σχήματα, λάβετε επίσης υπόψη τη χαρτογράφηση συντεταγμένων της ομάδας και τους μετασχηματισμούς· μην υποθέσετε ότι τα εξαγόμενα σημεία είναι οι τελικές συντεταγμένες της διαφάνειας ή εφαρμόστε διπλή μετάθεση ή κλιμάκωση εάν ήδη αντικατοπτρίζεται στο πλαίσιο του παιδιού.
+Τα εξαγόμενα σημεία δεν εφαρμόζουν την περιστροφή του σχήματος, που επιστρέφεται από το [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--), ούτε τις οριζόντιες/κάθετες αναστροφές. Για να αποδομήσετε το εμφανιζόμενο περίγραμμα, εφαρμόστε αυτές τις μετατροπές γύρω από το κέντρο του σχήματος. Για ομαδοποιημένα σχήματα, λάβετε επίσης υπόψη τη χαρτογράφηση συντεταγμένων ομάδας και τις μετατροπές· μην υποθέτετε ότι τα εξαγόμενα σημεία είναι οι τελικές συντεταγμένες της διαφάνειας ή εφαρμόστε διπλή μετάφραση ή κλίμακα αν ήδη ενσωματώνονται στο πλαίσιο του παιδιού.
 
-**Εξέταση έναντι επεξεργασίας.** Οι εξαγόμενοι πίνακες περιγράφουν το περίγραμμα· η αλλαγή τους δεν ενημερώνει το αρχικό σχήμα. Επιλέξτε αυτή τη μέθοδο όταν η ανάλυση ή ο κώδικας σχεδίασής σας χρειάζεται πίνακες σημείων/τύπων. Χρησιμοποιήστε το [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) όταν χρειάζεστε εντολές γεωμετρίας στο τοπικό σύστημα συντεταγμένων του σχήματος ή θέλετε να επεξεργαστείτε τη γεωμετρία του. Εφαρμόστε επεξεργασμένες διαδρομές μέσω του [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ή του [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---).
+**Εξέταση έναντι επεξεργασίας.** Οι εξαγόμενοι πίνακες περιγράφουν το περίγραμμα· η αλλαγή τους δεν ενημερώνει το αρχικό σχήμα. Επιλέξτε αυτή τη μέθοδο όταν η ανάλυση ή ο κώδικας σχεδίασης χρειάζονται πίνακες σημείων/τύπων. Χρησιμοποιήστε το [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) όταν χρειάζεστε εντολές γεωμετρίας στο τοπικό σύστημα συντεταγμένων του σχήματος ή θέλετε να επεξεργαστείτε τη γεωμετρία του. Εφαρμόστε τις επεξεργασμένες διαδρομές μέσω του [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ή του [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---).
 
 ## **Συχνές Ερωτήσεις**
 
-**Τι θα συμβεί στο γέμισμα και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
+**Τι συμβαίνει με τη γέμιση και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
 
-Το στυλ παραμένει στο σχήμα· μόνο το περίγραμμα αλλάζει. Το γέμισμα και το περίγραμμα εφαρμόζονται αυτόματα στη νέα γεωμετρία.
+Το στυλ παραμένει στο σχήμα· μόνο το περίγραμμα αλλάζει. Η γέμιση και το περίγραμμα εφαρμόζονται αυτόματα στη νέα γεωμετρία.
 
-**Πώς να περιστρέψω σωστά ένα προσαρμοσμένο σχήμα μαζί με τη γεωμετρία του;**
+**Πώς μπορώ σωστά να περιστρέψω ένα προσαρμοσμένο σχήμα μαζί με τη γεωμετρία του;**
 
-Χρησιμοποιήστε τη μέθοδο [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) του σχήματος· η γεωμετρία περιστρέφεται με το σχήμα επειδή είναι δεσμευμένη στο δικό του σύστημα συντεταγμένων.
+Χρησιμοποιήστε τη μέθοδο [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) του σχήματος· η γεωμετρία περιστρέφεται μαζί επειδή είναι δεσμευμένη στο σύστημα συντεταγμένων του σχήματος.
 
 **Μπορώ να μετατρέψω ένα προσαρμοσμένο σχήμα σε εικόνα για να "κλειδώσω" το αποτέλεσμα;**
 
-Ναι. Εξάγετε την απαιτούμενη περιοχή [slide](/slides/el/androidjava/convert-powerpoint-to-png/) ή το [shape](/slides/el/androidjava/create-shape-thumbnails/) σε μορφή raster· αυτό απλοποιεί την περαιτέρω εργασία με σύνθετες γεωμετρίες.
+Ναι. Εξάγετε την απαιτούμενη περιοχή της [slide](/slides/el/androidjava/convert-powerpoint-to-png/) ή το [shape](/slides/el/androidjava/create-shape-thumbnails/) σε μορφή raster· αυτό απλοποιεί περαιτέρω εργασία με πολύπλοκες γεωμετρίες.

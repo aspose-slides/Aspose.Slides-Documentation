@@ -1,5 +1,5 @@
 ---
-title: Python के माध्यम से Java द्वारा प्रस्तुति आकारों को अनुकूलित करें
+title: Python के माध्यम से Java में प्रस्तुति आकारों को अनुकूलित करें
 linktitle: कस्टम आकार
 type: docs
 weight: 20
@@ -15,72 +15,72 @@ keywords:
 - संपादन बिंदु
 - बिंदु जोड़ें
 - बिंदु हटाएँ
-- संपादन संचालन
-- घुमावदार कोना
+- संपादन प्रक्रिया
+- वक्र कोना
 - PowerPoint
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java के साथ PowerPoint प्रस्तुतियों में आकार बनाएं और अनुकूलित करें: ज्यामिति पथ, घुमावदार कोने, संयोजन आकार।"
+description: "Aspose.Slides for Python via Java के साथ PowerPoint प्रस्तुतियों में आकार बनाएं और अनुकूलित करें: ज्यामिति पथ, वक्र कोने, सम्मिलित आकार।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-यह लेख Aspose.Slides में प्रस्तुतिकरण आकारों को संपादन बिंदुओं और ज्यामितीय पथों के माध्यम से आकार ज्यामिति को संपादित करके अनुकूलित करने की विधि बताता है। यह दिखाता है कि कैसे आप मौजूदा आकारों को संशोधित करने, बुनियादी पथ संपादन संचालन करने, बिंदुओं को जोड़ने या हटाने, और अद्यतन ज्यामिति को आकार पर लागू करने के लिए [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) के साथ काम कर सकते हैं।
+यह लेख Aspose.Slides में प्रस्तुति आकारों को संपादन बिंदुओं और ज्यामिति पथों के माध्यम से आकार ज्यामिति को संपादित करके अनुकूलित करने का तरीका समझाता है। यह दिखाता है कि मौजूदा आकारों को संशोधित करने, बुनियादी पथ संपादन संचालन करने, बिंदुओं को जोड़ने या हटाने, और अद्यतन ज्यामिति को फिर से आकार पर लागू करने के लिए [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) के साथ कैसे काम किया जाए।
 
-यह साथ ही कस्टम और संयोजन आकार बनाना, घुमावदार कोनों वाले आकार बनाना, यह निर्धारित करना कि कोई आकार ज्यामिति बंद है या नहीं, आकार तत्वों का निरीक्षण करना, और Java AWT टेक्स्ट रूपरेखाओं को ज्यामितीय पथों में परिवर्तित करना प्रदर्शित करता है।
+यह उदाहरण भी दिखाता है कि कैसे कस्टम और सम्मिलित आकार बनाएँ, कर्व्ड कोनों वाले आकार बनाएँ, यह निर्धारित करें कि कोई आकार ज्यामिति बंद है या नहीं, आकार तत्वों का निरीक्षण करें, और Java AWT टेक्स्ट आउटलाइन को ज्यामिति पथों में परिवर्तित करें।
 
-## **संपादन बिंदुओं के द्वारा आकार बदलें**
+## **संपादन बिंदुओं का उपयोग करके आकार बदलें**
 
-PowerPoint में आप **Edit Points** का उपयोग करके एक वर्ग को संशोधित कर सकते हैं:
+PowerPoint में, आप **Edit Points** का उपयोग करके एक वर्ग को संशोधित कर सकते हैं:
 
 * कोने को अंदर या बाहर ले जाएँ।
-* किसी बिंदु पर वक्रता समायोजित करें।
+* किसी बिंदु पर वक्रता को समायोजित करें।
 * नए बिंदु जोड़ें।
 
-संपादन बिंदु आपको आकार की रूपरेखा बदलने या मौजूदा आकार को नई आकृति के आधार के रूप में उपयोग करने की अनुमति देते हैं।
+संपादन बिंदु आपको आकार की रूपरेखा को बदलने या मौजूदा आकार को नई रूपरेखा के आधार के रूप में उपयोग करने की सुविधा देते हैं।
 
-## **आकार संपादन टिप्स**
+## **Shape Editing Tips**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint आकारों को संपादित करते समय इन अवधारणाओं को याद रखें:
+PowerPoint आकारों को संपादित करते समय, इन अवधारणाओं को ध्यान में रखें:
 
-* कोई आकार (या उसका पथ) बंद या खुला दोनों हो सकता है।
-* आकार का पथ एंकर बिंदुओं से जुड़ी खंडों (segments) से बनता है।
-* कोई खंड सीधा या वक्र हो सकता है। एंकर बिंदु और नियंत्रण हैंडल उसके आकार को निर्धारित करते हैं।
-* एंकर बिंदु कोने के बिंदु, सीधे बिंदु, या स्मूद बिंदु के रूप में होते हैं:
-  * कोने के बिंदु पर, सटे हुए खंड कोण पर मिल सकते हैं।
+* कोई आकार (या उसका पथ) बंद या खुला हो सकता है।
+* किसी आकार का पथ एंकर बिंदुओं द्वारा जुड़े खंडों से बना होता है।
+* एक खंड सीधा या कर्व्ड हो सकता है। एंकर बिंदु और नियंत्रण हैंडल उसके आकार को निर्धारित करते हैं।
+* एंकर बिंदु कोना बिंदु, सीधा बिंदु, या स्मूद बिंदु के रूप में मौजूद होते हैं:
+  * कोना बिंदु पर, साथ जुड़े खंड एक कोण पर मिल सकते हैं।
   * स्मूद बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं और एंकर बिंदु से समान दूरी पर होते हैं।
-  * सीधे बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं लेकिन एंकर बिंदु से विभिन्न दूरियों पर हो सकते हैं।
-* एंकर बिंदुओं को लेजाने या उनके हैंडल को समायोजित करने से आकार की रूपरेखा बदलती है।
+  * सीधा बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं लेकिन एंकर बिंदु से विभिन्न दूरी पर हो सकते हैं।
+* एंकर बिंदुओं को स्थानांतरित करने या उनके हैंडल को समायोजित करने से आकार की रूपरेखा बदलती है।
 
-PowerPoint आकारों को संपादन बिंदुओं के माध्यम से संपादित करने के लिए **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) वर्ग प्रदान करता है।
+PowerPoint आकारों को संपादन बिंदुओं के माध्यम से संपादित करने के लिए, **Aspose.Slides** क्लास [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) प्रदान करता है।
 
-* एक [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) उदाहरण [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) ऑब्जेक्ट की ज्यामिति पथ का प्रतिनिधित्व करता है।
-* [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) उदाहरण से [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) प्राप्त करने के लिए आप [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) मेथड का उपयोग कर सकते हैं।
-* किसी आकार के लिए [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) सेट करने हेतु आप ये मेथड उपयोग कर सकते हैं: एकल पथ वाले आकारों के लिए [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) और कई पथ वाले आकारों के लिए [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)।
-* खंड जोड़ने के लिए आप [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) के अंतर्गत स्थित मेथड का उपयोग कर सकते हैं।
-* [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) और [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) मेथड्स के माध्यम से आप किसी ज्यामितीय पथ की उपस्थिति निर्धारित कर सकते हैं।
-* [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) मेथड का उपयोग करके आप [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) की ज्यामिति पथ को पथ खंडों की एक श्रृंखला के रूप में प्राप्त कर सकते हैं।
-* अतिरिक्त आकार ज्यामिति अनुकूलन विकल्पों के लिये, आप [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) को उसके [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) के माध्यम से पढ़ सकते हैं और खंडों को एक [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) पर पुनः चलाकर लागू कर सकते हैं।
+* एक [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) उदाहरण [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) ऑब्जेक्ट का ज्यामिति पथ दर्शाता है।
+* [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) से [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) प्राप्त करने के लिए आप [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) मेथड का उपयोग कर सकते हैं।
+* किसी आकार के लिए [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) सेट करने हेतु, एकल पथ वाले आकारों के लिए आप [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) और बहु‑पथ वाले आकारों के लिए [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) का उपयोग कर सकते हैं।
+* खंड जोड़ने के लिये, आप [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) के तहत प्रदान किए गये मेथड्स का उपयोग कर सकते हैं।
+* [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) और [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) मेथड्स का प्रयोग करके आप किसी ज्यामिति पथ की उपस्थिति निर्धारित कर सकते हैं।
+* [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) मेथड से आप किसी [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) का ज्यामिति पथ खंडों की array के रूप में प्राप्त कर सकते हैं।
+* अतिरिक्त आकार ज्यामिति अनुकूलन विकल्पों तक पहुँचने के लिये, आप एक [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) को उसकी [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) के माध्यम से पढ़ सकते हैं और उन खंडों को किसी [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) पर दोहरा सकते हैं।
 
-## **सरल संपादन संचालन**
+## **Simple Editing Operations**
 
-ज्यामिति पथ को संपादित करने के लिये नीचे दिए गये मेथड का उपयोग करें। ओवरलोड जो एक सूचकांक स्वीकार करते हैं, वह पथ के खंड सरणी में शून्य-आधारित स्थिति पर खंड डालते हैं।
+निम्न मेथड्स का प्रयोग करके आप किसी ज्यामिति पथ को संपादित कर सकते हैं। ओवरलोड्स जो इंडेक्स स्वीकार करते हैं, वह शून्य‑आधारित स्थिति में एक खंड डालते हैं।
 
 | ऑपरेशन | मेथड |
 | --- | --- |
-| सीधा रेखा जोड़ें या डालें। | [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) |
-| दो नियंत्रण बिंदुओं और एक अंत बिंदु के साथ क्यूबिक बेज़ियर वक्र जोड़ें या डालें। | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| एक नियंत्रण बिंदु और एक अंत बिंदु के साथ क्वाड्रेटिक बेज़ियर वक्र जोड़ें या डालें। | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| निर्दिष्ट आयाम और डिग्री में कोण के साथ एक दीर्घवृत्तीय चाप जोड़ें। | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
-| वर्तमान आकृति को उसके अंत बिंदु को प्रारम्भ बिंदु से जोड़ कर बंद करें। | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
-| आकृति का प्रारम्भ बिंदु सेट करें। | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
-| शून्य-आधारित सूचकांक पर खंड हटाएँ। | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
+| सीधी रेखा जोड़ें या डालें। | [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) |
+| दो नियंत्रण बिंदुओं और एक अंत बिंदु के साथ क्यूबिक Bézier वक्र जोड़ें या डालें। | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| एक नियंत्रण बिंदु और एक अंत बिंदु के साथ क्वाड्रैटिक Bézier वक्र जोड़ें या डालें। | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| निर्दिष्ट आयाम और डिग्री में कोणों के साथ अण्डाकार चाप जोड़ें। | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
+| वर्तमान आकृति को उसके अंत बिंदु को प्रारंभ बिंदु से जोड़कर बंद करें। | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
+| आकृति का प्रारंभ बिंदु सेट करें। | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
+| शून्य‑आधारित इंडेक्स पर खंड हटाएँ। | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
 
-## **आकार में कस्टम बिंदु जोड़ें**
+## **Add Custom Points to a Shape**
 
-यह उदाहरण दो बिंदुओं को आयताकार आकार में [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) का उपयोग करके सम्मिलित करता है और संपोधित पथ को [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) द्वारा लागू करता है। निर्देशांक आकार के सापेक्ष स्थानीय होते हैं: दोनों नए बिंदु आकार के केन्द्र में, बाएँ से 100 पॉइंट और शीर्ष से 50 पॉइंट पर स्थित हैं। खंड सूचकांक 1 और 4 उन्हें क्रमशः शीर्ष और निचली किनारी पर रखते हैं, जिससे वे किनारे अंदर की ओर खिंचते हैं।
+यह उदाहरण दो बिंदुओं को एक आयताकार आकार में [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) का उपयोग करके सम्मिलित करता है और संपादित पथ को [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) के साथ लागू करता है। निर्देशांक आकार के स्थानीय हैं: दोनों नए बिंदु उसके केंद्र में हैं, बाएँ किनारे से 100 पॉइंट और शीर्ष किनारे से 50 पॉइंट की दूरी पर। खंड सूचकांक 1 और 4 उन्हें क्रमशः शीर्ष और निचले किनारे पर रखता है, जिससे ये किनारे अंदर की ओर खींचे जाते हैं।
 
 ```python
 import jpype
@@ -108,9 +108,9 @@ finally:
 
 ![example1_image](custom_shape_1.png)
 
-## **आकार से बिंदु हटाएँ**
+## **Remove Points from a Shape**
 
-यह उदाहरण [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) का उपयोग करके शून्य-आधारित सूचकांक 2 पर स्थित खंड को हटाकर दिल के आकार की रूपरेखा बदलता है। संशोधित पथ को [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) के द्वारा लागू करने से आकार की रूपरेखा अद्यतन होती है।
+यह उदाहरण [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) का उपयोग करके शून्य‑आधारित सूचकांक 2 पर खंड हटाकर हृदय‑आकृति की रूपरेखा को बदलता है। संशोधित पथ को [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) के साथ लागू करने से आकार की रूपरेखा अपडेट होती है।
 
 ```python
 import jpype
@@ -136,9 +136,9 @@ finally:
 ```
 ![example2_image](custom_shape_2.png)
 
-## **कस्टम आकार बनाएँ**
+## **Create a Custom Shape**
 
-यह उदाहरण [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) का उपयोग करके पाँच-भुजाओं वाला तारा बनाता है। 100 और 50 पॉइंट के बारी‑बारी बाहरी और भीतरी त्रिज्या टिप्स और अंतरों को परिभाषित करती है; 72‑डिग्री कदम पाँच टिप्स को समान रूप से अंतर देता है। पथ को [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) द्वारा बंद किया जाता है और आयताकार आकार पर [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) द्वारा लागू किया जाता है, जिससे उसकी रूपरेखा प्रतिस्थापित हो जाती है।
+यह उदाहरण [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) का उपयोग करके पाँच‑बिंदु वाला सितारा बनाता है। 100 और 50 पॉइंट के वैकल्पिक बाहरी और आंतरिक त्रिज्या टिप्स और अभ्यंतरों को परिभाषित करती हैं; 72‑डिग्री कदम शीर्षों को समान रूप से वितरित करता है। पथ को [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) द्वारा बंद किया जाता है और एक आयताकार आकार पर [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) के साथ लागू किया जाता है, जिससे उसकी रूपरेखा प्रतिस्थापित हो जाती है।
 
 ```python
 import jpype
@@ -184,9 +184,9 @@ finally:
 ```
 ![example3_image](custom_shape_3.png)
 
-## **संयोजन कस्टम आकार बनाएँ**
+## **Create a Composite Custom Shape**
 
-यह उदाहरण आकार के ऊपर और नीचे के एक‑तिहाई हिस्से के लिये दो बंद [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) वस्तुएँ परिभाषित करता है। दोनों पथों को [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) द्वारा लागू करने से मध्य तिहाई में अंतर के साथ एक एकल संयोजन आकार बनता है।
+यह उदाहरण शीर्ष और निचले भागों के लिये दो बंद [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) वस्तुएँ परिभाषित करता है। दोनों पथों को [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) द्वारा लागू करने से मध्य भाग में एक अंतर के साथ एकल सम्मिलित आकार बनता है।
 
 ```python
 import jpype
@@ -223,9 +223,9 @@ finally:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **घुमावदार कोनों वाले कस्टम आकार बनाएँ**
+## **Create a Custom Shape with Curved Corners**
 
-यह उदाहरण सीधे खंडों को [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) के साथ मिलाकर अंदर की ओर घुमावदार कोनों वाला आकार बनाता है। प्रत्येक कोने का आकार आर्क की चौड़ाई और ऊँचाई को पॉइंट में निर्धारित करता है, और -90‑डिग्री स्वूप एक घड़ी की दिशा में विपरीत क्वार्टर एलिप्स बनाता है। पूर्ण पथ को [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) द्वारा लागू किया जाता है, और प्रस्तुति को PPTX स्वरूप में सहेजा जाता है।
+यह उदाहरण सीधे खंडों को [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) के साथ मिलाकर भीतर की ओर वक्र किनारे वाला आकार बनाता है। प्रत्येक कोने का आकार आर्क की चौड़ाई और ऊँचाई को पॉइंट में निर्धारित करता है, और -90‑डिग्री स्विप एक प्रतिचक्र दिशा में क्वार्टर अण्डाकार बनाता है। पूर्ण पथ को [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) द्वारा लागू किया जाता है, और प्रस्तुति को PPTX रूप में संग्रहीत किया जाता है।
 
 ```python
 import jpype
@@ -271,9 +271,9 @@ finally:
     presentation.dispose()
 ```
 
-## **जाँचें कि क्या आकार ज्यामिति बंद है**
+## **Find Out If a Shape Geometry Is Closed**
 
-निम्न हेलपर यह सत्यापित करता है कि प्रत्येक गैर‑खाली ज्यामिति पथ बंद करने वाले खंड पर समाप्त होता है या नहीं। यह [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) को पढ़ता है और अंतिम खंड के [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) को [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/) से तुलना करता है। जब कोई गैर‑खाली पथ नहीं होता तो यह `False` लौटाता है। यह प्रत्येक पथ की अंतिम कमांड की जाँच करता है; यह पथ के भीतर प्रत्येक उप‑आकृति को नहीं देखता। उदाहरण आयत के लिये `True` प्रिंट करता है।
+निम्न हेल्पर जाँचता है कि प्रत्येक गैर‑खाली ज्यामिति पथ अंत में बंद खंड के साथ समाप्त होता है या नहीं। यह [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) को पढ़ता है और अंतिम खंड के [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) की तुलना [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/) से करता है। जब कोई गैर‑खाली पथ नहीं होता तो यह `False` लौटाता है। यह प्रत्येक पथ की अंतिम कमांड की जाँच करता है; यह पथ के भीतर प्रत्येक उप‑आकृति को नहीं देखता। उदाहरण में आयत के लिये `True` प्रदर्शित होता है।
 
 ```python
 import jpype
@@ -306,11 +306,56 @@ finally:
     presentation.dispose()
 ```
 
-## **आकार तत्वों को निकालें और निरीक्षण करें**
+## **Inspect Geometry Path Commands**
 
-[GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) का उपयोग करके आप किसी मौजूदा आकार को तत्वों के रूप में देख सकते हैं जिनमें पथ बिंदु और बिंदु प्रकार होते हैं। प्रत्येक लौटाए गये तत्व को `jpype.JObject` के साथ [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) में कास्ट करके आप [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) और [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) मेथड द्वारा बिंदु व प्रकार सरणियों को प्राप्त कर सकते हैं। यह प्रतिनिधित्व रूपरेखा विश्लेषण या कस्टम ड्राइंग टूल्स को ज्यामिति पास करने के लिये उपयोगी है।
+[contour.pptx](contour.pptx) डाउनलोड करें और इसे अनुप्रयोग की कार्यशील निर्देशिका में रखें। पहले स्लाइड पर पहला आकार एक सीधी शीर्ष किनारा, एक क्यूबिक Bézier वक्र, और एक सीधा बंद किनारा रखता है। आकार के पथों को पढ़ने के लिये आप [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) का प्रयोग करें और प्रत्येक पथ के खंडों को ड्राइंग क्रम में पढ़ने के लिये [getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) का उपयोग करें। प्रत्येक खंड के लिये, [getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) कमांड पहचानता है और निर्धारित करता है कि [getSegmentData](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getSegmentData) द्वारा लौटाए गये मानों की कैसे व्याख्या की जाए।
 
-उदाहरण input.pptx खोलता है, प्रथम स्लाइड पर सीधे प्रथम ज्यामिति आकार को खोजता है, और उसके पथ खंडों को प्रिंट करता है। दोनों सीधा और घुमावदार खंडों वाले आकार वाली प्रस्तुति उपयोग करें ताकि दोनों प्रकार के आउटपुट देखे जा सकें। यह समूहों के भीतर खोज नहीं करता।
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PathCommandType, Presentation
+
+presentation = Presentation("contour.pptx")
+try:
+    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    for i, path in enumerate(shape.getGeometryPaths()):
+        for j, segment in enumerate(path.getPathData()):
+            command = segment.getPathCommand()
+            data = segment.getSegmentData()
+            if command in (PathCommandType.MoveTo, PathCommandType.LineTo):
+                detail = f"destination=({data[0]}, {data[1]})"
+            elif command == PathCommandType.CubicBezierTo:
+                detail = f"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})"
+            elif command == PathCommandType.Close:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={list(data)}"
+            name = PathCommandType.getName(PathCommandType.class_, command)
+            print(f"Path {i}, segment {j}: {name} {detail}")
+finally:
+    presentation.dispose()
+```
+
+आकार स्लाइड पर (200, 100) पॉइंट पर स्थित है। रिपोर्ट किए गये निर्देशांक आकार के स्थानीय हैं, जहाँ (0, 0) उसका ऊपर‑बायाँ कोना है, x दाएँ की ओर बढ़ता है, और y नीचे की ओर।
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Extract and Inspect Shape Elements**
+
+[GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) का उपयोग करके आप किसी मौजूदा आकार को तत्वों के रूप में देख सकते हैं, जिनमें पथ बिंदु और बिंदु प्रकार होते हैं। प्रत्येक प्राप्त तत्व को `jpype.JObject` के साथ [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) में कास्ट करके आप [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) और [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) मेथड्स के द्वारा बिंदु और प्रकार की arrays प्राप्त कर सकते हैं। यह प्रतिनिधित्व कॉन्टूर विश्लेषण या कस्टम ड्राइंग टूल्स को ज्यामिति पास करने के लिये उपयोगी है।
+
+उदाहरण input.pptx खोलता है, पहले स्लाइड पर पहले ज्यामिति आकार को खोजता है, और उसके पथ खंडों को प्रिंट करता है। सीधी और कर्व्ड खंडों वाले आकार वाली प्रस्तुति का उपयोग करने पर दोनों प्रकार का आउटपुट देखा जा सकता है। यह समूहों के भीतर खोज नहीं करता।
 
 ```python
 import jpype
@@ -342,14 +387,14 @@ try:
 
             i = 0
             while i < len(points):
-                point_type = types[i] & 0x07  # सेगमेंट प्रकार रखें, फ़्लैग को हटाते हुए।
+                point_type = types[i] & 0x07  # सेगमेंट प्रकार रखें, फ़्लैग को बाहर रखते हुए।
                 if point_type == 0:
                     print(f"Start figure at {points[i]}")
                 elif point_type == 1:
                     print(f"Line to {points[i]}")
                 elif point_type == 3:
                     print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
-                    i += 2  # Consume both control points and the endpoint.
+                    i += 2  # दोनो नियंत्रण बिंदुओं और अंत बिंदु को खपत करें।
 
                 if types[i] & 0x80:
                     print("Close subpath back to its starting point.")
@@ -358,21 +403,21 @@ finally:
     presentation.dispose()
 ```
 
-सरणियों का अनुक्रम इस प्रकार है: `points[i]` एक बिंदु है और `types[i]` उसकी भूमिका बताता है। प्रकार `0` आकृति की शुरुआत दर्शाता है, और प्रकार `1` पिछले बिंदु से वर्तमान बिंदु तक रेखा खींचता है। एक क्यूबिक बेज़ियर खंड पिछले अंत बिंदु से शुरू होता है और लगातार तीन प्रकार‑`3` प्रविष्टियों का उपयोग करता है: दो नियंत्रण बिंदु और नया अंत बिंदु। लूप इन तीन प्रविष्टियों को साथ में खपत करता है और बंद होने की जाँच के लिये अंत बिंदु देखता है।
+Arrays इंडेक्स द्वारा संबंधित होते हैं: `points[i]` एक बिंदु है और `types[i]` उसकी भूमिका का वर्णन करता है। प्रकार `0` आकृति की शुरुआत दर्शाता है, और प्रकार `1` पिछले बिंदु से वर्तमान बिंदु तक एक रेखा बनाता है। एक क्यूबिक Bézier खंड पिछले अंत बिंदु से शुरू होता है और लगातार तीन प्रकार‑`3` प्रविष्टियों का उपयोग करता है: दो नियंत्रण बिंदु और फिर नया अंत बिंदु। लूप इन तीन प्रविष्टियों को एक साथ लेता है और बंद होने के लिये अंतिम बिंदु जाँचता है।
 
-बिंदु प्रकारों में ध्वज भी होते हैं। सेगमेंट प्रकार की पहचान के लिये `0x07` से मास्क करें, और बंद उप‑पथ की पहचान के लिये `0x80` को अलग से परीक्षण करें। उदाहरणतः, `129` (`0x81`) का अर्थ एक रेखा अंत बिंदु है जो उप‑पथ को बंद करता है, और `131` (`0x83`) का अर्थ एक बेज़ियर अंत बिंदु है जो उप‑पथ को बंद करता है। जावा इन ध्वजों को साइन किए हुए बाइट्स में संग्रहीत करता है; मास्किंग मूल बिट मानों को संरक्षित करती है। केवल `1` या `3` से कच्चे मान की तुलना करने से ये मामलों को चूक सकते हैं। अन्य ध्वज, जैसे डैश (`0x10`) और मार्कर (`0x20`), मूल खंड प्रकार को नहीं बदलते।
+बिंदु प्रकार में फ़्लैग भी होते हैं। सेगमेंट प्रकार पहचानने के लिये `0x07` से मास्क करें, और बंद उप‑पथ पहचानने के लिये `0x80` को अलग‑अलग परीक्षण करें। उदाहरण के लिये, `129` (`0x81`) का अर्थ है एक रेखा अंत बिंदु जो उप‑पथ को बंद करता है, और `131` (`0x83`) का अर्थ है एक Bézier अंत बिंदु जो बंद करता है। Java इन फ़्लैग को signed bytes में रखता है; मास्किंग मूल बिट मानों को संरक्षित रखती है। केवल `1` या `3` के साथ कच्चे मान की तुलना करने से ये स्थितियाँ चूक जाती हैं। अन्य फ़्लैग, जैसे dash (`0x10`) और marker (`0x20`), मूल खंड प्रकार को नहीं बदलते।
 
-**निर्देशांक और रूपांतरण।** बिंदुओं को पॉइंट (1/72 इंच) में मापा जाता है, जहाँ X दाएँ और Y नीचे की ओर बढ़ता है। अनग्रुप्ड आकार के लिये निकाले गये निर्देशांक पहले से ही [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) और [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) द्वारा लौटाए गये स्थान को सम्मिलित कर लेते हैं और उसकी वर्तमान चौड़ाई व ऊँचाई को दर्शाते हैं। उदाहरण के लिये, `(100, 200)` पर स्थित और `120 × 80` आकार का अनरोटेटेड आयत `(100, 200)–(220, 280)` के रूपरेखा सीमाओं को रखता है। आकार की स्थिति को फिर से न जोड़ें। उसके X और Y घटाकर अनरोटेटेड फ्रेम के सापेक्ष निर्देशांक प्राप्त करें।
+**निर्देशांक और रूपांतरण।** बिंदु points (1/72 इंच) में मापे जाते हैं, X दाएँ ओर बढ़ता है और Y नीचे की ओर। एक अन‑ग्रुप्ड आकार के लिये, निकाले गये निर्देशांक पहले से ही [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) और [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) द्वारा लौटाई गई स्थिति तथा वर्तमान चौड़ाई‑ऊँचाई को सम्मिलित करते हैं। उदाहरण के लिये, `(100, 200)` पर स्थित, `120 × 80` आकार वाला अपरिवर्तित आयत की सीमा `(100, 200)`–`(220, 280)` होगी। आकार की स्थिति को दोबारा जोड़ें नहीं। कॉन्टूर को स्थानीय फ्रेम के सापेक्ष प्राप्त करने के लिये X और Y को घटाएँ।
 
-निकाले गये बिंदु आकार के घूर्णन, जो [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation) द्वारा लौटाया जाता है, या क्षैतिज व लंबवत फ़्लिप को लागू नहीं करते। प्रदर्शित रूपरेखा को पुनः बनाने के लिये इन रूपांतरणों को आकार के केन्द्र के चारों ओर लागू करें। समूहित आकारों के लिये, समूह निर्देशांक मानचित्रण और रूपांतरणों को भी ध्यान में रखें; यह मान न लें कि निकाले गये बिंदु अंतिम स्लाइड रेंडर निर्देशांक हैं या अनावश्यक रूप से अनुवाद या स्केल दो बार लागू हो रहा है।
+निकाले गये बिंदु आकार का rotation, जो [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation) से मिलता है, या क्षैतिज व लंबवत फ़्लिप को नहीं दर्शाते। प्रदर्शित कॉन्टूर को पुनः प्राप्त करने के लिये इन रूपांतरणों को आकार के केंद्र के चारों ओर लागू करें। समूहित आकारों के लिये, समूह के निर्देशांक मैपिंग और रूपांतरणों को भी ध्यान में रखें; यह न मानें कि निकाले गये बिंदु अंतिम स्लाइड निर्देशांक हैं या यदि उन्हें पहले ही बच्चे के फ्रेम में सम्मिलित किया गया है तो अनावश्यक अनुवाद या स्केल न जोड़ें।
 
-**निरीक्षण बनाम संपादन।** निकाले गये सरणियाँ रूपरेखा का वर्णन करती हैं; उनका परिवर्तन मूल आकार को अद्यतन नहीं करता। यह तरीका तब उपयोग करें जब आपका विश्लेषण या ड्राइंग कोड बिंदु/प्रकार सरणियों की आवश्यकता रखता हो। आकृति के स्थानीय निर्देशांक प्रणाली में ज्यामिति कमांड चाहिए या ज्यामिति संपादित करनी हो तो [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) उपयोग करें। संपादित पथों को [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) या [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) द्वारा लागू करें।
+**निरीक्षण बनाम संपादन।** निकाली गयी arrays केवल कॉन्टूर का वर्णन करती हैं; उन्हें बदलने से मूल आकार अद्यतन नहीं होता। यह तरीका तब उपयोगी है जब आपका विश्लेषण या ड्राइंग कोड बिंदु/प्रकार arrays की आवश्यकता रखता है। जब आपको आकार के स्थानीय निर्देशांक प्रणाली में ज्यामिति कमांड्स चाहिए या उसकी ज्यामिति को संपादित करना है, तो [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) का उपयोग करें। संपादित पथों को [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) या [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) के द्वारा लागू करें।
 
-## **Java AWT Shape को GeometryPath में परिवर्तित करें**
+## **Convert a Java AWT Shape to GeometryPath**
 
-यह उदाहरण आयताकार रूपरेखा को टेक्स्ट के साथ मिलाकर ज्यामिति बनाता है। रूपरेखा का [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) मेथड उसकी भराव को निष्क्रिय करता है। एक [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) एक [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) में टेक्स्ट रूपरेखा बनाता है। उसका [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) मूव, लाइन, क्वाड्रेटिक, क्यूबिक और बंद करने वाले खंड प्रदान करता है, जिन्हें उदाहरण एक [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) पर पुनः चलाता है।
+यह उदाहरण आयताकार रूपरेखा को टेक्स्ट के साथ जोड़ता है जो ज्यामिति में परिवर्तित किया गया है। रूपरेखा की [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) मेथड उसके भराव को निष्क्रिय करती है। एक [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) एक [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) में टेक्स्ट रूपरेखा बनाता है। उसका [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) move, line, quadratic, cubic और closing खंड प्रदान करता है, जिन्हें उदाहरण [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) पर दोहराता है।
 
-टेक्स्ट 40‑पॉइंट Arial फ़ॉन्ट में है। रूपरेखा को横‑दिशा में 20 पॉइंट और आकार के शीर्ष किनारे से 10 पॉइंट नीचे स्थित किया गया है। टेक्स्ट पथ को भरा गया है, जबकि मूल आयत केवल रूपरेखा बनी रहती है। दोनों पथों को [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) द्वारा लागू करने से एकल आकार बनता है जिसमें आयत और टेक्स्ट दोनों सम्मिलित होते हैं।
+टेक्स्ट 40‑पॉइंट Arial फ़ॉन्ट में है। रूपरेखा को क्षैतिज रूप में 20 पॉइंट और आकार के शीर्ष किनारे से 10 पॉइंट नीचे दृश्य शीर्ष पर रख दिया गया है। टेक्स्ट पथ को भरा जाता है, जबकि मूल आयत केवल रूपरेखा रहती है। दोनों पथों को [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) के साथ लागू करने से एक ही आकार बनता है जिसमें आयत और टेक्स्ट दोनों होते हैं।
 
 ```python
 import jpype
@@ -393,11 +438,11 @@ try:
 
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
 
-    # आकार का ज्यामिति पथ प्राप्त करें।
+    # आकृति का ज्यामिति पथ प्राप्त करें।
     original_path = shape.getGeometryPaths()[0]
     original_path.setFillMode(PathFillModeType.None_)
 
-    # टेक्स्ट के साथ नया ग्राफ़िक्स पथ बनाएं।
+    # टेक्स्ट के साथ एक नया ग्राफ़िक्स पथ बनाएं।
     font = Font("Arial", Font.PLAIN, 40)
     text = "Text in shape"
     image = BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB)
@@ -430,7 +475,7 @@ try:
         path_iterator.next()
     text_path.setFillMode(PathFillModeType.Normal)
 
-    # मूल ज्यामिति पथ के साथ टेक्स्ट पथ लागू करें।
+    # टेक्स्ट पथ को मूल ज्यामिति पथ के साथ लागू करें।
     shape.setGeometryPaths([original_path, text_path])
 finally:
     presentation.dispose()
@@ -439,14 +484,14 @@ finally:
 
 ## **FAQ**
 
-**ज्यामिति बदलने के बाद भराव और रूपरेखा क्या होते हैं?**
+**ज्यामिति बदलने के बाद भराव और रूपरेखा में क्या होता है?**
 
-स्टाइल आकार के साथ रहता है; केवल कंटूर बदलता है। भराव और रूपरेखा स्वचालित रूप से नई ज्यामिति पर लागू होते हैं।
+शैली आकार के साथ बनी रहती है; केवल कंटूर बदलता है। भराव और रूपरेखा स्वचालित रूप से नई ज्यामिति पर लागू हो जाती है।
 
-**मैं अपने कस्टम आकार को उसकी ज्यामिति के साथ सही तरह से कैसे घुमाूँ?**
+**मैं अपनी कस्टम आकृति को उसकी ज्यामिति के साथ सही तरीके से कैसे घुमाूँ?**
 
-आकार की [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) मेथड का उपयोग करें; ज्यामिति आकार के साथ घुड़ती है क्योंकि वह आकार के अपने निर्देशांक प्रणाली से बंधी होती है।
+आकृति की [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) मेथड का उपयोग करें; ज्यामिति आकार के साथ घुमती है क्योंकि वह आकार के अपने निर्देशांक प्रणाली से बंधी होती है।
 
-**क्या मैं कस्टम आकार को एक इमेज में बदल कर परिणाम को "लॉक" कर सकता हूँ?**
+**क्या मैं कस्टम आकार को एक छवि में बदलकर परिणाम "लॉक" कर सकता हूँ?**
 
-हाँ। आवश्यक [slide](/slides/hi/python-java/convert-powerpoint-to-png/) क्षेत्र या स्वयं [shape](/slides/hi/python-java/create-shape-thumbnails/) को रास्टर स्वरूप में निर्यात करें; यह जटिल ज्यामिति के साथ आगे के कार्य को सरल बनाता है।
+हाँ। आवश्यक [slide](/slides/hi/python-java/convert-powerpoint-to-png/) क्षेत्र या स्वयं [shape](/slides/hi/python-java/create-shape-thumbnails/) को रास्टर स्वरूप में निर्यात करें; यह जटिल ज्यामितियों के साथ आगे के काम को सरल बनाता है।

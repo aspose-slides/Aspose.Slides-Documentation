@@ -1,6 +1,6 @@
 ---
 title: Dostosuj kształty prezentacji w .NET
-linktitle: Kształt niestandardowy
+linktitle: Własny kształt
 type: docs
 weight: 20
 url: /pl/net/custom-shape/
@@ -22,67 +22,67 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET: ścieżki geometryczne, zaokrąglone narożniki, kształty złożone."
+description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint za pomocą Aspose.Slides dla .NET: ścieżki geometryczne, zaokrąglone rogi, kształty złożone."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak dostosować kształty prezentacji w Aspose.Slides, edytując ich geometrię przy użyciu punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) i [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) , aby modyfikować istniejące kształty, wykonywać podstawowe operacje edycji ścieżek, dodawać lub usuwać punkty oraz zastosować zaktualizowaną geometrię z powrotem do kształtu.
+Ten artykuł wyjaśnia, jak dostosować kształty w prezentacji w Aspose.Slides, edytując geometrię kształtu za pomocą punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) i [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) w celu modyfikacji istniejących kształtów, wykonywania podstawowych operacji edycji ścieżek, dodawania lub usuwania punktów oraz zastosowania zaktualizowanej geometrii do kształtu.
 
-Pokazuje również, jak tworzyć własne i złożone kształty, budować kształty z zaokrąglonymi narożnikami, określić, czy geometria kształtu jest zamknięta, oraz używać starszej konwersji między [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) w dodatkowych scenariuszach dostosowywania geometrii.
+Demonstruje również, jak tworzyć własne i złożone kształty, budować kształty z zaokrąglonymi rogami, określać, czy geometria kształtu jest zamknięta, oraz korzystać z konwersji legacy między [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) w dodatkowych scenariuszach dostosowywania geometrii.
 
-## **Zmienianie kształtu przy użyciu punktów edycji**
+## **Zmiana kształtu przy użyciu punktów edycji**
 
-W programie PowerPoint możesz używać **Edit Points** do modyfikacji kwadratu:
+W PowerPoint możesz używać **Edit Points**, aby modyfikować kwadrat:
 
-* Przenieś róg do wewnątrz lub na zewnątrz.
-* Dostosuj krzywiznę w punkcie.
-* Dodaj nowe punkty.
+* Przesunąć róg do środka lub na zewnątrz.
+* Dostosować krzywiznę w punkcie.
+* Dodać nowe punkty.
 
-Edytowanie punktów pozwala modyfikować obrys kształtu lub używać istniejącego kształtu jako podstawy dla nowego.
+Edycja punktów pozwala zmienić obrys kształtu lub użyć istniejącego kształtu jako podstawy nowego.
 
 ## **Wskazówki dotyczące edycji kształtów**
 
-![overview_image](custom_shape_0.png)
+![obrazek_przeglądowy](custom_shape_0.png)
 
-Podczas edycji kształtów w PowerPoint, pamiętaj o następujących koncepcjach:
+Podczas edycji kształtów w PowerPoint pamiętaj o następujących pojęciach:
 
 * Kształt (lub jego ścieżka) może być zamknięty lub otwarty.
 * Ścieżka kształtu składa się z punktów kotwiczących połączonych segmentami.
 * Segment może być prosty lub krzywy. Punkty kotwiczące i uchwyty kontrolne określają jego kształt.
 * Punkty kotwiczące występują jako punkty narożne, proste lub gładkie:
-  * W punkcie narożnym przylegające segmenty mogą łączyć się pod kątem.
-  * W punkcie gładkim dwa uchwyty kontrolne są wyrównane i równo oddalone od punktu kotwiczącego.
+  * W punkcie narożnym łączące się segmenty mogą spotkać się pod kątem.
+  * W punkcie gładkim dwa uchwyty kontrolne są wyrównane i znajdują się w równej odległości od punktu kotwiczącego.
   * W punkcie prostym dwa uchwyty kontrolne są wyrównane, ale mogą mieć różne odległości od punktu kotwiczącego.
 * Przesuwanie punktów kotwiczących lub regulowanie ich uchwytów zmienia obrys kształtu.
 
-Aby edytować kształty PowerPoint przy użyciu punktów edycji, **Aspose.Slides** udostępnia klasę [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) oraz interfejs [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) .
+Aby edytować kształty w PowerPoint za pomocą punktów edycji, **Aspose.Slides** udostępnia klasę [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) oraz interfejs [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
 
-* Instancja [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) reprezentuje ścieżkę geometryczną obiektu [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) .
-* Aby pobrać [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) z instancji [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) , możesz użyć metody [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) .
-* Aby ustawić [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) dla kształtu, możesz użyć tych metod: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) dla kształtów z pojedynczą ścieżką oraz [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) dla kształtów z wieloma ścieżkami.
-* Aby dodać segmenty, możesz używać metod dostępnych w [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) .
-* Używając właściwości [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) i [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) , możesz ustawić wygląd ścieżki geometrycznej.
-* Korzystając z właściwości [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) , możesz pobrać ścieżkę geometryczną [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) jako tablicę segmentów ścieżki.
-* W starszych wersjach, które obsługują poniższe metody konwersji, możesz konwertować [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) na [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) .
-* Użyj metod [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) i [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (z klasy [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/) ) , aby konwertować między [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) .
+* Instancja [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) reprezentuje ścieżkę geometryczną obiektu [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
+* Aby uzyskać [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) z instancji [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/), możesz użyć metody [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/).
+* Aby ustawić [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) dla kształtu, możesz użyć metod: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) dla kształtów z jedną ścieżką oraz [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) dla kształtów z wieloma ścieżkami.
+* Aby dodać segmenty, możesz używać metod dostępnych w [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
+* Korzystając z właściwości [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) i [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/), możesz ustawić wygląd ścieżki geometrycznej.
+* Dzięki właściwości [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) możesz pobrać ścieżkę geometryczną [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) jako tablicę segmentów ścieżki.
+* W starszych wersjach, które obsługują poniższe metody konwersji, możesz przekonwertować [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) na [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
+* Użyj metod [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) i [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (z klasy [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) do konwersji między [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
 
 ## **Proste operacje edycji**
 
-Użyj następujących metod do edycji ścieżki geometrycznej. Przeciążenia przyjmujące indeks wstawiają segment w tej zerowej pozycji w tablicy segmentów ścieżki.
+Użyj następujących metod do edycji ścieżki geometrycznej. Przeciążenia przyjmujące indeks wstawiają segment na tej zeroodstawowej pozycji w tablicy segmentów ścieżki.
 
 | Operacja | Metoda |
 | --- | --- |
 | Dodaj lub wstaw prostą linię. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
-| Dodaj lub wstaw krzywą Béziera stopnia trzeciego z dwoma punktami kontrolnymi i punktem końcowym. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
-| Dodaj lub wstaw krzywą Béziera stopnia drugiego z jednym punktem kontrolnym i punktem końcowym. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| Dodaj lub wstaw krzywą Béziera trzeciego stopnia z dwoma punktami kontrolnymi i punktem końcowym. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| Dodaj lub wstaw krzywą Béziera drugiego stopnia z jednym punktem kontrolnym i punktem końcowym. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
 | Dodaj łuk eliptyczny o podanych wymiarach i kątach w stopniach. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
 | Zamknij bieżącą figurę, łącząc jej punkt końcowy z punktem początkowym. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
 | Ustaw punkt początkowy figury. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
-| Usuń segment o zerowym indeksie. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
+| Usuń segment pod zeroodstawowym indeksem. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
 ## **Dodawanie własnych punktów do kształtu**
 
-Ten przykład wstawia dwa punkty do prostokątnego kształtu przy użyciu [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) i stosuje edytowaną ścieżkę przy pomocy [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) . Współrzędne są lokalne względem kształtu: oba nowe punkty znajdują się w jego środku, 100 punktów od lewej i 50 punktów od góry. Indeksy segmentów 1 i 4 umieszczają je na górnej i dolnej krawędzi, ściągając te krawędzie do środka.
+Ten przykład wstawia dwa punkty do prostokątnego kształtu przy użyciu [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) i zastosowuje edytowaną ścieżkę za pomocą [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). Współrzędne są lokalne względem kształtu: oba nowe punkty znajdują się w jego centrum, 100 punktów od lewej i 50 punktów od góry. Indeksy segmentów 1 i 4 umieszczają je na górnej i dolnej krawędzi, przyciągając te krawędzie do środka.
 
 ```csharp
 using Aspose.Slides;
@@ -99,11 +99,11 @@ geometryPath.LineTo(100, 50, 4);
 shape.SetGeometryPath(geometryPath);
 ```
 
-![example1_image](custom_shape_1.png)
+![obrazek_przykład1](custom_shape_1.png)
 
 ## **Usuwanie punktów z kształtu**
 
-Ten przykład zmienia obrys w kształcie serca, usuwając segment o zerowym indeksie 2 przy pomocy [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) . Zastosowanie zmodyfikowanej ścieżki przy użyciu [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) aktualizuje kontur kształtu.
+Ten przykład modyfikuje obrys serca, usuwając segment o zeroodstawowym indeksie 2 przy użyciu [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Zastosowanie zmodyfikowanej ścieżki za pomocą [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) aktualizuje kontur kształtu.
 
 ```csharp
 using Aspose.Slides;
@@ -118,11 +118,11 @@ path.RemoveAt(2);
 
 shape.SetGeometryPath(path);
 ```
-![example2_image](custom_shape_2.png)
+![obrazek_przykład2](custom_shape_2.png)
 
 ## **Tworzenie własnego kształtu**
 
-Ten przykład tworzy pięcioramienną gwiazdę przy użyciu [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) . Alternujące promienie zewnętrzne i wewnętrzne o wartościach 100 i 50 punktów definiują końcówki i wcięcia; krok 72 stopni równomiernie rozmieszcza pięć końcówek. Ścieżka jest zamknięta przy pomocy [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) i zastosowana do prostokątnego kształtu za pomocą [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) , zastępując jego obrys.
+Ten przykład buduje pięcioramienną gwiazdę przy użyciu [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Naprzemienne promienie zewnętrzne i wewnętrzne o wartościach 100 i 50 punktów definiują szczyty i wgłębienia; krok 72 stopni równomiernie rozmieszcza pięć szczytów. Ścieżka jest zamykana metodą [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) i stosowana do prostokątnego kształtu przy użyciu [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), zastępując jego obrys.
 
 ```csharp
 using System;
@@ -165,11 +165,11 @@ var slide = presentation.Slides[0];
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
 shape.SetGeometryPath(starPath);
 ```
-![example3_image](custom_shape_3.png)
+![obrazek_przykład3](custom_shape_3.png)
 
 ## **Tworzenie złożonego własnego kształtu**
 
-Ten przykład definiuje dwa zamknięte obiekty [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) dla górnej i dolnej jednej trzeciej kształtu. Zastosowanie obu ścieżek przy użyciu [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) tworzy pojedynczy złożony kształt z przerwą w środkowej jednej trzeciej.
+Ten przykład definiuje dwa zamknięte obiekty [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) dla górnej i dolnej trzeciej części kształtu. Zastosowanie obu ścieżek za pomocą [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) tworzy pojedynczy złożony kształt z przerwą w środkowej trzeciej części.
 
 ```csharp
 using Aspose.Slides;
@@ -187,7 +187,7 @@ topPath.LineTo(0, shape.Height / 3);
 topPath.CloseFigure();
 
 var bottomPath = new GeometryPath();
-bottomPath.MoveTo(0, shape.Height / 3 * 2);
+bottomPath.MoveTo(shape.Height / 3 * 2, 0);
 bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
 bottomPath.LineTo(shape.Width, shape.Height);
 bottomPath.LineTo(0, shape.Height);
@@ -195,11 +195,11 @@ bottomPath.CloseFigure();
 
 shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
-![example4_image](custom_shape_4.png)
+![obrazek_przykład4](custom_shape_4.png)
 
-## **Tworzenie własnego kształtu z zaokrąglonymi narożnikami**
+## **Tworzenie własnego kształtu z zaokrąglonymi rogami**
 
-Ten przykład łączy proste segmenty z [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) , tworząc kształt z wklęsłymi zaokrąglonymi narożnikami. Rozmiar każdego narożnika określa szerokość i wysokość łuku w punktach, a obrót -90 stopni rysuje przeciwnie do ruchu wskazówek zegara ćwiartkę elipsy. Gotowa ścieżka jest stosowana przy użyciu [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) , a prezentacja jest zapisywana w formacie PPTX.
+Ten przykład łączy proste segmenty z [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/), aby utworzyć kształt z wklęsłymi rogami. Rozmiar każdego rogu określa szerokość i wysokość łuku w punktach, a kąt -90 stopni rysuje przeciwzegarowy ćwiartkowy elipsę. Gotowa ścieżka jest stosowana przy użyciu [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), a prezentacja jest zapisywana w formacie PPTX.
 
 ```csharp
 using System.Drawing;
@@ -243,9 +243,9 @@ shape.SetGeometryPath(geometryPath);
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **Sprawdzenie, czy geometria kształtu jest zamknięta**
+## **Sprawdzanie, czy geometria kształtu jest zamknięta**
 
-Poniższy pomocnik sprawdza, czy każda niepusta ścieżka geometryczna kończy się segmentem zamykającym. Odczytuje [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) i porównuje polecenie ostatniego segmentu [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) z [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/) . Zwraca false, gdy nie ma niepustych ścieżek. Sprawdza to końcowe polecenie każdej ścieżki; nie analizuje wszystkich podfigur w ścieżce. Przykład wypisuje `True` dla prostokąta.
+Poniższy pomocniczy kod sprawdza, czy każda niepusta ścieżka geometryczna kończy się segmentem zamykającym. Odczytuje [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) i porównuje polecenie ostatniego segmentu [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) z [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Zwraca false, gdy nie ma niepustych ścieżek. Sprawdza końcowe polecenie każdej ścieżki; nie analizuje każdej podfigury wewnątrz ścieżki. Przykład wypisuje `True` dla prostokąta.
 
 ```csharp
 using System;
@@ -281,11 +281,54 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
 }
 ```
 
+## **Inspekcja poleceń ścieżki geometrycznej**
+
+Pobierz plik [contour.pptx](contour.pptx) i umieść go w katalogu roboczym aplikacji. Na pierwszym slajdzie znajduje się kształt z prostą górną krawędzią, krzywą Béziera trzeciego stopnia i prostą krawędzią zamykającą. Użyj [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) aby odczytać jego ścieżki. Każda ścieżka wymienia swoje segmenty w kolejności rysowania w [PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/). Polecenie każdego segmentu, [PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/), określa, jak odczytać jego [SegmentData](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/segmentdata/).
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("contour.pptx");
+
+var shape = (IGeometryShape)presentation.Slides[0].Shapes[0];
+var paths = shape.GetGeometryPaths();
+
+for (int i = 0; i < paths.Length; i++)
+{
+    var segments = paths[i].PathData;
+    for (int j = 0; j < segments.Length; j++)
+    {
+        var command = segments[j].PathCommand;
+        var data = segments[j].SegmentData;
+        var detail = command switch
+        {
+            PathCommandType.MoveTo or PathCommandType.LineTo => $"destination=({data[0]}, {data[1]})",
+            PathCommandType.CubicBezierTo => $"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})",
+            PathCommandType.Close => "no coordinates",
+            _ => $"raw=[{string.Join(", ", data)}]"
+        };
+        Console.WriteLine($"Path {i}, segment {j}: {command} {detail}");
+    }
+}
+```
+
+Kształt znajduje się w położeniu (200, 100) punktów na slajdzie. Zgłoszone współrzędne są lokalne względem kształtu, przy (0, 0) w jego lewym górnym rogu, przy czym x rośnie w prawo, a y w dół. Segment zamykający powraca do punktu początkowego bez dodatkowych współrzędnych.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![Kształt PowerPoint z prostą górną krawędzią, zakrzywioną krawędzią od prawego górnego do lewego dolnego oraz prostą lewą krawędzią](contour.png)
+
 ## **Wyodrębnianie i inspekcja elementów kształtu**
 
-Użyj [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) , aby przejrzeć istniejący kształt jako elementy zawierające punkty ścieżki i typy punktów. Rzutuj każdy zwrócony [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) na [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) , aby odczytać jego tablice [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) i [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/) . Ta reprezentacja jest przydatna do analizy obrysu lub przekazywania geometrii do własnych narzędzi rysujących.
+Użyj [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) aby przeanalizować istniejący kształt jako elementy zawierające punkty ścieżki i typy punktów. Rzutuj każdy zwrócony [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) na [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/), aby odczytać jego tablice [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) i [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/). Taka reprezentacja jest przydatna do analizy konturu lub przekazywania geometrii do własnych narzędzi rysunkowych.
 
-Przykład otwiera prezentację, znajduje pierwszy kształt geometryczny bezpośrednio na pierwszym slajdzie i wypisuje jego segmenty ścieżki. Użyj prezentacji zawierającej kształt z segmentami prostymi i krzywymi, aby zobaczyć oba rodzaje wyników. Nie przeszukuje grup.
+Przykład otwiera prezentację, znajduje pierwszy geometryczny kształt bezpośrednio na pierwszym slajdzie i wypisuje jego segmenty ścieżki. Użyj prezentacji zawierającej kształt z prostymi i zakrzywionymi segmentami, aby zobaczyć oba rodzaje wyjścia. Nie przeszukuje grup.
 
 ```csharp
 using System;
@@ -311,7 +354,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 
     for (var i = 0; i < points.Length; i++)
     {
-        var pointType = types[i] & 0x07; // Zachowaj typ segmentu, wyłączając flagi.
+        var pointType = types[i] & 0x07; // Zachowaj typ segmentu, pomijając flagi.
         switch (pointType)
         {
             case 0:
@@ -322,7 +365,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
                 break;
             case 3:
                 Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
-                i += 2; // Consume both control points and the endpoint.
+                i += 2; // Zużyj oba punkty kontrolne i punkt końcowy.
                 break;
         }
 
@@ -334,23 +377,21 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 }
 ```
 
-Tablice odpowiadają sobie indeksami: `points[i]` jest punktem, a `types[i]` opisuje jego rolę. Typ `0` rozpoczyna figurę, a typ `1` rysuje linię od poprzedniego punktu do bieżącego. Segment krzywej Béziera trzeciego stopnia rozpoczyna się w poprzednim punkcie końcowym i używa trzech kolejnych wpisów typu `3`: dwa punkty kontrolne oraz nowy punkt końcowy. Pętla przetwarza te trzy wpisy razem i sprawdza punkt końcowy pod kątem zamknięcia.
+Tablice są powiązane indeksami: `points[i]` to punkt, a `types[i]` opisuje jego rolę. Typ `0` rozpoczyna figurę, a typ `1` rysuje linię od poprzedniego punktu do bieżącego. Segment Béziera trzeciego stopnia zaczyna się w poprzednim punkcie końcowym i używa trzech kolejnych wpisów typu `3`: dwóch punktów kontrolnych i nowego punktu końcowego. Pętla konsoliduje te trzy wpisy i sprawdza punkt końcowy pod kątem zamknięcia.
 
-Typy punktów zawierają także flagi. Maskuj przy użyciu `0x07`, aby zidentyfikować typ segmentu, oraz testuj osobno `0x80`, aby wykryć zamkniętą podścieżkę. Na przykład `129` (`0x81`) oznacza punkt końcowy linii, który zamyka podścieżkę, a `131` (`0x83`) oznacza punkt końcowy Béziera, który ją zamyka. Porównywanie surowej wartości tylko z `1` lub `3` pominęłoby te przypadki. Inne flagi, takie jak kreska (`0x10`) i znacznik (`0x20`), nie zmieniają podstawowego typu segmentu.
+Typy punktów zawierają również flagi. Maskuj wartość `0x07`, aby określić typ segmentu, oraz testuj `0x80` oddzielnie, aby wykryć zamkniętą podścieżkę. Na przykład `129` (`0x81`) oznacza punkt końcowy linii zamykający podścieżkę, a `131` (`0x83`) oznacza punkt końcowy Béziera zamykający podścieżkę. Porównywanie surowej wartości tylko z `1` lub `3` pominęłoby te przypadki. Inne flagi, takie jak kreska (`0x10`) i znacznik (`0x20`), nie zmieniają podstawowego typu segmentu.
 
-**Współrzędne i transformacje.**  
-Punkty mierzone są w punktach (1/72 cala), przy czym X rośnie w prawo, a Y rośnie w dół. Dla niepogrupowanego kształtu wyodrębnione współrzędne już zawierają jego pozycję [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) i [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) oraz odzwierciedlają bieżącą szerokość i wysokość. Na przykład nieobrócony prostokąt w `(100, 200)` o rozmiarze `120 × 80` ma granice obrysu `(100, 200)`–`(220, 280)`. Nie dodawaj ponownie pozycji kształtu. Odejmij jego X i Y, aby uzyskać współrzędne względem nieobróconej ramki.
+**Współrzędne i przekształcenia.** Punkty są mierzone w punktach (1/72 cala), przy czym X rośnie w prawo, a Y w dół. Dla niezgroupowanego kształtu wyodrębnione współrzędne już zawierają jego pozycję [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) i [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) oraz odzwierciedlają aktualną szerokość i wysokość. Na przykład nieobrócony prostokąt w `(100, 200)` o rozmiarze `120 × 80` ma granice konturu `(100, 200)`–`(220, 280)`. Nie dodawaj ponownie pozycji kształtu. Odejmij jego X i Y, aby uzyskać współrzędne względem jego nieobróconej ramki.
 
-Wyodrębnione punkty nie uwzględniają [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) kształtu ani odbić poziomych i pionowych. Aby odtworzyć wyświetlany obrys, zastosuj te transformacje wokół środka kształtu. Dla pogrupowanych kształtów uwzględnij także mapowanie współrzędnych grupy i transformacje; nie zakładaj, że wyodrębnione punkty są ostatecznymi współrzędnymi wyświetlanymi na slajdzie ani nie stosuj podwójnie translacji lub skalowania, jeśli już zostały uwzględnione w ramce dziecka.
+Wyodrębnione punkty nie uwzględniają [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) kształtu ani odbić poziomego i pionowego. Aby odtworzyć wyświetlany kontur, zastosuj te przekształcenia wokół środka kształtu. Dla zgrupowanych kształtów uwzględnij także mapowanie współrzędnych grupy i przekształcenia; nie zakładaj, że wyodrębnione punkty są ostatecznymi współrzędnymi slajdu ani nie stosuj podwójnych translacji lub skal, jeśli już są odzwierciedlone w ramce dziecka.
 
-Inspekcja vs edycja.  
-Wyodrębnione tablice opisują obrys; ich zmiana nie aktualizuje oryginalnego kształtu. Wybierz to podejście, gdy Twoja analiza lub kod rysujący potrzebuje tablic punktów/typów. Użyj [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) , gdy potrzebujesz poleceń geometrycznych w lokalnym układzie współrzędnych kształtu lub chcesz edytować jego geometrię. Zastosuj edytowane ścieżki za pomocą [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) lub [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) .
+**Inspekcja vs. edycja.** Wyodrębnione tablice opisują kontur; ich modyfikacja nie aktualizuje oryginalnego kształtu. Wybierz to podejście, gdy Twoja analiza lub kod rysujący potrzebuje tablic punktów/typów. Użyj [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/), gdy potrzebujesz poleceń geometrycznych w lokalnym układzie współrzędnych kształtu lub chcesz edytować jego geometrię. Zastosuj edytowane ścieżki poprzez [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) lub [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
 
 ## **Konwersja GeometryPath do GraphicsPath (System.Drawing.Drawing2D)**
 
-Poniższy przykład wymaga starszego zestawu Aspose.Slides for .NET, który obsługuje [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) , np. wersji 25.10, oraz środowiska Windows z `System.Drawing.Common`. Metody konwersji zostały usunięte w [wersji 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/) .
+Poniższy przykład wymaga starszego zestawu Aspose.Slides for .NET, który obsługuje [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), np. wersji 25.10, oraz środowiska Windows z `System.Drawing.Common`. Metody konwersji zostały usunięte w [wersji 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
 
-Ten przykład łączy prostokątny obrys z tekstem przekonwertowanym na geometrię. [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) obrysu jest ustawiony tak, aby wyłączyć wypełnienie. [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) przechowuje obrys tekstu, który [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) konwertuje na wypełnioną ścieżkę geometryczną. Zastosowanie obu ścieżek przy użyciu [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) tworzy pojedynczy kształt zawierający prostokąt i tekst. Do konwersji w odwrotnym kierunku użyj [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) .
+Ten przykład łączy prostokątny obrys z tekstem przekonwertowanym na geometrię. Właściwość [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) obrysu jest ustawiona na wyłączenie wypełnienia. [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) przechowuje obrys tekstu, który [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) konwertuje na wypełnioną ścieżkę geometryczną. Zastosowanie obu ścieżek za pomocą [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) tworzy pojedynczy kształt zawierający prostokąt i tekst. Do konwersji w odwrotnym kierunku użyj [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
 
 ```csharp
 using System.Drawing;
@@ -377,15 +418,18 @@ textPath.FillMode = PathFillModeType.Normal;
 
 shape.SetGeometryPaths(new[] { originalPath, textPath });
 ```
-![example5_image](custom_shape_5.png)
+![obrazek_przykład5](custom_shape_5.png)
 
 ## **FAQ**
 
-**Co się stanie z wypełnieniem i obrysem po zamianie geometrii?**  
-Styl pozostaje przypisany do kształtu; zmienia się tylko jego kontur. Wypełnienie i obrys są automatycznie stosowane do nowej geometrii.
+**Co się stanie z wypełnieniem i obrysem po zastąpieniu geometrii?**
 
-**Jak prawidłowo obrócić własny kształt wraz z jego geometrią?**  
+Styl pozostaje przypisany do kształtu; zmienia się tylko kontur. Wypełnienie i obrys są automatycznie stosowane do nowej geometrii.
+
+**Jak prawidłowo obrócić własny kształt razem z jego geometrią?**
+
 Użyj właściwości [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) kształtu; geometria obraca się razem z kształtem, ponieważ jest związana z jego własnym układem współrzędnych.
 
-**Czy mogę przekonwertować własny kształt na obraz, aby „zablokować” wynik?**  
-Tak. Wyeksportuj wymaganą [slide](/slides/pl/net/convert-powerpoint-to-png/) lub sam [shape](/slides/pl/net/create-shape-thumbnails/) do formatu rastrowego; ułatwia to dalszą pracę z złożonymi geometrjami.
+**Czy mogę przekonwertować własny kształt na obraz, aby „zablokować” wynik?**
+
+Tak. Wyeksportuj wybrany [slide](/slides/pl/net/convert-powerpoint-to-png/) lub sam [shape](/slides/pl/net/create-shape-thumbnails/) do formatu rastrowego; upraszcza to dalszą pracę z złożonymi geometriami.

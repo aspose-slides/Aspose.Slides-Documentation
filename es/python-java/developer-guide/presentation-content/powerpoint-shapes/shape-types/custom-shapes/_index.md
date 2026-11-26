@@ -1,5 +1,5 @@
 ---
-title: Personalizar formas de presentación en Python a través de Java
+title: Personalizar formas de presentación en Python vía Java
 linktitle: Forma personalizada
 type: docs
 weight: 20
@@ -16,18 +16,18 @@ keywords:
 - añadir punto
 - eliminar punto
 - operación de edición
-- esquina curva
+- esquina curvada
 - PowerPoint
 - presentación
 - Python
 - Aspose.Slides
-description: "Crear y personalizar formas en presentaciones de PowerPoint con Aspose.Slides para Python a través de Java: rutas de geometría, esquinas curvas, formas compuestas."
+description: "Crear y personalizar formas en presentaciones de PowerPoint con Aspose.Slides para Python vía Java: rutas de geometría, esquinas curvadas, formas compuestas."
 ---
 ## **Visión general**
 
-Este artículo explica cómo personalizar las formas de presentación en Aspose.Slides editando la geometría de la forma mediante puntos de edición y rutas de geometría. Muestra cómo trabajar con [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) para modificar formas existentes, realizar operaciones básicas de edición de rutas, añadir o eliminar puntos y aplicar la geometría actualizada a una forma.
+Este artículo explica cómo personalizar formas de presentación en Aspose.Slides editando la geometría de la forma mediante puntos de edición y rutas de geometría. Muestra cómo trabajar con [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) para modificar formas existentes, realizar operaciones básicas de edición de rutas, añadir o eliminar puntos y aplicar la geometría actualizada a una forma.
 
-También demuestra cómo crear formas personalizadas y compuestas, construir formas con esquinas curvas, determinar si la geometría de una forma está cerrada, inspeccionar los elementos de la forma y convertir los contornos de texto de Java AWT en rutas de geometría.
+También demuestra cómo crear formas personalizadas y compuestas, construir formas con esquinas curvadas, determinar si la geometría de una forma está cerrada, inspeccionar los elementos de la forma y convertir contornos de texto de Java AWT en rutas de geometría.
 
 ## **Cambiar una forma mediante puntos de edición**
 
@@ -39,14 +39,14 @@ En PowerPoint, puedes usar **Puntos de edición** para modificar un cuadrado:
 
 Editar puntos te permite modificar el contorno de una forma o usar una forma existente como base para una nueva.
 
-## **Consejos para editar formas**
+## **Consejos para la edición de formas**
 
 ![overview_image](custom_shape_0.png)
 
-Al editar formas de PowerPoint, ten en cuenta estos conceptos:
+Al editar formas en PowerPoint, ten en cuenta estos conceptos:
 
 * Una forma (o su ruta) puede estar cerrada o abierta.
-* La ruta de una forma está compuesta por puntos de anclaje conectados por segmentos.
+* La ruta de una forma consta de puntos de anclaje conectados por segmentos.
 * Un segmento puede ser recto o curvo. Los puntos de anclaje y los manejadores de control determinan su forma.
 * Los puntos de anclaje existen como puntos de esquina, puntos rectos o puntos suaves:
   * En un punto de esquina, los segmentos adyacentes pueden encontrarse en un ángulo.
@@ -56,13 +56,13 @@ Al editar formas de PowerPoint, ten en cuenta estos conceptos:
 
 Para editar formas de PowerPoint mediante puntos de edición, **Aspose.Slides** proporciona la clase [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
 
-* Una instancia de [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) representa una ruta de geometría del objeto [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/).
+* Una instancia de [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) representa la ruta de geometría del objeto [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/).
 * Para obtener el [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) de la instancia [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/), puedes usar el método [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths).
 * Para establecer el [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) de una forma, puedes usar estos métodos: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) para formas con una única ruta y [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) para formas con varias rutas.
 * Para añadir segmentos, puedes usar los métodos bajo [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
-* Con los métodos [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) y [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode), puedes definir la apariencia de una ruta de geometría.
-* Mediante el método [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData), puedes obtener la ruta de geometría de un [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) como una matriz de segmentos de ruta.
-* Para acceder a opciones adicionales de personalización de geometría de forma, puedes leer un [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) a través de su [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) y reproducir los segmentos en un [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
+* Mediante los métodos [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) y [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode), puedes definir la apariencia de una ruta de geometría.
+* Utilizando el método [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData), puedes obtener la ruta de geometría de un [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) como una matriz de segmentos de ruta.
+* Para acceder a opciones adicionales de personalización de la geometría de la forma, puedes leer un [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) a través de su [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) y reproducir los segmentos en un [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
 
 ## **Operaciones de edición simples**
 
@@ -75,12 +75,12 @@ Utiliza los siguientes métodos para editar una ruta de geometría. Las sobrecar
 | Añadir o insertar una curva Bézier cuadrática con un punto de control y un punto final. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
 | Añadir un arco elíptico con las dimensiones y ángulos especificados en grados. | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
 | Cerrar la figura actual conectando su punto final con su punto inicial. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
-| Establecer el punto inicial de una figura. | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
+| Definir el punto inicial de una figura. | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
 | Eliminar un segmento en un índice basado en cero. | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **Añadir puntos personalizados a una forma**
 
-Este ejemplo inserta dos puntos en una forma rectangular usando [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) y aplica la ruta editada con [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath). Las coordenadas son locales a la forma: ambos puntos nuevos están en su centro, a 100 puntos de la izquierda y 50 puntos de la parte superior. Los índices de segmento 1 y 4 los colocan en los bordes superior e inferior, tirando esos bordes hacia adentro.
+Este ejemplo inserta dos puntos en una forma rectangular mediante [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) y aplica la ruta editada con [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath). Las coordenadas son locales a la forma: ambos puntos nuevos están en su centro, a 100 puntos del borde izquierdo y 50 puntos del borde superior. Los índices de segmento 1 y 4 los sitúan en los bordes superior e inferior, tirando esos bordes hacia adentro.
 
 ```python
 import jpype
@@ -110,7 +110,7 @@ finally:
 
 ## **Eliminar puntos de una forma**
 
-Este ejemplo modifica el contorno de una forma con forma de corazón eliminando el segmento en el índice basado en cero 2 con [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt). Aplicar la ruta modificada con [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) actualiza el contorno de la forma.
+Este ejemplo modifica el contorno de una forma de corazón eliminando el segmento en el índice basado en cero 2 con [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt). Aplicar la ruta modificada con [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) actualiza el contorno de la forma.
 
 ```python
 import jpype
@@ -138,7 +138,7 @@ finally:
 
 ## **Crear una forma personalizada**
 
-Este ejemplo construye una estrella de cinco puntas con [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/). Los radios exteriores e interiores alternados de 100 y 50 puntos definen las puntas y las indentaciones; un paso de 72 grados separa uniformemente las cinco puntas. La ruta se cierra con [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) y se aplica a una forma rectangular mediante [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), sustituyendo su contorno.
+Este ejemplo construye una estrella de cinco puntas con [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/). Radios exteriores e interiores alternados de 100 y 50 puntos definen las puntas y las hendiduras; un paso de 72 grados separa uniformemente las cinco puntas. La ruta se cierra con [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) y se aplica a una forma rectangular mediante [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), sustituyendo su contorno.
 
 ```python
 import jpype
@@ -186,7 +186,7 @@ finally:
 
 ## **Crear una forma compuesta personalizada**
 
-Este ejemplo define dos [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) cerrados para el tercio superior e inferior de una forma. Aplicar ambas rutas con [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) crea una única forma compuesta con un espacio en su tercio central.
+Este ejemplo define dos [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) cerrados para el tercio superior y el tercio inferior de una forma. Aplicar ambas rutas con [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) crea una única forma compuesta con una abertura en el tercio medio.
 
 ```python
 import jpype
@@ -223,9 +223,9 @@ finally:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Crear una forma personalizada con esquinas curvas**
+## **Crear una forma personalizada con esquinas curvadas**
 
-Este ejemplo combina segmentos rectos con [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) para crear una forma con esquinas curvas hacia adentro. Cada tamaño de esquina establece el ancho y la altura del arco en puntos, y el barrido de -90 grados dibuja un cuarto de elipse en sentido antihorario. La ruta completada se aplica con [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) y la presentación se guarda en formato PPTX.
+Este ejemplo combina segmentos rectos con [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) para crear una forma con esquinas curvadas hacia adentro. Cada tamaño de esquina establece el ancho y la altura del arco en puntos, y el barrido de -90 grados dibuja un cuarto de elipse en sentido antihorario. La ruta completa se aplica con [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), y la presentación se guarda en formato PPTX.
 
 ```python
 import jpype
@@ -271,9 +271,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Descubrir si la geometría de una forma está cerrada**
+## **Determinar si la geometría de una forma está cerrada**
 
-El siguiente ayudante verifica si cada ruta de geometría no vacía termina con un segmento de cierre. Lee [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) y compara el comando del segmento final [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) con [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/). Devuelve `False` cuando no hay rutas no vacías. Esta comprobación revisa el comando final de cada ruta; no inspecciona cada subfigura dentro de una ruta. El ejemplo imprime `True` para un rectángulo.
+El siguiente ayudante verifica si cada ruta de geometría no vacía termina con un segmento de cierre. Lee [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) y compara el [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) del segmento final con [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/). Devuelve `False` cuando no hay rutas no vacías. Esta comprobación analiza el comando final de cada ruta; no inspecciona cada subfigura dentro de una ruta. El ejemplo muestra `True` para un rectángulo.
 
 ```python
 import jpype
@@ -306,11 +306,56 @@ finally:
     presentation.dispose()
 ```
 
-## **Extraer e inspeccionar elementos de forma**
+## **Inspeccionar los comandos de la ruta de geometría**
 
-Utiliza [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) para inspeccionar una forma existente como elementos que contienen puntos de ruta y tipos de punto. Convierte cada elemento devuelto a [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) con `jpype.JObject` para obtener las matrices de puntos y tipos mediante los métodos [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) y [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes). Esta representación es útil para análisis de contorno o para pasar la geometría a herramientas de dibujo personalizadas.
+Descarga [contour.pptx](contour.pptx) y colócalo en el directorio de trabajo de la aplicación. La primera forma en la primera diapositiva tiene un borde superior recto, una curva Bézier cúbica y un borde de cierre recto. Usa [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) para leer las rutas de la forma y [getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) para leer los segmentos de cada ruta en orden de dibujo. Para cada segmento, [getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) identifica el comando y determina cómo interpretar los valores devueltos por [getSegmentData](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getSegmentData).
 
-El ejemplo abre input.pptx, encuentra la primera forma de geometría directamente en la primera diapositiva y muestra sus segmentos de ruta. Usa una presentación que contenga una forma con segmentos rectos y curvos para ver ambos tipos de salida. No busca dentro de grupos.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PathCommandType, Presentation
+
+presentation = Presentation("contour.pptx")
+try:
+    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    for i, path in enumerate(shape.getGeometryPaths()):
+        for j, segment in enumerate(path.getPathData()):
+            command = segment.getPathCommand()
+            data = segment.getSegmentData()
+            if command in (PathCommandType.MoveTo, PathCommandType.LineTo):
+                detail = f"destination=({data[0]}, {data[1]})"
+            elif command == PathCommandType.CubicBezierTo:
+                detail = f"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})"
+            elif command == PathCommandType.Close:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={list(data)}"
+            name = PathCommandType.getName(PathCommandType.class_, command)
+            print(f"Path {i}, segment {j}: {name} {detail}")
+finally:
+    presentation.dispose()
+```
+
+La forma está situada en (200, 100) puntos sobre la diapositiva. Las coordenadas reportadas son locales a la forma, con (0, 0) en su esquina superior izquierda, x incrementándose hacia la derecha e y incrementándose hacia abajo. El segmento de cierre vuelve al punto inicial sin coordenadas adicionales.
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Extraer e inspeccionar elementos de la forma**
+
+Utiliza [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) para inspeccionar una forma existente como elementos que contienen puntos de ruta y tipos de punto. Convierta cada elemento devuelto a [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) con `jpype.JObject` para obtener las matrices de puntos y tipos mediante los métodos [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) y [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes). Esta representación es útil para análisis de contorno o para pasar la geometría a herramientas de dibujo personalizadas.
+
+El ejemplo abre `input.pptx`, encuentra la primera forma de geometría directamente en la primera diapositiva y muestra sus segmentos de ruta. Usa una presentación que contenga una forma con segmentos rectos y curvos para observar ambos tipos de salida. No busca dentro de los grupos.
 
 ```python
 import jpype
@@ -358,21 +403,21 @@ finally:
     presentation.dispose()
 ```
 
-Las matrices corresponden por índice: `points[i]` es un punto y `types[i]` describe su papel. El tipo `0` inicia una figura, y el tipo `1` dibuja una línea desde el punto anterior al punto actual. Un segmento Bézier cúbico comienza en el punto final anterior y usa tres entradas consecutivas de tipo `3`: dos puntos de control seguidos del nuevo punto final. El bucle consume esas tres entradas juntas y verifica el punto final para detectar cierre.
+Las matrices se corresponden por índice: `points[i]` es un punto y `types[i]` describe su función. El tipo `0` inicia una figura, y el tipo `1` dibuja una línea desde el punto anterior al punto actual. Un segmento Bézier cúbico comienza en el punto final anterior y usa tres entradas consecutivas de tipo `3`: dos puntos de control seguidos del nuevo punto final. El bucle consume esas tres entradas juntas y verifica el punto final para detectar cierre.
 
-Los tipos de punto también contienen indicadores. Enmascara con `0x07` para identificar el tipo de segmento y prueba `0x80` por separado para detectar una subruta cerrada. Por ejemplo, `129` (`0x81`) significa un punto final de línea que cierra una subruta, y `131` (`0x83`) significa un punto final Bézier que cierra una. Java almacena estos indicadores en bytes con signo; enmascarar preserva los valores de bits previstos. Comparar el valor bruto solo con `1` o `3` omitiría estos casos. Otros indicadores, como guión (`0x10`) y marcador (`0x20`), no cambian el tipo base del segmento.
+Los tipos de punto también contienen banderas. Enmascara con `0x07` para identificar el tipo de segmento y prueba `0x80` por separado para detectar una subruta cerrada. Por ejemplo, `129` (`0x81`) significa un punto final de línea que cierra una subruta, y `131` (`0x83`) significa un punto final de Bézier que la cierra. Java almacena estas banderas en bytes con signo; el enmascarado preserva los valores de bits previstos. Comparar el valor bruto solo con `1` o `3` omitiría esos casos. Otras banderas, como la de guión (`0x10`) y la de marcador (`0x20`), no modifican el tipo base del segmento.
 
-**Coordenadas y transformaciones.** Los puntos se miden en puntos (1/72 de pulgada), con X aumentando hacia la derecha y Y aumentando hacia abajo. Para una forma sin agrupar, las coordenadas extraídas ya incluyen la posición devuelta por [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) y [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) y reflejan su ancho y alto actuales. Por ejemplo, un rectángulo sin rotar en `(100, 200)` con tamaño `120 × 80` tiene límites de contorno `(100, 200)`–`(220, 280)`. No vuelvas a añadir la posición de la forma. Resta sus X y Y para obtener coordenadas relativas a su marco sin rotar.
+**Coordenadas y transformaciones.** Los puntos se miden en puntos (1/72 pulgada), con X aumentando hacia la derecha e Y aumentando hacia abajo. Para una forma no agrupada, las coordenadas extraídas ya incluyen la posición devuelta por [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) y [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) y reflejan su ancho y alto actuales. Por ejemplo, un rectángulo sin rotar en `(100, 200)` con tamaño `120 × 80` tiene límites de contorno `(100, 200)`–`(220, 280)`. No vuelvas a añadir la posición de la forma. Resta su X y Y para obtener coordenadas relativas a su marco sin rotar.
 
-Los puntos extraídos no aplican la rotación de la forma, devuelta por [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation), ni los reflejos horizontales y verticales. Para reproducir el contorno visible, aplica esas transformaciones alrededor del centro de la forma. Para formas agrupadas, también ten en cuenta el mapeo de coordenadas del grupo y sus transformaciones; no asumas que los puntos extraídos son las coordenadas finales renderizadas en la diapositiva ni apliques una traslación o escala dos veces si ya están reflejadas en el marco del hijo.
+Los puntos extraídos no aplican la rotación de la forma, devuelta por [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation), ni los reflejos horizontal y vertical. Para reproducir el contorno mostrado, aplica esas transformaciones alrededor del centro de la forma. Para formas agrupadas, también ten en cuenta el mapeo de coordenadas y transformaciones del grupo; no asumas que los puntos extraídos son las coordenadas finales renderizadas en la diapositiva ni apliques una traslación o escala dos veces si ya están reflejadas en el marco del hijo.
 
-**Inspección vs edición.** Las matrices extraídas describen el contorno; modificarlas no actualiza la forma original. Elige este enfoque cuando tu análisis o código de dibujo necesite matrices de puntos/tipos. Usa [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) cuando necesites comandos de geometría en el sistema de coordenadas local de la forma o quieras editar su geometría. Aplica rutas editadas mediante [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) o [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Inspección versus edición.** Las matrices extraídas describen el contorno; modificarlas no actualiza la forma original. Elige este enfoque cuando tu análisis o código de dibujo necesite matrices de punto/tipo. Usa [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) cuando necesites comandos de geometría en el sistema de coordenadas local de la forma o quieras editar su geometría. Aplica rutas editadas a través de [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) o [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths).
 
 ## **Convertir una forma Java AWT a GeometryPath**
 
-Este ejemplo combina un contorno rectangular con texto convertido a geometría. El método [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) del contorno desactiva su relleno. Un [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) crea el contorno de texto en un [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Su [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) suministra movimientos, líneas, segmentos cuadráticos, cúbicos y de cierre, que el ejemplo reproduce en un [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
+Este ejemplo combina un contorno rectangular con texto convertido a geometría. El método [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) del contorno desactiva su relleno. Un [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) crea el contorno del texto en un [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Su [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) suministra segmentos de movimiento, línea, cuadrática, cúbica y cierre, que el ejemplo reproduce en un [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
 
-El texto usa una fuente Arial de 40 puntos. El contorno se desplaza 20 puntos horizontalmente y se posiciona con su parte superior visual 10 puntos bajo el borde superior de la forma. La ruta de texto se rellena, mientras que el rectángulo original permanece como contorno. Aplicar ambas rutas con [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) produce una única forma que contiene el rectángulo y el texto.
+El texto utiliza una fuente Arial de 40 puntos. El contorno se desplaza 20 puntos horizontalmente y se posiciona con su parte superior visual 10 puntos bajo el borde superior de la forma. La ruta del texto se rellena, mientras que el rectángulo original permanece como contorno. Aplicar ambas rutas con [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) produce una única forma que contiene el rectángulo y el texto.
 
 ```python
 import jpype
@@ -439,14 +484,14 @@ finally:
 
 ## **Preguntas frecuentes**
 
-**¿Qué ocurrirá con el relleno y el contorno después de reemplazar la geometría?**
+**¿Qué ocurrirá con el relleno y el contorno después de sustituir la geometría?**
 
-El estilo permanece con la forma; solo cambia el contorno. El relleno y el contorno se aplican automáticamente a la nueva geometría.
+El estilo permanece asociado a la forma; solo cambia el contorno. El relleno y el contorno se aplican automáticamente a la nueva geometría.
 
-**¿Cómo giro correctamente una forma personalizada junto con su geometría?**
+**¿Cómo rotar correctamente una forma personalizada junto con su geometría?**
 
 Utiliza el método [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) de la forma; la geometría gira con la forma porque está vinculada al propio sistema de coordenadas de la forma.
 
-**¿Puedo convertir una forma personalizada en una imagen para "bloquear" el resultado?**
+**¿Puedo convertir una forma personalizada en una imagen para “bloquear” el resultado?**
 
-Sí. Exporta el área de la [diapositiva](/slides/es/python-java/convert-powerpoint-to-png/) requerida o la propia [forma](/slides/es/python-java/create-shape-thumbnails/) a un formato raster; esto simplifica el trabajo posterior con geometrías complejas.
+Sí. Exporta el área de la [slide](/slides/es/python-java/convert-powerpoint-to-png/) requerida o la propia [shape](/slides/es/python-java/create-shape-thumbnails/) a un formato raster; esto simplifica el trabajo posterior con geometrías complejas.

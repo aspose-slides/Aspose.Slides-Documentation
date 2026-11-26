@@ -1,88 +1,88 @@
 ---
-title: ".NET'te Sunum Şekillerini Özelleştirme"
-linktitle: "Özel Şekil"
+title: PowerPoint Sunum Şekillerini .NET'te Özelleştirme
+linktitle: Özel Şekil
 type: docs
 weight: 20
 url: /tr/net/custom-shape/
 keywords:
-- "özel şekil"
-- "şekil ekle"
-- "şekil oluştur"
-- "şekil değiştir"
-- "şekil geometrisi"
-- "geometri yolu"
-- "yol noktaları"
-- "düzenleme noktaları"
-- "nokta ekle"
-- "nokta kaldır"
-- "düzenleme işlemi"
-- "yuvarlatılmış köşe"
-- "PowerPoint"
-- "sunum"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET ile PowerPoint sunumlarında şekil oluşturun ve özelleştirin: geometri yolları, yuvarlatılmış köşeler, birleşik şekiller."
+- özel şekil
+- şekil ekle
+- şekil oluştur
+- şekli değiştir
+- şekil geometrisi
+- geometri yolu
+- yol noktaları
+- düzenleme noktaları
+- nokta ekle
+- nokta kaldır
+- düzenleme işlemi
+- kıvrımlı köşe
+- PowerPoint
+- sunum
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET ile PowerPoint sunumlarında şekilleri oluşturun ve özelleştirin: geometri yolları, kıvrımlı köşeler, birleşik şekiller."
 ---
 ## **Genel Bakış**
 
-Bu makale, düzenleme noktaları ve geometri yolları aracılığıyla şekil geometrisini düzenleyerek Aspose.Slides'te sunum şekillerinin nasıl özelleştirileceğini açıklar. Mevcut şekilleri değiştirmek, temel yol düzenleme işlemleri gerçekleştirmek, nokta eklemek veya kaldırmak ve güncellenen geometrinin bir şekle uygulanması için [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ve [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) ile nasıl çalışılacağını gösterir.
+Bu makale, Aspose.Slides içinde şekil geometrisini düzenleme noktaları ve geometri yolları aracılığıyla düzenleyerek sunum şekillerini nasıl özelleştireceğinizi açıklar. Mevcut şekilleri değiştirmek, temel yol düzenleme işlemlerini gerçekleştirmek, noktalar eklemek veya kaldırmak ve güncellenen geometriyi bir şekle uygulamak için [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ve [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) ile nasıl çalışılacağını gösterir.
 
-Ayrıca özel ve birleşik şekiller oluşturma, köşeleri yuvarlatılmış şekiller inşa etme, bir şekil geometrisinin kapalı olup olmadığını belirleme ve ek geometri özelleştirme senaryoları için [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ile [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) arasındaki eski dönüştürmeyi kullanma konularını örnekler.
+Ayrıca özel ve birleşik şekiller oluşturma, köşeleri kıvrımlı olan şekiller inşa etme, bir şekil geometrisinin kapalı olup olmadığını belirleme ve ek geometri özelleştirme senaryoları için [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ile [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) arasındaki eski dönüştürmeyi kullanma konularını da demonstrasyonlar.
 
 ## **Düzenleme Noktalarıyla Bir Şekli Değiştirme**
 
-PowerPoint'te **Düzenleme Noktaları** kullanarak bir kareyi değiştirebilirsiniz:
+PowerPoint'te **Düzenleme Noktaları**nı kullanarak bir kareyi şu şekilde değiştirebilirsiniz:
 
 * Bir köşeyi içe ya da dışa hareket ettirin.
 * Bir noktadaki eğriliği ayarlayın.
 * Yeni noktalar ekleyin.
 
-Düzenleme noktaları, bir şeklin hatlarını değiştirebilmenizi veya mevcut bir şekli yeni bir şeklin temelini oluşturmak için kullanmanızı sağlar.
+Noktaları düzenlemek, bir şeklin dış hatlarını değiştirmenizi veya mevcut bir şekli yeni bir şeklin temelini oluşturmak için kullanmanızı sağlar.
 
 ## **Şekil Düzenleme İpuçları**
 
-![overview_image](custom_shape_0.png)
+![genel_bakıs_resmi](custom_shape_0.png)
 
-PowerPoint şekillerini düzenlerken şu kavramları aklınızda bulundurun:
+PowerPoint şekillerini düzenlerken şu kavramları aklınızda tutun:
 
 * Bir şeklin (veya yolunun) kapalı ya da açık olabilir.
-* Bir şeklin yolu, segmentlerle bağlanan çapa noktalarından oluşur.
-* Bir segment düz ya da eğri olabilir. Çapa noktaları ve kontrol tutamaçları şeklini belirler.
-* Çapa noktaları köşe noktaları, düz noktalar veya yumuşak noktalar olarak bulunur:
-  * Köşe noktasında, bitişik segmentler bir açıyla birleşebilir.
-  * Yumuşak noktada, iki kontrol tutamaçı hizalanmış ve çapa noktasından eşit mesafededir.
-  * Düz noktada, iki kontrol tutamaçı hizalanmış ancak çapa noktasından farklı mesafelerde olabilir.
-* Çapa noktalarını hareket ettirmek veya tutamaçlarını ayarlamak şeklin hatlarını değiştirir.
+* Bir şeklin yolu, parçalarla bağlanan çapa (anchor) noktalarından oluşur.
+* Bir parça düz veya kıvrımlı olabilir. Çapa noktaları ve kontrol kulpları şeklin biçimini belirler.
+* Çapa noktaları köşe, düz ya da pürüzsüz nokta olarak bulunur:
+  * Köşe noktasında, bitişik parçalar bir açıyla buluşur.
+  * Pürüzsüz noktada, iki kontrol kulpu hizalanmıştır ve çapa noktasından eşit uzaklıktadır.
+  * Düz noktada, iki kontrol kulpu hizalanmıştır ancak çapa noktasından farklı uzaklıklarda olabilir.
+* Çapa noktalarını hareket ettirmek veya kulplarını ayarlamak, şeklin dış hattını değiştirir.
 
 PowerPoint şekillerini düzenleme noktalarıyla düzenlemek için **Aspose.Slides**, [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) sınıfını ve [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) arayüzünü sağlar.
 
 * Bir [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) örneği, [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) nesnesinin geometri yolunu temsil eder.
 * [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) örneğinden [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) almak için [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) yöntemini kullanabilirsiniz.
-* Bir şekil için [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ayarlamak üzere tek yollu şekillerde [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), çoklu yollar için ise [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) yöntemlerini kullanabilirsiniz.
-* Segment eklemek için [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) altındaki yöntemleri kullanabilirsiniz.
+* Bir şeklin [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)’ını ayarlamak için tek yollu şekillerde [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), çok yollarlı şekillerde ise [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) yöntemlerini kullanabilirsiniz.
+* Parçalar eklemek için [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) altındaki yöntemleri kullanabilirsiniz.
 * [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) ve [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) özellikleriyle bir geometri yolunun görünümünü ayarlayabilirsiniz.
-* [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) özelliği sayesinde bir [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) yolunu segment dizisi olarak alabilirsiniz.
-* Aşağıdaki dönüşüm yöntemlerini destekleyen eski sürümlerde, [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) → [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) dönüşümü yapabilirsiniz.
-* [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/) sınıfındaki [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) ve [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) yöntemleriyle [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ve [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) arasında dönüşüm yapabilirsiniz.
+* [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) özelliği, bir [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/)’ın yolunu parça dizisi olarak almanızı sağlar.
+* Aşağıdaki dönüşüm yöntemlerini destekleyen eski sürümlerde, [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)’ı [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath)’e dönüştürebilirsiniz.
+* [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/) sınıfındaki [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) ve [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) yöntemlerini kullanarak [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ve [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) arasında dönüşüm yapabilirsiniz.
 
 ## **Basit Düzenleme İşlemleri**
 
-Bir geometri yolunu düzenlemek için aşağıdaki yöntemleri kullanın. Bir dizin kabul eden aşırı yüklemeler, segmenti yolun segment dizisindeki sıfır‑bazlı konuma ekler.
+Bir geometri yolunu düzenlemek için aşağıdaki yöntemleri kullanın. Bir dizin kabul eden aşırı yüklemeler, parçayı yolun sıfır‑tabanlı konumunda ekler.
 
 | İşlem | Yöntem |
 | --- | --- |
-| Düz bir çizgi ekle ya da ekle. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
-| İki kontrol noktası ve bir son nokta ile kübik Bézier eğrisi ekle ya da ekle. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
-| Tek bir kontrol noktası ve bir son nokta ile ikinci dereceden Bézier eğrisi ekle ya da ekle. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
-| Belirtilen ölçüler ve derece cinsinden açıyla eliptik yay ekle. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
-| Şu anki figürü, son noktasını başlangıç noktasına bağlayarak kapat. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| Düz bir çizgi ekle veya ekle. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
+| İki kontrol noktası ve bir son nokta içeren kübik Bézier eğrisi ekle veya ekle. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| Tek bir kontrol noktası ve bir son nokta içeren ikinci dereceden Bézier eğrisi ekle veya ekle. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| Belirtilen boyut ve derece cinsinden açıyla eliptik yay ekle. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| Şeklin son noktasını başlangıç noktasına bağlayarak mevcut figürü kapat. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
 | Bir figürün başlangıç noktasını ayarla. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
-| Sıfır‑bazlı bir dizindeki segmenti kaldır. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
+| Sıfır‑tabanlı bir dizindeki parçayı kaldır. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
-## **Şekle Özel Noktalar Ekleme**
+## **Şekle Özel Noktalar Eklemek**
 
-Bu örnek, bir dikdörtgen şekline iki nokta eklemek için [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) kullanır ve düzenlenen yolu [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ile uygular. Koordinatlar şekle göre yereldir: yeni noktalar her iki açıdan da merkezde, soldan 100 puan, üstten 50 puan uzaktadır. 1 ve 4 segment indeksleri, bu noktaları üst ve alt kenarlara yerleştirerek kenarları içe doğru çeker.
+Bu örnek, bir dikdörtgen şekline iki nokta eklemek için [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) kullanır ve düzenlenmiş yolu [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ile uygular. Koordinatlar şekle göre yereldir: her iki yeni nokta da şeklin merkezinde, sol kenardan 100 puan ve üst kenardan 50 puan uzaktadır. Parça indeksleri 1 ve 4, bu noktaları üst ve alt kenarlara yerleştirerek bu kenarları içe doğru çeker.
 
 ```csharp
 using Aspose.Slides;
@@ -99,11 +99,11 @@ geometryPath.LineTo(100, 50, 4);
 shape.SetGeometryPath(geometryPath);
 ```
 
-![example1_image](custom_shape_1.png)
+![örnek1_resim](custom_shape_1.png)
 
-## **Şekilden Noktalar Kaldırma**
+## **Şekilden Noktalar Kaldırmak**
 
-Bu örnek, bir kalp şeklindeki anahatı, sıfır‑bazlı 2. indeksdeki segmenti [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) ile kaldırarak değiştirir. Değiştirilen yolu [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ile uygulamak şeklin konturunu günceller.
+Bu örnek, [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) ile sıfır‑tabanlı 2 indeksindeki parçayı kaldırarak bir kalp dış hatını değiştirir. Değiştirilmiş yolu [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ile uygulamak, şeklin konturunu günceller.
 
 ```csharp
 using Aspose.Slides;
@@ -118,11 +118,11 @@ path.RemoveAt(2);
 
 shape.SetGeometryPath(path);
 ```
-![example2_image](custom_shape_2.png)
+![örnek2_resim](custom_shape_2.png)
 
-## **Özel Bir Şekil Oluşturma**
+## **Özel Bir Şekil Oluşturmak**
 
-Bu örnek, [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) kullanarak beş köşeli bir yıldız inşa eder. 100 ve 50 puan dış ve iç yarıçapların dönüşümlü olarak belirlenmesi uçları ve girintileri tanımlar; 72‑derecelik adım, beş ucu eşit aralıklarla yerleştirir. Yol, [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) ile kapatılır ve [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ile bir dikdörtgen şekline uygulanarak anahattı değiştirilir.
+Bu örnek, [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) kullanarak beş köşeli bir yıldız oluşturur. Dış ve iç yarıçapların sırayla 100 ve 50 puan olması, uçları ve girintileri tanımlar; 72‑derecelik adım beş ucu eşit aralıklarla yerleştirir. Yol, [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) ile kapatılır ve [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ile bir dikdörtgen şekle uygulanarak dış çizgisi değiştirilir.
 
 ```csharp
 using System;
@@ -165,11 +165,11 @@ var slide = presentation.Slides[0];
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
 shape.SetGeometryPath(starPath);
 ```
-![example3_image](custom_shape_3.png)
+![örnek3_resim](custom_shape_3.png)
 
-## **Birleşik Özel Şekil Oluşturma**
+## **Bileşik Bir Özel Şekil Oluşturmak**
 
-Bu örnek, bir şeklin üst ve alt üçte bir bölümleri için iki kapalı [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) nesnesi tanımlar. Her iki yol da [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) ile uygulanarak orta üçte bir boşluk bırakılan tek bir birleşik şekil elde edilir.
+Bu örnek, bir şeklin üst ve alt üçte birlik kısımları için iki kapalı [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) nesnesi tanımlar. Her iki yolu da [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) ile uygulamak, ortasındaki bir boşlukla tek bir birleşik şekil oluşturur.
 
 ```csharp
 using Aspose.Slides;
@@ -195,11 +195,11 @@ bottomPath.CloseFigure();
 
 shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
-![example4_image](custom_shape_4.png)
+![örnek4_resim](custom_shape_4.png)
 
-## **Yuvarlatılmış Köşeli Özel Şekil Oluşturma**
+## **Kıvrımlı Köşeli Özel Bir Şekil Oluşturmak**
 
-Bu örnek, düz segmentleri [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) ile birleştirerek içe doğru kıvrımlı köşelere sahip bir şekil üretir. Her köşe boyutu, yay genişliği ve yüksekliğini puan cinsinden ayarlar; -90 derecelik süpürme ise saat yönünün tersine bir çeyrek elips çizer. Tamamlanan yol, [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ile uygulanır ve sunum PPTX formatında kaydedilir.
+Bu örnek, düz parçaları [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) ile birleştirerek içe doğru kıvrılmış köşelere sahip bir şekil oluşturur. Her köşe boyutu, yay genişliği ve yüksekliğini puan cinsinden ayarlar; -90 derecelik süpürme, saat yönünün tersine bir çeyrek elips çizer. Tamamlanan yol, [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ile uygulanır ve sunum PPTX formatında kaydedilir.
 
 ```csharp
 using System.Drawing;
@@ -243,9 +243,9 @@ shape.SetGeometryPath(geometryPath);
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenme**
+## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenmek**
 
-Aşağıdaki yardımcı, her dolu olmayan geometri yolunun kapanış segmentiyle bitip bitmediğini kontrol eder. [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) okur ve son segmentin [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) değerini [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/) ile karşılaştırır. Boş olmayan yol olmadığında **false** döner. Bu, her yolun son komutunu inceler; yol içindeki her alt‑figürü taramaz. Örnek, bir dikdörtgen için `True` yazdırır.
+Aşağıdaki yardımcı, her boş olmayan geometri yolunun kapanış parçası ile bitip bitmediğini kontrol eder. [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) okunur ve son parçanın [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) değeri [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/) ile karşılaştırılır. Boş olmayan yol bulunmadığında false döner. Bu kontrol, her yolun son komutunu inceler; yol içindeki her alt figürü denetlemez. Örnek, bir dikdörtgen için `True` yazdırır.
 
 ```csharp
 using System;
@@ -281,11 +281,54 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
 }
 ```
 
-## **Şekil Elemanlarını Çıkarma ve İnceleme**
+## **Geometri Yol Komutlarını İncelemek**
 
-Mevcut bir şekli, yol noktaları ve nokta türlerini içeren elemanlar olarak incelemek için [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) kullanın. Dönen her [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) nesnesini [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) türüne dönüştürerek [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) ve [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/) dizilerini okuyabilirsiniz. Bu temsil, kontur analizi veya geometrinin özel çizim araçlarına aktarılması için kullanışlıdır.
+[contour.pptx](contour.pptx) dosyasını indirin ve uygulamanın çalışma dizinine yerleştirin. İlk slayt, düz bir üst kenar, kübik Bézier eğrisi ve düz bir kapanış kenarı içeren bir şekil barındırır. Şeklin yollarını okumak için [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) kullanın. Her yol, [PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) içinde çizim sırasına göre parçalarını listeler. Her parçanın [PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) değeri, [SegmentData](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/segmentdata/) nasıl okunacağını belirler.
 
-Örnek bir sunumu açar, ilk slayttaki ilk geometri şekline ulaşır ve yol segmentlerini yazdırır. Çıktıyı görmek için düz ve eğri segmentler içeren bir şekil kullanan bir sunum seçin. Gruplar içinde arama yapılmaz.
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("contour.pptx");
+
+var shape = (IGeometryShape)presentation.Slides[0].Shapes[0];
+var paths = shape.GetGeometryPaths();
+
+for (int i = 0; i < paths.Length; i++)
+{
+    var segments = paths[i].PathData;
+    for (int j = 0; j < segments.Length; j++)
+    {
+        var command = segments[j].PathCommand;
+        var data = segments[j].SegmentData;
+        var detail = command switch
+        {
+            PathCommandType.MoveTo or PathCommandType.LineTo => $"destination=({data[0]}, {data[1]})",
+            PathCommandType.CubicBezierTo => $"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})",
+            PathCommandType.Close => "no coordinates",
+            _ => $"raw=[{string.Join(", ", data)}]"
+        };
+        Console.WriteLine($"Path {i}, segment {j}: {command} {detail}");
+    }
+}
+```
+
+Şekil, slaytta (200, 100) puan konumundadır. Raporlanan noktalar şekle göre yereldir; (0, 0) şeklin sol‑üst köşesindedir, x sağa, y aşağı doğru artar. Kapanış parçası ek koordinat olmadan başlangıç noktasına döner.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint şekli düz bir üst kenar, sağ üstten sol alta doğru kıvrımlı bir kenar ve düz bir sol kenar içerir](contour.png)
+
+## **Şekil Elemanlarını Çıkarmak ve İncelemek**
+
+[IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) kullanarak mevcut bir şekli yol noktaları ve nokta türleri içeren elemanlar olarak inceleyebilirsiniz. Dönen her [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/)’i, [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/)’e dönüştürerek [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) ve [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/) dizilerini okuyabilirsiniz. Bu temsil, kontur analizi veya geometrinin özel çizim araçlarına aktarımı için faydalıdır.
+
+Örnek, bir sunumu açar, ilk slayttaki ilk geometri şeklini bulur ve yol parçalarını yazdırır. Düz ve kıvrımlı parçalar içeren bir şekil içeren bir sunum kullanın; grup içindeki şekilleri aramaz.
 
 ```csharp
 using System;
@@ -311,7 +354,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 
     for (var i = 0; i < points.Length; i++)
     {
-        var pointType = types[i] & 0x07; // Segment tipini tut, bayrakları hariç tut.
+        var pointType = types[i] & 0x07; // Segment tipini sakla, bayrakları hariç tut.
         switch (pointType)
         {
             case 0:
@@ -334,21 +377,21 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 }
 ```
 
-Diziler indeks bazında eşleşir: `points[i]` bir noktayı, `types[i]` ise onun rolünü tanımlar. Tip **0** yeni bir figür başlatır, tip **1** önceki noktadan mevcut noktaya bir çizgi çizer. Kübik Bézier segmenti, önceki son noktadan başlar ve üç ardışık tip‑`3` girdisiyle tanımlanır: iki kontrol noktası ve yeni son nokta. Döngü bu üç girişi bir arada tüketir ve son noktanın kapalı olup olmadığını kontrol eder.
+Diziler indeks bazında eşleşir: `points[i]` bir noktadır, `types[i]` ise rolünü tanımlar. Tip `0` bir figürü başlatır, tip `1` önceki noktadan şimdiki noktaya bir çizgi çizer. Kübik Bézier parçası, önceki son noktadan başlar ve üç ardışık tip‑`3` girdisi kullanır: iki kontrol noktası ve yeni son nokta. Döngü bu üç girişi birlikte tüketir ve kapanış için son noktayı kontrol eder.
 
-Nokta türleri ayrıca bayraklar içerir. Segment tipini belirlemek için `0x07` maskesini, kapalı alt‑yolu tespit etmek için `0x80` bayrağını ayrı ayrı test edin. Örneğin `129` (`0x81`) bir alt‑yolu kapatan çizgi son noktası, `131` (`0x83`) ise bir Bézier son noktası demektir. Sadece `1` veya `3` ile karşılaştırmak bu durumları kaçırır. Çizgi (`0x10`) ve işaretçi (`0x20`) gibi diğer bayraklar temel segment tipini değiştirmez.
+Nokta tipleri ayrıca bayraklar içerir. Segment tipini belirlemek için `0x07` maskesini, kapalı alt yolu tespit etmek için `0x80` bayrağını ayrı ayrı test edin. Örneğin `129` (`0x81`) bir satır son noktası olup alt yolu kapatır; `131` (`0x83`) ise bir Bézier son noktası olup aynı işi yapar. Sadece `1` ya da `3` ile kontrol etmek bu durumları kaçırır. Çizgi (`0x10`) ve işaretleyici (`0x20`) gibi diğer bayraklar temel segment tipini değiştirmez.
 
-**Koordinatlar ve dönüşümler.** Noktalar puan (1/72 inç) cinsinden ölçülür; X sağa, Y aşağı doğru artar. Gruplandırılmamış bir şekil için çıkarılan koordinatlar zaten [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) ve [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) konumunu içerir ve mevcut genişlik‑yüksekliği yansıtır. Örneğin, `(100, 200)` konumunda ve `120 × 80` boyutunda döndürülmemiş bir dikdörtgenin kontur sınırları `(100, 200)`–`(220, 280)` şeklindedir. Şeklin konumunu tekrar eklemeyin; X ve Y değerlerini çıkartarak koordinatları döndürülmemiş çerçeveye göre göreceli elde edin.
+**Koordinatlar ve dönüşümler.** Noktalar puan (1/72 inç) biriminde ölçülür; X sağa, Y aşağı doğru artar. Grup dışı bir şekil için çıkarılan koordinatlar zaten şeklin [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) ve [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) konumunu içerir ve mevcut genişlik‑yüksekliği yansıtır. Örneğin, `(100, 200)` konumunda, `120 × 80` boyutunda döndürülmemiş bir dikdörtgenin kontur sınırları `(100, 200)`‑`(220, 280)` olur. Şeklin konumunu tekrar eklemeyin. Koordinatları, X ve Y’yi çıkararak döndürülmemiş çerçeveye göre yerel hâle getirin.
 
-Çıkarılan noktalar, şeklin [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) veya yatay‑dikey çevirilerini içermez. Görünen konturu yeniden oluşturmak için bu dönüşümleri şeklin merkezine göre uygulayın. Gruplandırılmış şekillerde ayrıca grup koordinat haritalamasını ve dönüşümlerini hesaba katın; çıkarılan noktaların slayt üzerindeki nihai render koordinatları olduğunu varsaymayın ve çeviri ya da ölçeklendirmeyi iki kez uygulamayın.
+Çıkarılan noktalar, şeklin [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) ya da yatay‑dikey çevirilerini içermez. Görüntülenen konturu yeniden üretmek için bu dönüşümleri şeklin merkezinde uygulayın. Gruplu şekillerde, grup koordinat eşlemesi ve dönüşümlerini de hesaba katın; çıkarılan noktaların son slayt koordinatları olduğunu varsaymayın ve çevirme ya da ölçeklemeyi iki kez uygulamayın.
 
-**İnceleme vs. düzenleme.** Çıkarılan diziler konturu tanımlar; bunları değiştirmek orijinal şekli güncellemez. Analiz ya da çizim kodunuz nokta/tür dizilerine ihtiyaç duyduğunda bu yaklaşımı seçin. Geometri komutlarını şeklin yerel koordinat sisteminde almak veya geometrisini düzenlemek istiyorsanız [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) kullanın. Düzenlenmiş yolları [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) veya [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) ile uygulayın.
+**Denetleme vs. düzenleme.** Çıkarılan diziler konturu tanımlar; bunları değiştirmek orijinal şekli güncellemez. Analiz veya çizim kodunuz nokta/tür dizilerine ihtiyaç duyduğunda bu yöntemi tercih edin. Şeklin yerel koordinat sisteminde geometri komutlarına ihtiyacınız varsa veya geometrisini düzenlemek istiyorsanız [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) kullanın. Düzenlenmiş yolları [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) veya [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) ile uygulayın.
 
-## **GeometryPath’i GraphicsPath’e (System.Drawing.Drawing2D) Dönüştürme**
+## **GeometryPath’i GraphicsPath’e Dönüştürmek (System.Drawing.Drawing2D)**
 
-Aşağıdaki örnek, [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) yöntemini destekleyen eski bir Aspose.Slides for .NET derlemesine (ör. sürüm 25.10) ve `System.Drawing.Common` yüklü bir Windows ortamına ihtiyaç duyar. Dönüştürme yöntemleri [sürüm 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/) ile kaldırılmıştır.
+Aşağıdaki örnek, [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) metodunu destekleyen (örnek: 25.10 sürümü) eski bir Aspose.Slides for .NET derlemesi ve `System.Drawing.Common` yüklü bir Windows ortamı gerektirir. Dönüşüm metodları, [versiyon 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/) ile kaldırılmıştır.
 
-Bu örnek, bir dikdörtgen anahattını metin geometrisine dönüştürülmüş haliyle birleştirir. Anahat için [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) doldurulmasını devre dışı bırakacak şekilde ayarlanır. [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) metin anahatlarını saklar; [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) bunu doldurulmuş bir geometri yoluna dönüştürür. Her iki yol da [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) ile uygulanarak dikdörtgen ve metni içeren tek bir şekil oluşturulur. Ters yönde dönüştürme için [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) kullanın.
+Bu örnek, metne dönüştürülmüş bir geometrik metinle bir dikdörtgen konturu birleştirir. Konturun [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) doldurulmasını devre dışı bırakacak şekilde ayarlanmıştır. [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) metin konturunu tutar; [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) bunu doldurulmuş bir geometri yoluna çevirir. Her iki yolu da [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) ile uygulamak, dikdörtgen ve metni içinde barındıran tek bir şekil üretir. Ters yönde dönüşüm için [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) kullanın.
 
 ```csharp
 using System.Drawing;
@@ -375,18 +418,18 @@ textPath.FillMode = PathFillModeType.Normal;
 
 shape.SetGeometryPaths(new[] { originalPath, textPath });
 ```
-![example5_image](custom_shape_5.png)
+![örnek5_resim](custom_shape_5.png)
 
 ## **SSS**
 
-**Geometriyi değiştirdikten sonra doldurma ve anahat ne olur?**
+**Geometriyi değiştirdikten sonra dolgu ve dış hat ne olur?**
 
-Stil şekle bağlı kalır; sadece kontur değişir. Doldurma ve anahat otomatik olarak yeni geometriye uygulanır.
+Stil şekil ile kalır; sadece kontur değişir. Dolgu ve dış hat yeni geometriye otomatik olarak uygulanır.
 
-**Özel bir şekli, geometrisiyle birlikte nasıl doğru bir şekilde döndürürüm?**
+**Geometri ile birlikte özel bir şekli nasıl doğru bir şekilde döndürürüm?**
 
-Şeklin [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) özelliğini kullanın; geometri şeklin kendi koordinat sistemine bağlı olduğundan şekil ile birlikte döner.
+Şeklin [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) özelliğini kullanın; geometri, şeklin kendi koordinat sistemine bağlı olduğundan şekille birlikte döner.
 
-**Özel bir şekli bir görüntüye dönüştürüp “kilitleyebilir” miyim?**
+**Özel bir şekli “kilitlemek” için bir görsele dönüştürebilir miyim?**
 
-Evet. Gerekli [slide](/slides/tr/net/convert-powerpoint-to-png/) alanını ya da doğrudan [shape](/slides/tr/net/create-shape-thumbnails/) öğesini raster bir formata dışa aktarın; bu, karmaşık geometrilerle sonraki çalışmayı basitleştirir.
+Evet. Gerekli [slide](/slides/tr/net/convert-powerpoint-to-png/) alanını ya da [shape](/slides/tr/net/create-shape-thumbnails/) kendisini raster formatına dışa aktarın; bu, karmaşık geometrilerle çalışmayı basitleştirir.

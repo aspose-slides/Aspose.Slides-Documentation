@@ -10,79 +10,77 @@ keywords:
 - δημιουργία σχήματος
 - αλλαγή σχήματος
 - γεωμετρία σχήματος
-- μονοπάτι γεωμετρίας
-- σημεία μονοπατιού
+- διαδρομή γεωμετρίας
+- σημεία διαδρομής
 - σημεία επεξεργασίας
 - προσθήκη σημείου
 - αφαίρεση σημείου
 - λειτουργία επεξεργασίας
-- καμπυλωτή γωνία
+- καμπυλωμένη γωνία
 - PowerPoint
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Δημιουργία και προσαρμογή σχημάτων σε παρουσιάσεις PowerPoint με το Aspose.Slides για .NET: μονοπάτια γεωμετρίας, καμπυλωτές γωνίες, σύνθετα σχήματα."
+description: "Δημιουργήστε και προσαρμόστε σχήματα σε παρουσιάσεις PowerPoint με το Aspose.Slides για .NET: διαδρομές γεωμετρίας, καμπυλωτές γωνίες, σύνθετα σχήματα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να προσαρμόζετε τα σχήματα παρουσίασης στο Aspose.Slides επεξεργάζοντας τη γεωμετρία του σχήματος μέσω σημείων επεξεργασίας και μονοπατιών γεωμετρίας. Δείχνει πώς να εργάζεστε με [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) και [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας μονοπατιών, να προσθέσετε ή να αφαιρέσετε σημεία και να εφαρμόσετε την ενημερωμένη γεωμετρία σε ένα σχήμα.
+Αυτό το άρθρο εξηγεί πώς να προσαρμόσετε τα σχήματα παρουσίασης στο Aspose.Slides επεξεργαζόμενοι τη γεωμετρία του σχήματος μέσω σημείων επεξεργασίας και διαδρομών γεωμετρίας. Δείχνει πώς να εργαστείτε με [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) και [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) για να τροποποιήσετε υπάρχοντα σχήματα, να εκτελέσετε βασικές λειτουργίες επεξεργασίας διαδρομών, να προσθέσετε ή να αφαιρέσετε σημεία και να εφαρμόσετε την ενημερωμένη γεωμετρία πίσω σε ένα σχήμα.
 
-Επίσης δείχνει πώς να δημιουργείτε προσαρμοσμένα και σύνθετα σχήματα, να κατασκευάσετε σχήματα με κυρτές γωνίες, να καθορίσετε αν η γεωμετρία ενός σχήματος είναι κλειστή και να χρησιμοποιήσετε τη κληρονομική μετατροπή μεταξύ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) και [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) για επιπρόσθετα σενάρια προσαρμογής γεωμετρίας.
+Επίσης, παρουσιάζει πώς να δημιουργήσετε προσαρμοσμένα και σύνθετα σχήματα, να κατασκευάσετε σχήματα με καμπυλωμένες γωνίες, να καθορίσετε εάν μια γεωμετρία σχήματος είναι κλειστή και να χρησιμοποιήσετε τη παλαιά μετατροπή μεταξύ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) και [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) για πρόσθετα σενάρια προσαρμογής γεωμετρίας.
 
-## **Αλλαγή Σχήματος Χρησιμοποιώντας Σημεία Επεξεργασίας**
+## **Αλλαγή σχήματος χρησιμοποιώντας Σημεία Επεξεργασίας**
 
-Στο PowerPoint, μπορείτε να χρησιμοποιήσετε **Edit Points** για να τροποποιήσετε ένα τετράγωνο:
-
-* Μετακινήστε μια γωνία προς το εσωτερικό ή το εξωτερικό.
-* Ρυθμίστε την κυρτότητα σε ένα σημείο.
+* Μετακινήστε μια γωνία προς το μέσα ή το έξω.
+* Προσαρμόστε την καμπυλότητα σε ένα σημείο.
 * Προσθέστε νέα σημεία.
 
-Η επεξεργασία σημείων σας επιτρέπει να τροποποιήσετε το περίγραμμα ενός σχήματος ή να χρησιμοποιήσετε ένα υπάρχον σχήμα ως βάση για ένα νέο.
+Η επεξεργασία σημείων σας επιτρέπει να τροποποιήσετε το περιγράφημα ενός σχήματος ή να χρησιμοποιήσετε ένα υπάρχον σχήμα ως βάση για ένα νέο.
 
-## **Συμβουλές Επεξεργασίας Σχήματος**
+## **Συμβουλές επεξεργασίας σχήματος**
 
 ![overview_image](custom_shape_0.png)
 
-Κατά την επεξεργασία σχημάτων PowerPoint, κρατήστε αυτές τις έννοιες στο μυαλό:
+Κατά την επεξεργασία σχημάτων PowerPoint, διατηρήστε αυτές τις έννοιες κατά νου:
 
-* Ένα σχήμα (ή το μονοπάτι του) μπορεί να είναι είτε κλειστό είτε ανοικτό.
-* Το μονοπάτι ενός σχήματος αποτελείται από σημεία αγκύρωσης συνδεδεμένα με τμήματα.
-* Ένα τμήμα μπορεί να είναι ευθύ ή καμπυλωτό. Τα σημεία αγκύρωσης και τα χειριστήρια ελέγχου καθορίζουν το σχήμα του.
-* Τα σημεία αγκύρωσης υπάρχουν ως γωνιακά σημεία, ευθύγραμμα σημεία ή λείες (smooth) σημεία:
-  * Σε ένα γωνιακό σημείο, τα διπλότυπα τμήματα μπορούν να συναντηθούν σε γωνία.
-  * Σε ένα λείο σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα και ισαπέχουν από το σημείο αγκύρωσης.
-  * Σε ένα ευθύ σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα αλλά μπορούν να έχουν διαφορετικές αποστάσεις από το σημείο αγκύρωσης.
-* Η μετακίνηση των σημείων αγκύρωσης ή η ρύθμιση των χειριστηρίων τους αλλάζει το περίγραμμα του σχήματος.
+* Ένα σχήμα (ή η διαδρομή του) μπορεί να είναι κλειστό ή ανοιχτό.
+* Η διαδρομή ενός σχήματος αποτελείται από άγκυρες σημεία συνδεδεμένα με τμήματα.
+* Ένα τμήμα μπορεί να είναι ευθύ ή καμπύλο. Τα άγκυρα σημεία και τα χειριστήρια ελέγχου καθορίζουν το σχήμα του.
+* Τα άγκυρα σημεία υπάρχουν ως γωνιακά σημεία, ευθύγραμμα σημεία ή λείες (smooth) σημεία:
+  * Σε ένα γωνιακό σημείο, τα παρακείμενα τμήματα μπορούν να συναντηθούν υπό γωνία.
+  * Σε ένα λείο σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα και ισαπέχουν από το άγκυρα σημείο.
+  * Σε ένα ευθύγραμμο σημείο, τα δύο χειριστήρια ελέγχου είναι ευθυγραμμισμένα αλλά μπορούν να έχουν διαφορετικές αποστάσεις από το άγκυρα σημείο.
+* Η μετακίνηση των άγκυρα σημείων ή η προσαρμογή των χειριστηρίων τους αλλάζει το περιγράφημα του σχήματος.
 
-Για να επεξεργαστείτε τα σχήματα PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) και τη διεπαφή [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
+Για την επεξεργασία σχημάτων PowerPoint μέσω σημείων επεξεργασίας, το **Aspose.Slides** παρέχει την κλάση [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) και τη διεπαφή [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
 
-* Ένα [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) αντικείμενο αντιπροσωπεύει ένα μονοπάτι γεωμετρίας του αντικειμένου [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
-* Για να ανακτήσετε το [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) από το αντικείμενο [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/), μπορείτε να χρησιμοποιήσετε τη μέθοδο [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/).
-* Για να ορίσετε το [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) για ένα σχήμα, μπορείτε να χρησιμοποιήσετε τις μεθόδους: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) για σχήματα με ένα μόνο μονοπάτι και [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) για σχήματα με πολλαπλά μονοπάτια.
-* Για να προσθέσετε τμήματα, μπορείτε να χρησιμοποιήσετε τις μεθόδους κάτω από [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
-* Χρησιμοποιώντας τις ιδιότητες [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) και [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/), μπορείτε να ορίσετε την εμφάνιση ενός μονοπατιού γεωμετρίας.
-* Χρησιμοποιώντας την ιδιότητα [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/), μπορείτε να ανακτήσετε το μονοπάτι γεωμετρίας ενός [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) ως έναν πίνακα τμημάτων μονοπατιού.
-* Σε παλαιότερες εκδόσεις που υποστηρίζουν τις παρακάτω μεθόδους μετατροπής, μπορείτε να μετατρέψετε το [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) σε [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
-* Χρησιμοποιήστε τις μεθόδους [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) και [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (από την κλάση [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) για να μετατρέψετε μεταξύ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) και [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
+* Μια παρουσίαση του [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) αντιπροσωπεύει μια διαδρομή γεωμετρίας του αντικειμένου [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
+* Για την ανάκτηση του [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) από την παρουσίαση [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/), μπορείτε να χρησιμοποιήσετε τη μέθοδο [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/).
+* Για τον ορισμό του [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) για ένα σχήμα, μπορείτε να χρησιμοποιήσετε τις μεθόδους: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) για σχήματα με μία μόνο διαδρομή και [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) για σχήματα με πολλαπλές διαδρομές.
+* Για την προσθήκη τμημάτων, μπορείτε να χρησιμοποιήσετε τις μεθόδους του [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
+* Χρησιμοποιώντας τις ιδιότητες [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) και [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/), μπορείτε να ορίσετε την εμφάνιση μιας διαδρομής γεωμετρίας.
+* Χρησιμοποιώντας την ιδιότητα [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/), μπορείτε να ανακτήσετε τη διαδρομή γεωμετρίας ενός [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) ως πίνακα τμημάτων διαδρομής.
+* Σε παλαιές εκδόσεις που υποστηρίζουν τις παρακάτω μεθόδους μετατροπής, μπορείτε να μετατρέψετε το [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) σε [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
+* Χρησιμοποιήστε τις μεθόδους [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) και [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (Από την κλάση [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) για να μετατρέψετε μεταξύ [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) και [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
 
-## **Απλές Λειτουργίες Επεξεργασίας**
+## **Απλές λειτουργίες επεξεργασίας**
 
-Χρησιμοποιήστε τις ακόλουθες μεθόδους για να επεξεργαστείτε ένα μονοπάτι γεωμετρίας. Οι υπερφορτώσεις που δέχονται έναν δείκτη εισάγουν ένα τμήμα στη μηδενική θέση του πίνακα τμημάτων του μονοπατιού.
+Χρησιμοποιήστε τις παρακάτω μεθόδους για να επεξεργαστείτε μια διαδρομή γεωμετρίας. Οι υπερφορτώσεις που δέχονται δείκτη εισάγουν ένα τμήμα στη θέση μηδενικής βάσης στον πίνακα τμημάτων της διαδρομής.
 
 | Λειτουργία | Μέθοδος |
 | --- | --- |
 | Προσθήκη ή εισαγωγή ευθείας γραμμής. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
-| Προσθήκη ή εισαγωγή κυρτής Bézier καμπύλης τρίτου βαθμού με δύο σημεία ελέγχου και ένα τελικό σημείο. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
-| Προσθήκη ή εισαγωγή τετραγωνικής Bézier καμπύλης με ένα σημείο ελέγχου και ένα τελικό σημείο. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
-| Προσθήκη ελλειπτικής τόξας με τις καθορισμένες διαστάσεις και γωνίες σε μοίρες. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
-| Κλείσιμο του τρέχοντος σχήματος συνδέοντας το τελικό του σημείο με το αρχικό. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
-| Ορισμός του αρχικού σημείου ενός σχήματος. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| Προσθήκη ή εισαγωγή καμπύλης Bézier κυβικής με δύο σημεία ελέγχου και ένα σημείο λήξης. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| Προσθήκη ή εισαγωγή τετραγωνικής Bézier καμπύλης με ένα σημείο ελέγχου και ένα σημείο λήξης. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| Προσθήκη ελλειπτικής τόξου με τις καθορισμένες διαστάσεις και γωνίες σε μοίρες. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| Κλείσιμο του τρέχοντος σχήματος συνδέοντας το σημείο λήξης του με το σημείο έναρξης. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| Ορισμός του σημείου έναρξης ενός σχήματος. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
 | Αφαίρεση τμήματος σε δείκτη μηδενικής βάσης. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
-## **Προσθήκη Προσαρμοσμένων Σημείων σε Σχήμα**
+## **Προσθήκη προσαρμοσμένων σημείων σε σχήμα**
 
-Αυτό το παράδειγμα εισάγει δύο σημεία σε ένα ορθογώνιο σχήμα χρησιμοποιώντας [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) και εφαρμόζει το επεξεργασμένο μονοπάτι με [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). Οι συντεταγμένες είναι τοπικές στο σχήμα: και τα δύο νέα σημεία βρίσκονται στο κέντρο του, 100 σημεία από αριστερά και 50 σημεία από πάνω. Οι δείκτες τμημάτων 1 και 4 τα τοποθετούν στα άνω και κάτω άκρα, τραβώντας αυτά τα άκρα προς το εσωτερικό.
+Αυτό το παράδειγμα εισάγει δύο σημεία σε ένα ορθογώνιο σχήμα χρησιμοποιώντας το [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) και εφαρμόζει τη μεταγλωττισμένη διαδρομή με το [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). Οι συντεταγμένες είναι τοπικές στο σχήμα: και τα δύο νέα σημεία βρίσκονται στο κέντρο του, 100 σημεία από αριστερά και 50 σημεία από πάνω. Οι δείκτες τμημάτων 1 και 4 τα τοποθετούν στις πάνω και κάτω άκρες, τραβώντας αυτές τις άκρες προς τα μέσα.
 
 ```csharp
 using Aspose.Slides;
@@ -98,12 +96,11 @@ geometryPath.LineTo(100, 50, 4);
 
 shape.SetGeometryPath(geometryPath);
 ```
-
 ![example1_image](custom_shape_1.png)
 
-## **Αφαίρεση Σημείων από Σχήμα**
+## **Αφαίρεση σημείων από σχήμα**
 
-Αυτό το παράδειγμα αλλάζει το περίγραμμα μιας καρδιάς αφαιρώντας το τμήμα στη θέση δείκτη 2 με [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Η εφαρμογή του τροποποιημένου μονοπατιού με [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ενημερώνει το περίγραμμα του σχήματος.
+Αυτό το παράδειγμα αλλάζει το περίγραμμα σχήματος καρδιάς αφαιρώντας το τμήμα στη μηδενική θέση δείκτη 2 με το [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Η εφαρμογή της τροποποιημένης διαδρομής με το [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ενημερώνει το περίγραμμα του σχήματος.
 
 ```csharp
 using Aspose.Slides;
@@ -120,9 +117,9 @@ shape.SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
-## **Δημιουργία Προσαρμοσμένου Σχήματος**
+## **Δημιουργία προσαρμοσμένου σχήματος**
 
-Αυτό το παράδειγμα δημιουργεί ένα πεντάπλευρο αστέρι με [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Εναλλασσόμενες εξωτερικές και εσωτερικές ακτίνες 100 και 50 σημεία καθορίζουν τις άκρες και τις υποβάθμισης· βήμα 72 μοιρών χωρίζει ομοιόμορφα τις πέντε άκρες. Το μονοπάτι κλείνει με [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) και εφαρμόζεται σε ένα ορθογώνιο σχήμα με [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), αντικαθιστώντας το περίγραμμά του.
+Αυτό το παράδειγμα δημιουργεί ένα πεντάστημο αστέρι με τη χρήση του [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Εναλλασσόμενες εξωτερικές και εσωτερικές ακτίνες 100 και 50 σημεία ορίζουν τις άκρες και τις εσοχές· ένα βήμα 72 μοιρών τοποθετεί τις πέντε άκρα ομοιόμορφα. Η διαδρομή κλείνει με το [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) και εφαρμόζεται σε ένα ορθογώνιο σχήμα χρησιμοποιώντας το [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), αντικαθιστώντας το περίγραμμά του.
 
 ```csharp
 using System;
@@ -167,9 +164,9 @@ shape.SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
-## **Δημιουργία Σύνθετου Προσαρμοσμένου Σχήματος**
+## **Δημιουργία σύνθετου προσαρμοσμένου σχήματος**
 
-Αυτό το παράδειγμα ορίζει δύο κλειστά [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) αντικείμενα για το άνω και το κάτω τρίτο ενός σχήματος. Η εφαρμογή και των δύο μονοπατιών με [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) δημιουργεί ένα ενιαίο σύνθετο σχήμα με ένα κενό στο μέσο τρίτο.
+Αυτό το παράδειγμα ορίζει δύο κλειστές αντικειμενικές [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) για το πάνω και το κάτω τρίτο ενός σχήματος. Η εφαρμογή και των δύο διαδρομών με το [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) δημιουργεί ένα ενιαίο σύνθετο σχήμα με ένα άνοιγμα κατά μήκος του μεσαίου τριτάτου.
 
 ```csharp
 using Aspose.Slides;
@@ -187,7 +184,7 @@ topPath.LineTo(0, shape.Height / 3);
 topPath.CloseFigure();
 
 var bottomPath = new GeometryPath();
-bottomPath.MoveTo(shape.Height / 3 * 2);
+bottomPath.MoveTo(0, shape.Height / 3 * 2);
 bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
 bottomPath.LineTo(shape.Width, shape.Height);
 bottomPath.LineTo(0, shape.Height);
@@ -197,9 +194,9 @@ shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Δημιουργία Προσαρμοσμένου Σχήματος με Καμπυλωτές Γωνίες**
+## **Δημιουργία προσαρμοσμένου σχήματος με καμπύλες γωνίες**
 
-Αυτό το παράδειγμα συνδυάζει ευθείες ενότητες με [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) για να δημιουργήσει σχήμα με εσωτερικά καμπυλωτές γωνίες. Το μέγεθος κάθε γωνίας ορίζει το πλάτος και το ύψος του τόξου σε σημεία, και το σκαντζόχορδο -90 μοιρών σχεδιάζει ένα αντερόφιλο τέταρτο έλλειψο. Το ολοκληρωμένο μονοπάτι εφαρμόζεται με [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), και η παρουσίαση αποθηκεύεται σε μορφή PPTX.
+Αυτό το παράδειγμα συνδυάζει ευθύγραμμα τμήματα με το [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) για να δημιουργήσει ένα σχήμα με εσωτερικά καμπυλωτές γωνίες. Το μέγεθος κάθε γωνίας ορίζει το πλάτος και το ύψος της τοξογραμμής σε σημεία, και η εκκίνηση -90 μοιρών σχεδιάζει ένα αντίστροφα φοράς ρολόι τέταρτο έλλειψα. Η ολοκληρωμένη διαδρομή εφαρμόζεται με το [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), και η παρουσίαση αποθηκεύεται σε μορφή PPTX.
 
 ```csharp
 using System.Drawing;
@@ -242,10 +239,9 @@ shape.SetGeometryPath(geometryPath);
 
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+## **Εντοπισμός αν η γεωμετρία σχήματος είναι κλειστή**
 
-## **Έλεγχος Εάν η Γεωμετρία Σχήματος Είναι Κλειστή**
-
-Ο παρακάτω βοηθός ελέγχει εάν κάθε μη κενό μονοπάτι γεωμετρίας τελειώνει με τμήμα κλεισίματος. Διαβάζει το [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) και συγκρίνει την τελική εντολή του τμήματος [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) με το [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Επιστρέφει false όταν δεν υπάρχουν μη κενά μονοπάτια. Αυτό ελέγχει την τελική εντολή κάθε μονοπατιού· δεν επιθεωρεί κάθε υποσχήμα μέσα σε ένα μονοπάτι. Το παράδειγμα εμφανίζει `True` για ένα ορθογώνιο.
+Ο παρακάτω βοηθός ελέγχει αν κάθε μη κενή διαδρομή γεωμετρίας λήγει με τμήμα κλεισίματος. Διαβάζει το [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) και συγκρίνει την τελική εντολή του τμήματος [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) με το [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Επιστρέφει false όταν δεν υπάρχουν μη κενές διαδρομές. Αυτό ελέγχει την τελική εντολή κάθε διαδρομής· δεν εξετάζει κάθε υποσχήμα εντός της διαδρομής. Το παράδειγμα εκτυπώνει `True` για ένα ορθογώνιο.
 
 ```csharp
 using System;
@@ -280,12 +276,53 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
     return hasNonemptyPath;
 }
 ```
+## **Επιθεώρηση εντολών διαδρομής γεωμετρίας**
 
-## **Εξαγωγή και Επιθεώρηση Στοιχείων Σχήματος**
+Κατεβάστε το [contour.pptx](contour.pptx) και τοποθετήστε το στον φάκελο εργασίας της εφαρμογής. Η πρώτη διαφάνεια περιέχει ένα σχήμα με άμεση άνω άκρη, μια καμπύλη Bézier κυβικής και μια άμεση άκρη κλεισίματος. Χρησιμοποιήστε το [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) για να διαβάσετε τις διαδρομές του. Κάθε διαδρομή παραθέτει τα τμήματά της με τη σειρά σχεδίασης στο [PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/). Η [PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) κάθε τμήματος καθορίζει πώς να διαβάσετε το [SegmentData](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/segmentdata/).
 
-Χρησιμοποιήστε το [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) για να επιθεωρήσετε ένα υπάρχον σχήμα ως στοιχεία που περιέχουν σημεία μονοπατιού και τύπους σημείων. Μετατρέψτε κάθε [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) σε [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) για να διαβάσετε τα arrays [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) και [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/). Αυτή η αναπαράσταση είναι χρήσιμη για ανάλυση περιγράμματος ή για περάσμα γεωμετρίας σε προσαρμοσμένα εργαλεία σχεδίασης.
+```csharp
+using System;
+using Aspose.Slides;
 
-Το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο σχήμα γεωμετρίας απευθείας στην πρώτη διαφάνεια και εκτυπώνει τα τμήματα του μονοπατιού του. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχήμα με ευθείες και καμπυλωτές ενότητες για να δείτε και τις δύο μορφές εξόδου. Δεν αναζητά μέσα σε ομάδες.
+using var presentation = new Presentation("contour.pptx");
+
+var shape = (IGeometryShape)presentation.Slides[0].Shapes[0];
+var paths = shape.GetGeometryPaths();
+
+for (int i = 0; i < paths.Length; i++)
+{
+    var segments = paths[i].PathData;
+    for (int j = 0; j < segments.Length; j++)
+    {
+        var command = segments[j].PathCommand;
+        var data = segments[j].SegmentData;
+        var detail = command switch
+        {
+            PathCommandType.MoveTo or PathCommandType.LineTo => $"destination=({data[0]}, {data[1]})",
+            PathCommandType.CubicBezierTo => $"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})",
+            PathCommandType.Close => "no coordinates",
+            _ => $"raw=[{string.Join(", ", data)}]"
+        };
+        Console.WriteLine($"Path {i}, segment {j}: {command} {detail}");
+    }
+}
+```
+
+Το σχήμα βρίσκεται στη θέση (200, 100) σημεία στη διαφάνεια. Τα αναφερόμενα σημεία είναι τοπικά στο σχήμα, με (0, 0) στην επάνω αριστερή γωνία του, το x να αυξάνεται προς τα δεξιά και το y προς τα κάτω. Το τμήμα κλεισίματος επιστρέφει στο αρχικό σημείο χωρίς επιπλέον συντεταγμένες.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+![Σχήμα PowerPoint με άμεση άνω άκρη, κυρτή άκρη από την επάνω δεξιά προς την κάτω αριστερή, και άμεση αριστερή άκρη](contour.png)
+
+## **Εξαγωγή και επιθεώρηση στοιχείων σχήματος**
+
+Χρησιμοποιήστε το [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) για να επιθεωρήσετε ένα υπάρχον σχήμα ως στοιχεία που περιέχουν σημεία διαδρομής και τύπους σημείων. Μετατρέψτε κάθε επιστρεφόμενο [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) σε [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) για να διαβάσετε τους πίνακες [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) και [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/). Αυτή η αναπαράσταση είναι χρήσιμη για ανάλυση περιγραμμάτων ή για μετάδοση γεωμετρίας σε προσαρμοσμένα εργαλεία σχεδίασης.
+
+Το παράδειγμα ανοίγει μια παρουσίαση, βρίσκει το πρώτο γεωμετρικό σχήμα απευθείας στην πρώτη διαφάνεια και εκτυπώνει τα τμήματα της διαδρομής του. Χρησιμοποιήστε μια παρουσίαση που περιέχει σχήμα με ευθεία και κυρτά τμήματα για να δείτε και τις δύο εξόδους. Δεν κάνει έρευνα εντός ομάδων.
 
 ```csharp
 using System;
@@ -311,7 +348,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 
     for (var i = 0; i < points.Length; i++)
     {
-        var pointType = types[i] & 0x07; // Διατηρήστε τον τύπο τμήματος, εξαιρώντας τις σημαίες.
+        var pointType = types[i] & 0x07; // Διατήρηση του τύπου του τμήματος, εξαιρώντας τις σημαίες.
         switch (pointType)
         {
             case 0:
@@ -322,7 +359,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
                 break;
             case 3:
                 Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
-                i += 2; // Consume both control points and the endpoint.
+                i += 2; // Κατανάλωση και των δύο σημείων ελέγχου και του σημείου λήξης.
                 break;
         }
 
@@ -334,21 +371,21 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 }
 ```
 
-Οι πίνακες αντιστοιχούν κατά δείκτη: `points[i]` είναι ένα σημείο και `types[i]` περιγράφει τον ρόλο του. Ο τύπος `0` ξεκινά μια φιγούρα, και ο τύπος `1` σχεδιάζει γραμμή από το προηγούμενο σημείο στο τρέχον. Ένα τμήμα κύβικού Bézier ξεκινά από το προηγούμενο τελικό σημείο και χρησιμοποιεί τρεις διαδοχικές καταχωρήσεις τύπου `3`: δύο σημεία ελέγχου ακολουθούμενα από το νέο τελικό σημείο. Ο βρόχος καταναλώνει αυτές τις τρεις καταχωρήσεις μαζί και ελέγχει το τελικό σημείο για κλείσιμο.
+Οι πίνακες αντιστοιχούν ανά δείκτη: `points[i]` είναι ένα σημείο και `types[i]` περιγράφει τον ρόλο του. Ο τύπος `0` ξεκινά ένα σχήμα, και ο τύπος `1` σχεδιάζει μια γραμμή από το προηγούμενο σημείο στο τρέχον. Ένα τμήμα Bézier κυβικής ξεκινά από το προηγούμενο σημείο λήξης και χρησιμοποιεί τρία διαδοχικά στοιχεία τύπου `3`: δύο σημεία ελέγχου ακολουθούμενα από το νέο σημείο λήξης. Ο βρόχος καταναλώνει αυτά τα τρία στοιχεία μαζί και ελέγχει το σημείο λήξης για κλείσιμο.
 
-Οι τύποι σημείων περιέχουν επίσης σημαίες. Κάντε mask με `0x07` για να προσδιορίσετε τον τύπο τμήματος και ελέγξτε το `0x80` ξεχωριστά για να ανιχνεύσετε κλειστό υπο-μονοπάτι. Για παράδειγμα, το `129` (`0x81`) σημαίνει τελικό σημείο γραμμής που κλείνει υπο-μονοπάτι, και το `131` (`0x83`) σημαίνει τελικό σημείο Bézier που κλείνει ένα. Η σύγκριση της ακατέργαστης τιμής μόνο με `1` ή `3` θα χάσει αυτές τις περιπτώσεις. Άλλες σημαίες, όπως η διακεκομμένη (`0x10`) και το σύμβολο (`0x20`), δεν αλλάζουν τον βασικό τύπο τμήματος.
+Οι τύποι σημείων περιέχουν επίσης σημαίες. Χρησιμοποιήστε τη μάσκα `0x07` για να προσδιορίσετε τον τύπο του τμήματος και δοκιμάστε το `0x80` ξεχωριστά για να εντοπίσετε ένα κλειστό υποδιαδρομή. Για παράδειγμα, το `129` (`0x81`) σημαίνει ένα άκρο γραμμής που κλείνει ένα υποδιαδρομή, και το `131` (`0x83`) σημαίνει ένα άκρο Bézier που κλείνει ένα τέτοιο. Η σύγκριση μόνο με τις τιμές `1` ή `3` θα χάσει αυτές τις περιπτώσεις. Άλλες σημαίες, όπως η παύλα (`0x10`) και ο δείκτης (`0x20`), δεν αλλάζουν τον βασικό τύπο του τμήματος.
 
-**Συντεταγμένες και μετασχηματισμοί.** Τα σημεία μετρώνται σε points (1/72 ίντσα), με το X να αυξάνεται προς τα δεξιά και το Y προς τα κάτω. Για ένα μη ομαδοποιημένο σχήμα, οι εξαγόμενες συντεταγμένες περιλαμβάνουν ήδη τη θέση του [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) και [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) και αντικατοπτρίζουν το τρέχον πλάτος και ύψος. Για παράδειγμα, ένα αχαλίνδωμα ορθογώνιο στο `(100, 200)` με μέγεθος `120 × 80` έχει όρια περιγράμματος `(100, 200)`–`(220, 280)`. Μην προσθέτετε ξανά τη θέση του σχήματος. Αφαιρέστε το X και Y του για να λάβετε συντεταγμένες σχετικές με το μη περιστραμμένο πλαίσιο του.
+**Συντεταγμένες και μετασχηματισμοί.** Τα σημεία μετρώνται σε points (1/72 ίντσα), με το X να αυξάνεται προς τα δεξιά και το Y προς τα κάτω. Για ένα μη ομαδοποιημένο σχήμα, οι εξαγόμενες συντεταγμένες περιλαμβάνουν ήδη τη θέση του [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) και [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) και αντανακλούν το τρέχον πλάτος και ύψος του. Για παράδειγμα, ένα μη περιστρεφόμενο ορθογώνιο στο `(100, 200)` με μέγεθος `120 × 80` έχει όρια περιγράμματος `(100, 200)`–`(220, 280)`. Μην προσθέτετε ξανά τη θέση του σχήματος. Αφαιρέστε το X και Y του για να λάβετε συντεταγμένες σχετικά με το μη περιστρεφόμενο πλαίσιο του.
 
-Οι εξαγόμενα σημεία δεν εφαρμόζουν την [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) ή τις οριζόντιες και κάθετες αναστροφές του σχήματος. Για να αναπαραγάγετε το εμφανιζόμενο περίγραμμα, εφαρμόστε αυτούς τους μετασχηματισμούς γύρω από το κέντρο του σχήματος. Για ομαδοποιημένα σχήματα, λάβετε επίσης υπόψη τη χαρτογράφηση συντεταγμένων της ομάδας και τους μετασχηματισμούς· μην υποθέτετε ότι τα εξαγόμενα σημεία είναι οι τελικές συντεταγμένες διαφάνειας ή ότι πρέπει να εφαρμόσετε μετάφραση ή κλίμακα δύο φορές αν ήδη αντανακλούνται στο πλαίσιο του παιδιού.
+Τα εξαγόμενα σημεία δεν εφαρμόζουν την [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) του σχήματος ή τις οριζόντιες και κάθετες αντιστροφές. Για να αναπαραγάγετε το εμφανιζόμενο περίγραμμα, εφαρμόστε αυτούς τους μετασχηματισμούς γύρω από το κέντρο του σχήματος. Για ομαδοποιημένα σχήματα, λάβετε επίσης υπόψη τη χαρτογράφηση συντεταγμένων της ομάδας και τους μετασχηματισμούς· μην υποθέτετε ότι τα εξαγόμενα σημεία είναι οι τελικές συντεταγμένες της διαφάνειας ή εφαρμόστε μια μετάφραση ή κλίμακα δύο φορές εάν ήδη αντικατοπτρίζονται στο πλαίσιο του παιδιού.
 
-**Επιθεώρηση έναντι επεξεργασίας.** Οι εξαγόμενοι πίνακες περιγράφουν το περίγραμμα· η αλλαγή τους δεν ενημερώνει το αρχικό σχήμα. Επιλέξτε αυτή τη μέθοδο όταν η ανάλυση ή ο κώδικας σχεδίασης χρειάζονται πίνακες σημείων/τύπων. Χρησιμοποιήστε το [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) όταν χρειάζεστε εντολές γεωμετρίας στο τοπικό σύστημα συντεταγμένων του σχήματος ή θέλετε να επεξεργαστείτε τη γεωμετρία του. Εφαρμόστε επεξεργασμένα μονοπάτια μέσω του [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ή του [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
+**Επιθεώρηση έναντι επεξεργασίας.** Οι εξαγόμενοι πίνακες περιγράφουν το περίγραμμα· η αλλαγή τους δεν ενημερώνει το αρχικό σχήμα. Επιλέξτε αυτήν την προσέγγιση όταν η ανάλυση ή ο κώδικας σχεδίασης χρειάζεται πίνακες σημείου/τύπου. Χρησιμοποιήστε το [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) όταν χρειάζεστε εντολές γεωμετρίας στο τοπικό σύστημα συντεταγμένων του σχήματος ή θέλετε να επεξεργαστείτε τη γεωμετρία του. Εφαρμόστε τις επεξεργασμένες διαδρομές μέσω του [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) ή του [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
 
 ## **Μετατροπή GeometryPath σε GraphicsPath (System.Drawing.Drawing2D)**
 
-Το ακόλουθο παράδειγμα απαιτεί μια κληρονομική συναρμολόγηση Aspose.Slides for .NET που υποστηρίζει το [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), όπως η έκδοση 25.10, και ένα περιβάλλον Windows με `System.Drawing.Common`. Οι μέθοδοι μετατροπής αφαιρέθηκαν στην [version 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
+Το παρακάτω παράδειγμα απαιτεί μια παλιά βιβλιοθήκη Aspose.Slides για .NET που υποστηρίζει το [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), όπως η έκδοση 25.10, και ένα περιβάλλον Windows με `System.Drawing.Common`. Οι μέθοδοι μετατροπής αφαιρέθηκαν στην [version 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
 
-Αυτό το παράδειγμα συνδυάζει ένα ορθογώνιο περίγραμμα με κείμενο μετατρεπόμενο σε γεωμετρία. Η [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) του περιγράμματος ορίζεται ώστε να απενεργοποιεί το γέμισμα. Ένα [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) αποθηκεύει το περίγραμμα του κειμένου, το οποίο το [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) μετατρέπει σε γεμάτο μονοπάτι γεωμετρίας. Η εφαρμογή και των δύο μονοπατιών με το [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) παράγει ένα ενιαίο σχήμα που περιέχει το ορθογώνιο και το κείμενο. Για μετατροπή στην αντίθετη κατεύθυνση, χρησιμοποιήστε το [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
+Αυτό το παράδειγμα συνδυάζει ένα ορθογώνιο περίγραμμα με κείμενο μετατρεπόμενο σε γεωμετρία. Το [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) του περιγράμματος ορίζεται ώστε να απενεργοποιεί τη γέμιση. Ένα [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) αποθηκεύει το περίγραμμα του κειμένου, το οποίο το [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) μετατρέπει σε γεμάτη διαδρομή γεωμετρίας. Η εφαρμογή και των δύο διαδρομών με το [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) δημιουργεί ένα ενιαίο σχήμα που περιέχει το ορθογώνιο και το κείμενο. Για μετατροπή στην αντίθετη κατεύθυνση, χρησιμοποιήστε το [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
 
 ```csharp
 using System.Drawing;
@@ -377,16 +414,16 @@ shape.SetGeometryPaths(new[] { originalPath, textPath });
 ```
 ![example5_image](custom_shape_5.png)
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Τι θα συμβεί με το γέμισμα και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
+**Τι θα συμβεί στη γέμιση και το περίγραμμα μετά την αντικατάσταση της γεωμετρίας;**
 
-Το στυλ παραμένει στο σχήμα· μόνο το περίγραμμα αλλάζει. Το γέμισμα και το περίγραμμα εφαρμόζονται αυτόματα στη νέα γεωμετρία.
+Το στυλ παραμένει στο σχήμα· μόνο το περίγραμμα αλλάζει. Η γέμιση και το περίγραμμα εφαρμόζονται αυτόματα στη νέα γεωμετρία.
 
-**Πώς μπορώ να περιστρέψω σωστά ένα προσαρμοσμένο σχήμα μαζί με τη γεωμετρία του;**
+**Πώς να περιστρέψω σωστά ένα προσαρμοσμένο σχήμα μαζί με τη γεωμετρία του;**
 
-Χρησιμοποιήστε την ιδιότητα [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) του σχήματος· η γεωμετρία περιστρέφεται μαζί με το σχήμα επειδή είναι δεσμευμένη στο δικό του σύστημα συντεταγμένων.
+Χρησιμοποιήστε την ιδιότητα [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) του σχήματος· η γεωμετρία περιστρέφεται με το σχήμα επειδή είναι δεσμευμένη στο δικό του σύστημα συντεταγμένων.
 
-**Μπορώ να μετατρέψω ένα προσαρμοσμένο σχήμα σε εικόνα για να «κλειδώσω» το αποτέλεσμα;**
+**Μπορώ να μετατρέψω ένα προσαρμοσμένο σχήμα σε εικόνα για να “κλειδώσω” το αποτέλεσμα;**
 
-Ναι. Εξάγετε την απαιτούμενη περιοχή [slide](/slides/el/net/convert-powerpoint-to-png/) ή το [shape](/slides/el/net/create-shape-thumbnails/) σε μορφή raster· αυτό απλουστεύει την περαιτέρω εργασία με σύνθετες γεωμετρίες.
+Ναι. Εξάγετε την απαιτούμενη περιοχή [slide](/slides/el/net/convert-powerpoint-to-png/) ή το ίδιο το [shape](/slides/el/net/create-shape-thumbnails/) σε μορφή raster· αυτό απλοποιεί την περαιτέρω εργασία με σύνθετες γεωμετρίες.

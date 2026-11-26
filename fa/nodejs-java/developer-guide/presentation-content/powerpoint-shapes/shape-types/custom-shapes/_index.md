@@ -1,5 +1,5 @@
 ---
-title: سفارشی‌سازی اشکال ارائه در جاوا اسکریپت
+title: سفارشی‌سازی اشکال ارائه در جاوااسکریپت
 linktitle: شکل سفارشی
 type: docs
 weight: 20
@@ -9,79 +9,77 @@ keywords:
 - افزودن شکل
 - ایجاد شکل
 - تغییر شکل
-- هندسهٔ شکل
+- هندسه شکل
 - مسیر هندسی
 - نقاط مسیر
 - نقاط ویرایشی
 - افزودن نقطه
 - حذف نقطه
-- عملیات ویرایش
-- گوشهٔ منحنی
+- عملیات ویرایشی
+- گوشه منحنی
 - PowerPoint
 - ارائه
 - Node.js
-- جاوا اسکریپت
+- JavaScript
 - Aspose.Slides
-description: "ایجاد و سفارشی‌سازی اشکال در ارائه‌های PowerPoint با استفاده از جاوا اسکریپت و Aspose.Slides برای Node.js: مسیرهای هندسی، گوشه‌های منحنی، اشکال ترکیبی."
+description: "ایجاد و شخصی‌سازی اشکال در ارائه‌های PowerPoint با استفاده از JavaScript و Aspose.Slides برای Node.js: مسیرهای هندسی، گوشه‌های منحنی، اشکال ترکیبی."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله توضیح می‌دهد چگونه اشکال ارائه در Aspose.Slides را با ویرایش هندسهٔ شکل از طریق نقاط ویرایشی و مسیرهای هندسی سفارشی کنید. نشان می‌دهد چگونه با [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) کار کنید تا اشکال موجود را تغییر دهید، عملیات پایهٔ ویرایش مسیر را انجام دهید، نقاط را اضافه یا حذف کنید و هندسهٔ به‌روز شده را به شکل بازگردانید.
+این مقاله توضیح می‌دهد چگونه می‌توان شکل‌های ارائه در Aspose.Slides را از طریق ویرایش هندسه شکل با استفاده از نقاط ویرایشی و مسیرهای هندسی سفارشی کرد. نشان می‌دهد چگونه با [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) کار کنید تا شکل‌های موجود را تغییر دهید، عملیات پایه ویرایش مسیر را انجام دهید، نقاط را اضافه یا حذف کنید، و هندسه به‌روز شده را به یک شکل اعمال کنید.
 
-همچنین نحوهٔ ایجاد اشکال سفارشی و ترکیبی، ساخت اشکال با گوشه‌های منحنی، تعیین اینکه آیا هندسهٔ یک شکل بسته است، بازرسی عناصر شکل و تبدیل خطوط متن Java AWT به مسیرهای هندسی را نشان می‌دهد.
+همچنین نحوه ایجاد شکل‌های سفارشی و ترکیبی، ساخت شکل‌ها با گوشه‌های منحنی، تعیین اینکه آیا هندسه یک شکل بسته است یا خیر، بررسی عناصر شکل، و تبدیل خطوط متن Java AWT به مسیرهای هندسی را نمایش می‌دهد.
 
 ## **تغییر یک شکل با استفاده از نقاط ویرایشی**
 
-در PowerPoint می‌توانید از **نقاط ویرایشی** برای تغییر یک مربع استفاده کنید:
+* حرکت دادن یک گوشه به سمت داخل یا خارج.  
+* تنظیم منحنی‌بودن در یک نقطه.  
+* افزودن نقاط جدید.
 
-* یک گوشه را به سمت داخل یا خارج حرکت دهید.
-* انحنای یک نقطه را تنظیم کنید.
-* نقاط جدید اضافه کنید.
-
-ویرایش نقاط به شما امکان می‌دهد مرز یک شکل را تغییر دهید یا از یک شکل موجود به عنوان پایهٔ شکل جدید استفاده کنید.
+ویرایش نقاط به شما امکان می‌دهد حاشیه یک شکل را تغییر دهید یا از یک شکل موجود به عنوان پایه برای شکل جدید استفاده کنید.
 
 ## **نکات ویرایش شکل**
 
-![تصویر_مرور_کلی](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-هنگام ویرایش اشکال PowerPoint، این مفاهیم را در ذهن داشته باشید:
+هنگام ویرایش شکل‌های PowerPoint، این مفاهیم را در ذهن داشته باشید:
 
-* یک شکل (یا مسیر آن) می‌تواند بسته یا باز باشد.
-* مسیر یک شکل شامل نقاط لنگر است که توسط بخش‌ها به هم وصل می‌شوند.
-* یک بخش می‌تواند مستقیم یا منحنی باشد. نقاط لنگر و دسته‌های کنترل شکل آن را تعیین می‌کنند.
-* نقاط لنگر به عنوان نقاط گوشه، نقاط مستقیم یا نقاط نرم وجود دارند:
-  * در یک نقطهٔ گوشه، بخش‌های مجاور می‌توانند تحت زاویه‌ای به هم ملحق شوند.
-  * در یک نقطهٔ نرم، دو دستهٔ کنترل هم‌راستا و به‌صورت مساوی از نقطهٔ لنگر فاصله دارند.
-  * در یک نقطهٔ مستقیم، دو دستهٔ کنترل هم‌راستا هستند اما می‌توانند فاصله‌های متفاوتی از نقطهٔ لنگر داشته باشند.
-* جابه‌جایی نقاط لنگر یا تنظیم دسته‌های آن‌ها مرز شکل را تغییر می‌دهد.
+* یک شکل (یا مسیر آن) می‌تواند بسته یا باز باشد.  
+* مسیر یک شکل از نقاط لنگر متصل به یکدیگر توسط بخش‌ها تشکیل می‌شود.  
+* یک بخش می‌تواند صاف یا منحنی باشد. نقاط لنگر و دستگیره‌های کنترل شکل آن را تعیین می‌کنند.  
+* نقاط لنگر می‌توانند به صورت نقاط گوشه‌ای، نقاط صاف یا نقاط نرم وجود داشته باشند:  
+  * در یک نقطه گوشه‌ای، بخش‌های مجاور می‌توانند با زاویه‌ای به هم برسند.  
+  * در یک نقطه نرم، دو دستگیره کنترل هم‌راستا و با فاصله مساوی از نقطه لنگر قرار دارند.  
+  * در یک نقطه صاف، دو دستگیره کنترل هم‌راستا هستند اما می‌توانند فاصله متفاوتی از نقطه لنگر داشته باشند.  
+* جابه‌جایی نقاط لنگر یا تنظیم دستگیره‌های آن‌ها، حاشیه شکل را تغییر می‌دهد.
 
-برای ویرایش اشکال PowerPoint از طریق نقاط ویرایشی، **Aspose.Slides** کلاس [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) را فراهم می‌کند.
+برای ویرایش شکل‌های PowerPoint از طریق نقاط ویرایشی، **Aspose.Slides** کلاس [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) را فراهم می‌کند.
 
-* یک نمونهٔ [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) مسیر هندسی شیء [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) را نشان می‌دهد.
-* برای دریافت [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) از نمونهٔ [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) می‌توانید از متد [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) استفاده کنید.
-* برای تنظیم [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) برای یک shape، می‌توانید این متدها را استفاده کنید: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) برای اشکالی که یک مسیر دارند و [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) برای اشکالی که مسیرهای متعددی دارند.
-* برای افزودن بخش‌ها، می‌توانید از متدهای موجود زیر [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) استفاده کنید.
-* با استفاده از متدهای [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) و [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) می‌توانید ظاهر یک مسیر هندسی را تنظیم کنید.
-* با استفاده از متد [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) می‌توانید مسیر هندسی یک [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) را به‌عنوان آرایه‌ای از بخش‌های مسیر دریافت کنید.
-* برای دسترسی به گزینه‌های سفارشی‌سازی بیشتر هندسهٔ شکل، می‌توانید یک [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) را از طریق [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) آن بخوانید و بخش‌ها را بر روی یک [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) بازپخش کنید.
+* یک نمونه [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) مسیر هندسی شیء [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) را نشان می‌دهد.  
+* برای دریافت [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) از نمونه [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) می‌توانید از متد [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) استفاده کنید.  
+* برای تنظیم [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) برای یک شکل، می‌توانید از این متدها استفاده کنید: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) برای شکل‌هایی با مسیر واحد و [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) برای شکل‌هایی با مسیرهای متعدد.  
+* برای افزودن بخش‌ها، می‌توانید از متدهای موجود در [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) استفاده کنید.  
+* با استفاده از متدهای [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) و [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) می‌توانید ظاهر یک مسیر هندسی را تعیین کنید.  
+* با استفاده از متد [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) می‌توانید مسیر هندسی یک [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) را به صورت آرایه‌ای از بخش‌های مسیر دریافت کنید.  
+* برای دسترسی به گزینه‌های سفارشی‌سازی اضافه هندسه شکل، می‌توانید یک [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) را از طریق [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) آن بخوانید و بخش‌ها را روی یک [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) بازپخش کنید.
 
 ## **عملیات ویرایشی ساده**
 
-از متدهای زیر برای ویرایش یک مسیر هندسی استفاده کنید. بارگذاری‌های پذیرندهٔ اندیس، یک بخش را در آن موقعیت صفر‑مبنا در آرایهٔ بخش‌های مسیر درج می‌کنند.
+از متدهای زیر برای ویرایش یک مسیر هندسی استفاده کنید. بارگذاری‌های (overloads) که یک شاخص می‌پذیرند، یک بخش را در موقعیت صفر‑پایه‌ای آن در آرایه بخش‌های مسیر درج می‌کنند.
 
 | عملیات | متد |
 | --- | --- |
-| اضافه یا درج یک خط مستقیم. | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
-| اضافه یا درج یک منحنی Bézier مربعی با دو نقطهٔ کنترل و نقطهٔ انتهایی. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| اضافه یا درج یک منحنی Bézier درجه دو با یک نقطهٔ کنترل و نقطهٔ انتهایی. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| اضافه یک قوس بیضوی با ابعاد و زاویهٔ مشخص به درجه. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
-| بستن شکل جاری با اتصال نقطهٔ انتهایی به نقطهٔ شروع. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
-| تنظیم نقطهٔ شروع یک شکل. | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
-| حذف یک بخش در اندیس صفر‑مبنا. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
+| افزودن یا درج یک خط مستقیم. | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
+| افزودن یا درج یک منحنی بزیهٔ مکعبی با دو نقطه کنترل و نقطه انتهایی. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| افزودن یا درج یک منحنی بزیهٔ درجهٔ دوم با یک نقطه کنترل و نقطه انتهایی. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| افزودن یک قوس بیضوی با ابعاد و زوایای مشخص شده بر حسب درجه. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
+| بستن شکل فعلی با اتصال نقطه انتهایی آن به نقطه شروع. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
+| تنظیم نقطه شروع یک شکل. | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
+| حذف یک بخش در شاخص صفر‑پایه‌ای. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **افزودن نقاط سفارشی به یک شکل**
 
-این مثال دو نقطه را به یک شکل مستطیلی با استفاده از [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) وارد می‌کند و مسیر ویرایش‌شده را با [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) اعمال می‌نماید. مختصات‌ها به‌صورت محلی به شکل هستند: هر دو نقطهٔ جدید در مرکز آن قرار دارند، ۱۰۰ پوینت از چپ و ۵۰ پوینت از بالا. اندیس‌های بخش ۱ و ۴ آن‌ها را روی لبه‌های بالا و پایین قرار می‌دهند و این لبه‌ها را به سمت داخل می‌کشند.
+این مثال دو نقطه را به یک شکل مستطیلی با استفاده از [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) وارد می‌کند و مسیر ویرایش‌شده را با [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) اعمال می‌نماید. مختصات‌ها محلی نسبت به شکل هستند: هر دو نقطه جدید در مرکز آن قرار دارند، 100 واحد از سمت چپ و 50 واحد از بالای شکل. شاخص‌های بخش 1 و 4 آن‌ها را بر روی لبه‌های بالا و پایین قرار می‌دهند و این لبه‌ها را به سمت داخل می‌کشند.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -102,11 +100,11 @@ try {
 }
 ```
 
-![مثال۱_تصویر](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
 ## **حذف نقاط از یک شکل**
 
-این مثال خطوط بیرونی یک شکل قلبی را با حذف بخش در اندیس صفر‑مبنا ۲ با استفاده از [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) تغییر می‌دهد. اعمال مسیر اصلاح‌شده با [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) مرز شکل را به‌روز می‌کند.
+این مثال طرح شکل قلبی را با حذف بخش با شاخص صفر‑پایه‌ای 2 با استفاده از [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) تغییر می‌دهد. اعمال مسیر اصلاح‌شده با [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) حاشیه شکل را به‌روز می‌کند.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -125,11 +123,11 @@ try {
     presentation.dispose();
 }
 ```
-![مثال۲_تصویر](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
 ## **ایجاد یک شکل سفارشی**
 
-این مثال یک ستارهٔ پنج‌پر با استفاده از [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) می‌سازد. شعاع‌های بیرونی و داخلی به ترتیب ۱۰۰ و ۵۰ پوینت، نکات و فرو رفتگی‌ها را تعریف می‌کنند؛ گام ۷۲ درجه پنج نکته را به‌صورت مساوی فاصله می‌دهد. مسیر با [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) بسته می‌شود و با [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) به شکل مستطیلی اعمال می‌گردد و مرز آن را جایگزین می‌کند.
+این مثال با استفاده از [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) یک ستاره پنج‌پرکی می‌سازد. شعاع‌های خارجی و داخلی به ترتیب 100 و 50 واحد تعریف می‌شود؛ گام 72 درجه لبه‌های پنج‌گانه را به‌صورت مساوی پخش می‌کند. مسیر با [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) بسته می‌شود و با [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) به یک شکل مستطیلی اعمال می‌شود و طرح قبلی آن را جایگزین می‌کند.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -164,11 +162,11 @@ try {
     presentation.dispose();
 }
 ```
-![مثال۳_تصویر](custom_shape_3.png)
+![example3_image](custom_shape_3.png)
 
 ## **ایجاد یک شکل ترکیبی سفارشی**
 
-این مثال دو شیء بستهٔ [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) برای یک‑سوم و دو‑سوم بالای یک شکل تعریف می‌کند. اعمال هر دو مسیر با [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) یک شکل ترکیبی واحد با یک فضای خالی در یک‑سوم میانی ایجاد می‌کند.
+این مثال دو شیء [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) بسته برای یک‑سوم بالا و یک‑سوم پایینی یک شکل تعریف می‌کند. اعمال هر دو مسیر با [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) یک شکل ترکیبی واحد با شکاف در یک‑سوم میانی ایجاد می‌کند.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -200,11 +198,11 @@ try {
     presentation.dispose();
 }
 ```
-![مثال۴_تصویر](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
 ## **ایجاد یک شکل سفارشی با گوشه‌های منحنی**
 
-این مثال بخش‌های مستقیم را با [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) ترکیب می‌کند تا شکلی با گوشه‌های منحنی به سمت داخل بسازد. هر اندازهٔ گوشه عرض و ارتفاع قوس را به پوینت تنظیم می‌کند و چرخش ‑۹۰ درجه یک چهارم‌بیضی را در جهت ساعت‌گرد مخالف می‌کشد. مسیر تکمیل‌شده با [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) اعمال می‌شود و ارائه در قالب PPTX ذخیره می‌گردد.
+این مثال بخش‌های صاف را با [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) ترکیب می‌کند تا شکلی با گوشه‌های درونی‑منحنی به دست آید. هر اندازه گوشه عرض و ارتفاع قوس را بر حسب نقاط تنظیم می‌کند و چرخش –90 درجه یک ربع بیضی را به‌صورت پادساعت جهت می‌کشد. مسیر کامل با [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) اعمال می‌شود و ارائه در فرمت PPTX ذخیره می‌گردد.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -245,9 +243,9 @@ try {
 }
 ```
 
-## **پیدا کردن اینکه آیا هندسهٔ یک شکل بسته است**
+## **پیدا کردن اینکه آیا هندسه یک شکل بسته است**
 
-این کمکی بررسی می‌کند که آیا هر مسیر هندسی غیرخالی با یک بخش بسته پایان می‌یابد یا خیر. این تابع [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) را می‌خواند و دستور نهایی [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) را با [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/) مقایسه می‌کند. وقتی مسیرهای غیرخالی وجود نداشته باشند، مقدار false بر می‌گرداند. این بررسی فقط دستور نهایی هر مسیر را می‌سنجد؛ زیرشکل‌های هر مسیر را بررسی نمی‌کند. مثال برای یک مستطیل مقدار `true` چاپ می‌کند.
+این کمکی بررسی می‌کند که آیا هر مسیر هندسی غیرخالی با یک بخش بسته پایان می‌یابد یا خیر. آن [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) را می‌خواند و دستور نهایی [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) را با [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/) مقایسه می‌کند. اگر مسیرهای غیرخالی وجود نداشته باشد، مقدار false باز می‌گردد. این بررسی تنها فرمان نهایی هر مسیر را در نظر می‌گیرد؛ زیرشکل‌های داخل مسیر را بررسی نمی‌کند. مثال `true` را برای یک مستطیل چاپ می‌کند.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -281,11 +279,62 @@ try {
 }
 ```
 
-## **استخراج و بازرسی عناصر شکل**
+## **بررسی دستورات مسیر هندسی**
 
-از [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) برای بازرسی یک شکل موجود به‌عنوان عناصری که نقاط مسیر و انواع نقطه را شامل می‌شوند، استفاده کنید. هر [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) بازگردانده‌شده را می‌توانید با متدهای [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) و [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes) آرایهٔ نقاط و انواع دریافت کنید. این نمایش برای تحلیل مرز یا انتقال هندسه به ابزارهای رسم سفارشی مفید است.
+فایل [contour.pptx](contour.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اولین شکل در اسلاید اول دارای لبهٔ بالایی صاف، یک منحنی بزیهٔ مکعبی و لبهٔ بستهٔ صاف است. از [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) برای خواندن مسیرهای شکل و [getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) برای خواندن بخش‌های هر مسیر به ترتیب رسم استفاده کنید. برای هر بخش، [getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) فرمان را شناسایی می‌کند و نحوه تفسیر مقادیر برگردانده‌شده توسط [getSegmentData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getSegmentData) را تعیین می‌نماید.
 
-مثال فایل input.pptx را باز می‌کند، اولین شکل هندسی را مستقیماً در اولین اسلاید پیدا می‌کند و بخش‌های مسیر آن را چاپ می‌کند. از یک ارائه حاوی شکلی با بخش‌های مستقیم و منحنی استفاده کنید تا هر دو نوع خروجی را ببینید. این روش داخل گروه‌ها را جستجو نمی‌کند.
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("contour.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paths = shape.getGeometryPaths();
+    for (const [i, path] of paths.entries()) {
+        const segments = path.getPathData();
+        for (const [j, segment] of segments.entries()) {
+            const command = segment.getPathCommand();
+            const data = segment.getSegmentData();
+            let detail;
+            switch (command) {
+                case slides.PathCommandType.MoveTo:
+                case slides.PathCommandType.LineTo:
+                    const name = command === slides.PathCommandType.MoveTo ? "MoveTo" : "LineTo";
+                    detail = `${name} destination=(${data[0]}, ${data[1]})`;
+                    break;
+                case slides.PathCommandType.CubicBezierTo:
+                    detail = `CubicBezierTo control1=(${data[0]}, ${data[1]}) control2=(${data[2]}, ${data[3]}) end=(${data[4]}, ${data[5]})`;
+                    break;
+                case slides.PathCommandType.Close:
+                    detail = "Close no coordinates";
+                    break;
+                default:
+                    detail = `command=${command} raw=[${data.join(", ")}]`;
+            }
+            console.log(`Path ${i}, segment ${j}: ${detail}`);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+شکل در نقطهٔ (200, 100) نقطه در اسلاید قرار دارد. مختصات گزارش‌شده محلی نسبت به شکل هستند و (0, 0) در گوشهٔ بالا‑چپ آن قرار دارد؛ x به سمت راست و y به سمت پایین افزایشی است. بخش بسته بدون مختصات اضافی به نقطهٔ شروع باز می‌گردد.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **استخراج و بررسی عناصر شکل**
+
+از [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) برای بررسی یک شکل موجود به عنوان عناصر حاوی نقاط مسیر و انواع نقطه استفاده کنید. هر [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) بازگردانده‌شده می‌تواند آرایهٔ نقاط و انواع را از طریق متدهای [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) و [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes) دریافت کند. این نمایش برای تجزیه و تحلیل حاشیه یا انتقال هندسه به ابزارهای رسم سفارشی مفید است.
+
+مثال فایل input.pptx را باز می‌کند، اولین شکل هندسی را مستقیماً در اسلاید اول پیدا می‌کند و بخش‌های مسیر آن را چاپ می‌کند. برای دیدن خروجی هر دو نوع بخش، از یک ارائه شامل شکلی با بخش‌های صاف و منحنی استفاده کنید. این روش داخل گروه‌ها جستجو نمی‌کند.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -313,7 +362,7 @@ try {
             console.log("Shape element:");
 
             for (let i = 0; i < points.length; i++) {
-                const pointType = types[i] & 0x07; // نوع بخش را نگه داشته و پرچم‌ها را حذف کنید.
+                const pointType = types[i] & 0x07; // نوع بخش را نگه‌دارید، بدون پرچم‌ها.
                 switch (pointType) {
                     case 0:
                         console.log("Start figure at " + points[i]);
@@ -338,21 +387,21 @@ try {
 }
 ```
 
-آرایه‌ها بر اساس اندیس مطابقت دارند: `points[i]` یک نقطه است و `types[i]` نقش آن را توصیف می‌کند. نوع `0` یک شکل را شروع می‌کند و نوع `1` خطی از نقطهٔ قبلی به نقطهٔ فعلی می‌کشد. یک بخش Bézier مکعب از نقطهٔ انتهایی قبلی شروع می‌شود و از سه ورودی متوالی نوع `3` استفاده می‌کند: دو نقطهٔ کنترل و سپس نقطهٔ انتهایی جدید. حلقه این سه ورودی را همزمان مصرف می‌کند و نقطهٔ انتهایی را برای بسته بودن بررسی می‌کند.
+آرایه‌ها بر اساس اندیس هم‌راستا هستند: `points[i]` یک نقطه است و `types[i]` نقش آن را توصیف می‌کند. نوع `0` شروع یک شکل را نشان می‌دهد و نوع `1` خطی را از نقطهٔ قبلی به نقطهٔ جاری می‌کشد. یک بخش بزیهٔ مکعبی از نقطهٔ انتهایی قبلی شروع می‌شود و از سه ورودی متوالی نوع‑`3` استفاده می‌کند: دو نقطه کنترل و سپس نقطهٔ انتهایی جدید. حلقه این سه ورودی را به‌هم پیوسته پردازش می‌کند و نقطهٔ انتهایی را برای بسته بودن بررسی می‌کند.
 
-انواع نقطه همچنین پرچم‌هایی دارند. با ماسک `0x07` نوع بخش را شناسایی کنید و با `0x80` جداگانه برای تشخیص زیرمسیر بسته تست کنید. برای مثال، `129` (`0x81`) به معنای نقطهٔ انتهایی خط است که زیرمسیری را می‌بندد و `131` (`0x83`) به معنای نقطهٔ انتهایی Bézier است که یکی را می‌بندد. جاوا این پرچم‌ها را در بایت‌های امضا ذخیره می‌کند؛ ماسک کردن مقادیر بایت اصلی را حفظ می‌کند. مقایسهٔ مقدار خام فقط با `1` یا `3` این موارد را از دست می‌دهد. پرچم‌های دیگر مانند خط‌چین (`0x10`) و نشانگر (`0x20`) نوع پایهٔ بخش را تغییر نمی‌دهند.
+انواع نقطه همچنین شامل پرچم‌ها هستند. برای شناسایی نوع بخش با ماسک `0x07` استفاده کنید و برای تشخیص زیرمسیر بسته پرچم `0x80` را جداگانه تست کنید. به عنوان مثال `129` (`0x81`) نشان‌دهندهٔ نقطهٔ انتهایی خط است که یک زیرمسیر را می‌بندد و `131` (`0x83`) نشان‌دهندهٔ نقطهٔ انتهای بزیه است که یک زیرمسیر را می‌بندد. جاوا این پرچم‌ها را در بایت‌های امضاء شده ذخیره می‌کند؛ استفاده از ماسک مقادیر بیتی اصلی را حفظ می‌کند. مقایسه مقدار خام تنها با `1` یا `3` این موارد را نادیده می‌گیرد. پرچم‌های دیگر مانند dash (`0x10`) و marker (`0x20`) نوع پایهٔ بخش را تغییر نمی‌دهند.
 
-**مختصات و تبدیل‌ها.** نقاط بر حسب پوینت (۱/۷۲ اینچ) اندازه‌گیری می‌شوند؛ X به سمت راست و Y به سمت پایین افزایش می‌یابد. برای یک شکل بدون گروه، مختصات استخراج‌شده قبلاً موقعیتی را که توسط [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) و [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) بازگردانده شده، شامل می‌شود و عرض و ارتفاع فعلی را منعکس می‌کند. به‌عنوان مثال، یک مستطیل بدون چرخش در `(100, 200)` با اندازهٔ `120 × 80` دارای مرزهای `(100, 200)`‑`(220, 280)` است. موقعیت شکل را دوباره اضافه نکنید. برای به‌دست آوردن مختصات نسبت به قاب بدون چرخش، X و Y آن را کم کنید.
+**مختصات و تبدیل‌ها.** نقاط به نقطه (1/72 اینچ) اندازه‌گیری می‌شوند؛ X به سمت راست و Y به سمت پایین افزایشی است. برای یک شکل بدون گروه، مختصات استخراج‌شده قبلاً موقعیت برگشتی توسط [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) و [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) را شامل می‌شود و عرض و ارتفاع فعلی آن را منعکس می‌کند. به عنوان مثال، یک مستطیل بدون چرخش در `(100, 200)` با اندازهٔ `120 × 80` دارای مرزهای حاشیهٔ `(100, 200)`–`(220, 280)` است. موقعیت شکل را دوباره اضافه نکنید. برای به‌دست آوردن مختصات نسبی به قاب غیرچرخان آن، X و Y آن را کم کنید.
 
-نقاط استخراج‌شده چرخش شکل، که توسط [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation) بازگردانده می‌شود، یا وارونگی افقی و عمودی را اعمال نمی‌کنند. برای بازآفرینی مرز نمایشی، این تبدیلات را دور مرکز شکل اعمال کنید. برای اشکال گروهی، نقشهٔ مختصات گروه و تبدیلات آن را نیز در نظر بگیرید؛ فرض نکنید که نقاط استخراج‌شده نهایی‌ترین مختصات اسلاید هستند یا ترجمه یا مقیاس را دو بار اعمال کنید اگر قبلاً در چارچوب فرزند منعکس شده باشد.
+نقاط استخراج‌شده چرخش شکل که توسط [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation) برگردانده می‌شود یا وارون‌های افقی و عمودی را اعمال نمی‌کنند. برای بازسازی حاشیهٔ نمایش داده‌شده، این تبدیلات را حول مرکز شکل اعمال کنید. برای اشکال گروهی، همچنین نگاشت مختصات گروه و تبدیلات را در نظر بگیرید؛ فرض نکنید که نقاط استخراج‌شده مختصات نهایی اسلاید هستند یا انتقال یا مقیاس را دو بار اعمال کنید اگر قبلاً در قاب فرزند منعکس شده‌اند.
 
-**بازرسی در مقابل ویرایش.** آرایه‌های استخراج‌شده مرز را توصیف می‌کنند؛ تغییر آن‌ها شکل اصلی را به‌روزرسانی نمی‌کند. وقتی تحلیل یا کد رسم شما به آرایه‌های نقطه/نوع نیاز دارد، این روش را انتخاب کنید. وقتی به دستورات هندسه در سیستم مختصات محلی شکل نیاز دارید یا می‌خواهید هندسهٔ آن را ویرایش کنید، از [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) استفاده کنید. مسیرهای ویرایش‌شده را از طریق [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) یا [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) اعمال کنید.
+**بررسی در مقابل ویرایش.** آرایه‌های استخراج‌شده حاشیه را توصیف می‌کنند؛ تغییر آن‌ها شکل اصلی را به‌روزرسانی نمی‌کند. این روش را زمانی استفاده کنید که تحلیل یا کد رسم شما به آرایه‌های نقطه/نوع نیاز دارد. وقتی به دستورات هندسی در سیستم مختصات محلی شکل نیاز دارید یا می‌خواهید هندسهٔ آن را ویرایش کنید، از [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) استفاده کنید. مسیرهای ویرایش‌شده را از طریق [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) یا [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) اعمال کنید.
 
 ## **تبدیل یک Java AWT Shape به GeometryPath**
 
-این مثال یک مرز مستطیلی را با متنی که به هندسه تبدیل شده ترکیب می‌کند. متد [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) مرز را خالی می‌کند. یک [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) خط متن را در یک [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ایجاد می‌کند. [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) آن حرکت، خط، درجه‌دو، مکعب و بخش‌های بسته را تأمین می‌کند که مثال آن‌ها را روی یک [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) بازپخش می‌کند.
+این مثال یک حاشیهٔ مستطیلی را با متنی ترکیب می‌کند که به هندسه تبدیل شده است. متد [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) حاشیه را بدون پرش می‌کند. یک [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) شکل متن را در یک [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ایجاد می‌کند. [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) آن حرکت، خط، درجهٔ دوم، درجهٔ سوم و بخش‌های بسته را فراهم می‌کند که مثال آن‌ها را روی یک [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) بازپخش می‌کند.
 
-پل جاوا از مقادیر شناور (float) و بایت صریح برای پارامترهای متناظر جاوا استفاده می‌کند. تکرارگر مختصات‌ها را در یک آرایهٔ float جاوا می‌نویسد؛ بازتاب مقادیر به‌روز شده را به JavaScript می‌خواند. متن با قلم Arial با اندازهٔ ۴۰ پوینت رسم می‌شود. مرز ۲۰ پوینت به صورت افقی جابجا شده و بالای بصری آن ۱۰ پوینت زیر لبهٔ بالایی شکل قرار می‌گیرد. مسیر متن پر می‌شود، در حالی که مستطیل اصلی به‌صورت مرز باقی می‌ماند. اعمال هر دو مسیر با [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) یک شکل واحد شامل مستطیل و متن تولید می‌کند.
+پل جاوا از مقادیر float و byte صریح برای پارامترهای متناظر جاوا استفاده می‌کند. تکرارگر مختصات‌ها را در یک آرایهٔ float جاوا می‌نویسد؛ انعکاس مقادیر به‌روزشده را به JavaScript برمی‌گرداند. متن از قلم Arial با اندازهٔ 40 نقطه استفاده می‌کند. حاشیه 20 نقطه به صورت افقی جابجا شده و بالای بصری آن 10 نقطه زیر لبهٔ بالای شکل قرار می‌گیرد. مسیر متن پر می‌شود در حالی که مستطیل اصلی به صورت حاشیه باقی می‌ماند. اعمال هر دو مسیر با [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) یک شکل واحد شامل مستطیل و متن تولید می‌کند.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -399,10 +448,10 @@ try {
             case 1: // خط به.
                 textPath.lineTo(points[0], points[1]);
                 break;
-            case 2: // منحنی Bézier درجه دو.
+            case 2: // منحنی بزیهٔ درجهٔ دوم.
                 textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
                 break;
-            case 3: // منحنی Bézier مکعب.
+            case 3: // منحنی بزیهٔ مکعبی.
                 textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
                 break;
             case 4: // بستن شکل.
@@ -418,18 +467,18 @@ try {
     presentation.dispose();
 }
 ```
-![مثال۵_تصویر](custom_shape_5.png)
+![example5_image](custom_shape_5.png)
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**پس از جایگزینی هندسه، پرکننده و مرز چه می‌شود؟**
+**چه اتفاقی برای پر و حاشیه پس از جایگزینی هندسه می‌افتد؟**
 
-استایل با شکل باقی می‌ماند؛ فقط مرز تغییر می‌کند. پرکننده و مرز به‌صورت خودکار به هندسهٔ جدید اعمال می‌شوند.
+سبک با شکل باقی می‌ماند؛ فقط حاشیه تغییر می‌کند. پر و حاشیه به‌صورت خودکار به هندسهٔ جدید اعمال می‌شوند.
 
-**چگونه شکل سفارشی را به‌طور صحیح همراه با هندسه‌اش بچرخانم؟**
+**چگونه می‌توانم یک شکل سفارشی را همراه با هندسه‌اش به‌درستی بچرخانم؟**
 
-از متد shape’s [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) استفاده کنید؛ هندسه همراه با شکل می‌چرخد چون به سیستم مختصات خود شکل وصل است.
+از متد [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) شکل استفاده کنید؛ هندسه همراه با شکل می‌چرخد زیرا به سیستم مختصات خود شکل بسته است.
 
 **آیا می‌توانم یک شکل سفارشی را به تصویر تبدیل کنم تا «قفل» شود؟**
 
-بله. ناحیهٔ موردنیاز [slide](/slides/fa/nodejs-java/convert-powerpoint-to-png/) یا خود [shape](/slides/fa/nodejs-java/create-shape-thumbnails/) را به فرمت رستری صادر کنید؛ این کار کار با هندسه‌های پیچیده را ساده می‌کند.
+بله. ناحیهٔ [اسلاید](/slides/fa/nodejs-java/convert-powerpoint-to-png/) مورد نیاز یا خود [شکل](/slides/fa/nodejs-java/create-shape-thumbnails/) را به قالب رستر خروجی بگیرید؛ این کار کار با هندسه‌های پیچیده را ساده می‌کند.

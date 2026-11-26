@@ -10,7 +10,7 @@ keywords:
 - создать форму
 - изменить форму
 - геометрия формы
-- геометрический путь
+- путь геометрии
 - точки пути
 - точки редактирования
 - добавить точку
@@ -21,17 +21,17 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Создавайте и настраивайте формы в презентациях PowerPoint с помощью Aspose.Slides для C++: геометрические пути, скруглённые углы, составные формы."
+description: "Создавайте и настраивайте формы в презентациях PowerPoint с помощью Aspose.Slides для C++: пути геометрии, скруглённые углы, составные формы."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как настраивать формы презентаций в Aspose.Slides, редактируя геометрию формы с помощью точек редактирования и геометрических путей. Она показывает, как работать с [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) и [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) для изменения существующих форм, выполнения базовых операций редактирования пути, добавления или удаления точек и применения обновлённой геометрии обратно к форме.
+В этой статье объясняется, как настраивать формы презентаций в Aspose.Slides, редактируя геометрию формы с помощью точек редактирования и путей геометрии. Показано, как работать с [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) и [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) для изменения существующих форм, выполнения основных операций редактирования пути, добавления или удаления точек и применения обновлённой геометрии обратно к форме.
 
-Она также демонстрирует, как создавать пользовательские и составные формы, строить формы со скруглёнными углами и определять, является ли геометрия формы замкнутой.
+Также демонстрируется, как создавать пользовательские и составные формы, строить формы со скруглёнными углами и определять, является ли геометрия формы замкнутой.
 
 ## **Изменение формы с помощью точек редактирования**
 
-В PowerPoint вы можете использовать **Edit Points** для изменения квадрата:
+В PowerPoint можно использовать **Edit Points**, чтобы изменить квадрат:
 
 * Переместить угол внутрь или наружу.
 * Отрегулировать кривизну в точке.
@@ -46,28 +46,28 @@ description: "Создавайте и настраивайте формы в п�
 При редактировании форм PowerPoint учитывайте следующие концепции:
 
 * Форма (или её путь) может быть закрытой или открытой.
-* Путь формы состоит из опорных точек, соединённых отрезками.
-* Отрезок может быть прямым или изогнутым. Опорные точки и контрольные рычаги определяют его форму.
-* Опорные точки могут быть угловыми, прямыми или сглаженными:
-  * В угловой точке соседние отрезки могут соединяться под углом.
-  * В сглаженной точке два контрольных рычага выровнены и находятся на одинаковом расстоянии от опорной точки.
-  * В прямой точке два контрольных рычага выровнены, но могут находиться на разном расстоянии от опорной точки.
-* Перемещение опорных точек или корректировка их рычагов изменяет контур формы.
+* Путь формы состоит из точек привязки, соединённых сегментами.
+* Сегмент может быть прямым или кривым. Точки привязки и управляющие ручки определяют его форму.
+* Точки привязки бывают угловыми, прямыми или сглаженными:
+  * В угловой точке соединяющие сегменты могут встречаться под углом.
+  * В сглаженной точке две управляющие ручки выровнены и находятся на одинаковом расстоянии от точки привязки.
+  * В прямой точке две управляющие ручки выровнены, но могут находиться на разном расстоянии от точки привязки.
+* Перемещение точек привязки или корректировка их ручек меняет контур формы.
 
-Для редактирования форм PowerPoint с помощью точек редактирования **Aspose.Slides** предоставляет класс [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) и интерфейс [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+Для редактирования форм PowerPoint через точки редактирования **Aspose.Slides** предоставляет класс [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) и интерфейс [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
 
-* Экземпляр [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) представляет геометрический путь объекта [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
-* Чтобы получить [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) из экземпляра [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), можно использовать метод [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
-* Чтобы задать [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) для формы, можно использовать следующие методы: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) для форм с одним путем и [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) для форм с несколькими путями.
-* Чтобы добавить отрезки, можно использовать методы в [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
-* С помощью методов [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) и [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) можно задать отображение геометрического пути.
-* С помощью метода [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) можно получить геометрический путь [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) в виде массива отрезков пути.
+* Экземпляр [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) представляет путь геометрии объекта [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
+* Чтобы получить [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) из экземпляра [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), используйте метод [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* Чтобы установить [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) для формы, используйте методы: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) для форм с одним путём и [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) для форм с несколькими путями.
+* Для добавления сегментов используйте методы из [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+* С помощью методов [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) и [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) можно задать внешний вид пути геометрии.
+* С помощью метода [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) можно получить путь геометрии [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) в виде массива сегментов пути.
 
 ## **Простые операции редактирования**
 
-Используйте следующие методы для редактирования геометрического пути. Перегрузки, принимающие индекс, вставляют отрезок в указанную позицию (нумерация с нуля) массива отрезков пути.
+Используйте перечисленные методы для редактирования пути геометрии. Перегрузки, принимающие индекс, вставляют сегмент в указанную позицию (нумерация с нуля) в массиве сегментов пути.
 
-| Operation | Method |
+| Операция | Метод |
 | --- | --- |
 | Добавить или вставить прямую линию. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
 | Добавить или вставить кубическую кривую Безье с двумя контрольными точками и конечной точкой. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
@@ -75,11 +75,11 @@ description: "Создавайте и настраивайте формы в п�
 | Добавить эллиптическую дугу с указанными размерами и углами в градусах. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
 | Замкнуть текущую фигуру, соединив её конечную точку с начальной. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
 | Задать начальную точку фигуры. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
-| Удалить отрезок по индексу, начинающемуся с нуля. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
+| Удалить сегмент по индексу (нумерация с нуля). | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-## **Добавление пользовательских точек в форму**
+## **Добавление пользовательских точек к форме**
 
-В этом примере вставляются две точки в прямоугольную форму с помощью [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) и применяется отредактированный путь через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Координаты локальны для формы: обе новые точки находятся в её центре, на 100 пунктов от левого края и 50 пунктов от верхнего. Индексы отрезков 1 и 4 размещают их на верхнем и нижнем краях, притягивая эти края внутрь.
+В этом примере два новых пункта вставляются в прямоугольную форму с помощью [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) и применяются к форме через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Координаты задаются локально относительно формы: обе новые точки находятся в её центре, на 100 пунктов от левого края и 50 пунктов от верхнего. Индексы сегментов 1 и 4 размещают их на верхней и нижней гранях, притягивая эти грани внутрь.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -110,7 +110,7 @@ shape->SetGeometryPath(geometryPath);
 
 ## **Удаление точек из формы**
 
-В этом примере меняется контур в виде сердца, удаляя отрезок по индексу 2 (нумерация с нуля) с помощью [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Применение изменённого пути через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) обновляет контур формы.
+В этом примере контур в виде сердца изменяется удалением сегмента с индексом 2 (нумерация с нуля) с помощью [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Применив изменённый путь через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), контур формы обновляется.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -135,12 +135,11 @@ path->RemoveAt(2);
 
 shape->SetGeometryPath(path);
 ```
-
 ![example2_image](custom_shape_2.png)
 
 ## **Создание пользовательской формы**
 
-В этом примере создаётся пятиконечная звезда с помощью [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Чередующиеся внешние и внутренние радиусы 100 и 50 пунктов определяют вершины и впадины; шаг в 72 градуса равномерно распределяет пять вершин. Путь замыкается с помощью [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) и применяется к прямоугольной форме через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), заменяя её контур.
+В этом примере создаётся пятиконечная звезда с помощью [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Чередующиеся внешние и внутренние радиусы 100 и 50 пунктов определяют кончики и впадины; шаг 72 градуса равномерно распределяет пять кончиков. Путь замыкается методом [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) и применяется к прямоугольной форме через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), заменяя её контур.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -195,12 +194,11 @@ auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
-
 ![example3_image](custom_shape_3.png)
 
 ## **Создание составной пользовательской формы**
 
-В этом примере определяются два замкнутых объекта [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) для верхней и нижней трети формы. Применение обоих путей через [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) создаёт одну составную форму с разрывом в её средней трети.
+В этом примере определены два закрытых объекта [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) для верхней и нижней трети формы. Применив оба пути через [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/), создаётся единая составная форма с разрывом посередине её третьей части.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -239,12 +237,11 @@ auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath }
 
 shape->SetGeometryPaths(paths);
 ```
-
 ![example4_image](custom_shape_4.png)
 
 ## **Создание пользовательской формы со скруглёнными углами**
 
-В этом примере комбинируются прямые отрезки с [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) для создания формы со скруглёнными внутрь углами. Размер каждого угла задаёт ширину и высоту дуги в пунктах, а sweep -90 градусов рисует эллипс четвертью против часовой стрелки. Завершённый путь применяется через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), и презентация сохраняется в формате PPTX.
+В этом примере прямые сегменты комбинируются с [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) для создания формы с внутрь‑изогнутыми углами. Каждый параметр угла задаёт ширину и высоту дуги в пунктах, а разворот –90° рисует против часовой стрелки четверть эллипса. Завершённый путь применяется через [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), после чего презентация сохраняется в формате PPTX.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -299,9 +296,9 @@ shape->SetGeometryPath(geometryPath);
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Определение, является ли геометрия формы замкнутой**
+## **Проверка, является ли геометрия формы замкнутой**
 
-Следующий вспомогательный метод проверяет, заканчивается ли каждый непустой геометрический путь замыкающим отрезком. Он читает [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) и сравнивает команду последнего отрезка [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) с [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). При отсутствии непустых путей возвращает false. Проверяется только конечная команда каждого пути; отдельные подфигуры внутри пути не анализируются. В примере выводится `True` для прямоугольника.
+Следующая вспомогательная функция проверяет, заканчивается ли каждый непустой путь геометрии закрывающим сегментом. Она читает [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) и сравнивает команду последнего сегмента [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) с [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Возвращает false, если нет непустых путей. Функция проверяет только последнюю команду каждого пути, не анализируя каждую подфигуру внутри пути. Пример выводит `True` для прямоугольника.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -348,11 +345,84 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 2
 Console::WriteLine(isGeometryClosed(shape));
 ```
 
-## **Извлечение и проверка элементов формы**
+## **Анализ команд пути геометрии**
 
-Используйте [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) для изучения существующей формы как элементов, содержащих точки пути и типы точек. Преобразуйте каждый возвращенный [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) к [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/), чтобы прочитать массивы, возвращаемые методами [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) и [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Такое представление полезно для анализа контура или передачи геометрии в пользовательские инструменты рисования.
+Скачайте файл [contour.pptx](contour.pptx) и разместите его в рабочем каталоге приложения. Первая форма на первом слайде имеет прямой верхний край, кубическую кривую Безье и прямой закрывающий край. Используйте [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) для чтения её путей. Для каждого пути метод [get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) возвращает сегменты в порядке рисования. Команда, возвращённая методом [get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/), определяет, как интерпретировать значения, полученные от [get_SegmentData](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_segmentdata/).
 
-В примере открывается презентация, находится первая геометрическая форма на первом слайде и выводятся её отрезки пути. Используйте презентацию, содержащую форму с прямыми и изогнутыми отрезками, чтобы увидеть оба типа вывода. Поиск внутри групп не производится.
+```cpp
+#include <DOM/IGeometryPath.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/PathCommandType.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"contour.pptx");
+
+auto shape = ExplicitCast<IGeometryShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paths = shape->GetGeometryPaths();
+
+for (auto i = 0; i < paths->get_Length(); ++i)
+{
+    auto segments = paths->idx_get(i)->get_PathData();
+    for (auto j = 0; j < segments->get_Length(); ++j)
+    {
+        auto segment = segments->idx_get(j);
+        auto command = segment->get_PathCommand();
+        auto data = segment->get_SegmentData();
+        String detail;
+        switch (command)
+        {
+            case PathCommandType::MoveTo:
+            case PathCommandType::LineTo:
+                detail = String::Format(u"destination=({0}, {1})", data->idx_get(0), data->idx_get(1));
+                break;
+            case PathCommandType::CubicBezierTo:
+                detail = String::Format(u"control1=({0}, {1}) control2=({2}, {3}) end=({4}, {5})", data);
+                break;
+            case PathCommandType::Close:
+                detail = u"no coordinates";
+                break;
+            default:
+            {
+                auto values = MakeArray<String>(data->get_Length());
+                for (auto k = 0; k < data->get_Length(); ++k)
+                {
+                    values->idx_set(k, String::Format(u"{0}", data->idx_get(k)));
+                }
+                detail = String::Format(u"raw=[{0}]", String::Join(u", ", values));
+                break;
+            }
+        }
+        Console::WriteLine(u"Path {0}, segment {1}: {2} {3}", i, j, Enum<PathCommandType>::GetName(command), detail);
+    }
+}
+```
+
+Форма располагается в точке (200, 100) пунктов на слайде. Сообщаемые координаты локальны для формы, с (0, 0) в её верхнем левом углу, ось X направлена вправо, ось Y — вниз. Замыкающий сегмент возвращается к начальной точке без дополнительных координат.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Извлечение и анализ элементов формы**
+
+Используйте [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) для получения представления существующей формы в виде элементов, содержащих точки пути и типы точек. Приведите каждый полученный [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) к типу [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) и прочитайте массивы, возвращаемые методами [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) и [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Такое представление удобно для анализа контура или передачи геометрии в пользовательские инструменты рисования.
+
+В примере открывается презентация, находится первая геометрическая форма непосредственно на первом слайде и выводятся её сегменты пути. Используйте презентацию, содержащую форму с прямыми и кривыми сегментами, чтобы увидеть оба типа вывода. Поиск внутри групп не выполняется.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -420,30 +490,30 @@ for (auto&& element : shape->CreateShapeElements())
 }
 ```
 
-Массивы соответствуют друг другу по индексу: `points[i]` — точка, а `types[i]` описывает её роль. Тип `0` начинается фигуру, тип `1` рисует линию от предыдущей точки к текущей. Кубический сегмент Безье начинается от предыдущей конечной точки и использует три последовательных элемента типа `3`: две контрольные точки и новую конечную точку. Цикл обрабатывает эти три элемента вместе и проверяет конечную точку на замкнутость.
+Массивы коррелируют по индексу: `points[i]` — точка, а `types[i]` — её роль. Тип `0` начинает фигуру, тип `1` рисует линию от предыдущей точки к текущей. Кубический сегмент Безье начинается от предыдущей конечной точки и использует три последовательных элемента типа `3`: две контрольные точки и новую конечную точку. Цикл обрабатывает эти три записи вместе и проверяет конечную точку на замыкание.
 
-Типы точек также содержат флаги. Применяйте маску `0x07`, чтобы определить тип сегмента, и проверяйте `0x80` отдельно, чтобы обнаружить закрытый подпуть. Например, `129` (`0x81`) означает конечную точку линии, закрывающую подпуть, а `131` (`0x83`) — конечную точку Безье, закрывающую его. Сравнение сырого значения только с `1` или `3` упустит такие случаи. Другие флаги, например тире (`0x10`) и маркер (`0x20`), не меняют базовый тип сегмента.
+Типы точек также могут содержать флаги. Маска `0x07` позволяет определить тип сегмента, а проверка `0x80` отдельно выявляет закрытый под‑путь. Например, значение `129` (`0x81`) означает конечную точку линии, закрывающую под‑путь, а `131` (`0x83`) — конечную точку Безье, закрывающую под‑путь. Сравнение только с `1` или `3` упустит такие случаи. Другие флаги, такие как пунктир (`0x10`) и маркер (`0x20`), не меняют базовый тип сегмента.
 
-**Координаты и преобразования.** Точки измеряются в пунктах (1/72 дюйма), при этом X увеличивается вправо, а Y — вниз. Для не сгруппированной формы извлечённые координаты уже включают позицию, возвращаемую методами [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) и [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/), и отражают её текущие ширину и высоту. Например, незавёрнутый прямоугольник в `(100, 200)` размером `120 × 80` имеет границы контура `(100, 200)`–`(220, 280)`. Не добавляйте позицию формы повторно. Вычтите её X и Y, чтобы получить координаты относительно её необращённого кадра.
+**Координаты и преобразования.** Координаты измеряются в пунктах (1/72 дюйма), при этом X растёт вправо, а Y — вниз. Для незагруппированной формы извлечённые координаты уже включают позицию, возвращаемую методами [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) и [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/), и отражают её текущую ширину и высоту. Например, несrotированный прямоугольник с левым верхним углом `(100, 200)` и размерами `120 × 80` имеет границы контура `(100, 200)`–`(220, 280)`. Не добавляйте позицию формы повторно. Вычтите её X и Y, чтобы получить координаты относительно её несrotированного фрейма.
 
-Извлечённые точки не учитывают вращение, установленное через [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) , или горизонтальное и вертикальное отражения. Чтобы восстановить отображаемый контур, примените эти преобразования вокруг центра формы. Для сгруппированных форм также учитывайте отображение координат группы и её преобразования; не следует полагать, что извлечённые точки являются конечными координатами слайда, и не применяйте трансляцию или масштабирование дважды, если они уже учтены в кадре дочернего объекта.
+Извлечённые точки не учитывают вращение, установленное через [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/), а также горизонтальные и вертикальные отражения. Чтобы воспроизвести отображаемый контур, примените эти преобразования относительно центра формы. Для сгруппированных форм также учитывайте преобразования и сопоставление координат группы; не предполагайте, что извлечённые точки уже являются окончательными координатами слайда, и не применяйте трансляцию или масштаб дважды, если они уже отражены в фрейме дочернего элемента.
 
-**Проверка против редактирования.** Извлечённые массивы описывают контур; их изменение не обновляет исходную форму. Выбирайте этот подход, когда ваш код анализа или рисования нуждается в массивах точек/типов. Используйте [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) , если нужны команды геометрии в локальной системе координат формы или требуется редактировать её геометрию. Применяйте отредактированные пути через [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) или [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) .
+**Инспекция vs. редактирование.** Извлечённые массивы описывают контур; их изменение не обновляет оригинальную форму. Используйте такой подход, когда ваш анализ или код рисования требуют массивов точек/типов. Применяйте [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/), когда необходимы команды геометрии в локальной системе координат формы или когда требуется редактировать её геометрию. Обновлённые пути применяются через [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) или [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
 
 ## **Преобразование GeometryPath в GraphicsPath**
 
-Текущий публичный API Aspose.Slides для C++ не предоставляет преобразований между геометрическими путями и графическими путями. Для проверки контура используйте элементы формы, как описано выше. Для редактирования формы используйте геометрические пути и применяйте обновлённые пути к форме.
+Текущий публичный API Aspose.Slides для C++ не предоставляет конвертаций между путями геометрии и графическими путями. Для инспекции контура используйте элементы формы, как описано выше. Для редактирования формы используйте пути геометрии и применяйте обновлённые пути к форме.
 
 ## **FAQ**
 
 **Что произойдёт с заливкой и контуром после замены геометрии?**
 
-Стиль остаётся привязанным к форме; изменяется только контур. Заливка и контур автоматически применяются к новой геометрии.
+Стиль остаётся привязанным к форме; меняется только контур. Заливка и контур автоматически применяются к новой геометрии.
 
 **Как правильно вращать пользовательскую форму вместе с её геометрией?**
 
-Используйте метод формы [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) ; геометрия вращается вместе с формой, поскольку она привязана к её собственной системе координат.
+Вызовите метод формы [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/); геометрия вращается вместе с формой, так как привязана к её собственной системе координат.
 
-**Можно ли преобразовать пользовательскую форму в изображение, чтобы “зафиксировать” результат?**
+**Можно ли преобразовать пользовательскую форму в изображение, чтобы «зафиксировать» результат?**
 
-Да. Экспортируйте нужную область [слайд](/slides/ru/cpp/convert-powerpoint-to-png/) или саму [форму](/slides/ru/cpp/shape-thumbnails/) в растровый формат; это упрощает дальнейшую работу со сложными геометриями.
+Да. Экспортируйте требуемую [slide](/slides/ru/cpp/convert-powerpoint-to-png/) или саму [shape](/slides/ru/cpp/shape-thumbnails/) в растровый формат; это упростит дальнейшую работу со сложной геометрией.

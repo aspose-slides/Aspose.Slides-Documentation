@@ -1,11 +1,11 @@
 ---
 title: Dostosuj kształty prezentacji w PHP
-linktitle: Kształt niestandardowy
+linktitle: Własny kształt
 type: docs
 weight: 20
 url: /pl/php-java/custom-shape/
 keywords:
-- niestandardowy kształt
+- własny kształt
 - dodaj kształt
 - utwórz kształt
 - zmień kształt
@@ -16,59 +16,63 @@ keywords:
 - dodaj punkt
 - usuń punkt
 - operacja edycji
-- zaokrąglony narożnik
+- zaokrąglony róg
 - PowerPoint
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint przy użyciu Aspose.Slides dla PHP poprzez Java: ścieżki geometryczne, zaokrąglone narożniki, kształty złożone."
+description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint za pomocą Aspose.Slides dla PHP przez Java: ścieżki geometryczne, zaokrąglone rogi, kształty złożone."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak dostosować kształty prezentacji w Aspose.Slides poprzez edycję geometrii kształtu za pomocą punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) aby modyfikować istniejące kształty, wykonywać podstawowe operacje edycji ścieżek, dodawać lub usuwać punkty oraz zastosować zaktualizowaną geometrię z powrotem do kształtu. Pokazuje również, jak tworzyć własne i złożone kształty, budować kształty z zaokrąglonymi narożnikami, określić, czy geometria kształtu jest zamknięta, przeanalizować elementy kształtu oraz przekonwertować obrysy tekstu Java AWT na ścieżki geometryczne.
+Ten artykuł wyjaśnia, jak dostosować kształty prezentacji w Aspose.Slides, edytując geometrię kształtu za pomocą punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/), aby zmodyfikować istniejące kształty, wykonać podstawowe operacje edycji ścieżki, dodać lub usunąć punkty oraz zastosować zaktualizowaną geometrię do kształtu.
 
-## **Zmienianie kształtu za pomocą punktów edycji**
+Demonstruje również, jak tworzyć własne i złożone kształty, budować kształty z zaokrąglonymi rogami, określać, czy geometria kształtu jest zamknięta, przeglądać elementy kształtu oraz konwertować kontury tekstu Java AWT na ścieżki geometryczne.
 
-* Przesuń róg do środka lub na zewnątrz.  
-* Dostosuj krzywiznę w punkcie.  
-* Dodaj nowe punkty.  
+## **Zmień kształt za pomocą punktów edycji**
 
-Edycja punktów pozwala modyfikować kontur kształtu lub użyć istniejącego kształtu jako podstawy dla nowego.
+W programie PowerPoint możesz używać **Edit Points**, aby modyfikować kwadrat:
+
+* Przenieść róg do środka lub na zewnątrz.
+* Dostosować krzywiznę w punkcie.
+* Dodać nowe punkty.
+
+Edycja punktów pozwala zmienić obrys kształtu lub użyć istniejącego kształtu jako podstawy nowego.
 
 ## **Wskazówki dotyczące edycji kształtów**
 
 ![overview_image](custom_shape_0.png)
 
-Podczas edycji kształtów w PowerPoint, pamiętaj o następujących pojęciach:
+Podczas edycji kształtów w PowerPoint pamiętaj o następujących pojęciach:
 
-* Kształt (lub jego ścieżka) może być zamknięta lub otwarta.  
-* Ścieżka kształtu składa się z punktów kotwiczących połączonych odcinkami.  
-* Odcinek może być prosty lub zakrzywiony. Punkty kotwiczące i uchwyty kontrolne określają jego kształt.  
-* Punkty kotwiczące występują jako punkty narożne, proste lub gładkie:  
-  * W punkcie narożnym łączące się odcinki mogą spotykać się pod kątem.  
-  * W punkcie gładkim oba uchwyty kontrolne są ustawione w jednej linii i znajdują się w równych odległościach od punktu kotwiczącego.  
-  * W punkcie prostym oba uchwyty kontrolne są ustawione w jednej linii, ale mogą mieć różne odległości od punktu kotwiczącego.  
-* Przesuwanie punktów kotwiczących lub regulacja ich uchwytów zmienia kontur kształtu.  
+* Kształt (lub jego ścieżka) może być zamknięty lub otwarty.
+* Ścieżka kształtu składa się z punktów kotwiczących połączonych odcinkami.
+* Odcinek może być prosty lub krzywy. Punkty kotwiczące i uchwyty kontrolne określają jego kształt.
+* Punkty kotwiczące występują jako punkty narożne, proste lub płynne:
+  * W punkcie narożnym sąsiadujące odcinki mogą się łączyć pod kątem.
+  * W punkcie płynnym dwa uchwyty kontrolne są wyrównane i znajdują się w równych odległościach od punktu kotwiczącego.
+  * W punkcie prostym dwa uchwyty kontrolne są wyrównane, ale ich odległości od punktu kotwiczącego mogą się różnić.
+* Przesuwanie punktów kotwiczących lub dostosowywanie ich uchwytów zmienia kontur kształtu.
 
-Aby edytować kształty PowerPoint przy użyciu punktów edycji, **Aspose.Slides** udostępnia klasę [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+Aby edytować kształty PowerPoint za pomocą punktów edycji, **Aspose.Slides** udostępnia klasę [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-* Instancja [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) reprezentuje ścieżkę geometryczną obiektu [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).  
-* Aby pobrać [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) z instancji [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/), możesz użyć metody [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).  
-* Aby ustawić [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) dla kształtu, możesz użyć następujących metod: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) dla kształtów z jedną ścieżką oraz [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) dla kształtów z wieloma ścieżkami.  
-* Aby dodać odcinki, możesz użyć metod dostępnych w [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).  
-* Korzystając z metod [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) i [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode), możesz ustawić wygląd ścieżki geometrycznej.  
-* Korzystając z metody [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData), możesz pobrać ścieżkę geometryczną [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) jako tablicę odcinków ścieżki.  
-* Aby uzyskać dostęp do dodatkowych opcji dostosowywania geometrii kształtu, możesz odczytać [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) za pomocą jego [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) i odtworzyć odcinki na [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* Instancja [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) reprezentuje ścieżkę geometryczną obiektu [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
+* Aby pobrać [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) z instancji [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/), możesz użyć metody [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
+* Aby ustawić [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) dla kształtu, możesz użyć metod: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) dla kształtów z jedną ścieżką oraz [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) dla kształtów z wieloma ścieżkami.
+* Aby dodać odcinki, możesz używać metod dostępnych w [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* Korzystając z metod [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) i [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode), możesz ustawić wygląd ścieżki geometrycznej.
+* Metodą [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) możesz pobrać ścieżkę geometryczną [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) jako tablicę segmentów ścieżki.
+* Aby uzyskać dodatkowe opcje dostosowywania geometrii kształtu, możesz odczytać [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) za pomocą jego [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) i odtworzyć segmenty na [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
 ## **Proste operacje edycji**
 
-Użyj poniższych metod, aby edytować ścieżkę geometryczną. Przeciążenia przyjmujące indeks wstawiają odcinek na tej zero‑indeksowanej pozycji w tablicy odcinków ścieżki.
+Użyj poniższych metod, aby edytować ścieżkę geometryczną. Przeciążenia przyjmujące indeks wstawiają odcinek w podanej pozycji zerowej w tablicy segmentów ścieżki.
 
 | Operacja | Metoda |
 | --- | --- |
 | Dodaj lub wstaw prostą linię. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
-| Dodaj lub wstaw krzywą Bézier o stopniu trzecim z dwoma punktami kontrolnymi i punktem końcowym. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| Dodaj lub wstaw kwadratową krzywą Bézier z jednym punktem kontrolnym i punktem końcowym. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Dodaj lub wstaw krzywą Béziera trzeciego stopnia z dwoma punktami kontrolnymi i punktem końcowym. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Dodaj lub wstaw krzywą Béziera kwadratowego stopnia z jednym punktem kontrolnym i punktem końcowym. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
 | Dodaj łuk eliptyczny o podanych wymiarach i kątach w stopniach. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
 | Zamknij bieżącą figurę, łącząc jej punkt końcowy z punktem początkowym. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
 | Ustaw punkt początkowy figury. | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
@@ -76,7 +80,7 @@ Użyj poniższych metod, aby edytować ścieżkę geometryczną. Przeciążenia 
 
 ## **Dodaj własne punkty do kształtu**
 
-Ten przykład wstawia dwa punkty do prostokątnego kształtu za pomocą [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) i zastosowuje edytowaną ścieżkę przy użyciu [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). Współrzędne są lokalne względem kształtu: oba nowe punkty znajdują się w jego centrum, 100 punktów od lewej krawędzi i 50 punktów od górnej. Indeksy odcinków 1 i 4 umieszczają je na górnej i dolnej krawędzi, ściągając te krawędzie do środka.
+Ten przykład wstawia dwa punkty do prostokątnego kształtu przy użyciu [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) i stosuje edytowaną ścieżkę za pomocą [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). Współrzędne są lokalne względem kształtu: oba nowe punkty znajdują się w jego centrum, 100 punktów od lewej i 50 punktów od góry. Indeksy segmentów 1 i 4 umieszczają je na górnej i dolnej krawędzi, ściągając te krawędzie do środka.
 
 ```php
 use aspose\slides\Presentation;
@@ -102,7 +106,7 @@ try {
 
 ## **Usuń punkty z kształtu**
 
-Ten przykład modyfikuje obrys w kształcie serca, usuwając odcinek o indeksie zerowym 2 za pomocą [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). Zastosowanie zmodyfikowanej ścieżki przy użyciu [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) aktualizuje kontur kształtu.
+Ten przykład zmienia kontur serca, usuwając segment o indeksie zerowym 2 przy użyciu [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). Zastosowanie zmodyfikowanej ścieżki za pomocą [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) aktualizuje obrys kształtu.
 
 ```php
 use aspose\slides\Presentation;
@@ -126,7 +130,7 @@ try {
 
 ## **Utwórz własny kształt**
 
-Ten przykład tworzy pięcioramienną gwiazdę przy pomocy [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). Naprzemienne promienie zewnętrzne i wewnętrzne wynoszące odpowiednio 100 i 50 punktów określają szczyty i wcięcia; krok 72‑stopni równomiernie rozmieszcza pięć szczytów. Ścieżka jest zamykana metodą [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) i zastosowana do prostokątnego kształtu przy użyciu [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), zastępując jego obrys.
+Ten przykład buduje pięcioramienną gwiazdę przy użyciu [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). Alternujące promienie zewnętrzne i wewnętrzne o wartościach 100 i 50 punktów definiują wierzchołki i wcięcia; krok 72 stopni równomiernie rozmieszcza pięć wierzchołków. Ścieżka jest zamykana metodą [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) i stosowana do prostokątnego kształtu przy użyciu [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), zastępując jego obrys.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -164,7 +168,7 @@ try {
 
 ## **Utwórz złożony własny kształt**
 
-Ten przykład definiuje dwa zamknięte obiekty [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) dla górnej i dolnej jednej trzeciej kształtu. Zastosowanie obu ścieżek przy użyciu [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) tworzy pojedynczy złożony kształt z przerwą w środkowej jednej trzeciej.
+Ten przykład definiuje dwa zamknięte obiekty [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) dla górnej i dolnej trzeciej części kształtu. Zastosowanie obu ścieżek metodą [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) tworzy jeden złożony kształt z przerwą w środkowej trzeciej części.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -198,9 +202,9 @@ try {
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Utwórz własny kształt z zaokrąglonymi narożnikami**
+## **Utwórz własny kształt z zaokrąglonymi rogami**
 
-Ten przykład łączy proste odcinki z [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo), aby stworzyć kształt z wklęsłymi narożnikami. Rozmiar każdego narożnika określa szerokość i wysokość łuku w punktach, a przemieszczenie -90 stopni rysuje elipsę ćwiartkową w kierunku przeciwnym do ruchu wskazówek zegara. Gotowa ścieżka jest zastosowana przy użyciu [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), a prezentacja jest zapisywana w formacie PPTX.
+Ten przykład łączy proste odcinki z metodą [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo), aby stworzyć kształt z wklęsłymi zaokrąglonymi rogami. Każdy rozmiar rogu określa szerokość i wysokość łuku w punktach, a kąt -90 stopni rysuje eliptyczny łuk w kierunku przeciwnym do ruchu wskazówek zegara. Gotowa ścieżka jest stosowana metodą [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), a prezentacja jest zapisywana w formacie PPTX.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -253,7 +257,7 @@ try {
 
 ## **Sprawdź, czy geometria kształtu jest zamknięta**
 
-Poniższy pomocnik sprawdza, czy każda niepusta ścieżka geometryczna kończy się odcinkiem zamykającym. Odczytuje [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) i porównuje polecenie ostatniego odcinka [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) z [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). Zwraca false, gdy nie ma niepustych ścieżek. Sprawdza on polecenie końcowe każdej ścieżki; nie analizuje wszystkich podfigur w ścieżce. Przykład wypisuje `true` dla prostokąta.
+Poniższy pomocnik sprawdza, czy każda niepusta ścieżka geometryczna kończy się segmentem zamykającym. Czyta [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) i porównuje końcowy segment metodą [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) z [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). Zwraca false, gdy nie ma niepustych ścieżek. To sprawdza jedynie ostatnie polecenie każdej ścieżki; nie analizuje wszystkich podfigur w obrębie ścieżki. Przykład wypisuje `true` dla prostokąta.
 
 ```php
 use aspose\slides\PathCommandType;
@@ -288,11 +292,64 @@ try {
 }
 ```
 
-## **Wyodrębnij i przeanalizuj elementy kształtu**
+## **Przeglądaj polecenia ścieżki geometrycznej**
 
-Użyj [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements), aby przeanalizować istniejący kształt jako elementy zawierające punkty ścieżki i typy punktów. Skorzystaj z każdego zwróconego [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) , aby pobrać tablice punktów i typów za pomocą metod [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) i [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). Ta reprezentacja jest przydatna do analizy konturów lub przekazywania geometrii do własnych narzędzi rysujących.
+Pobierz plik [contour.pptx](contour.pptx) i umieść go w katalogu roboczym aplikacji. Pierwszy kształt na pierwszym slajdzie ma prostą górną krawędź, krzywą Béziera trzeciego stopnia oraz prostą zamykającą krawędź. Użyj [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths), aby odczytać ścieżki kształtu, oraz [getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData), aby odczytać segmenty każdej ścieżki w kolejności rysowania. Dla każdego segmentu metoda [getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) identyfikuje polecenie i określa, jak interpretować wartości zwracane przez [getSegmentData](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getSegmentData).
 
-Przykład otwiera plik input.pptx, znajduje pierwszy kształt geometryczny bezpośrednio na pierwszym slajdzie i wypisuje jego odcinki ścieżki. Użyj prezentacji zawierającej kształt z odcinkami prostymi i zakrzywionymi, aby zobaczyć oba rodzaje wyników. Nie przeszukuje on grup.
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("contour.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+    foreach ($shape->getGeometryPaths() as $pathIndex => $path) {
+        foreach ($path->getPathData() as $segmentIndex => $segment) {
+            $command = java_values($segment->getPathCommand());
+            $data = java_values($segment->getSegmentData());
+            switch ($command) {
+                case PathCommandType::MoveTo:
+                case PathCommandType::LineTo:
+                    $name = $command === PathCommandType::MoveTo ? "MoveTo" : "LineTo";
+                    $detail = sprintf("destination=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::CubicBezierTo:
+                    $name = "CubicBezierTo";
+                    $detail = sprintf("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::Close:
+                    $name = "Close";
+                    $detail = "no coordinates";
+                    break;
+                default:
+                    $name = "Command " . $command;
+                    $detail = "raw=" . json_encode($data);
+            }
+            printf("Path %d, segment %d: %s %s\n", $pathIndex, $segmentIndex, $name, $detail);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kształt znajduje się w punkcie (200, 100) na slajdzie. Zgłoszone współrzędne są lokalne względem kształtu, przy (0, 0) w jego lewym górnym rogu, x rośnie w prawo, a y w dół. Segment zamykający powraca do punktu początkowego bez dodatkowych współrzędnych.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Wyodrębnij i przeglądaj elementy kształtu**
+
+Użyj [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements), aby przeanalizować istniejący kształt jako elementy zawierające punkty ścieżki i typy punktów. Każdy zwrócony [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) pozwala pobrać tablice punktów i typów za pomocą metod [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) oraz [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). Ta reprezentacja jest przydatna do analizy konturu lub przekazywania geometrii do własnych narzędzi rysunkowych.
+
+Przykład otwiera plik input.pptx, znajduje pierwszy kształt geometryczny bezpośrednio na pierwszym slajdzie i wypisuje jego segmenty ścieżki. Użyj prezentacji zawierającej kształt z segmentami prostymi i krzywymi, aby zobaczyć oba rodzaje wyjścia. Nie przeszukuje obiektów wewnątrz grup.
 
 ```php
 use aspose\slides\Presentation;
@@ -319,7 +376,7 @@ try {
             $types = array_values(unpack("C*", java_values($element->getPathTypes())));
             echo "Shape element:" . PHP_EOL;
             for ($i = 0; $i < count($points); $i++) {
-                $pointType = $types[$i] & 0x07; // Zachowaj typ odcinka, pomijając flagi.
+                $pointType = $types[$i] & 0x07; // Zachowaj typ segmentu, wyłączając flagi.
                 switch ($pointType) {
                     case 0:
                         echo "Start figure at " . $points[$i] . PHP_EOL;
@@ -329,7 +386,7 @@ try {
                         break;
                     case 3:
                         echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
-                        $i += 2; // Zużyj oba punkty kontrolne i punkt końcowy.
+                        $i += 2; // Pobierz oba punkty kontrolne i punkt końcowy.
                         break;
                 }
                 if (($types[$i] & 0x80) !== 0) {
@@ -343,22 +400,21 @@ try {
 }
 ```
 
-Tablice odpowiadają sobie po indeksie: `$points[$i]` jest punktem, a `$types[$i]` opisuje jego rolę. Typ `0` rozpoczyna figurę, a typ `1` rysuje linię od poprzedniego punktu do bieżącego. Odcinek krzywej Bézier trzeciego stopnia zaczyna się od poprzedniego punktu końcowego i używa trzech kolejnych wpisów typu `3`: dwa punkty kontrolne, a następnie nowy punkt końcowy. Pętla zużywa te trzy wpisy razem i sprawdza, czy punkt końcowy zamyka figurę.
+Tablice są powiązane indeksami: `$points[$i]` to punkt, a `$types[$i]` opisuje jego rolę. Typ `0` rozpoczyna figurę, a typ `1` rysuje linię od poprzedniego punktu do bieżącego. Segment krzywej Béziera trzeciego stopnia zaczyna się od poprzedniego punktu końcowego i używa trzech kolejnych wpisów typu `3`: dwóch punktów kontrolnych i nowego punktu końcowego. Pętla konsoliduje te trzy wpisy i sprawdza punkt końcowy pod kątem zamknięcia.
 
-Typy punktów zawierają również flagi. Maskuj przy użyciu `0x07`, aby zidentyfikować typ odcinka, oraz testuj osobno `0x80`, aby wykryć zamkniętą podścieżkę. Na przykład `129` (`0x81`) oznacza końcowy punkt linii, który zamyka podścieżkę, a `131` (`0x83`) oznacza końcowy punkt Bézier, który również zamyka podścieżkę. PHP/Java Bridge zwraca tablicę bajtów jako łańcuch binarny; rozwinięcie go przy pomocy "C*" daje nieujemne wartości bajtów. Maskowanie zachowuje zamierzone wartości bitów. Porównywanie surowej wartości jedynie z `1` lub `3` pominęłoby te przypadki. Inne flagi, takie jak kreska (`0x10`) i znacznik (`0x20`), nie zmieniają podstawowego typu odcinka.
+Typy punktów zawierają także flagi. Maskuj przy pomocy `0x07`, aby określić typ segmentu, i testuj `0x80` osobno, aby wykryć zamkniętą podścieżkę. Przykładowo, `129` (`0x81`) oznacza punkt końcowy linii, który zamyka podścieżkę, a `131` (`0x83`) oznacza punkt końcowy Béziera, który zamyka podścieżkę. PHP/Java Bridge zwraca tablicę bajtów jako ciąg binarny; rozpakowanie jej przy pomocy `"C*"` daje wartości bajtów bez znaku. Maskowanie zachowuje zamierzone bity. Porównywanie surowej wartości jedynie z `1` lub `3` pominęłoby te przypadki. Inne flagi, takie jak kreska (`0x10`) i znacznik (`0x20`), nie zmieniają podstawowego typu segmentu.
 
-**Współrzędne i przekształcenia.**  
-Punkty są mierzone w punktach (1/72 cala), przy czym X rośnie w prawo, a Y w dół. Dla niepogrupowanego kształtu wyodrębnione współrzędne już zawierają pozycję zwróconą przez [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) i [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) oraz odzwierciedlają jego aktualną szerokość i wysokość. Na przykład prostokąt nieobrócony o współrzędnych `(100, 200)` i rozmiarze `120 × 80` ma granice konturu `(100, 200)`–`(220, 280)`. Nie dodawaj ponownie pozycji kształtu. Odejmij jego X i Y, aby uzyskać współrzędne względem nieobróconej ramki.
+**Współrzędne i przekształcenia.** Punkty są mierzone w punktach (1/72 cala), przy X rosnącym w prawo i Y rosnącym w dół. Dla kształtu niebędącego w grupie wyodrębnione współrzędne już zawierają pozycję zwróconą przez [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) i [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) oraz odzwierciedlają jego aktualną szerokość i wysokość. Na przykład, nieobrócony prostokąt w `(100, 200)` o rozmiarze `120 × 80` ma granice konturu `(100, 200)`–`(220, 280)`. Nie dodawaj pozycji kształtu ponownie. Odejmij jego X i Y, aby uzyskać współrzędne względem nieobróconej ramki.
 
-Wyodrębnione punkty nie uwzględniają obrotu kształtu, zwróconego przez [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation), ani odbić poziomych i pionowych. Aby odtworzyć wyświetlany kontur, zastosuj te przekształcenia wokół środka kształtu. Dla grupowanych kształtów uwzględnij także mapowanie współrzędnych grupy i przekształcenia; nie zakładaj, że wyodrębnione punkty są ostatecznymi współrzędnymi slajdu ani nie stosuj podwójnego przesunięcia lub skalowania, jeśli już jest ono odzwierciedlone w ramce dziecka.
+Wyodrębnione punkty nie uwzględniają obrotu kształtu zwróconego przez [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) ani odbić poziomych i pionowych. Aby odtworzyć wyświetlany kontur, zastosuj te przekształcenia wokół środka kształtu. Dla kształtów grupowanych uwzględnij również mapowanie współrzędnych grupy i przekształcenia; nie zakładaj, że wyodrębnione punkty są ostatecznymi współrzędnymi slajdu ani nie stosuj podwójnego przesunięcia lub skalowania, jeśli już jest odzwierciedlone w ramce dziecka.
 
-**Inspekcja vs. edycja.** Wyodrębnione tablice opisują kontur; ich zmiana nie aktualizuje oryginalnego kształtu. Wybierz to podejście, gdy Twoja analiza lub kod rysujący potrzebuje tablic punktów/typów. Użyj [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths), gdy potrzebujesz poleceń geometrii w lokalnym układzie współrzędnych kształtu lub chcesz edytować jego geometrię. Zastosuj edytowane ścieżki przy użyciu [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) lub [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Inspekcja vs. edycja.** Wyodrębnione tablice opisują kontur; ich modyfikacja nie aktualizuje oryginalnego kształtu. Wybierz to podejście, gdy Twoja analiza lub kod rysujący potrzebuje tablic punktów/typów. Użyj [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths), gdy potrzebujesz poleceń geometrii w lokalnym systemie współrzędnych kształtu lub chcesz edytować jego geometrię. Zastosuj edytowane ścieżki za pomocą [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) lub [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
 
 ## **Konwertuj kształt Java AWT na GeometryPath**
 
-Ten przykład łączy prostokątny obrys z tekstem skonwertowanym na geometrię. Metoda [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) obrysu wyłącza jego wypełnienie. [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) tworzy obrys tekstu w [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Jego [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) dostarcza segmenty move, line, quadratic, cubic i zamykające, które przykład odtwarza na [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+Ten przykład łączy prostokątny obrys z tekstem skonwertowanym na geometrię. Metoda [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) obrysu wyłącza jego wypełnienie. [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) tworzy kontur tekstu w obiekcie [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Jego [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) dostarcza ruchu, linii, kwadratowych, sześciennych i zamykających segmentów, które przykład odtwarza na [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-Przykład używa tablicy floatów Java, aby PHP/Java Bridge zachował współrzędne zapisane przez iterator. Tekst używa czcionki Arial o rozmiarze 40 punktów. Obrys jest przesunięty o 20 punktów w poziomie i umieszczony tak, aby jego wizualna górna krawędź znajdowała się 10 punktów poniżej górnej krawędzi kształtu. Ścieżka tekstowa jest wypełniona, podczas gdy pierwotny prostokąt pozostaje obrysem. Zastosowanie obu ścieżek przy użyciu [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) tworzy pojedynczy kształt zawierający prostokąt i tekst.
+Przykład używa tablicy typu float w Javie, aby PHP/Java Bridge zachował współrzędne zapisane przez iterator. Tekst używa czcionki Arial 40 punktów. Obrys jest przesunięty o 20 punktów w poziomie i umieszczony tak, aby jego wizualna górna krawędź znajdowała się 10 punktów poniżej górnej krawędzi prostokąta. Ścieżka tekstowa jest wypełniona, podczas gdy oryginalny prostokąt pozostaje jedynie obrysem. Zastosowanie obu ścieżek metodą [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) tworzy jeden kształt zawierający prostokąt i tekst.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -429,11 +485,14 @@ try {
 
 ## **FAQ**
 
-**Co się stanie z wypełnieniem i obrysem po zastąpieniu geometrii?**  
-Styl pozostaje przypisany do kształtu; zmienia się jedynie kontur. Wypełnienie i obrys są automatycznie stosowane do nowej geometrii.
+**Co się stanie z wypełnieniem i obrysem po zastąpieniu geometrii?**
 
-**Jak prawidłowo obrócić własny kształt wraz z jego geometrią?**  
+Styl pozostaje przypisany do kształtu; zmienia się tylko kontur. Wypełnienie i obrys są automatycznie stosowane do nowej geometrii.
+
+**Jak prawidłowo obrócić własny kształt wraz z jego geometrią?**
+
 Użyj metody [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) kształtu; geometria obraca się wraz z kształtem, ponieważ jest powiązana z jego własnym układem współrzędnych.
 
-**Czy mogę skonwertować własny kształt na obraz, aby „zablokować” wynik?**  
-Tak. Wyeksportuj wymaganą [slide](/slides/pl/php-java/convert-powerpoint-to-png/) lub sam [shape](/slides/pl/php-java/create-shape-thumbnails/) do formatu rastrowego; ułatwia to dalszą pracę z złożonymi geometriami.
+**Czy mogę przekonwertować własny kształt na obraz, aby „zablokować” wynik?**
+
+Tak. Wyeksportuj wymagany [slide](/slides/pl/php-java/convert-powerpoint-to-png/) lub sam [shape](/slides/pl/php-java/create-shape-thumbnails/) do formatu rastrowego; uprości to dalszą pracę z złożonymi geometriami.

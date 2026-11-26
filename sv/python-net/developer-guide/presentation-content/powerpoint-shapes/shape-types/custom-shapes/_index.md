@@ -1,85 +1,85 @@
 ---
-title: "Anpassa presentationsformer i Python"
-linktitle: "Anpassad form"
+title: Anpassa presentationsformer i Python
+linktitle: Anpassad form
 type: docs
 weight: 20
 url: /sv/python-net/custom-shape/
 keywords:
-- "anpassad form"
-- "lägg till form"
-- "skapa form"
-- "ändra form"
-- "formgeometri"
-- "geometribana"
-- "bannoter"
-- "redigera punkter"
-- "lägg till punkt"
-- "ta bort punkt"
-- "redigeringsoperation"
-- "böjt hörn"
-- "PowerPoint"
-- "presentation"
-- "Python"
-- "Aspose.Slides"
-description: "Skapa och anpassa former i PowerPoint-presentationer med Aspose.Slides för Python via .NET: geometribanor, böjda hörn, sammansatta former."
+- anpassad form
+- lägga till form
+- skapa form
+- ändra form
+- formgeometri
+- geometri bana
+- banapunkter
+- redigera punkter
+- lägga till punkt
+- ta bort punkt
+- redigeringsoperation
+- rundat hörn
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Skapa och anpassa former i PowerPoint-presentationer med Aspose.Slides för Python via .NET: geometribanor, rundade hörn, sammansatta former."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du anpassar presentationsformer i Aspose.Slides genom att redigera formgeometri via redigeringspunkter och geometriska banor. Den visar hur du arbetar med [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) för att modifiera befintliga former, utföra grundläggande banredigeringsoperationer, lägga till eller ta bort punkter och tillämpa uppdaterad geometri på en form.
+Den här artikeln förklarar hur du anpassar presentationsformer i Aspose.Slides genom att redigera formens geometri med hjälp av redigeringspunkter och geometriska banor. Den visar hur du arbetar med [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) för att ändra befintliga former, utföra grundläggande redigeringsoperationer, lägga till eller ta bort punkter och applicera uppdaterad geometri tillbaka på en form.
 
-Den visar också hur du skapar anpassade och sammansatta former, bygger former med böjda hörn, avgör om en formgeometri är sluten och extraherar formelement för konturanalys.
+Den demonstrerar också hur du skapar anpassade och sammansatta former, bygger former med rundade hörn, avgör om en formgeometri är sluten och extraherar formelement för konturanalys.
 
 ## **Ändra en form med redigeringspunkter**
 
-I PowerPoint kan du använda **Redigeringspunkter** för att ändra en kvadrat:
+I PowerPoint kan du använda **Edit Points** för att ändra en fyrkant:
 
 * Flytta ett hörn inåt eller utåt.
-* Justera kurvaturen vid en punkt.
+* Justera krökningen vid en punkt.
 * Lägg till nya punkter.
 
-Att redigera punkter låter dig ändra en formes kontur eller använda en befintlig form som grund för en ny.
+Att redigera punkter låter dig ändra en forms kontur eller använda en befintlig form som grund för en ny.
 
 ## **Tips för formredigering**
 
 ![overview_image](custom_shape_0.png)
 
-När du redigerar PowerPoint‑former, ha dessa begrepp i åtanke:
+När du redigerar PowerPoint‑former, håll dessa begrepp i åtanke:
 
 * En form (eller dess bana) kan antingen vara sluten eller öppen.
-* En formes bana består av ankarpunkter som är sammanlänkade av segment.
-* Ett segment kan vara rakt eller kurvigt. Ankarpunkter och kontrollhandtag bestämmer dess form.
-* Ankarpunkter finns som hörnpunkter, raka punkter eller mjuka punkter:
-  * Vid en hörnpunkt kan anslutande segment mötas i en vinkel.
-  * Vid en mjuk punkt är de två kontrollhandtagen i linje och lika långt från ankarpunkten.
-  * Vid en rak punkt är de två kontrollhandtagen i linje men kan ha olika avstånd från ankarpunkten.
-* Att flytta ankarpunkter eller justera deras handtag förändrar formens kontur.
+* En forms bana består av ankarpunkter som är sammankopplade med segment.
+* Ett segment kan vara rakt eller kurvat. Ankspunkter och kontrollhandtag bestämmer dess form.
+* Ankspunkter kan vara hörnpunkter, raka punkter eller jämna punkter:
+  * Vid en hörnpunkt kan intilliggande segment mötas i en vinkel.
+  * Vid en jämn punkt är de två kontrollhandtagen i linje och lika långt från ankspunkten.
+  * Vid en rak punkt är de två kontrollhandtagen i linje men kan ha olika avstånd från ankspunkten.
+* Att flytta ankspunkter eller justera deras handtag förändrar formens kontur.
 
 För att redigera PowerPoint‑former via redigeringspunkter tillhandahåller **Aspose.Slides** klassen [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
 
-* En [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)‑instans representerar en geometrisk bana för objektet [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).
-* För att hämta [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) från [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/)-instansen kan du använda metoden [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/).
+* En [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)‑instans representerar en geometribana för objektet [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).
+* För att hämta [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) från [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/)‑instansen kan du använda metoden [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/).
 * För att ange [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) för en form kan du använda dessa metoder: [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) för former med en enda bana och [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) för former med flera banor.
 * För att lägga till segment kan du använda metoderna under [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
-* Genom att använda egenskaperna [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) och [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) kan du ange utseendet för en geometrisk bana.
-* Genom att använda egenskapen [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) kan du hämta geometribanan för en [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) som en array av bansegment.
+* Genom att använda egenskaperna [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) och [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) kan du ställa in utseendet för en geometribana.
+* Genom att använda egenskapen [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) kan du hämta geometribanen för en [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) som en array av bansegment.
 
 ## **Enkla redigeringsoperationer**
 
-Använd följande metoder för att redigera en geometrisk bana. Överlagringar som accepterar ett index infogar ett segment på den nollbaserade positionen i banans segmentarray.
+Använd följande metoder för att redigera en geometribana. Överlagringar som tar ett index infogar ett segment på den nollbaserade positionen i banans segmentarray.
 
 | Operation | Metod |
 | --- | --- |
 | Lägg till eller infoga en rak linje. | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
 | Lägg till eller infoga en kubisk Bézier-kurva med två kontrollpunkter och en slutpunkt. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
 | Lägg till eller infoga en kvadratisk Bézier-kurva med en kontrollpunkt och en slutpunkt. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
-| Lägg till en elliptisk båge med angivna dimensioner och vinklar i grader. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
+| Lägg till en elliptisk båg med angivna dimensioner och vinklar i grader. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
 | Stäng den aktuella figuren genom att ansluta dess slutpunkt till startpunkten. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
-| Ange startpunkten för en figur. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
-| Ta bort ett segment på ett index med nollbas. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
+| Sätt startpunkten för en figur. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
+| Ta bort ett segment på ett nollbaserat index. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
 ## **Lägg till anpassade punkter till en form**
 
-Detta exempel infogar två punkter i en rektangulär form med hjälp av [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) och tillämpar den redigerade banan med [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). Koordinaterna är lokala för formen: båda nya punkterna är i dess centrum, 100 punkter från vänster och 50 punkter från toppen. Segmentindex 1 och 4 placerar dem på övre respektive nedre kanten och drar dessa kanter inåt.
+Detta exempel infogar två punkter i en rektangulär form med hjälp av [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) och tillämpar den redigerade banan med [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). Koordinaterna är lokala för formen: båda nya punkterna ligger i dess centrum, 100 punkter från vänster och 50 punkter från toppen. Segmentindex 1 och 4 placerar dem på den övre och nedre kanten, vilket drar dessa kanter inåt.
 
 ```python
 import aspose.slides as slides
@@ -100,7 +100,7 @@ with slides.Presentation() as presentation:
 
 ## **Ta bort punkter från en form**
 
-Detta exempel ändrar konturen på ett hjärtformat genom att ta bort segmentet på nollbaserat index 2 med [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). När den modifierade banan tillämpas med [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) uppdateras formens kontur.
+Detta exempel ändrar en hjärtformad kontur genom att ta bort segmentet på nollbaserat index 2 med [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). Genom att applicera den modifierade banan med [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) uppdateras formens kontur.
 
 ```python
 import aspose.slides as slides
@@ -119,7 +119,7 @@ with slides.Presentation() as presentation:
 
 ## **Skapa en anpassad form**
 
-Detta exempel bygger en femspetsig stjärna med [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Växlande yttre och inre radier på 100 respektive 50 punkter definierar spetsarna och inbuktningarna; ett steg på 72 grader placerar de fem spetsarna jämnt. Banan stängs med [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) och appliceras på en rektangulär form med [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), vilket ersätter dess kontur.
+Detta exempel bygger en femspetsig stjärna med [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Växlande yttre och inre radier på 100 respektive 50 punkter definierar spetsarna och indragningarna; ett steg på 72 grader placerar de fem spetsarna jämnt. Banen stängs med [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) och appliceras på en rektangulär form med [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), vilket ersätter dess kontur.
 
 ```python
 import aspose.slides as slides
@@ -161,7 +161,7 @@ with slides.Presentation() as presentation:
 
 ## **Skapa en sammansatt anpassad form**
 
-Detta exempel definierar två slutna [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)‑objekt för övre och nedre tredjedelen av en form. När båda banorna tillämpas med [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) skapas en enda sammansatt form med ett glapp över mitten av formen.
+Detta exempel definierar två slutna [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)‑objekt för den övre och nedre tredjedelen av en form. Genom att applicera båda banorna med [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) skapas en enda sammansatt form med ett glapp över dess mitttredjedel.
 
 ```python
 import aspose.slides as slides
@@ -189,9 +189,9 @@ with slides.Presentation() as presentation:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Skapa en anpassad form med böjda hörn**
+## **Skapa en anpassad form med rundade hörn**
 
-Detta exempel kombinerar raka segment med [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) för att skapa en form med inåtböjda hörn. Varje hörnstorlek anger bågens bredd och höjd i punkter, och en svepning på –90 grader ritar en moturs kvartselips. Den färdiga banan appliceras med [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), och presentationen sparas i PPTX‑format.
+Detta exempel kombinerar raka segment med [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) för att skapa en form med inåtriktade rundade hörn. Varje hörnstorlek ställer in bågens bredd och höjd i punkter, och ett -90‑gradssvep ritar en motsols kvartselips. Den färdiga banan appliceras med [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), och presentationen sparas i PPTX‑format.
 
 ```python
 import aspose.slides as slides
@@ -237,7 +237,7 @@ with slides.Presentation() as presentation:
 
 ## **Ta reda på om en formgeometri är sluten**
 
-Följande hjälpfunktion kontrollerar om varje icke‑tom geometrisk bana avslutas med ett stängningssegment. Den läser [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) och jämför det sista segmentets [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) med [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Den returnerar false när det inte finns några icke‑tomma banor. Detta kontrollerar det sista kommandot för varje bana; den inspekterar inte varje delfigur inom en bana. Exemplet skriver ut `True` för en rektangel.
+Följande hjälpfunktion kontrollerar om varje icke‑tom geometribana avslutas med ett stängningssegment. Den läser [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) och jämför det sista segmentets [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) med [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Den returnerar false när det inte finns några icke‑tomma banor. Den kontrollerar det sista kommandet för varje bana; den granskar inte varje delfigur inom en bana. Exemplet skriver ut `True` för en rektangel.
 
 ```python
 import aspose.slides as slides
@@ -265,11 +265,46 @@ with slides.Presentation() as presentation:
     print(is_geometry_closed(shape))
 ```
 
+## **Inspektera geometribankommandon**
+
+Ladda ner [contour.pptx](contour.pptx) och placera den i din arbetskatalog. Den första formen på den första sliden har en rak övre kant, en kubisk Bézier-kurva och en rak avslutande kant. Använd [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) för att läsa dess banor. För varje bana listar [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) segmenten i ritningsordning. Varje segments [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) bestämmer hur dess [PathSegment.segment_data](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/segment_data/) ska tolkas.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("contour.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    for i, path in enumerate(shape.get_geometry_paths()):
+        for j, segment in enumerate(path.path_data):
+            command = segment.path_command
+            data = segment.segment_data
+            if command in (slides.PathCommandType.MOVE_TO, slides.PathCommandType.LINE_TO):
+                detail = f"destination={tuple(data)}"
+            elif command == slides.PathCommandType.CUBIC_BEZIER_TO:
+                detail = f"control1={tuple(data[:2])} control2={tuple(data[2:4])} end={tuple(data[4:])}"
+            elif command == slides.PathCommandType.CLOSE:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={data}"
+            print(f"Path {i}, segment {j}: {command.name} {detail}")
+```
+
+Formen ligger på (200, 100) punkter på sliden. De rapporterade koordinaterna är lokala för formen. Dess övre‑vänstra hörn är (0, 0), x ökar åt höger och y ökar nedåt. Det stängande segmentet återvänder till startpunkten utan extra koordinater.
+
+```text
+Path 0, segment 0: MOVE_TO destination=(0, 0)
+Path 0, segment 1: LINE_TO destination=(80, 0)
+Path 0, segment 2: CUBIC_BEZIER_TO control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: CLOSE no coordinates
+```
+
+![PowerPoint form med en rak överkant, en kurvig kant från övre högra till nedre vänstra och en rak vänsterkant](contour.png)
+
 ## **Extrahera och inspektera formelement**
 
-Använd [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) för att inspektera en befintlig form som element som innehåller banpunkter och puntstyper. Varje returnerad [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) exponerar sina [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) och [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/)‑arrayer. Denna representation är användbar för konturanalys eller för att skicka geometri till anpassade ritverktyg.
+Använd [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) för att inspektera en befintlig form som element som innehåller banpunkter och punkttyper. Varje returnerad [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) exponerar sina [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/)‑ och [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/)‑arrayer. Denna representation är användbar för konturanalys eller för att föra geometrin till anpassade ritverktyg.
 
-Exemplet öppnar en presentation, hittar den första geometriska formen direkt på den första bilden och skriver ut dess bansegment. Använd en presentation som innehåller en form med raka och böjda segment för att se båda typerna av utdata. Den söker inte i grupper.
+Exemplet öppnar en presentation, hittar den första geometriformen direkt på den första sliden och skriver ut dess bansegment. Använd en presentation som innehåller en form med raka och kurviga segment för att se båda typerna av utdata. Det söker inte inuti grupper.
 
 ```python
 import aspose.slides as slides
@@ -288,7 +323,7 @@ with slides.Presentation("input.pptx") as presentation:
 
             i = 0
             while i < len(points):
-                point_type = types[i] & 0x07  # Behåll segmenttypen, exklusive flaggor.
+                point_type = types[i] & 0x07  # Keep the segment type, excluding flags.
                 if point_type == 0:
                     print(f"Start figure at {points[i]}")
                 elif point_type == 1:
@@ -302,26 +337,26 @@ with slides.Presentation("input.pptx") as presentation:
                 i += 1
 ```
 
-Arrayerna motsvarar varandra via index: `points[i]` är en punkt och `types[i]` beskriver dess roll. Typ `0` startar en figur, och typ `1` ritar en linje från föregående punkt till den aktuella. Ett kubiskt Bézier‑segment startar vid föregående slutpunkt och använder tre på varandra följande typ‑`3`‑poster: två kontrollpunkter följt av den nya slutpunkten. Loopen konsumerar dessa tre poster tillsammans och kontrollerar om slutpunkten stänger.
+Arrayerna motsvarar varandra enligt index: `points[i]` är en punkt och `types[i]` beskriver dess roll. Typ `0` startar en figur, och typ `1` ritar en linje från föregående punkt till den aktuella punkten. Ett kubiskt Bézier‑segment startar vid föregående slutpunkt och använder tre på varandra följande typ‑`3`‑poster: två kontrollpunkter följda av den nya slutpunkten. Loopen konsumerar dessa tre poster tillsammans och kontrollerar slutpunkten för slutenhet.
 
-Punkt­typer innehåller också flaggor. Maskera med `0x07` för att identifiera segmenttypen och testa `0x80` separat för att upptäcka en sluten delbana. Exempelvis betyder `129` (`0x81`) en linjeslutpunkt som stänger en delbana, och `131` (`0x83`) betyder en Bézier‑slutpunkt som stänger en. Att bara jämföra det råa värdet med `1` eller `3` skulle missa dessa fall. Andra flaggor, såsom streck (`0x10`) och markör (`0x20`), förändrar inte grundsegmenttypen.
+Punkttyper innehåller också flaggor. Maskera med `0x07` för att identifiera segmenttypen och testa `0x80` separat för att upptäcka ett slutet delspår. Till exempel betyder `129` (`0x81`) en linjeslutpunkt som stänger ett delspår, och `131` (`0x83`) en Bézier‑slutpunkt som stänger ett. Att bara jämföra råvärdet med `1` eller `3` skulle missa dessa fall. Andra flaggor, såsom streck (`0x10`) och markör (`0x20`), ändrar inte bassegmenttypen.
 
-**Koordinater och transformationer.** Punkter mäts i punkter (1/72 tum), med X ökar åt höger och Y ökar nedåt. För en icke‑grupperad form innehåller de extraherade koordinaterna redan dess [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/)‑ och [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/)‑position och speglar dess aktuella bredd och höjd. Till exempel har en o‑roterad rektangel på `(100, 200)` med storlek `120 × 80` konturboundar `(100, 200)`–`(220, 280)`. Lägg inte till formens position igen. Subtrahera dess X och Y för att få koordinater relativa till dess o‑roterade ram.
+**Koordinater och transformationer.** Punkter mäts i punkter (1/72 tum), med X som ökar åt höger och Y som ökar nedåt. För en icke‑grupperad form innehåller de extraherade koordinaterna redan dess [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/)‑ och [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/)‑position och återspeglar dess aktuella bredd och höjd. Till exempel har en icke‑roterad rektangel på `(100, 200)` med storleken `120 × 80` konturboundar `(100, 200)`–`(220, 280)`. Lägg inte till formens position igen. Subtrahera dess X och Y för att få koordinater relativt till dess icke‑roterade ram.
 
-De extraherade punkterna tillämpas inte på formens [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) eller horisontella och vertikala speglingar. För att återge den visade konturen, applicera dessa transformationer runt formens centrum. För grupperade former, ta också hänsyn till gruppens koordinatmappning och transformationer; anta inte att de extraherade punkterna är de slutgiltiga renderade bildpunkterna eller att du ska applicera en förflyttning eller skala två gånger om den redan återges i barnets ram.
+De extraherade punkterna tillämpar inte formens [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) eller horisontella och vertikala speglingar. För att reproducera den visade konturen, applicera dessa transformationer kring formens centrum. För grupperade former, ta även hänsyn till gruppens koordinatmappning och transformationer; anta inte att de extraherade punkterna är de slutgiltiga renderade slide‑koordinaterna eller att en förflyttning eller skalning ska tillämpas dubbelt om den redan återspeglas i barnets ram.
 
-**Inspektion kontra redigering.** Extraherade arrayer beskriver konturen; att ändra dem uppdaterar inte den ursprungliga formen. Välj detta tillvägagångssätt när din analys eller ritkod behöver punkt‑/typ‑arrayer. Använd [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) när du behöver geometrikommando i formens lokala koordinatsystem eller vill redigera dess geometri. Applicera redigerade banor via [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) eller [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
+**Inspektion kontra redigering.** Extraherade arrayer beskriver konturen; att ändra dem uppdaterar inte den ursprungliga formen. Välj detta tillvägagångssätt när din analys‑ eller ritkod behöver punkt‑/typ‑arrayer. Använd [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) när du behöver geometrikommandon i formens lokala koordinatsystem eller vill redigera dess geometri. Applicera redigerade banor via [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) eller [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Vad händer med fyllning och kontur efter att geometri har ersatts?**
+**Vad händer med fyllning och kontur när geometrin ersätts?**
 
-Stilen förblir knuten till formen; endast konturen ändras. Fyllning och kontur appliceras automatiskt på den nya geometrin.
+Stilen förblir på formen; endast konturen ändras. Fyllning och kontur appliceras automatiskt på den nya geometrin.
 
-**Hur roterar jag en anpassad form korrekt tillsammans med dess geometri?**
+**Hur roterar jag korrekt en anpassad form tillsammans med dess geometri?**
 
-Använd formens [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/)-egenskap; geometrin roterar med formen eftersom den är bunden till formens eget koordinatsystem.
+Använd formens [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/)‑egenskap; geometrin roterar med formen eftersom den är bunden till formens eget koordinatsystem.
 
 **Kan jag konvertera en anpassad form till en bild för att "låsa" resultatet?**
 
-Ja. Exportera det erforderliga [bildspel](/slides/sv/python-net/convert-powerpoint-to-png/)‑området eller själva [formen](/slides/sv/python-net/create-shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med komplexa geometrier.
+Ja. Exportera det erforderliga [slide](/slides/sv/python-net/convert-powerpoint-to-png/)-området eller själva [shape](/slides/sv/python-net/create-shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med komplexa geometrier.

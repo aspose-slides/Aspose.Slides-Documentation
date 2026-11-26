@@ -1,5 +1,5 @@
 ---
-title: Dostosuj kształty prezentacji na Androidzie
+title: Dostosowywanie kształtów prezentacji na Androidzie
 linktitle: Własny kształt
 type: docs
 weight: 20
@@ -12,75 +12,73 @@ keywords:
 - geometria kształtu
 - ścieżka geometryczna
 - punkty ścieżki
-- edytuj punkty
+- punkty edycji
 - dodaj punkt
 - usuń punkt
 - operacja edycji
-- zaokrąglony narożnik
+- zakrzywiony róg
 - PowerPoint
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Androida w języku Java: ścieżki geometryczne, zaokrąglone narożniki, kształty złożone."
+description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Androida w języku Java: ścieżki geometryczne, zakrzywione rogi, kształty złożone."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak dostosować kształty prezentacji w Aspose.Slides poprzez edycję geometrii kształtu za pomocą punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) i [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) w celu modyfikacji istniejących kształtów, wykonywania podstawowych operacji edycji ścieżek, dodawania lub usuwania punktów oraz zastosowania zaktualizowanej geometrii z powrotem do kształtu.
+Ten artykuł wyjaśnia, jak dostosować kształty prezentacji w Aspose.Slides, edytując geometrię kształtu za pomocą punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) i [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/), aby modyfikować istniejące kształty, wykonywać podstawowe operacje edycji ścieżek, dodawać lub usuwać punkty oraz zastosować zaktualizowaną geometrię z powrotem do kształtu.
 
-Demonstruje również, jak tworzyć własne i złożone kształty, budować kształty z zaokrąglonymi narożnikami, określać, czy geometria kształtu jest zamknięta, oraz przeglądać elementy kształtu przy użyciu tablic punktów Android.
+Demonstruje również, jak tworzyć własne i złożone kształty, budować kształty z zaokrąglonymi rogami, określać, czy geometria kształtu jest zamknięta, oraz przeglądać elementy kształtu przy użyciu tablic punktów Android.
 
-## **Zmiana kształtu za pomocą punktów edycji**
+## **Zmienianie kształtu za pomocą punktów edycji**
 
-W PowerPoint możesz używać **Punktów edycji**, aby modyfikować kwadrat:
+* Przesuń róg do wewnątrz lub na zewnątrz.
+* Dostosuj krzywiznę w punkcie.
+* Dodaj nowe punkty.
 
-* Przesuwać narożnik do wewnątrz lub na zewnątrz.
-* Dostosowywać krzywiznę w danym punkcie.
-* Dodawać nowe punkty.
-
-Edycja punktów pozwala zmienić kontur kształtu lub użyć istniejącego kształtu jako podstawy dla nowego.
+Edycja punktów pozwala modyfikować obrys kształtu lub użyć istniejącego kształtu jako podstawy do nowego.
 
 ## **Wskazówki dotyczące edycji kształtów**
 
 ![overview_image](custom_shape_0.png)
 
-Podczas edycji kształtów w PowerPoint pamiętaj o następujących pojęciach:
+Podczas edycji kształtów w PowerPoint należy pamiętać o następujących pojęciach:
 
 * Kształt (lub jego ścieżka) może być zamknięty lub otwarty.
-* Ścieżka kształtu składa się z punktów kotwicowych połączonych odcinkami.
-* Odcinek może być prosty lub krzywy. Kształt określają punkty kotwicowe i uchwyty kontrolne.
-* Punkty kotwicowe występują jako punkty narożne, proste lub gładkie:
-  * W punkcie narożnym łączące się odcinki mogą tworzyć kąt.
-  * W punkcie gładkim dwa uchwyty kontrolne są wyrównane i znajdują się w jednakowej odległości od punktu kotwicowego.
-  * W punkcie prostym dwa uchwyty kontrolne są wyrównane, ale mogą mieć różne odległości od punktu kotwicowego.
-* Przesuwanie punktów kotwicowych lub regulacja ich uchwytów zmienia obrys kształtu.
+* Ścieżka kształtu składa się z punktów kotwiczących połączonych odcinkami.
+* Odcinek może być prosty lub zakrzywiony. Punkty kotwiczące i uchwyty kontrolne określają jego kształt.
+* Punkty kotwiczące występują jako punkty narożne, proste lub gładkie:
+  * W punkcie narożnym sąsiadujące odcinki mogą spotkać się pod kątem.
+  * W punkcie gładkim dwa uchwyty kontrolne są wyrównane i znajdują się w tej samej odległości od punktu kotwiczącego.
+  * W punkcie prostym dwa uchwyty kontrolne są wyrównane, ale mogą mieć różne odległości od punktu kotwiczącego.
+* Przesuwanie punktów kotwiczących lub regulacja ich uchwytów zmienia obrys kształtu.
 
 Aby edytować kształty PowerPoint za pomocą punktów edycji, **Aspose.Slides** udostępnia klasę [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) oraz interfejs [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
 
 * Instancja [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) reprezentuje ścieżkę geometryczną obiektu [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/).
-* Aby pobrać [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) z instancji [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/), można użyć metody [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--).
-* Aby ustawić [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) dla kształtu, można użyć metod: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) dla kształtów z jedną ścieżką oraz [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) dla kształtów z wieloma ścieżkami.
-* Aby dodać odcinki, można używać metod dostępnych w [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
-* Korzystając z metod [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) i [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-), można określić wygląd ścieżki geometrycznej.
-* Metodą [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) można pobrać ścieżkę geometryczną obiektu [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) jako tablicę segmentów ścieżki.
+* Aby pobrać [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) z instancji [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/), możesz użyć metody [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--).
+* Aby ustawić [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) dla kształtu, możesz użyć następujących metod: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) dla kształtów z jedną ścieżką oraz [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) dla kształtów z wieloma ścieżkami.
+* Aby dodać odcinki, możesz używać metod dostępnych w [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
+* Korzystając z metod [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) i [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-), możesz ustawić wygląd ścieżki geometrycznej.
+* Używając metody [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--), możesz pobrać ścieżkę geometryczną [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) jako tablicę segmentów ścieżki.
 
 ## **Proste operacje edycji**
 
-Użyj poniższych metod, aby edytować ścieżkę geometryczną. Przeciążenia przyjmujące indeks wstawiają odcinek w podanej, zerowo‑indeksowanej pozycji w tablicy odcinków ścieżki.
+Użyj następujących metod do edycji ścieżki geometrycznej. Przeciążenia przyjmujące indeks wstawiają segment na tej pozycji (liczonej od zera) w tablicy segmentów ścieżki.
 
 | Operacja | Metoda |
 | --- | --- |
 | Dodaj lub wstaw prostą linię. | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
-| Dodaj lub wstaw krzywą Béziera trzeciego stopnia z dwoma punktami kontrolnymi i punktem końcowym. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
-| Dodaj lub wstaw krzywą Béziera drugiego stopnia z jednym punktem kontrolnym i punktem końcowym. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Dodaj lub wstaw krzywą Béziera stopnia trzeciego z dwoma punktami kontrolnymi i punktem końcowym. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Dodaj lub wstaw krzywą Béziera stopnia drugiego z jednym punktem kontrolnym i punktem końcowym. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
 | Dodaj łuk eliptyczny o podanych wymiarach i kątach w stopniach. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
 | Zamknij bieżącą figurę, łącząc jej punkt końcowy z punktem początkowym. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
 | Ustaw punkt początkowy figury. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
-| Usuń odcinek o podanym zerowo‑indeksowanym indeksie. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
+| Usuń segment o indeksie liczonym od zera. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
 ## **Dodawanie własnych punktów do kształtu**
 
-Poniższy przykład wstawia dwa punkty do prostokątnego kształtu przy użyciu [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) i stosuje edytowaną ścieżkę za pomocą [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Współrzędne są lokalne względem kształtu: oba nowe punkty znajdują się w jego środku, 100 punktów od lewej i 50 punktów od góry. Indeksy segmentów 1 i 4 umieszczają je na górnej i dolnej krawędzi, ściągając te krawędzie do środka.
+Ten przykład wstawia dwa punkty do prostokątnego kształtu przy użyciu [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) i stosuje edytowaną ścieżkę za pomocą [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Współrzędne są lokalne względem kształtu: oba nowe punkty znajdują się w jego środku, 100 punktów od lewej i 50 punktów od góry. Indeksy segmentów 1 i 4 umieszczają je na górnej i dolnej krawędzi, ściągając te krawędzie do środka.
 
 ```java
 import com.aspose.slides.*;
@@ -105,7 +103,7 @@ try {
 
 ## **Usuwanie punktów z kształtu**
 
-Przykład modyfikuje obrys serca, usuwając segment o zerowo‑indeksowanym indeksie 2 przy użyciu [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-). Zastosowanie zmodyfikowanej ścieżki za pomocą [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) aktualizuje kontur kształtu.
+Ten przykład zmienia kontur w kształcie serca, usuwając segment o indeksie liczonym od zera równym 2 za pomocą [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-). Zastosowanie zmodyfikowanej ścieżki przy pomocy [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) aktualizuje obrys kształtu.
 
 ```java
 import com.aspose.slides.*;
@@ -128,7 +126,7 @@ try {
 
 ## **Tworzenie własnego kształtu**
 
-Przykład buduje pięcioramienną gwiazdę przy użyciu [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/). Naprzemienne promienie zewnętrzne i wewnętrzne o wartościach 100 i 50 punktów definiują szczyty i wklęsłości; krok 72 stopnie rozmieszcza pięć szczytów równomiernie. Ścieżka jest zamykana metodą [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) i stosowana do prostokątnego kształtu przy pomocy [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), zastępując jego obrys.
+Ten przykład tworzy pięcioramienną gwiazdę za pomocą [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/). Naprzemienne promienie zewnętrzne i wewnętrzne o wartościach 100 i 50 punktów definiują końcówki i wcięcia; krok 72 stopnie równomiernie rozmieszcza pięć końcówek. Ścieżka jest zamykana przy użyciu [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) i następnie stosowana do prostokątnego kształtu za pomocą [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), zastępując jego obrys.
 
 ```java
 import com.aspose.slides.*;
@@ -181,7 +179,7 @@ try {
 
 ## **Tworzenie złożonego własnego kształtu**
 
-Przykład definiuje dwie zamknięte ścieżki [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) dla górnej i dolnej trzeciej części kształtu. Zastosowanie obu ścieżek przy pomocy [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) tworzy jeden złożony kształt z przerwą w środkowej trzeciej części.
+Ten przykład definiuje dwa zamknięte obiekty [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) dla górnej i dolnej jednej trzeciej kształtu. Zastosowanie obu ścieżek przy pomocy [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) tworzy jeden złożony kształt z przerwą w środkowej jednej trzeciej.
 
 ```java
 import com.aspose.slides.*;
@@ -213,9 +211,9 @@ try {
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Tworzenie własnego kształtu z zaokrąglonymi narożnikami**
+## **Tworzenie własnego kształtu z zakrzywionymi rogami**
 
-Przykład łączy proste odcinki z [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) w celu stworzenia kształtu z wklęsłymi narożnikami. Rozmiar każdego narożnika określa szerokość i wysokość łuku w punktach, a kąt -90° rysuje ćwiartkę elipsy w kierunku przeciwnym do ruchu wskazówek zegara. Gotowa ścieżka jest stosowana metodą [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), a prezentacja zapisywana jest w formacie PPTX.
+Ten przykład łączy proste odcinki z [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) aby utworzyć kształt z wewnętrznie zakrzywionymi rogami. Rozmiar każdego rogu określa szerokość i wysokość łuku w punktach, a przemieszczenie -90 stopni rysuje przeciwzegarową ćwiartkę elipsy. Gotowa ścieżka jest stosowana przy użyciu [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), a prezentacja jest zapisywana w formacie PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -265,7 +263,7 @@ try {
 
 ## **Sprawdzanie, czy geometria kształtu jest zamknięta**
 
-Poniższy pomocniczy kod sprawdza, czy każda niepusta ścieżka geometryczna kończy się odcinkiem zamknięcia. Odczytuje [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) i porównuje polecenie ostatniego segmentu [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) z [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/). Zwraca false, gdy nie ma niepustych ścieżek. Kod sprawdza tylko ostatnie polecenie każdej ścieżki; nie analizuje wszystkich podfigur w obrębie ścieżki. Przykład wypisuje `true` dla prostokąta.
+Poniższy pomocnik sprawdza, czy każda niepusta ścieżka geometryczna kończy się segmentem zamykającym. Odczytuje [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) i porównuje polecenie ostatniego segmentu [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) z [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/). Zwraca false, gdy nie ma niepustych ścieżek. Sprawdza polecenie końcowe każdej ścieżki; nie przegląda wszystkich pod‑figur wewnątrz ścieżki. Przykład wypisuje `true` dla prostokąta.
 
 ```java
 import com.aspose.slides.*;
@@ -305,11 +303,63 @@ try {
 }
 ```
 
+## **Inspekcja poleceń ścieżki geometrycznej**
+
+Pobierz [contour.pptx](contour.pptx) i zamień przykładową nazwę pliku na jego ścieżkę na urządzeniu. Pierwszy kształt na pierwszym slajdzie ma prostą górną krawędź, krzywą Béziera trzeciego stopnia oraz prostą krawędź zamykającą. Użyj [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) , aby odczytać ścieżki kształtu, oraz [getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) , aby odczytać segmenty każdej ścieżki w kolejności rysowania. Dla każdego segmentu [getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) określa polecenie i decyduje, jak interpretować wartości zwracane przez [getSegmentData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getSegmentData--).
+
+```java
+import com.aspose.slides.*;
+import java.util.Arrays;
+
+Presentation presentation = new Presentation("contour.pptx");
+try {
+    IGeometryShape shape = (IGeometryShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IGeometryPath[] paths = shape.getGeometryPaths();
+
+    for (int i = 0; i < paths.length; i++) {
+        IPathSegment[] segments = paths[i].getPathData();
+        for (int j = 0; j < segments.length; j++) {
+            byte command = segments[j].getPathCommand();
+            float[] data = segments[j].getSegmentData();
+            String detail;
+            switch (command) {
+                case PathCommandType.MoveTo:
+                case PathCommandType.LineTo:
+                    detail = String.format("destination=(%s, %s)", data[0], data[1]);
+                    break;
+                case PathCommandType.CubicBezierTo:
+                    detail = String.format("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", data[0], data[1], data[2], data[3], data[4], data[5]);
+                    break;
+                case PathCommandType.Close:
+                    detail = "no coordinates";
+                    break;
+                default:
+                    detail = "raw=" + Arrays.toString(data);
+            }
+            String name = PathCommandType.getName(PathCommandType.class, command);
+            System.out.printf("Path %d, segment %d: %s %s%n", i, j, name, detail);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Kształt znajduje się w punkcie (200, 100) na slajdzie. Zgłoszone współrzędne są lokalne względem kształtu, z (0, 0) w jego lewym górnym rogu, x rośnie w prawo, a y w dół. Segment zamykający powraca do punktu początkowego bez dodatkowych współrzędnych.
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+![Kształt PowerPoint z prostą górną krawędzią, zakrzywioną krawędzią od prawego górnego do lewego dolnego oraz prostą lewą krawędzią](contour.png)
+
 ## **Wyodrębnianie i przeglądanie elementów kształtu**
 
-Użyj [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) do przeglądania istniejącego kształtu jako elementów zawierających punkty ścieżki i ich typy. Rzutuj każdy zwrócony [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) na [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/), aby pobrać tablice punktów i typów poprzez metody [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) i [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--). Taka reprezentacja jest przydatna przy analizie konturu lub przekazywaniu geometrii do własnych narzędzi rysunkowych.
+Użyj [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) , aby przejrzeć istniejący kształt jako elementy zawierające punkty ścieżki i typy punktów. Rzutuj każdy zwrócony [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) na [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/), aby uzyskać tablice punktów i typów przy użyciu metod [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) i [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) . Ta reprezentacja jest przydatna do analizy konturu lub przekazywania geometrii do własnych narzędzi rysunkowych.
 
-Przykład otwiera `input.pptx`, znajduje pierwszy kształt geometryczny bezpośrednio na pierwszym slajdzie i wypisuje jego segmenty ścieżki. Użyj prezentacji zawierającej kształt z odcinkami prostymi i krzywymi, aby zobaczyć oba rodzaje wyników. Nie przeszukuje grup.
+Przykład otwiera plik input.pptx, znajduje pierwszy kształt geometryczny bezpośrednio na pierwszym slajdzie i wypisuje jego segmenty ścieżki. Użyj prezentacji zawierającej kształt z segmentami prostymi i zakrzywionymi, aby zobaczyć oba rodzaje wyników. Nie przeszukuje grup.
 
 ```java
 import com.aspose.slides.*;
@@ -347,7 +397,7 @@ try {
                         break;
                     case 3:
                         System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
-                        i += 2; // Consume both control points and the endpoint.
+                        i += 2; // Zużyj oba punkty kontrolne i punkt końcowy.
                         break;
                 }
 
@@ -362,26 +412,26 @@ try {
 }
 ```
 
-Tablice są powiązane indeksem: `points[i]` to punkt, a `types[i]` opisuje jego rolę. Typ `0` rozpoczyna figurę, a typ `1` rysuje linię od poprzedniego punktu do bieżącego. Segment Béziera trzeciego stopnia rozpoczyna się w poprzednim punkcie końcowym i wykorzystuje trzy kolejne wpisy typu `3`: dwa punkty kontrolne oraz nowy punkt końcowy. Pętla zużywa te trzy wpisy razem i sprawdza punkt końcowy pod kątem zamknięcia.
+Tablice odpowiadają sobie indeksami: `points[i]` to punkt, a `types[i]` opisuje jego rolę. Typ `0` rozpoczyna figurę, a typ `1` rysuje linię od poprzedniego punktu do bieżącego. Segment krzywej Béziera trzeciego stopnia zaczyna się od poprzedniego punktu końcowego i wykorzystuje trzy kolejne wpisy typu `3`: dwa punkty kontrolne oraz nowy punkt końcowy. Pętla zużywa te trzy wpisy razem i sprawdza punkt końcowy pod kątem zamknięcia.
 
-Typy punktów zawierają także flagi. Maskuj wartość przy użyciu `0x07`, aby określić typ odcinka, a sprawdzaj `0x80` oddzielnie, aby wykryć zamkniętą podścieżkę. Przykładowo, `129` (`0x81`) oznacza koniec linii zamykający podścieżkę, a `131` (`0x83`) oznacza koniec Béziera zamykający podścieżkę. Java przechowuje te flagi w bajtach ze znakiem; maskowanie zachowuje zamierzone wartości bitowe. Porównywanie surowej wartości jedynie z `1` lub `3` pominęłoby te przypadki. Inne flagi, takie jak kreska (`0x10`) i znacznik (`0x20`), nie zmieniają podstawowego typu odcinka.
+Typy punktów zawierają także flagi. Maskuj przy użyciu `0x07`, aby określić typ segmentu, oraz testuj oddzielnie `0x80`, aby wykryć zamkniętą pod‑ścieżkę. Na przykład `129` (`0x81`) oznacza punkt końcowy linii, który zamyka pod‑ścieżkę, a `131` (`0x83`) oznacza punkt końcowy Béziera, który ją zamyka. Java przechowuje te flagi w bajtach ze znakiem; maskowanie zachowuje zamierzone wartości bitów. Porównywanie surowej wartości tylko z `1` lub `3` pominęłoby te przypadki. Inne flagi, takie jak kreska (`0x10`) i znacznik (`0x20`), nie zmieniają podstawowego typu segmentu.
 
-**Współrzędne i przekształcenia.** Punkty mierzone są w punktach (1/72 cala), przy czym X rośnie w prawo, a Y w dół. Dla niepogrupowanego kształtu wyodrębnione współrzędne już zawierają pozycję zwróconą przez [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) i [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) oraz odzwierciedlają jego aktualną szerokość i wysokość. Przykładowo, nieobrócony prostokąt w `(100, 200)` o rozmiarze `120 × 80` ma granice konturu `(100, 200)`–`(220, 280)`. Nie dodawaj ponownie pozycji kształtu. Odejmij jego X i Y, aby uzyskać współrzędne względem nieobróconej ramki.
+**Współrzędne i przekształcenia.** Punkty są mierzone w punktach (1/72 cala), przy czym X rośnie w prawo, a Y w dół. Dla niegrupowanego kształtu wyodrębnione współrzędne już zawierają pozycję zwracaną przez [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) i [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) oraz odzwierciedlają jego aktualną szerokość i wysokość. Na przykład nieobrócony prostokąt w `(100, 200)` o wymiarach `120 × 80` ma granice konturu `(100, 200)`–`(220, 280)`. Nie dodawaj ponownie pozycji kształtu. Odejmij jego X i Y, aby uzyskać współrzędne względem nieobróconej ramki.
 
-Wyodrębnione punkty nie uwzględniają obrotu kształtu, zwracanego przez [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--), ani odbić poziomych i pionowych. Aby odtworzyć wyświetlany kontur, zastosuj te przekształcenia względem środka kształtu. Dla kształtów grupowanych uwzględnij także mapowanie współrzędnych grupy i jej przekształcenia; nie zakładaj, że wyodrębnione punkty są ostatecznymi współrzędnymi slajdu ani nie stosuj podwójnego przesunięcia lub skalowania, jeśli już zostały uwzględnione w ramce dziecka.
+Wyodrębnione punkty nie uwzględniają obrotu kształtu, zwracanego przez [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--), ani odbić poziomych i pionowych. Aby odtworzyć wyświetlany kontur, zastosuj te przekształcenia wokół środka kształtu. Dla grupowanych kształtów uwzględnij także mapowanie współrzędnych grupy i przekształcenia; nie zakładaj, że wyodrębnione punkty są ostatecznymi współrzędnymi slajdu ani nie stosuj podwójnego przesunięcia lub skalowania, jeśli już są odzwierciedlone w ramce dziecka.
 
-**Inspekcja a edycja.** Wyodrębnione tablice opisują kontur; ich modyfikacja nie aktualizuje oryginalnego kształtu. Wybierz tę metodę, gdy potrzebujesz tablic punktów/typów do analizy lub własnego kodu rysującego. Użyj [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) w przypadku, gdy potrzebujesz poleceń geometrycznych w lokalnym układzie współrzędnych kształtu lub chcesz edytować jego geometrię. Edytowane ścieżki aplikuj przy pomocy [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) lub [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---).
+**Inspekcja vs. edycja.** Wyodrębnione tablice opisują kontur; ich modyfikacja nie aktualizuje oryginalnego kształtu. Wybierz to podejście, gdy analiza lub kod rysujący wymaga tablic punktów/typów. Użyj [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) , gdy potrzebujesz poleceń geometrycznych w lokalnym układzie współrzędnych kształtu lub chcesz edytować jego geometrię. Zastosuj edytowane ścieżki przy pomocy [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) lub [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---).
 
 ## **FAQ**
 
 **Co się stanie z wypełnieniem i obrysem po zastąpieniu geometrii?**
 
-Styl pozostaje przypisany do kształtu; zmienia się tylko kontur. Wypełnienie i obrys są automatycznie stosowane do nowej geometrii.
+Styl pozostaje przypisany do kształtu; zmienia się tylko kontur. Wypełnienie i obrys są automatycznie zastosowane do nowej geometrii.
 
 **Jak prawidłowo obrócić własny kształt wraz z jego geometrią?**
 
-Użyj metody [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) kształtu; geometria obraca się razem z kształtem, ponieważ jest związana z jego własnym układem współrzędnych.
+Użyj metody [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) kształtu; geometria obraca się razem z kształtem, ponieważ jest powiązana z jego własnym układem współrzędnych.
 
-**Czy mogę skonwertować własny kształt na obraz, aby „zablokować” rezultat?**
+**Czy mogę konwertować własny kształt na obraz, aby "zablokować" wynik?**
 
-Tak. Wyeksportuj wybrany [slide](/slides/pl/androidjava/convert-powerpoint-to-png/) lub sam [shape](/slides/pl/androidjava/create-shape-thumbnails/) do formatu rastrowego; upraszcza to dalszą pracę z złożonymi geometriami.
+Tak. Wyeksportuj wymagany [slajd](/slides/pl/androidjava/convert-powerpoint-to-png/) lub sam [kształt](/slides/pl/androidjava/create-shape-thumbnails/) do formatu rastrowego; ułatwia to dalszą pracę z złożonymi geometries.
