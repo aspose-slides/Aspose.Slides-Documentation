@@ -21,13 +21,13 @@ keywords:
 - apresentação
 - PHP
 - Aspose.Slides
-description: "Crie e personalize formas em apresentações PowerPoint com Aspose.Slides para PHP via Java: caminhos de geometria, cantos curvos, formas compostas."
+description: "Criar e personalizar formas em apresentações PowerPoint com Aspose.Slides para PHP via Java: caminhos de geometria, cantos curvos, formas compostas."
 ---
 ## **Visão geral**
 
-Este artigo explica como personalizar formas de apresentação no Aspose.Slides editando a geometria da forma por meio de pontos de edição e caminhos de geometria. Ele mostra como trabalhar com [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) para modificar formas existentes, executar operações básicas de edição de caminho, adicionar ou remover pontos e aplicar a geometria atualizada de volta a uma forma.
+Este artigo explica como personalizar formas de apresentação no Aspose.Slides editando a geometria da forma por meio de pontos de edição e caminhos de geometria. Ele mostra como trabalhar com [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) para modificar formas existentes, executar operações básicas de edição de caminho, adicionar ou remover pontos e aplicar a geometria atualizada a uma forma.
 
-Ele também demonstra como criar formas personalizadas e compostas, construir formas com cantos curvos, determinar se a geometria de uma forma está fechada, inspecionar elementos da forma e converter contornos de texto Java AWT em caminhos de geometria.
+Também demonstra como criar formas personalizadas e compostas, construir formas com cantos curvos, determinar se a geometria de uma forma está fechada, inspecionar elementos da forma e converter contornos de texto Java AWT em caminhos de geometria.
 
 ## **Alterar uma Forma Usando Pontos de Edição**
 
@@ -41,28 +41,28 @@ Editar pontos permite modificar o contorno de uma forma ou usar uma forma existe
 
 ## **Dicas de Edição de Formas**
 
-![imagem_visao_geral](custom_shape_0.png)
+![imagem_visão_geral](custom_shape_0.png)
 
-Ao editar formas no PowerPoint, mantenha estes conceitos em mente:
+Ao editar formas no PowerPoint, tenha em mente estes conceitos:
 
 * Uma forma (ou seu caminho) pode ser fechada ou aberta.
 * O caminho de uma forma consiste em pontos de ancoragem conectados por segmentos.
 * Um segmento pode ser reto ou curvo. Pontos de ancoragem e alças de controle determinam sua forma.
 * Pontos de ancoragem existem como pontos de canto, pontos retos ou pontos suaves:
   * Em um ponto de canto, os segmentos adjacentes podem encontrar‑se em um ângulo.
-  * Em um ponto suave, as duas alças de controle estão alinhadas e a mesma distância do ponto de ancoragem.
+  * Em um ponto suave, as duas alças de controle estão alinhadas e à mesma distância do ponto de ancoragem.
   * Em um ponto reto, as duas alças de controle estão alinhadas, mas podem ter distâncias diferentes do ponto de ancoragem.
 * Mover pontos de ancoragem ou ajustar suas alças altera o contorno da forma.
 
-Para editar formas do PowerPoint através de pontos de edição, **Aspose.Slides** fornece a classe [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+Para editar formas do PowerPoint por meio de pontos de edição, **Aspose.Slides** fornece a classe [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-* Uma instância de [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) representa um caminho de geometria do objeto [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
-* Para obter o [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) a partir da instância [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/), você pode usar o método [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
-* Para definir o [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) de uma forma, você pode usar estes métodos: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) para formas com um único caminho e [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) para formas com múltiplos caminhos.
+* Uma instância de [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) representa o caminho de geometria do objeto [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
+* Para obter o [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) a partir da instância de [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/), você pode usar o método [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
+* Para definir o [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) de uma forma, você pode usar estes métodos: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) para formas com caminho único e [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) para formas com múltiplos caminhos.
 * Para adicionar segmentos, você pode usar os métodos em [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 * Usando os métodos [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) e [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode), você pode definir a aparência de um caminho de geometria.
 * Usando o método [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData), você pode obter o caminho de geometria de um [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) como um array de segmentos de caminho.
-* Para acessar opções adicionais de personalização de geometria de forma, você pode ler um [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) através de seu [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) e reproduzir os segmentos em um [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* Para acessar opções adicionais de personalização de geometria de forma, você pode ler um [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) por meio de seu [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) e reproduzir os segmentos em um [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
 ## **Operações Simples de Edição**
 
@@ -80,7 +80,7 @@ Use os métodos a seguir para editar um caminho de geometria. Sobrecargas que ac
 
 ## **Adicionar Pontos Personalizados a uma Forma**
 
-Este exemplo insere dois pontos em uma forma retangular usando [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) e aplica o caminho editado com [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). As coordenadas são locais à forma: ambos os novos pontos estão em seu centro, 100 pontos da esquerda e 50 pontos do topo. Os índices de segmento 1 e 4 os posicionam nas bordas superior e inferior, puxando essas bordas para dentro.
+Este exemplo insere dois pontos em uma forma retangular usando [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) e aplica o caminho editado com [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). As coordenadas são locais à forma: ambos os novos pontos ficam em seu centro, 100 pontos da esquerda e 50 pontos do topo. Os índices de segmento 1 e 4 os posicionam nas bordas superior e inferior, puxando essas bordas para dentro.
 
 ```php
 use aspose\slides\Presentation;
@@ -102,11 +102,11 @@ try {
 }
 ```
 
-![exemplo1_imagem](custom_shape_1.png)
+![imagem_exemplo1](custom_shape_1.png)
 
 ## **Remover Pontos de uma Forma**
 
-Este exemplo altera o contorno de uma forma em forma de coração removendo o segmento no índice baseado em zero 2 com [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). Aplicar o caminho modificado com [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) atualiza o contorno da forma.
+Este exemplo altera o contorno em forma de coração removendo o segmento no índice baseado em zero 2 com [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). Aplicar o caminho modificado com [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) atualiza o contorno da forma.
 
 ```php
 use aspose\slides\Presentation;
@@ -126,11 +126,11 @@ try {
     $presentation->dispose();
 }
 ```
-![exemplo2_imagem](custom_shape_2.png)
+![imagem_exemplo2](custom_shape_2.png)
 
 ## **Criar uma Forma Personalizada**
 
-Este exemplo constrói uma estrela de cinco pontas com [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). Raios externos e internos alternados de 100 e 50 pontos definem as pontas e as entalhes; um passo de 72 graus espaça uniformemente as cinco pontas. O caminho é fechado com [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) e aplicado a uma forma retangular usando [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), substituindo seu contorno.
+Este exemplo constrói uma estrela de cinco pontas com [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). Raios externo e interno alternados de 100 e 50 pontos definem as pontas e as entalhes; um passo de 72 graus espaça uniformemente as cinco pontas. O caminho é fechado com [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) e aplicado a uma forma retangular usando [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), substituindo seu contorno.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -164,11 +164,11 @@ try {
     $presentation->dispose();
 }
 ```
-![exemplo3_imagem](custom_shape_3.png)
+![imagem_exemplo3](custom_shape_3.png)
 
 ## **Criar uma Forma Personalizada Composta**
 
-Este exemplo define dois objetos [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) fechados para o terço superior e inferior de uma forma. Aplicar ambos os caminhos com [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) cria uma única forma composta com um espaço em seu terço central.
+Este exemplo define dois [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) fechados para o terço superior e inferior de uma forma. Aplicar ambos os caminhos com [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) cria uma única forma composta com um espaço atravessando seu terço do meio.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -200,11 +200,11 @@ try {
     $presentation->dispose();
 }
 ```
-![exemplo4_imagem](custom_shape_4.png)
+![imagem_exemplo4](custom_shape_4.png)
 
 ## **Criar uma Forma Personalizada com Cantos Curvos**
 
-Este exemplo combina segmentos retos com [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) para criar uma forma com cantos curvos para dentro. Cada tamanho de canto define a largura e a altura do arco em pontos, e o varrimento de -90 graus desenha um quarto de elipse no sentido anti‑horário. O caminho concluído é aplicado com [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), e a apresentação é salva no formato PPTX.
+Este exemplo combina segmentos retos com [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) para criar uma forma com cantos curvos para dentro. Cada tamanho de canto define a largura e a altura do arco em pontos, e o varrimento de –90 graus desenha um quarto de elipse em sentido anti‑horário. O caminho concluído é aplicado com [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), e a apresentação é salva no formato PPTX.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -255,9 +255,9 @@ try {
 }
 ```
 
-## **Descobrir se a Geometria de uma Forma Está Fechada**
+## **Descobrir Se a Geometria de uma Forma Está Fechada**
 
-O auxiliar a seguir verifica se todo caminho de geometria não vazio termina com um segmento de fechamento. Ele lê [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) e compara o comando do segmento final [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) com [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). Retorna false quando não há caminhos não vazios. Esta verificação analisa o comando final de cada caminho; não inspeciona cada sub‑figura dentro de um caminho. O exemplo imprime `true` para um retângulo.
+O auxiliar a seguir verifica se todo caminho de geometria não vazio termina com um segmento de fechamento. Ele lê [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) e compara o comando do segmento final [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) com [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). Retorna **false** quando não há caminhos não vazios. Essa verificação analisa o comando final de cada caminho; não inspeciona cada sub‑figura dentro de um caminho. O exemplo imprime `true` para um retângulo.
 
 ```php
 use aspose\slides\PathCommandType;
@@ -292,11 +292,64 @@ try {
 }
 ```
 
-## **Extrair e Inspecionar Elementos da Forma**
+## **Inspecionar Comandos de Caminho de Geometria**
 
-Use [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) para inspecionar uma forma existente como elementos contendo pontos de caminho e tipos de ponto. Use cada [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) retornado para recuperar os arrays de pontos e tipos por meio dos métodos [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) e [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). Esta representação é útil para análise de contorno ou para passar a geometria a ferramentas de desenho personalizadas.
+Faça o download de [contour.pptx](contour.pptx) e coloque-o no diretório de trabalho da aplicação. A primeira forma no primeiro slide tem uma borda superior reta, uma curva Bézier cúbica e uma borda de fechamento reta. Use [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) para ler os caminhos da forma e [getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) para ler os segmentos de cada caminho na ordem de desenho. Para cada segmento, [getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) identifica o comando e determina como interpretar os valores retornados por [getSegmentData](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getSegmentData).
 
-O exemplo abre input.pptx, encontra a primeira forma de geometria diretamente no primeiro slide e imprime seus segmentos de caminho. Use uma apresentação que contenha uma forma com segmentos retos e curvos para ver ambos os tipos de saída. Não procura dentro de grupos.
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("contour.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+    foreach ($shape->getGeometryPaths() as $pathIndex => $path) {
+        foreach ($path->getPathData() as $segmentIndex => $segment) {
+            $command = java_values($segment->getPathCommand());
+            $data = java_values($segment->getSegmentData());
+            switch ($command) {
+                case PathCommandType::MoveTo:
+                case PathCommandType::LineTo:
+                    $name = $command === PathCommandType::MoveTo ? "MoveTo" : "LineTo";
+                    $detail = sprintf("destination=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::CubicBezierTo:
+                    $name = "CubicBezierTo";
+                    $detail = sprintf("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::Close:
+                    $name = "Close";
+                    $detail = "no coordinates";
+                    break;
+                default:
+                    $name = "Command " . $command;
+                    $detail = "raw=" . json_encode($data);
+            }
+            printf("Path %d, segment %d: %s %s\n", $pathIndex, $segmentIndex, $name, $detail);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+A forma está posicionada em (200, 100) pontos no slide. As coordenadas relatadas são locais à forma, com (0, 0) no canto superior esquerdo, x aumentando para a direita e y aumentando para baixo. O segmento de fechamento retorna ao ponto inicial sem coordenadas adicionais.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![Forma do PowerPoint com borda superior reta, borda curva do canto superior direito ao canto inferior esquerdo e borda esquerda reta](contour.png)
+
+## **Extrair e Inspecionar Elementos de Forma**
+
+Use [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) para inspecionar uma forma existente como elementos contendo pontos de caminho e tipos de ponto. Use cada [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) retornado para obter os arrays de pontos e tipos por meio dos métodos [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) e [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). Essa representação é útil para análise de contorno ou para passar geometria a ferramentas de desenho personalizadas.
+
+O exemplo abre **input.pptx**, encontra a primeira forma de geometria diretamente no primeiro slide e imprime seus segmentos de caminho. Use uma apresentação que contenha uma forma com segmentos retos e curvos para ver ambos os tipos de saída. Ele não procura dentro de grupos.
 
 ```php
 use aspose\slides\Presentation;
@@ -323,7 +376,7 @@ try {
             $types = array_values(unpack("C*", java_values($element->getPathTypes())));
             echo "Shape element:" . PHP_EOL;
             for ($i = 0; $i < count($points); $i++) {
-                $pointType = $types[$i] & 0x07; // Manter o tipo de segmento, excluindo flags.
+                $pointType = $types[$i] & 0x07; // Manter o tipo de segmento, excluindo bandeiras.
                 switch ($pointType) {
                     case 0:
                         echo "Start figure at " . $points[$i] . PHP_EOL;
@@ -333,7 +386,7 @@ try {
                         break;
                     case 3:
                         echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
-                        $i += 2; // Consume both control points and the endpoint.
+                        $i += 2; // Consumir ambos os pontos de controle e o ponto final.
                         break;
                 }
                 if (($types[$i] & 0x80) !== 0) {
@@ -347,21 +400,21 @@ try {
 }
 ```
 
-Os arrays correspondem por índice: `$points[$i]` é um ponto e `$types[$i]` descreve seu papel. O tipo `0` inicia uma figura, e o tipo `1` desenha uma linha do ponto anterior ao ponto atual. Um segmento Bézier cúbico inicia no ponto final anterior e usa três entradas consecutivas do tipo `3`: dois pontos de controle seguidos pelo novo ponto final. O loop consome essas três entradas juntas e verifica o ponto final para fechamento.
+Os arrays correspondem por índice: `$points[$i]` é um ponto e `$types[$i]` descreve seu papel. O tipo `0` inicia uma figura, e o tipo `1` desenha uma linha do ponto anterior ao ponto atual. Um segmento Bézier cúbico começa no ponto final anterior e usa três entradas consecutivas de tipo `3`: dois pontos de controle seguidos pelo novo ponto final. O laço consome essas três entradas juntas e verifica o ponto final para fechamento.
 
-Tipos de ponto também contêm flags. Mascarar com `0x07` para identificar o tipo de segmento, e testar `0x80` separadamente para detectar um subcaminho fechado. Por exemplo, `129` (`0x81`) significa um ponto final de linha que fecha um subcaminho, e `131` (`0x83`) significa um ponto final Bézier que fecha um. A ponte PHP/Java devolve o array de bytes como string binária; desempacotar com "C*" produz valores de byte sem sinal. A máscara preserva os bits pretendidos. Comparar o valor bruto apenas com `1` ou `3` perderia esses casos. Outras flags, como traço (`0x10`) e marcador (`0x20`), não alteram o tipo básico do segmento.
+Os tipos de ponto também contêm flags. Mascarar com `0x07` identifica o tipo de segmento, e testar `0x80` separadamente detecta um subcaminho fechado. Por exemplo, `129` (`0x81`) significa um ponto final de linha que fecha um subcaminho, e `131` (`0x83`) significa um ponto final Bézier que fecha um subcaminho. A ponte PHP/Java devolve o array de bytes como string binária; desempacotar com `"C*"` produz valores de byte sem sinal. A máscara preserva os bits pretendidos. Comparar o valor bruto apenas com `1` ou `3` perderia esses casos. Outras flags, como traço (`0x10`) e marcador (`0x20`), não alteram o tipo básico do segmento.
 
-**Coordenadas e transformações.** Os pontos são medidos em pontos (1/72 polegada), com X aumentando para a direita e Y aumentando para baixo. Para uma forma não agrupada, as coordenadas extraídas já incluem a posição retornada por [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) e [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) e refletem sua largura e altura atuais. Por exemplo, um retângulo não rotacionado em `(100, 200)` com tamanho `120 × 80` tem limites de contorno `(100, 200)`–`(220, 280)`. Não adicione a posição da forma novamente. Subtraia seu X e Y para obter coordenadas relativas ao seu quadro não rotacionado.
+**Coordenadas e transformações.** Os pontos são medidos em points (1/72 polegada), com X aumentando para a direita e Y aumentando para baixo. Para uma forma não agrupada, as coordenadas extraídas já incluem a posição retornada por [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) e [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) e refletem sua largura e altura atuais. Por exemplo, um retângulo não rotacionado em `(100, 200)` com tamanho `120 × 80` tem limites de contorno `(100, 200)`–`(220, 280)`. Não adicione a posição da forma novamente. Subtraia seu X e Y para obter coordenadas relativas ao seu quadro não rotacionado.
 
-Os pontos extraídos não aplicam a rotação da forma, retornada por [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation), nem as inversões horizontal e vertical. Para reproduzir o contorno exibido, aplique essas transformações em torno do centro da forma. Para formas agrupadas, considere também o mapeamento de coordenadas do grupo e as transformações; não presuma que os pontos extraídos sejam as coordenadas finais renderizadas no slide nem aplique uma translação ou escala duas vezes se já estiver refletida no quadro do filho.
+Os pontos extraídos não aplicam a rotação da forma, retornada por [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation), nem as inversões horizontal e vertical. Para reproduzir o contorno exibido, aplique essas transformações ao redor do centro da forma. Para formas agrupadas, considere também o mapeamento de coordenadas do grupo e as transformações; não presuma que os pontos extraídos sejam as coordenadas finais renderizadas no slide nem aplique uma translação ou escala duas vezes se já estiver refletida no quadro do filho.
 
-**Inspeção versus edição.** Os arrays extraídos descrevem o contorno; alterá‑los não atualiza a forma original. Escolha esta abordagem quando sua análise ou código de desenho precisar dos arrays de ponto/tipo. Use [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) quando precisar de comandos de geometria no sistema de coordenadas local da forma ou quiser editar sua geometria. Aplique caminhos editados através de [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ou [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Inspeção versus edição.** Os arrays extraídos descrevem o contorno; alterá‑los não atualiza a forma original. Escolha essa abordagem quando sua análise ou código de desenho precisar dos arrays de ponto/tipo. Use [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) quando precisar de comandos de geometria no sistema de coordenadas local da forma ou quiser editar sua geometria. Aplique caminhos editados através de [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) ou [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
 
-## **Converter uma Forma Java AWT para GeometryPath**
+## **Converter uma Forma Java AWT em GeometryPath**
 
-Este exemplo combina um contorno retangular com texto convertido em geometria. O método [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) do contorno desabilita seu preenchimento. Um [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) cria o contorno do texto em um [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Seu [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) fornece segmentos de movimento, linha, quadrático, cúbico e fechamento, que o exemplo reproduz em um [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+Este exemplo combina um contorno retangular com texto convertido em geometria. O método [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) do contorno desabilita seu preenchimento. Um [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) cria o contorno de texto em um [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Seu [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) fornece movimentos, linhas, quadráticas, cúbicas e segmentos de fechamento, que o exemplo reexecuta em um [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-O exemplo usa um array de float Java para que a ponte PHP/Java mantenha as coordenadas escritas pelo iterador. O texto usa fonte Arial de 40 pontos. O contorno é deslocado 20 pontos horizontalmente e posicionado com seu topo visual 10 pontos abaixo da borda superior da forma. O caminho de texto é preenchido, enquanto o retângulo original permanece como contorno. Aplicar ambos os caminhos com [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) produz uma única forma contendo o retângulo e o texto.
+O exemplo usa um array de float Java para que a ponte PHP/Java retenha as coordenadas escritas pelo iterador. O texto usa fonte Arial de 40 points. O contorno é deslocado 20 points horizontalmente e posicionado com seu topo visual 10 points abaixo da borda superior da forma. O caminho de texto é preenchido, enquanto o retângulo original permanece apenas como contorno. Aplicar ambos os caminhos com [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) produz uma única forma contendo o retângulo e o texto.
 
 ```php
 use aspose\slides\GeometryPath;
@@ -428,18 +481,18 @@ try {
     $presentation->dispose();
 }
 ```
-![exemplo5_imagem](custom_shape_5.png)
+![imagem_exemplo5](custom_shape_5.png)
 
 ## **FAQ**
 
-**O que acontecerá com o preenchimento e contorno após substituir a geometria?**
+**O que acontece com o preenchimento e o contorno após substituir a geometria?**
 
-O estilo permanece na forma; apenas o contorno muda. O preenchimento e o contorno são aplicados automaticamente à nova geometria.
+O estilo permanece associado à forma; somente o contorno muda. O preenchimento e o contorno são aplicados automaticamente à nova geometria.
 
-**Como rotacionar corretamente uma forma personalizada juntamente com sua geometria?**
+**Como rotacionar corretamente uma forma personalizada junto com sua geometria?**
 
-Use o método [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) da forma; a geometria gira com a forma porque está vinculada ao próprio sistema de coordenadas da forma.
+Use o método [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) da forma; a geometria gira com a forma porque está vinculada ao seu próprio sistema de coordenadas.
 
-**Posso converter uma forma personalizada em uma imagem para “travar” o resultado?**
+**Posso converter uma forma personalizada em imagem para “travar” o resultado?**
 
-Sim. Exporte a área da [slide](/slides/pt/php-java/convert-powerpoint-to-png/) necessária ou a própria [shape](/slides/pt/php-java/create-shape-thumbnails/) para um formato raster; isso simplifica trabalhos posteriores com geometrias complexas.
+Sim. Exporte a [slide](/slides/pt/php-java/convert-powerpoint-to-png/) ou a própria [shape](/slides/pt/php-java/create-shape-thumbnails/) para um formato raster; isso simplifica o trabalho posterior com geometrias complexas.

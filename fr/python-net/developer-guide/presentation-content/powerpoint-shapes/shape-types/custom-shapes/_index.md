@@ -11,7 +11,7 @@ keywords:
 - modifier forme
 - géométrie de forme
 - chemin géométrique
-- points du chemin
+- points de chemin
 - points d'édition
 - ajouter point
 - supprimer point
@@ -25,59 +25,61 @@ description: "Créer et personnaliser des formes dans les présentations PowerPo
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment personnaliser les formes de présentation dans Aspose.Slides en modifiant la géométrie des formes à l'aide de points d'édition et de chemins géométriques. Il montre comment travailler avec [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) pour modifier des formes existantes, effectuer des opérations de base d'édition de chemin, ajouter ou supprimer des points, et appliquer la géométrie mise à jour à une forme.
+Cet article explique comment personnaliser les formes de présentation dans Aspose.Slides en modifiant la géométrie des formes via les points d’édition et les chemins géométriques. Il montre comment travailler avec [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) pour modifier des formes existantes, effectuer des opérations de base d’édition de chemin, ajouter ou supprimer des points, et appliquer la géométrie mise à jour à une forme.
 
-Il démontre également comment créer des formes personnalisées et composites, construire des formes avec des coins arrondis, déterminer si la géométrie d’une forme est fermée, et extraire les éléments de forme pour l'analyse de contour.
+Il montre également comment créer des formes personnalisées et composites, construire des formes avec des coins arrondis, déterminer si une géométrie de forme est fermée, et extraire les éléments de forme pour une analyse de contour.
 
-## **Modifier une forme à l'aide de points d'édition**
+## **Modifier une forme à l’aide de points d’édition**
 
-* Déplacer un coin vers l'intérieur ou l'extérieur.
+Dans PowerPoint, vous pouvez utiliser **Edit Points** pour modifier un carré :
+
+* Déplacer un coin vers l’intérieur ou vers l’extérieur.
 * Ajuster la courbure à un point.
 * Ajouter de nouveaux points.
 
-La modification des points vous permet de modifier le contour d’une forme ou d’utiliser une forme existante comme base pour une nouvelle.
+L’édition de points vous permet de modifier le contour d’une forme ou d’utiliser une forme existante comme base pour une nouvelle.
 
 ## **Conseils de modification de forme**
 
 ![overview_image](custom_shape_0.png)
 
-Lors de la modification des formes PowerPoint, gardez ces concepts à l’esprit :
+Lorsque vous modifiez des formes PowerPoint, gardez ces concepts à l’esprit :
 
 * Une forme (ou son chemin) peut être fermée ou ouverte.
 * Le chemin d’une forme est composé de points d’ancrage reliés par des segments.
 * Un segment peut être droit ou courbe. Les points d’ancrage et les poignées de contrôle déterminent sa forme.
-* Les points d’ancrage existent en tant que points d’angle, points droits ou points lisses :
-  * À un point d’angle, les segments adjacents peuvent se rejoindre sous un angle.
+* Les points d’ancrage existent sous forme de points de coin, points droits ou points lisses :
+  * À un point de coin, les segments adjacents peuvent se rejoindre sous un angle.
   * À un point lisse, les deux poignées de contrôle sont alignées et à égale distance du point d’ancrage.
   * À un point droit, les deux poignées de contrôle sont alignées mais peuvent être à des distances différentes du point d’ancrage.
 * Déplacer les points d’ancrage ou ajuster leurs poignées modifie le contour de la forme.
 
-Pour modifier les formes PowerPoint via les points d’édition, **Aspose.Slides** fournit la classe [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+Pour éditer les formes PowerPoint via les points d’édition, **Aspose.Slides** fournit la classe [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
 
 * Une instance de [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) représente le chemin géométrique de l’objet [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).
 * Pour récupérer le [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) depuis l’instance [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/), vous pouvez utiliser la méthode [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/).
-* Pour définir le [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) d’une forme, vous pouvez utiliser ces méthodes : [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) pour les formes avec un seul chemin et [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) pour les formes avec plusieurs chemins.
+* Pour définir le [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) d’une forme, vous pouvez utiliser ces méthodes : [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) pour les formes à chemin unique et [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) pour les formes à chemins multiples.
 * Pour ajouter des segments, vous pouvez utiliser les méthodes sous [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
 * En utilisant les propriétés [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) et [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/), vous pouvez définir l’apparence d’un chemin géométrique.
 * En utilisant la propriété [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/), vous pouvez récupérer le chemin géométrique d’un [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) sous forme de tableau de segments de chemin.
 
-## **Opérations d'édition simples**
+## **Opérations d’édition simples**
 
-Utilisez les méthodes suivantes pour modifier un chemin géométrique. Les surcharges qui acceptent un indice insèrent un segment à cette position basée sur zéro dans le tableau de segments du chemin.
+Utilisez les méthodes suivantes pour éditer un chemin géométrique. Les surcharges qui acceptent un indice insèrent un segment à cette position zéro‑based dans le tableau des segments du chemin.
 
-| Operation | Method |
+| Opération | Méthode |
 | --- | --- |
 | Ajouter ou insérer une ligne droite. | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
-| Ajouter ou insérer une courbe cubique de Bézier avec deux points de contrôle et un point d’arrivée. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
-| Ajouter ou insérer une courbe quadratique de Bézier avec un point de contrôle et un point d’arrivée. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| Ajouter ou insérer une courbe de Bézier cubique avec deux points de contrôle et un point final. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
+| Ajouter ou insérer une courbe de Bézier quadratique avec un point de contrôle et un point final. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
 | Ajouter un arc elliptique avec les dimensions et angles spécifiés en degrés. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
-| Fermer la figure actuelle en reliant son point d’arrivée à son point de départ. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
+| Fermer la figure courante en reliant son point final à son point de départ. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
 | Définir le point de départ d’une figure. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
-| Supprimer un segment à un indice basé sur zéro. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
+| Supprimer un segment à un indice zéro‑based. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
 ## **Ajouter des points personnalisés à une forme**
 
-Cet exemple insère deux points dans une forme rectangulaire en utilisant [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) et applique le chemin modifié avec [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). Les coordonnées sont locales à la forme : les deux nouveaux points sont à son centre, à 100 points du côté gauche et 50 points du haut. Les indices de segment 1 et 4 les placent respectivement sur les bords supérieur et inférieur, tirant ces bords vers l’intérieur.
+Cet exemple insère deux points dans une forme rectangulaire à l’aide de [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) et applique le chemin édité avec [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). Les coordonnées sont locales à la forme : les deux nouveaux points sont au centre, à 100 points du bord gauche et à 50 points du bord supérieur. Les indices de segment 1 et 4 les placent respectivement sur les bords supérieur et inférieur, tirant ces bords vers l’intérieur.
 
 ```python
 import aspose.slides as slides
@@ -98,7 +100,7 @@ with slides.Presentation() as presentation:
 
 ## **Supprimer des points d’une forme**
 
-Cet exemple modifie le contour d’une forme en cœur en supprimant le segment à l’indice basé sur zéro 2 avec [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). L’application du chemin modifié avec [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) met à jour le contour de la forme.
+Cet exemple modifie le contour d’une forme en forme de cœur en supprimant le segment à l’indice zéro‑based 2 avec [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). L’application du chemin modifié avec [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) met à jour le contour de la forme.
 
 ```python
 import aspose.slides as slides
@@ -117,7 +119,7 @@ with slides.Presentation() as presentation:
 
 ## **Créer une forme personnalisée**
 
-Cet exemple crée une étoile à cinq branches avec [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Des rayons extérieurs et intérieurs alternés de 100 et 50 points définissent les pointes et les indentations ; un pas de 72 degrés espace uniformément les cinq pointes. Le chemin est fermé avec [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) et appliqué à une forme rectangulaire à l’aide de [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), remplaçant son contour.
+Cet exemple construit une étoile à cinq branches avec [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Des rayons extérieurs et intérieurs alternés de 100 et 50 points définissent les pointes et les retrous ; un pas de 72 degrés espace les cinq pointes de façon égale. Le chemin est fermé avec [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) et appliqué à une forme rectangulaire à l’aide de [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), remplaçant son contour.
 
 ```python
 import aspose.slides as slides
@@ -157,9 +159,9 @@ with slides.Presentation() as presentation:
 ```
 ![example3_image](custom_shape_3.png)
 
-## **Créer une forme personnalisée composite**
+## **Créer une forme composite personnalisée**
 
-Cet exemple définit deux objets [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) fermés pour le tiers supérieur et le tiers inférieur d’une forme. L’application des deux chemins avec [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) crée une forme composite unique avec un espace traversant son tiers central.
+Cet exemple définit deux [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) fermés pour le tiers supérieur et le tiers inférieur d’une forme. L’application des deux chemins avec [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) crée une seule forme composite comportant un espace à travers son tiers central.
 
 ```python
 import aspose.slides as slides
@@ -189,7 +191,7 @@ with slides.Presentation() as presentation:
 
 ## **Créer une forme personnalisée avec des coins arrondis**
 
-Cet exemple combine des segments droits avec [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) pour créer une forme à coins incurvés vers l’intérieur. Chaque taille de coin définit la largeur et la hauteur de l’arc en points, et le balayage de -90 degrés trace un quart d’ellipse dans le sens antihoraire. Le chemin terminé est appliqué avec [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), et la présentation est enregistrée au format PPTX.
+Cet exemple combine des segments droits avec [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) pour créer une forme dont les coins sont courbés vers l’intérieur. Chaque taille de coin définit la largeur et la hauteur de l’arc en points, et le balayage de ‑90 degrés dessine un quart d’ellipse dans le sens antihoraire. Le chemin complet est appliqué avec [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), et la présentation est enregistrée au format PPTX.
 
 ```python
 import aspose.slides as slides
@@ -235,7 +237,7 @@ with slides.Presentation() as presentation:
 
 ## **Déterminer si la géométrie d’une forme est fermée**
 
-L’assistant suivant vérifie si chaque chemin géométrique non vide se termine par un segment de fermeture. Il lit [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) et compare la commande du segment final [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) avec [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Il renvoie false lorsqu’il n’y a aucun chemin non vide. Cette vérification porte sur la commande finale de chaque chemin ; elle n’inspecte pas chaque sous‑figure d’un chemin. L’exemple affiche `True` pour un rectangle.
+L’assistant suivant vérifie si chaque chemin géométrique non vide se termine par un segment de fermeture. Il lit [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) et compare la commande du dernier segment [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) avec [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Il retourne false lorsqu’il n’y a aucun chemin non vide. Cette vérification porte sur la commande finale de chaque chemin ; elle n’inspecte pas chaque sous‑figure à l’intérieur d’un chemin. L’exemple affiche `True` pour un rectangle.
 
 ```python
 import aspose.slides as slides
@@ -263,11 +265,46 @@ with slides.Presentation() as presentation:
     print(is_geometry_closed(shape))
 ```
 
+## **Inspecter les commandes de chemin géométrique**
+
+Téléchargez [contour.pptx](contour.pptx) et placez‑le dans votre répertoire de travail. La première forme de la première diapositive possède un bord supérieur droit, une courbe de Bézier cubique et un bord de fermeture droit. Utilisez [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) pour lire ses chemins. Pour chaque chemin, [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) répertorie les segments dans l’ordre de dessin. La commande de chaque segment [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) détermine comment interpréter ses données [PathSegment.segment_data](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/segment_data/).
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("contour.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    for i, path in enumerate(shape.get_geometry_paths()):
+        for j, segment in enumerate(path.path_data):
+            command = segment.path_command
+            data = segment.segment_data
+            if command in (slides.PathCommandType.MOVE_TO, slides.PathCommandType.LINE_TO):
+                detail = f"destination={tuple(data)}"
+            elif command == slides.PathCommandType.CUBIC_BEZIER_TO:
+                detail = f"control1={tuple(data[:2])} control2={tuple(data[2:4])} end={tuple(data[4:])}"
+            elif command == slides.PathCommandType.CLOSE:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={data}"
+            print(f"Path {i}, segment {j}: {command.name} {detail}")
+```
+
+La forme se trouve aux coordonnées (200, 100) points sur la diapositive. Les coordonnées rapportées sont locales à la forme. Son coin supérieur gauche est (0, 0), x augmente vers la droite et y augmente vers le bas. Le segment de fermeture revient au point de départ sans coordonnées supplémentaires.
+
+```text
+Path 0, segment 0: MOVE_TO destination=(0, 0)
+Path 0, segment 1: LINE_TO destination=(80, 0)
+Path 0, segment 2: CUBIC_BEZIER_TO control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: CLOSE no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **Extraire et inspecter les éléments de forme**
 
 Utilisez [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) pour inspecter une forme existante sous forme d’éléments contenant les points de chemin et les types de points. Chaque [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) retourné expose ses tableaux [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) et [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/). Cette représentation est utile pour l’analyse de contour ou le passage de la géométrie à des outils de dessin personnalisés.
 
-L’exemple ouvre une présentation, trouve la première forme géométrique directement sur la première diapositive, et affiche ses segments de chemin. Utilisez une présentation contenant une forme avec des segments droits et courbes pour voir les deux types de sortie. Il ne recherche pas dans les groupes.
+L’exemple ouvre une présentation, trouve la première forme géométrique directement sur la première diapositive, et affiche ses segments de chemin. Utilisez une présentation contenant une forme avec des segments droits et courbes pour voir les deux types de sortie. Il ne recherche pas à l’intérieur des groupes.
 
 ```python
 import aspose.slides as slides
@@ -286,33 +323,33 @@ with slides.Presentation("input.pptx") as presentation:
 
             i = 0
             while i < len(points):
-                point_type = types[i] & 0x07  # Keep the segment type, excluding flags.
+                point_type = types[i] & 0x07  # Conserver le type de segment, en excluant les drapeaux.
                 if point_type == 0:
                     print(f"Start figure at {points[i]}")
                 elif point_type == 1:
                     print(f"Line to {points[i]}")
                 elif point_type == 3:
                     print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
-                    i += 2  # Consume both control points and the endpoint.
+                    i += 2  # Consommer les deux points de contrôle et le point final.
 
                 if (types[i] & 0x80) != 0:
                     print("Close subpath back to its starting point.")
                 i += 1
 ```
 
-Les tableaux correspondent par indice : `points[i]` est un point et `types[i]` décrit son rôle. Le type `0` démarre une figure, et le type `1` trace une ligne du point précédent au point actuel. Un segment de Bézier cubique commence au point d’arrivée précédent et utilise trois entrées consécutives de type `3` : deux points de contrôle suivis du nouveau point d’arrivée. La boucle consomme ces trois entrées ensemble et vérifie la fermeture du point d’arrivée.
+Les tableaux sont corrélés par indice : `points[i]` est un point et `types[i]` décrit son rôle. Le type `0` démarre une figure, et le type `1` trace une ligne du point précédent au point actuel. Un segment de Bézier cubique démarre au point final précédent et utilise trois entrées consécutives de type `3` : deux points de contrôle suivis du nouveau point final. La boucle consomme ces trois entrées ensemble et vérifie le point final pour la fermeture.
 
-Les types de points contiennent également des indicateurs. Masquez avec `0x07` pour identifier le type de segment, et testez `0x80` séparément pour détecter un sous‑chemin fermé. Par exemple, `129` (`0x81`) signifie un point d’arrivée de ligne qui ferme un sous‑chemin, et `131` (`0x83`) signifie un point d’arrivée de Bézier qui en ferme un. Comparer la valeur brute uniquement avec `1` ou `3` manquerait ces cas. D’autres indicateurs, comme le tiret (`0x10`) et le marqueur (`0x20`), ne modifient pas le type de segment de base.
+Les types de points contiennent aussi des drapeaux. Masquez avec `0x07` pour identifier le type de segment, et testez `0x80` séparément pour détecter un sous‑chemin fermé. Par exemple, `129` (`0x81`) signifie un point final de ligne qui ferme un sous‑chemin, et `131` (`0x83`) signifie un point final de Bézier qui en ferme un. Comparer la valeur brute uniquement à `1` ou `3` manquerait ces cas. D’autres drapeaux, comme le tiret (`0x10`) et le marqueur (`0x20`), ne changent pas le type de segment de base.
 
-**Coordonnées et transformations.** Les points sont mesurés en points (1/72 pouce), X augmentant vers la droite et Y augmentant vers le bas. Pour une forme non groupée, les coordonnées extraites comprennent déjà sa position [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) et [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) et reflètent sa largeur et hauteur actuelles. Par exemple, un rectangle non tourné à `(100, 200)` avec une taille de `120 × 80` possède des limites de contour `(100, 200)`–`(220, 280)`. N’ajoutez pas de nouveau la position de la forme. Soustrayez son X et son Y pour obtenir des coordonnées relatives à son cadre non tourné.
+**Coordonnées et transformations.** Les points sont mesurés en points (1/72 pouce), X augmente vers la droite et Y augmente vers le bas. Pour une forme non groupée, les coordonnées extraites incluent déjà sa position [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) et [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) et reflètent sa largeur et hauteur actuelles. Par exemple, un rectangle non tourné à `(100, 200)` avec une taille de `120 × 80` a des limites de contour `(100, 200)`‑`(220, 280)`. N’ajoutez pas la position de la forme a nouveau. Soustrayez son X et Y pour obtenir des coordonnées relatives à son cadre non tourné.
 
-Les points extraits n’appliquent pas la [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) de la forme ni les retournements horizontaux et verticaux. Pour reproduire le contour affiché, appliquez ces transformations autour du centre de la forme. Pour les formes groupées, tenez également compte du mappage des coordonnées du groupe et des transformations ; ne supposez pas que les points extraits sont les coordonnées finales rendues sur la diapositive ou n’appliquez pas une translation ou une mise à l’échelle deux fois si elle est déjà reflétée dans le cadre de l’enfant.
+Les points extraits n’appliquent pas la [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) de la forme ni les retournements horizontaux et verticaux. Pour reproduire le contour affiché, appliquez ces transformations autour du centre de la forme. Pour les formes groupées, tenez également compte du mappage des coordonnées du groupe et des transformations ; ne supposez pas que les points extraits sont les coordonnées finales rendues sur la diapositive ou appliquez une traduction ou une mise à l’échelle deux fois s’il est déjà reflété dans le cadre de l’enfant.
 
-**Inspection vs modification.** Les tableaux extraits décrivent le contour ; les modifier ne met pas à jour la forme originale. Choisissez cette approche lorsque votre analyse ou votre code de dessin a besoin de tableaux point/type. Utilisez [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) lorsque vous avez besoin de commandes géométriques dans le système de coordonnées local de la forme ou que vous souhaitez modifier sa géométrie. Appliquez les chemins modifiés via [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) ou [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
+**Inspection versus édition.** Les tableaux extraits décrivent le contour ; les modifier ne met pas à jour la forme originale. Choisissez cette approche lorsque votre analyse ou votre code de dessin a besoin de tableaux point/type. Utilisez [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) lorsque vous avez besoin des commandes de géométrie dans le système de coordonnées local de la forme ou que vous souhaitez éditer sa géométrie. Appliquez les chemins édités via [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) ou [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
 
 ## **FAQ**
 
-**Que se passe-t-il avec le remplissage et le contour après le remplacement de la géométrie ?**
+**Que se passe‑t‑il du remplissage et du contour après le remplacement de la géométrie ?**
 
 Le style reste attaché à la forme ; seul le contour change. Le remplissage et le contour sont appliqués automatiquement à la nouvelle géométrie.
 
@@ -320,6 +357,6 @@ Le style reste attaché à la forme ; seul le contour change. Le remplissage et 
 
 Utilisez la propriété [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) de la forme ; la géométrie pivote avec la forme car elle est liée au système de coordonnées propre à la forme.
 
-**Puis-je convertir une forme personnalisée en image pour « verrouiller » le résultat ?**
+**Puis‑je convertir une forme personnalisée en image pour « verrouiller » le résultat ?**
 
-Oui. Exportez la zone [slide](/slides/fr/python-net/convert-powerpoint-to-png/) requise ou la [shape](/slides/fr/python-net/create-shape-thumbnails/) elle‑même vers un format raster ; cela simplifie le travail ultérieur avec des géométries complexes.
+Oui. Exportez la zone de la [slide](/slides/fr/python-net/convert-powerpoint-to-png/) requise ou la [shape](/slides/fr/python-net/create-shape-thumbnails/) elle‑même vers un format raster ; cela simplifie le travail ultérieur avec des géométries complexes.

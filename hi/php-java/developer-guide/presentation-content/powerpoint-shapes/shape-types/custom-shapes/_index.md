@@ -1,5 +1,5 @@
 ---
-title: PHP में प्रस्तुति आकारों को अनुकूलित करें
+title: PHP में प्रस्तुतिकरण आकारों को अनुकूलित करें
 linktitle: कस्टम आकार
 type: docs
 weight: 20
@@ -7,80 +7,78 @@ url: /hi/php-java/custom-shape/
 keywords: 
 - कस्टम आकार
 - आकार जोड़ें
-- आकार बनाएं
+- आकार बनाएँ
 - आकार बदलें
 - आकार ज्यामिति
-- ज्यामिति पाथ
-- पाथ बिंदु
+- ज्यामिति पथ
+- पथ बिंदु
 - संपादन बिंदु
 - बिंदु जोड़ें
-- बिंदु हटाएं
+- बिंदु हटाएँ
 - संपादन संचालन
-- वक्र कोना
+- घुमावदार कोना
 - PowerPoint
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Java के माध्यम से PHP के लिए Aspose.Slides के साथ PowerPoint प्रस्तुतियों में आकार बनाएं और अनुकूलित करें: ज्यामिति पाथ, वक्र कोने, संयुक्त आकार।"
+description: "Java के माध्यम से PHP के लिए Aspose.Slides के साथ PowerPoint प्रस्तुतियों में आकार बनाएँ और अनुकूलित करें: ज्यामिति पथ, घुमावदार कोने, संयुक्त आकार।"
 ---
-## **समीक्षा**
+## **अवलोकन**
 
-यह लेख समझाता है कि Aspose.Slides में प्रस्तुति आकारों को संपादन बिंदुओं और ज्यामिति पाथों के माध्यम से आकार ज्यामिति को संपादित करके कैसे अनुकूलित किया जाए। यह दिखाता है कि मौजूदा आकारों को संशोधित करने, बुनियादी पाथ संपादन संचालन करने, बिंदु जोड़ने या हटाने, और अद्यतन ज्यामिति को फिर से आकार पर लागू करने के लिए [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) के साथ कैसे काम किया जाए।
+यह लेख Aspose.Slides में प्रस्तुतिकरण आकारों को संपादन बिंदुओं और ज्यामिति पथों के माध्यम से आकार ज्यामिति को संपादित करके कस्टमाइज़ करने का तरीका समझाता है। यह दर्शाता है कि मौज़दा आकारों को संशोधित करने, मूलभूत पथ संपादन संचालन करने, बिंदु जोड़ने या हटाने, और अद्यतन ज्यामिति को फिर से आकार पर लागू करने के लिए [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) के साथ कैसे काम किया जाए। यह भी प्रदर्शित करता है कि कस्टम और मिश्रित आकार कैसे बनाएँ, घुमावदार किनारों वाले आकार बनाएँ, यह निर्धारित करें कि आकार ज्यामिति बंद है या नहीं, आकार तत्वों का निरीक्षण करें, और Java AWT टेक्स्ट आउटलाइन को ज्यामिति पथों में परिवर्तित करें।
 
-यह यह भी प्रदर्शित करता है कि कैसे कस्टम और संयुक्त आकार बनाएँ, वक्र कोनों वाले आकार बनायें, यह निर्धारित करें कि कोई आकार ज्यामिति बंद है या नहीं, आकार तत्वों का निरीक्षण करें, और Java AWT टेक्स्ट आउटलाइन को ज्यामिति पाथों में परिवर्तित करें।
+## **संपादन बिंदुओं का उपयोग करके आकार बदलें**
 
-## **संपादन बिंदुओं के द्वारा आकार बदलें**
-
-PowerPoint में, आप **संपादन बिंदुओं** का उपयोग करके एक वर्ग को संशोधित कर सकते हैं:
+PowerPoint में, आप **संपादन बिंदुओं** का उपयोग करके एक वर्ग को बदल सकते हैं:
 
 * कोने को अंदर या बाहर ले जाएँ।
-* किसी बिंदु पर वक्रता को समायोजित करें।
+* किसी बिंदु पर घुमाव को समायोजित करें।
 * नए बिंदु जोड़ें।
 
-बिंदुओं को संपादित करने से आप किसी आकार की रूपरेखा को बदल सकते हैं या मौजूदा आकार को नई आकार की आधारशिला के रूप में उपयोग कर सकते हैं।
+संपादन बिंदु आपको आकार की रूपरेखा को संशोधित करने या मौज़दा आकार को एक नए आकार के आधार के रूप में उपयोग करने की अनुमति देते हैं।
 
-## **आकार संपादन टिप्स**
+## **आकार संपादन सुझाव**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint आकारों को संपादित करते समय निम्नलिखित अवधारणाओं को ध्यान में रखें:
+PowerPoint आकारों को संपादित करते समय इन अवधारणाओं को याद रखें:
 
-* कोई आकार (या उसका पाथ) बंद या खुला दोनों हो सकता है।
-* आकार का पाथ एंकर बिंदुओं से बना होता है जो खण्डों द्वारा जुड़े होते हैं।
-* एक खण्ड सीधा या वक्र हो सकता है। एंकर बिंदु और नियंत्रण हैंडल इसकी आकृति निर्धारित करते हैं।
+* एक आकार (या उसका पथ) बंद या खुला हो सकता है।
+* एक आकार की पथ एंकर बिंदुओं से बनी होती है जो सेगमेंट द्वारा जुड़े होते हैं।
+* एक सेगमेंट सीधा या घुमावदार हो सकता है। एंकर बिंदु और नियंत्रण हैंडल उसका आकार निर्धारित करते हैं।
 * एंकर बिंदु कोने बिंदु, सीधा बिंदु, या स्मूद बिंदु के रूप में होते हैं:
-  * कोने बिंदु पर, आसन्न खण्ड एक कोण पर मिल सकते हैं।
+  * कोने बिंदु पर, जुड़े सेगमेंट एक कोण पर मिलते हैं।
   * स्मूद बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं और एंकर बिंदु से समान दूरी पर होते हैं।
-  * सीधा बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं लेकिन एंकर बिंदु से अलग-अलग दूरी पर हो सकते हैं।
-* एंकर बिंदुओं को ले जाना या उनके हैंडल समायोजित करने से आकार की रूपरेखा बदलती है।
+  * सीधा बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं लेकिन एंकर बिंदु से उनकी दूरी अलग‑अलग हो सकती है।
+* एंकर बिंदुओं को ले जाना या उनके हैंडल को समायोजित करना आकार की रूपरेखा बदलता है।
 
-PowerPoint आकारों को संपादन बिंदुओं के माध्यम से संपादित करने के लिए, **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) क्लास प्रदान करता है।
+PowerPoint आकारों को संपादन बिंदुओं के माध्यम से संपादित करने के लिए **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) क्लास प्रदान करता है।
 
-* एक [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) उदाहरण [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) वस्तु की ज्यामिति पाथ को दर्शाता है।
-* [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) से [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) प्राप्त करने के लिए आप [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) विधि का उपयोग कर सकते हैं।
-* किसी आकार के लिए [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) सेट करने हेतु आप ये विधियाँ प्रयोग कर सकते हैं: एकल पाथ वाले आकारों के लिये [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) और बहु‑पाथ वाले आकारों के लिये [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths)।
-* खण्ड जोड़ने के लिये आप [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) के अंतर्गत उपलब्ध विधियों का उपयोग कर सकते हैं।
-* [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) और [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) विधियों के द्वारा आप किसी ज्यामिति पाथ की उपस्थिति सेट कर सकते हैं।
-* [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) विधि से आप किसी [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) की ज्यामिति पाथ को पाथ खण्डों की सरणी के रूप में प्राप्त कर सकते हैं।
-* अतिरिक्त आकार ज्यामिति अनुकूलन विकल्पों तक पहुँचने के लिये आप एक [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) को उसके [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) के माध्यम से पढ़ सकते हैं और उन खण्डों को एक [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) पर पुनः चल सकते हैं।
+* एक [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) उदाहरण [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) वस्तु का ज्यामिति पथ दर्शाता है।
+* [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) इंस्टेंस से [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) प्राप्त करने के लिए आप [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) मेथड का उपयोग कर सकते हैं।
+* एक आकार के लिए [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) सेट करने हेतु आप ये मेथड उपयोग कर सकते हैं: एकल पथ वाले आकारों के लिए [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) और अनेक पथ वाले आकारों के लिए [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths)।
+* सेगमेंट जोड़ने के लिए आप [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) के तहत उपलब्ध मेथड्स का उपयोग कर सकते हैं।
+* [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) और [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) मेथड्स के माध्यम से आप एक ज्यामिति पथ की उपस्थिति सेट कर सकते हैं।
+* [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) मेथड के द्वारा आप एक [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) का ज्यामिति पथ पाथ सेगमेंट्स की एरे के रूप में प्राप्त कर सकते हैं।
+* अतिरिक्त आकार ज्यामिति अनुकूलन विकल्पों तक पहुँचने के लिए आप एक [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) को उसके [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) के माध्यम से पढ़ सकते हैं और उन सेगमेंट्स को एक [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) पर पुनः चलाकर लागू कर सकते हैं।
 
 ## **सरल संपादन संचालन**
 
-नीचे दी गई विधियों का उपयोग करके एक ज्यामिति पाथ को संपादित करें। ओवरलोड जो इंडेक्स स्वीकार करते हैं, वह पाथ की खण्ड सरणी में शून्य‑आधारित स्थिति पर एक खण्ड डालते हैं।
+निम्नलिखित मेथड्स का उपयोग करके आप एक ज्यामिति पथ को संपादित कर सकते हैं। ऐसे ओवरलोड जो इंडेक्स स्वीकार करते हैं, पाथ के सेगमेंट एरे में उस शून्य‑आधारित स्थिति पर एक सेगमेंट डालते हैं।
 
-| प्रक्रिया | विधि |
+| ऑपरेशन | विधि |
 | --- | --- |
-| सीधी रेखा जोड़ें या Insert करें। | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
-| दो नियंत्रण बिंदुओं एवं एक अंत बिंदु वाला क्यूबिक बेज़ियर वक्र जोड़ें या Insert करें। | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| एक नियंत्रण बिंदु एवं अंत बिंदु वाला क्वाड्रेटिक बेज़ियर वक्र जोड़ें या Insert करें। | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| निर्दिष्ट आयाम एवं डिग्री में कोणों के साथ दीर्घवृत्तीय धुंध जोड़ें। | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
-| वर्तमान आकृति को उसके अंतिम बिंदु को प्रारंभ बिंदु से जोड़कर बंद करें। | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
-| आकृति का प्रारंभ बिंदु सेट करें। | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
-| शून्य‑आधारित सूचकांक पर किसी खण्ड को हटाएँ। | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
+| सीधी रेखा जोड़ें या सम्मिलित करें। | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
+| दो नियंत्रण बिंदुओं और एक अंत बिंदु वाले क्यूबिक बीज़ियर वक्र को जोड़ें या सम्मिलित करें। | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| एक नियंत्रण बिंदु और एक अंत बिंदु वाले क्वाड्रेटिक बीज़ियर वक्र को जोड़ें या सम्मिलित करें। | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| निर्दिष्ट आयाम और डिग्री में कोणों के साथ दीर्घवृत्तीय चाप जोड़ें। | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| अंत बिंदु को प्रारम्भ बिंदु से जोड़ कर वर्तमान आकृति को बंद करें। | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| आकृति का प्रारम्भ बिंदु सेट करें। | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
+| शून्य‑आधारित अनुक्रमणिका पर सेगमेंट हटाएँ। | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **आकार में कस्टम बिंदु जोड़ें**
 
-यह उदाहरण दो बिंदुओं को एक आयताकार आकार में [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) का उपयोग करके सम्मिलित करता है और संपादित पाथ को [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) के द्वारा लागू करता है। निर्देशांक स्थानीय होते हैं: दोनों नए बिंदु आकार के केंद्र में, बाएँ से 100 प्वाइंट और ऊपर से 50 प्वाइंट पर स्थित हैं। खण्ड सूचकांक 1 और 4 उन्हें क्रमशः ऊपर और नीचे किनारों पर रखते हैं, जिससे ये किनारे अंदर की ओर खींचे जाते हैं।
+यह उदाहरण दो बिंदुओं को एक आयताकार आकार में [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) का उपयोग करके डालता है और संपादित पथ को [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) से लागू करता है। निर्देशांक आकार के स्थानीय होते हैं: दोनों नए बिंदु उसके केंद्र में, बाएँ से 100 पॉइंट और ऊपर से 50 पॉइंट पर स्थित हैं। सेगमेंट इंडेक्स 1 और 4 उन्हें क्रमशः ऊपरी और निचली किनारों पर रखता है, जिससे वह किनारे अंदर की ओर खिंचते हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -106,7 +104,7 @@ try {
 
 ## **आकार से बिंदु हटाएँ**
 
-यह उदाहरण [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) के द्वारा शून्य‑आधारित सूचकांक 2 पर खण्ड को हटाकर हृदय‑आकार की रूपरेखा बदलता है। संशोधित पाथ को [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) से लागू करने से आकार की रूपरेखा अपडेट होती है।
+यह उदाहरण एक हृदय‑आकार की रूपरेखा को [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) द्वारा शून्य‑आधारित इंडेक्स 2 पर सेगमेंट हटाकर बदलता है। संशोधित पथ को [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) से लागू करने से आकार की कंटूर अपडेट हो जाता है।
 
 ```php
 use aspose\slides\Presentation;
@@ -130,7 +128,7 @@ try {
 
 ## **कस्टम आकार बनाएँ**
 
-यह उदाहरण [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) का उपयोग करके पाँच‑बिंदु वाला तारा बनाता है। बाहरी और आंतरिक त्रिज्याएँ क्रमशः 100 और 50 प्वाइंट के बारी-बारी से परिभाषित की गई हैं; 72‑डिग्री कदम से पाँच टिप्स समान रूप से वितरित होते हैं। पाथ को [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) द्वारा बंद किया जाता है और एक आयताकार आकार में [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) से लागू किया जाता है, जिससे उसकी रूपरेखा प्रतिस्थापित हो जाती है।
+यह उदाहरण [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) का उपयोग करके एक पाँच‑बिंदु वाला तारा बनाता है। 100 और 50 पॉइंट के वैकल्पिक बाहरी तथा आंतरिक त्रिज्याएँ टिप्स और अंतरों को निर्धारित करती हैं; 72‑डिग्री का कदम पाँच टिप्स को समान रूप से वितरित करता है। पथ को [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) द्वारा बंद किया गया और एक आयताकार आकार पर [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) से लागू करके उसकी रूपरेखा को प्रतिस्थापित किया गया।
 
 ```php
 use aspose\slides\GeometryPath;
@@ -166,9 +164,9 @@ try {
 ```
 ![example3_image](custom_shape_3.png)
 
-## **संयुक्त कस्टम आकार बनाएँ**
+## **समग्र कस्टम आकार बनाएँ**
 
-यह उदाहरण आकार के ऊपर और नीचे के तिहाई हिस्सों के लिये दो बंद [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) वस्तुएँ परिभाषित करता है। दोनों पाथ को [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) द्वारा लागू करने से मध्य तिहाई में अंतर के साथ एकल संयुक्त आकार बनता है।
+यह उदाहरण एक आकार के ऊपरी और निचले तिहाई के लिए दो बंद [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) वस्तुएँ परिभाषित करता है। दोनों पथों को [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) से लागू करने से मध्य तिहाई में अंतर वाला एकल संयोजन आकार बनता है।
 
 ```php
 use aspose\slides\GeometryPath;
@@ -202,9 +200,9 @@ try {
 ```
 ![example4_image](custom_shape_4.png)
 
-## **वक्र कोनों वाले कस्टम आकार बनाएँ**
+## **घुमावदार कोनों के साथ कस्टम आकार बनाएँ**
 
-यह उदाहरण सीधी खण्डों को [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) के साथ मिलाकर अंदर की ओर वक्र कोनों वाला आकार बनाता है। प्रत्येक कोना आकार आर्क की चौड़ाई और ऊँचाई को प्वाइंट में निर्धारित करता है, और -90‑डिग्री स्वेप एक नियामक दिशा में एक चौथाई दीर्घवृत्त बनाता है। पूर्ण पाथ को [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) द्वारा लागू किया जाता है, और प्रस्तुति PPTX प्रारूप में सहेजी जाती है।
+यह उदाहरण सीधी सेगमेंट को [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) के साथ मिलाकर एक ऐसा आकार बनाता है जिसमें कोने अंदर की ओर घुमावदार होते हैं। प्रत्येक कोने का आकार आर्क की चौड़ाई और ऊँचाई को पॉइंट में निर्धारित करता है, और -90‑डिग्री स्वेप एक घड़ी की दिशा के विपरीत चौथाई दीर्घवृत्त बनाता है। पूर्ण पथ को [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) से लागू किया गया और प्रस्तुति को PPTX प्रारूप में सहेजा गया।
 
 ```php
 use aspose\slides\GeometryPath;
@@ -255,9 +253,9 @@ try {
 }
 ```
 
-## **जाँचें कि क्या आकार ज्यामिति बंद है**
+## **जाँचें कि आकार ज्यामिति बंद है या नहीं**
 
-निम्नलिखित सहायक फ़ंक्शन यह जांचता है कि प्रत्येक गैर‑खाली ज्यामिति पाथ अंत में बंद खण्ड के साथ समाप्त होती है या नहीं। यह [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) पढ़ता है और अंतिम खण्ड के [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) को [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/) से तुलना करता है। जब कोई गैर‑खाली पाथ नहीं होता तो यह false लौटाता है। यह प्रत्येक पाथ के अंतिम कमांड की जाँच करता है; यह पाथ के भीतर प्रत्येक उप‑चित्र का निरीक्षण नहीं करता। उदाहरण में आयत के लिये `true` प्रदर्शित होता है।
+निम्न सहायक प्रत्येक गैर‑खाली ज्यामिति पथ के अंत में एक बंद सेगमेंट है या नहीं, यह जाँचता है। यह [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) पढ़ता है और अंतिम सेगमेंट के [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) की तुलना [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/) से करता है। यदि कोई गैर‑खाली पथ नहीं है तो यह false लौटाता है। यह प्रत्येक पथ के अंतिम कमांड की जाँच करता है; यह पथ के भीतर प्रत्येक उप‑आकृति को निरीक्षण नहीं करता। उदाहरण आयत के लिए `true` प्रिंट करता है।
 
 ```php
 use aspose\slides\PathCommandType;
@@ -292,11 +290,64 @@ try {
 }
 ```
 
-## **आकार तत्वों को निकालें और निरीक्षण करें**
+## **ज्यामिति पथ आदेशों का निरीक्षण करें**
 
-[GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) का प्रयोग करके आप किसी मौजूदा आकार को पाथ बिंदुओं और बिंदु प्रकारों वाले तत्वों के रूप में निरीक्षण कर सकते हैं। प्रत्येक प्राप्त [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) का उपयोग करके आप [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) और [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes) विधियों के माध्यम से बिंदु और प्रकार सरणियों को प्राप्त कर सकते हैं। यह प्रतिनिधित्व आकार की रूपरेखा विश्लेषण या कस्टम ड्राइंग टूल्स के लिये ज्यामिति पास करने में उपयोगी है।
+[contour.pptx](contour.pptx) डाउनलोड करें और उसे एप्लिकेशन की कार्य निर्देशिका में रखें। पहली स्लाइड पर पहला आकार एक सीधी शीर्ष किनारा, एक क्यूबिक बीज़ियर वक्र, और एक सीधा बंद किनारा रखता है। आकार के पथ पढ़ने के लिए [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) और प्रत्येक पथ के सेगमेंट्स को ड्राइंग क्रम में पढ़ने के लिए [getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) का उपयोग करें। प्रत्येक सेगमेंट के लिए, [getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) कमांड को पहचानता है और [getSegmentData](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getSegmentData) द्वारा लौटाए गए मानों की व्याख्या तय करता है।
 
-उदाहरण `input.pptx` खोलता है, पहले स्लाइड पर सीधे पहला ज्यामिति आकार खोजता है, और उसके पाथ खण्डों को प्रदर्शित करता है। दोनों, सीधी और वक्र खण्डों वाले आकार वाली प्रस्तुति का उपयोग करके आप दोनों प्रकार के आउटपुट देख सकते हैं। यह समूहों के भीतर खोज नहीं करता।
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("contour.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+    foreach ($shape->getGeometryPaths() as $pathIndex => $path) {
+        foreach ($path->getPathData() as $segmentIndex => $segment) {
+            $command = java_values($segment->getPathCommand());
+            $data = java_values($segment->getSegmentData());
+            switch ($command) {
+                case PathCommandType::MoveTo:
+                case PathCommandType::LineTo:
+                    $name = $command === PathCommandType::MoveTo ? "MoveTo" : "LineTo";
+                    $detail = sprintf("destination=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::CubicBezierTo:
+                    $name = "CubicBezierTo";
+                    $detail = sprintf("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::Close:
+                    $name = "Close";
+                    $detail = "no coordinates";
+                    break;
+                default:
+                    $name = "Command " . $command;
+                    $detail = "raw=" . json_encode($data);
+            }
+            printf("Path %d, segment %d: %s %s\n", $pathIndex, $segmentIndex, $name, $detail);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+आकार स्लाइड पर (200, 100) पॉइंट पर स्थित है। रिपोर्ट किए गए निर्देशांक आकार के स्थानीय होते हैं, जहाँ (0, 0) ऊपरी‑बाएँ कोना है, x दाईं ओर बढ़ता है, और y नीचे की ओर बढ़ता है। बंद सेगमेंट अतिरिक्त निर्देशांक के बिना शुरूआती बिंदु पर लौटता है।
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **आकार तत्व निकालें और निरीक्षण करें**
+
+[GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) का उपयोग करके आप एक मौजूद आकार को पथ बिंदुओं और बिंदु प्रकारों वाले तत्वों के रूप में निरीक्षण कर सकते हैं। प्रत्येक लौटाए गये [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) को [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) और [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes) मेथड्स के माध्यम से बिंदु और प्रकार एरे प्राप्त करने हेतु उपयोग किया जाता है। यह प्रतिनिधित्व कंटूर विश्लेषण या कस्टम ड्रॉइंग टूल्स को ज्यामिति पास करने के लिए उपयोगी है।
+
+उदाहरण input.pptx खोलता है, पहली स्लाइड पर सीधे पहले ज्यामिति आकार को खोजता है, और उसके पथ सेगमेंट्स को प्रिंट करता है। दोनों सीधी और घुमावदार सेगमेंट वाले आकार वाली प्रस्तुति का उपयोग करें ताकि दोनों प्रकार के आउटपुट देख सकें। यह ग्रुप के भीतर खोज नहीं करता।
 
 ```php
 use aspose\slides\Presentation;
@@ -323,7 +374,7 @@ try {
             $types = array_values(unpack("C*", java_values($element->getPathTypes())));
             echo "Shape element:" . PHP_EOL;
             for ($i = 0; $i < count($points); $i++) {
-                $pointType = $types[$i] & 0x07; // सेगमेंट प्रकार रखें, फ़्लैग को बाहर रखते हुए।
+                $pointType = $types[$i] & 0x07; // सेगमेंट प्रकार रखें, फ्लैग को बाहर रखते हुए.
                 switch ($pointType) {
                     case 0:
                         echo "Start figure at " . $points[$i] . PHP_EOL;
@@ -333,7 +384,7 @@ try {
                         break;
                     case 3:
                         echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
-                        $i += 2; // दोनों नियंत्रण बिंदु और अंत बिंदु को उपभोग करें।
+                        $i += 2; // दोनों नियंत्रण बिंदुओं और अंत बिंदु को उपभोग करें.
                         break;
                 }
                 if (($types[$i] & 0x80) !== 0) {
@@ -347,21 +398,21 @@ try {
 }
 ```
 
-सरणियाँ इंडेक्स द्वारा मेल खाती हैं: `$points[$i]` एक बिंदु है और `$types[$i]` उसकी भूमिका वर्णित करता है। प्रकार `0` एक आकृति शुरू करता है, और प्रकार `1` पिछले बिंदु से वर्तमान बिंदु तक रेखा बनाता है। एक क्यूबिक बेज़ियर खण्ड पिछले अंतिम बिंदु से शुरू होता है और क्रमिक रूप से तीन प्रकार‑`3` प्रविष्टियों का उपयोग करता है: दो नियंत्रण बिंदु और फिर नया अंतिम बिंदु। लूप इन तीन प्रविष्टियों को एक साथ ग्रहण करता है और बंद होने के लिये अंतिम बिंदु की जाँच करता है।
+एरे इंडेक्स द्वारा मेल खाते हैं: `$points[$i]` एक बिंदु है और `$types[$i]` उसकी भूमिका का वर्णन करता है। प्रकार `0` एक आकृति शुरू करता है, और प्रकार `1` पिछले बिंदु से वर्तमान बिंदु तक एक रेखा खींचता है। क्यूबिक बीज़ियर सेगमेंट पिछले अंत बिंदु से शुरू होता है और लगातार तीन प्रकार‑`3` प्रविष्टियों का उपयोग करता है: दो नियंत्रण बिंदु और उसके बाद नया अंत बिंदु। लूप इन तीन प्रविष्टियों को साथ में प्रयोग करता है और बंद होने के लिए अंत बिंदु की जाँच करता है।
 
-बिंदु प्रकारों में फ्लैग भी होते हैं। खण्ड प्रकार पहचानने के लिये `0x07` के साथ मास्क करें, और बंद उप‑पाथ का पता लगाने के लिये `0x80` को अलग से परीक्षण करें। उदाहरण के लिये, `129` (`0x81`) का अर्थ है वह रेखा अंतिम बिंदु जो उप‑पाथ को बंद करता है, और `131` (`0x83`) का अर्थ है वह बेज़ियर अंतिम बिंदु जो बंद करता है। PHP/Java Bridge बाइट सरणी को बाइनरी स्ट्रिंग के रूप में लौटाता है; "C*" के साथ अनपैक करने से अनसाइनड बाइट मान मिलते हैं। मास्किंग मूल बिट मानों को संरक्षित रखती है। केवल `1` या `3` के साथ कच्चे मान की तुलना करने से ये केस छूट जाएंगे। अन्य फ्लैग, जैसे डैश (`0x10`) और मार्कर (`0x20`), मूल खण्ड प्रकार को नहीं बदलते।
+बिंदु प्रकारों में फ्लैग भी होते हैं। सेगमेंट प्रकार की पहचान के लिये `0x07` से मास्क करें और बंद उप‑पथ का पता लगाने हेतु `0x80` को अलग‑अलग परीक्षण करें। उदाहरण के लिए, `129` (`0x81`) का मतलब एक रेखा अंत बिंदु है जो उप‑पथ को बंद करता है, तथा `131` (`0x83`) का मतलब एक बीज़ियर अंत बिंदु है जो उसे बंद करता है। PHP/Java Bridge बाइट एरे को बाइनरी स्ट्रिंग के रूप में लौटाता है; इसे `"C*"` के साथ अनपैक करने से अनसाइन्ड बाइट मान प्राप्त होते हैं। मास्किंग इरादे वाले बिट मानों को संरक्षित रखती है। केवल `1` या `3` से कच्चे मान की तुलना करने से ये मामलों का पता नहीं चल पाएगा। अन्य फ्लैग जैसे डैश (`0x10`) और मार्कर (`0x20`) बेस सेगमेंट प्रकार को नहीं बदलते।
 
-**निर्देशांक और परिवर्तन।** बिंदु प्वाइंट (1/72 इंच) में मापे जाते हैं, X दाएँ ओर बढ़ता है और Y नीचे की ओर। एक अन‑ग्रुप्ड आकार के लिये, निकाले गए निर्देशांक पहले से ही [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) और [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) द्वारा लौटाए गए स्थिति को शामिल करते हैं और उसकी वर्तमान चौड़ाई व ऊँचाई को दर्शाते हैं। उदाहरण के लिये, `(100, 200)` पर स्थित और `120 × 80` आकार वाला नहीं‑घुमाया गया आयत का कंटूर बॉन्ड `(100, 200)`‑`(220, 280)` है। आकार की स्थिति को दोबारा जोड़ें नहीं। X और Y घटा कर निर्देशांक को उसके अन‑घुमाए फ़्रेम के सापेक्ष प्राप्त करें।
+**निर्देशांक और रूपांतरण।** बिंदु पॉइंट (1/72 इंच) में मापे जाते हैं, X दाईं ओर और Y नीचे की ओर बढ़ता है। एक अन‑ग्रुप्ड आकार के लिये, निकाले गये निर्देशांक पहले से ही [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) और [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) द्वारा लौटाई गई स्थिति को शामिल करते हैं और उसकी वर्तमान चौड़ाई‑ऊँचाई को दर्शाते हैं। उदाहरण के लिये, `(100, 200)` पर बिना घुमाए आयत जिसका आकार `120 × 80` है, उसकी कंटूर सीमाएँ `(100, 200)`–`(220, 280)` होंगी। आकार की स्थिति को दोबारा न जोड़ें। उसके X और Y को घटाकर अन‑घुमाए फ्रेम के सापेक्ष निर्देशांक प्राप्त करें।
 
-निकाले गए बिंदुओं पर [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) द्वारा लौटाए गए घुमाव या क्षैतिज‑ऊर्ध्वाधर फ़्लिप लागू नहीं होते। प्रदर्शित कंटूर को पुनः प्राप्त करने के लिये इन परिवर्तनियों को आकार के केंद्र के चारों ओर लागू करें। समूहित आकारों के लिये, समूह निर्देशांक मानचित्रण और परिवर्तनियों को भी ध्यान में रखें; यह मानें नहीं कि निकाले गए बिंदु अंतिम रेंडर हुए स्लाइड निर्देशांक हैं या अनजाने में अनुवाद/स्केल दो बार लागू हो रहा है।
+निकाले गये बिंदु आकार के घुमाव, जो [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) द्वारा लौटाया जाता है, या क्षैतिज व वैर्टिकल फ्लिप को लागू नहीं करते। प्रदर्शित कंटूर को पुनः बनाने हेतु इन रूपांतरणों को आकार के केंद्र के चारों ओर लागू करें। ग्रुपेड आकारों के लिये, समूह निर्देशांक मानचित्रण और रूपांतरणों का भी ध्यान रखें; यह मान कर न चलें कि निकाले गये बिंदु अंतिम रेंडर की गई स्लाइड निर्देशांक हैं या यदि यह पहले ही चाइल्ड फ्रेम में परिलक्षित है तो अनुवाद या स्केल दो बार लागू न करें।
 
-**निरीक्षण बनाम संपादन।** निकाली गई सरणियाँ कंटूर को वर्णित करती हैं; उन्हें बदलने से मूल आकार अपडेट नहीं होता। जब आपका विश्लेषण या ड्राइंग कोड बिंदु/प्रकार सरणियों की आवश्यकता रखता है तब इस दृष्टिकोण को चुनें। आकार के स्थानीय निर्देशांक प्रणाली में ज्यामिति कमांड चाहिए हों तो [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) का उपयोग करें या उसकी ज्यामिति को संपादित करना चाहते हों तो [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) या [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) के माध्यम से संपादित पाथ लागू करें।
+**निरीक्षण बनाम संपादन।** निकाली गयी एरे कंटूर का वर्णन करती हैं; उन्हें बदलने से मूल आकार अपडेट नहीं होता। इस दृष्टिकोण को तब चुनें जब आपका विश्लेषण या ड्रॉइंग कोड बिंदु/प्रकार एरे की आवश्यकता रखता हो। जब आपको आकार के स्थानीय निर्देशांक प्रणाली में ज्यामिति कमांड चाहिए हों या उसकी ज्यामिति को संपादित करना हो, तो [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) का उपयोग करें। संपादित पथों को [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) या [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) के माध्यम से लागू करें।
 
-## **Java AWT Shape को GeometryPath में बदलें**
+## **जावा AWT Shape को GeometryPath में बदलें**
 
-यह उदाहरण आयताकार रूपरेखा को टेक्स्ट के साथ मिलाता है जिसे ज्यामिति में परिवर्तित किया गया है। रूपरेखा की [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) विधि उसका भराव निष्क्रिय करती है। एक [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) में टेक्स्ट रूपरेखा बनाता है। उसका [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) मूव, लाइन, क्वाड्रेटिक, क्यूबिक और क्लोज़िंग खण्ड प्रदान करता है, जिन्हें उदाहरण [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) पर पुनः चलाता है।
+यह उदाहरण एक आयताकार रूपरेखा को टेक्स्ट के साथ मिलाकर उसे ज्यामिति में परिवर्तित करता है। रूपरेखा की [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) मेथड उसकी भराव को अक्षम करती है। एक [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) एक [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) में टेक्स्ट रूपरेखा बनाता है। उसका [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) मूव, लाइन, क्वाड्रेटिक, क्यूबिक और क्लोज़िंग सेगमेंट सप्लाई करता है, जिसे उदाहरण [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) पर पुनः चलाता है।
 
-उदाहरण एक Java फ़्लोट सरणी का उपयोग करता है ताकि PHP/Java Bridge इटरटर द्वारा लिखे गए निर्देशांक को बरकरार रखा जा सके। टेक्स्ट 40‑प्वाइंट Arial फ़ॉन्ट में है। रूपरेखा को क्षैतिज रूप से 20 प्वाइंट आगे और दृश्य शीर्ष को आकार के शीर्ष किनारे से 10 प्वाइंट नीचे स्थित किया गया है। टेक्स्ट पाथ भरा हुआ है, जबकि मूल आयत केवल एक रूपरेखा है। दोनों पाथ को [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) द्वारा लागू करने से एक ही आकार बनता है जिसमें आयत और टेक्स्ट दोनों सम्मिलित होते हैं।
+उदाहरण एक Java फ़्लोट एरे का उपयोग करता है ताकि PHP/Java Bridge द्वारा इटरटर द्वारा लिखे गए निर्देशांक बरकरार रहें। टेक्स्ट 40‑पॉइंट Arial फ़ॉन्ट का उपयोग करता है। रूपरेखा को क्षैतिज रूप से 20 पॉइंट ऑफ़सेट किया गया है और दृश्य शीर्ष को आकार के शीर्ष किनारे से 10 पॉइंट नीचे स्थित किया गया है। टेक्स्ट पथ भरा हुआ है, जबकि मूल आयत रूपरेखा के रूप में बनी रहती है। दोनों पथों को [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) से लागू करने से एक ही आकार बनता है जिसमें आयत और टेक्स्ट दोनों होते हैं।
 
 ```php
 use aspose\slides\GeometryPath;
@@ -432,14 +483,14 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**ज्यामिति प्रतिस्थापित करने के बाद भराव और रूपरेखा क्या होंगी?**
+**ज्यामिति को बदलने के बाद फ़िल और रूपरेखा के साथ क्या होगा?**
 
-शैली आकार के साथ रहती है; केवल कंटूर बदलता है। भराव और रूपरेखा स्वचालित रूप से नई ज्यामिति पर लागू हो जाती हैं।
+स्टाइल आकार के साथ बना रहता है; केवल कंटूर बदलता है। फ़िल और रूपरेखा स्वचालित रूप से नई ज्यामिति पर लागू हो जाती है।
 
-**कस्टम आकार को उसकी ज्यामिति के साथ सही रूप से कैसे घुमाएँ?**
+**मैं कस्टम आकार को उसकी ज्यामिति के साथ सही तरीके से कैसे घुमा सकता हूँ?**
 
-आकार की [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) विधि का उपयोग करें; ज्यामिति आकार के साथ घुमती है क्योंकि यह आकार के अपने निर्देशांक प्रणाली से जुड़ी होती है।
+आकार की [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) मेथड का उपयोग करें; ज्यामिति आकार के साथ घूमेंगी क्योंकि वह आकार के अपने निर्देशांक प्रणाली से जुड़ी होती है।
 
-**क्या मैं कस्टम आकार को एक छवि में बदलकर परिणाम को \"लॉक\" कर सकता हूँ?**
+**क्या मैं कस्टम आकार को एक छवि में बदल सकता हूँ ताकि परिणाम को “लॉक इन” किया जा सके?**
 
-हाँ। आवश्यक [slide](/slides/hi/php-java/convert-powerpoint-to-png/) क्षेत्र या [shape](/slides/hi/php-java/create-shape-thumbnails/) को रास्टर स्वरूप में निर्यात करें; यह जटिल ज्यामितियों के साथ आगे के काम को सरल बनाता है।
+हाँ। आवश्यक [slide](/slides/hi/php-java/convert-powerpoint-to-png/) क्षेत्र या स्वयं [shape](/slides/hi/php-java/create-shape-thumbnails/) को रास्टर फ़ॉर्मेट में निर्यात करें; यह जटिल ज्यामितियों के साथ आगे के काम को सरल बनाता है।

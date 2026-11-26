@@ -1,5 +1,5 @@
 ---
-title: 使用 Python via Java 自訂簡報形狀
+title: 使用 Java 在 Python 中自訂簡報形狀
 linktitle: 自訂形狀
 type: docs
 weight: 20
@@ -21,66 +21,66 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via Java 在 PowerPoint 簡報中建立與自訂形狀：幾何路徑、圓角、複合形狀。"
+description: "使用 Aspose.Slides for Python via Java 在 PowerPoint 簡報中建立與自訂形狀：幾何路徑、圓角、組合形狀。"
 ---
 ## **概述**
 
-本篇說明如何透過編輯點與幾何路徑來自訂 Aspose.Slides 中的圖形外觀。示範如何使用 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 變更既有圖形、執行基本的路徑編輯操作、加入或移除點，並將更新後的幾何套用回圖形。
+本文說明了如何透過編輯點與幾何路徑來編輯形狀的幾何結構，從而自訂 Aspose.Slides 中的投影片形狀。它展示了如何使用[GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 來修改既有形狀、執行基本的路徑編輯操作、加入或移除點，並將更新後的幾何套用回形狀。
 
-同時展示如何建立自訂與複合圖形、建構帶有圓角的圖形、判斷圖形幾何是否閉合、檢查圖形元素，並將 Java AWT 文字輪廓轉換為幾何路徑。
+同時也示範了如何建立自訂與組合形狀、建構具有圓角的形狀、判斷形狀幾何是否閉合、檢視形狀元素，以及將 Java AWT 文字輪廓轉換為幾何路徑。
 
-## **使用編輯點變更圖形**
+## **使用編輯點變更形狀**
 
-在 PowerPoint 中，您可以使用 **Edit Points** 來修改正方形：
+在 PowerPoint 中，你可以使用**編輯點**來修改方形：
 
 * 向內或向外移動角落。
-* 調整點的曲率。
+* 調整某一點的曲率。
 * 新增點。
 
-編輯點可讓您修改圖形的輪廓，或以既有圖形為基礎建立新圖形。
+編輯點讓你可以修改形狀的外框，或以既有形狀為基礎建立新形狀。
 
-## **圖形編輯技巧**
+## **形狀編輯技巧**
 
-![概述圖片](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-編輯 PowerPoint 圖形時，請記住以下概念：
+編輯 PowerPoint 形狀時，請記住以下概念：
 
-* 圖形（或其路徑）可以是閉合或開放的。
-* 圖形的路徑由錨點（anchor points）以及連接的線段組成。
+* 形狀（或其路徑）可以是閉合的也可以是開放的。
+* 形狀的路徑由錨點與其間的線段組成。
 * 線段可以是直線或曲線。錨點與控制手柄決定其形狀。
-* 錨點可分為角點、直線點或平滑點：
-  * 在角點，相鄰的線段可以形成角度。
-  * 在平滑點，兩個控制手柄保持對齊且與錨點等距。
-  * 在直線點，兩個控制手柄保持對齊，但與錨點的距離可不同。
-* 移動錨點或調整其手柄會改變圖形的輪廓。
+* 錨點分為角點、直線點與平滑點：
+  * 角點：相鄰線段可以以角度相接。
+  * 平滑點：兩個控制手柄共線且與錨點的距離相等。
+  * 直線點：兩個控制手柄共線，但與錨點的距離可能不同。
+* 移動錨點或調整其手柄會改變形狀的外框。
 
-為了透過編輯點編輯 PowerPoint 圖形，**Aspose.Slides** 提供了 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 類別。
+為了透過編輯點編輯 PowerPoint 形狀，**Aspose.Slides** 提供了[GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 類別。
 
-* 一個 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 實例代表 [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) 物件的幾何路徑。
-* 若要從 [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) 取得 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)，可以使用 [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) 方法。
-* 若要為圖形設定 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)，可使用以下方法：單一路徑圖形使用 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)；多路徑圖形使用 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)。
-* 若要加入線段，可使用屬於 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 的各種方法。
+* [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 例項代表[GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) 物件的幾何路徑。
+* 若要從 [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) 例項取得 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)，可使用 [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) 方法。
+* 若要為形狀設定 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)，可使用以下方法：單一路徑的形狀使用 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath)；多路徑的形狀使用 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths)。
+* 若要加入線段，可使用 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 下的相關方法。
 * 使用 [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) 與 [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) 方法，可設定幾何路徑的外觀。
-* 透過 [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) 方法，可取得 [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) 的幾何路徑，回傳為路徑線段陣列。
-* 若要存取其他圖形幾何自訂選項，可透過 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) 的 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 讀取，並將線段重放至 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)。
+* 使用 [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) 方法，可將 [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) 的幾何路徑以路徑段陣列形式取得。
+* 若要存取其他形狀幾何自訂選項，可透過 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) 的 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 讀取，並在 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 上重播這些段。
 
 ## **簡易編輯操作**
 
-使用下列方法編輯幾何路徑。接受索引的重載會在路徑的線段陣列中以零基索引插入線段。
+使用下列方法編輯幾何路徑。接受索引的載入（overload）會在路徑的段陣列中，以零基索引插入段。
 
 | 操作 | 方法 |
 | --- | --- |
 | 附加或插入直線。 | [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) |
 | 附加或插入具有兩個控制點與終點的三次貝茲曲線。 | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
 | 附加或插入具有一個控制點與終點的二次貝茲曲線。 | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| 附加具有指定尺寸與角度（以度為單位）的橢圓弧段。 | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
-| 以將端點連回起點的方式閉合目前圖形。 | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
+| 附加具有指定尺寸與角度（度數）的橢圓弧。 | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
+| 透過將終點連回起點，關閉目前的圖形。 | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
 | 設定圖形的起始點。 | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
-| 移除指定零基索引的線段。 | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
+| 以零基索引移除段。 | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
 
-## **為圖形加入自訂點**
+## **向形狀加入自訂點**
 
-此範例使用 [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) 在矩形圖形中插入兩個點，並以 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 套用編輯後的路徑。座標為相對於圖形的本機座標：兩個新點位於圖形中心，左側距離 100 點、上方距離 50 點。線段索引 1 與 4 分別將點放在上、下邊緣，令這兩條邊向內收縮。
+此範例使用[GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) 在矩形形狀中插入兩個點，並以 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 套用編輯後的路徑。座標以形狀本身為基準：兩個新點均位於形狀中心，左側距離 100 點，頂部距離 50 點。段索引 1 與 4 分別將它們放在上緣與下緣，將這兩條邊向內拉。
 
 ```python
 import jpype
@@ -106,11 +106,11 @@ finally:
     presentation.dispose()
 ```
 
-![範例 1 圖片](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
-## **從圖形移除點**
+## **從形狀中移除點**
 
-此範例透過 [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) 移除零基索引 2 的線段，變更心形輪廓。使用 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 套用修改後的路徑，即可更新圖形輪廓。
+此範例透過 [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) 移除零基索引 2 處的段，修改心形輪廓。以 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 套用修改後的路徑，即可更新形狀外框。
 
 ```python
 import jpype
@@ -134,11 +134,11 @@ try:
 finally:
     presentation.dispose()
 ```
-![範例 2 圖片](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
-## **建立自訂圖形**
+## **建立自訂形狀**
 
-此範例利用 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 建立一個五角星。外徑與內徑分別為 100 與 50 點，交錯形成星角；每 72 度一步將五個星角均勻分佈。最後以 [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) 閉合路徑，並使用 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 套用至矩形圖形，取代其原有輪廓。
+此範例使用[GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 建立五角星。交替的外徑與內徑分別為 100 點與 50 點，形成星尖與凹陷；每 72 度為一步，均勻分佈五個星尖。最後以 [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) 關閉路徑，並以 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 套用至矩形形狀，取代原本的輪廓。
 
 ```python
 import jpype
@@ -182,11 +182,11 @@ try:
 finally:
     presentation.dispose()
 ```
-![範例 3 圖片](custom_shape_3.png)
+![example3_image](custom_shape_3.png)
 
-## **建立複合自訂圖形**
+## **建立組合自訂形狀**
 
-此範例為圖形的上、下三分之一各定義一個閉合的 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 物件。透過 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) 同時套用兩條路徑，即可產生一個中間三分之一有間隙的單一複合圖形。
+此範例為形狀的上三分與下三分各定義一個閉合的 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) 物件。使用 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) 同時套用兩條路徑，即可產生一個在中間三分處留有空隙的單一組合形狀。
 
 ```python
 import jpype
@@ -221,11 +221,11 @@ try:
 finally:
     presentation.dispose()
 ```
-![範例 4 圖片](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
-## **建立帶有圓角的自訂圖形**
+## **建立具有圓角的自訂形狀**
 
-此範例將直線線段與 [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) 結合，產生具有向內彎曲角的圖形。每個角的大小決定弧的寬度與高度（以點為單位），-90 度的掃描角度繪製逆時針四分之一橢圓。完成的路徑以 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 套用，最後將簡報儲存為 PPTX 格式。
+此範例將直線段與 [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) 結合，產生內凹圓角的形狀。每個角的大小以點數設定弧的寬度與高度，-90 度的掃描角則畫出逆時針四分之一橢圓。完成的路徑以 [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 套用，最後以 PPTX 格式儲存投影片。
 
 ```python
 import jpype
@@ -271,9 +271,9 @@ finally:
     presentation.dispose()
 ```
 
-## **判斷圖形幾何是否閉合**
+## **判斷形狀幾何是否閉合**
 
-以下輔助函式會檢查每個非空幾何路徑是否以閉合線段結尾。它會讀取 [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData)，並將最後一條線段的 [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) 與 [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/) 進行比較。若不存在非空路徑，則回傳 `False`。此檢查僅比較每條路徑的最後指令，並不會檢查路徑內的每個子圖形。範例會對矩形輸出 `True`。
+以下輔助程式會檢查每個非空的幾何路徑是否以閉合段結束。它會讀取 [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) 並比較最後一段的 [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) 是否為 [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/)。若不存在非空路徑，則回傳 `False`。此檢查僅檢視每條路徑的最後指令，並不會檢查路徑內的每個子圖形。範例會對矩形印出 `True`。
 
 ```python
 import jpype
@@ -306,11 +306,56 @@ finally:
     presentation.dispose()
 ```
 
-## **擷取與檢查圖形元素**
+## **檢視幾何路徑指令**
 
-使用 [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) 可將現有圖形以包含路徑點與點類型的元素形式檢查。將每個返回的元素以 `jpype.JObject` 轉型為 [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/)，即可透過 [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) 與 [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) 取得點與類型陣列。此表示方式適合輪廓分析或將幾何傳遞給自訂繪圖工具。
+下載 [contour.pptx](contour.pptx) 並放置於應用程式的工作目錄中。第一張投影片的第一個形狀具有水平直線上緣、三次貝茲曲線以及水平直線閉合邊。使用 [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) 讀取形狀的路徑，並以 [getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) 依繪製順序讀取每條路徑的段。對於每個段，[getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) 會指出指令類型，並決定如何解讀 [getSegmentData](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getSegmentData) 所回傳的值。
 
-範例會開啟 `input.pptx`，在第一張投影片上直接尋找第一個幾何圖形，並列印其路徑線段。請使用包含直線與曲線線段的投影片以觀察兩種輸出。此程式不會搜尋群組內的圖形。
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PathCommandType, Presentation
+
+presentation = Presentation("contour.pptx")
+try:
+    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    for i, path in enumerate(shape.getGeometryPaths()):
+        for j, segment in enumerate(path.getPathData()):
+            command = segment.getPathCommand()
+            data = segment.getSegmentData()
+            if command in (PathCommandType.MoveTo, PathCommandType.LineTo):
+                detail = f"destination=({data[0]}, {data[1]})"
+            elif command == PathCommandType.CubicBezierTo:
+                detail = f"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})"
+            elif command == PathCommandType.Close:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={list(data)}"
+            name = PathCommandType.getName(PathCommandType.class_, command)
+            print(f"Path {i}, segment {j}: {name} {detail}")
+finally:
+    presentation.dispose()
+```
+
+該形狀位於投影片上的 (200, 100) 點。報告的座標以形狀本身為基準，左上角為 (0, 0)，X 向右遞增，Y 向下遞增。閉合段會返回起始點，且不會帶有額外座標。
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **擷取與檢視形狀元素**
+
+使用 [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) 可將既有形狀視為包含路徑點與點類型的元素。將每個回傳的元素以 `jpype.JObject` 轉型為 [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/)，即可透過 [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) 與 [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) 取得點與類型陣列。此表示方式適合用於輪廓分析或將幾何傳遞給自訂繪圖工具。
+
+範例會開啟 input.pptx，找出第一張投影片上直接的第一個幾何形狀，並印出其路徑段。使用包含直線與曲線段的投影片即可同時看到兩種輸出。此程式不會搜尋群組內的形狀。
 
 ```python
 import jpype
@@ -358,21 +403,21 @@ finally:
     presentation.dispose()
 ```
 
-陣列以索引對應：`points[i]` 為座標點，`types[i]` 描述其角色。類型 `0` 表示開始圖形，類型 `1` 表示從前一點畫直線至目前點。三次貝茲線段起始於前一端點，使用連續三個類型 `3` 的條目：兩個控制點與新的端點。迴圈會一次消耗這三個條目，並檢查端點是否閉合。
+陣列以索引對應：`points[i]` 為座標點，`types[i]` 描述其角色。類型 `0` 代表開始圖形，類型 `1` 表示從前一點畫直線至目前點。三次貝茲段會在前一終點之後，使用連續三個類型為 `3` 的條目：兩個控制點接著新的終點。迴圈會一次消耗這三個條目，並檢查終點是否為閉合。
 
-點類型同時包含旗標。使用 `0x07` 遮罩可辨識線段類型，另以 `0x80` 判斷是否為閉合子路徑。例如，`129`（`0x81`）表示一條閉合的直線端點，`131`（`0x83`）表示一條閉合的貝茲端點。Java 以有號位元組儲存這些旗標，遮罩可保留正確的位元值。僅以 `1` 或 `3` 直接比較會遺漏這些情況。其他旗標（如虛線 `0x10`、標記 `0x20`）不會改變基礎線段類型。
+點類型亦包含旗標。以 `0x07` 取得段類型，另外以 `0x80` 判斷是否為閉合子路徑。例如 `129` (`0x81`) 表示閉合的直線終點，`131` (`0x83`) 表示閉合的貝茲終點。Java 以有號位元組儲存這些旗標；使用遮罩可保留正確的位元值。僅比較原始值為 `1` 或 `3` 會遺漏這些情況。其他旗標，如虛線 (`0x10`) 與標記 (`0x20`)，不會改變基礎段類型。
 
-**座標與變換。** 點的單位為 points（1/72 吋），X 向右增加，Y 向下增加。對於未群組的圖形，擷取的座標已包含由 [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) 與 [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) 返回的位置，且反映當前寬高。例如，未旋轉的矩形位於 `(100, 200)`，大小 `120 × 80`，其輪廓界限為 `(100, 200)`–`(220, 280)`。請勿再次加入圖形的位置。若需相對於未旋轉框架的座標，請減去其 X 與 Y。
+**座標與變換。** 點的單位為點 (1/72 吋)，X 向右遞增，Y 向下遞增。對於未群組的形狀，擷取的座標已包含 [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) 與 [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) 回傳的位置，且反映其當前寬度與高度。例如，未旋轉的矩形在 `(100, 200)`，大小為 `120 × 80`，其輪廓界限為 `(100, 200)`–`(220, 280)`。請勿再次加上形狀的位置。若要取得相對於未旋轉框架的座標，請減去其 X 与 Y。
 
-擷取的點不會套用圖形的旋轉（由 [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation) 返回）、水平翻轉或垂直翻轉。若要復原顯示的輪廓，需以圖形中心為基點套用上述變換。對於群組圖形，亦須考慮群組座標映射與變換；不要假設擷取的點已是最終投影片座標，或重複套用平移與縮放。
+擷取的點不會套用形狀的旋轉 ([getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation)) 或水平/垂直翻轉。若要重現顯示的輪廓，必須在形狀中心周圍套用這些變換。對於群組形狀，亦需考慮群組座標映射與變換；切勿假設擷取的點已是最終投影片座標，或在已經反映於子框架的情況下再次平移或縮放。
 
-**檢查與編輯的差異。** 擷取的陣列僅描述輪廓，修改它們不會更新原始圖形。當您的分析或繪圖程式需要點/類型陣列時，可選擇此方式。若需要在圖形本地座標系統中取得幾何指令或編輯幾何，請使用 [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths)。編輯後的路徑請透過 [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 或 [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) 套用。
+**檢視 vs. 編輯。** 擷取的陣列僅描述輪廓，修改它們不會更新原始形狀。當你的分析或繪圖程式需要點/類型陣列時，請使用此方式。若需要在形狀的本地座標系統中取得幾何指令或想編輯其幾何，請使用 [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths)。編輯後的路徑可透過 [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) 或 [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) 套用。
 
 ## **將 Java AWT Shape 轉換為 GeometryPath**
 
-此範例將矩形輪廓與文字輪廓結合。矩形的 [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) 方法關閉填充。透過 [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) 產生文字輪廓（[java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html)），其 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 會提供移動、直線、二次、三次與閉合線段，範例將這些線段重放至 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)。
+此範例將矩形輪廓與文字輪廓結合。先以 [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) 使矩形輪廓不填色。接著使用 [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) 在 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) 中產生文字輪廓。其 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 會提供移動、線段、二次、三次與閉合段，範例將這些段重新播放至 [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)。
 
-文字使用 40 點 Arial 字型。輪廓水平偏移 20 點，且其視覺上緣位於圖形上緣下方 10 點。文字路徑被填充，而原始矩形則保留為輪廓。最後以 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) 同時套用兩條路徑，產生包含矩形與文字的單一圖形。
+文字使用 40 點 Arial 字型。輪廓水平向右平移 20 點，且其視覺上方位於形狀上緣下方 10 點。文字路徑會被填色，而原始矩形則維持輪廓。最後以 [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) 同時套用兩條路徑，產生包含矩形與文字的單一形狀。
 
 ```python
 import jpype
@@ -393,11 +438,11 @@ try:
 
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
 
-    # 取得圖形的幾何路徑。
+    # 取得形狀的幾何路徑。
     original_path = shape.getGeometryPaths()[0]
     original_path.setFillMode(PathFillModeType.None_)
 
-    # 建立包含文字的新圖形路徑。
+    # 建立帶有文字的新圖形路徑。
     font = Font("Arial", Font.PLAIN, 40)
     text = "Text in shape"
     image = BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB)
@@ -430,23 +475,23 @@ try:
         path_iterator.next()
     text_path.setFillMode(PathFillModeType.Normal)
 
-    # 同時套用文字路徑與原始幾何路徑。
+    # 將文字路徑與原始幾何路徑一起套用。
     shape.setGeometryPaths([original_path, text_path])
 finally:
     presentation.dispose()
 ```
-![範例 5 圖片](custom_shape_5.png)
+![example5_image](custom_shape_5.png)
 
 ## **常見問題**
 
-**取代幾何後，填充與輪廓會發生什麼變化？**
+**取代幾何後，填色與輪廓會發生什麼變化？**
 
-樣式仍屬於圖形本身，僅輪廓會改變。填充與輪廓會自動套用至新幾何。
+樣式仍保留於形狀，只是輪廓改變。填色與輪廓會自動套用到新的幾何上。
 
-**如何正確地同時旋轉自訂圖形與其幾何？**
+**如何正確地同時旋轉自訂形狀與其幾何？**
 
-使用圖形的 [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) 方法；幾何會隨圖形一起旋轉，因為它繫結於圖形的座標系統。
+使用形狀的 [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) 方法；幾何會因為綁定於形狀自身的座標系統而隨形狀一起旋轉。
 
-**我可以將自訂圖形轉換為影像以「鎖定」結果嗎？**
+**我可以將自訂形狀轉換成影像以「鎖定」結果嗎？**
 
-可以。將所需的 [slide](/slides/zh-hant/python-java/convert-powerpoint-to-png/) 區域或 [shape](/slides/zh-hant/python-java/create-shape-thumbnails/) 本身匯出為點陣圖格式，這樣可簡化後續對複雜幾何的處理。
+可以。將所需的[投影片](/slides/zh-hant/python-java/convert-powerpoint-to-png/)區域或[圖形](/slides/zh-hant/python-java/create-shape-thumbnails/)本身匯出為點陣圖格式，這樣在處理複雜幾何時會更簡單。

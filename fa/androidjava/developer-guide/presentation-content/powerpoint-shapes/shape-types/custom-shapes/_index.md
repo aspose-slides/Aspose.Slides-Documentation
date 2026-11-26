@@ -1,5 +1,5 @@
 ---
-title: سفارشی‌سازی اشکال ارائه در اندروید
+title: سفارشی‌سازی اشکال ارائه در Android
 linktitle: شکل سفارشی
 type: docs
 weight: 20
@@ -7,16 +7,16 @@ url: /fa/androidjava/custom-shape/
 keywords:
 - شکل سفارشی
 - افزودن شکل
-- ایجاد شکل
+- ساخت شکل
 - تغییر شکل
-- هندسه شکل
+- هندسهٔ شکل
 - مسیر هندسی
-- نقاط مسیر
+- نقطه‌های مسیر
 - نقاط ویرایش
 - افزودن نقطه
 - حذف نقطه
 - عملیات ویرایش
-- گوشه منحنی
+- گوشهٔ منحنی
 - PowerPoint
 - ارائه
 - Android
@@ -24,63 +24,63 @@ keywords:
 - Aspose.Slides
 description: "ایجاد و سفارشی‌سازی اشکال در ارائه‌های PowerPoint با Aspose.Slides برای Android از طریق Java: مسیرهای هندسی، گوشه‌های منحنی، اشکال ترکیبی."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه می‌توان اشکال ارائه در Aspose.Slides را با ویرایش هندسه شکل از طریق نقاط ویرایش و مسیرهای هندسی سفارشی کرد. نشان می‌دهد چگونه با [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) و [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) کار کرد تا اشکال موجود را تغییر داد، عملیات پایه ویرایش مسیر را انجام داد، نقاط را اضافه یا حذف کرد و هندسه به‌روزرسانی‌شده را به شکل اعمال کرد.
+این مقاله توضیح می‌دهد که چگونه می‌توان اشکال ارائه در Aspose.Slides را با ویرایش هندسهٔ شکل از طریق نقاط ویرایش و مسیرهای هندسی سفارشی کرد. این مقاله نشان می‌دهد که چگونه با [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) و [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) کار کنید تا اشکال موجود را تغییر دهید، عملیات پایهٔ ویرایش مسیر را انجام دهید، نقاط را اضافه یا حذف کنید و هندسهٔ به‌روز شده را به شکل اعمال کنید.
 
-همچنین نمایش می‌دهد چگونه اشکال سفارشی و مرکب ایجاد کرد، اشکالی با گوشه‌های منحنی ساخت، تعیین کرد آیا هندسه یک شکل بسته است یا خیر، و عناصر شکل را با استفاده از آرایه‌های نقطه‌ای Android بررسی کرد.
+همچنین نحوهٔ ساخت اشکال سفارشی و ترکیبی، ساخت اشکال با گوشه‌های منحنی، تعیین اینکه آیا هندسهٔ شکل بسته است و بررسی عناصر شکل با استفاده از آرایه‌های نقطهٔ Android را نشان می‌دهد.
 
 ## **تغییر یک شکل با استفاده از نقاط ویرایش**
 
-در PowerPoint می‌توانید از **نقاط ویرایش** برای تعديل یک مربع استفاده کنید:
+در PowerPoint می‌توانید از **نقاط ویرایش** برای تغییر یک مربع استفاده کنید:
 
-* یک گوشه را به سمت داخل یا خارج حرکت دهید.
-* انحنای یک نقطه را تنظیم کنید.
+* یک گوشه را به سمت داخل یا بیرون حرکت دهید.
+* انحنا را در یک نقطه تنظیم کنید.
 * نقاط جدید اضافه کنید.
 
-ویرایش نقاط به شما امکان می‌دهد outlines یک شکل را تغییر دهید یا از یک شکل موجود به‌عنوان پایه‌ای برای شکل جدید استفاده کنید.
+ویرایش نقاط به شما امکان می‌دهد خطوط بیرونی یک شکل را تغییر دهید یا از یک شکل موجود به عنوان پایه‌ای برای یک شکل جدید استفاده کنید.
 
 ## **نکات ویرایش شکل**
 
-![overview_image](custom_shape_0.png)
+![نکات ویرایش شکل](custom_shape_0.png)
 
 هنگام ویرایش اشکال PowerPoint، این مفاهیم را در نظر داشته باشید:
 
 * یک شکل (یا مسیر آن) می‌تواند بسته یا باز باشد.
-* مسیر یک شکل از نقاط لنگر متصل‌شده توسط بخش‌ها تشکیل شده است.
-* یک بخش می‌تواند مستقیم یا منحنی باشد. نقاط لنگر و دستگیره‌های کنترل شکل آن را تعیین می‌کنند.
-* نقاط لنگر به صورت نقاط گوشه‌ای، نقاط مستقیم یا نقاط صاف وجود دارند:
-  * در یک نقطه گوشه‌ای، بخش‌های مجاور می‌توانند زیر یک زاویه ملاقات کنند.
-  * در یک نقطه صاف، دو دستگیره کنترل هم‌راستا هستند و فاصله مساوی از نقطه لنگر دارند.
-  * در یک نقطه مستقیم، دو دستگیره کنترل هم‌راستا هستند اما می‌توانند فاصله‌های متفاوتی از نقطه لنگر داشته باشند.
-* جابجایی نقاط لنگر یا تنظیم دستگیره‌های آن‌ها شکل outlines را تغییر می‌دهد.
+* مسیر یک شکل شامل نقاط لنگر است که توسط قطعات به هم وصل می‌شوند.
+* یک قطعه می‌تواند مستقیم یا منحنی باشد. نقاط لنگر و دسته‌های کنترل شکل آن را تعیین می‌کنند.
+* نقاط لنگر به صورت نقطهٔ گوشه، نقطهٔ مستقیم یا نقطهٔ صاف وجود دارند:
+  * در یک نقطهٔ گوشه، قطعات مجاور می‌توانند تحت زاویه‌ای به هم ملحق شوند.
+  * در یک نقطهٔ صاف، دو دستهٔ کنترل هم‌راستاو برابر از نقطهٔ لنگر فاصله دارند.
+  * در یک نقطهٔ مستقیم، دو دستهٔ کنترل هم‌راستا هستند اما می‌توانند فاصله‌های متفاوتی از نقطهٔ لنگر داشته باشند.
+* جابجایی نقاط لنگر یا تنظیم دسته‌های آن‌ها، خطوط بیرونی شکل را تغییر می‌دهد.
 
-برای ویرایش اشکال PowerPoint از طریق نقاط ویرایش، **Aspose.Slides** کلاس [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) و اینترفیس [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) را فراهم می‌کند.
+برای ویرایش اشکال PowerPoint از طریق نقاط ویرایش، **Aspose.Slides** کلاس [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) و رابط [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) را فراهم می‌کند.
 
 * یک نمونهٔ [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) مسیر هندسی شیء [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) را نمایش می‌دهد.
 * برای دریافت [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) از نمونهٔ [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) می‌توانید از متد [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) استفاده کنید.
-* برای تنظیم [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) برای یک شکل، می‌توانید از این متدها استفاده کنید: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) برای اشکالی با مسیر واحد و [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) برای اشکالی با چند مسیر.
-* برای افزودن بخش‌ها می‌توانید از متدهای موجود در [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) استفاده کنید.
+* برای تنظیم [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) برای یک شکل، می‌توانید از این متدها استفاده کنید: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) برای اشکالی که یک مسیر دارند و [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) برای اشکالی که چندین مسیر دارند.
+* برای افزودن قطعه‌ها می‌توانید از متدهای موجود در [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) استفاده کنید.
 * با استفاده از متدهای [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) و [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-) می‌توانید ظاهر یک مسیر هندسی را تنظیم کنید.
-* با استفاده از متد [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) می‌توانید مسیر هندسی یک [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) را به شکل آرایه‌ای از بخش‌های مسیر دریافت کنید.
+* با استفاده از متد [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) می‌توانید مسیر هندسی یک [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) را به‌صورت آرایه‌ای از قطعات مسیر دریافت کنید.
 
-## **عملیات ساده ویرایش**
+## **عملیات سادهٔ ویرایش**
 
-از متدهای زیر برای ویرایش یک مسیر هندسی استفاده کنید. نسخه‌های overload که یک ایندکس می‌پذیرند، یک بخش را در آن موقعیت صفر‑محور در آرایهٔ بخش‌های مسیر وارد می‌کند.
+از روش‌های زیر برای ویرایش یک مسیر هندسی استفاده کنید. نسخه‌های اضافه‌شونده که اندیس می‌پذیرند، یک قطعه را در موقعیت صفر‑پایهٔ آرایهٔ قطعات مسیر درج می‌کنند.
 
 | عملیات | متد |
 | --- | --- |
-| افزودن یا درج یک خط مستقیم. | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
-| افزودن یا درج یک منحنی Bézier مکعبی با دو نقطه کنترل و یک نقطه انتهایی. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
-| افزودن یا درج یک منحنی Bézier درجه دو با یک نقطه کنترل و یک نقطه انتهایی. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
-| افزودن یک قوس بیضوی با ابعاد و زاویه‌های مشخص به درجه. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
-| بستن شکل فعلی با اتصال نقطهٔ انتهایی آن به نقطهٔ شروع. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| اضافه یا درج یک خط مستقیم. | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| اضافه یا درج یک منحنی Bézier مکعب با دو نقطهٔ کنترل و یک نقطهٔ پایان. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| اضافه یا درج یک منحنی Bézier درجهٔ دوم با یک نقطهٔ کنترل و یک نقطهٔ پایان. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| اضافه کردن یک قوس بیضوی با ابعاد و زاویه‌های مشخص به درجه. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| بستن شکل جاری با اتصال نقطهٔ پایان به نقطهٔ شروع. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
 | تنظیم نقطهٔ شروع یک شکل. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
-| حذف یک بخش در یک ایندکس صفر‑محور. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
+| حذف یک قطعه در اندیس صفر‑پایه. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
 ## **افزودن نقاط سفارشی به یک شکل**
 
-این مثال دو نقطه را به یک شکل مستطیلی با استفاده از [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) وارد می‌کند و مسیر ویرایش‌شده را با [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) اعمال می‌نماید. مختصات‌ها به‌صورت محلی نسبت به شکل هستند: هر دو نقطهٔ جدید در مرکز آن، ۱۰۰ نقطه از سمت چپ و ۵۰ نقطه از سمت بالا قرار دارند. ایندکس‌های بخش ۱ و ۴ آن‌ها را بر روی لبه‌های بالایی و پایینی قرار می‌دهد و این لبه‌ها را به سمت داخل می‌کشند.
+این مثال دو نقطه را به یک شکل مستطیلی با استفاده از [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) اضافه می‌کند و مسیر ویرایش‌شده را با [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) اعمال می‌نماید. مختصات به‌صورت محلی نسبت به شکل هستند: هر دو نقطهٔ جدید در مرکز آن، ۱۰۰ پوینت از سمت چپ و ۵۰ پوینت از بالا قرار دارند. اندیس‌های قطعهٔ ۱ و ۴ آن‌ها را بر روی لبه‌های بالا و پایین قرار می‌دهند و این لبه‌ها را به سمت داخل می‌کشند.
 
 ```java
 import com.aspose.slides.*;
@@ -101,11 +101,11 @@ try {
 }
 ```
 
-![example1_image](custom_shape_1.png)
+![مثال ۱](custom_shape_1.png)
 
 ## **حذف نقاط از یک شکل**
 
-این مثال خطوط حاشیهٔ شکل قلبی را با حذف بخش در ایندکس صفر‑محور ۲ با استفاده از [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) تغییر می‌دهد. اعمال مسیر اصلاح‌شده با [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) مرزبندی شکل را به‌روز می‌کند.
+این مثال خطوط بیرونی شکل قلبی را با حذف قطعه‌ای در اندیس صفر‑پایهٔ ۲ با استفاده از [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) تغییر می‌دهد. اعمال مسیر تغییر یافته با [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) خطوط بیرونی شکل را به‌روزرسانی می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -124,11 +124,12 @@ try {
     presentation.dispose();
 }
 ```
-![example2_image](custom_shape_2.png)
 
-## **ایجاد یک شکل سفارشی**
+![مثال ۲](custom_shape_2.png)
 
-این مثال یک ستارهٔ پنج‌پر با استفاده از [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) می‌سازد. شعاع‌های بیرونی و داخلی به ترتیب ۱۰۰ و ۵۰ نقطه، نوک‌ها و تو رفتگی‌ها را تعریف می‌کنند؛ یک گام ۷۲ درجه، پنج نوک را به‌صورت مساوی پراکنده می‌کند. مسیر با [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) بسته می‌شود و با استفاده از [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) به یک شکل مستطیلی اعمال می‌شود و حاشیهٔ آن را جایگزین می‌کند.
+## **ساخت یک شکل سفارشی**
+
+این مثال یک ستارهٔ پنج‌نقطه‌ای را با استفاده از [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) می‌سازد. شعاع‌های بیرونی و داخلی به ترتیب ۱۰۰ و ۵۰ پوینت به‌صورت متناوب تعریف می‌شوند؛ گام ۷۲ درجه پنج نوک را به‌صورت مساوی فاصله می‌دهد. مسیر با [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) بسته می‌شود و با استفاده از [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) به یک شکل مستطیلی اعمال می‌شود و خطوط بیرونی آن را جایگزین می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -177,11 +178,12 @@ try {
     presentation.dispose();
 }
 ```
-![example3_image](custom_shape_3.png)
 
-## **ایجاد یک شکل سفارشی ترکیبی**
+![مثال ۳](custom_shape_3.png)
 
-این مثال دو شیء [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) بسته برای یک‑سوم بالایی و یک‑سوم پایینی یک شکل تعریف می‌کند. اعمال هر دو مسیر با [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) یک شکل ترکیبی واحد با یک فاصله در یک‑سوم میانی ایجاد می‌کند.
+## **ایجاد یک شکل ترکیبی سفارشی**
+
+این مثال دو شیء [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) بسته برای یک‑سوم‌هٔ بالا و یک‑سوم‌هٔ پایین یک شکل تعریف می‌کند. اعمال هر دو مسیر با [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) یک شکل ترکیبی واحد با یک فاصلهٔ عرضی در یک‑سوم‌هٔ وسط ایجاد می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -211,11 +213,12 @@ try {
     presentation.dispose();
 }
 ```
-![example4_image](custom_shape_4.png)
 
-## **ایجاد یک شکل سفارشی با گوشه‌های منحنی**
+![مثال ۴](custom_shape_4.png)
 
-این مثال بخش‌های مستقیم را با [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) ترکیب می‌کند تا شکلی با گوشه‌های منحنی به سمت داخل به‌دست آورد. هر اندازهٔ گوشه عرض و ارتفاع قوس را به نقاط تعیین می‌کند و زاویهٔ -90 درجه یک ربع بیضی مخالف جهت عقربه‌های ساعت می‌کشد. مسیر نهایی با [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) اعمال می‌شود و ارائه در قالب PPTX ذخیره می‌شود.
+## **ساخت یک شکل سفارشی با گوشه‌های منحنی**
+
+این مثال قطعه‌های مستقیم را با [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) ترکیب می‌کند تا شکلی با گوشه‌های داخلی منحنی ایجاد شود. هر اندازهٔ گوشه عرض و ارتفاع قوس را بر حسب پوینت تنظیم می‌کند و طی‌گیری ‑۹۰ درجه یک چهارم‌دایره‌الماس خلاف ساعت‌گرد می‌کشد. مسیر کامل با [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) اعمال می‌شود و ارائه در قالب PPTX ذخیره می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -263,9 +266,9 @@ try {
 }
 ```
 
-## **تشخیص اینکه آیا هندسهٔ یک شکل بسته است**
+## **تشخیص بسته بودن هندسهٔ یک شکل**
 
-کمک‌کنندهٔ زیر بررسی می‌کند که آیا هر مسیر هندسی غیر خالی با یک بخش بسته پایان می‌یابد یا نه. این متد [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) را می‌خواند و فرمان نهایی بخش را با [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) مقایسه می‌کند و با [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/) مقایسه می‌کند. وقتی مسیرهای غیر خالی وجود ندارند، مقدار false برمی‌گرداند. این متد فرمان نهایی هر مسیر را بررسی می‌کند؛ نه اینکه هر زیرشکل داخل مسیر را بررسی کند. مثال برای یک مستطیل مقدار `true` چاپ می‌کند.
+تابع کمکی زیر بررسی می‌کند که آیا هر مسیر هندسی غیرخالی با یک قطعهٔ بسته پایان می‌یابد یا خیر. این تابع [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) را می‌خواند و فرمان نهایی قطعهٔ [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) را با [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/) مقایسه می‌کند. اگر مسیرهای غیرخالی وجود نداشته باشد، مقدار false برمی‌گرداند. این بررسی فقط فرمان نهایی هر مسیر را مورد بررسی قرار می‌دهد؛ زیرشکل‌های داخلی را بررسی نمی‌کند. مثال مقدار `true` را برای یک مستطیل چاپ می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -305,11 +308,64 @@ try {
 }
 ```
 
+## **بررسی دستورات مسیر هندسی**
+
+[contour.pptx](contour.pptx) را دانلود کنید و نام فایل نمونه را با مسیر آن بر روی دستگاه جایگزین کنید. اولین شکل در اولین اسلاید دارای لبهٔ بالایی مستقیم، یک منحنی Bézier مکعب و لبهٔ بستهٔ مستقیم است. برای خواندن مسیرهای شکل از [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) و برای خواندن قطعات هر مسیر در ترتیب رسم از [getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) استفاده کنید. برای هر قطعه، [getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) فرمان را شناسایی می‌کند و نحوه تفسیر مقادیر برگردانده شده توسط [getSegmentData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getSegmentData--) را تعیین می‌نماید.
+
+```java
+import com.aspose.slides.*;
+import java.util.Arrays;
+
+Presentation presentation = new Presentation("contour.pptx");
+try {
+    IGeometryShape shape = (IGeometryShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IGeometryPath[] paths = shape.getGeometryPaths();
+
+    for (int i = 0; i < paths.length; i++) {
+        IPathSegment[] segments = paths[i].getPathData();
+        for (int j = 0; j < segments.length; j++) {
+            byte command = segments[j].getPathCommand();
+            float[] data = segments[j].getSegmentData();
+            String detail;
+            switch (command) {
+                case PathCommandType.MoveTo:
+                case PathCommandType.LineTo:
+                    detail = String.format("destination=(%s, %s)", data[0], data[1]);
+                    break;
+                case PathCommandType.CubicBezierTo:
+                    detail = String.format("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", data[0], data[1], data[2], data[3], data[4], data[5]);
+                    break;
+                case PathCommandType.Close:
+                    detail = "no coordinates";
+                    break;
+                default:
+                    detail = "raw=" + Arrays.toString(data);
+            }
+            String name = PathCommandType.getName(PathCommandType.class, command);
+            System.out.printf("Path %d, segment %d: %s %s%n", i, j, name, detail);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+شکل در مختصات (200, 100) پوینت بر روی اسلاید قرار دارد. مختصات گزارش‌شده به‌صورت محلی نسبت به شکل هستند؛ (0, 0) در گوشهٔ بالایی‑چپ آن قرار دارد، x به سمت راست و y به سمت پایین افزایش می‌یابد. قطعهٔ بسته بدون مختصات اضافه به نقطهٔ شروع باز می‌گردد.
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![شکل PowerPoint با لبهٔ بالایی مستقیم، لبهٔ منحنی از بالا‑راست به پایین‑چپ، و لبهٔ چپ مستقیم](contour.png)
+
 ## **استخراج و بررسی عناصر شکل**
 
-از متد [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) برای بررسی یک شکل موجود به‌عنوان عناصر شامل نقاط مسیر و انواع نقاط استفاده کنید. هر شیء برگشتی از نوع [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) را به [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) تبدیل کنید تا آرایه‌های نقاط و انواع را از طریق متدهای [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) و [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) دریافت کنید. این نمایش برای تحلیل مرزبندی یا انتقال هندسه به ابزارهای رسم سفارشی مفید است.
+از [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) برای بررسی یک شکل موجود به‌عنوان عناصری شامل نقاط مسیر و انواع نقاط استفاده کنید. هر [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) بازگردانده شده را به [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) تبدیل کنید تا آرایه‌های نقاط و انواع را از طریق متدهای [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) و [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) دریافت کنید. این نمایش برای تحلیل خطوط بیرونی یا انتقال هندسه به ابزارهای رسم سفارشی مفید است.
 
-مثال فایلی به نام input.pptx باز می‌کند، اولین شکل هندسی را مستقیماً در اولین اسلاید پیدا می‌کند و بخش‌های مسیر آن را چاپ می‌کند. برای مشاهدهٔ خروجی‌های هر دو نوع خط مستقیم و منحنی، از ارائه‌ای استفاده کنید که شامل شکل با بخش‌های مستقیم و منحنی باشد. این متد درون گروه‌ها را جستجو نمی‌کند.
+مثال فایل input.pptx را باز می‌کند، اولین شکل هندسی موجود را مستقیماً در اولین اسلاید پیدا می‌کند و قطعات مسیر آن را چاپ می‌نماید. برای مشاهده هر دو نوع خروجی، از ارائه‌ای شامل شکلی با قطعات مستقیم و منحنی استفاده کنید. این روش داخل گروه‌ها جستجو نمی‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -337,7 +393,7 @@ try {
             System.out.println("Shape element:");
 
             for (int i = 0; i < points.length; i++) {
-                int pointType = types[i] & 0x07; // نوع بخش را نگه می‌دارد، پرچم‌ها را مستثنی می‌کند.
+                int pointType = types[i] & 0x07; // نگهداری نوع قطعه، بدون پرچم‌ها.
                 switch (pointType) {
                     case 0:
                         System.out.println("Start figure at " + points[i]);
@@ -347,7 +403,7 @@ try {
                         break;
                     case 3:
                         System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
-                        i += 2; // هر دو نقطه کنترل و نقطه انتهایی را مصرف می‌کند.
+                        i += 2; // Consume both control points and the endpoint.
                         break;
                 }
 
@@ -362,26 +418,26 @@ try {
 }
 ```
 
-آرایه‌ها براساس ایندکس مطابقت دارند: `points[i]` یک نقطه است و `types[i]` نقش آن را توصیف می‌کند. نوع `0` یک شکل را شروع می‌کند و نوع `1` خطی را از نقطهٔ قبلی به نقطهٔ جاری می‌کشد. یک بخش Bézier مکعبی از نقطهٔ انتهای قبلی شروع می‌شود و از سه ورودی متوالی نوع‑`3` استفاده می‌کند: دو نقطهٔ کنترل و سپس نقطهٔ انتهایی جدید. حلقه این سه ورودی را به‌صورت یکجا مصرف می‌کند و نقطهٔ انتهایی را برای بستن بررسی می‌کند.
+آرایه‌ها بر اساس اندیس معادل هستند: `points[i]` یک نقطه است و `types[i]` نقش آن را توصیف می‌کند. نوع `0` یک شکل را آغاز می‌کند و نوع `1` خطی را از نقطهٔ قبلی به نقطهٔ فعلی می‌کشد. یک قطعه Bézier مکعب از نقطهٔ انتهایی قبلی شروع می‌شود و از سه ورودی متوالی نوع‑`3` استفاده می‌کند: دو نقطهٔ کنترل و سپس نقطهٔ انتهایی جدید. حلقه این سه ورودی را با هم مصرف می‌کند و نقطهٔ انتهایی را برای بسته بودن بررسی می‌نماید.
 
-انواع نقطه همچنین شامل پرچم‌ها هستند. با استفاده از ماسک `0x07` می‌توانید نوع بخش را شناسایی کنید و پرچم `0x80` را به‌صورت جداگانه برای تشخیص یک زیرمسیر بسته تست کنید. به‌عنوان مثال، `129` (`0x81`) به معنای نقطهٔ انتهایی خطی است که یک زیرمسیر را می‌بندد و `131` (`0x83`) به معنای نقطهٔ انتهایی Bézier است که یک زیرمسیر را می‌بندد. جاوا این پرچم‌ها را در بایت‌های علامت‌دار ذخیره می‌کند؛ ماسک کردن مقادیر بایت‌های علامت‌دار مقدارهای بیت اصلی را حفظ می‌کند. مقایسهٔ مقدار خام فقط با `1` یا `3` این موارد را از دست می‌دهد. پرچم‌های دیگر مانند dash (`0x10`) و marker (`0x20`) نوع پایهٔ بخش را تغییر نمی‌دهند.
+انواع نقطه همچنین شامل پرچم‌ها می‌شوند. برای شناسایی نوع قطعه با ماسک `0x07` عمل کنید و برای تشخیص زیرمسیر بسته پرچم `0x80` را جداگانه آزمایش کنید. برای مثال، `129` (`0x81`) به معنای نقطهٔ انتهایی خطی است که یک زیرمسیر را می‌بندد و `131` (`0x83`) به معنای نقطهٔ انتهایی Bézier است که یک زیرمسیر را می‌بندد. جاوا این پرچم‌ها را در بایت‌های علامت‌دار ذخیره می‌کند؛ ماسک‌گذاری مقادیر بیتی اصلی را حفظ می‌کند. مقایسه مقدار خام تنها با `1` یا `3` این موارد را از دست می‌دهد. پرچم‌های دیگر مانند خط‌دشی (*dash* `0x10`) و نشانگر (`0x20`) نوع پایهٔ قطعه را تغییر نمی‌دهند.
 
-**مختصات و تبدیل‌ها.** نقاط بر حسب نقطه (1/72 اینچ) اندازه‌گیری می‌شوند، با X به سمت راست افزایشی و Y به سمت پایین افزایشی. برای یک شکل بدون گروه، مختصات استخراج‌شده هم اکنون شامل موقعیت بازگشتی توسط [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) و [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) و عرض و ارتفاع فعلی آن است. به‌عنوان مثال، یک مستطیل بدون چرخش در `(100, 200)` با اندازهٔ `120 × 80` دارای مرزهای مرزبندی `(100, 200)`–`(220, 280)` است. موقعیت شکل را دوبار اضافه نکنید. برای دریافت مختصات نسبی به چارچوب چرخش‌نشده، X و Y آن را کم کنید.
+**مختصات و تبدیل‌ها.** نقاط بر حسب پوینت (۱/۷۲ اینچ) اندازه‌گیری می‌شوند؛ X به سمت راست و Y به سمت پایین افزایش می‌یابد. برای یک شکل غیرگروه‌شده، مختصات استخراج‌شده پیشاپیش شامل موقعیتی است که توسط متدهای [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) و [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) برگردانده می‌شود و عرض و ارتفاع فعلی آن را منعکس می‌کند. به‌عنوان مثال، یک مستطیل بدون چرخش در `(100, 200)` با اندازهٔ `120 × 80` حدود بیرونی `(100, 200)`–`(220, 280)` دارد. دوباره موقعیت شکل را اضافه نکنید؛ برای به دست آوردن مختصات نسبی به چارچوب بدون چرخش، X و Y آن را کم کنید.
 
-نقاط استخراج‌شده چرخش شکل، که توسط [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--) بازگردانده می‌شود، یا وارونگی افقی و عمودی را اعمال نمی‌کنند. برای بازتولید مرزبندی نمایش داده‌شده، این تبدیل‌ها را نسبت به مرکز شکل اعمال کنید. برای اشکال گروهی، همچنین باید نگاشت مختصات گروه و تبدیل‌ها را در نظر بگیرید؛ فرض نکنید که نقاط استخراج‌شده نهایی هستند یا ترجمه یا مقیاس را دو بار اعمال کنید اگر قبلاً در چارچوب فرزند منعکس شده است.
+نقاط استخراج‌شده چرخش شکل را که توسط [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--) بازگردانده می‌شود، یا وارونگی افقی و عمودی اعمال نمی‌کنند. برای بازسازی خطوط بیرونی نمایش داده‌شده، این تبدیل‌ها را حول مرکز شکل اعمال کنید. برای اشکال گروهی، همچنین نگاشت مختصات گروه و تبدیل‌ها را در نظر بگیرید؛ فرض نکنید که نقاط استخراج‌شده نهایی‌ترین مختصات اسلاید هستند یا ترجمه/مقیاس را دوبار اعمال کنید اگر قبلاً در چارچوب فرزند منعکس شده‌اند.
 
-**بازرسی در مقابل ویرایش.** آرایه‌های استخراج‌شده مرزبندی را توصیف می‌کنند؛ تغییر آن‌ها شکل اصلی را به‌روزرسانی نمی‌کند. این روش را زمانی انتخاب کنید که کد تحلیل یا رسم شما نیاز به آرایه‌های نقطه/نوع داشته باشد. از [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) زمانی استفاده کنید که به دستورات هندسی در سیستم مختصات محلی شکل نیاز دارید یا می‌خواهید هندسه‌اش را ویرایش کنید. مسیرهای ویرایش‌شده را از طریق [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) یا [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) اعمال کنید.
+**بررسی در مقابل ویرایش.** آرایه‌های استخراج‌شده فقط خطوط بیرونی را توصیف می‌کنند؛ تغییر آن‌ها شکل اصلی را بروز نمی‌دهد. از این روش زمانی استفاده کنید که کد تحلیل یا رسم شما به آرایه‌های نقطه/نوع نیاز دارد. وقتی به دستورات هندسی در سیستم مختصات محلی شکل نیاز دارید یا می‌خواهید هندسه را ویرایش کنید، از [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) استفاده کنید. مسیرهای ویرایش‌شده را از طریق [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) یا [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) اعمال کنید.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**پس از جایگزین کردن هندسه، پر کردن و حاشیهٔ شکل چه اتفاقی می‌افتد؟**
+**بعد از جایگزینی هندسه، پرکردن و خطوط بیرونی چه اتفاقی می‌افتد؟**
 
-سبک همراه با شکل باقی می‌ماند؛ فقط مرزبندی تغییر می‌کند. پر کردن و حاشیه به‌صورت خودکار بر روی هندسهٔ جدید اعمال می‌شوند.
+سبک همراه شکل باقی می‌ماند؛ فقط خطوط بیرونی تغییر می‌کند. پر کردن و خطوط بیرونی به‌صورت خودکار به هندسهٔ جدید اعمال می‌شوند.
 
-**چگونه می‌توان یک شکل سفارشی را به‌درستی همراه با هندسه‌اش چرخاند؟**
+**چگونه یک شکل سفارشی را به‌درستی همراه با هندسه‌اش چرخانده کنم؟**
 
-از متد [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) شکل استفاده کنید؛ هندسه با شکل می‌چرخد زیرا به سیستم مختصات خود شکل متصل است.
+از متد [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) شکل استفاده کنید؛ هندسه همراه با شکل می‌چرخد زیرا به سیستم مختصات خود شکل متصل است.
 
-**آیا می‌توانم یک شکل سفارشی را به تصویر تبدیل کنم تا «قفل» شود؟**
+**آیا می‌توانم یک شکل سفارشی را به تصویر تبدیل کنم تا نتیجه "قفل" شود؟**
 
-بله. ناحیهٔ مورد نیاز را به‌عنوان [اسلاید](/slides/fa/androidjava/convert-powerpoint-to-png/) یا خود [شکل](/slides/fa/androidjava/create-shape-thumbnails/) به فرمت رستر صادر کنید؛ این کار کار با هندسه‌های پیچیده را ساده‌تر می‌کند.
+بله. ناحیهٔ مورد نیاز [اسلاید](/slides/fa/androidjava/convert-powerpoint-to-png/) یا خود [شکل](/slides/fa/androidjava/create-shape-thumbnails/) را به فرمت رستری صادر کنید؛ این کار کار با هندسه‌های پیچیده را ساده می‌کند.

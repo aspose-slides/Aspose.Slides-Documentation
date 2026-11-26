@@ -1,88 +1,88 @@
 ---
-title: Använda presentationsformer i .NET
+title: Anpassa presentationsformer i .NET
 linktitle: Anpassad form
 type: docs
 weight: 20
 url: /sv/net/custom-shape/
 keywords:
 - anpassad form
-- lägga till form
+- lägg till form
 - skapa form
 - ändra form
 - formgeometri
-- geometribana
+- geometrisk bana
 - banpunkter
 - redigera punkter
-- lägga till punkt
+- lägg till punkt
 - ta bort punkt
 - redigeringsoperation
-- kurvat hörn
+- kurvigt hörn
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Skapa och anpassa former i PowerPoint-presentationer med Aspose.Slides för .NET: geometribanor, kurvade hörn, sammansatta former."
+description: "Skapa och anpassa former i PowerPoint-presentationer med Aspose.Slides för .NET: geometriska banor, kurviga hörn, sammansatta former."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du anpassar presentationsformer i Aspose.Slides genom att redigera formgeometri med hjälp av redigeringspunkter och geometriska banor. Den visar hur du arbetar med [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) och [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) för att ändra befintliga former, utföra grundläggande redigeringsoperationer, lägga till eller ta bort punkter och applicera den uppdaterade geometrin på en form.
+Denna artikel förklarar hur du anpassar presentationsformer i Aspose.Slides genom att redigera formgeometri via redigeringspunkter och geometriska banor. Den visar hur du arbetar med [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) och [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) för att ändra befintliga former, utföra grundläggande banredigeringsoperationer, lägga till eller ta bort punkter och tillämpa uppdaterad geometri på en form.
 
-Den demonstrerar också hur du skapar anpassade och sammansatta former, bygger former med rundade hörn, avgör om en formgeometri är sluten och använder den äldre konverteringen mellan [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) och [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) för ytterligare anpassningsscenarier.
+Den visar också hur du skapar anpassade och sammansatta former, bygger former med kurvade hörn, avgör om en formgeometri är sluten och använder den gamla konverteringen mellan [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) och [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) för ytterligare scenarier för anpassning av geometri.
 
 ## **Ändra en form med redigeringspunkter**
 
-I PowerPoint kan du använda **Redigeringspunkter** för att modifiera en kvadrat:
+I PowerPoint kan du använda **Edit Points** för att ändra en fyrkant:
 
 * Flytta ett hörn inåt eller utåt.
-* Justera kurvaturen vid en punkt.
+* Justera krökningen vid en punkt.
 * Lägg till nya punkter.
 
-Redigering av punkter låter dig förändra en forms kontur eller använda en befintlig form som grund för en ny.
+Att redigera punkter låter dig ändra en forms kontur eller använda en befintlig form som grund för en ny.
 
 ## **Tips för formredigering**
 
-![översiktsbild](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-När du redigerar PowerPoint‑former, håll dessa begrepp i åtanke:
+När du redigerar PowerPoint-former, tänk på följande begrepp:
 
-* En form (eller dess bana) kan vara antingen sluten eller öppen.
-* En forms bana består av ankarnpunkter som är förenade med segment.
-* Ett segment kan vara rakt eller kurvat. Ankarnpunkter och kontrollhandtag bestämmer dess form.
-* Ankarnpunkter finns som hörnpunkter, raka punkter eller släta punkter:
-  * På en hörnpunkt kan intilliggande segment mötas i en vinkel.
-  * På en slät punkt är de två kontrollhandtagen i linje och lika långt från ankarnpunkten.
-  * På en rak punkt är de två kontrollhandtagen i linje men kan ha olika avstånd från ankarnpunkten.
-* Att flytta ankarnpunkter eller justera deras handtag förändrar formens kontur.
+* En form (eller dess bana) kan antingen vara sluten eller öppen.
+* En forms bana består av ankarpunkter som är förbundna med segment.
+* Ett segment kan vara rakt eller kurvigt. Ankardpunkter och kontrollhandtag bestämmer dess form.
+* Ankardpunkter finns som hörnpunkter, raka punkter eller mjuka punkter:
+  * Vid en hörnpunkt kan intilliggande segment mötas i en vinkel.
+  * Vid en mjuk punkt är de två kontrollhandtagen justerade och lika långt från ankardpunkten.
+  * Vid en rak punkt är de två kontrollhandtagen justerade men kan ha olika avstånd från ankardpunkten.
+* Att flytta ankardpunkter eller justera deras handtag förändrar formens kontur.
 
-För att redigera PowerPoint‑former med redigeringspunkter tillhandahåller **Aspose.Slides** klassen [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) och gränssnittet [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
+För att redigera PowerPoint-former via redigeringspunkter tillhandahåller **Aspose.Slides** klassen [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) och gränssnittet [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
 
-* En [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)‑instans representerar en geometribana för objektet [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
-* För att hämta [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) från en [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/)-instans kan du använda metoden [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/).
-* För att sätta [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) för en form kan du använda metoderna: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) för former med en enda bana och [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) för former med flera banor.
+* En [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)‑instans representerar en geometrisk bana för objektet [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
+* För att hämta [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) från [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/)-instansen kan du använda metoden [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/).
+* För att ange [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) för en form kan du använda dessa metoder: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) för former med en enda bana och [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) för former med flera banor.
 * För att lägga till segment kan du använda metoderna under [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
-* Genom att använda egenskaperna [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) och [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) kan du ange utseendet för en geometribana.
-* Genom att använda egenskapen [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) kan du hämta geometribanan för en [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) som en matris av segment.
+* Genom att använda egenskaperna [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) och [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) kan du ange utseendet för en geometrisk bana.
+* Med egenskapen [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) kan du hämta geometrisk bana för en [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) som en matris av bansegment.
 * I äldre versioner som stöder konverteringsmetoderna nedan kan du konvertera [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) till [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
 * Använd metoderna [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) och [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (från klassen [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) för att konvertera mellan [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) och [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
 
 ## **Enkla redigeringsoperationer**
 
-Använd följande metoder för att redigera en geometribana. Överlagringar som tar ett index infogar ett segment på den nollbaserade positionen i banans segmentmatris.
+Använd följande metoder för att redigera en geometrisk bana. Överlagringar som accepterar ett index sätter in ett segment på den nollbaserade positionen i banans segmentarray.
 
-| Operation | Metod |
+| Operation | Method |
 | --- | --- |
 | Lägg till eller infoga en rak linje. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
-| Lägg till eller infoga en kubisk Bézier‑kurva med två kontrollpunkter och ett slutpunkt. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
-| Lägg till eller infoga en kvadratisk Bézier‑kurva med en kontrollpunkt och ett slutpunkt. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| Lägg till eller infoga en kubisk Bézier-kurva med två kontrollpunkter och en slutpunkt. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| Lägg till eller infoga en kvadratisk Bézier-kurva med en kontrollpunkt och en slutpunkt. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
 | Lägg till en elliptisk båge med angivna dimensioner och vinklar i grader. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
-| Stäng den aktuella figuren genom att ansluta dess slutpunkt till startpunkten. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
-| Ställ in startpunkten för en figur. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| Stäng den aktuella figuren genom att koppla dess slutpunkt till startpunkten. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| Ange startpunkten för en figur. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
 | Ta bort ett segment på ett nollbaserat index. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
 ## **Lägg till anpassade punkter till en form**
 
-Detta exempel infogar två punkter i en rektangulär form med hjälp av [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) och tillämpar den redigerade banan med [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). Koordinaterna är lokala för formen: båda nya punkterna ligger i dess centrum, 100 punkter från vänsterkanten och 50 punkter från toppen. Segmentindex 1 och 4 placerar dem på ovansidan respektive undersidan, vilket drar in de kanterna.
+Detta exempel infogar två punkter i en rektangulär form med [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) och tillämpar den redigerade banan med [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). Koordinaterna är lokala för formen: båda nya punkterna ligger i dess centrum, 100 punkter från vänster och 50 punkter från toppen. Segmentindex 1 och 4 placerar dem på den övre och nedre kanten, och drar dessa kanter inåt.
 
 ```csharp
 using Aspose.Slides;
@@ -99,11 +99,11 @@ geometryPath.LineTo(100, 50, 4);
 shape.SetGeometryPath(geometryPath);
 ```
 
-![exempel1_bild](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
 ## **Ta bort punkter från en form**
 
-Detta exempel ändrar konturen på ett hjärtformat genom att ta bort segmentet på nollbaserat index 2 med [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Genom att applicera den modifierade banan med [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) uppdateras formens kontur.
+Detta exempel ändrar konturen på en hjärtformad form genom att ta bort segmentet på nollbaserat index 2 med [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Genom att tillämpa den modifierade banan med [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) uppdateras formens kontur.
 
 ```csharp
 using Aspose.Slides;
@@ -118,11 +118,11 @@ path.RemoveAt(2);
 
 shape.SetGeometryPath(path);
 ```
-![exempel2_bild](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
 ## **Skapa en anpassad form**
 
-Detta exempel bygger en femspetsig stjärna med [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Växlande yttre och inre radier på 100 respektive 50 punkter definierar spetsarna och urgröningarna; ett steg på 72 grader placerar de fem spetsarna jämnt. Banan stängs med [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) och appliceras på en rektangulär form med [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), vilket ersätter dess kontur.
+Detta exempel bygger en femspetsig stjärna med [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Växlande yttre och inre radier på 100 respektive 50 punkter definierar spetsarna och fördjupningarna; ett steg på 72 grader placerar de fem spetsarna jämnt. Banan stängs med [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) och appliceras på en rektangulär form med [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), vilket ersätter dess kontur.
 
 ```csharp
 using System;
@@ -165,11 +165,11 @@ var slide = presentation.Slides[0];
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
 shape.SetGeometryPath(starPath);
 ```
-![exempel3_bild](custom_shape_3.png)
+![example3_image](custom_shape_3.png)
 
 ## **Skapa en sammansatt anpassad form**
 
-Detta exempel definierar två slutna [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)‑objekt för den övre respektive nedre tredjedelen av en form. Genom att applicera båda banorna med [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) skapas en enda sammansatt form med ett tomrum över dess mittersta tredjedel.
+Detta exempel definierar två stängda [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)‑objekt för övre och undre tredjedelen av en form. Genom att applicera båda banorna med [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) skapas en enda sammansatt form med ett gap över dess mellersta tredjedel.
 
 ```csharp
 using Aspose.Slides;
@@ -187,7 +187,7 @@ topPath.LineTo(0, shape.Height / 3);
 topPath.CloseFigure();
 
 var bottomPath = new GeometryPath();
-bottomPath.MoveTo(shape.Height / 3 * 2);
+bottomPath.MoveTo(0, shape.Height / 3 * 2);
 bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
 bottomPath.LineTo(shape.Width, shape.Height);
 bottomPath.LineTo(0, shape.Height);
@@ -195,11 +195,11 @@ bottomPath.CloseFigure();
 
 shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
-![exempel4_bild](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
-## **Skapa en anpassad form med böjda hörn**
+## **Skapa en anpassad form med kurvade hörn**
 
-Detta exempel kombinerar raka segment med [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) för att skapa en form med inåtböjda hörn. Varje hörnstorlek anger bågens bredd och höjd i punkter, och den -90‑graders svepningen ritar en motsols kvartsellips. Den färdiga banan appliceras med [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), och presentationen sparas i PPTX‑format.
+Detta exempel kombinerar raka segment med [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) för att skapa en form med inåtvända kurvade hörn. Varje hörnstorlek anger bågens bredd och höjd i punkter, och den -90-gradiga svepningen ritar en moturs kvartsellips. Den färdiga banan appliceras med [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), och presentationen sparas i PPTX-format.
 
 ```csharp
 using System.Drawing;
@@ -245,7 +245,7 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 
 ## **Ta reda på om en formgeometri är sluten**
 
-Följande hjälpfunktion kontrollerar om varje icke‑tom geometribana avslutas med ett stängningssegment. Den läser [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) och jämför det sista segmentets [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) med [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Den returnerar false när inga icke‑tomma banor finns. Detta kontrollerar det sista kommandot för varje bana; den inspekterar inte varje underfigur i en bana. Exemplet skriver ut `True` för en rektangel.
+Hjälpfunktionen nedan kontrollerar om varje icke‑tom geometrisk bana avslutas med ett slutsegment. Den läser [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) och jämför den sista segmentets [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) med [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Den returnerar false när det inte finns några icke‑tomma banor. Detta kontrollerar det sista kommandot för varje bana; den inspekterar inte varje subfigur inom en bana. Exemplet skriver ut `True` för en rektangel.
 
 ```csharp
 using System;
@@ -281,11 +281,54 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
 }
 ```
 
+## **Inspektera kommandon för geometriska banor**
+
+Ladda ner [contour.pptx](contour.pptx) och placera den i programmets arbetskatalog. Den första bilden innehåller en form med en rak övre kant, en kubisk Bézier‑kurva och en rak avslutande kant. Använd [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) för att läsa dess banor. Varje bana listar sina segment i ritningsordning i [PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/). Varje segments [PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) bestämmer hur dess [SegmentData](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/segmentdata/) läses.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("contour.pptx");
+
+var shape = (IGeometryShape)presentation.Slides[0].Shapes[0];
+var paths = shape.GetGeometryPaths();
+
+for (int i = 0; i < paths.Length; i++)
+{
+    var segments = paths[i].PathData;
+    for (int j = 0; j < segments.Length; j++)
+    {
+        var command = segments[j].PathCommand;
+        var data = segments[j].SegmentData;
+        var detail = command switch
+        {
+            PathCommandType.MoveTo or PathCommandType.LineTo => $"destination=({data[0]}, {data[1]})",
+            PathCommandType.CubicBezierTo => $"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})",
+            PathCommandType.Close => "no coordinates",
+            _ => $"raw=[{string.Join(", ", data)}]"
+        };
+        Console.WriteLine($"Path {i}, segment {j}: {command} {detail}");
+    }
+}
+```
+
+Formen ligger på (200, 100) punkter på bilden. De rapporterade punkterna är lokala för formen, med (0, 0) i dess övre vänstra hörn, x ökar åt höger och y ökar nedåt. Det avslutande segmentet återgår till startpunkten utan ytterligare koordinater.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint-form med en rak övre kant, en böjd kant från övre högra till nedre vänstra, och en rak vänsterkant](contour.png)
+
 ## **Extrahera och inspektera formelement**
 
-Använd [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) för att undersöka en befintlig form som element som innehåller bana‑punkter och punkttyper. Casta varje returnerad [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) till [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) för att läsa dess [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) och [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/)‑arrayer. Denna representation är användbar för kontur‑analys eller för att vidarebefordra geometrin till egna ritverktyg.
+Använd [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) för att inspektera en befintlig form som element som innehåller bana‑punkter och punkt‑typer. Kasta varje returnerad [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) till [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) för att läsa dess [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) och [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/)‑arrayer. Denna representation är användbar för kontur‑analys eller för att skicka geometri till anpassade ritverktyg.
 
-Exemplet öppnar en presentation, hittar den första geometriska formen på den första bilden och skriver ut dess bansegment. Använd en presentation som innehåller en form med både raka och kurvade segment för att se båda typerna av resultat. Den söker inte i grupper.
+Exemplet öppnar en presentation, hittar den första geometriska formen direkt på den första bilden och skriver ut dess bansegment. Använd en presentation som innehåller en form med raka och kurvade segment för att se båda typerna av utskrift. Det söker inte inuti grupper.
 
 ```csharp
 using System;
@@ -322,7 +365,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
                 break;
             case 3:
                 Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
-                i += 2; // Consume both control points and the endpoint.
+                i += 2; // Konsumera båda kontrollpunkterna och slutpunkten.
                 break;
         }
 
@@ -334,21 +377,21 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 }
 ```
 
-Arrayerna motsvarar varandra per index: `points[i]` är en punkt och `types[i]` beskriver dess roll. Typ `0` startar en figur, och typ `1` drar en linje från föregående punkt till den nuvarande. Ett kubiskt Bézier‑segment startar vid föregående slutpunkt och använder tre på varandra följande typ‑`3`‑poster: två kontrollpunkter följt av den nya slutpunkten. Loopen konsumerar dessa tre poster tillsammans och kontrollerar slutpunkten för slutenhet.
+Arrayerna motsvarar varandra efter index: `points[i]` är en punkt och `types[i]` beskriver dess roll. Typ `0` startar en figur, och typ `1` ritar en linje från föregående punkt till den aktuella. Ett kubiskt Bézier‑segment startar vid föregående slutpunkt och använder tre på varandra följande typ‑`3`‑poster: två kontrollpunkter följda av den nya slutpunkten. Loopen konsumerar dessa tre poster tillsammans och kontrollerar om slutpunkten är stängd.
 
-Punkt‑typer innehåller även flaggor. Maskera med `0x07` för att identifiera segmenttypen och testa `0x80` separat för att upptäcka en sluten underbana. Till exempel betyder `129` (`0x81`) en linjeslutpunkt som stänger en underbana, och `131` (`0x83`) betyder en Bézier‑slutpunkt som gör det. Att bara jämföra råvärdet med `1` eller `3` skulle missa dessa fall. Andra flaggor, som streck (`0x10`) och markör (`0x20`), ändrar inte bassegmenttypen.
+Punkt‑typerna innehåller också flaggor. Maskera med `0x07` för att identifiera segmenttypen, och testa `0x80` separat för att upptäcka en sluten delbana. Till exempel betyder `129` (`0x81`) en linjeslutpunkt som stänger en delbana, och `131` (`0x83`) betyder en Bézier‑slutpunkt som stänger en sådan. Att bara jämföra det råa värdet med `1` eller `3` skulle missa dessa fall. Andra flaggor, såsom streck (`0x10`) och markör (`0x20`), förändrar inte grundsegmenttypen.
 
-**Koordinater och transformationer.** Punkter mäts i punkter (1/72 tum), med X ökad åt höger och Y ökad nedåt. För en icke‑grupperad form innehåller de extraherade koordinaterna redan dess [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/)‑ och [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/)‑position och avspeglar dess aktuella bredd och höjd. Till exempel har en icke‑roterad rektangel på `(100, 200)` med storleken `120 × 80` konturboundar `(100, 200)`–`(220, 280)`. Lägg inte till formens position igen. Subtrahera dess X och Y för att få koordinater relativt till dess icke‑roterade ram.
+**Koordinater och transformationer.** Punkter mäts i punkter (1/72 tum), med X som ökar åt höger och Y som ökar nedåt. För en ogrupperad form inkluderar de extraherade koordinaterna redan dess [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) och [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/)‑position och återspeglar dess aktuella bredd och höjd. Till exempel har en icke‑roterad rektangel vid `(100, 200)` med storlek `120 × 80` konturgränserna `(100, 200)`–`(220, 280)`. Lägg inte till formens position igen. Subtrahera dess X och Y för att få koordinater relativt dess icke‑roterade ram.
 
-De extraherade punkterna tillämpas inte på formens [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) eller horisontella och vertikala speglingar. För att återge den visade konturen, applicera dessa transformationer kring formens centrum. För grupperade former, ta även hänsyn till gruppens koordinatmappning och transformationer; anta inte att de extraherade punkterna är de slutgiltiga renderade bild‑koordinaterna eller att du ska tillämpa en översättning eller skala två gånger om den redan reflekteras i barnets ram.
+De extraherade punkterna tillämpar inte formens [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) eller horisontella och vertikala speglingar. För att reproducera den visade konturen, applicera dessa transformationer runt formens centrum. För grupperade former, ta också hänsyn till gruppens koordinatmappning och transformationer; anta inte att de extraherade punkterna är de slutgiltiga renderade bildkoordinaterna eller applicera en förflyttning eller skala två gånger om den redan reflekteras i barnets ram.
 
-**Inspektion kontra redigering.** Extraherade arrayer beskriver konturen; att ändra dem uppdaterar inte den ursprungliga formen. Välj detta tillvägagångssätt när din analys‑ eller ritkod behöver punkt‑/typ‑arrayer. Använd [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) när du behöver geometrikommandon i formens lokala koordinatsystem eller vill redigera dess geometri. Applicera redigerade banor via [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) eller [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
+**Inspektion kontra redigering.** Extraherade arrayer beskriver konturen; att ändra dem uppdaterar inte den ursprungliga formen. Välj detta tillvägagångssätt när din analys‑ eller ritkod behöver punkt‑/typ‑arrayer. Använd [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) när du behöver geometriska kommandon i formens lokala koordinatsystem eller vill redigera dess geometri. Applicera redigerade banor via [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) eller [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
 
 ## **Konvertera GeometryPath till GraphicsPath (System.Drawing.Drawing2D)**
 
-Följande exempel kräver ett äldre Aspose.Slides for .NET‑assembly som stöder [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), exempelvis version 25.10, samt en Windows‑miljö med `System.Drawing.Common`. Konverteringsmetoderna togs bort i [version 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
+Följande exempel kräver ett äldre Aspose.Slides för .NET‑assembly som stöder [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), t.ex. version 25.10, och en Windows‑miljö med `System.Drawing.Common`. Konverteringsmetoderna togs bort i [version 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
 
-Exemplet kombinerar en rektangulär kontur med text som konverterats till geometri. Konturens [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) är satt till att inaktivera fyllning. En [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) lagrar textens kontur, vilket [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) konverterar till en fylld geometribana. Genom att applicera båda banorna med [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) skapas en enda form som innehåller både rektangeln och texten. För konvertering åt andra hållet, använd [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
+Detta exempel kombinerar en rektangulär kontur med text konverterad till geometri. Konturens [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) är satt för att inaktivera fyllning. En [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) lagrar textkonturen, som [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) konverterar till en fylld geometrisk bana. Att applicera båda banorna med [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) skapar en enda form som innehåller rektangeln och texten. För konvertering i motsatt riktning, använd [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
 
 ```csharp
 using System.Drawing;
@@ -375,18 +418,18 @@ textPath.FillMode = PathFillModeType.Normal;
 
 shape.SetGeometryPaths(new[] { originalPath, textPath });
 ```
-![exempel5_bild](custom_shape_5.png)
+![example5_image](custom_shape_5.png)
 
 ## **FAQ**
 
-**Vad händer med fyllning och kontur efter att geometrin har ersatts?**
+**Vad händer med fyllning och kontur efter att geometrin ersatts?**
 
-Stilen förblir knuten till formen; endast konturen ändras. Fyllning och kontur appliceras automatiskt på den nya geometrin.
+Stilen förblir på formen; endast konturen ändras. Fyllning och kontur appliceras automatiskt på den nya geometrin.
 
-**Hur roterar jag en anpassad form korrekt tillsammans med dess geometri?**
+**Hur roterar jag korrekt en anpassad form tillsammans med dess geometri?**
 
 Använd formens [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/)‑egenskap; geometrin roterar med formen eftersom den är bunden till formens eget koordinatsystem.
 
 **Kan jag konvertera en anpassad form till en bild för att ”låsa” resultatet?**
 
-Ja. Exportera den önskade [bild](/slides/sv/net/convert-powerpoint-to-png/)‑området eller själva [formen](/slides/sv/net/create-shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med komplexa geometrier.
+Ja. Exportera det önskade [slide](/slides/sv/net/convert-powerpoint-to-png/)‑området eller själva [shape](/slides/sv/net/create-shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med komplexa geometrier.

@@ -1,5 +1,5 @@
 ---
-title: Dostosuj kształty prezentacji w Pythonie
+title: Dostosowywanie kształtów prezentacji w Pythonie
 linktitle: Kształt niestandardowy
 type: docs
 weight: 20
@@ -16,68 +16,70 @@ keywords:
 - dodaj punkt
 - usuń punkt
 - operacja edycji
-- zaokrąglony narożnik
+- zakrzywiony róg
 - PowerPoint
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Pythona w technologii .NET: ścieżki geometryczne, zaokrąglone narożniki, kształty złożone."
+description: "Twórz i dostosowuj kształty w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Pythona w .NET: ścieżki geometryczne, zakrzywione rogi, kształty złożone."
 ---
 ## **Przegląd**
 
-W tym artykule wyjaśniono, jak dostosować kształty w prezentacji w Aspose.Slides poprzez edycję geometrii kształtu przy użyciu punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) aby modyfikować istniejące kształty, wykonywać podstawowe operacje edycji ścieżek, dodawać lub usuwać punkty oraz zastosować zaktualizowaną geometrię z powrotem do kształtu.
+Ten artykuł wyjaśnia, jak dostosować kształty w prezentacji w Aspose.Slides, edytując geometrię kształtu za pomocą punktów edycji i ścieżek geometrycznych. Pokazuje, jak pracować z [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/), aby modyfikować istniejące kształty, wykonywać podstawowe operacje edycji ścieżek, dodawać lub usuwać punkty oraz zastosować zaktualizowaną geometrię ponownie do kształtu.
 
-Pokazuje również, jak tworzyć własne i złożone kształty, budować kształty z zakrzywionymi narożnikami, określać, czy geometria kształtu jest zamknięta oraz wyodrębniać elementy kształtu do analizy konturu.
+Demonstruje także, jak tworzyć własne i złożone kształty, budować kształty z zakrzywionymi rogami, określać, czy geometria kształtu jest zamknięta, oraz wyodrębniać elementy kształtu do analizy konturu.
 
-## **Zmienianie kształtu przy użyciu punktów edycji**
+## **Zmienianie kształtu za pomocą punktów edycji**
 
-* Przesuń narożnik do wewnątrz lub na zewnątrz.
-* Dostosuj krzywiznę w punkcie.
-* Dodaj nowe punkty.
+W programie PowerPoint możesz używać **Edit Points**, aby modyfikować kwadrat:
 
-Edycja punktów pozwala modyfikować kontur kształtu lub używać istniejącego kształtu jako podstawy do nowego.
+* Przesuwać róg do wewnątrz lub na zewnątrz.
+* Dostosowywać krzywiznę w punkcie.
+* Dodawać nowe punkty.
+
+Edycja punktów pozwala zmienić obrys kształtu lub użyć istniejącego kształtu jako bazy dla nowego.
 
 ## **Wskazówki dotyczące edycji kształtów**
 
 ![overview_image](custom_shape_0.png)
 
-Podczas edycji kształtów w PowerPoint, pamiętaj o następujących koncepcjach:
+Podczas edycji kształtów w PowerPoint pamiętaj o następujących koncepcjach:
 
 * Kształt (lub jego ścieżka) może być zamknięty lub otwarty.
 * Ścieżka kształtu składa się z punktów kotwiczących połączonych odcinkami.
 * Odcinek może być prosty lub zakrzywiony. Punkty kotwiczące i uchwyty kontrolne określają jego kształt.
 * Punkty kotwiczące występują jako punkty narożne, proste lub gładkie:
-  * W punkcie narożnym przylegające odcinki mogą łączyć się pod kątem.
-  * W punkcie gładkim dwa uchwyty kontrolne są wyrównane i znajdują się w jednakowej odległości od punktu kotwiczącego.
-  * W punkcie prostym dwa uchwyty kontrolne są wyrównane, ale mogą znajdować się w różnej odległości od punktu kotwiczącego.
-* Przemieszczanie punktów kotwiczących lub dostosowywanie ich uchwytów zmienia kontur kształtu.
+  * W punkcie narożnym łączące się odcinki mogą tworzyć kąt.
+  * W punkcie gładkim dwa uchwyty kontrolne są wyrównane i równo oddalone od punktu kotwiczącego.
+  * W punkcie prostym dwa uchwyty kontrolne są wyrównane, ale mogą mieć różne odległości od punktu kotwiczącego.
+* Przemieszczanie punktów kotwiczących lub dostosowywanie ich uchwytów zmienia obrys kształtu.
 
-Aby edytować kształty PowerPoint przy użyciu punktów edycji, **Aspose.Slides** udostępnia klasę [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+Aby edytować kształty programu PowerPoint za pomocą punktów edycji, **Aspose.Slides** udostępnia klasę [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
 
 * Instancja [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) reprezentuje ścieżkę geometryczną obiektu [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).
 * Aby pobrać [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) z instancji [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/), możesz użyć metody [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/).
-* Aby ustawić [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) dla kształtu, możesz użyć tych metod: [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) dla kształtów z jedną ścieżką oraz [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) dla kształtów z wieloma ścieżkami.
-* Aby dodać odcinki, możesz użyć metod dostępnych w [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
-* Używając właściwości [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) i [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/), możesz ustawić wygląd ścieżki geometrycznej.
-* Korzystając z właściwości [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/), możesz pobrać ścieżkę geometryczną [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) jako tablicę segmentów ścieżki.
+* Aby ustawić [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) dla kształtu, możesz użyć metod: [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) dla kształtów z jedną ścieżką oraz [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) dla kształtów z wieloma ścieżkami.
+* Aby dodać odcinki, możesz używać metod dostępnych w [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+* Korzystając z właściwości [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) i [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/), możesz określić wygląd ścieżki geometrycznej.
+* Dzięki właściwości [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) możesz pobrać ścieżkę geometryczną [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) jako tablicę segmentów ścieżki.
 
 ## **Proste operacje edycji**
 
-Użyj następujących metod, aby edytować ścieżkę geometryczną. Przeciążenia przyjmujące indeks wstawiają segment na wskazanej, zerowo‑indeksowanej pozycji w tablicy segmentów ścieżki.
+Użyj poniższych metod, aby edytować ścieżkę geometryczną. Przeciążenia przyjmujące indeks wstawiają odcinek w tej zero‑indeksowanej pozycji w tablicy odcinków ścieżki.
 
 | Operacja | Metoda |
 | --- | --- |
 | Dodaj lub wstaw prostą linię. | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
 | Dodaj lub wstaw krzywą Béziera trzeciego stopnia z dwoma punktami kontrolnymi i punktem końcowym. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
-| Dodaj lub wstaw krzywą Béziera drugiego stopnia z jednym punktem kontrolnym i punktem końcowym. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
-| Dodaj eliptyczną łuk z określonymi wymiarami i kątami w stopniach. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
+| Dodaj lub wstaw krzywą Béziera kwadratową z jednym punktem kontrolnym i punktem końcowym. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| Dodaj łuk eliptyczny o podanych wymiarach i kątach w stopniach. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
 | Zamknij bieżącą figurę, łącząc jej punkt końcowy z punktem początkowym. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
 | Ustaw punkt początkowy figury. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
-| Usuń segment pod zerowo‑indeksowanym indeksem. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
+| Usuń odcinek pod zero‑indeksowym indeksem. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
 ## **Dodawanie własnych punktów do kształtu**
 
-Ten przykład wstawia dwa punkty do prostokątnego kształtu przy użyciu [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/), i zastosowuje edytowaną ścieżkę za pomocą [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). Współrzędne są lokalne względem kształtu: oba nowe punkty znajdują się w jego centrum, 100 punktów od lewej i 50 punktów od góry. Indeksy segmentów 1 i 4 umieszczają je na górnej i dolnej krawędzi, ściągając te krawędzie do wewnątrz.
+Ten przykład wstawia dwa punkty do prostokątnego kształtu przy użyciu [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) i stosuje edytowaną ścieżkę metodą [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). Współrzędne są lokalne względem kształtu: oba nowe punkty znajdują się w jego środku, 100 punktów od lewej i 50 punktów od góry. Indeksy odcinków 1 i 4 umieszczają je na górnej i dolnej krawędzi, ściągając te krawędzie do środka.
 
 ```python
 import aspose.slides as slides
@@ -98,7 +100,7 @@ with slides.Presentation() as presentation:
 
 ## **Usuwanie punktów z kształtu**
 
-Ten przykład zmienia kontur kształtu serca, usuwając segment pod zerowo‑indeksowanym indeksem 2 za pomocą [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). Zastosowanie zmodyfikowanej ścieżki przy użyciu [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) aktualizuje kontur kształtu.
+Ten przykład zmienia kontur w kształcie serca, usuwając odcinek pod zero‑indeksowym indeksem 2 przy użyciu [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). Zastosowanie zmodyfikowanej ścieżki metodą [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) aktualizuje kontur kształtu.
 
 ```python
 import aspose.slides as slides
@@ -117,7 +119,7 @@ with slides.Presentation() as presentation:
 
 ## **Tworzenie własnego kształtu**
 
-Ten przykład tworzy pięcioramienną gwiazdę przy użyciu [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Naprzemienne zewnętrzne i wewnętrzne promienie o wartościach 100 i 50 punktów definiują wierzchołki i wgłębienia; krok 72 stopnie równomiernie rozmieszcza pięć wierzchołków. Ścieżka jest zamykana metodą [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) i stosowana do prostokątnego kształtu przy użyciu [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), zastępując jego kontur.
+Ten przykład tworzy pięcioramienną gwiazdę przy użyciu [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Naprzemienne promienie zewnętrzne i wewnętrzne o wartościach 100 i 50 punktów definiują szczyty i wcięcia; krok 72 stopni równomiernie rozmieszcza pięć szczytów. Ścieżka jest zamykana metodą [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) i stosowana do prostokątnego kształtu metodą [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), zastępując jego kontur.
 
 ```python
 import aspose.slides as slides
@@ -159,7 +161,7 @@ with slides.Presentation() as presentation:
 
 ## **Tworzenie złożonego własnego kształtu**
 
-Ten przykład definiuje dwa zamknięte obiekty [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) dla górnej i dolnej trzeciej części kształtu. Zastosowanie obu ścieżek przy użyciu [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) tworzy pojedynczy złożony kształt z przerwą w środkowej trzeciej części.
+Ten przykład definiuje dwie zamknięte obiekty [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) dla górnej i dolnej jednej trzeciej kształtu. Zastosowanie obu ścieżek metodą [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) tworzy jeden złożony kształt z przerwą w jego środkowej jednej trzeciej.
 
 ```python
 import aspose.slides as slides
@@ -177,7 +179,7 @@ with slides.Presentation() as presentation:
     top_path.close_figure()
 
     bottom_path = slides.GeometryPath()
-    bottom_path.move_to(shape.height / 3 * 2, 0)
+    bottom_path.move_to(0, shape.height / 3 * 2)
     bottom_path.line_to(shape.width, shape.height / 3 * 2)
     bottom_path.line_to(shape.width, shape.height)
     bottom_path.line_to(0, shape.height)
@@ -187,9 +189,9 @@ with slides.Presentation() as presentation:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Tworzenie własnego kształtu z zakrzywionymi narożnikami**
+## **Tworzenie własnego kształtu z zakrzywionymi rogami**
 
-Ten przykład łączy proste odcinki z [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) aby stworzyć kształt z wklęsłymi, zakrzywionymi narożnikami. Rozmiar każdego narożnika określa szerokość i wysokość łuku w punktach, a obrót -90 stopni rysuje elipsę w ćwiartce w kierunku przeciwnym do ruchu wskazówek zegara. Gotowa ścieżka jest stosowana przy użyciu [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), a prezentacja jest zapisywana w formacie PPTX.
+Ten przykład łączy proste odcinki z metodą [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/), aby utworzyć kształt z wklęsłymi rogami. Rozmiar każdego rogu określa szerokość i wysokość łuku w punktach, a wycinek -90 stopni rysuje przeciwnie do ruchu wskazówek zegara ćwiartkowy elipsę. Gotowa ścieżka jest stosowana metodą [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), a prezentacja jest zapisywana w formacie PPTX.
 
 ```python
 import aspose.slides as slides
@@ -233,9 +235,9 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Sprawdzenie, czy geometria kształtu jest zamknięta**
+## **Sprawdzanie, czy geometria kształtu jest zamknięta**
 
-Poniższy pomocnik sprawdza, czy każda niepusta ścieżka geometryczna kończy się segmentem zamykającym. Odczytuje [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) i porównuje polecenie ostatniego segmentu [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) z [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Zwraca false, gdy nie ma niepustych ścieżek. Sprawdza jedynie końcowe polecenie każdej ścieżki; nie analizuje każdej podfigury w ścieżce. Przykład wypisuje `True` dla prostokąta.
+Poniższy pomocniczy kod sprawdza, czy każda niepusta ścieżka geometryczna kończy się odcinkiem zamykającym. Odczytuje [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) i porównuje polecenie ostatniego odcinka [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) z [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Zwraca false, gdy nie ma niepustych ścieżek. To sprawdzenie dotyczy jedynie ostatniego polecenia każdej ścieżki; nie analizuje wszystkich podfigur w ramach ścieżki. Przykład wypisuje `True` dla prostokąta.
 
 ```python
 import aspose.slides as slides
@@ -263,11 +265,46 @@ with slides.Presentation() as presentation:
     print(is_geometry_closed(shape))
 ```
 
-## **Wyodrębnianie i analizowanie elementów kształtu**
+## **Inspekcja poleceń ścieżki geometrycznej**
 
-Użyj [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) , aby przeanalizować istniejący kształt jako elementy zawierające punkty ścieżki i typy punktów. Każdy zwrócony [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) udostępnia tablice [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) i [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/). Ta reprezentacja jest przydatna do analizy konturu lub przekazywania geometrii do własnych narzędzi rysujących.
+Pobierz plik [contour.pptx](contour.pptx) i umieść go w katalogu roboczym. Pierwszy kształt na pierwszym slajdzie ma prostą górną krawędź, krzywą Béziera trzeciego stopnia i prostą krawędź zamykającą. Użyj [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/), aby odczytać jego ścieżki. Dla każdej ścieżki [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) wypisuje segmenty w kolejności rysowania. Polecenie każdego segmentu [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) określa, jak interpretować jego [PathSegment.segment_data](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/segment_data/).
 
-Przykład otwiera prezentację, znajduje pierwszy kształt geometryczny bezpośrednio na pierwszym slajdzie i wypisuje jego segmenty ścieżki. Użyj prezentacji zawierającej kształt z odcinkami prostymi i zakrzywionymi, aby zobaczyć oba rodzaje wyników. Nie przeszukuje grup.
+```python
+import aspose.slides as slides
+
+with slides.Presentation("contour.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    for i, path in enumerate(shape.get_geometry_paths()):
+        for j, segment in enumerate(path.path_data):
+            command = segment.path_command
+            data = segment.segment_data
+            if command in (slides.PathCommandType.MOVE_TO, slides.PathCommandType.LINE_TO):
+                detail = f"destination={tuple(data)}"
+            elif command == slides.PathCommandType.CUBIC_BEZIER_TO:
+                detail = f"control1={tuple(data[:2])} control2={tuple(data[2:4])} end={tuple(data[4:])}"
+            elif command == slides.PathCommandType.CLOSE:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={data}"
+            print(f"Path {i}, segment {j}: {command.name} {detail}")
+```
+
+Kształt znajduje się w punkcie (200, 100) na slajdzie. Podane współrzędne są lokalne względem kształtu. Jego lewy górny róg to (0, 0), oś X rośnie w prawo, a oś Y w dół. Segment zamykający powraca do punktu początkowego bez dodatkowych współrzędnych.
+
+```text
+Path 0, segment 0: MOVE_TO destination=(0, 0)
+Path 0, segment 1: LINE_TO destination=(80, 0)
+Path 0, segment 2: CUBIC_BEZIER_TO control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: CLOSE no coordinates
+```
+
+![Kształt PowerPoint z prostą górną krawędzią, krzywą krawędzią od prawego górnego do lewego dolnego oraz prostą lewą krawędzią](contour.png)
+
+## **Wyodrębnianie i inspekcja elementów kształtu**
+
+Użyj [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/), aby przeanalizować istniejący kształt jako elementy zawierające punkty ścieżki i typy punktów. Każdy zwrócony [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) udostępnia tablice [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) i [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/). Ta reprezentacja jest przydatna do analizy konturu lub przekazywania geometrii do własnych narzędzi rysunkowych.
+
+Przykład otwiera prezentację, znajduje pierwszy kształt geometryczny bezpośrednio na pierwszym slajdzie i wypisuje jego segmenty ścieżki. Użyj prezentacji zawierającej kształt z prostymi i zakrzywionymi segmentami, aby zobaczyć oba rodzaje wyjścia. Nie przeszukuje grup.
 
 ```python
 import aspose.slides as slides
@@ -286,7 +323,7 @@ with slides.Presentation("input.pptx") as presentation:
 
             i = 0
             while i < len(points):
-                point_type = types[i] & 0x07  # Keep the segment type, excluding flags.
+                point_type = types[i] & 0x07  # Zachowaj typ segmentu, pomijając flagi.
                 if point_type == 0:
                     print(f"Start figure at {points[i]}")
                 elif point_type == 1:
@@ -300,26 +337,26 @@ with slides.Presentation("input.pptx") as presentation:
                 i += 1
 ```
 
-Tablice odpowiadają sobie indeksami: `points[i]` to punkt, a `types[i]` opisuje jego rolę. Typ `0` rozpoczyna figurę, a typ `1` rysuje linię od poprzedniego punktu do bieżącego. Segment krzywej Béziera trzeciego stopnia zaczyna się od poprzedniego punktu końcowego i wykorzystuje trzy kolejne wpisy typu `3`: dwa punkty kontrolne i nowy punkt końcowy. Pętla zużywa te trzy wpisy jednocześnie i sprawdza punkt końcowy pod kątem zamknięcia.
+Tablice są skorelowane indeksami: `points[i]` to punkt, a `types[i]` opisuje jego rolę. Typ `0` rozpoczyna figurę, a typ `1` rysuje linię od poprzedniego punktu do bieżącego. Segment Béziera trzeciego stopnia zaczyna się w poprzednim punkcie końcowym i wykorzystuje trzy kolejne wpisy typu `3`: dwa punkty kontrolne i nowy punkt końcowy. Pętla konsumuje te trzy wpisy razem i sprawdza, czy punkt końcowy zamyka figurę.
 
-Typy punktów zawierają także flagi. Maska `0x07` służy do identyfikacji typu segmentu, a test `0x80` oddzielnie wykrywa zamkniętą podścieżkę. Na przykład `129` (`0x81`) oznacza punkt końcowy linii zamykający podścieżkę, a `131` (`0x83`) oznacza punkt końcowy Béziera zamykający podścieżkę. Porównywanie surowej wartości tylko z `1` lub `3` pominęłoby te przypadki. Inne flagi, takie jak kreska (`0x10`) i znacznik (`0x20`), nie zmieniają podstawowego typu segmentu.
+Typy punktów zawierają również flagi. Maskuj za pomocą `0x07`, aby określić typ segmentu, oraz testuj `0x80` osobno, aby wykryć zamkniętą podścieżkę. Na przykład `129` (`0x81`) oznacza punkt końcowy linii, który zamyka podścieżkę, a `131` (`0x83`) oznacza punkt końcowy Béziera, który również zamyka podścieżkę. Porównywanie surowej wartości jedynie z `1` lub `3` pominęłoby te przypadki. Inne flagi, takie jak kreska (`0x10`) i znacznik (`0x20`), nie zmieniają podstawowego typu segmentu.
 
-**Współrzędne i przekształcenia.** Punkty są mierzone w punktach (1/72 cala), przy czym X rośnie w prawo, a Y w dół. Dla niepogrupowanego kształtu wyodrębnione współrzędne już zawierają jego pozycję [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) i [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) oraz odzwierciedlają aktualną szerokość i wysokość. Na przykład nieobrócony prostokąt w `(100, 200)` o rozmiarze `120 × 80` ma granice konturu `(100, 200)`–`(220, 280)`. Nie dodawaj ponownie pozycji kształtu. Odejmij jego X i Y, aby uzyskać współrzędne względem nieobróconej ramki.
+**Współrzędne i przekształcenia.** Punkty mierzone są w punktach (1/72 cala), przy czym X rośnie w prawo, a Y w dół. Dla niezgromadzonego kształtu wyodrębnione współrzędne już zawierają jego pozycję [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) i [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) oraz odzwierciedlają jego bieżącą szerokość i wysokość. Na przykład nieobrócony prostokąt w `(100, 200)` o wymiarach `120 × 80` ma granice konturu `(100, 200)`–`(220, 280)`. Nie dodawaj ponownie pozycji kształtu. Odejmij jego X i Y, aby uzyskać współrzędne względem nieobróconej ramki.
 
-Wyodrębnione punkty nie uwzględniają [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) ani odbić poziomych i pionowych kształtu. Aby odtworzyć wyświetlany kontur, zastosuj te przekształcenia wokół środka kształtu. Dla grupowanych kształtów uwzględnij także mapowanie współrzędnych grupy i przekształcenia; nie zakładaj, że wyodrębnione punkty są ostatecznymi współrzędnymi slajdu ani nie stosuj dwukrotnie tłumaczenia lub skalowania, jeśli jest już odzwierciedlone w ramce dziecka.
+Wyodrębnione punkty nie uwzględniają obrotu [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) kształtu ani odbić poziomych i pionowych. Aby odtworzyć wyświetlany kontur, zastosuj te przekształcenia wokół środka kształtu. Dla kształtów zgrupowanych uwzględnij także mapowanie współrzędnych grupy i przekształcenia; nie zakładaj, że wyodrębnione punkty są ostatecznymi współrzędnymi slajdu ani nie stosuj podwójnego przesunięcia lub skalowania, jeśli już są odzwierciedlone w ramce dziecka.
 
-**Inspekcja vs. edycja.** Wyodrębnione tablice opisują kontur; ich modyfikacja nie aktualizuje pierwotnego kształtu. Wybierz to podejście, gdy twoja analiza lub kod rysujący wymaga tablic punktów/typów. Użyj [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) , gdy potrzebujesz poleceń geometrycznych w lokalnym układzie współrzędnych kształtu lub chcesz edytować jego geometrię. Zastosuj edytowane ścieżki przy użyciu [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) lub [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
+**Inspekcja vs. edycja.** Wyodrębnione tablice opisują kontur; ich modyfikacja nie aktualizuje pierwotnego kształtu. Wybierz to podejście, gdy Twoja analiza lub kod rysujący potrzebuje tablic punktów/typów. Używaj [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/), gdy potrzebujesz poleceń geometrycznych w lokalnym układzie współrzędnych kształtu lub chcesz edytować jego geometrię. Zastosuj edytowane ścieżki za pomocą [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) lub [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
 
 ## **FAQ**
 
-**Co się stanie z wypełnieniem i konturem po zastąpieniu geometrii?**
+**Co się stanie z wypełnieniem i konturem po zamianie geometrii?**
 
 Styl pozostaje przypisany do kształtu; zmienia się jedynie kontur. Wypełnienie i kontur są automatycznie stosowane do nowej geometrii.
 
-**Jak poprawnie obrócić własny kształt wraz z jego geometrią?**
+**Jak prawidłowo obrócić własny kształt wraz z jego geometrią?**
 
-Użyj właściwości [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) kształtu; geometria obraca się razem z kształtem, ponieważ jest związana z własnym układem współrzędnych kształtu.
+Użyj właściwości [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) kształtu; geometria obraca się razem z kształtem, ponieważ jest związana z jego własnym układem współrzędnych.
 
-**Czy mogę przekonwertować własny kształt na obraz, aby „zablokować” rezultat?**
+**Czy mogę skonwertować własny kształt na obraz, aby „zablokować” rezultat?**
 
-Tak. Wyeksportuj wymaganą [slide](/slides/pl/python-net/convert-powerpoint-to-png/) lub sam [shape](/slides/pl/python-net/create-shape-thumbnails/) do formatu rastrowego; ułatwia to dalszą pracę z złożonymi geometrami.
+Tak. Eksportuj wymagany [slajd](/slides/pl/python-net/convert-powerpoint-to-png/) lub sam [kształt](/slides/pl/python-net/create-shape-thumbnails/) do formatu rastrowego; upraszcza to dalszą pracę z złożonymi geometriami.

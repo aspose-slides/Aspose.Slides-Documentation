@@ -1,84 +1,86 @@
 ---
-title: Aangepaste presentatieshapes in Python via Java
-linktitle: Aangepaste shape
+title: Aangepaste presentatievormen in Python via Java
+linktitle: Aangepaste vorm
 type: docs
 weight: 20
 url: /nl/python-java/custom-shape/
 keywords:
-- aangepaste shape
-- shape toevoegen
-- shape maken
-- shape wijzigen
-- shape geometrie
-- geometriepad
+- aangepaste vorm
+- vorm toevoegen
+- vorm maken
+- vorm wijzigen
+- vormgeometrie
+- geometrisch pad
 - padpunten
 - bewerkingspunten
 - punt toevoegen
 - punt verwijderen
 - bewerkingsoperatie
-- afgeronde hoek
+- gebogen hoek
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Maak en pas shapes aan in PowerPoint-presentaties met Aspose.Slides voor Python via Java: geometrie-paden, afgeronde hoeken, samengestelde shapes."
+description: "Maak en pas vormen aan in PowerPoint-presentaties met Aspose.Slides voor Python via Java: geometrische paden, gebogen hoeken, samengestelde vormen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je presentatieshape‑geometrieën in Aspose.Slides kunt aanpassen door de vormgeometrie te bewerken via bewerkingspunten en geometriepaden. Het laat zien hoe je met [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) bestaande shapes kunt wijzigen, basisbewerkingsbewerkingen kunt uitvoeren, punten kunt toevoegen of verwijderen, en de bijgewerkte geometrie terug op een shape kunt toepassen.
+Dit artikel legt uit hoe je presentatiesvormen in Aspose.Slides kunt aanpassen door de vormgeometrie te bewerken via bewerkingspunten en geometrische paden. Het laat zien hoe je met [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) bestaande vormen kunt wijzigen, basisbewerkingsbewerkingen kunt uitvoeren, punten kunt toevoegen of verwijderen, en de bijgewerkte geometrie op een vorm kunt toepassen.
 
-Het laat ook zien hoe je aangepaste en samengestelde shapes maakt, shapes bouwt met afgeronde hoeken, bepaalt of een shape‑geometrie gesloten is, shape‑elementen inspecteert, en Java AWT‑tekstcontouren converteert naar geometriepaden.
+Het toont ook hoe je aangepaste en samengestelde vormen kunt maken, vormen met afgeronde hoeken kunt bouwen, kunt bepalen of een vormgeometrie gesloten is, vormelementen kunt inspecteren en Java AWT‑tekstcontouren in geometrische paden kunt omzetten.
 
-## **Een vorm wijzigen met bewerkingspunten**
+## **Een Vorm Wijzigen met Bewerkingpunten**
+
+In PowerPoint kun je **Bewerkingpunten** gebruiken om een vierkant te wijzigen:
 
 * Een hoek naar binnen of naar buiten verplaatsen.
 * De kromming op een punt aanpassen.
 * Nieuwe punten toevoegen.
 
-Bewerkingspunten laten je de omtrek van een shape wijzigen of een bestaande shape gebruiken als basis voor een nieuwe.
+Bewerkingpunten laten je de omtrek van een vorm aanpassen of een bestaande vorm als basis voor een nieuwe gebruiken.
 
-## **Tips voor shape‑bewerking**
+## **Tips voor Vormbewerking**
 
 ![overview_image](custom_shape_0.png)
 
-Wanneer je PowerPoint‑shapes bewerkt, houd dan rekening met de volgende concepten:
+Houd bij het bewerken van PowerPoint‑vormen de volgende concepten in gedachten:
 
-* Een shape (of het pad) kan zowel gesloten als geopend zijn.
-* Het pad van een shape bestaat uit ankerpunten die met segmenten verbonden zijn.
-* Een segment kan recht of gekromd zijn. Ankerpunten en controlehandvatten bepalen de vorm.
-* Ankerpunten komen voor als hoekpunten, rechte punten of vloeiende punten:
+* Een vorm (of het pad ervan) kan gesloten of open zijn.
+* Het pad van een vorm bestaat uit ankerpunten die met segmenten zijn verbonden.
+* Een segment kan recht of gebogen zijn. Ankerpunten en bediening handvatten bepalen de vorm.
+* Ankerpunten bestaan als hoekpunten, rechte punten of soepele punten:
   * Bij een hoekpunt kunnen aangrenzende segmenten onder een hoek samenkomen.
-  * Bij een vloeiend punt zijn de twee controlehandvatten uitgelijnd en even ver van het ankerpunt verwijderd.
-  * Bij een recht punt zijn de twee controlehandvatten uitgelijnd maar kunnen ze verschillende afstanden tot het ankerpunt hebben.
-* Het verplaatsen van ankerpunten of het aanpassen van hun handvatten verandert de omtrek van de shape.
+  * Bij een soepel punt zijn de twee bediening handvatten uitgelijnd en op gelijke afstand van het ankerpunt.
+  * Bij een recht punt zijn de twee bediening handvatten uitgelijnd maar kunnen ze verschillende afstanden tot het ankerpunt hebben.
+* Het verplaatsen van ankerpunten of het aanpassen van hun handvatten wijzigt de omtrek van de vorm.
 
-Om PowerPoint‑shapes via bewerkingspunten te bewerken, biedt **Aspose.Slides** de [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)‑klasse.
+Om PowerPoint‑vormen via bewerkingspunten te bewerken, biedt **Aspose.Slides** de klasse [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
 
-* Een [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)‑instantie vertegenwoordigt een geometrie‑pad van het [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/)‑object.
-* Om het [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) van een [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/)‑instantie op te halen, kun je de methode [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) gebruiken.
-* Om het [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) voor een shape in te stellen, kun je de methoden [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) voor shapes met één pad en [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) voor shapes met meerdere paden gebruiken.
+* Een [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)‑instantie vertegenwoordigt een geometrisch pad van het object [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/).
+* Om het [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) op te halen van de [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/)-instantie, kun je de methode [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) gebruiken.
+* Om het [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) voor een vorm in te stellen, kun je deze methoden gebruiken: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) voor vormen met één enkel pad en [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) voor vormen met meerdere paden.
 * Om segmenten toe te voegen, kun je de methoden onder [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) gebruiken.
-* Met de methoden [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) en [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) kun je het uiterlijk van een geometrie‑pad instellen.
-* Met de methode [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) kun je het geometrie‑pad van een [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) als een array van padsegmenten ophalen.
-* Om meer opties voor shape‑geometrie‑aanpassing te benaderen, kun je een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) lezen via zijn [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) en de segmenten opnieuw afspelen op een [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
+* Met de methoden [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) en [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) kun je het uiterlijk van een geometrisch pad instellen.
+* Met de methode [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) kun je het geometrische pad van een [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) ophalen als een array van padsegmenten.
+* Voor extra opties voor het aanpassen van vormgeometrie kun je een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) lezen via zijn [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) en de segmenten afspelen op een [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
 
-## **Eenvoudige bewerkingsbewerkingen**
+## **Eenvoudige Bewerkingstaken**
 
-Gebruik de volgende methoden om een geometrie‑pad te bewerken. Overloads die een index accepteren, voegen een segment in op die nulgebaseerde positie in de segmentarray van het pad.
+Gebruik de volgende methoden om een geometrisch pad te bewerken. Overloads die een index accepteren, voegen een segment in op die nul‑gebaseerde positie in de segmentarray van het pad.
 
 | Operatie | Methode |
 | --- | --- |
 | Een rechte lijn toevoegen of invoegen. | [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) |
 | Een kubieke Bézier‑curve met twee controlepunten en een eindpunt toevoegen of invoegen. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
 | Een kwadratische Bézier‑curve met één controlepunt en een eindpunt toevoegen of invoegen. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| Een elliptische boog toevoegen met de opgegeven afmetingen en hoeken in graden. | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
-| De huidige figuur afsluiten door het eindpunt met het startpunt te verbinden. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
+| Een elliptische boog met de opgegeven afmetingen en hoeken in graden toevoegen. | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
+| De huidige figuur sluiten door het eindpunt met het startpunt te verbinden. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
 | Het startpunt van een figuur instellen. | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
-| Een segment op een nulgebaseerde index verwijderen. | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
+| Een segment op een nul‑gebaseerde index verwijderen. | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
 
-## **Aangepaste punten toevoegen aan een shape**
+## **Aangepaste Punten Toevoegen aan een Vorm**
 
-Dit voorbeeld voegt twee punten in een rechthoekige shape in met [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) en past het bewerkte pad toe met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath). De coördinaten zijn lokaal ten opzichte van de shape: beide nieuwe punten liggen in het midden, 100 punten van links en 50 punten van boven. Segmentindices 1 en 4 plaatsen ze respectievelijk op de boven‑ en onderkant, waardoor die randen naar binnen worden getrokken.
+Dit voorbeeld voegt twee punten in een rechthoekige vorm in met [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) en past het bewerkte pad toe met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath). De coördinaten zijn lokaal ten opzichte van de vorm: beide nieuwe punten staan in het midden, 100 punten van de linkerkant en 50 punten van de bovenkant. Segmentindices 1 en 4 plaatsen ze op de boven‑ en onderranden, waardoor die randen naar binnen worden getrokken.
 
 ```python
 import jpype
@@ -106,9 +108,9 @@ finally:
 
 ![example1_image](custom_shape_1.png)
 
-## **Punten verwijderen uit een shape**
+## **Punten Verwijderen uit een Vorm**
 
-Dit voorbeeld wijzigt een hartvormige omtrek door het segment op nulgebaseerde index 2 te verwijderen met [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt). Het toepassen van het gewijzigde pad met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) werkt de contour van de shape bij.
+Dit voorbeeld wijzigt de omtrek van een hartvorm door het segment op nul‑gebaseerde index 2 te verwijderen met [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt). Het toepassen van het aangepaste pad met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) werkt de contour van de vorm bij.
 
 ```python
 import jpype
@@ -134,9 +136,9 @@ finally:
 ```
 ![example2_image](custom_shape_2.png)
 
-## **Een aangepaste shape maken**
+## **Een Aangepaste Vorm Maken**
 
-Dit voorbeeld bouwt een vijfpuntige ster met [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/). Afwisselend buiten- en binnentradius van respectievelijk 100 en 50 punten definiëren de topjes en inkepingen; een stap van 72 graden verdeelt de vijf topjes gelijkmatig. Het pad wordt gesloten met [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) en toegepast op een rechthoekige shape met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), waardoor de oorspronkelijke omtrek wordt vervangen.
+Dit voorbeeld bouwt een vijfpuntige ster met [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/). Afwisselend buiten- en binnentradii van respectievelijk 100 en 50 punten bepalen de topjes en inkepingen; een stap van 72 graden verdeelt de vijf topjes gelijkmatig. Het pad wordt gesloten met [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) en toegepast op een rechthoekige vorm met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), waardoor de bestaande omtrek wordt vervangen.
 
 ```python
 import jpype
@@ -182,9 +184,9 @@ finally:
 ```
 ![example3_image](custom_shape_3.png)
 
-## **Een samengestelde aangepaste shape maken**
+## **Een Samengestelde Aangepaste Vorm Maken**
 
-Dit voorbeeld definieert twee gesloten [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)‑objecten voor respectievelijk het boven‑ en onderste derde deel van een shape. Het toepassen van beide paden met [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) creëert één samengestelde shape met een opening door het middelste derde deel.
+Dit voorbeeld definieert twee gesloten [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)‑objecten voor respectievelijk het boven‑ en onderste derde deel van een vorm. Het toepassen van beide paden met [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) creëert één samengestelde vorm met een opening in het middelste derde deel.
 
 ```python
 import jpype
@@ -221,9 +223,9 @@ finally:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Een aangepaste shape met afgeronde hoeken maken**
+## **Een Aangepaste Vorm met Gebogen Hoeken Maken**
 
-Dit voorbeeld combineert rechte segmenten met [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) om een shape met naar binnen afgeronde hoeken te maken. Elke hoekgrootte bepaalt de breedte en hoogte van de boog in punten, en de sweep van –90 graden tekent een tegen‑klokke vierkwadrant‑ellipse. Het voltooide pad wordt toegepast met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), en de presentatie wordt opgeslagen in PPTX‑formaat.
+Dit voorbeeld combineert rechte segmenten met [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) om een vorm met naar binnen gebogen hoeken te maken. Elke hoekgrootte stelt de breedte en hoogte van de boog in punten in, en de boog van –90 graden tekent een kwart‑ellips tegen de klok in. Het afgeronde pad wordt toegepast met [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), en de presentatie wordt opgeslagen in PPTX‑formaat.
 
 ```python
 import jpype
@@ -269,9 +271,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Controleren of een shape‑geometrie gesloten is**
+## **Controleren Of een Vormgeometrie Gesloten Is**
 
-De volgende helper controleert of elke niet‑lege geometrie‑pad eindigt met een sluit‑segment. Hij leest [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) en vergelijkt het laatste segment‑[PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) met [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/). Hij retourneert `False` wanneer er geen niet‑lege paden zijn. Deze controle bekijkt alleen het laatste commando van elk pad; hij inspecteert niet elk subfiguur binnen een pad. Het voorbeeld print `True` voor een rechthoek.
+De volgende helper controleert of elke niet‑lege geometrische pad eindigt met een sluitingssegment. Het leest [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) en vergelijkt het laatste segment‑[PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) met [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/). Het retourneert `False` wanneer er geen niet‑lege paden zijn. Deze controle kijkt naar het laatste commando van elk pad; hij inspecteert niet elke subfiguur binnen een pad. Het voorbeeld geeft `True` voor een rechthoek.
 
 ```python
 import jpype
@@ -304,11 +306,56 @@ finally:
     presentation.dispose()
 ```
 
-## **Shape‑elementen extraheren en inspecteren**
+## **Inspectie van GeometryPath‑commando’s**
 
-Gebruik [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) om een bestaande shape te inspecteren als elementen die padpunten en punt‑types bevatten. Cast elk geretourneerd element naar [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) met `jpype.JObject` om de punt‑ en type‑arrays op te halen via [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) en [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes). Deze representatie is nuttig voor contouranalyse of om geometrie door te geven aan aangepaste teken‑tools.
+Download [contour.pptx](contour.pptx) en plaats het in de werkmap van de applicatie. De eerste vorm op de eerste dia heeft een rechte bovenrand, een kubieke Bézier‑curve en een rechte sluitingsrand. Gebruik [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) om de paden van de vorm te lezen en [getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) om de segmenten van elk pad in tekenvolgorde te lezen. Voor elk segment identificeert [getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) het commando en bepaalt hoe de waarden die door [getSegmentData](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getSegmentData) worden geretourneerd, geïnterpreteerd moeten worden.
 
-Het voorbeeld opent `input.pptx`, zoekt de eerste geometrie‑shape direct op de eerste dia, en print de path‑segmenten. Gebruik een presentatie met een shape die rechte en gekromde segmenten bevat om beide soorten output te zien. Het zoekt niet binnen groepen.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PathCommandType, Presentation
+
+presentation = Presentation("contour.pptx")
+try:
+    shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    for i, path in enumerate(shape.getGeometryPaths()):
+        for j, segment in enumerate(path.getPathData()):
+            command = segment.getPathCommand()
+            data = segment.getSegmentData()
+            if command in (PathCommandType.MoveTo, PathCommandType.LineTo):
+                detail = f"destination=({data[0]}, {data[1]})"
+            elif command == PathCommandType.CubicBezierTo:
+                detail = f"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})"
+            elif command == PathCommandType.Close:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={list(data)}"
+            name = PathCommandType.getName(PathCommandType.class_, command)
+            print(f"Path {i}, segment {j}: {name} {detail}")
+finally:
+    presentation.dispose()
+```
+
+De vorm staat op (200, 100) punten op de dia. De gerapporteerde coördinaten zijn lokaal ten opzichte van de vorm, met (0, 0) in de linkerbovenhoek, x stijgt naar rechts en y naar beneden. Het sluitingssegment keert terug naar het startpunt zonder extra coördinaten.
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Geometrische Vormelementen Uithalen en Inspecteren**
+
+Gebruik [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) om een bestaande vorm te inspecteren als elementen die padpunten en punt‑types bevatten. Cast elk teruggegeven element naar [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) met `jpype.JObject` om de punt‑ en type‑arrays op te halen via de methoden [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) en [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes). Deze weergave is nuttig voor contouranalyse of om geometrie door te geven aan aangepaste tekengereedschappen.
+
+Het voorbeeld opent input.pptx, vindt de eerste geometry‑vorm rechtstreeks op de eerste dia, en drukt de padsegmenten af. Gebruik een presentatie met een vorm die zowel rechte als gebogen segmenten bevat om beide soorten output te zien. Het zoekt niet binnen groepen.
 
 ```python
 import jpype
@@ -347,7 +394,7 @@ try:
                     print(f"Line to {points[i]}")
                 elif point_type == 3:
                     print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
-                    i += 2  # Consume both control points and the endpoint.
+                    i += 2  # Verbruik beide controlepunten en het eindpunt.
 
                 if types[i] & 0x80:
                     print("Close subpath back to its starting point.")
@@ -356,21 +403,21 @@ finally:
     presentation.dispose()
 ```
 
-De arrays corresponderen op index: `points[i]` is een punt en `types[i]` beschrijft de rol. Type `0` start een figuur, en type `1` tekent een lijn van het vorige punt naar het huidige punt. Een kubieke Bézier‑segment start bij het vorige eindpunt en gebruikt drie opeenvolgende type‑`3`‑items: twee controlepunten gevolgd door het nieuwe eindpunt. De lus verwerkt deze drie items samen en controleert het eindpunt op afsluiting.
+De arrays corresponderen per index: `points[i]` is een punt en `types[i]` beschrijft de rol. Type `0` start een figuur, en type `1` trekt een lijn van het vorige punt naar het huidige punt. Een kubiek Bézier‑segment start bij het vorige eindpunt en gebruikt drie opeenvolgende type‑`3`‑items: twee controlepunten gevolgd door het nieuwe eindpunt. De lus verwerkt deze drie items samen en controleert het eindpunt op sluiting.
 
-Punt‑types bevatten ook vlaggen. Masker met `0x07` om het segmenttype te identificeren, en test `0x80` apart om een gesloten subpad te detecteren. Bijvoorbeeld, `129` (`0x81`) betekent een lijn‑eindpunt dat een subpad sluit, en `131` (`0x83`) betekent een Bézier‑eindpunt dat er een sluit. Java slaat deze vlaggen op in signed bytes; maskeren behoudt de bedoelde bitwaarden. Alleen vergelijken met `1` of `3` zou deze gevallen missen. Andere vlaggen, zoals dash (`0x10`) en marker (`0x20`), wijzigen het basistype niet.
+Punt‑types bevatten ook vlaggen. Maskeer met `0x07` om het segmenttype te identificeren, en test `0x80` apart om een gesloten subpad te detecteren. Bijvoorbeeld, `129` (`0x81`) betekent een lijn‑eindpunt dat een subpad sluit, en `131` (`0x83`) betekent een Bézier‑eindpunt dat een subpad sluit. Java slaat deze vlaggen op in signed bytes; maskeren behoudt de bedoelde bitwaarden. Alleen de ruwe waarde vergelijken met `1` of `3` zou deze gevallen missen. Andere vlaggen, zoals dash (`0x10`) en marker (`0x20`), veranderen het basistype van het segment niet.
 
-**Coördinaten en transformaties.** Punten worden gemeten in points (1/72 inch), met X die naar rechts toeneemt en Y die naar beneden toeneemt. Voor een ongegroepeerde shape bevatten de geëxtraheerde coördinaten al de positie die wordt geretourneerd door [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) en [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) en weerspiegelen ze de huidige breedte en hoogte. Bijvoorbeeld, een niet‑geroteerde rechthoek op `(100, 200)` met grootte `120 × 80` heeft contourgrenzen `(100, 200)`–`(220, 280)`. Voeg de positie van de shape niet opnieuw toe. Trek X en Y af om coördinaten te verkrijgen relatief ten opzichte van het onge­ro­teerde frame.
+**Coördinaten en transformaties.** Punten worden gemeten in points (1/72 inch), met X die naar rechts toe groeit en Y die naar beneden toe groeit. Voor een niet‑gegroepeerde vorm omvatten de geëxtraheerde coördinaten al de positie die wordt geretourneerd door [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) en [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) en weerspiegelen ze de huidige breedte en hoogte. Bijvoorbeeld, een niet‑geroteerde rechthoek op `(100, 200)` met grootte `120 × 80` heeft contourgrenzen `(100, 200)`–`(220, 280)`. Voeg de positie van de vorm niet opnieuw toe. Trek X en Y af om coördinaten te verkrijgen relatief ten opzichte van het ongeroteerde frame.
 
-De geëxtraheerde punten houden geen rekening met de rotatie van de shape, geretourneerd door [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation), of horizontale en verticale spiegels. Om de getoonde contour te reproduceren, pas die transformaties rond het middelpunt van de shape toe. Voor gegroepeerde shapes moet je ook rekening houden met de coördinaten‑mapping en transformaties van de groep; ga er niet van uit dat de geëxtraheerde punten de definitieve gerenderde slide‑coördinaten zijn of pas een translatie of schaal twee keer toe als die al in het kind‑frame zit.
+De geëxtraheerde punten houden geen rekening met de rotatie van de vorm, geretourneerd door [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation), of horizontale en verticale spiegels. Om de weergegeven contour te reproduceren, moet je die transformaties toepassen rond het midden van de vorm. Voor gegroepeerde vormen moet je ook rekening houden met de coördinatenmapping en transformaties van de groep; ga er niet van uit dat de geëxtraheerde punten de definitieve gerenderde dia‑coördinaten zijn of dat je een translatie of schaal twee keer moet toepassen als dit al in het kind‑frame is verwerkt.
 
-**Inspectie versus bewerking.** Geëxtraheerde arrays beschrijven de contour; wijzigen ervan werkt de originele shape niet bij. Kies deze aanpak wanneer je analyse‑ of teken‑code point/type‑arrays nodig heeft. Gebruik [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) wanneer je geometrie‑commando’s in het lokale coördinatensysteem van de shape wilt of wanneer je de geometrie wilt bewerken. Pas bewerkte paden toe via [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) of [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Inspectie versus bewerking.** Geëxtraheerde arrays beschrijven de contour; wijzigen ervan werkt de oorspronkelijke vorm niet bij. Kies deze aanpak wanneer je analyse‑ of tekencode punt‑/type‑arrays nodig heeft. Gebruik [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) wanneer je geometrie‑commando’s in het lokale coördinatensysteem van de vorm nodig hebt of wanneer je de geometrie wilt bewerken. Pas bewerkte paden toe via [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) of [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths).
 
-## **Een Java AWT‑shape naar GeometryPath converteren**
+## **Een Java AWT‑Vorm Omzetten naar GeometryPath**
 
-Dit voorbeeld combineert een rechthoekige omtrek met tekst die naar geometrie wordt geconverteerd. De omtrek‑[setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode)‑methode deactiveert de vulling. Een [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) creëert de tekst‑omtrek in een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Het bijbehorende [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) levert verplaatsings‑, lijn‑, kwadratische, kubieke en sluit‑segmenten, die het voorbeeld opnieuw afspeelt op een [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
+Dit voorbeeld combineert een rechthoekige omtrek met tekst die is omgezet naar geometrie. De [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode)‑methode van de omtrek schakelt de vulling uit. Een [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) maakt de tekstopzetting in een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Zijn [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) levert verplaatsings‑, lijn‑, kwadratische, kubieke en sluitingssegmenten, die het voorbeeld afspeelt op een [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/).
 
-De tekst gebruikt een Arial‑lettertype van 40 points. De omtrek wordt horizontaal 20 points verschoven en verticaal zo geplaatst dat de visuele bovenkant 10 points onder de bovenrand van de shape ligt. Het tekstpad wordt ingevuld, terwijl de oorspronkelijke rechthoek een omtrek blijft. Het toepassen van beide paden met [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) levert één shape op die zowel de rechthoek als de tekst bevat.
+De tekst gebruikt een Arial‑lettertype van 40 points. De omtrek wordt horizontaal 20 points verschoven en met de visuele bovenrand 10 points onder de bovenrand van de vorm gepositioneerd. Het tekstpad wordt gevuld, terwijl de oorspronkelijke rechthoek een omtrek blijft. Het toepassen van beide paden met [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) levert één vorm op die de rechthoek en de tekst bevat.
 
 ```python
 import jpype
@@ -391,7 +438,7 @@ try:
 
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
 
-    # Haal het geometriepad van de shape op.
+    # Haal het geometrische pad van de vorm op.
     original_path = shape.getGeometryPaths()[0]
     original_path.setFillMode(PathFillModeType.None_)
 
@@ -409,7 +456,7 @@ try:
     finally:
         graphics.dispose()
 
-    # Converteer het grafische pad naar een geometriepad.
+    # Converteer het grafische pad naar een geometrisch pad.
     text_path = GeometryPath()
     path_iterator = graphics_path.getPathIterator(None)
     points = jpype.JArray(jpype.JFloat)(6)
@@ -428,7 +475,7 @@ try:
         path_iterator.next()
     text_path.setFillMode(PathFillModeType.Normal)
 
-    # Pas het tekstpad toe samen met het oorspronkelijke geometriepad.
+    # Pas het tekstpad samen met het oorspronkelijke geometrische pad toe.
     shape.setGeometryPaths([original_path, text_path])
 finally:
     presentation.dispose()
@@ -437,14 +484,14 @@ finally:
 
 ## **FAQ**
 
-**Wat gebeurt er met de vulling en omtrek nadat de geometrie is vervangen?**
+**Wat gebeurt er met de vulling en de omtrek na het vervangen van de geometrie?**
 
-De stijl blijft aan de shape gekoppeld; alleen de contour verandert. Vulling en omtrek worden automatisch toegepast op de nieuwe geometrie.
+De stijl blijft bij de vorm; alleen de contour verandert. De vulling en de omtrek worden automatisch op de nieuwe geometrie toegepast.
 
-**Hoe roteer ik een aangepaste shape correct samen met zijn geometrie?**
+**Hoe roteer ik een aangepaste vorm correct samen met zijn geometrie?**
 
-Gebruik de [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation)‑methode van de shape; de geometrie roteert mee omdat die gebonden is aan het eigen coördinatensysteem van de shape.
+Gebruik de methode [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) van de vorm; de geometrie roteert mee omdat deze gebonden is aan het eigen coördinatensysteem van de vorm.
 
-**Kan ik een aangepaste shape naar een afbeelding converteren om het resultaat te “vergrendelen”?**
+**Kan ik een aangepaste vorm omzetten naar een afbeelding om het resultaat te “vergrendelen”?**
 
-Ja. Exporteer het gewenste [dia](/slides/nl/python-java/convert-powerpoint-to-png/) of de [shape](/slides/nl/python-java/create-shape-thumbnails/) zelf naar een rasterformaat; dit vereenvoudigt verdere verwerking van complexe geometrieën.
+Ja. Exporteer het benodigde [slide](/slides/nl/python-java/convert-powerpoint-to-png/)‑gebied of de [shape](/slides/nl/python-java/create-shape-thumbnails/) zelf naar een rasterformaat; dit vereenvoudigt verdere bewerking met complexe geometrieën.

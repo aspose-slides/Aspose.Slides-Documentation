@@ -1,37 +1,37 @@
 ---
-title: C++でプレゼンテーションのシェイプをカスタマイズする
+title: C++ でプレゼンテーション シェイプをカスタマイズ
 linktitle: カスタム シェイプ
 type: docs
 weight: 20
 url: /ja/cpp/custom-shape/
 keywords:
 - カスタム シェイプ
-- シェイプを追加
-- シェイプを作成
-- シェイプを変更
+- シェイプの追加
+- シェイプの作成
+- シェイプの変更
 - シェイプ ジオメトリ
 - ジオメトリ パス
 - パス ポイント
 - 編集ポイント
-- ポイントを追加
-- ポイントを削除
+- ポイントの追加
+- ポイントの削除
 - 編集操作
 - 曲線コーナー
 - PowerPoint
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して PowerPoint プレゼンテーションのシェイプを作成およびカスタマイズします：ジオメトリ パス、曲線コーナー、合成シェイプ。"
+description: "Aspose.Slides for C++ を使用して PowerPoint プレゼンテーション内のシェイプを作成・カスタマイズします。ジオメトリ パス、曲線コーナー、合成シェイプが含まれます。"
 ---
 ## **概要**
 
-このドキュメントでは、編集ポイントとジオメトリ パスを使用してシェイプ ジオメトリを編集し、Aspose.Slides でプレゼンテーション シェイプをカスタマイズする方法を説明します。既存のシェイプを変更したり、基本的なパス編集操作を実行したり、ポイントを追加・削除したり、更新したジオメトリをシェイプに適用する方法として、[GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) と [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) の使用例を示します。
+この記事では、編集ポイントとジオメトリ パスを使用してシェイプのジオメトリを編集することで、Aspose.Slides のプレゼンテーション シェイプをカスタマイズする方法を説明します。[GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) と [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) を使用して既存のシェイプを変更し、基本的なパス編集操作を実行し、ポイントを追加または削除し、更新されたジオメトリをシェイプに適用する方法を示します。
 
-また、カスタム シェイプや合成シェイプの作成、角が丸いシェイプの構築、シェイプ ジオメトリが閉じているかどうかの判定方法も紹介します。
+また、カスタムおよび合成シェイプの作成、角が丸いシェイプの構築、シェイプ ジオメトリが閉じているかどうかの判定方法もデモします。
 
-## **Edit Points を使用したシェイプの変更**
+## **編集ポイントでシェイプを変更する**
 
-PowerPoint では、**Edit Points** を使用して四角形を変更できます。
+PowerPoint では **Edit Points** を使用して正方形を変更できます。
 
 * 角を内側または外側に移動する。
 * ポイントの曲率を調整する。
@@ -41,45 +41,45 @@ PowerPoint では、**Edit Points** を使用して四角形を変更できま�
 
 ## **シェイプ編集のヒント**
 
-![概要画像](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-PowerPoint シェイプを編集する際に覚えておくべき概念は次のとおりです。
+PowerPoint シェイプを編集する際は、以下の概念を覚えておいてください。
 
-* シェイプ（またはそのパス）は、閉じている場合と開いている場合があります。
+* シェイプ（またはそのパス）は閉じている場合と開いている場合があります。
 * シェイプのパスは、セグメントで接続されたアンカーポイントで構成されます。
 * セグメントは直線または曲線にできます。アンカーポイントと制御ハンドルが形状を決定します。
-* アンカーポイントは、コーナーポイント、直線ポイント、スムーズポイントとして存在します。
-  * コーナーポイントでは、隣接するセグメントが角度を持って接続できます。
-  * スムーズポイントでは、2 つの制御ハンドルが揃っており、アンカーポイントから同じ距離にあります。
-  * 直線ポイントでは、2 つの制御ハンドルが揃っていますが、アンカーポイントからの距離は異なる場合があります。
+* アンカーポイントはコーナーポイント、ストレートポイント、スムーズポイントのいずれかです。
+  * コーナーポイントでは、隣接するセグメントが角度を持って接続します。
+  * スムーズポイントでは、2 つの制御ハンドルが揃っており、アンカーポイントから同距離です。
+  * ストレートポイントでは、2 つの制御ハンドルが揃っていますが、距離は異なる場合があります。
 * アンカーポイントを移動したりハンドルを調整したりすると、シェイプの輪郭が変わります。
 
-Edit Points を使用して PowerPoint シェイプを編集するために、**Aspose.Slides** は [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) クラスと [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) インターフェイスを提供します。
+PowerPoint シェイプを編集ポイントで操作するために、**Aspose.Slides** は [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) クラスと [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) インターフェイスを提供します。
 
-* [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) インスタンスは、[IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) オブジェクトのジオメトリ パスを表します。
-* [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) インスタンスから [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) を取得するには、[IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) メソッドを使用します。
-* シェイプに [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) を設定するには、単一パスのシェイプの場合は [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) を、複数パスのシェイプの場合は [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) を使用します。
-* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) 以下のメソッドを使用します。
-* [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) と [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) メソッドを使用して、ジオメトリ パスの外観を設定できます。
+* [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) のインスタンスは、[IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) オブジェクトのジオメトリ パスを表します。
+* [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) から [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) を取得するには、[IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) メソッドを使用します。
+* シェイプに [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) を設定するには、単一パス用に [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) を、複数パス用に [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) を使用します。
+* セグメントを追加するには、[IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) の下にあるメソッドを使用します。
+* [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) および [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) メソッドを使用して、ジオメトリ パスの外観を設定できます。
 * [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) メソッドを使用すると、[GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) のジオメトリ パスをパス セグメントの配列として取得できます。
 
 ## **簡単な編集操作**
 
-ジオメトリ パスを編集するには、以下のメソッドを使用します。インデックスを受け取るオーバーロードは、パスのセグメント配列内のゼロベース位置にセグメントを挿入します。
+以下のメソッドを使用してジオメトリ パスを編集します。インデックスを受け取るオーバーロードは、パスのセグメント配列のゼロベース位置にセグメントを挿入します。
 
 | 操作 | メソッド |
 | --- | --- |
 | 直線を追加または挿入する。 | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
-| 2 つの制御点と終点を持つ 3 次ベジエ曲線を追加または挿入する。 | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
-| 1 つの制御点と終点を持つ二次ベジエ曲線を追加または挿入する。 | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
-| 指定したサイズと角度（度）で楕円弧を追加する。 | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
-| 現在の図形を閉じ、終点を開始点に接続する。 | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| 2 つの制御ポイントと終点を持つ 3 次ベジエ曲線を追加または挿入する。 | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| 1 つの制御ポイントと終点を持つ 2 次ベジエ曲線を追加または挿入する。 | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| 指定されたサイズと角度（度単位）の楕円弧を追加する。 | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| 終点を開始点に接続して現在の図形を閉じる。 | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
 | 図形の開始点を設定する。 | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
 | ゼロベースインデックスでセグメントを削除する。 | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
 ## **シェイプにカスタムポイントを追加する**
 
-この例では、[GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) を使用して長方形シェイプに 2 つのポイントを挿入し、[IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) で編集したパスを適用します。座標はシェイプのローカル座標で、両方の新しいポイントはシェイプの中心にあり、左端から 100 ポイント、上端から 50 ポイントの位置です。セグメントインデックス 1 と 4 はそれぞれ上辺と下辺に配置され、これらの辺を内側に引っ張ります。
+この例では、[GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) を使用して矩形シェイプに 2 つのポイントを挿入し、[IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) で編集したパスを適用します。座標はシェイプに対してローカルです。新しいポイントは両方ともシェイプの中心にあり、左端から 100 ポイント、上端から 50 ポイントの位置です。セグメント インデックス 1 と 4 がそれぞれ上辺と下辺に配置され、これらの辺を内側に引っ張ります。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -106,11 +106,11 @@ geometryPath->LineTo(100.0f, 50.0f, 4);
 shape->SetGeometryPath(geometryPath);
 ```
 
-![例1画像](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
 ## **シェイプからポイントを削除する**
 
-この例では、[GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) を使用してゼロベースインデックス 2 のセグメントを削除し、ハート形の輪郭を変更します。[IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) で変更したパスを適用すると、シェイプの輪郭が更新されます。
+この例では、[GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) を使ってゼロベースインデックス 2 のセグメントを削除し、ハート形の輪郭を変更します。変更したパスを [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) で適用すると、シェイプの輪郭が更新されます。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -135,11 +135,11 @@ path->RemoveAt(2);
 
 shape->SetGeometryPath(path);
 ```
-![例2画像](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
-## **カスタムシェイプの作成**
+## **カスタム シェイプを作成する**
 
-この例では、[GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) を使用して5 本のポイントからなる星形を構築します。外側半径 100 ポイント、内側半径 50 ポイントを交互に設定し、72 度の間隔で 5 つの先端を均等に配置します。パスは [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) で閉じられ、[IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) を使用して長方形シェイプに適用し、元の輪郭を置き換えます。
+この例では、[GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) を使用して 5 本のポイントからなる星形を構築します。外側半径 100 ポイント、内側半径 50 ポイントを交互に設定し、72 度のステップで 5 本の先端を均等に配置します。パスは [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) で閉じられ、[IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) を使用して矩形シェイプに適用し、元の輪郭を置き換えます。
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -194,11 +194,11 @@ auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
-![例3画像](custom_shape_3.png)
+![example3_image](custom_shape_3.png)
 
-## **合成カスタムシェイプの作成**
+## **合成カスタム シェイプを作成する**
 
-この例では、シェイプの上部 1/3 と下部 1/3 用に 2 つの閉じた [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) オブジェクトを定義します。[IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) を使用して両方のパスを適用すると、中央 1/3 に隙間がある単一の合成シェイプが作成されます。
+この例では、シェイプの上部 1/3 と下部 1/3 用に 2 つの閉じた [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) オブジェクトを定義します。両方のパスを [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) で適用すると、中央の 1/3 に隙間がある単一の合成シェイプが作成されます。
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -237,11 +237,11 @@ auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath }
 
 shape->SetGeometryPaths(paths);
 ```
-![例4画像](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
-## **曲線コーナー付きカスタムシェイプの作成**
+## **曲線コーナー付きカスタム シェイプを作成する**
 
-この例では、直線セグメントと [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) を組み合わせて、内側に曲がったコーナーを持つシェイプを作成します。各コーナーサイズは弧の幅と高さ（ポイント）を設定し、-90 度のスイープで反時計回りの 1/4 楕円を描きます。完成したパスは [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) で適用され、プレゼンテーションは PPTX 形式で保存されます。
+この例では、直線セグメントと [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) を組み合わせて、内側に曲がったコーナーを持つシェイプを作成します。各コーナーサイズはアークの幅と高さ（ポイント）を設定し、-90 度のスイープで反時計回りの 1/4 楕円を描きます。完成したパスは [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) で適用し、プレゼンテーションを PPTX 形式で保存します。
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -296,9 +296,9 @@ shape->SetGeometryPath(geometryPath);
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **シェイプ ジオメトリが閉じているか確認する方法**
+## **シェイプ ジオメトリが閉じているかどうかを確認する**
 
-以下のヘルパーは、すべての非空ジオメトリ パスが閉じるセグメントで終わるかどうかをチェックします。[IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) を読み取り、最終セグメントの [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) が [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/) と等しいかどうかを比較します。パスが空でない場合に false を返します。このロジックは各パスの最終コマンドのみをチェックし、パス内のすべてのサブフィギュアは検査しません。例では矩形に対して `True` が出力されます。
+以下のヘルパーは、すべての非空ジオメトリ パスが閉じるセグメントで終わっているかどうかをチェックします。[IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) を読み取り、最終セグメントの [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) と [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/) を比較します。非空パスがない場合は false を返します。このロジックは各パスの最終コマンドだけを確認し、パス内のすべてのサブフィギュアは検査しません。例では矩形に対して `True` が出力されます。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -345,11 +345,84 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 2
 Console::WriteLine(isGeometryClosed(shape));
 ```
 
-## **シェイプ要素の抽出と検査**
+## **ジオメトリ パス コマンドの調査**
 
-[IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) を使用して、パスポイントとポイントタイプを含む要素として既存シェイプを検査できます。返された各 [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) を [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) にキャストし、[get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) と [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/) が返す配列を読み取ります。この表現は輪郭解析やカスタム描画ツールへのジオメトリ渡しに便利です。
+[contour.pptx](contour.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置します。最初のスライドの最初のシェイプは、直線の上辺、3 次ベジエ曲線、そして直線の閉じた下辺を持ちます。[GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) を使用してパスを取得します。各パスについて、[get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) は描画順のセグメントを返します。[get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) が返すコマンドに基づき、[get_SegmentData](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_segmentdata/) が返す値の解釈方法が決まります。
 
-例ではプレゼンテーションを開き、最初のスライド上の最初のジオメトリ シェイプを取得してそのパスセグメントを出力します。直線と曲線セグメントの両方を含むシェイプがあるプレゼンテーションで実行すると、両方の出力が確認できます。グループ内は検索しません。
+```cpp
+#include <DOM/IGeometryPath.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/PathCommandType.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"contour.pptx");
+
+auto shape = ExplicitCast<IGeometryShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paths = shape->GetGeometryPaths();
+
+for (auto i = 0; i < paths->get_Length(); ++i)
+{
+    auto segments = paths->idx_get(i)->get_PathData();
+    for (auto j = 0; j < segments->get_Length(); ++j)
+    {
+        auto segment = segments->idx_get(j);
+        auto command = segment->get_PathCommand();
+        auto data = segment->get_SegmentData();
+        String detail;
+        switch (command)
+        {
+            case PathCommandType::MoveTo:
+            case PathCommandType::LineTo:
+                detail = String::Format(u"destination=({0}, {1})", data->idx_get(0), data->idx_get(1));
+                break;
+            case PathCommandType::CubicBezierTo:
+                detail = String::Format(u"control1=({0}, {1}) control2=({2}, {3}) end=({4}, {5})", data);
+                break;
+            case PathCommandType::Close:
+                detail = u"no coordinates";
+                break;
+            default:
+            {
+                auto values = MakeArray<String>(data->get_Length());
+                for (auto k = 0; k < data->get_Length(); ++k)
+                {
+                    values->idx_set(k, String::Format(u"{0}", data->idx_get(k)));
+                }
+                detail = String::Format(u"raw=[{0}]", String::Join(u", ", values));
+                break;
+            }
+        }
+        Console::WriteLine(u"Path {0}, segment {1}: {2} {3}", i, j, Enum<PathCommandType>::GetName(command), detail);
+    }
+}
+```
+
+シェイプはスライド上の (200, 100) ポイントに配置されています。報告されたポイントはシェイプに対してローカルで、(0, 0) が左上隅、X が右方向に増加、Y が下方向に増加します。閉じるセグメントは追加座標なしで開始点に戻ります。
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **シェイプ要素の抽出と調査**
+
+[IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) を使用して、シェイプをパスポイントとポイント種別を含む要素として調査できます。返された各 [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) を [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) にキャストし、[get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) と [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/) が返す配列を読み取ります。この表現は輪郭解析やカスタム描画ツールへのジオメトリの受け渡しに便利です。
+
+例ではプレゼンテーションを開き、最初のスライド上に直接ある最初のジオメトリ シェイプを見つけてそのパス セグメントを出力します。直線と曲線の両方を含むシェイプがあるプレゼンテーションを使用すると、両方の出力が確認できます。グループ内は検索しません。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -395,7 +468,7 @@ for (auto&& element : shape->CreateShapeElements())
 
     for (auto i = 0; i < points->get_Length(); i++)
     {
-        auto pointType = types[i] & 0x07; // セグメントタイプを保持し、フラグは除外します。
+        auto pointType = types[i] & 0x07; // フラグを除外してセグメントタイプを保持します。
         switch (pointType)
         {
             case 0:
@@ -406,7 +479,7 @@ for (auto&& element : shape->CreateShapeElements())
                 break;
             case 3:
                 Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
-                i += 2; // 制御点と終点の両方を消費します。
+                i += 2; // Consume both control points and the endpoint.
                 break;
         }
         if ((types[i] & 0x80) != 0)
@@ -417,19 +490,21 @@ for (auto&& element : shape->CreateShapeElements())
 }
 ```
 
-配列はインデックスで対応しています：`points[i]` はポイント、`types[i]` はその役割を示します。タイプ `0` は図形の開始、タイプ `1` は前のポイントから現在のポイントへの直線を表します。3 次ベジエ セグメントは前の終点から始まり、連続する 3 つのタイプ `3` エントリ（2 つの制御点と新しい終点）で構成されます。ループはこれら 3 エントリをまとめて処理し、終点が閉じているかを確認します。
+配列はインデックスで対応します: `points[i]` は点、`types[i]` はその役割を示します。タイプ `0` は図形の開始、タイプ `1` は前の点から現在の点への直線を表します。3 次ベジエ セグメントは前の終点から始まり、連続するタイプ `3` エントリ 3 個（2 つの制御点と新しい終点）で構成されます。ループはこれら 3 エントリをまとめて処理し、終点が閉じているかを確認します。
 
-ポイントタイプにはフラグも含まれます。`0x07` マスクでセグメントタイプを特定し、`0x80` ビットで閉じたサブパスかどうかを判定します。例として `129`（`0x81`）は閉じたサブパスの直線終点、`131`（`0x83`）は閉じたベジエ終点を意味します。生の値を単に `1` や `3` と比較するとこれらのケースを見逃します。ダッシュ（`0x10`）やマーカー（`0x20`）などの他のフラグは基本セグメントタイプを変更しません。
+ポイント種別にはフラグも含まれます。`0x07` マスクでセグメント種別を特定し、`0x80` を別途テストして閉じたサブパスかどうかを判定します。例として `129` (`0x81`) は閉じる線分の終点、`131` (`0x83`) は閉じるベジエ終点を意味します。単に `1` や `3` と比較するとこれらのケースを見逃します。ダッシュ (`0x10`) やマーカー (`0x20`) などの他のフラグは基本セグメント種別を変更しません。
 
-**座標と変換。** ポイントはポイント単位（1/72 インチ）で測定され、X は右方向に、Y は下方向に増加します。グループ化されていないシェイプの場合、抽出された座標はすでに [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) と [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) が返す位置を含み、現在の幅と高さを反映しています。たとえば、左上が `(100, 200)`、サイズが `120 × 80` の回転していない矩形は輪郭境界が `(100, 200)`–`(220, 280)` となります。シェイプの位置を再度加算しないでください。X と Y を減算すれば、回転していないフレーム内の相対座標が得られます。
+**座標と変換**  
+ポイントはポイント単位 (1/72 インチ) で測定され、X は右方向、Y は下方向に増加します。単一シェイプの場合、抽出された座標はすでに [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) と [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) が返す位置と幅・高さを含んでいます。たとえば、`(100, 200)` に左上がありサイズが `120 × 80` の回転なし矩形の輪郭は `(100, 200)`–`(220, 280)` です。シェイプの位置を再度加算しないでください。未回転フレームに対する相対座標を得るには X と Y を減算します。
 
-抽出されたポイントは [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) や水平・垂直フリップで設定された回転を適用していません。表示された輪郭を再現するには、シェイプの中心を基準にこれらの変換を適用してください。グループ化されたシェイプの場合、グループ座標マッピングと変換も考慮する必要があります。抽出されたポイントが最終的なスライド座標であると仮定したり、既に子フレームに反映されている変換を二重に適用したりしないでください。
+抽出されたポイントは [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) による回転や水平・垂直フリップは適用されません。表示される輪郭を再現するには、シェイプの中心を基準にそれらの変換を適用してください。グループ化されたシェイプの場合は、グループ座標マッピングと変換も考慮し、抽出されたポイントが最終的なスライド座標になると想定せず、子フレームにすでに反映されている平行移動やスケールを二重に適用しないようにしてください。
 
-**検査と編集の違い。** 抽出された配列は輪郭を記述しますが、変更しても元のシェイプは更新されません。ポイント/タイプ配列が必要な分析や描画コードでこの方法を選択してください。シェイプのローカル座標系でジオメトリ コマンドが必要な場合やジオメトリを編集したい場合は、[GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) を使用し、編集したパスは [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) または [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) で適用してください。
+**調査と編集の違い**  
+抽出された配列は輪郭を記述したものです。配列を変更しても元のシェイプは更新されません。ポイント/種別配列が必要な分析や描画コードの場合にこのアプローチを選択してください。シェイプのローカル座標系でジオメトリ コマンドが必要な場合やジオメトリを編集したい場合は、[GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) を使用し、編集したパスは [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) または [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) で適用します。
 
-## **GeometryPath を GraphicsPath に変換する方法**
+## **GeometryPath を GraphicsPath に変換する**
 
-現在の Aspose.Slides for C++ のパブリック API では、ジオメトリ パスとグラフィックス パス間の変換は公開されていません。輪郭を検査するには上記のシェイプ要素を使用し、シェイプを編集するにはジオメトリ パスを使用して更新されたパスをシェイプに適用してください。
+現在の Aspose.Slides for C++ のパブリック API では、ジオメトリ パスとグラフィックス パスの相互変換は公開されていません。輪郭を調べるには上記のシェイプ要素を使用し、シェイプを編集するにはジオメトリ パスを使用して更新されたパスをシェイプに適用してください。
 
 ## **FAQ**
 
@@ -437,10 +512,10 @@ for (auto&& element : shape->CreateShapeElements())
 
 スタイルはシェイプに残り、輪郭だけが変更されます。塗りつぶしと輪郭は新しいジオメトリに自動的に適用されます。
 
-**ジオメトリとともにカスタムシェイプを正しく回転させる方法は？**
+**ジオメトリとともにカスタム シェイプを正しく回転させるにはどうすればよいですか？**
 
-シェイプの [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) メソッドを使用してください。ジオメトリはシェイプの座標系にバインドされているため、シェイプとともに回転します。
+シェイプの [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) メソッドを使用してください。ジオメトリはシェイプの座標系にバインドされているため、シェイプと一緒に回転します。
 
-**カスタムシェイプを画像に変換して「ロック」することはできますか？**
+**カスタム シェイプを画像に変換して「ロック」できますか？**
 
-はい。必要な [slide](/slides/ja/cpp/convert-powerpoint-to-png/) の領域または [shape](/slides/ja/cpp/shape-thumbnails/) 自体をラスタ形式でエクスポートすれば、複雑なジオメトリの後続作業が簡素化されます。
+はい。必要な [slide](/slides/ja/cpp/convert-powerpoint-to-png/) 領域または [shape](/slides/ja/cpp/shape-thumbnails/) 自体をラスタ形式でエクスポートすれば、複雑なジオメトリの後続作業が容易になります。

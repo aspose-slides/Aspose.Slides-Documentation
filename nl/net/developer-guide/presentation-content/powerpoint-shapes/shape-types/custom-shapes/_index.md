@@ -1,5 +1,5 @@
 ---
-title: Aangepaste presentatievormen in .NET
+title: Presentatievormen aanpassen in .NET
 linktitle: Aangepaste vorm
 type: docs
 weight: 20
@@ -10,7 +10,7 @@ keywords:
 - vorm maken
 - vorm wijzigen
 - vormgeometrie
-- geometriepad
+- geometrisch pad
 - padpunten
 - bewerkingspunten
 - punt toevoegen
@@ -22,67 +22,67 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Maak en pas vormen aan in PowerPoint‑presentaties met Aspose.Slides voor .NET: geometrie‑paden, afgeronde hoeken, samengestelde vormen."
+description: "Maak en pas vormen aan in PowerPoint-presentaties met Aspose.Slides voor .NET: geometrische paden, afgeronde hoeken, samengestelde vormen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je presentatie‑vormen in Aspose.Slides kunt aanpassen door de geometrie van een vorm te bewerken via bewerkingspunten en geometrie‑paden. Het laat zien hoe je werkt met [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) en [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) om bestaande vormen te wijzigen, basisbewerkingsbewerkingen uit te voeren, punten toe te voegen of te verwijderen, en de bijgewerkte geometrie terug toe te passen op een vorm.
+Dit artikel legt uit hoe je presenteervormen in Aspose.Slides kunt aanpassen door de geometrie van een vorm te bewerken via bewerkingspunten en geometrische paden. Het laat zien hoe je werkt met [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) en [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) om bestaande vormen te wijzigen, basisbewerkingsbewerkingen op paden uit te voeren, punten toe te voegen of te verwijderen, en de bijgewerkte geometrie terug op een vorm toe te passen.
 
-Het toont ook hoe je aangepaste en samengestelde vormen maakt, vormen met afgeronde hoeken bouwt, bepaalt of een vormgeometrie gesloten is, en de legacy‑conversie tussen [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) en [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) gebruikt voor extra scenario’s voor geometrie‑aanpassing.
+Het laat ook zien hoe je aangepaste en samengestelde vormen maakt, vormen met afgeronde hoeken bouwt, bepaalt of een vormgeometrie gesloten is, en de legacy‑conversie tussen [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) en [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) gebruikt voor extra geometrie‑aanpassingsscenario's.
 
-## **Een vorm wijzigen met bewerkingspunten**
+## **Vorm wijzigen met bewerkingspunten**
 
-In PowerPoint kun je **bewerkingspunten** gebruiken om een vierkant te wijzigen:
+In PowerPoint kun je **Bewerkingspunten** gebruiken om een vierkant aan te passen:
 
-* Een hoek naar binnen of buiten verplaatsen.
-* De kromming op een punt aanpassen.
-* Nieuwe punten toevoegen.
+* Verplaats een hoek naar binnen of naar buiten.
+* Pas de kromming op een punt aan.
+* Voeg nieuwe punten toe.
 
-Bewerkingspunten laten je de omtrek van een vorm aanpassen of een bestaande vorm als basis gebruiken voor een nieuwe.
+Door punten te bewerken kun je de omtrek van een vorm aanpassen of een bestaande vorm als basis voor een nieuwe gebruiken.
 
-## **Tips voor vormbewerking**
+## **Tips voor het bewerken van vormen**
 
-![overzicht_afbeelding](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
 Houd bij het bewerken van PowerPoint‑vormen de volgende concepten in gedachten:
 
 * Een vorm (of het pad ervan) kan gesloten of open zijn.
-* Het pad van een vorm bestaat uit ankerpunten die door segmenten met elkaar verbonden zijn.
-* Een segment kan recht of gekromd zijn. Ankerpunten en controlehandvatten bepalen de vorm ervan.
+* Het pad van een vorm bestaat uit ankerpunten die door segmenten verbonden zijn.
+* Een segment kan recht of gebogen zijn. Ankerpunten en controlehandvatten bepalen de vorm.
 * Ankerpunten bestaan als hoekpunten, rechte punten of vloeiende punten:
   * Bij een hoekpunt kunnen aangrenzende segmenten onder een hoek samenkomen.
   * Bij een vloeiend punt zijn de twee controlehandvatten uitgelijnd en op gelijke afstand van het ankerpunt.
-  * Bij een recht punt zijn de twee controlehandvatten uitgelijnd maar kunnen ze verschillende afstanden tot het ankerpunt hebben.
+  * Bij een recht punt zijn de twee controlehandvatten uitgelijnd, maar kunnen ze verschillende afstanden van het ankerpunt hebben.
 * Het verplaatsen van ankerpunten of het aanpassen van hun handvatten verandert de omtrek van de vorm.
 
-Om PowerPoint‑vormen via bewerkingspunten te bewerken, biedt **Aspose.Slides** de klasse [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) en de interface [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
+Om PowerPoint‑vormen te bewerken via bewerkingspunten, **Aspose.Slides** biedt de [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)‑klasse en de [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/)‑interface.
 
-* Een [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)‑instantie vertegenwoordigt een geometriepad van het object [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
-* Om het [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) van een [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/)‑instantie op te halen, kun je de methode [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) gebruiken.
-* Om het [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) voor een vorm in te stellen, kun je deze methoden gebruiken: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) voor vormen met één pad en [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) voor vormen met meerdere paden.
+* Een [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)‑instantie vertegenwoordigt een geometrisch pad van het [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/)‑object.
+* Om de [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) uit de [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/)‑instantie op te halen, kun je de methode [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) gebruiken.
+* Om de [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) voor een vorm in te stellen, kun je deze methoden gebruiken: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) voor vormen met één enkel pad en [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) voor vormen met meerdere paden.
 * Om segmenten toe te voegen, kun je de methoden onder [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) gebruiken.
-* Met de eigenschappen [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) en [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) kun je het uiterlijk van een geometriepad instellen.
-* Met de eigenschap [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) kun je het geometriepad van een [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) ophalen als een matrix van padsegmenten.
-* In legacy‑versies die de onderstaande conversiemethoden ondersteunen, kun je [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) omzetten naar [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
-* Gebruik de methoden [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) en [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (van de klasse [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) om te converteren tussen [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) en [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
+* Met de eigenschappen [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) en [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) kun je het uiterlijk van een geometrisch pad instellen.
+* Met de eigenschap [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) kun je het geometrische pad van een [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) ophalen als een array van padsegmenten.
+* In legacy‑versies die de onderstaande conversiemethoden ondersteunen, kun je [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) naar [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) converteren.
+* Gebruik de methoden [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) en [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (van de [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)‑klasse) om te converteren tussen [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) en [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
 
 ## **Eenvoudige bewerkingsbewerkingen**
 
-Gebruik de volgende methoden om een geometriepad te bewerken. Overloads die een index accepteren, voegen een segment in op die nul‑gebaseerde positie in de segmentmatrix van het pad.
+Gebruik de volgende methoden om een geometrisch pad te bewerken. Overloads die een index accepteren voegen een segment in op die nulgebaseerde positie in de segmentarray van het pad.
 
-| Bewerking | Methode |
+| Operatie | Methode |
 | --- | --- |
-| Een rechte lijn toevoegen of invoegen. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
-| Een kubieke Bézier‑curve met twee controlepunten en een eindpunt toevoegen of invoegen. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
-| Een kwadratische Bézier‑curve met één controlepunt en een eindpunt toevoegen of invoegen. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
-| Een elliptische boog toevoegen met de opgegeven afmetingen en hoeken in graden. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
-| De huidige figuur sluiten door het eindpunt met het startpunt te verbinden. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
-| Het startpunt van een figuur instellen. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
-| Een segment op een nul‑gebaseerde index verwijderen. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
+| Voeg een rechte lijn toe of voeg deze in. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
+| Voeg een kubieke Bézier‑curve toe of voeg deze in met twee controlepunten en een eindpunt. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| Voeg een kwadratische Bézier‑curve toe of voeg deze in met één controlepunt en een eindpunt. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| Voeg een elliptische boog toe met de opgegeven afmetingen en hoeken in graden. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| Sluit de huidige figuur door het eindpunt met het beginpunt te verbinden. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| Stel het startpunt van een figuur in. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| Verwijder een segment op een nulgebaseerde index. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
 ## **Aangepaste punten toevoegen aan een vorm**
 
-Dit voorbeeld voegt twee punten toe aan een rechthoekige vorm met behulp van [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) en past het bewerkte pad toe met [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). De coördinaten zijn lokaal ten opzichte van de vorm: beide nieuwe punten bevinden zich in het midden, 100 punten van de linkerkant en 50 punten van de bovenkant. Segment‑indices 1 en 4 plaatsen ze respectievelijk op de boven‑ en onderrand, waardoor die randen naar binnen worden getrokken.
+Dit voorbeeld voegt twee punten toe aan een rechthoekige vorm met behulp van [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) en past het bewerkte pad toe met [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). De coördinaten zijn lokaal ten opzichte van de vorm: beide nieuwe punten bevinden zich in het midden, 100 punten van links en 50 punten van boven. Segmentindexen 1 en 4 plaatsen ze respectievelijk op de boven‑ en onderrand, waardoor die randen naar binnen worden getrokken.
 
 ```csharp
 using Aspose.Slides;
@@ -99,11 +99,11 @@ geometryPath.LineTo(100, 50, 4);
 shape.SetGeometryPath(geometryPath);
 ```
 
-![voorbeeld1_afbeelding](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
 ## **Punten verwijderen uit een vorm**
 
-Dit voorbeeld wijzigt de omtrek van een hartvorm door het segment op nul‑gebaseerde index 2 te verwijderen met [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Het toepassen van het gewijzigde pad met [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) werkt de contour van de vorm bij.
+Dit voorbeeld wijzigt de omtrek van een hartvorm door het segment op nulgebaseerde index 2 te verwijderen met [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Het toepassen van het aangepaste pad met [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) werkt de contour van de vorm bij.
 
 ```csharp
 using Aspose.Slides;
@@ -118,11 +118,11 @@ path.RemoveAt(2);
 
 shape.SetGeometryPath(path);
 ```
-![voorbeeld2_afbeelding](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
-## **Aangepaste vorm maken**
+## **Een aangepaste vorm maken**
 
-Dit voorbeeld bouwt een vijfpuntige ster met [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Afwisselend buiten‑ en binnenstraal van respectievelijk 100 en 50 punten definiëren de punten en inkepingen; een stap van 72 graden verdeelt de vijf punten gelijkmatig. Het pad wordt gesloten met [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) en toegepast op een rechthoekige vorm met [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), waardoor de oorspronkelijke omtrek wordt vervangen.
+Dit voorbeeld bouwt een vijfpuntige ster met [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Afwisselend buiten‑ en binnenstraal van respectievelijk 100 en 50 punten definiëren de punten en inkepingen; een stap van 72 graden verdeelt de vijf punten gelijkmatig. Het pad wordt afgesloten met [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) en toegepast op een rechthoekige vorm met [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), waarmee de oude omtrek wordt vervangen.
 
 ```csharp
 using System;
@@ -165,9 +165,9 @@ var slide = presentation.Slides[0];
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
 shape.SetGeometryPath(starPath);
 ```
-![voorbeeld3_afbeelding](custom_shape_3.png)
+![example3_image](custom_shape_3.png)
 
-## **Samengestelde aangepaste vorm maken**
+## **Een samengestelde aangepaste vorm maken**
 
 Dit voorbeeld definieert twee gesloten [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/)‑objecten voor respectievelijk het boven‑ en onderste derde deel van een vorm. Het toepassen van beide paden met [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) creëert één samengestelde vorm met een opening over het middelste derde deel.
 
@@ -195,11 +195,11 @@ bottomPath.CloseFigure();
 
 shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
-![voorbeeld4_afbeelding](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
-## **Aangepaste vorm maken met afgeronde hoeken**
+## **Een aangepaste vorm met afgeronde hoeken maken**
 
-Dit voorbeeld combineert rechte segmenten met [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) om een vorm met naar binnen geronde hoeken te creëren. De grootte van elke hoek bepaalt de breedte en hoogte van de boog in punten, en de sweep van –90 graden tekent een tegen de klok in draaiende kwart‑ellips. Het volledige pad wordt toegepast met [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), en de presentatie wordt opgeslagen in PPTX‑formaat.
+Dit voorbeeld combineert rechte segmenten met [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) om een vorm met naar binnen gerichte afgeronde hoeken te maken. Elke hoekgrootte bepaalt de breedte en hoogte van de boog in punten, en de -90‑graden sweep tekent een tegen de klok in draaiende kwart‑ellips. Het voltooide pad wordt toegepast met [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), en de presentatie wordt opgeslagen in PPTX‑formaat.
 
 ```csharp
 using System.Drawing;
@@ -243,9 +243,9 @@ shape.SetGeometryPath(geometryPath);
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **Nagaan of een vormgeometrie gesloten is**
+## **Controleren of een vormgeometrie gesloten is**
 
-De volgende helper controleert of elke niet‑lege geometriepad eindigt met een sluitingssegment. Hij leest [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) en vergelijkt het laatste segment‑commando met [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) tegen [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Hij retourneert false wanneer er geen niet‑lege paden zijn. Deze controle kijkt alleen naar het laatste commando van elk pad; hij inspecteert niet elk sub‑figure binnen een pad. Het voorbeeld schrijft `True` voor een rechthoek.
+De onderstaande helper controleert of elk niet‑leeg geometrisch pad eindigt met een sluitingssegment. Hij leest [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) en vergelijkt het laatste segment‑[IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) met [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Hij retourneert false wanneer er geen niet‑lege paden zijn. Deze controle kijkt alleen naar het laatste commando van elk pad; hij inspecteert niet elke subfiguur binnen een pad. Het voorbeeld print `True` voor een rechthoek.
 
 ```csharp
 using System;
@@ -281,11 +281,54 @@ bool IsGeometryClosed(IGeometryShape geometryShape)
 }
 ```
 
+## **Geometrie‑padcommando's inspecteren**
+
+Download [contour.pptx](contour.pptx) en plaats dit in de werkmap van de toepassing. De eerste dia bevat een vorm met een rechte bovenrand, een kubieke Bézier‑curve en een rechte sluitingsrand. Gebruik [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) om de paden te lezen. Elk pad somt zijn segmenten op in tekenvolgorde in [PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/). Het [PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) van elk segment bepaalt hoe het [SegmentData](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/segmentdata/) gelezen moet worden.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("contour.pptx");
+
+var shape = (IGeometryShape)presentation.Slides[0].Shapes[0];
+var paths = shape.GetGeometryPaths();
+
+for (int i = 0; i < paths.Length; i++)
+{
+    var segments = paths[i].PathData;
+    for (int j = 0; j < segments.Length; j++)
+    {
+        var command = segments[j].PathCommand;
+        var data = segments[j].SegmentData;
+        var detail = command switch
+        {
+            PathCommandType.MoveTo or PathCommandType.LineTo => $"destination=({data[0]}, {data[1]})",
+            PathCommandType.CubicBezierTo => $"control1=({data[0]}, {data[1]}) control2=({data[2]}, {data[3]}) end=({data[4]}, {data[5]})",
+            PathCommandType.Close => "no coordinates",
+            _ => $"raw=[{string.Join(", ", data)}]"
+        };
+        Console.WriteLine($"Path {i}, segment {j}: {command} {detail}");
+    }
+}
+```
+
+De vorm bevindt zich op (200, 100) punten op de dia. De gerapporteerde punten zijn lokaal ten opzichte van de vorm, met (0, 0) in de linkerbovenhoek, x neemt toe naar rechts en y neemt toe naar beneden. Het sluitingssegment keert terug naar het startpunt zonder extra coördinaten.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **Vormelementen extraheren en inspecteren**
 
-Gebruik [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) om een bestaande vorm te inspecteren als elementen die padpunten en punt‑types bevatten. Cast elk geretourneerd [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) naar [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) om zijn [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) en [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/) matrices te lezen. Deze representatie is nuttig voor contouranalyse of om geometrie door te geven aan aangepaste tekengereedschappen.
+Gebruik [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) om een bestaande vorm te inspecteren als elementen die padpunten en punt‑types bevatten. Cast elk teruggegeven [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) naar [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) om de [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/)‑ en [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/)‑arrays te lezen. Deze representatie is nuttig voor contouranalyse of om geometrie door te geven aan aangepaste teken‑tools.
 
-Het voorbeeld opent een presentatie, vindt de eerste geometrische vorm direct op de eerste dia, en drukt de padsegmenten af. Gebruik een presentatie met een vorm die rechte en gekromde segmenten bevat om beide soorten output te zien. Er wordt niet gezocht binnen groepen.
+Het voorbeeld opent een presentatie, zoekt de eerste geometrische vorm direct op de eerste dia, en print de padsegmenten. Gebruik een presentatie die een vorm met rechte en gebogen segmenten bevat om beide soorten uitvoer te zien. Het zoekt niet binnen groepen.
 
 ```csharp
 using System;
@@ -311,7 +354,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 
     for (var i = 0; i < points.Length; i++)
     {
-        var pointType = types[i] & 0x07; // Houd het segmenttype, exclusief vlaggen.
+        var pointType = types[i] & 0x07; // Behoud het segmenttype, exclusief vlaggen.
         switch (pointType)
         {
             case 0:
@@ -322,7 +365,7 @@ foreach (IShapeElement element in shape.CreateShapeElements())
                 break;
             case 3:
                 Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
-                i += 2; // Consume both control points and the endpoint.
+                i += 2; // Verwerk beide controlepunten en het eindpunt.
                 break;
         }
 
@@ -334,21 +377,21 @@ foreach (IShapeElement element in shape.CreateShapeElements())
 }
 ```
 
-De matrices corresponderen per index: `points[i]` is een punt en `types[i]` beschrijft de rol ervan. Type `0` start een figure, en type `1` tekent een lijn van het vorige punt naar het huidige punt. Een kubisch Bézier‑segment start bij het vorige eindpunt en gebruikt drie opeenvolgende type‑`3` items: twee controlepunten gevolgd door het nieuwe eindpunt. De lus verwerkt deze drie items samen en controleert of het eindpunt gesloten is.
+De arrays corresponderen per index: `points[i]` is een punt en `types[i]` beschrijft de rol ervan. Type `0` start een figuur, en type `1` tekent een lijn van het vorige punt naar het huidige punt. Een kubiek Bézier‑segment start bij het vorige eindpunt en gebruikt drie opeenvolgende type‑`3`‑waarden: twee controlepunten gevolgd door het nieuwe eindpunt. De lus verwerkt deze drie waarden gezamenlijk en controleert het eindpunt op sluiting.
 
-Punt‑types bevatten ook vlaggen. Maskeer met `0x07` om het segmenttype te identificeren, en test `0x80` apart om een gesloten sub‑pad te detecteren. Bijvoorbeeld, `129` (`0x81`) betekent een lijn‑eindpunt dat een sub‑pad sluit, en `131` (`0x83`) betekent een Bézier‑eindpunt dat een sub‑pad sluit. Alleen vergelijken met `1` of `3` zou deze gevallen missen. Andere vlaggen, zoals dash (`0x10`) en marker (`0x20`), wijzigen het basis‑segmenttype niet.
+Punt‑types bevatten ook vlaggen. Maskeer met `0x07` om het segmenttype te identificeren, en test `0x80` apart om een gesloten subpad te detecteren. Bijvoorbeeld, `129` (`0x81`) betekent een lijneindpunt die een subpad sluit, en `131` (`0x83`) betekent een Bézier‑eindpunt dat een subpad sluit. Alleen vergelijken met `1` of `3` zou deze gevallen missen. Andere vlaggen, zoals streep (`0x10`) en markering (`0x20`), wijzigen het basissegmenttype niet.
 
-**Coördinaten en transformaties.** Punten worden gemeten in points (1/72 inch), waarbij X naar rechts toeneemt en Y naar beneden. Voor een niet‑gegroepeerde vorm omvatten de geëxtraheerde coördinaten al diens [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/)‑ en [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/)‑positie en weerspiegelen ze de huidige breedte en hoogte. Bijvoorbeeld, een niet‑gedraaide rechthoek op `(100, 200)` met afmeting `120 × 80` heeft contourgrenzen `(100, 200)`–`(220, 280)`. Voeg de positie van de vorm niet nogmaals toe. Trek X en Y af om coördinaten relatief tot het ongeroteerde frame te krijgen.
+**Coördinaten en transformaties.** Punten worden gemeten in points (1/72 inch), waarbij X toeneemt naar rechts en Y toeneemt naar beneden. Voor een niet‑gegroepeerde vorm zijn de geëxtraheerde coördinaten al inclusief haar [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/)‑ en [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/)‑positie en weerspiegelen ze de huidige breedte en hoogte. Een ongeroteerde rechthoek op `(100, 200)` met afmeting `120 × 80` heeft contourgrenzen `(100, 200)`–`(220, 280)`. Voeg de positie van de vorm niet opnieuw toe. Trek haar X en Y af om coördinaten ten opzichte van het ongeroteerde kader te verkrijgen.
 
-De geëxtraheerde punten passen de [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) of horizontale en verticale flips van de vorm niet toe. Om de weergegeven contour te reproduceren, pas die transformaties toe rond het middelpunt van de vorm. Voor gegroepeerde vormen moet ook rekening worden gehouden met de coördinaten‑mapping en transformaties van de groep; ga er niet van uit dat de geëxtraheerde punten de definitieve slide‑coördinaten zijn of dat je een translatie of schaal twee keer toepast als dat al in het child‑frame is verwerkt.
+De geëxtraheerde punten houden geen rekening met de [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) van de vorm of met horizontale en verticale spiegels. Om de weergegeven contour te reproduceren, moet je die transformaties rond het middelpunt van de vorm toepassen. Voor gegroepeerde vormen moet je bovendien rekening houden met de coördinatenmapping en transformaties van de groep; ga er niet van uit dat de geëxtraheerde punten de definitieve weergave‑dia‑coördinaten zijn of dat je een translatie of schaal dubbel moet toepassen als deze al in het kind‑kader is verwerkt.
 
-**Inspectie versus bewerking.** Geëxtraheerde matrices beschrijven de contour; veranderen ervan werkt het origineel niet bij. Kies deze aanpak wanneer je analyse‑ of tekengereedschap punt‑/type‑arrays nodig heeft. Gebruik [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) als je geometrie‑commando’s in het lokale coördinatensysteem van de vorm wilt of de geometrie wilt bewerken. Pas bijgewerkte paden toe via [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) of [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
+**Inspectie versus bewerking.** De geëxtraheerde arrays beschrijven de contour; het wijzigen ervan werkt de oorspronkelijke vorm niet bij. Gebruik deze aanpak wanneer je analyse‑ of teken‑code punt‑/type‑arrays nodig heeft. Gebruik [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) wanneer je geometrische commando’s in het lokale coördinatensysteem van de vorm nodig hebt of de geometrie wilt bewerken. Pas bewerkte paden toe via [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) of [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
 
 ## **GeometryPath omzetten naar GraphicsPath (System.Drawing.Drawing2D)**
 
-Het volgende voorbeeld vereist een legacy‑assembly van Aspose.Slides for .NET die [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) ondersteunt, zoals versie 25.10, en een Windows‑omgeving met `System.Drawing.Common`. De conversiemethoden werden verwijderd in [versie 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
+Het volgende voorbeeld vereist een legacy‑Aspose.Slides‑for‑.NET‑assembly die [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) ondersteunt, bijvoorbeeld versie 25.10, en een Windows‑omgeving met `System.Drawing.Common`. De conversiemethoden zijn verwijderd in [version 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
 
-Dit voorbeeld combineert een rechthoekige omtrek met tekst die is omgezet naar geometrie. De [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) van de omtrek wordt ingesteld op uitschakelen van de vulling. Een [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) slaat de tekstomtrek op, die [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) omzet naar een gevulde geometriepad. Het toepassen van beide paden met [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) levert één vorm op die zowel de rechthoek als de tekst bevat. Voor conversie in de tegenovergestelde richting gebruik je [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
+Dit voorbeeld combineert een rechthoekige omtrek met tekst die naar geometrie is geconverteerd. De omtrek‑[IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) wordt ingesteld om de vulling uit te schakelen. Een [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) slaat de tekstopmaak op, die [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) converteert naar een gevulde geometrische pad. Het toepassen van beide paden met [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) produceert één vorm die zowel de rechthoek als de tekst bevat. Voor conversie in de tegenovergestelde richting, gebruik [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
 
 ```csharp
 using System.Drawing;
@@ -375,18 +418,18 @@ textPath.FillMode = PathFillModeType.Normal;
 
 shape.SetGeometryPaths(new[] { originalPath, textPath });
 ```
-![voorbeeld5_afbeelding](custom_shape_5.png)
+![example5_image](custom_shape_5.png)
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Wat gebeurt er met de vulling en de omtrek na het vervangen van de geometrie?**
+**Wat gebeurt er met de opvulling en de omtrek na het vervangen van de geometrie?**
 
-De stijl blijft gekoppeld aan de vorm; alleen de contour verandert. Vulling en omtrek worden automatisch toegepast op de nieuwe geometrie.
+De stijl blijft bij de vorm; alleen de omtrek verandert. De opvulling en de omtrek worden automatisch toegepast op de nieuwe geometrie.
 
-**Hoe roteer ik een aangepaste vorm correct samen met zijn geometrie?**
+**Hoe roteer ik een aangepaste vorm correct samen met de geometrie?**
 
 Gebruik de eigenschap [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) van de vorm; de geometrie roteert mee omdat deze gebonden is aan het eigen coördinatensysteem van de vorm.
 
-**Kan ik een aangepaste vorm omzetten naar een afbeelding om het resultaat „vast te leggen“?**
+**Kan ik een aangepaste vorm converteren naar een afbeelding om het resultaat te “vergrendelen”?**
 
-Ja. Exporteer het gewenste [slide](/slides/nl/net/convert-powerpoint-to-png/)-gebied of de [shape](/slides/nl/net/create-shape-thumbnails/) zelf naar een rasterformaat; dat vereenvoudigt verdere bewerkingen met complexe geometrieën.
+Ja. Exporteer het benodigde [dia](/slides/nl/net/convert-powerpoint-to-png/)‑gebied of de [vorm](/slides/nl/net/create-shape-thumbnails/) zelf naar een rasterformaat; dit vereenvoudigt verdere bewerking met complexe geometrieën.

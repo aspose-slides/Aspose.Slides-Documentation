@@ -10,74 +10,76 @@ keywords:
 - आकार बनाएं
 - आकार बदलें
 - आकार ज्यामिति
-- ज्यामिति पाथ
-- पाथ बिंदु
-- बिंदु संपादित करें
+- ज्यामिति पथ
+- पथ बिंदु
+- संपादन बिंदु
 - बिंदु जोड़ें
-- बिंदु हटाएं
+- बिंदु हटाएँ
 - संपादन संचालन
 - वक्र कोना
 - PowerPoint
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python द्वारा .NET के माध्यम से PowerPoint प्रस्तुतियों में आकार बनाएं और अनुकूलित करें: ज्यामिति पाथ, वक्र कोने, संयुक्त आकार।"
+description: "Aspose.Slides for Python के माध्यम से .NET में PowerPoint प्रस्तुतियों में आकार बनाएं और अनुकूलित करें: ज्यामिति पथ, वक्र कोनों, समग्र आकार।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides में प्रस्तुति आकारों को संपादन बिंदुओं और ज्यामिति पाथों के माध्यम से आकार ज्यामिति को संपादित करके अनुकूलित करने का तरीका समझाता है। यह दिखाता है कि कैसे मौजूदा आकारों को संशोधित करने, बुनियादी पाथ संपादन संचालन करने, बिंदुओं को जोड़ने या हटाने, और अद्यतन ज्यामिति को फिर से एक आकार पर लागू करने के लिए [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) का उपयोग किया जाता है। यह यह भी दर्शाता है कि कैसे कस्टम और कॉम्पोज़िट आकार बनाएं, वक्र किनारों वाले आकार तैयार करें, यह निर्धारित करें कि आकार की ज्यामिति बंद है या नहीं, और कंटूर विश्लेषण के लिए आकार तत्वों को निकालें।
+यह लेख Aspose.Slides में प्रस्तुति आकारों को संपादन बिंदुओं और ज्यामिति पाथ के माध्यम से आकार ज्यामिति को संपादित करके अनुकूलित करने की प्रक्रिया समझाता है। यह दिखाता है कि कैसे [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) का उपयोग करके मौजूदा आकारों को संशोधित किया जाए, मूलभूत पाथ संपादन संचालन किए जाएँ, बिंदुओं को जोड़ा या हटाया जाए, और अद्यतन ज्यामिति को फिर से आकार पर लागू किया जाए।
 
-## **संपादन बिंदुओं का उपयोग करके आकार बदलें**
+यह यह भी प्रदर्शित करता है कि कैसे कस्टम और संयुक्त आकार बनाएं, वक्र कोनों वाले आकार बनाएं, यह निर्धारित करें कि आकार की ज्यामिति बंद है या नहीं, और कंटूर विश्लेषण के लिए आकार तत्वों को निकालें।
 
-PowerPoint में, आप **Edit Points** का उपयोग करके एक वर्ग को संशोधित कर सकते हैं:
+## **Edit Points का उपयोग करके एक आकार बदलें**
 
-* एक कोने को अंदर या बाहर ले जाएँ।
-* किसी बिंदु पर घुमाव को समायोजित करें।
+PowerPoint में आप **Edit Points** का उपयोग करके वर्ग को संशोधित कर सकते हैं:
+
+* कोने को अंदर या बाहर ले जाएँ।
+* किसी बिंदु पर वक्रता समायोजित करें।
 * नए बिंदु जोड़ें।
 
-बिंदुओं को संपादित करने से आप आकार की परिधि को संशोधित कर सकते हैं या मौजूदा आकार को नई के आधार के रूप में उपयोग कर सकते हैं।
+बिंदुओं को संपादित करने से आप आकार की रूपरेखा बदल सकते हैं या मौजूदा आकार को नई आकृति के आधार के रूप में उपयोग कर सकते हैं।
 
 ## **आकार संपादन सुझाव**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint आकारों को संपादित करते समय, इन अवधारणाओं को ध्यान में रखें:
+PowerPoint आकारों को संपादित करते समय इन अवधारणाओं को याद रखें:
 
-* एक आकार (या उसका पाथ) या तो बंद या खुला हो सकता है।
-* आकार का पाथ एंकर बिंदुओं से बना होता है जो खंडों द्वारा जुड़े होते हैं।
-* एक खंड सीधा या वक्र हो सकता है। एंकर बिंदु और नियंत्रण हैंडल इसकी आकृति निर्धारित करते हैं।
-* एंकर बिंदु कोने के बिंदु, सीधे बिंदु, या स्मूद बिंदु के रूप में होते हैं:
-  * कोने के बिंदु पर, सन्निहित खंड एक कोण पर मिल सकते हैं।
-  * स्मूद बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं और एंकर बिंदु से समान दूरी पर होते हैं।
+* एक आकार (या उसका पाथ) बंद या खुला हो सकता है।
+* किसी आकार का पाथ एंकर बिंदुओं से जुड़े खंडों से बनता है।
+* एक खंड सीधा या वक्र हो सकता है। एंकर बिंदु और नियंत्रण हैंडल इसके आकार को निर्धारित करते हैं।
+* एंकर बिंदु कोने के बिंदु, सीधी रेखा बिंदु, या स्मूथ बिंदु के रूप में होते हैं:
+  * कोने के बिंदु पर, से जुड़े खंड कोण पर मिल सकते हैं।
+  * स्मूथ बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं और एंकर बिंदु से समान दूरी पर होते हैं।
   * सीधे बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं लेकिन एंकर बिंदु से अलग-अलग दूरी पर हो सकते हैं।
-* एंकर बिंदुओं को स्थानांतरित करने या उनके हैंडल को समायोजित करने से आकार की परिधि बदलती है।
+* एंकर बिंदु को ले जाने या उनके हैंडल को समायोजित करने से आकार की रूपरेखा बदलती है।
 
-संपादन बिंदुओं के माध्यम से PowerPoint आकारों को संपादित करने के लिए, **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) क्लास प्रदान करता है।
+PowerPoint आकारों को Edit Points के माध्यम से संपादित करने के लिए, **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) क्लास प्रदान करता है।
 
-* एक [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) इंस्टेंस [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) ऑब्जेक्ट के एक ज्यामिति पाथ को दर्शाता है।
-* [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) इंस्टेंस से [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) प्राप्त करने के लिए, आप [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) मेथड का उपयोग कर सकते हैं।
-* आकार के लिए [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) सेट करने हेतु, आप इन मेथड्स का उपयोग कर सकते हैं: एकल पाथ वाले आकारों के लिए [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), और कई पाथ वाले आकारों के लिए [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/)।
-* खंड जोड़ने के लिए, आप [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) के अंतर्गत मेथड्स का उपयोग कर सकते हैं।
-* [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) और [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) प्रॉपर्टीज़ का उपयोग करके, आप एक ज्यामिति पाथ की उपस्थिति सेट कर सकते हैं।
-* [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) प्रॉपर्टी का उपयोग करके, आप एक [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) की ज्यामिति पाथ को पाथ खंडों की एरे के रूप में प्राप्त कर सकते हैं।
+* एक [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) उदाहरण [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) वस्तु की ज्यामिति पाथ को दर्शाता है।
+* [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) मेथड का उपयोग करके आप [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) से [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) प्राप्त कर सकते हैं।
+* किसी आकार के लिए [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) सेट करने के लिए आप इन मेथड्स का उपयोग कर सकते हैं: एकल पाथ वाले आकार के लिए [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) और कई पाथ वाले आकार के लिए [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/)।
+* खंड जोड़ने के लिए आप [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) के तहत उपलब्ध मेथड्स का उपयोग कर सकते हैं।
+* [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) और [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) प्रॉपर्टीज़ का उपयोग करके आप ज्यामिति पाथ की उपस्थिति निर्धारित कर सकते हैं।
+* [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) प्रॉपर्टी के माध्यम से आप [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) की ज्यामिति पाथ को खंडों की एक एरे के रूप में प्राप्त कर सकते हैं।
 
 ## **सरल संपादन संचालन**
 
-ज्यामिति पाथ को संपादित करने के लिए निम्नलिखित मेथड्स का उपयोग करें। इंडेक्स स्वीकार करने वाले ओवरलोड्स पाथ के खंड एरे में शून्य-आधारित स्थिति पर एक खंड सम्मिलित करते हैं।
+नीचे दिए गए मेथड्स का उपयोग करके आप ज्यामिति पाथ को संशोधित कर सकते हैं। वह ओवरलोड जो इंडेक्स स्वीकार करता है, पाथ की सेगमेंट एरे में शून्य-आधारित स्थिति पर एक सेगमेंट सम्मिलित करता है।
 
-| ऑपरेशन | मेथड |
+| ऑपरेशन | विधि |
 | --- | --- |
-| एक सीधी रेखा जोड़ें या सम्मिलित करें। | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
-| दो नियंत्रण बिंदुओं और एक अंत बिंदु वाले क्यूबिक बीज़ियर कर्व को जोड़ें या सम्मिलित करें। | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
-| एक नियंत्रण बिंदु और एक अंत बिंदु वाले क्वाड्रेटिक बीज़ियर कर्व को जोड़ें या सम्मिलित करें। | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
-| निर्दिष्ट आकार और डिग्री में कोणों के साथ एक दीर्घवृत्तीय आर्क जोड़ें। | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
-| वर्तमान आकृति को उसके अंत बिंदु को शुरुआती बिंदु से जोड़कर बंद करें। | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
-| एक आकृति का प्रारंभ बिंदु सेट करें। | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
-| शून्य-आधारित इंडेक्स पर एक खंड हटाएँ। | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
+| सीधी रेखा जोड़ें या सम्मिलित करें। | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
+| दो नियंत्रण बिंदुओं और एक अंतिम बिंदु के साथ क्यूबिक बेज़ियर वक्र जोड़ें या सम्मिलित करें। | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
+| एक नियंत्रण बिंदु और एक अंतिम बिंदु वाले द्विघात बेज़ियर वक्र जोड़ें या सम्मिलित करें। | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| निर्दिष्ट आयाम और डिग्री में कोणों के साथ अंडाकार चाप जोड़ें। | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
+| वर्तमान आकृति को उसके अंतिम बिंदु को प्रारंभ बिंदु से जोड़कर बंद करें। | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
+| आकृति की प्रारंभ बिंदु निर्धारित करें। | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
+| शून्य-आधारित इंडेक्स पर किसी सेगमेंट को हटाएँ। | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
-## **एक आकार में कस्टम बिंदु जोड़ें**
+## **आकार में कस्टम बिंदु जोड़ें**
 
-यह उदाहरण [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) का उपयोग करके एक आयताकार आकार में दो बिंदु सम्मिलित करता है और संशोधित पाथ को [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) से लागू करता है। निर्देशांक आकार के स्थानीय होते हैं: दोनों नए बिंदु उसकी केंद्र में हैं, बाएँ से 100 पॉइंट और ऊपर से 50 पॉइंट पर। खंड सूचकांक 1 और 4 उन्हें शीर्ष और निचले किनारों पर रखते हैं, जिससे वे किनारे अंदर की ओर खींचे जाते हैं।
+यह उदाहरण दो बिंदुओं को आयताकार आकार में [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) का उपयोग करके डालता है और संपादित पाथ को [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) के साथ लागू करता है। निर्देशांक आकार के स्थानीय हैं: दोनों नए बिंदु आकार के केंद्र में हैं, बाएँ से 100 पॉइंट और ऊपर से 50 पॉइंट की दूरी पर। सेगमेंट इंडेक्स 1 और 4 उन्हें क्रमशः शीर्ष और निचले किनारों पर रखते हैं, जिससे वे किनारे अंदर की ओर खींचे जाते हैं।
 
 ```python
 import aspose.slides as slides
@@ -96,9 +98,9 @@ with slides.Presentation() as presentation:
 
 ![example1_image](custom_shape_1.png)
 
-## **एक आकार से बिंदु हटाएँ**
+## **आकार से बिंदु हटाएँ**
 
-यह उदाहरण शून्य-आधारित सूचकांक 2 पर [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) के साथ एक हार्ट-आकार की रूपरेखा को बदलता है। संशोधित पाथ को [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) से लागू करने से आकार की रूपरेखा अपडेट होती है।
+यह उदाहरण हृदय आकार की रूपरेखा को [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) के साथ शून्य-आधारित इंडेक्स 2 पर सेगमेंट हटाकर बदलता है। संशोधित पाथ को [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) के साथ लागू करने से आकार की रूपरेखा अपडेट हो जाती है।
 
 ```python
 import aspose.slides as slides
@@ -115,9 +117,9 @@ with slides.Presentation() as presentation:
 ```
 ![example2_image](custom_shape_2.png)
 
-## **एक कस्टम आकार बनाएं**
+## **कस्टम आकार बनाना**
 
-यह उदाहरण [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) का उपयोग करके एक पाँच‑बिंदु सितारा बनाता है। 100 और 50 पॉइंट के वैकल्पिक बाहरी और आंतरिक त्रिज्या टिप्स और अंदरूनी हिस्सों को परिभाषित करती हैं; 72‑डिग्री का स्टेप पाँच टिप्स को समान रूप से स्थान देता है। पाथ को [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) से बंद किया जाता है और [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) का उपयोग करके एक आयताकार आकार पर लागू किया जाता है, जिससे उसकी रूपरेखा बदल जाती है।
+यह उदाहरण [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) का उपयोग करके पाँच-कोने वाला सितारा बनाता है। बाहरी और आंतरिक त्रिज्याएँ क्रमशः 100 और 50 पॉइंट के वैकल्पिक क्रम में टिप और अंतर्वर्ती बनाते हैं; 72‑डिग्री चरण से पाँच टिपें समान रूप से वितरित होती हैं। पाथ को [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) से बंद किया जाता है और आयताकार आकार पर [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) द्वारा लागू किया जाता है, जिससे उसकी रूपरेखा बदल जाती है।
 
 ```python
 import aspose.slides as slides
@@ -157,9 +159,9 @@ with slides.Presentation() as presentation:
 ```
 ![example3_image](custom_shape_3.png)
 
-## **एक संयुक्त कस्टम आकार बनाएं**
+## **संयुक्त कस्टम आकार बनाना**
 
-यह उदाहरण आकार के ऊपर और नीचे के तिहाई भागों के लिए दो बंद [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) ऑब्जेक्ट निर्धारित करता है। दोनों पाथ को [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) से लागू करने से मध्य तिहाई के पार एक गैप के साथ एकल संयुक्त आकार बनता है।
+यह उदाहरण आकार के ऊपर और नीचे के एक‑तिहाई हिस्सों के लिए दो बंद [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) ऑब्जेक्ट परिभाषित करता है। दोनों पाथ को [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) के साथ लागू करने से मध्य‑तिहाई में एक अंतर के साथ एकल संयुक्त आकार बनता है।
 
 ```python
 import aspose.slides as slides
@@ -187,9 +189,9 @@ with slides.Presentation() as presentation:
 ```
 ![example4_image](custom_shape_4.png)
 
-## **वक्र किनारों वाला कस्टम आकार बनाएं**
+## **वक्र कोनों वाले कस्टम आकार बनाना**
 
-यह उदाहरण सीधे खंडों को [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) के साथ मिलाकर एक ऐसी आकार बनाता है जिसमें अंदर की ओर वक्र किनारे हों। प्रत्येक किनारे का आकार आर्क की चौड़ाई और ऊँचाई को पॉइंट में निर्धारित करता है, और -90‑डिग्री स्वेप एक वैकल्पिक दिशा में चौथाई दीर्घवृत्त बनाता है। पूर्ण पाथ को [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) से लागू किया जाता है, और प्रस्तुति को PPTX प्रारूप में सहेजा जाता है।
+यह उदाहरण सीधे खंडों को [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) के साथ मिलाकर अंदर‑की‑वक्र कोनों वाले आकार का निर्माण करता है। प्रत्येक कोने का आकार बिंदुओं में चाप की चौड़ाई और ऊँचाई सेट करता है, और -90‑डिग्री स्वेप एक प्रतिक्लॉकवाइज़ क्वार्टर एलिप्स बनाता है। पूर्ण पाथ को [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) के साथ लागू किया जाता है, और प्रस्तुति को PPTX फॉर्मेट में सहेजा जाता है।
 
 ```python
 import aspose.slides as slides
@@ -233,9 +235,9 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **जांचें कि क्या आकार की ज्यामिति बंद है**
+## **जाँचें कि क्या आकार की ज्यामिति बंद है**
 
-निम्न सहायता जांचती है कि क्या प्रत्येक गैर‑खाली ज्यामिति पाथ एक बंद खंड के साथ समाप्त होती है। यह [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) को पढ़ती है और अंतिम खंड के [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) की तुलना [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/) से करती है। जब कोई गैर‑खाली पाथ नहीं होते तो यह false लौटाती है। यह प्रत्येक पाथ के अंतिम कमांड की जाँच करती है; यह पाथ के भीतर प्रत्येक सबफ़िगर का निरीक्षण नहीं करती। उदाहरण एक आयत के लिए `True` प्रिंट करता है।
+निम्न सहायक फ़ंक्शन यह जांचता है कि क्या प्रत्येक गैर‑खाली ज्यामिति पाथ का अंतिम सेगमेंट बंद करने वाला है। यह [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) को पढ़ता है और अंतिम सेगमेंट के [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) की तुलना [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/) से करता है। यदि कोई गैर‑खाली पाथ नहीं है तो यह false वापस करता है। यह प्रत्येक पाथ की अंतिम कमांड की जाँच करता है; यह पाथ के भीतर प्रत्येक उप‑आकृति का निरीक्षण नहीं करता। उदाहरण एक आयत के लिए `True` प्रिंट करता है।
 
 ```python
 import aspose.slides as slides
@@ -263,11 +265,46 @@ with slides.Presentation() as presentation:
     print(is_geometry_closed(shape))
 ```
 
+## **ज्यामिति पाथ कमांड का निरीक्षण करें**
+
+[contour.pptx](contour.pptx) को डाउनलोड करके इसे अपने कार्य निर्देशिका में रखें। प्रथम स्लाइड की पहली आकृति में एक सीधी ऊपर किनारा, एक क्यूबिक बेज़ियर वक्र और एक सीधा बंद किनारा है। इसकी पाथ पढ़ने के लिए आप [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) का उपयोग कर सकते हैं। प्रत्येक पाथ के लिए, [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) खंडों को उनके ड्राइंग क्रम में सूचीबद्ध करता है। प्रत्येक खंड का [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) यह निर्धारित करता है कि उसके [PathSegment.segment_data](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/segment_data/) को कैसे व्याख्यायित किया जाए।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("contour.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    for i, path in enumerate(shape.get_geometry_paths()):
+        for j, segment in enumerate(path.path_data):
+            command = segment.path_command
+            data = segment.segment_data
+            if command in (slides.PathCommandType.MOVE_TO, slides.PathCommandType.LINE_TO):
+                detail = f"destination={tuple(data)}"
+            elif command == slides.PathCommandType.CUBIC_BEZIER_TO:
+                detail = f"control1={tuple(data[:2])} control2={tuple(data[2:4])} end={tuple(data[4:])}"
+            elif command == slides.PathCommandType.CLOSE:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={data}"
+            print(f"Path {i}, segment {j}: {command.name} {detail}")
+```
+
+आकृति स्लाइड पर (200, 100) पॉइंट पर स्थित है। रिपोर्ट किए गये निर्देशांक आकार के स्थानीय हैं। उसका ऊपरी‑बाएँ कोना (0, 0) है, x दाएँ बढ़ता है और y नीचे की ओर।
+
+```text
+Path 0, segment 0: MOVE_TO destination=(0, 0)
+Path 0, segment 1: LINE_TO destination=(80, 0)
+Path 0, segment 2: CUBIC_BEZIER_TO control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: CLOSE no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
 ## **आकार तत्वों को निकालें और निरीक्षण करें**
 
-[GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) का उपयोग करके एक मौजूदा आकार को पाथ बिंदुओं और बिंदु प्रकारों वाले तत्वों के रूप में निरीक्षण करें। प्रत्येक लौटाए गए [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) अपने [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) और [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/) एरे को उजागर करता है। यह प्रतिनिधित्व कंटूर विश्लेषण या कस्टम ड्राइंग टूल्स को ज्यामिति पास करने के लिए उपयोगी है।
+[GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) का उपयोग करके आप मौजूदा आकार को तत्वों के रूप में निरीक्षण कर सकते हैं, जिसमें पाथ बिंदु और बिंदु प्रकार होते हैं। प्रत्येक लौटाए गये [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) में उसके [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) और [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/) एरे उपलब्ध होते हैं। यह प्रतिनिधित्व कंटूर विश्लेषण या कस्टम ड्राइंग टूल्स को ज्यामिति प्रदान करने के लिए उपयोगी है।
 
-उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर सीधे पहला ज्यामिति आकार ढूँढता है, और उसके पाथ खंडों को प्रिंट करता है। सीधे और वक्र खंडों वाले आकार वाली प्रस्तुति का उपयोग करके दोनों प्रकार के आउटपुट देखें। यह समूहों के भीतर खोज नहीं करता।
+उदाहरण एक प्रस्तुति खोलता है, प्रथम स्लाइड पर सीधे प्रथम ज्यामिति आकार को खोजता है, और उसके पाथ सेगमेंट प्रिंट करता है। दोनों सीधे और वक्र खंडों वाले आकार वाली प्रस्तुति का उपयोग करके आप दोनों प्रकार के आउटपुट देख सकते हैं। यह समूहों के भीतर खोज नहीं करता।
 
 ```python
 import aspose.slides as slides
@@ -286,40 +323,40 @@ with slides.Presentation("input.pptx") as presentation:
 
             i = 0
             while i < len(points):
-                point_type = types[i] & 0x07  # सेगमेंट प्रकार रखें, फ़्लैग को छोड़ते हुए।
+                point_type = types[i] & 0x07  # सेगमेंट प्रकार रखें, फ़्लैग को बाहर रखते हुए।
                 if point_type == 0:
                     print(f"Start figure at {points[i]}")
                 elif point_type == 1:
                     print(f"Line to {points[i]}")
                 elif point_type == 3:
                     print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
-                    i += 2  # दोनों नियंत्रण बिंदुओं और अंत बिंदु को उपभोग करें।
+                    i += 2  # दोनों नियंत्रण बिंदुओं और अंतिम बिंदु को उपभोग करें।
 
                 if (types[i] & 0x80) != 0:
                     print("Close subpath back to its starting point.")
                 i += 1
 ```
 
-एरे इंडेक्स के अनुसार मेल खाते हैं: `points[i]` एक बिंदु है और `types[i]` उसकी भूमिका को वर्णित करता है। प्रकार `0` एक आकृति शुरू करता है, और प्रकार `1` पिछले बिंदु से वर्तमान बिंदु तक रेखा खींचता है। एक क्यूबिक बीज़ियर खंड पिछले अंत बिंदु से शुरू होता है और तीन क्रमिक प्रकार-`3` प्रविष्टियों का उपयोग करता है: दो नियंत्रण बिंदु और फिर नया अंत बिंदु। लूप इन तीन प्रविष्टियों को साथ में उपभोग करता है और बंद होने के लिए अंत बिंदु की जाँच करता है।
+एरे इंडेक्स द्वारा मेल खाते हैं: `points[i]` एक बिंदु है और `types[i]` उसकी भूमिका बताता है। प्रकार `0` एक आकृति की शुरुआत दर्शाता है, और प्रकार `1` पिछले बिंदु से वर्तमान बिंदु तक रेखा खींचता है। क्यूबिक बेज़ियर खंड पिछले अंतिम बिंदु से शुरू होता है और तीन क्रमिक प्रकार‑`3` प्रविष्टियों का उपयोग करता है: दो नियंत्रण बिंदु और नया अंतिम बिंदु। लूप इन तीन प्रविष्टियों को साथ में उपभोग करता है और बंद होने के लिये अंतिम बिंदु की जाँच करता है।
 
-बिंदु प्रकारों में फ़्लैग भी होते हैं। खंड प्रकार पहचानने के लिए `0x07` से मास्क करें, और बंद सबपाथ का पता लगाने के लिए `0x80` को अलग से परीक्षण करें। उदाहरण के लिए, `129` (`0x81`) एक रेखा अंत बिंदु दर्शाता है जो सबपाथ को बंद करता है, और `131` (`0x83`) एक बीज़ियर अंत बिंदु दर्शाता है जो एक को बंद करता है। केवल `1` या `3` के साथ कच्चे मान की तुलना करने से ये मामलों छूट जाएंगे। अन्य फ़्लैग, जैसे डैश (`0x10`) और मार्कर (`0x20`), मूल खंड प्रकार को नहीं बदलते।
+बिंदु प्रकारों में फ़्लैग भी होते हैं। सेगमेंट प्रकार पहचानने के लिये `0x07` मास्क का उपयोग करें, और बंद उप‑पाथ का पता लगाने के लिये `0x80` को अलग से परीक्षण करें। उदाहरण के लिये, `129` (`0x81`) एक रेखा अंतिम बिंदु दर्शाता है जो उप‑पाथ को बंद करता है, और `131` (`0x83`) एक बेज़ियर अंतिम बिंदु दर्शाता है जो उसे बंद करता है। केवल `1` या `3` से तुलना करने से ये मामलों को मिस किया जा सकता है। अन्य फ़्लैग जैसे डैश (`0x10`) और मार्कर (`0x20`) मूल सेगमेंट प्रकार को नहीं बदलते।
 
-**निर्देशांक और रूपांतरण.** बिंदुओं को पॉइंट में मापा जाता है (1/72 इंच), जहाँ X दाएँ की ओर बढ़ता है और Y नीचे की ओर। एक अनग्रुप्ड आकार के लिए, निकाले गए निर्देशांक पहले से ही उसके [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) और [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) स्थितियों को शामिल करते हैं और उसकी वर्तमान चौड़ाई और ऊँचाई को दर्शाते हैं। उदाहरण के लिए, `(100, 200)` पर स्थित, `120 × 80` आकार का बिना घुमाव वाला आयत कंटूर सीमा `(100, 200)`–`(220, 280)` रखता है। आकार की स्थिति को दोबारा न जोड़ें। उसके X और Y को घटाकर अनरोटेटेड फ्रेम के सापेक्ष निर्देशांक प्राप्त करें।
+**निर्देशांक और रूपांतरण।** बिंदु पॉइंट्स (1/72 इंच) में मापे जाते हैं, X दाएँ और Y नीचे की ओर बढ़ता है। अवर्गीकृत आकार के लिये निकाले गये निर्देशांक पहले से ही उसके [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) और [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) स्थिति को सम्मिलित करते हैं और उसकी वर्तमान चौड़ाई और ऊँचाई को दर्शाते हैं। उदाहरण के लिये, `(100, 200)` पर स्थित और `120 × 80` आकार वाला बिना घुमाए आयत `(100, 200)–(220, 280)` कंटूर सीमा रखता है। आकार की स्थिति को दोबारा जोड़ें नहीं। X और Y को घटाकर स्थानीय निर्देशांक प्राप्त करें।
 
-निकाले गए बिंदुओं पर आकार की [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) या क्षैतिज/अनुदैर्ध्य फ्लिप नहीं लगते। प्रदर्शित कंटूर को पुन: निर्मित करने के लिए, इन रूपांतरणों को आकार के केंद्र के आसपास लागू करें। समूहित आकारों के लिए, समूह निर्देशांक मानचित्रण और रूपांतरणों को भी ध्यान में रखें; यह न मानें कि निकाले गए बिंदु अंतिम रेंडर किए स्लाइड निर्देशांक हैं या यदि यह पहले से ही चाइल्ड फ्रेम में परिलक्षित है तो अनुवाद या स्केल दो बार लागू न करें।
+निकाले गये बिंदु आकार की [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) या क्षैतिज‑और‑लंबवत फ़्लिप को लागू नहीं करते। प्रदर्शित कंटूर को पुनः उत्पन्न करने के लिये उन रूपांतरणों को आकार के केंद्र के चारों ओर लागू करें। समूहित आकारों के लिये, समूह निर्देशांक मैपिंग और रूपांतरणों को भी ध्यान में रखें; यह मानें नहीं कि निकाले गये बिंदु अंतिम रेंडर किए गये स्लाइड निर्देशांक हैं या अनजाने में अनुवाद/स्केल को दो बार लागू करें।
 
-**निरीक्षण बनाम संपादन.** निकाले गए एरे कंटूर का वर्णन करते हैं; उन्हें बदलने से मूल आकार अपडेट नहीं होता। इस विधि को तब चुनें जब आपके विश्लेषण या ड्राइंग कोड को बिंदु/प्रकार एरे की आवश्यकता हो। जब आपको आकार के स्थानीय निर्देशांक प्रणाली में ज्यामिति कमांड चाहिए या उसकी ज्यामिति संपादित करनी हो तो [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) का उपयोग करें। संशोधित पाथ को [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) या [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) के माध्यम से लागू करें।
+**निरीक्षण बनाम संपादन।** निकाले गये एरे कंटूर का वर्णन करते हैं; उन्हें बदलने से मूल आकार अपडेट नहीं होता। जब आपका विश्लेषण या ड्राइंग कोड बिंदु/प्रकार एरे की आवश्यकता रखता है तो इस दृष्टिकोण का चयन करें। जब आपको आकार के स्थानीय निर्देशांक प्रणाली में ज्यामिति कमांड चाहिए या उसकी ज्यामिति संपादित करनी हो तो [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) का उपयोग करें। संपादन किए गये पाथ को [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) या [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) के माध्यम से लागू करें।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**ज्यामिति को बदलने के बाद भराव और रूपरेखा के साथ क्या होगा?**
+**ज्यामिति को बदलने के बाद भराव और रूपरेखा क्या होती है?**
 
-स्टाइल आकार के साथ ही रहता है; केवल कंटूर बदलता है। भराव और रूपरेखा स्वतः नई ज्यामिति पर लागू हो जाते हैं।
+शैली आकार के साथ रहती है; केवल कंटूर बदलता है। भराव और रूपरेखा स्वचालित रूप से नई ज्यामिति पर लागू होते हैं।
 
-**मैं कस्टम आकार को उसकी ज्यामिति के साथ सही तरीके से कैसे घुमा सकता हूँ?**
+**ज्यामिति के साथ एक कस्टम आकार को सही ढंग से कैसे घुमा सकते हैं?**
 
-आकार की [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) प्रॉपर्टी का उपयोग करें; ज्यामिति आकार के साथ घूमती है क्योंकि यह आकार के अपने निर्देशांक प्रणाली से बंधी होती है।
+आकार की [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) प्रॉपर्टी का उपयोग करें; ज्यामिति आकार के साथ घुमती है क्योंकि वह आकार की ही निर्देशांक प्रणाली से बंधी होती है।
 
-**क्या मैं कस्टम आकार को एक छवि में बदल सकता हूँ ताकि परिणाम 'लॉक' हो जाए?**
+**क्या मैं कस्टम आकार को एक छवि में बदल कर “लॉक” कर सकता हूँ?**
 
-हाँ। आवश्यक [slide](/slides/hi/python-net/convert-powerpoint-to-png/) क्षेत्र या स्वयं [shape](/slides/hi/python-net/create-shape-thumbnails/) को रास्टर फ़ॉर्मेट में निर्यात करें; यह जटिल ज्यामितियों के साथ आगे के काम को सरल बनाता है।
+हाँ। आवश्यक [slide](/slides/hi/python-net/convert-powerpoint-to-png/) क्षेत्र या स्वयं [shape](/slides/hi/python-net/create-shape-thumbnails/) को रास्टर फॉर्मेट में निर्यात करें; यह जटिल ज्यामितियों के साथ आगे के कार्य को सरल बनाता है।

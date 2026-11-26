@@ -1,5 +1,5 @@
 ---
-title: تخصيص أشكال العرض التقديمي في Python
+title: تخصيص أشكال العروض التقديمية في Python
 linktitle: شكل مخصص
 type: docs
 weight: 20
@@ -12,7 +12,7 @@ keywords:
 - هندسة الشكل
 - مسار الهندسة
 - نقاط المسار
-- نقاط تحرير
+- نقاط التحرير
 - إضافة نقطة
 - إزالة نقطة
 - عملية تحرير
@@ -21,65 +21,65 @@ keywords:
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides for Python عبر .NET: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
+description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides لــPython عبر .NET: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تخصيص أشكال العرض في Aspose.Slides عن طريق تحرير هندسة الشكل من خلال نقاط التحرير ومسارات الهندسة. توضح كيفية العمل مع [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) لتعديل الأشكال الموجودة، إجراء عمليات تحرير أساسية للمسار، إضافة أو إزالة نقاط، وتطبيق الهندسة المحدثة على الشكل.
+تشرح هذه المقالة كيفية تخصيص أشكال العروض التقديمية في Aspose.Slides عن طريق تعديل هندسة الشكل عبر نقاط التحرير ومسارات الهندسة. توضح كيفية العمل مع [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) لتعديل الأشكال الموجودة، وإجراء عمليات تحرير أساسية للمسار، وإضافة أو إزالة نقاط، وتطبيق الهندسة المحدثة على الشكل مرة أخرى.
 
-كما تُظهر كيفية إنشاء أشكال مخصصة ومركبة، بناء أشكال ذات زوايا منحنية، تحديد ما إذا كانت هندسة الشكل مغلقة، واستخراج عناصر الشكل لتحليل الحدود.
+كما توضح كيفية إنشاء أشكال مخصصة ومركبة، وبناء أشكال ذات زوايا منحنية، وتحديد ما إذا كانت هندسة الشكل مغلقة، واستخراج عناصر الشكل لتحليل الحد.
 
 ## **تغيير شكل باستخدام نقاط التحرير**
 
 في PowerPoint، يمكنك استخدام **نقاط التحرير** لتعديل مربع:
 
 * تحريك زاوية إلى الداخل أو الخارج.
-* ضبط الانحناء عند نقطة.
+* تعديل الانحناء عند نقطة.
 * إضافة نقاط جديدة.
 
-تمكنك نقاط التحرير من تعديل حدود الشكل أو استخدام شكل موجود كأساس لشكل جديد.
+تمكنك نقاط التحرير من تعديل مخطط الشكل أو استخدام شكل موجود كأساس لشكل جديد.
 
 ## **نصائح تحرير الشكل**
 
-![overview_image](custom_shape_0.png)
+![صورة نظرة عامة](custom_shape_0.png)
 
-عند تحرير أشكال PowerPoint، ضع في اعتبارك المفاهيم التالية:
+عند تحرير أشكال PowerPoint، احرص على مراعاة هذه المفاهيم:
 
 * يمكن أن يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.
-* يتكون مسار الشكل من نقاط ارتكاز متصلة بمقاطع.
+* يتكوّن مسار الشكل من نقاط ارتكاز متصلة بمقاطع.
 * يمكن أن يكون المقطع مستقيمًا أو منحنيًا. تحدد نقاط الارتكاز ومقابض التحكم شكله.
-* توجد نقاط الارتكاز كأنواع: نقاط زاوية، نقاط مستقيمة، أو نقاط ناعمة:
-  * عند نقطة الزاوية، يمكن أن تلتقي المقاطع المجاورة بزاوية.
-  * عند نقطة ناعمة، تكون مقبضا التحكم محاذيين وعلى مسافة متساوية من نقطة الارتكاز.
-  * عند نقطة مستقيمة، تكون مقبضا التحكم محاذيين لكن يمكن أن تكون المسافة عنهما مختلفة.
-* تحريك نقاط الارتكاز أو تعديل مقابضها يغير حدود الشكل.
+* توجد نقاط الارتكاز كالنقاط الزاوية، أو النقاط المستقيمة، أو النقاط الملساء:
+  * في النقطة الزاوية، يمكن للمقاطع المجاورة أن تلتقي بزاوية.
+  * في النقطة الملساء، تكون مقبضان التحكم محاذيين ومتساويين البعد عن نقطة الارتكاز.
+  * في النقطة المستقيمة، تكون مقبضان التحكم محاذيين لكن يمكن أن تكون مسافتهما عن نقطة الارتكاز مختلفة.
+* تحريك نقاط الارتكاز أو تعديل مقابضها يغيّر مخطط الشكل.
 
-لتحرير أشكال PowerPoint عبر نقاط التحرير، توفر **Aspose.Slides** الفئة [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+لتحرير أشكال PowerPoint عبر نقاط التحرير، توفر **Aspose.Slides** فئة [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
 
-* تمثل مثالية [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) مسار هندسة كائن [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).
-* لاسترجاع [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) من مثالية [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/)، يمكنك استخدام طريقة [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/).
-* لتعيين [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) لشكل، يمكنك استخدام هذه الطرقيْن: [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) للأشكال ذات المسار الواحد و[GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) للأشكال ذات المسارات المتعددة.
-* لإضافة مقاطع، يمكنك استخدام الطرق الموجودة تحت [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
-* باستخدام خاصيتي [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) و[GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/)، يمكنك تحديد مظهر مسار الهندسة.
-* باستخدام خاصية [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/)، يمكنك استرجاع مسار الهندسة لكائن [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) كمصفوفة من مقاطع المسار.
+* تمثل نسخة من [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) مسار هندسة كائن [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).
+* لاسترداد [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) من نسخة [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/)، يمكنك استخدام طريقة [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/).
+* لتعيين [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) لشكل، يمكنك استخدام هذه الطرق: [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) للأشكال ذات المسار الواحد و[GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) للأشكال ذات المسارات المتعددة.
+* لإضافة مقاطع، يمكنك استخدام الطرق المتاحة تحت [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+* باستخدام خاصيتي [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) و[GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/)، يمكنك ضبط مظهر مسار الهندسة.
+* باستخدام خاصية [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/)، يمكنك استرداد مسار هندسة [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) كمصفوفة من مقاطع المسار.
 
 ## **عمليات تحرير بسيطة**
 
-استخدم الطرقيْن التاليين لتحرير مسار الهندسة. التحميلات التي تقبل فهرسًا تُدرج مقطعًا في ذلك الموضع الصفري‑الأساسي داخل مصفوفة مقاطع المسار.
+استخدم الطرق التالية لتحرير مسار الهندسة. التحميلات التي تقبل فهرسًا تُدخل مقطعًا في ذلك الموضع الصفري في مصفوفة مقاطع المسار.
 
 | العملية | الطريقة |
 | --- | --- |
 | إلحاق أو إدراج خط مستقيم. | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
-| إلحاق أو إدراج منحنى بيزيه مكعب مع نقطتي تحكم ونقطة نهائية. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
-| إلحاق أو إدراج منحنى بيزيه تربيعي مع نقطة تحكم واحدة ونقطة نهائية. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| إلحاق أو إدراج منحنى بيزييه مكعب مع نقطتي تحكم ونقطة النهاية. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
+| إلحاق أو إدراج منحنى بيزييه تربيعي مع نقطة تحكم واحدة ونقطة النهاية. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
 | إلحاق قوس بيضاوي بالأبعاد والزوايا المحددة بالدرجات. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
-| إغلاق الشكل الحالي بربط نقطته النهائية بنقطة البداية. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
+| إغلاق الشكل الحالي بربط نقطة النهاية بنقطة البداية. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
 | تعيين نقطة البداية لشكل. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
-| إزالة مقطع عند فهرس صفري‑أساسي. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
+| إزالة مقطع عند فهرس صفري. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
 ## **إضافة نقاط مخصصة إلى شكل**
 
-يقوم هذا المثال بإدراج نقطتين في شكل مستطيل باستخدام [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) ويطبق المسار المعدل عبر [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). الإحداثيات محلية بالنسبة للشكل: كلتا النقطتين الجديدتين في مركزه، 100 نقطة من اليسار و50 نقطة من الأعلى. موضع مقاطع الفهرس 1 و4 يضعهما على الحافتين العلوية والسفلية، سحبًا لتلك الحافات للداخل.
+يُدرج هذا المثال نقطتين في شكل مستطيل باستخدام [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) ويطبّق المسار المعدل عبر [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). الإحداثيات محلية بالنسبة للشكل: كلا النقطتين الجديدتين في مركزه، على بعد 100 نقطة من اليسار و50 نقطة من الأعلى. مؤشرات المقاطع 1 و4 تضعهما على حواف الأعلى والأسفل، ساحبًا تلك الحواف إلى الداخل.
 
 ```python
 import aspose.slides as slides
@@ -96,11 +96,11 @@ with slides.Presentation() as presentation:
     shape.set_geometry_path(geometry_path)
 ```
 
-![example1_image](custom_shape_1.png)
+![صورة مثال 1](custom_shape_1.png)
 
 ## **إزالة نقاط من شكل**
 
-هذا المثال يغيّر مخطط شكل قلب عن طريق إزالة المقطع في الفهرس الصفري‑الأساسي 2 باستخدام [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). تطبيق المسار المُعدَّل عبر [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) يُحدّث حدّ الشكل.
+يُغيّر هذا المثال مخطط شكل قلب عن طريق إزالة المقطع عند الفهرس الصفري 2 باستخدام [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). تطبيق المسار المعدل عبر [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) يُحدّث حافة الشكل.
 
 ```python
 import aspose.slides as slides
@@ -115,11 +115,11 @@ with slides.Presentation() as presentation:
 
     shape.set_geometry_path(path)
 ```
-![example2_image](custom_shape_2.png)
+![صورة مثال 2](custom_shape_2.png)
 
 ## **إنشاء شكل مخصص**
 
-يبني هذا المثال نجمة خماسية باستخدام [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). تحدد نصف القطرين الخارجي والداخلي المتناوبين 100 و50 نقطة القمم والفراغات؛ خطوة قدرها 72 درجة تُوزّع القمم الخمس بالتساوي. يُغلق المسار عبر [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) ويُطبق على شكل مستطيل عبر [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/)، مستبدلًا المخطط الأصلي.
+يبني هذا المثال نجمة خماسية النقاط باستخدام [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). تُحدد نصفا القطر المتناوبين 100 و50 نقطة لتحديد رؤوس الحواف الداخلية؛ خطوة 72 درجة تُوزّع الرؤوس الخمسة بصورة متساوية. يُغلق المسار عبر [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) ويُطبّق على شكل مستطيل باستخدام [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/)، مستبدلًا مخططه.
 
 ```python
 import aspose.slides as slides
@@ -157,11 +157,11 @@ with slides.Presentation() as presentation:
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.set_geometry_path(star_path)
 ```
-![example3_image](custom_shape_3.png)
+![صورة مثال 3](custom_shape_3.png)
 
 ## **إنشاء شكل مخصص مركب**
 
-يعرف هذا المثال مسارين مغلقين من نوع [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) للثلثين العلوي والسفلي من الشكل. يخلق تطبيق كلا المسارين عبر [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) شكلاً مركبًا واحدًا مع فجوة عبر الثلث الأوسط.
+يعّرف هذا المثال مسارين مغلقين من نوع [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) للثلثين العلوي والسفلي من الشكل. تطبيق كلا المسارين عبر [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) يُنشئ شكلًا مركبًا واحدًا مع فجوة عبر الثلث الأوسط.
 
 ```python
 import aspose.slides as slides
@@ -187,11 +187,11 @@ with slides.Presentation() as presentation:
 
     shape.set_geometry_paths([top_path, bottom_path])
 ```
-![example4_image](custom_shape_4.png)
+![صورة مثال 4](custom_shape_4.png)
 
-## **إنشاء شكل مخصص بذوايا منحنية**
+## **إنشاء شكل مخصص بزوايا منحنية**
 
-يجمع هذا المثال المقاطع المستقيمة مع [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) لإنشاء شكل ذات زوايا منحنية إلى الداخل. يحدد حجم كل زاوية عرض وارتفاع القوس بالنقاط، وتؤدي القطعة ‑90 درجة إلى رسم ربع إهليلج عكسية. يُطبق المسار الكامل عبر [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/)، ويُحفظ العرض بصيغة PPTX.
+يجمع هذا المثال مقاطع مستقيمة مع [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) لإنشاء شكل بزوايا منحنية إلى الداخل. كل حجم زاوية يحدد عرض وارتفاع القوس بالنقاط، والمسح بزاوية -90 درجة يرسم ربع إهليلج باتجاه عكس عقارب الساعة. يُطبّق المسار المكتمل عبر [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/)، ثم يُحفظ العرض بصيغة PPTX.
 
 ```python
 import aspose.slides as slides
@@ -237,7 +237,7 @@ with slides.Presentation() as presentation:
 
 ## **معرفة ما إذا كانت هندسة الشكل مغلقة**
 
-يتحقق المساعد التالي مما إذا كان كل مسار هندسي غير فارغ ينتهي بمقطع إغلاق. يقرأ [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) ويقارن الأمر الأخير للمسار [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) بـ[PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). يرجع false عندما لا توجد مسارات غير فارغة. يتحقق هذا من الأمر النهائي لكل مسار؛ لا يفحص كل شكل فرعي داخل المسار. يطبع المثال `True` لمستطيل.
+يتحقق المساعد التالي ما إذا كان كل مسار هندسي غير فارغ ينتهي بمقطع إغلاق. يقرأ [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) ويقارن أمر المقطع الأخير [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) بـ[PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). يُعيد false عندما لا توجد مسارات غير فارغة. يتحقق هذا من الأمر الأخير لكل مسار؛ لا يتفقد كل شكل فرعي داخل المسار. يطبع المثال `True` لمستطيل.
 
 ```python
 import aspose.slides as slides
@@ -265,11 +265,46 @@ with slides.Presentation() as presentation:
     print(is_geometry_closed(shape))
 ```
 
+## **فحص أوامر مسار الهندسة**
+
+حمّل [contour.pptx](contour.pptx) وضعه في دليل العمل الخاص بك. الشكل الأول على الشريحة الأولى يحتوي على حافة علوية مستقيمة، ومنحنى بيزييه مكعب، وحافة إغلاق مستقيمة. استخدم [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) لقراءة مساراته. لكل مسار، تُدرج [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) المقاطع بترتيب الرسم. يحدد [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) كيفية تفسير [PathSegment.segment_data](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/segment_data/) لكل مقطع.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("contour.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    for i, path in enumerate(shape.get_geometry_paths()):
+        for j, segment in enumerate(path.path_data):
+            command = segment.path_command
+            data = segment.segment_data
+            if command in (slides.PathCommandType.MOVE_TO, slides.PathCommandType.LINE_TO):
+                detail = f"destination={tuple(data)}"
+            elif command == slides.PathCommandType.CUBIC_BEZIER_TO:
+                detail = f"control1={tuple(data[:2])} control2={tuple(data[2:4])} end={tuple(data[4:])}"
+            elif command == slides.PathCommandType.CLOSE:
+                detail = "no coordinates"
+            else:
+                detail = f"raw={data}"
+            print(f"Path {i}, segment {j}: {command.name} {detail}")
+```
+
+يقع الشكل عند (200, 100) نقطة على الشريحة. الإحداثيات المبلّغ عنها محلية بالنسبة للشكل. زاويته العلوية اليسرى هي (0, 0)، يزداد x إلى اليمين، ويزداد y إلى الأسفل. يُعيد المقطع الإغلاق إلى نقطة البداية دون إحداثيات إضافية.
+
+```text
+Path 0, segment 0: MOVE_TO destination=(0, 0)
+Path 0, segment 1: LINE_TO destination=(80, 0)
+Path 0, segment 2: CUBIC_BEZIER_TO control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: CLOSE no coordinates
+```
+
+![شكل PowerPoint بحافة علوية مستقيمة، وحافة منحنية من الأعلى يمينًا إلى الأسفل يسارًا، وحافة يسارية مستقيمة](contour.png)
+
 ## **استخراج وفحص عناصر الشكل**
 
-استخدم [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) لفحص شكل موجود كعناصر تحتوي على نقاط المسار وأنواع النقاط. كل كائن [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) يُظهر مصفوفتي [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) و[path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/). هذا التمثيل مفيد لتحليل الحدود أو تمرير الهندسة إلى أدوات رسم مخصصة.
+استخدم [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) لفحص شكل موجود كعناصر تحتوي على نقاط المسار وأنواع النقاط. كل [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) مُرجع يُظهر مصفوفتي [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) و [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/). يُعد هذا التمثيل مفيدًا لتحليل الحد أو تمرير الهندسة إلى أدوات رسم مخصصة.
 
-يفتح المثال عرضًا، يجد أول شكل هندسي مباشرةً على الشريحة الأولى، ويطبع مقاطع مساره. استخدم عرضًا يحتوي على شكل به مقاطع مستقيمة ومنحنية لملاحظة كلا النوعين من المخرجات. لا يبحث داخل المجموعات.
+يفتح المثال عرضًا، يجد أول شكل هندسي مباشرةً على الشريحة الأولى، ويطبع مقاطع مساره. استخدم عرضًا يحتوي على شكل بمقاطع مستقيمة ومنحنية لتظهر كلا النوعين من المخرجات. لا يبحث داخل المجموعات.
 
 ```python
 import aspose.slides as slides
@@ -288,40 +323,40 @@ with slides.Presentation("input.pptx") as presentation:
 
             i = 0
             while i < len(points):
-                point_type = types[i] & 0x07  # احتفظ بنوع المقطع، مستثنيًا العلامات.
+                point_type = types[i] & 0x07  # احتفظ بنوع المقطع مع استبعاد العلامات.
                 if point_type == 0:
                     print(f"Start figure at {points[i]}")
                 elif point_type == 1:
                     print(f"Line to {points[i]}")
                 elif point_type == 3:
                     print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
-                    i += 2  # Consume both control points and the endpoint.
+                    i += 2  # استهلك نقطتي التحكم ونقطة النهاية.
 
                 if (types[i] & 0x80) != 0:
                     print("Close subpath back to its starting point.")
                 i += 1
 ```
 
-تطابق المصفوفات وفق الفهرس: `points[i]` هي نقطة و`types[i]` تصف دورها. النوع 0 يبدأ شكلًا، والنوع 1 يرسم خطًا من النقطة السابقة إلى الحالية. يبدأ مقطع بيزيه مكعب عند النهاية السابقة ويستخدم ثلاث سجلات من النوع 3 متتالية: نقطتي تحكم ثم النهاية الجديدة. يستهلك الحلقة هذه السجلات الثلاث معًا ويفحص النهاية للإغلاق.
+تُطابق المصفوفات بحسب الفهرس: `points[i]` هي نقطة و`types[i]` تصف دورها. النوع `0` يبدأ شكلًا، والنوع `1` يرسم خطًا من النقطة السابقة إلى الحالية. يبدأ مقطع بيزييه مكعب عند نقطة النهاية السابقة ويستخدم ثلاث إدخالات من النوع `3` متتالية: نقطتا تحكم ثم نقطة النهاية الجديدة. يستهلك الحلقة هذه الثلاث إدخالات معًا ويفحص نقطة النهاية للإغلاق.
 
-تحتوي أنواع النقاط أيضًا على علامات. استخدم القناع `0x07` لتحديد نوع المقطع، واختبر `0x80` منفصلًا لاكتشاف مسار فرعي مغلق. على سبيل المثال، `129` (`0x81`) يعني نقطة نهاية خط تغلق مسارًا فرعيًا، و`131` (`0x83`) يعني نقطة نهاية بيزيه تغلق واحدًا. مقارنة القيمة الخام فقط بـ`1` أو `3` سيفوت هذه الحالات. العلامات الأخرى، مثل العلامة المتقطعة (`0x10`) والعلامة المؤشر (`0x20`)، لا تغيّر نوع المقطع الأساسي.
+تحتوي أنواع النقاط أيضًا على أعلام. قناع بـ`0x07` لتحديد نوع المقطع، واختبر `0x80` منفصلًا لاكتشاف مسار فرعي مغلق. على سبيل المثال، `129` (`0x81`) يعني نقطة نهاية خط تُغلق مسارًا فرعيًا، و`131` (`0x83`) يعني نقطة نهاية بيزييه تُغلق أحدهما. مقارنة القيمة الخام فقط بـ`1` أو `3` سيتجاهل هذه الحالات. لا تُغيّر أعلام أخرى مثل الشرط (`0x10`) أو العلامة (`0x20`) نوع المقطع الأساسي.
 
-**الإحداثيات والتحويلات.** تُقاس النقاط بالنقاط (1/72 بوصة)، مع زيادة X إلى اليمين وY إلى الأسفل. بالنسبة لشكل غير مجموع، تشمل الإحداثيات المستخرجة موضعه ‎[x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) و‎[y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) وتعكس عرضه وارتفاعه الحاليين. على سبيل المثال، مستطيل غير مُدوَّر عند `(100, 200)` بحجم `120 × 80` له حدود حدية `(100, 200)`‑`(220, 280)`. لا تُضيف موضع الشكل مرة أخرى. اطرح X وY للحصول على إحداثيات نسبية لإطار الشكل غير المُدوَّر.
+**الإحداثيات والتحويلات.** تُقاس النقاط بوحدات النقطة (1/72 بوصة)، مع زيادة X إلى اليمين وزيادة Y إلى الأسفل. بالنسبة لشكل غير مجموع، تشمل الإحداثيات المستخرجة بالفعل موضعه [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) و [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) وتعكس عرضه وارتفاعه الحاليين. على سبيل المثال، مستطيل غير مُدوَّر عند `(100, 200)` بحجم `120 × 80` له حدود الحد `(100, 200)`–`(220, 280)`. لا تُضف موضع الشكل مرة أخرى. اطرح X وY للحصول على إحداثيات نسبية لإطاره غير المُدوَّر.
 
-لا تُطبق الإحداثيات المستخرجة خاصية [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) أو الانعكاسات الأفقية والعمودية. لتكرار الشكل المعروض، طبّق تلك التحويلات حول مركز الشكل. بالنسبة للأشكال المجمعة، احسب أيضًا تحويلات وإسقاط إحداثيات المجموعة؛ لا تفترض أن النقاط المستخرجة هي إحداثيات الشريحة النهائية أو أن تُضيف ترجمة أو مقياسًا مرتين إذا كان قد تم عكسه بالفعل في إطار العنصر الفرعي.
+لا تُطبّق النقاط المستخرجة دوران [shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) أو انعكاسات أفقية/عمودية. لتكرار الحد المعروض، طبّق هذه التحويلات حول مركز الشكل. بالنسبة للأشكال المجمعة، احسب أيضًا تحويلات وإسقاطات إحداثيات المجموعة؛ لا تفترض أن النقاط المستخرجة هي إحداثيات الشريحة النهائية أو تُطبق ترجمة أو مقياسًا مرتين إذا كان مُعكسًا بالفعل في إطار الطفل.
 
-**الفحص مقابل التحرير.** تصف المصفوفات المستخرجة الحد؛ تعديلها لا يُحدّث الشكل الأصلي. اختر هذا النهج عندما تحتاج تحليلاتك أو كود الرسم إلى مصفوفات نقطة/نوع. استخدم [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) عندما تحتاج إلى أوامر هندسية في نظام إحداثيات الشكل المحلي أو ترغب في تحرير هندسته. طبّق المسارات المعدلة عبر [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) أو [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
+**الفحص مقابل التحرير.** تصف المصفوفات المستخرجة الحد؛ تعديلها لا يحدّث الشكل الأصلي. استخدم هذا النهج عندما يحتاج تحليلك أو كود الرسم إلى مصفوفات نقطة/نوع. استخدم [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) عندما تحتاج أوامر هندسية في نظام إحداثيات الشكل المحلي أو تريد تحرير هندسته. طبّق المسارات المُعدَّلة عبر [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) أو [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
 
 ## **الأسئلة المتكررة**
 
-**ماذا يحدث للملء والحد بعد استبدال الهندسة؟**
+**ماذا يحدث للملء والخط الخارجي بعد استبدال الهندسة؟**
 
-يظل النمط مرتبطًا بالشكل؛ فقط الحد يتغيّر. يُطبق الملء والحد تلقائيًا على الهندسة الجديدة.
+يبقى النمط مع الشكل؛ يتغيّر الحد فقط. يُطبق الملء والخط الخارجي تلقائيًا على الهندسة الجديدة.
 
-**كيف يمكنني تدوير الشكل المخصص مع هندسته بشكل صحيح؟**
+**كيف يمكنني تدوير شكل مخصص مع هندسته بشكل صحيح؟**
 
-استخدم خاصية [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) الخاصة بالشكل؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.
+استخدم خاصية [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) الخاصة بالشكل؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثياته الخاص.
 
-**هل يمكنني تحويل الشكل المخصص إلى صورة "لتثبيت" النتيجة؟**
+**هل يمكنني تحويل شكل مخصص إلى صورة لتثبيت النتيجة؟**
 
-نعم. صدِّر منطقة [شريحة](/slides/ar/python-net/convert-powerpoint-to-png/) المطلوبة أو [الشكل](/slides/ar/python-net/create-shape-thumbnails/) نفسه إلى تنسيق نقطي؛ هذا يبسط العمل اللاحق مع الهندسات المعقدة.
+نعم. صدّر المنطقة المطلوبة من [الشرحة](/slides/ar/python-net/convert-powerpoint-to-png/) أو الـ[شكل](/slides/ar/python-net/create-shape-thumbnails/) نفسه إلى تنسيق نقطي؛ يُسهّل ذلك العمل مع الهندسات المعقدة.

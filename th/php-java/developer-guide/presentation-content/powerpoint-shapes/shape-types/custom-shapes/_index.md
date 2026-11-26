@@ -1,18 +1,18 @@
 ---
-title: ปรับแต่งรูปทรงการนำเสนอใน PHP
+title: ปรับแต่งรูปร่างการนำเสนอใน PHP
 linktitle: รูปร่างกำหนดเอง
 type: docs
 weight: 20
 url: /th/php-java/custom-shape/
 keywords:
-- รูปทรงกำหนดเอง
-- เพิ่มรูปทรง
-- สร้างรูปทรง
-- เปลี่ยนรูปทรง
-- เรขาคณิตรูปทรง
+- รูปร่างกำหนดเอง
+- เพิ่มรูปร่าง
+- สร้างรูปร่าง
+- เปลี่ยนรูปร่าง
+- เรขาคณิตของรูปร่าง
 - เส้นทางเรขาคณิต
-- จุดเส้นทาง
-- แก้ไขจุด
+- จุดของเส้นทาง
+- จุดแก้ไข
 - เพิ่มจุด
 - ลบจุด
 - การดำเนินการแก้ไข
@@ -21,18 +21,20 @@ keywords:
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "สร้างและปรับแต่งรูปทรงในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java: เส้นทางเรขาคณิต, มุมโค้ง, รูปร่างเชิงผสม."
+description: "สร้างและปรับแต่งรูปร่างในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java: เส้นทางเรขาคณิต, มุมโค้ง, รูปร่างเชิงประกอบ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการปรับแต่งรูปร่างของงานนำเสนอใน Aspose.Slides โดยการแก้ไขเรขาคณิตของรูปร่างผ่านจุดแก้ไขและเส้นทางเรขาคณิต แสดงวิธีการใช้ [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) เพื่อแก้ไขรูปร่างที่มีอยู่ ทำการแก้ไขเส้นทางพื้นฐาน เพิ่มหรือลบจุด และนำเรขาคณิตที่อัปเดตกลับไปยังรูปร่าง
+บทความนี้อธิบายวิธีปรับแต่งรูปร่างการนำเสนอใน Aspose.Slides โดยการแก้ไขเรขาคณิตของรูปร่างผ่านจุดแก้ไขและเส้นทางเรขาคณิต จะบอกวิธีทำงานกับ [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) เพื่อแก้ไขรูปร่างที่มีอยู่, ปฏิบัติการแก้ไขเส้นทางพื้นฐาน, เพิ่มหรือเอาจุดออก, และนำเรขาคณิตที่อัพเดตกลับไปใช้กับรูปร่าง
 
-นอกจากนี้ยังสาธิตวิธีการสร้างรูปร่างแบบกำหนดเองและแบบผสม สร้างรูปร่างที่มีมุมโค้ง ตรวจสอบว่ารูปร่างมีเรขาคณิตปิดหรือไม่ ตรวจสอบส่วนประกอบของรูปร่าง และแปลงเค้าโครงข้อความ Java AWT ให้เป็นเส้นทางเรขาคณิต
+นอกจากนี้ยังสาธิตวิธีสร้างรูปร่างแบบกำหนดเองและแบบรวม, สร้างรูปร่างที่มีมุมโค้ง, ตรวจสอบว่ารูปร่างเรขาคณิตเป็นปิดหรือไม่, ตรวจสอบองค์ประกอบของรูปร่าง, และแปลงโครงร่างข้อความจาก Java AWT เป็นเส้นทางเรขาคณิต
 
 ## **เปลี่ยนรูปร่างโดยใช้จุดแก้ไข**
 
-* ย้ายมุมเข้าด้านในหรือออกไปด้านนอก
-* ปรับความโค้งที่จุดหนึ่ง
+ใน PowerPoint คุณสามารถใช้ **Edit Points** เพื่อแก้ไขสี่เหลี่ยม:
+
+* ย้ายมุมเข้าหรือออกจากศูนย์กลาง
+* ปรับความโค้งที่จุดใดจุดหนึ่ง
 * เพิ่มจุดใหม่
 
 การแก้ไขจุดช่วยให้คุณปรับเปลี่ยนโครงร่างของรูปร่างหรือใช้รูปร่างที่มีอยู่เป็นพื้นฐานสำหรับรูปร่างใหม่
@@ -41,44 +43,44 @@ description: "สร้างและปรับแต่งรูปทรง
 
 ![overview_image](custom_shape_0.png)
 
-เมื่อแก้ไขรูปร่างใน PowerPoint ให้คำนึงถึงแนวคิดต่อไปนี้:
+เมื่อแก้ไขรูปร่างใน PowerPoint ให้จำแนวคิดต่อไปนี้:
 
 * รูปร่าง (หรือเส้นทางของมัน) สามารถเป็นแบบปิดหรือเปิดได้
-* เส้นทางของรูปร่างประกอบด้วยจุดยึดที่เชื่อมต่อกันด้วยเซกเมนต์
-* เซกเมนต์อาจเป็นเส้นตรงหรือโค้ง จุดยึดและตัวจับควบคุมกำหนดรูปร่างของมัน
-* จุดยึดมีรูปแบบเป็นจุดมุม, จุดตรง, หรือจุดเรียบ:
-  * ที่จุดมุม เซกเมนต์ที่ต่อกันสามารถพบกันที่มุม
-  * ที่จุดเรียบ ตัวจับควบคุมสองตัวจะอยู่ในแนวเดียวกันและห่างจากจุดยึดเท่ากัน
-  * ที่จุดตรง ตัวจับควบคุมสองตัวอยู่ในแนวเดียวกันแต่สามารถอยู่ห่างจากจุดยึดต่างกัน
-* การย้ายจุดยึดหรือปรับตัวจับของมันจะเปลี่ยนโครงร่างของรูปร่าง
+* เส้นทางของรูปร่างประกอบด้วยจุดยึดที่เชื่อมต่อด้วยเซกเมนต์
+* เซกเมนต์อาจเป็นเส้นตรงหรือโค้ง จุดยึดและจุดควบคุมกำหนดรูปร่างของเซกเมนต์
+* จุดยึดมีสามประเภท: จุดมุม, จุดตรง, หรือจุดเรียบ
+  * ที่จุดมุม เซกเมนต์ที่ต่อกันสามารถเจอที่มุมได้
+  * ที่จุดเรียบ จุดควบคุมสองจุดจะเรียงกันและอยู่ห่างจากจุดยึดเท่ากัน
+  * ที่จุดตรง จุดควบคุมสองจุดจะเรียงกันแต่ระยะห่างจากจุดยึดอาจแตกต่างกัน
+* การย้ายจุดยึดหรือปรับจุดควบคุมจะทำให้โครงร่างของรูปร่างเปลี่ยนไป
 
-เพื่อแก้ไขรูปร่าง PowerPoint ผ่านจุดแก้ไข **Aspose.Slides** มีคลาส [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) ให้ใช้
+เพื่อแก้ไขรูปร่าง PowerPoint ผ่านจุดแก้ไข, **Aspose.Slides** มีคลาส [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)
 
-* อินสแตนซ์ของ [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) แทนเส้นทางเรขาคณิตของอ็อบเจกต์ [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/)
-* เพื่อดึง [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) จากอินสแตนซ์ของ [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) คุณสามารถใช้เมธอด [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths)
-* เพื่อกำหนด [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) ให้กับรูปร่าง คุณสามารถใช้เมธอดเหล่านี้: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) สำหรับรูปร่างที่มีเส้นทางเดียวและ [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) สำหรับรูปร่างที่มีหลายเส้นทาง
-* เพื่อเพิ่มเซกเมนต์ คุณสามารถใช้เมธอดภายใต้ [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)
+* อินสแตนซ์ของ [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) แสดงเส้นทางเรขาคณิตของอ็อบเจกต์ [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/)
+* เพื่อดึง [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) จากอินสแตนซ์ของ [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/), สามารถใช้เมธอด [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths)
+* เพื่อกำหนด [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) ให้กับรูปร่าง, สามารถใช้เมธอดเหล่านี้: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) สำหรับรูปร่างที่มีเส้นทางเดียว และ [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) สำหรับรูปร่างที่มีหลายเส้นทาง
+* เพื่อเพิ่มเซกเมนต์, สามารถใช้เมธอดภายใต้ [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)
 * ด้วยเมธอด [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) และ [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) คุณสามารถกำหนดลักษณะการแสดงผลของเส้นทางเรขาคณิต
 * ด้วยเมธอด [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) คุณสามารถดึงเส้นทางเรขาคณิตของ [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) เป็นอาร์เรย์ของเซกเมนต์เส้นทาง
-* เพื่อเข้าถึงตัวเลือกการปรับแต่งเรขาคณิตของรูปร่างเพิ่มเติม คุณสามารถอ่าน [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ผ่าน [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) แล้วทำซ้ำเซกเมนต์บน [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)
+* เพื่อเข้าถึงตัวเลือกการปรับแต่งเรขาคณิตของรูปร่างเพิ่มเติม, คุณสามารถอ่านอ็อบเจกต์ [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ผ่าน [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) แล้วทำการเล่นซ้ำเซกเมนต์บน [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)
 
-## **การดำเนินการแก้ไขอย่างง่าย**
+## **การดำเนินการแก้ไขแบบง่าย**
 
-ใช้เมธอดต่อไปนี้เพื่อแก้ไขเส้นทางเรขาคณิต การโอเวอร์โหลดที่รับดัชนีจะใส่เซกเมนต์ที่ตำแหน่งนั้นในอาร์เรย์เซกเมนต์ของเส้นทาง
+ใช้เมธอดต่อไปนี้เพื่อแก้ไขเส้นทางเรขาคณิต การโอเวอร์โหลดที่รับดัชนีจะเพิ่มเซกเมนต์ในตำแหน่งที่เป็นศูนย์ฐานในอาร์เรย์เซกเมนต์ของเส้นทาง
 
 | การดำเนินการ | เมธอด |
 | --- | --- |
 | เพิ่มหรือแทรกเส้นตรง | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
-| เพิ่มหรือแทรกเส้นโค้ง Bézier แบบคิวบิกที่มีจุดควบคุมสองจุดและจุดสิ้นสุด | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| เพิ่มหรือแทรกเส้นโค้ง Bézier แบบควอดราติกที่มีจุดควบคุมหนึ่งจุดและจุดสิ้นสุด | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| เพิ่มส่วนโค้งวงรีด้วยขนาดและมุมที่ระบุเป็นองศา | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
-| ปิดรูปภาพปัจจุบันโดยเชื่อมจุดสิ้นสุดกับจุดเริ่มต้น | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
-| กำหนดจุดเริ่มต้นของรูปภาพ | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
-| ลบเซกเมนต์ที่ตำแหน่งดัชนีเริ่มจากศูนย์ | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
+| เพิ่มหรือแทรกโค้ง Bézier แบบ cubic ที่มีจุดควบคุมสองจุดและจุดสิ้นสุด | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| เพิ่มหรือแทรกโค้ง Bézier แบบ quadratic ที่มีจุดควบคุมหนึ่งจุดและจุดสิ้นสุด | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| เพิ่มส่วนโค้งวงรีโดยกำหนดขนาดและมุมเป็นองศา | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| ปิดรูปแบบปัจจุบันโดยเชื่อมจุดสิ้นสุดกับจุดเริ่มต้น | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| ตั้งค่าจุดเริ่มต้นของรูปแบบ | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
+| ลบเซกเมนต์ที่ตำแหน่งดัชนีศูนย์ฐาน | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **เพิ่มจุดกำหนดเองให้กับรูปร่าง**
 
-ตัวอย่างนี้แทรกสองจุดลงในรูปร่างสี่เหลี่ยมผืนผ้าโดยใช้ [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) และนำเส้นทางที่แก้ไขไปใช้กับ [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) พิกัดทั้งหมดเป็นพิกัดท้องถิ่นของรูปร่าง: ทั้งสองจุดใหม่อยู่ที่ศูนย์กลางของรูปร่าง ห่างจากด้านซ้าย 100 จุดและจากด้านบน 50 จุด ดัชนีเซกเมนต์ 1 และ 4 ทำให้จุดเหล่านั้นอยู่บนขอบบนและขอบล่าง ลากขอบเหล่านั้นเข้าด้านใน
+ตัวอย่างนี้ใส่จุดสองจุดลงในรูปร่างสี่เหลี่ยมโดยใช้ [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) และนำเส้นทางที่แก้ไขไปใช้กับ [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) พิกัดเป็นพิกัดท้องถิ่นของรูปร่าง: จุดใหม่ทั้งสองอยู่ที่ศูนย์กลางของรูปร่าง, ห่างจากด้านซ้าย 100 จุดและจากด้านบน 50 จุด ดัชนีเซกเมนต์ 1 และ 4 ทำให้จุดเหล่านั้นอยู่บนขอบบนและขอบล่าง, ดึงขอบเหล่านั้นเข้าหากัน
 
 ```php
 use aspose\slides\Presentation;
@@ -102,9 +104,9 @@ try {
 
 ![example1_image](custom_shape_1.png)
 
-## **ลบจุดจากรูปร่าง**
+## **ลบจุดออกจากรูปร่าง**
 
-ตัวอย่างนี้เปลี่ยนโครงร่างรูปหัวใจโดยลบเซกเมนต์ที่ตำแหน่งดัชนีเริ่มจากศูนย์ 2 ด้วย [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) การนำเส้นทางที่แก้ไขไปใช้กับ [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) จะอัปเดตขอบของรูปร่าง
+ตัวอย่างนี้เปลี่ยนโครงร่างรูปหัวใจโดยลบเซกเมนต์ที่ตำแหน่งดัชนีศูนย์ฐาน 2 ด้วย [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) การนำเส้นทางที่แก้ไขไปใช้ด้วย [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) จะอัพเดตคอนทัวร์ของรูปร่าง
 
 ```php
 use aspose\slides\Presentation;
@@ -128,7 +130,7 @@ try {
 
 ## **สร้างรูปร่างกำหนดเอง**
 
-ตัวอย่างนี้สร้างดาวห้าแฉกด้วย [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) รัศมีนอกและในสลับกันที่ 100 และ 50 จุดกำหนดจุดยอดและส่วนเว้า; ขั้นตอน 72 องศาจะเว้นระยะเท่ากันให้ดาวห้าแฉกเส้นทางจะปิดโดยใช้ [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) แล้วนำไปใช้กับรูปร่างสี่เหลี่ยมผืนผ้าด้วย [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) แทนที่โครงร่างเดิม
+ตัวอย่างนี้สร้างดาวห้าแฉกด้วย [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) รัศมีนอกและรัศมีในสลับกันที่ 100 และ 50 จุดกำหนดปลายและรอยบอด; การก้าว 72 องศาให้ดาวห้าจุดกระจายอย่างสม่ำเสมอ เส้นทางถูกปิดด้วย [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) แล้วนำไปใช้กับรูปร่างสี่เหลี่ยมโดยใช้ [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) แทนโครงร่างเดิม
 
 ```php
 use aspose\slides\GeometryPath;
@@ -164,9 +166,9 @@ try {
 ```
 ![example3_image](custom_shape_3.png)
 
-## **สร้างรูปร่างกำหนดเองแบบรวม**
+## **สร้างรูปร่างกำหนดเองเชิงประกอบ**
 
-ตัวอย่างนี้กำหนดสองอ็อบเจกต์ [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) ปิดสำหรับส่วนบนและส่วนล่างของรูปหนึ่ง การนำสองเส้นทางไปใช้พร้อมกันด้วย [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) จะสร้างรูปร่างผสมเดียวที่มีช่องว่างครอบครึ่งกลางของรูป
+ตัวอย่างนี้กำหนดสองอ็อบเจกต์ [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) ปิดสำหรับส่วนบนและส่วนล่างของรูปร่าง การนำทั้งสองเส้นทางไปใช้ด้วย [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) จะสร้างรูปร่างเชิงประกอบเดียวที่มีช่องว่างครึ่งกลางของรูปร่าง
 
 ```php
 use aspose\slides\GeometryPath;
@@ -200,9 +202,9 @@ try {
 ```
 ![example4_image](custom_shape_4.png)
 
-## **สร้างรูปร่างกำหนดเองที่มุมโค้ง**
+## **สร้างรูปร่างกำหนดเองที่มีมุมโค้ง**
 
-ตัวอย่างนี้ผสมเซกเมนต์ตรงกับ [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) เพื่อสร้างรูปร่างที่มุมโค้งเข้าด้านใน แต่ละขนาดมุมกำหนดความกว้างและความสูงของส่วนโค้งเป็นหน่วยจุด และการสวีป -90 องศาจะวาดส่วนโค้งวงรีไตรมาสหนึ่งแบบทวนเข็มนาฬิกา เส้นทางที่เสร็จสมบูรณ์จะนำไปใช้ด้วย [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) แล้วบันทึกงานนำเสนอในรูปแบบ PPTX
+ตัวอย่างนี้รวมเซกเมนต์ตรงกับ [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) เพื่อสร้างรูปร่างที่มุมโค้งเข้าด้านใน แต่ละขนาดมุมกำหนดความกว้างและความสูงของส่วนโค้งเป็นจุด และการสวิง -90 องศาจะวาดส่วนสี่เหลี่ยมวงรีแบบทวนเข็มนาฬิกา เส้นทางที่สมบูรณ์จะถูกนำไปใช้ด้วย [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) และบันทึกงานนำเสนอเป็นรูปแบบ PPTX
 
 ```php
 use aspose\slides\GeometryPath;
@@ -253,9 +255,9 @@ try {
 }
 ```
 
-## **ตรวจสอบว่ารูปร่างมีเรขาคณิตปิดหรือไม่**
+## **ตรวจสอบว่ารูปร่างเรขาคณิตเป็นปิดหรือไม่**
 
-ตัวช่วยต่อไปนี้ตรวจสอบว่าทุกเส้นทางเรขาคณิตที่ไม่ว่างเปล่าจบด้วยเซกเมนต์ปิดหรือไม่ มันจะอ่าน [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) แล้วเปรียบเทียบคำสั่งของเซกเมนต์สุดท้ายโดยใช้ [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) กับ [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/) จะคืนค่า false เมื่อไม่มีเส้นทางที่ไม่ว่างเปล่า การตรวจสอบนี้มองคำสั่งสุดท้ายของแต่ละเส้นทาง; ไม่ได้ตรวจสอบทุกรูปย่อยภายในเส้นทาง ตัวอย่างพิมพ์ค่า `true` สำหรับสี่เหลี่ยมผืนผ้า
+ตัวช่วยต่อไปนี้ตรวจสอบว่าเส้นทางเรขาคณิตที่ไม่ว่างทั้งหมดลงท้ายด้วยเซกเมนต์ปิดหรือไม่ มันอ่านค่า [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) แล้วเปรียบเทียบคำสั่งของเซกเมนต์สุดท้ายโดยใช้ [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) กับ [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/) จะคืนค่า false หากไม่มีเส้นทางที่ไม่ว่าง ตัวตรวจสอบพิจารณาคำสั่งสุดท้ายของแต่ละเส้นทาง; ไม่ตรวจสอบทุกรูปย่อยภายในเส้นทาง ตัวอย่างพิมพ์ `true` สำหรับสี่เหลี่ยม
 
 ```php
 use aspose\slides\PathCommandType;
@@ -290,11 +292,64 @@ try {
 }
 ```
 
-## **ดึงและตรวจสอบส่วนประกอบของรูปร่าง**
+## **ตรวจสอบคำสั่งของเส้นทางเรขาคณิต**
 
-ใช้เมธอด [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) เพื่อดูรูปร่างที่มีอยู่เป็นส่วนประกอบที่บรรจุตำแหน่งจุดเส้นทางและประเภทจุด ใช้แต่ละ [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) ที่คืนค่าเพื่อดึงอาร์เรย์จุดและอาร์เรย์ประเภทผ่านเมธอด [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) และ [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes) การแสดงผลนี้มีประโยชน์สำหรับการวิเคราะห์โครงร่างหรือการส่งเรขาคณิตไปยังเครื่องมือวาดแบบกำหนดเอง
+ดาวน์โหลดไฟล์ [contour.pptx](contour.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน รูปแรกบนสไลด์แรกมีขอบบนเป็นเส้นตรง, โค้ง Bézier แบบ cubic, และขอบปิดเป็นเส้นตรง ใช้เมธอด [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) เพื่ออ่านเส้นทางของรูปร่างและ [getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) เพื่ออ่านเซกเมนต์ของแต่ละเส้นทางตามลำดับการวาด สำหรับแต่ละเซกเมนต์, เมธอด [getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) จะบ่งบอกคำสั่งและกำหนดวิธีตีความค่าที่คืนจากเมธอด [getSegmentData](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getSegmentData)
 
-ตัวอย่างเปิดไฟล์ input.pptx, ค้นหารูปร่างเรขาคณิตแรกบนสไลด์แรก และพิมพ์เซกเมนต์เส้นทางของมัน ใช้งานนำเสนอที่มีรูปร่างที่มีเซกเมนต์ตรงและโค้งเพื่อดูผลลัพธ์ทั้งสองประเภท ไม่ได้ค้นหาภายในกลุ่ม
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("contour.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->get_Item(0);
+    foreach ($shape->getGeometryPaths() as $pathIndex => $path) {
+        foreach ($path->getPathData() as $segmentIndex => $segment) {
+            $command = java_values($segment->getPathCommand());
+            $data = java_values($segment->getSegmentData());
+            switch ($command) {
+                case PathCommandType::MoveTo:
+                case PathCommandType::LineTo:
+                    $name = $command === PathCommandType::MoveTo ? "MoveTo" : "LineTo";
+                    $detail = sprintf("destination=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::CubicBezierTo:
+                    $name = "CubicBezierTo";
+                    $detail = sprintf("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", ...$data);
+                    break;
+                case PathCommandType::Close:
+                    $name = "Close";
+                    $detail = "no coordinates";
+                    break;
+                default:
+                    $name = "Command " . $command;
+                    $detail = "raw=" . json_encode($data);
+            }
+            printf("Path %d, segment %d: %s %s\n", $pathIndex, $segmentIndex, $name, $detail);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+รูปอยู่ที่ตำแหน่ง (200, 100) จุดบนสไลด์ พิกัดที่รายงานเป็นพิกัดท้องถิ่นของรูปโดยจุด (0, 0) อยู่ที่มุมซ้ายบน, X เพิ่มไปทางขวา, Y เพิ่มลงล่าง เซกเมนต์ปิดจะกลับสู่จุดเริ่มต้นโดยไม่มีพิกัดเพิ่มเติม
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **แยกและตรวจสอบองค์ประกอบของรูปร่าง**
+
+ใช้เมธอด [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) เพื่อตรวจสอบรูปร่างที่มีอยู่เป็นองค์ประกอบที่บรรจุจุดเส้นทางและประเภทจุด ใช้แต่ละ [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) ที่คืนค่าเพื่อดึงอาร์เรย์จุดและอาร์เรย์ประเภทผ่านเมธอด [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) และ [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes) การแสดงผลนี้มีประโยชน์สำหรับการวิเคราะห์คอนทัวร์หรือการส่งเรขาคณิตไปยังเครื่องมือวาดแบบกำหนดเอง
+
+ตัวอย่างเปิดไฟล์ input.pptx, ค้นหารูปร่างเรขาคณิตแรกที่อยู่บนสไลด์แรกโดยตรง, แล้วพิมพ์เซกเมนต์ของเส้นทาง ใช้การนำเสนอที่มีรูปร่างที่มีเซกเมนต์ตรงและโค้งเพื่อดูผลลัพธ์ทั้งสองประเภท ไม่ได้ค้นหาในกลุ่ม
 
 ```php
 use aspose\slides\Presentation;
@@ -321,7 +376,7 @@ try {
             $types = array_values(unpack("C*", java_values($element->getPathTypes())));
             echo "Shape element:" . PHP_EOL;
             for ($i = 0; $i < count($points); $i++) {
-                $pointType = $types[$i] & 0x07; // เก็บประเภทเซกเมนต์, ไม่รวมแฟล็ก.
+                $pointType = $types[$i] & 0x07; // เก็บประเภทเซกเมนต์ไว้, ไม่รวมแฟล็ก.
                 switch ($pointType) {
                     case 0:
                         echo "Start figure at " . $points[$i] . PHP_EOL;
@@ -331,7 +386,7 @@ try {
                         break;
                     case 3:
                         echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
-                        $i += 2; // Consume both control points and the endpoint.
+                        $i += 2; // ใช้จุดควบคุมทั้งสองและจุดสุดท้าย.
                         break;
                 }
                 if (($types[$i] & 0x80) !== 0) {
@@ -345,21 +400,21 @@ try {
 }
 ```
 
-อาร์เรย์สอดคล้องกันตามดัชนี: `$points[$i]` คือจุดและ `$types[$i]` บรรยายบทบาทของมัน ประเภท `0` เริ่มรูปภาพ, ประเภท `1` วาดเส้นจากจุดก่อนหน้าไปยังจุดปัจจุบัน เซกเมนต์ Bézier แบบคิวบิกเริ่มจากจุดสิ้นสุดก่อนหน้าและใช้รายการประเภท `3` ต่อเนื่องสามรายการ: จุดควบคุมสองจุดตามด้วยจุดสิ้นสุดใหม่ ลูปจะรับสามรายการนี้พร้อมกันและตรวจสอบจุดสิ้นสุดเพื่อดูว่าปิดหรือไม่
+อาร์เรย์สอดคล้องกันตามดัชนี: `$points[$i]` คือจุดและ `$types[$i]` บรรยายบทบาทของมัน ประเภท `0` เริ่มรูป, ประเภท `1` วาดเส้นจากจุดก่อนหน้าไปยังจุดปัจจุบัน เซกเมนต์ Bézier แบบ cubic เริ่มจากจุดปลายของเซกเมนต์ก่อนหน้าและใช้รายการประเภท `3` สามรายการต่อเนื่อง: จุดควบคุมสองจุดตามด้วยจุดสิ้นสุดใหม่ ลูปจะรับรายการทั้งสามนี้พร้อมกันและตรวจสอบจุดสิ้นสุดว่าปิดหรือไม่
 
-ประเภทจุดยังมีแฟล็กด้วย การทำแมสก์ด้วย `0x07` เพื่อระบุประเภทเซกเมนต์ และทดสอบ `0x80` อย่างแยกกันเพื่อตรวจจับเส้นทางย่อยที่ปิด ตัวอย่างเช่น `129` (`0x81`) หมายถึงจุดปลายเส้นที่ปิดเส้นทางย่อย, `131` (`0x83`) หมายถึงจุดปลาย Bézier ที่ปิดเส้นทาง การเชื่อมต่อ PHP/Java Bridge จะคืนค่าอาร์เรย์ไบต์เป็นสตริงไบนารี; การแตกข้อมูลด้วย `"C*"` จะสร้างค่าไบต์ไม่มีเครื่องหมายบวก การทำแมสก์จะคงค่าบิตที่ตั้งใจไว้ การเปรียบเทียบค่าดิบเพียง `1` หรือ `3` จะพลาดกรณีเหล่านี้ แฟล็กอื่น ๆ เช่น เส้นประ (`0x10`) หรือเครื่องหมาย (`0x20`) จะไม่เปลี่ยนประเภทเซกเมนต์พื้นฐาน
+ประเภทจุดยังมีแฟล็กด้วย การมาสก์ด้วย `0x07` จะบ่งบอกประเภทเซกเมนต์, และการตรวจสอบ `0x80` แยกต่างหากเพื่อระบุเส้นทางย่อยที่ปิด ตัวอย่างเช่น `129` (`0x81`) หมายถึงจุดปลายของเส้นที่ปิดเส้นทางย่อย, `131` (`0x83`) หมายถึงจุดปลายของ Bézier ที่ปิดเส้นทางย่อย PHP/Java Bridge คืนอาร์เรย์ไบต์เป็นสตริงไบนารี; การแตกข้อมูลด้วย `"C*"` จะได้ค่าไบต์แบบไม่มีเครื่องหมาย การมาสก์จะคงค่าบิตที่ต้องการ การเปรียบเทียบนับค่าดิบเพียง `1` หรือ `3` จะพลาดกรณีเหล่านี้ แฟล็กอื่น ๆ เช่น dash (`0x10`) และ marker (`0x20`) ไม่เปลี่ยนประเภทฐานของเซกเมนต์
 
-**พิกัดและการแปลง** จุดวัดเป็นจุด (1/72 นิ้ว) โดย X เพิ่มไปทางขวาและ Y เพิ่มลงด้านล่าง สำหรับรูปร่างที่ไม่ได้อยู่ในกลุ่ม พิกัดที่ดึงออกมาจะรวมตำแหน่งที่คืนจาก [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) และ [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) อยู่แล้วและสะท้อนความกว้างและความสูงปัจจุบันของมัน ตัวอย่าง สี่เหลี่ยมที่ไม่ได้หมุนที่ตำแหน่ง `(100, 200)` ขนาด `120 × 80` มีขอบโครงร่าง `(100, 200)`–`(220, 280)` ไม่ต้องเพิ่มตำแหน่งของรูปร่างอีกครั้ง ให้ลบค่า X และ Y เพื่อนำพิกัดให้เป็นสัมพัทธ์ต่อกรอบที่ยังไม่หมุน
+**พิกัดและการแปลง** จุดวัดเป็นจุด (1/72 นิ้ว) โดย X เพิ่มไปทางขวาและ Y เพิ่มลงล่าง สำหรับรูปร่างที่ไม่ได้อยู่ในกลุ่ม, พิกัดที่ดึงออกมามีตำแหน่งที่ได้จากเมธอด [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) และ [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) รวมถึงความกว้างและความสูงปัจจุบันของมัน ตัวอย่างเช่น สี่เหลี่ยมที่ไม่มีการหมุนที่ตำแหน่ง `(100, 200)` ขนาด `120 × 80` จะมีขอบคอนทัวร์ `(100, 200)`–`(220, 280)` อย่าบวกตำแหน่งรูปร่างอีกครั้ง ให้ลบค่า X และ Y เพื่อให้ได้พิกัดสัมพันธ์กับกรอบที่ไม่ได้หมุน
 
-พิกัดที่ดึงออกมาจะไม่รวมการหมุนของรูปร่างที่คืนจาก [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) หรือการพลิกแนวนอนและแนวตั้ง เพื่อให้ได้โครงร่างที่แสดงผล ต้องนำการแปลงเหล่านั้นมาปรับรอบจุดศูนย์กลางของรูปร่าง สำหรับรูปร่างที่อยู่ในกลุ่ม ต้องคำนึงถึงการแมพพิกัดของกลุ่มและการแปลงด้วย; อย่าสมมติว่าพิกัดที่ดึงออกมาคือพิกัดสุดท้ายของสไลด์หรือทำการแปลงหรือสเกลซ้ำสองครั้งหากมันได้ถูกรวมไว้แล้วในกรอบลูก
+ค่าที่ดึงออกมาจะไม่รวมการหมุนของรูปร่างที่ได้จากเมธอด [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation) หรือการพลิกตามแนวนอนและแนวตั้ง เพื่อให้ได้คอนทัวร์ที่แสดงผล, ต้องนำการแปลงเหล่านี้มาประยุกต์รอบศูนย์กลางของรูปร่าง สำหรับรูปร่างที่อยู่ในกลุ่ม, ต้องคำนึงถึงการแมปพิกัดของกลุ่มและการแปลง; อย่าอนุมานว่าจุดที่ดึงออกมาคือพิกัดสุดท้ายบนสไลด์หรือทำการแปลงหรือสเกลซ้ำหากมันได้ถูกสะท้อนแล้วในกรอบของบุตร
 
-**การตรวจสอบเทียบกับการแก้ไข** อาร์เรย์ที่ดึงออกมาจะอธิบายโครงร่างเท่านั้น; การเปลี่ยนแปลงอาร์เรย์เหล่านั้นจะไม่อัปเดตรูปร่างเดิม ให้ใช้วิธีนี้เมื่อการวิเคราะห์หรือโค้ดวาดของคุณต้องการอาร์เรย์จุด/ประเภท ใช้ [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) เมื่อคุณต้องการคำสั่งเรขาคณิตในระบบพิกัดท้องถิ่นของรูปร่างหรืออยากแก้ไขเรขาคณิตนั้น ใช้การตั้งค่าเส้นทางที่แก้ไขผ่าน [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) หรือ [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths)
+**การตรวจสอบเทียบกับการแก้ไข** อาร์เรย์ที่ดึงออกมาบรรยายคอนทัวร์; การแก้ไขอาร์เรย์เหล่านี้จะไม่อัพเดตรูปร่างต้นฉบับ เลือกวิธีนี้เมื่อการวิเคราะห์หรือโค้ดวาดของคุณต้องการอาร์เรย์จุด/ประเภท ใช้เมธอด [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) เมื่อคุณต้องการคำสั่งเรขาคณิตในระบบพิกัดท้องถิ่นของรูปร่างหรือต้องการแก้ไขเรขาคณิตของมัน ใช้การนำเส้นทางที่แก้ไขผ่าน [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) หรือ [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths)
 
-## **แปลงรูปร่าง Java AWT เป็น GeometryPath**
+## **แปลง Java AWT Shape เป็น GeometryPath**
 
-ตัวอย่างนี้รวมโครงร่างสี่เหลี่ยมกับข้อความที่แปลงเป็นเรขาคณิต วิธี [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) ของโครงร่างจะปิดการเติมสี [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) สร้างเค้าโครงข้อความใน [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ตัว [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) จะให้เซกเมนต์การย้าย, เส้น, ควอดราติก, คิวบิกและการปิด ซึ่งตัวอย่างจะนำมาซ้ำบน [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)
+ตัวอย่างนี้รวมโครงร่างสี่เหลี่ยมกับข้อความที่แปลงเป็นเรขาคณิต วิธี [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) ปิดการเติมของโครงร่าง [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) สร้างโครงร่างข้อความในอ็อบเจกต์ [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) ตัว [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) ส่งเซกเมนต์ move, line, quadratic, cubic, และ closing ซึ่งตัวอย่างทำการเล่นซ้ำบน [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)
 
-ตัวอย่างใช้อาร์เรย์ float ของ Java เพื่อให้ PHP/Java Bridge เก็บพิกัดที่ iterator เขียนไว้ ข้อความใช้ฟอนต์ Arial ขนาด 40 จุด โครงร่างจะเลื่อนแนวนอน 20 จุดและวางตำแหน่งโดยให้ด้านบนของข้อความอยู่ 10 จุดต่ำกว่าแนวบนของรูปร่าง เส้นทางข้อความจะเติมสี ในขณะที่สี่เหลี่ยมเดิมยังคงเป็นโครงร่าง การนำทั้งสองเส้นทางไปใช้ด้วย [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) จะสร้างรูปร่างเดียวที่มีสี่เหลี่ยมและข้อความรวมกัน
+ตัวอย่างใช้อาร์เรย์ float ของ Java เพื่อให้ PHP/Java Bridge เก็บพิกัดที่ iterator เขียนไว้ ข้อความใช้ฟอนต์ Arial ขนาด 40 จุด โครงร่างเลื่อนแนวนอน 20 จุดและวางตำแหน่งโดยให้ด้านบนของข้อความอยู่ 10 จุดต่ำกว่าขอบบนของรูปร่าง เส้นทางข้อความถูกเติม ในขณะที่สี่เหลี่ยมเดิมยังคงเป็นโครงร่าง การนำทั้งสองเส้นทางไปใช้ด้วย [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) จะได้รูปร่างเดียวที่ประกอบด้วยสี่เหลี่ยมและข้อความ
 
 ```php
 use aspose\slides\GeometryPath;
@@ -430,14 +485,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**อะไรจะเกิดขึ้นกับการเติมสีและเส้นขอบหลังจากเปลี่ยนเรขาคณิต?**
+**อะไรจะเกิดขึ้นกับสีพื้นและโครงร่างหลังจากแทนที่เรขาคณิต?**
 
-สไตล์จะยังคงอยู่กับรูปร่าง; เพียงแต่โครงร่างจะเปลี่ยน การเติมสีและเส้นขอบจะถูกประยุกต์อัตโนมัติบนเรขาคณิตใหม่
+สไตล์ยังคงอยู่กับรูปร่าง; เพียงคอนทัวร์เท่านั้นที่เปลี่ยน สีพื้นและโครงร่างจะถูกนำไปใช้โดยอัตโนมัติกับเรขาคณิตใหม่
 
-**ฉันจะทำการหมุนรูปร่างกำหนดเองพร้อมกับเรขาคณิตอย่างถูกต้องได้อย่างไร?**
+**ฉันจะหมุนรูปร่างกำหนดเองพร้อมกับเรขาคณิตอย่างถูกต้องอย่างไร?**
 
-ใช้เมธอด [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) ของรูปร่าง; เรขาคณิตจะหมุนตามรูปร่างเนื่องจากผูกกับระบบพิกัดของรูปร่างเอง
+ใช้เมธอด [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) ของรูปร่าง; เรขาคณิตจะหมุนพร้อมกับรูปร่างเนื่องจากผูกกับระบบพิกัดของรูปร่างเอง
 
 **ฉันสามารถแปลงรูปร่างกำหนดเองเป็นภาพเพื่อ "ล็อก" ผลลัพธ์ได้หรือไม่?**
 
-ได้. ส่งออก [สไลด์](/slides/th/php-java/convert-powerpoint-to-png/) ที่ต้องการหรือส่งออก [รูปร่าง](/slides/th/php-java/create-shape-thumbnails/) เองเป็นรูปแบบราสเตอร์; วิธีนี้ทำให้การทำงานต่อกับเรขาคณิตที่ซับซ้อนง่ายขึ้น
+ได้. ส่งออก [slide](/slides/th/php-java/convert-powerpoint-to-png/) ที่ต้องการหรือ [shape](/slides/th/php-java/create-shape-thumbnails/) เองเป็นรูปแบบแรสเตอร์; วิธีนี้ทำให้การทำงานต่อกับเรขาคณิตที่ซับซ้อนง่ายขึ้น

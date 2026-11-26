@@ -1,5 +1,5 @@
 ---
-title: Настройка форм презентаций в JavaScript
+title: Настройка форм презентации в JavaScript
 linktitle: Пользовательская форма
 type: docs
 weight: 20
@@ -26,44 +26,44 @@ description: "Создавайте и настраивайте формы в п�
 ---
 ## **Обзор**
 
-Эта статья объясняет, как настраивать формы презентаций в Aspose.Slides, редактируя геометрию формы через точки редактирования и геометрические пути. Показано, как работать с [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) для изменения существующих форм, выполнения базовых операций редактирования пути, добавления или удаления точек и применения обновлённой геометрии обратно к форме.
+В этой статье объясняется, как настраивать формы презентаций в Aspose.Slides, редактируя их геометрию через точки редактирования и геометрические пути. Показано, как работать с [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) для изменения существующих форм, выполнять базовые операции редактирования пути, добавлять или удалять точки и применять обновлённую геометрию к форме.
 
-Также демонстрируется, как создавать пользовательские и составные формы, строить формы со скруглёнными углами, определять, закрыта ли геометрия формы, исследовать элементы формы и преобразовывать контуры текста Java AWT в геометрические пути.
+Также демонстрируется, как создавать пользовательские и составные формы, строить формы со скруглёнными углами, определять, замкнута ли геометрия формы, исследовать элементы формы и преобразовывать контуры текста Java AWT в геометрические пути.
 
 ## **Изменение формы с помощью точек редактирования**
 
-В PowerPoint можно использовать **Edit Points** для изменения квадрата:
+В PowerPoint вы можете использовать **Edit Points** для изменения квадрата:
 
-* Перемещение угла внутрь или наружу.
-* Регулировка кривизны в точке.
-* Добавление новых точек.
+* Переместить угол внутрь или наружу.
+* Отрегулировать кривизну в точке.
+* Добавить новые точки.
 
-Редактирование точек позволяет менять контур формы или использовать существующую форму как основу для новой.
+Редактирование точек позволяет изменять контур формы или использовать существующую форму в качестве основы для новой.
 
-## **Советы по редактированию формы**
+## **Советы по редактированию форм**
 
 ![overview_image](custom_shape_0.png)
 
 При редактировании форм PowerPoint учитывайте следующие концепции:
 
 * Форма (или её путь) может быть закрытой или открытой.
-* Путь формы состоит из якорных точек, соединённых сегментами.
-* Сегмент может быть прямым или кривым. Якорные точки и управляющие рукоятки определяют его форму.
-* Якорные точки бывают угловыми, прямыми или гладкими:
+* Путь формы состоит из опорных точек, соединённых сегментами.
+* Сегмент может быть прямым или кривым. Опорные точки и управляющие рычаги определяют его форму.
+* Опорные точки бывают угловыми, прямыми или сглаженными:
   * В угловой точке смежные сегменты могут встречаться под углом.
-  * В гладкой точке две управляющие рукоятки выровнены и находятся на одинаковом расстоянии от якорной точки.
-  * В прямой точке две управляющие рукоятки выровнены, но могут находиться на разном расстоянии от якорной точки.
-* Перемещение якорных точек или изменение их рукояток меняет контур формы.
+  * В сглаженной точке два управляющих рычага выровнены и находятся на одинаковом расстоянии от опорной точки.
+  * В прямой точке два управляющих рычага выровнены, но могут находиться на разном расстоянии от опорной точки.
+* Перемещение опорных точек или изменение их рычагов меняет контур формы.
 
 Для редактирования форм PowerPoint через точки редактирования **Aspose.Slides** предоставляет класс [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
 * Экземпляр [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) представляет геометрический путь объекта [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/).
 * Чтобы получить [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) из экземпляра [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/), используйте метод [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths).
 * Чтобы задать [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) для формы, используйте методы: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) для форм с одним путём и [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) для форм с несколькими путями.
-* Для добавления сегментов используйте методы класса [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+* Чтобы добавить сегменты, используйте методы из [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 * С помощью методов [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) и [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) можно задать внешний вид геометрического пути.
 * Метод [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) позволяет получить геометрический путь [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) в виде массива сегментов пути.
-* Для доступа к дополнительным возможностям настройки геометрии формы можно прочитать объект [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) через его [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) и воспроизвести сегменты на [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+* Чтобы получить дополнительные параметры настройки геометрии формы, можно прочитать [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) через её [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) и воспроизвести сегменты на [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
 ## **Простые операции редактирования**
 
@@ -74,14 +74,14 @@ description: "Создавайте и настраивайте формы в п�
 | Добавить или вставить прямую линию. | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
 | Добавить или вставить кубическую кривую Безье с двумя управляющими точками и конечной точкой. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
 | Добавить или вставить квадратичную кривую Безье с одной управляющей точкой и конечной точкой. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
-| Добавить эллиптическую дугу с указанными размерами и углами в градусах. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
+| Добавить эллиптическую дугу с заданными размерами и углами в градусах. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
 | Замкнуть текущую фигуру, соединив её конечную точку с начальной. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
 | Задать начальную точку фигуры. | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
-| Удалить сегмент по индексу (нумерация с нуля). | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
+| Удалить сегмент по индексу, начиная с нуля. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **Добавление пользовательских точек к форме**
 
-В этом примере вставляются две точки в прямоугольную форму с помощью [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) и применяются отредактированный путь через [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). Координаты относительные к форме: обе новые точки находятся в её центре, на 100 пунктов от левого края и 50 пунктов от верхнего. Индексы сегментов 1 и 4 размещают их на верхних и нижних гранях, подтягивая эти грани внутрь.
+В этом примере два пункта вставляются в прямоугольную форму с помощью [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) и применяются к отредактированному пути через [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). Координаты локальны для формы: обе новые точки находятся в её центре, в 100 пунктах от левого края и 50 пунктах от верхнего. Индексы сегментов 1 и 4 размещают их на верхнем и нижнем краях, притягивая эти края внутрь.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -106,7 +106,7 @@ try {
 
 ## **Удаление точек из формы**
 
-В этом примере изменяется контур сердца путём удаления сегмента с индексом 2 (нумерация с нуля) с помощью [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). Применение изменённого пути через [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) обновляет контур формы.
+В этом примере контур в форме сердца изменяется удалением сегмента с индексом 2 (нумерация с нуля) с помощью [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). Применение изменённого пути через [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) обновляет контур формы.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -129,7 +129,7 @@ try {
 
 ## **Создание пользовательской формы**
 
-В этом примере создаётся пятиконечная звезда при помощи [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). Чередующиеся внешние и внутренние радиусы 100 и 50 пунктов задают вершины и впадины; шаг в 72 градуса равномерно распределяет пять вершин. Путь замыкается методом [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) и применяется к прямоугольной форме через [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), заменяя её контур.
+В этом примере создаётся пятиконечная звезда с помощью [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). Чередующиеся внешние и внутренние радиусы 100 и 50 пунктов задают лучи и впадины; шаг 72 градуса равномерно распределяет пять лучей. Путь закрывается методом [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) и применяется к прямоугольной форме через [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), заменяя её контур.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -168,7 +168,7 @@ try {
 
 ## **Создание составной пользовательской формы**
 
-В этом примере определяются два замкнутых объекта [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) для верхней и нижней трети формы. Применение обоих путей через [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) создаёт одну составную форму с пробелом в её средней трети.
+В этом примере определяются два закрытых объекта [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) для верхней и нижней трети формы. Применение обоих путей через [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) создаёт единую составную форму с зазором посередине.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -204,7 +204,7 @@ try {
 
 ## **Создание пользовательской формы со скруглёнными углами**
 
-В этом примере комбинируются прямые сегменты с [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) для получения формы со скруглёнными внутрь углами. Размер каждого угла задаёт ширину и высоту дуги в пунктах, а разворот ‑ 90° рисует против часовой стрелки четверть эллипса. Завершённый путь применяется методом [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), а презентация сохраняется в формате PPTX.
+В этом примере прямые сегменты комбинируются с [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) для создания формы со внутрь‑согнутыми углами. Каждый размер угла задаёт ширину и высоту дуги в пунктах, а разворот ‑90° рисует против часовой стрелки четверть эллипса. Готовый путь применяется через [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), а презентация сохраняется в формате PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -247,7 +247,7 @@ try {
 
 ## **Определение, закрыта ли геометрия формы**
 
-Следующая вспомогательная функция проверяет, заканчивается ли каждый непустой геометрический путь закрывающим сегментом. Она читает [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) и сравнивает команду последнего сегмента [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) с [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). Возвращает `false`, когда нет непустых путей. Проверка касается финальной команды каждого пути; она не исследует каждую подпостановку внутри пути. Пример выводит `true` для прямоугольника.
+Следующая вспомогательная функция проверяет, заканчивается ли каждый непустой геометрический путь закрывающим сегментом. Она читает [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) и сравнивает команду последнего сегмента [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) с [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). Возвращает false, если нет непустых путей. Функция проверяет только конечную команду каждого пути; она не исследует каждый подпуть внутри пути. Пример выводит `true` для прямоугольника.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -281,11 +281,62 @@ try {
 }
 ```
 
-## **Извлечение и анализ элементов формы**
+## **Исследование команд геометрического пути**
 
-Используйте [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) для получения существующей формы в виде элементов, содержащих точки пути и типы точек. Каждый возвращённый [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) позволяет получить массивы точек и типов через методы [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) и [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes). Такое представление удобно для анализа контура или передачи геометрии в пользовательские средства рисования.
+Скачайте [contour.pptx](contour.pptx) и поместите файл в рабочий каталог приложения. Первая форма на первом слайде имеет прямой верхний край, кубическую кривую Безье и прямой закрывающий край. Используйте [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) для чтения путей формы и [getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) для получения сегментов каждого пути в порядке рисования. Для каждого сегмента [getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) определяет команду и указывает, как интерпретировать значения, возвращаемые [getSegmentData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getSegmentData).
 
-В примере открывается `input.pptx`, находится первая геометрическая форма на первом слайде и выводятся её сегменты пути. Используйте презентацию, содержащую форму с прямыми и кривыми сегментами, чтобы увидеть оба типа вывода. Поиск внутри групп не производится.
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("contour.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paths = shape.getGeometryPaths();
+    for (const [i, path] of paths.entries()) {
+        const segments = path.getPathData();
+        for (const [j, segment] of segments.entries()) {
+            const command = segment.getPathCommand();
+            const data = segment.getSegmentData();
+            let detail;
+            switch (command) {
+                case slides.PathCommandType.MoveTo:
+                case slides.PathCommandType.LineTo:
+                    const name = command === slides.PathCommandType.MoveTo ? "MoveTo" : "LineTo";
+                    detail = `${name} destination=(${data[0]}, ${data[1]})`;
+                    break;
+                case slides.PathCommandType.CubicBezierTo:
+                    detail = `CubicBezierTo control1=(${data[0]}, ${data[1]}) control2=(${data[2]}, ${data[3]}) end=(${data[4]}, ${data[5]})`;
+                    break;
+                case slides.PathCommandType.Close:
+                    detail = "Close no coordinates";
+                    break;
+                default:
+                    detail = `command=${command} raw=[${data.join(", ")}]`;
+            }
+            console.log(`Path ${i}, segment ${j}: ${detail}`);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Форма находится в точке (200, 100) на слайде. Сообщаемые координаты локальны для формы, где (0, 0) — её верхний левый угол, x растёт вправо, y — вниз. Закрывающий сегмент возвращает к стартовой точке без дополнительных координат.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Извлечение и исследование элементов формы**
+
+Используйте [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) для получения существующей формы как набора элементов, содержащих точки пути и их типы. Каждый возвращаемый [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) позволяет получить массивы точек и типов через методы [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) и [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes). Такое представление полезно для анализа контура или передачи геометрии в пользовательские инструменты рисования.
+
+Пример открывает input.pptx, находит первую геометрическую форму непосредственно на первом слайде и выводит её сегменты пути. Используйте презентацию, содержащую форму с прямыми и кривыми сегментами, чтобы увидеть оба типа вывода. Поиск внутри групп не производится.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -323,7 +374,7 @@ try {
                         break;
                     case 3:
                         console.log("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
-                        i += 2; // Consume both control points and the endpoint.
+                        i += 2; // Потреблять оба контрольных пункта и конечную точку.
                         break;
                 }
 
@@ -338,21 +389,21 @@ try {
 }
 ```
 
-Массивы соответствуют по индексу: `points[i]` — точка, а `types[i]` описывает её роль. Тип `0` начинает новую фигуру, тип `1` рисует линию от предыдущей точки к текущей. Кубический сегмент Безье начинается в предыдущей конечной точке и использует три последовательных типа `3`: два управляющих узла и новую конечную точку. Цикл потребляет эти три записи совместно и проверяет конечную точку на замыкание.
+Массивы соответствуют по индексу: `points[i]` — точка, `types[i]` описывает её роль. Тип 0 начинается фигуру, тип 1 рисует линию от предыдущей точки к текущей. Кубический сегмент Безье начинается в предыдущей конечной точке и использует три последовательных типа 3: две управляющие точки и новую конечную точку. Цикл обрабатывает эти три записи вместе и проверяет конечную точку на замыкание.
 
-Типы точек также содержат флаги. Маска `0x07` определяет тип сегмента, а проверка `0x80` отдельно выявляет закрытый подпуть. Например, `129` (`0x81`) — конечная точка линии, закрывающая подпуть, а `131` (`0x83`) — конечная точка Безье, закрывающая подпуть. Java хранит эти флаги в знаковых байтах; маскирование сохраняет нужные битовые значения. Сравнение сырого значения только с `1` или `3` упустит такие случаи. Другие флаги, такие как пунктир (`0x10`) и маркер (`0x20`), не изменяют базовый тип сегмента.
+Типы точек также содержат флаги. Маскирование `0x07` позволяет определить тип сегмента, а проверка `0x80` отдельно обнаруживает закрытый подпуть. Например, `129` (`0x81`) означает конечную точку линии, закрывающую подпуть, а `131` (`0x83`) — конечную точку Безье, закрывающую его. Java хранит эти флаги в знаковых байтах; маскирование сохраняет предполагаемые битовые значения. Сравнение сырого значения только с `1` или `3` упустит такие случаи. Другие флаги, такие как тире (`0x10`) и маркер (`0x20`), не меняют базовый тип сегмента.
 
-**Координаты и преобразования.** Точки измеряются в пунктах (1/72 дюйма), X растёт вправо, Y — вниз. Для разгруппированной формы извлечённые координаты уже включают позицию, возвращаемую [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) и [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY), а также её текущую ширину и высоту. Например, неротированный прямоугольник с левым верхним углом `(100, 200)` и размером `120 × 80` имеет границы контура `(100, 200)–(220, 280)`. Не добавляйте позицию формы повторно. Вычтите её X и Y, чтобы получить координаты относительно неротированного кадра.
+**Координаты и трансформации.** Точки измеряются в пунктах (1/72 дюйма), при этом X растёт вправо, Y — вниз. Для не сгруппированной формы извлечённые координаты уже включают положение, возвращаемое методами [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) и [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY), и отражают её текущие ширину и высоту. Например, не повернутый прямоугольник в точке `(100, 200)` с размером `120 × 80` имеет границы контура `(100, 200)`–`(220, 280)`. Не добавляйте позицию формы повторно. Вычтите её X и Y, чтобы получить координаты относительно её ненаправленного кадра.
 
-Извлечённые точки не учитывают вращение формы, возвращаемое [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation), и горизонтальные/вертикальные отражения. Чтобы восстановить отображённый контур, примените эти преобразования вокруг центра формы. Для сгруппированных форм также учитывайте преобразования координат группы; не предполагаете, что извлечённые точки уже являются окончательными координатами слайда, и не применяйте одинаковый сдвиг или масштаб дважды.
+Извлечённые точки не учитывают вращение формы, возвращаемое методом [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation), а также горизонтальное и вертикальное отражения. Чтобы воспроизвести отображаемый контур, примените эти трансформации относительно центра формы. Для сгруппированных форм также учитывайте сопоставление координат группы и её трансформации; не предполагайте, что извлечённые точки уже являются окончательными координатами слайда, и не применяйте перевод или масштаб дважды, если они уже учтены в кадре дочерних элементов.
 
-**Анализ vs редактирование.** Извлечённые массивы описывают контур; их изменение не обновляет оригинальную форму. Этот подход подходит, когда вашему коду анализа или рисования нужны массивы точек/типов. Используйте [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths), когда нужны команды геометрии в локальной системе координат формы или требуется редактировать её геометрию. Применяйте отредактированные пути через [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) или [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Исследование vs. редактирование.** Извлечённые массивы описывают контур; их изменение не обновляет исходную форму. Используйте этот подход, когда вашему коду анализа или рисования нужны массивы точек/типов. Применяйте [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths), когда нужны команды геометрии в локальной системе координат формы или требуется редактировать её геометрию. Применяйте отредактированные пути через [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) или [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
 
 ## **Преобразование Java AWT Shape в GeometryPath**
 
-В этом примере комбинируется контур прямоугольника с текстом, преобразованным в геометрию. Метод [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) отключает заливку контура. [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) создаёт контур текста в объекте [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Его [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) поставляет команды перемещения, линий, квадратичных, кубических и замыкания, которые пример воспроизводит на [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+В этом примере комбинируется прямоугольный контур с текстом, преобразованным в геометрию. Метод [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) контура отключает его заливку. [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) создаёт контур текста в объекте [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Его [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) поставляет сегменты перемещения, линии, квадратичной, кубической и закрывающие сегменты, которые пример воспроизводит на [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
-Мост Java использует явные значения типа float и byte для соответствующих параметров Java. Итератор записывает координаты в массив float; отражение читаем его обновлённые значения обратно в JavaScript. Текст выводится шрифтом Arial размером 40 пунктов. Контур сдвинут на 20 пунктов по горизонтали и расположен так, что его визуальная верхняя часть находится на 10 пунктов ниже верхнего края формы. Текстовый путь заполняется, тогда как исходный прямоугольник остаётся только контуром. Применение обоих путей через [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) создаёт одну форму, содержащую прямоугольник и текст.
+Java‑мост использует явные значения float и byte для соответствующих параметров Java. Итератор записывает координаты в массив float; отражение считывает обновлённые значения обратно в JavaScript. Текст использует шрифт Arial размером 40 пунктов. Контур смещён на 20 пунктов по горизонтали и позиционируется так, чтобы его визуальная верхняя часть была на 10 пунктов ниже верхнего края формы. Текстовый путь заполнен, тогда как исходный прямоугольник остаётся контуром. Применение обоих путей через [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) создаёт единую форму, содержащую прямоугольник и текст.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -424,12 +475,12 @@ try {
 
 **Что произойдёт с заливкой и контуром после замены геометрии?**
 
-Стиль остаётся у формы; меняется лишь контур. Заливка и контур автоматически применяются к новой геометрии.
+Стиль остаётся привязанным к форме; меняется только контур. Заливка и контур автоматически применяются к новой геометрии.
 
 **Как правильно повернуть пользовательскую форму вместе с её геометрией?**
 
-Используйте метод [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) формы; геометрия вращается вместе с формой, поскольку привязана к её собственной системе координат.
+Используйте метод формы [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation); геометрия вращается вместе с формой, поскольку привязана к её собственной системе координат.
 
 **Можно ли преобразовать пользовательскую форму в изображение, чтобы «зафиксировать» результат?**
 
-Да. Экспортируйте нужную [slide](/slides/ru/nodejs-java/convert-powerpoint-to-png/) область или саму [shape](/slides/ru/nodejs-java/create-shape-thumbnails/) в растровый формат; это упростит дальнейшую работу со сложными геометриями.
+Да. Экспортируйте нужный [slide](/slides/ru/nodejs-java/convert-powerpoint-to-png/) или саму [shape](/slides/ru/nodejs-java/create-shape-thumbnails/) в растровый формат; это упростит дальнейшую работу со сложными геометриями.

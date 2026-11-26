@@ -26,19 +26,19 @@ description: "Создавайте и настраивайте формы в п�
 ---
 ## **Обзор**
 
-В этой статье объясняется, как настраивать формы презентации в Aspose.Slides, редактируя геометрию формы с помощью точек редактирования и путей геометрии. Показано, как работать с [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) и [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) для изменения существующих форм, выполнения базовых операций редактирования пути, добавления или удаления точек и применения обновлённой геометрии обратно к форме.
+В этой статье объясняется, как настраивать формы презентаций в Aspose.Slides, редактируя геометрию формы с помощью точек редактирования и путей геометрии. Показано, как работать с [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) и [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) для изменения существующих форм, выполнения базовых операций редактирования пути, добавления или удаления точек и применения обновлённой геометрии к форме.
 
-Также демонстрируется, как создавать пользовательские и составные формы, строить формы со скруглёнными углами, определять, закрыта ли геометрия формы, и исследовать элементы формы, используя массивы точек Android.
+Также демонстрируется создание пользовательских и составных форм, построение форм со скруглёнными углами, определение, замкнута ли геометрия формы, и исследование элементов формы с помощью массивов точек Android.
 
 ## **Изменение формы с помощью точек редактирования**
 
-В PowerPoint вы можете использовать **Edit Points** для изменения квадрата:
+В PowerPoint можно использовать **Точки редактирования** для изменения квадрата:
 
 * Переместить угол внутрь или наружу.
 * Отрегулировать кривизну в точке.
 * Добавить новые точки.
 
-Редактирование точек позволяет изменять контур формы или использовать существующую форму в качестве основы для новой.
+Редактирование точек позволяет изменить контур формы или использовать существующую форму как основу для новой.
 
 ## **Советы по редактированию форм**
 
@@ -47,40 +47,40 @@ description: "Создавайте и настраивайте формы в п�
 При редактировании форм PowerPoint учитывайте следующие концепции:
 
 * Форма (или её путь) может быть закрытой или открытой.
-* Путь формы состоит из точек привязки, соединённых сегментами.
-* Сегмент может быть прямым или кривым. Точки привязки и управляющие ручки определяют его форму.
-* Точки привязки могут быть угловыми, прямыми или сглаженными точками:
+* Путь формы состоит из опорных точек, соединённых сегментами.
+* Сегмент может быть прямым или кривым. Его форму определяют опорные точки и управляющие рычаги.
+* Опорные точки бывают угловыми, прямыми или плавными:
   * В угловой точке смежные сегменты могут встречаться под углом.
-  * В сглаженной точке две управляющие ручки выровнены и находятся на одинаковом расстоянии от точки привязки.
-  * В прямой точке две управляющие ручки выровнены, но могут находиться на разном расстоянии от точки привязки.
-* Перемещение точек привязки или настройка их ручек изменяет контур формы.
+  * В плавной точке два управляющих рычага выровнены и находятся на одинаковом расстоянии от опорной точки.
+  * В прямой точке два управляющих рычага выровнены, но могут находиться на разном расстоянии от опорной точки.
+* Перемещение опорных точек или изменение их рычагов меняет контур формы.
 
 Для редактирования форм PowerPoint через точки редактирования **Aspose.Slides** предоставляет класс [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) и интерфейс [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
 
 * Экземпляр [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) представляет путь геометрии объекта [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/).
-* Чтобы получить [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) из экземпляра [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/), можно использовать метод [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--).
-* Чтобы задать [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) для формы, можно использовать следующие методы: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) для форм с единственным путём и [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) для форм с несколькими путями.
-* Чтобы добавить сегменты, можно использовать методы из [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
+* Чтобы получить [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) из экземпляра [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/), используйте метод [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) .
+* Чтобы задать [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) для формы, используйте методы: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) для форм с единственным путём и [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) для форм с несколькими путями.
+* Чтобы добавить сегменты, используйте методы интерфейса [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) .
 * С помощью методов [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) и [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-) можно задать внешний вид пути геометрии.
-* С помощью метода [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) можно получить путь геометрии [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) в виде массива сегментов пути.
+* Метод [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) позволяет получить путь геометрии [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) в виде массива сегментов пути.
 
 ## **Простые операции редактирования**
 
-Используйте следующие методы для редактирования пути геометрии. Перегрузки, принимающие индекс, вставляют сегмент в позицию с нулевым базовым индексом в массиве сегментов пути.
+Используйте следующие методы для редактирования пути геометрии. Перегрузки, принимающие индекс, вставляют сегмент в указанную позицию (нумерация с нуля) в массиве сегментов пути.
 
 | Операция | Метод |
 | --- | --- |
 | Добавить или вставить прямую линию. | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
-| Добавить или вставить кубическую кривую Безье с двумя контрольными точками и конечной точкой. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
-| Добавить или вставить квадратичную кривую Безье с одной контрольной точкой и конечной точкой. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
-| Добавить эллиптическую дугу с указанными размерами и углами в градусах. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Добавить или вставить кубическую кривую Безье с двумя управляющими точками и конечной точкой. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Добавить или вставить квадратичную кривую Безье с одной управляющей точкой и конечной точкой. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Добавить эллиптическую дугу с заданными размерами и углами в градусах. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
 | Замкнуть текущую фигуру, соединив её конечную точку с начальной. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
-| Установить начальную точку фигуры. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
-| Удалить сегмент по индексу, начинающемуся с нуля. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
+| Задать начальную точку фигуры. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Удалить сегмент по нулевому индексу. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-## **Добавление пользовательских точек к форме**
+## **Добавление пользовательских точек в форму**
 
-Этот пример вставляет две точки в прямоугольную форму с помощью [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) и применяет отредактированный путь с помощью [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Координаты относятся к локальным координатам формы: обе новые точки находятся в её центре, на 100 пунктов от левого края и 50 пунктов от верхнего. Индексы сегментов 1 и 4 размещают их на верхнем и нижнем краях, втягивая эти края внутрь.
+В этом примере в прямоугольную форму вставляются две точки с помощью [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) и применяют отредактированный путь через [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) . Координаты задаются относительно формы: обе новые точки находятся в её центре, в 100 пунктов от левого края и 50 пунктов от верхнего. Индексы сегментов 1 и 4 размещают их на верхнем и нижнем краях, вытягивая эти края внутрь.
 
 ```java
 import com.aspose.slides.*;
@@ -105,7 +105,7 @@ try {
 
 ## **Удаление точек из формы**
 
-В этом примере изменяется контур сердцевидной формы путём удаления сегмента с нулевым базовым индексом 2 с помощью [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-). Применение изменённого пути с помощью [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) обновляет контур формы.
+В этом примере контур формы в виде сердца изменяется удалением сегмента с нулевым индексом 2 с помощью [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) . Применение изменённого пути через [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) обновляет контур формы.
 
 ```java
 import com.aspose.slides.*;
@@ -128,7 +128,7 @@ try {
 
 ## **Создание пользовательской формы**
 
-В этом примере создаётся пятиконечная звезда с помощью [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/). Чередующиеся внешние и внутренние радиусы 100 и 50 пунктов определяют кончики и впадины; шаг 72 градуса равномерно размещает пять кончиков. Путь замыкается с помощью [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) и применяется к прямоугольной форме через [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), заменяя её контур.
+В этом примере создаётся пятиконечная звезда с помощью [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) . Чередующиеся внешние и внутренние радиусы 100 и 50 пунктов определяют вершины и вмятины; шаг 72 градуса равномерно размещает пять вершин. Путь замыкается методом [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) и применяется к прямоугольной форме через [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) , заменяя её контур.
 
 ```java
 import com.aspose.slides.*;
@@ -181,7 +181,7 @@ try {
 
 ## **Создание составной пользовательской формы**
 
-В этом примере определяются два закрытых объекта [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) для верхней и нижней трети формы. Применение обоих путей с помощью [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) создаёт единую составную форму с промежутком через её среднюю треть.
+В этом примере определяются два закрытых объекта [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) для верхней и нижней трети формы. Применение обоих путей через [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) создаёт одну составную форму с разрывом в её средней трети.
 
 ```java
 import com.aspose.slides.*;
@@ -215,7 +215,7 @@ try {
 
 ## **Создание пользовательской формы со скруглёнными углами**
 
-В этом примере соединяются прямые сегменты с [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) для создания формы со внутренно‑изогнутыми углами. Размер каждого угла задаёт ширину и высоту дуги в пунктах, а sweep -90 градусов рисует контр‑часовой четверть эллипса. Готовый путь применяется с помощью [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), и презентация сохраняется в формате PPTX.
+В этом примере прямые сегменты комбинируются с [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) для создания формы со внутренно‑изгибанными углами. Размер каждого угла задаёт ширину и высоту дуги в пунктах, а sweep ‑90 ° рисует контрчасовую четверть эллипса. Готовый путь применяется через [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) , а презентация сохраняется в формате PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -265,7 +265,7 @@ try {
 
 ## **Определение, закрыта ли геометрия формы**
 
-Следующая вспомогательная функция проверяет, заканчивается ли каждый непустой путь геометрии закрывающим сегментом. Она читает [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) и сравнивает команду последнего сегмента [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) с [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/). Возвращает false, если нет непустых путей. Функция проверяет только конечную команду каждого пути; она не исследует каждую субфигуру внутри пути. Пример выводит `true` для прямоугольника.
+Следующий вспомогательный код проверяет, заканчивается ли каждый непустой путь геометрии закрывающим сегментом. Он читает [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) и сравнивает команду последнего сегмента [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) с [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/) . Возвращает false, если нет непустых путей. Проверка охватывает только конечную команду каждого пути; она не анализирует каждую подпостфикцию внутри пути. Пример выводит `true` для прямоугольника.
 
 ```java
 import com.aspose.slides.*;
@@ -305,11 +305,64 @@ try {
 }
 ```
 
-## **Извлечение и проверка элементов формы**
+## **Исследование команд пути геометрии**
 
-Используйте [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) для исследования существующей формы как элементов, содержащих точки пути и типы точек. Приведите каждый возвращённый [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) к [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/), чтобы получить массивы точек и типов через методы [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) и [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) . Такое представление полезно для анализа контура или передачи геометрии в пользовательские инструменты рисования.
+Скачайте [contour.pptx](contour.pptx) и замените примерное имя файла на путь к нему на устройстве. Первая форма на первом слайде имеет прямой верхний край, кубическую кривую Безье и прямой замыкающий край. Используйте [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) для чтения путей формы и [getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) для чтения сегментов каждого пути в порядке рисования. Для каждого сегмента метод [getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) определяет команду и позволяет понять, как интерпретировать значения, возвращаемые [getSegmentData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getSegmentData--) .
 
-В примере открывается input.pptx, находится первая геометрическая форма непосредственно на первом слайде и выводятся её сегменты пути. Используйте презентацию, содержащую форму с прямыми и кривыми сегментами, чтобы увидеть оба типа вывода. Поиск внутри групп не проводится.
+```java
+import com.aspose.slides.*;
+import java.util.Arrays;
+
+Presentation presentation = new Presentation("contour.pptx");
+try {
+    IGeometryShape shape = (IGeometryShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IGeometryPath[] paths = shape.getGeometryPaths();
+
+    for (int i = 0; i < paths.length; i++) {
+        IPathSegment[] segments = paths[i].getPathData();
+        for (int j = 0; j < segments.length; j++) {
+            byte command = segments[j].getPathCommand();
+            float[] data = segments[j].getSegmentData();
+            String detail;
+            switch (command) {
+                case PathCommandType.MoveTo:
+                case PathCommandType.LineTo:
+                    detail = String.format("destination=(%s, %s)", data[0], data[1]);
+                    break;
+                case PathCommandType.CubicBezierTo:
+                    detail = String.format("control1=(%s, %s) control2=(%s, %s) end=(%s, %s)", data[0], data[1], data[2], data[3], data[4], data[5]);
+                    break;
+                case PathCommandType.Close:
+                    detail = "no coordinates";
+                    break;
+                default:
+                    detail = "raw=" + Arrays.toString(data);
+            }
+            String name = PathCommandType.getName(PathCommandType.class, command);
+            System.out.printf("Path %d, segment %d: %s %s%n", i, j, name, detail);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Форма располагается в точке (200, 100) на слайде. Сообщаемые координаты локальны для формы, где (0, 0) — её верхний‑левый угол, ось X растёт вправо, а ось Y — вниз. Замыкающий сегмент возвращается к стартовой точке без дополнительных координат.
+
+```text
+Path 0, segment 0: MoveTo destination=(0.0, 0.0)
+Path 0, segment 1: LineTo destination=(80.0, 0.0)
+Path 0, segment 2: CubicBezierTo control1=(70.0, 15.0) control2=(30.0, 45.0) end=(0.0, 60.0)
+Path 0, segment 3: Close no coordinates
+```
+
+![PowerPoint shape with a straight top edge, a curved edge from the upper right to the lower left, and a straight left edge](contour.png)
+
+## **Извлечение и анализ элементов формы**
+
+Используйте [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) для получения существующей формы как набора элементов, содержащих точки пути и типы точек. Приведите каждый возвращённый [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) к типу [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) и получите массивы точек и типов через методы [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) и [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) . Такое представление удобно для анализа контура или передачи геометрии в пользовательские инструменты рисования.
+
+Пример открывает input.pptx, находит первую форму геометрии непосредственно на первом слайде и выводит её сегменты пути. Используйте презентацию, содержащую форму с прямыми и изогнутыми сегментами, чтобы увидеть оба типа вывода. Поиск внутри групп не производится.
 
 ```java
 import com.aspose.slides.*;
@@ -337,7 +390,7 @@ try {
             System.out.println("Shape element:");
 
             for (int i = 0; i < points.length; i++) {
-                int pointType = types[i] & 0x07; // Сохранить тип сегмента, исключая флаги.
+                int pointType = types[i] & 0x07; // Сохраняйте тип сегмента, исключая флаги.
                 switch (pointType) {
                     case 0:
                         System.out.println("Start figure at " + points[i]);
@@ -347,7 +400,7 @@ try {
                         break;
                     case 3:
                         System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
-                        i += 2; // Потреблять обе контрольные точки и конечную точку.
+                        i += 2; // Consume both control points and the endpoint.
                         break;
                 }
 
@@ -362,23 +415,27 @@ try {
 }
 ```
 
-Массивы соответствуют по индексу: `points[i]` — точка, а `types[i]` описывает её роль. Тип `0` начинается фигуру, тип `1` рисует линию от предыдущей точки к текущей. Кубический сегмент Безье начинается в предыдущем конечном пункте и использует три последовательных элемента типа `3`: две контрольные точки и новую конечную точку. Цикл обрабатывает эти три элемента вместе и проверяет конечную точку на замыкание.
 
-Типы точек также содержат флаги. Маска `0x07` используется для определения типа сегмента, а `0x80` проверяется отдельно для обнаружения закрытого подпути. Например, `129` (`0x81`) обозначает конечную точку линии, закрывающую подпуть, а `131` (`0x83`) — конечную точку Безье, закрывающую его. Java хранит эти флаги в знаковых байтах; маскирование сохраняет ожидаемые битовые значения. Сравнение сырого значения только с `1` или `3` пропустит такие случаи. Другие флаги, такие как пунктир (`0x10`) и маркер (`0x20`), не меняют базовый тип сегмента.
+Массивы синхронны по индексу: `points[i]` — точка, `types[i]` — её роль. Тип `0` начинается фигуру, тип `1` рисует линию от предыдущей точки к текущей. Кубический сегмент Безье начинается от предыдущей конечной точки и использует три последовательных типа `3`: две управляющие точки и новую конечную точку. Цикл обрабатывает эти три записи совместно и проверяет конечную точку на замыкание.
 
-**Координаты и преобразования.** Точки измеряются в пунктах (1/72 дюйма), X увеличивается вправо, Y — вниз. Для отдельной формы извлечённые координаты уже включают позицию, возвращаемую методами [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) и [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--), и отражают её текущие ширину и высоту. Например, необращенный прямоугольник в `(100, 200)` размером `120 × 80` имеет границы контура `(100, 200)`–`(220, 280)`. Не добавляйте позицию формы повторно. Вычтите её X и Y, чтобы получить координаты относительно её необращённого кадра.
+Типы точек также могут содержать флаги. Маска `0x07` определяет тип сегмента, а бит `0x80` отдельно указывает закрытый подпуть. Например, `129` (`0x81`) — конец линии, закрывающий подпуть, а `131` (`0x83`) — конец кривой Безье, закрывающий подпуть. Java хранит эти флаги в знаковых байтах; маскирование сохраняет нужные битовые значения. Сравнение чистого значения только с `1` или `3` пропустит такие случаи. Другие флаги, такие как пунктир (`0x10`) и маркер (`0x20`), не меняют базовый тип сегмента.
 
-Извлечённые точки не учитывают вращение формы, возвращаемое [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--), или горизонтальное и вертикальное отражения. Чтобы воссоздать отображаемый контур, примените эти преобразования относительно центра формы. Для сгруппированных форм также учитывайте преобразования и координатное отображение группы; не полагайтесь, что извлечённые точки являются окончательными координатами отрисовки слайда, и не применяйте трансляцию или масштабирование дважды, если они уже учтены в кадре дочернего элемента.
+**Координаты и преобразования.** Точки измеряются в пунктах (1/72 дюйма), ось X растёт вправо, ось Y — вниз. Для не сгруппированной формы извлечённые координаты уже включают позицию, возвращаемую [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) и [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) , и отражают её текущую ширину и высоту. Например, не повернутый прямоугольник в `(100, 200)` размером `120 × 80` имеет границы контура `(100, 200)`–`(220, 280)`. Не добавляйте позицию формы повторно. Вычтите её X и Y, чтобы получить координаты относительно её неповоротного кадра.
 
-**Проверка vs редактирование.** Извлечённые массивы описывают контур; их изменение не обновляет оригинальную форму. Выбирайте этот подход, когда ваш аналитический или рисующий код требует массивов точка/тип. Используйте [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) , если нужны команды геометрии в локальной системе координат формы или требуется редактировать её геометрию. Применяйте отредактированные пути через [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) или [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---).
+Извлечённые точки не учитывают вращение формы, возвращаемое [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--) , а также горизонтальное и вертикальное отражения. Чтобы воспроизвести отображаемый контур, примените эти преобразования относительно центра формы. Для сгруппированных форм также учитывайте отображение координат группы и её преобразования; не полагайте, что извлечённые точки уже являются окончательными координатами слайда, и не применяйте трансляцию или масштабирование дважды, если они уже учтены в кадре дочернего элемента.
+
+**Анализ vs. редактирование.** Извлечённые массивы описывают контур; их изменение не обновляет исходную форму. Выбирайте такой подход, когда ваш анализ или код рисования требует массивов точек/типов. Используйте [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) , когда нужны команды геометрии в локальной системе координат формы или требуется редактировать её геометрию. Применяйте отредактированные пути через [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) или [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) .
 
 ## **FAQ**
 
-**Что произойдёт с заливкой и контуром после замены геометрии?**  
-Стиль остаётся привязанным к форме; меняется только контур. Заливка и контур автоматически применяются к новой геометрии.
+**Что произойдёт с заливкой и конуром после замены геометрии?**
 
-**Как правильно вращать пользовательскую форму вместе с её геометрией?**  
-Используйте метод формы [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-), геометрия будет вращаться вместе с формой, поскольку привязана к её собственной системе координат.
+Стиль остаётся привязанным к форме; меняется только контур. Заливка и обводка автоматически применяются к новой геометрии.
 
-**Могу ли я преобразовать пользовательскую форму в изображение, чтобы "зафиксировать" результат?**  
-Да. Экспортируйте нужную область [слайд](/slides/ru/androidjava/convert-powerpoint-to-png/) или саму [форму](/slides/ru/androidjava/create-shape-thumbnails/) в растровый формат; это упрощает дальнейшую работу со сложными геометриями.
+**Как правильно повернуть пользовательскую форму вместе с её геометрией?**
+
+Вызовите метод формы [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) ; геометрия вращается вместе с формой, поскольку привязана к её собственной системе координат.
+
+**Можно ли преобразовать пользовательскую форму в изображение, чтобы «зафиксировать» результат?**
+
+Да. Экспортируйте нужный [slide](/slides/ru/androidjava/convert-powerpoint-to-png/) или саму [shape](/slides/ru/androidjava/create-shape-thumbnails/) в растровый формат; это упрощает дальнейшую работу со сложными геометриями.

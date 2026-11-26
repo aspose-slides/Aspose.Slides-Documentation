@@ -10,7 +10,7 @@ keywords:
 - créer forme
 - modifier forme
 - géométrie de forme
-- chemin géométrique
+- chemin de géométrie
 - points du chemin
 - points d'édition
 - ajouter point
@@ -22,66 +22,66 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Créer et personnaliser des formes dans les présentations PowerPoint avec JavaScript et Aspose.Slides pour Node.js : chemins géométriques, coins arrondis, formes composites."
+description: "Créer et personnaliser des formes dans des présentations PowerPoint avec JavaScript et Aspose.Slides pour Node.js : chemins de géométrie, coins arrondis, formes composites."
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment personnaliser les formes de présentation dans Aspose.Slides en modifiant la géométrie d’une forme à l’aide de points d’édition et de chemins géométriques. Il montre comment travailler avec [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) pour modifier des formes existantes, effectuer des opérations d’édition de chemin de base, ajouter ou supprimer des points, et appliquer la géométrie mise à jour à une forme.
+Cet article explique comment personnaliser les formes de présentation dans Aspose.Slides en modifiant la géométrie des formes via les points d’édition et les chemins de géométrie. Il montre comment travailler avec [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) pour modifier des formes existantes, réaliser des opérations d’édition de chemin de base, ajouter ou supprimer des points, et appliquer la géométrie mise à jour à une forme.
 
-Il montre également comment créer des formes personnalisées et composites, construire des formes avec des coins arrondis, déterminer si une géométrie de forme est fermée, inspecter les éléments de forme, et convertir les contours de texte Java AWT en chemins géométriques.
+Il démontre également comment créer des formes personnalisées et composites, construire des formes avec des coins arrondis, déterminer si une géométrie de forme est fermée, inspecter les éléments de forme, et convertir les contours de texte Java AWT en chemins de géométrie.
 
-## **Modifier une forme à l'aide des points d'édition**
+## **Modifier une forme à l’aide de points d’édition**
 
-Dans PowerPoint, vous pouvez utiliser **Edit Points** pour modifier un carré :
+Dans PowerPoint, vous pouvez utiliser **Points d’édition** pour modifier un carré :
 
 * Déplacer un coin vers l’intérieur ou l’extérieur.
-* Ajuster la courbure d’un point.
+* Ajuster la courbure à un point.
 * Ajouter de nouveaux points.
 
 La modification des points vous permet de modifier le contour d’une forme ou d’utiliser une forme existante comme base pour une nouvelle.
 
-## **Conseils de modification des formes**
+## **Conseils de modification de forme**
 
 ![overview_image](custom_shape_0.png)
 
-Lorsque vous modifiez des formes PowerPoint, gardez à l’esprit les concepts suivants :
+Lors de la modification des formes PowerPoint, gardez à l’esprit ces concepts :
 
 * Une forme (ou son chemin) peut être fermée ou ouverte.
-* Le chemin d’une forme se compose de points d’ancrage reliés par des segments.
-* Un segment peut être droit ou courbé. Les points d’ancrage et les poignées de contrôle déterminent sa forme.
-* Les points d’ancrage existent sous forme de points de coin, points droits ou points lisses :
+* Le chemin d’une forme est composé de points d’ancrage reliés par des segments.
+* Un segment peut être droit ou courbe. Les points d’ancrage et les poignées de contrôle déterminent sa forme.
+* Les points d’ancrage existent comme points de coin, points droits ou points lisses :
   * Au point de coin, les segments adjacents peuvent se rencontrer sous un angle.
   * Au point lisse, les deux poignées de contrôle sont alignées et à égale distance du point d’ancrage.
   * Au point droit, les deux poignées de contrôle sont alignées mais peuvent être à des distances différentes du point d’ancrage.
 * Déplacer les points d’ancrage ou ajuster leurs poignées modifie le contour de la forme.
 
-Pour éditer les formes PowerPoint via les points d’édition, **Aspose.Slides** fournit la classe [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+Pour modifier les formes PowerPoint via des points d’édition, **Aspose.Slides** fournit la classe [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
-* Une instance de [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) représente le chemin géométrique de l’objet [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/).
-* Pour récupérer le [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) à partir d’une instance de [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/), utilisez la méthode [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths).
-* Pour définir le [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) d’une forme, utilisez ces méthodes : [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) pour les formes à chemin unique et [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) pour les formes à plusieurs chemins.
-* Pour ajouter des segments, utilisez les méthodes sous [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
-* En utilisant les méthodes [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) et [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode), vous pouvez définir l’apparence d’un chemin géométrique.
-* En utilisant la méthode [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData), vous pouvez récupérer le chemin géométrique d’un [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) sous forme de tableau de segments de chemin.
-* Pour accéder à des options supplémentaires de personnalisation de la géométrie d’une forme, vous pouvez lire un [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) via son [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) et rejouer les segments sur un [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+* Une instance de [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) représente le chemin de géométrie de l’objet [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/).
+* Pour récupérer le [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) depuis l’instance [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/), vous pouvez utiliser la méthode [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths).
+* Pour définir le [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) d’une forme, vous pouvez utiliser ces méthodes : [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) pour les formes à chemin unique et [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) pour les formes à chemins multiples.
+* Pour ajouter des segments, vous pouvez utiliser les méthodes sous [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+* En utilisant les méthodes [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) et [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode), vous pouvez définir l’apparence d’un chemin de géométrie.
+* En utilisant la méthode [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData), vous pouvez récupérer le chemin de géométrie d’un [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) sous forme de tableau de segments de chemin.
+* Pour accéder à des options supplémentaires de personnalisation de géométrie de forme, vous pouvez lire un [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) via son [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) et rejouer les segments sur un [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
 ## **Opérations d’édition simples**
 
-Utilisez les méthodes suivantes pour modifier un chemin géométrique. Les surcharges qui acceptent un indice insèrent un segment à cette position basée sur zéro dans le tableau de segments du chemin.
+Utilisez les méthodes suivantes pour modifier un chemin de géométrie. Les surcharges qui acceptent un indice insèrent un segment à cette position (indexé à zéro) dans le tableau de segments du chemin.
 
 | Opération | Méthode |
 | --- | --- |
 | Ajouter ou insérer une ligne droite. | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
-| Ajouter ou insérer une courbe de Bézier cubique avec deux points de contrôle et un point final. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
-| Ajouter ou insérer une courbe de Bézier quadratique avec un point de contrôle et un point final. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Ajouter ou insérer une courbe de Bézier cubique avec deux points de contrôle et un point d’arrivée. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Ajouter ou insérer une courbe de Bézier quadratique avec un point de contrôle et un point d’arrivée. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
 | Ajouter un arc elliptique avec les dimensions et les angles spécifiés en degrés. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
-| Fermer la figure actuelle en reliant son point final à son point de départ. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
+| Fermer la figure actuelle en reliant son point d’arrivée à son point de départ. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
 | Définir le point de départ d’une figure. | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
-| Supprimer un segment à un indice basé sur zéro. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
+| Supprimer un segment à un indice zéro. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **Ajouter des points personnalisés à une forme**
 
-Cet exemple insère deux points dans une forme rectangulaire en utilisant [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) et applique le chemin édité avec [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). Les coordonnées sont locales à la forme : les deux nouveaux points sont à son centre, à 100 points du bord gauche et à 50 points du bord supérieur. Les indices de segment 1 et 4 les placent respectivement sur les bords supérieurs et inférieurs, tirant ces bords vers l’intérieur.
+Cet exemple insère deux points dans une forme rectangulaire en utilisant [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) et applique le chemin modifié avec [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). Les coordonnées sont locales à la forme : les deux nouveaux points sont au centre, à 100 points du bord gauche et 50 points du bord supérieur. Les indices de segment 1 et 4 les placent respectivement sur les bords supérieur et inférieur, tirant ces bords vers l’intérieur.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -106,7 +106,7 @@ try {
 
 ## **Supprimer des points d’une forme**
 
-Cet exemple modifie le contour d’une forme en cœur en supprimant le segment à l’indice zéro‑based 2 avec [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). L’application du chemin modifié avec [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) met à jour le contour de la forme.
+Cet exemple modifie le contour d’une forme en cœur en supprimant le segment à l’indice zéro 2 avec [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). Appliquer le chemin modifié avec [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) met à jour le contour de la forme.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -129,7 +129,7 @@ try {
 
 ## **Créer une forme personnalisée**
 
-Cet exemple construit une étoile à cinq branches avec [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). Des rayons extérieurs et intérieurs alternés de 100 et 50 points définissent les pointes et les encoches ; un pas de 72 degrés espace les cinq pointes de manière uniforme. Le chemin est fermé avec [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) et appliqué à une forme rectangulaire à l’aide de [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), remplaçant son contour.
+Cet exemple construit une étoile à cinq branches avec [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). Des rayons extérieurs et intérieurs alternés de 100 et 50 points définissent les pointes et les enfoncements ; un pas de 72 degrés espace uniformément les cinq pointes. Le chemin est fermé avec [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) et appliqué à une forme rectangulaire via [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), remplaçant son contour.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -168,7 +168,7 @@ try {
 
 ## **Créer une forme composite personnalisée**
 
-Cet exemple définit deux [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) fermés pour le tiers supérieur et le tiers inférieur d’une forme. L’application des deux chemins avec [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) crée une forme composite unique avec un espace au tiers central.
+Cet exemple définit deux [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) fermés pour le tiers supérieur et le tiers inférieur d’une forme. L’application des deux chemins avec [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) crée une forme composite unique avec un espace au milieu du tiers central.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -204,7 +204,7 @@ try {
 
 ## **Créer une forme personnalisée avec des coins arrondis**
 
-Cet exemple combine des segments droits avec [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) pour créer une forme aux coins courbés vers l’intérieur. Chaque taille de coin définit la largeur et la hauteur de l’arc en points, et le balayage de –90 degrés trace un quart d’ellipse dans le sens antihoraire. Le chemin complet est appliqué avec [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), puis la présentation est enregistrée au format PPTX.
+Cet exemple combine des segments droits avec [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) pour créer une forme aux coins incurvés vers l’intérieur. Chaque taille de coin définit la largeur et la hauteur de l’arc en points, et le balayage de –90 degrés trace un quart d’ellipse dans le sens antihoraire. Le chemin complété est appliqué avec [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), et la présentation est enregistrée au format PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -245,9 +245,9 @@ try {
 }
 ```
 
-## **Déterminer si une géométrie de forme est fermée**
+## **Déterminer si la géométrie d’une forme est fermée**
 
-L’assistant suivant vérifie si chaque chemin géométrique non vide se termine par un segment de fermeture. Il lit [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) et compare la commande du segment final via [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) avec [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). Il renvoie false lorsqu’il n’existe aucun chemin non vide. Cette vérification porte sur la commande finale de chaque chemin ; elle n’inspecte pas chaque sous‑figure à l’intérieur d’un chemin. L’exemple affiche `true` pour un rectangle.
+L’assistant suivant vérifie si chaque chemin de géométrie non vide se termine par un segment de fermeture. Il lit [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) et compare la commande du segment final via [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) à [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). Il renvoie false lorsqu’il n’y a aucun chemin non vide. Cette vérification porte sur la commande finale de chaque chemin ; elle n’inspecte pas chaque sous-figure d’un chemin. L’exemple affiche `true` pour un rectangle.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -281,11 +281,62 @@ try {
 }
 ```
 
-## **Extraire et inspecter les éléments d’une forme**
+## **Inspecter les commandes du chemin de géométrie**
 
-Utilisez [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) pour inspecter une forme existante sous forme d’éléments contenant les points de chemin et leurs types. Utilisez chaque [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) renvoyé pour récupérer les tableaux de points et de types via les méthodes [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) et [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes). Cette représentation est utile pour l’analyse de contours ou le passage de la géométrie à des outils de dessin personnalisés.
+Téléchargez [contour.pptx](contour.pptx) et placez‑le dans le répertoire de travail de l’application. La première forme de la première diapositive possède un bord supérieur droit, une courbe de Bézier cubique et un bord de fermeture droit. Utilisez [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) pour lire les chemins de la forme et [getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) pour lire les segments de chaque chemin dans l’ordre de dessin. Pour chaque segment, [getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) identifie la commande et détermine comment interpréter les valeurs renvoyées par [getSegmentData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getSegmentData).
 
-L’exemple ouvre input.pptx, trouve la première forme géométrique directement sur la première diapositive, et affiche ses segments de chemin. Utilisez une présentation contenant une forme avec des segments droits et courbés pour voir les deux types de sortie. Il ne recherche pas à l’intérieur des groupes.
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("contour.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const paths = shape.getGeometryPaths();
+    for (const [i, path] of paths.entries()) {
+        const segments = path.getPathData();
+        for (const [j, segment] of segments.entries()) {
+            const command = segment.getPathCommand();
+            const data = segment.getSegmentData();
+            let detail;
+            switch (command) {
+                case slides.PathCommandType.MoveTo:
+                case slides.PathCommandType.LineTo:
+                    const name = command === slides.PathCommandType.MoveTo ? "MoveTo" : "LineTo";
+                    detail = `${name} destination=(${data[0]}, ${data[1]})`;
+                    break;
+                case slides.PathCommandType.CubicBezierTo:
+                    detail = `CubicBezierTo control1=(${data[0]}, ${data[1]}) control2=(${data[2]}, ${data[3]}) end=(${data[4]}, ${data[5]})`;
+                    break;
+                case slides.PathCommandType.Close:
+                    detail = "Close no coordinates";
+                    break;
+                default:
+                    detail = `command=${command} raw=[${data.join(", ")}]`;
+            }
+            console.log(`Path ${i}, segment ${j}: ${detail}`);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+La forme est située à (200, 100) points sur la diapositive. Les coordonnées rapportées sont locales à la forme, avec (0, 0) en haut à gauche, x croissant vers la droite et y croissant vers le bas. Le segment de fermeture revient au point de départ sans coordonnées supplémentaires.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![Forme PowerPoint avec un bord supérieur droit, un bord incurvé du coin supérieur droit au coin inférieur gauche et un bord gauche droit](contour.png)
+
+## **Extraire et inspecter les éléments de forme**
+
+Utilisez [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) pour inspecter une forme existante sous forme d’éléments contenant les points de chemin et leurs types. Utilisez chaque [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) retourné pour récupérer les tableaux de points et de types via les méthodes [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) et [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes). Cette représentation est utile pour l’analyse de contour ou le passage de la géométrie à des outils de dessin personnalisés.
+
+L’exemple ouvre input.pptx, trouve la première forme de géométrie directement sur la première diapositive, et imprime ses segments de chemin. Utilisez une présentation contenant une forme avec des segments droits et courbes pour voir les deux types de sortie. Il ne recherche pas à l’intérieur des groupes.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -313,7 +364,7 @@ try {
             console.log("Shape element:");
 
             for (let i = 0; i < points.length; i++) {
-                const pointType = types[i] & 0x07; // Conserver le type de segment, en excluant les indicateurs.
+                const pointType = types[i] & 0x07; // Conserver le type de segment, en excluant les drapeaux.
                 switch (pointType) {
                     case 0:
                         console.log("Start figure at " + points[i]);
@@ -323,7 +374,7 @@ try {
                         break;
                     case 3:
                         console.log("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
-                        i += 2; // Consume both control points and the endpoint.
+                        i += 2; // Consommer les deux points de contrôle et le point d'arrivée.
                         break;
                 }
 
@@ -338,21 +389,21 @@ try {
 }
 ```
 
-Les tableaux sont corrélés par indice : `points[i]` est un point et `types[i]` décrit son rôle. Le type `0` démarre une figure, et le type `1` trace une ligne du point précédent au point actuel. Un segment de Bézier cubique démarre au point final précédent et utilise trois entrées de type `3` consécutives : deux points de contrôle suivis du nouveau point final. La boucle consomme ces trois entrées ensemble et vérifie le point final pour la fermeture.
+Les tableaux correspondent par indice : `points[i]` est un point et `types[i]` décrit son rôle. Le type `0` démarre une figure, et le type `1` trace une ligne du point précédent au point actuel. Un segment de Bézier cubique débute au point d’arrivée précédent et utilise trois entrées consécutives de type `3` : deux points de contrôle suivis du nouveau point d’arrivée. La boucle consomme ces trois entrées ensemble et vérifie le point d’arrivée pour la fermeture.
 
-Les types de points contiennent également des indicateurs. Masquez avec `0x07` pour identifier le type de segment, et testez `0x80` séparément pour détecter un sous‑chemin fermé. Par exemple, `129` (`0x81`) signifie un point final de ligne qui ferme un sous‑chemin, et `131` (`0x83`) signifie un point final de Bézier qui en ferme un. Java stocke ces indicateurs dans des octets signés ; le masquage préserve les valeurs de bits prévues. Comparer la valeur brute uniquement avec `1` ou `3` ferait manquer ces cas. D’autres indicateurs, tels que le tiret (`0x10`) et le marqueur (`0x20`), ne modifient pas le type de segment de base.
+Les types de point contiennent aussi des drapeaux. Masquez avec `0x07` pour identifier le type de segment, et testez `0x80` séparément pour détecter un sous‑chemin fermé. Par exemple, `129` (`0x81`) signifie un point d’arrivée de ligne qui ferme un sous‑chemin, et `131` (`0x83`) signifie un point d’arrivée de Bézier qui en ferme un. Java stocke ces drapeaux dans des octets signés ; le masquage préserve les valeurs de bits attendues. Comparer la valeur brute uniquement à `1` ou `3` manquerait ces cas. D’autres drapeaux, comme le tiret (`0x10`) et le marqueur (`0x20`), ne changent pas le type de segment de base.
 
-**Coordonnées et transformations.** Les points sont mesurés en points (1/72 de pouce), X augmentant vers la droite et Y augmentant vers le bas. Pour une forme non groupée, les coordonnées extraites comprennent déjà la position renvoyée par [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) et [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) et reflètent sa largeur et hauteur actuelles. Par exemple, un rectangle non tourné à `(100, 200)` avec une taille de `120 × 80` a des limites de contour `(100, 200)`–`(220, 280)`. N’ajoutez pas à nouveau la position de la forme. Soustrayez son X et Y pour obtenir des coordonnées relatives à son cadre non tourné.
+**Coordonnées et transformations.** Les points sont mesurés en points (1/72 pouce), avec X croissant vers la droite et Y croissant vers le bas. Pour une forme non groupée, les coordonnées extraites comprennent déjà la position renvoyée par [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) et [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) et reflètent sa largeur et hauteur actuelles. Par exemple, un rectangle non pivoté à `(100, 200)` avec une taille de `120 × 80` a des limites de contour `(100, 200)`–`(220, 280)`. N’ajoutez pas à nouveau la position de la forme. Soustrayez son X et son Y pour obtenir des coordonnées relatives à son cadre non pivoté.
 
-Les points extraits n’appliquent pas la rotation de la forme, renvoyée par [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation), ni les renversements horizontaux et verticaux. Pour reproduire le contour affiché, appliquez ces transformations autour du centre de la forme. Pour les formes groupées, tenez également compte du mappage des coordonnées du groupe et des transformations ; ne supposez pas que les points extraits sont les coordonnées finales rendues sur la diapositive ni n’appliquez une translation ou un redimensionnement deux fois s’ils sont déjà reflétés dans le cadre de l’enfant.
+Les points extraits n’appliquent pas la rotation de la forme, renvoyée par [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation), ni les retournements horizontaux et verticaux. Pour reproduire le contour affiché, appliquez ces transformations autour du centre de la forme. Pour les formes groupées, tenez également compte du mappage des coordonnées du groupe et des transformations ; ne supposez pas que les points extraits sont les coordonnées finales rendues sur la diapositive ni n’appliquez pas une translation ou une mise à l’échelle deux fois si elle est déjà reflétée dans le cadre de l’enfant.
 
-**Inspection versus édition.** Les tableaux extraits décrivent le contour ; les modifier ne met pas à jour la forme originale. Choisissez cette approche lorsque votre analyse ou votre code de dessin a besoin de tableaux point/type. Utilisez [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) lorsque vous avez besoin des commandes géométriques dans le système de coordonnées local de la forme ou que vous souhaitez éditer sa géométrie. Appliquez les chemins édités via [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) ou [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
+**Inspection versus édition.** Les tableaux extraits décrivent le contour ; les modifier ne met pas à jour la forme d’origine. choisissez cette approche lorsque votre analyse ou votre code de dessin a besoin de tableaux point/type. Utilisez [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) lorsque vous avez besoin des commandes de géométrie dans le système de coordonnées local de la forme ou que vous souhaitez éditer sa géométrie. Appliquez les chemins modifiés via [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) ou [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
 
 ## **Convertir une forme Java AWT en GeometryPath**
 
-Cet exemple combine un contour rectangulaire avec du texte converti en géométrie. La méthode [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) du contour désactive son remplissage. Un [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) crée le contour du texte dans un [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Son [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) fournit les segments de déplacement, ligne, quadratique, cubique et de fermeture, que l’exemple rejoue sur un [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+Cet exemple combine un contour rectangulaire avec du texte converti en géométrie. La méthode [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) du contour désactive son remplissage. Un [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) crée le contour du texte dans un [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Son [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) fournit des segments de déplacement, ligne, quadratique, cubique et de fermeture, que l’exemple rejoue sur un [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
-Le pont Java utilise des valeurs explicites de type float et byte pour les paramètres Java correspondants. L’itérateur écrit les coordonnées dans un tableau float Java ; la réflexion lit ses valeurs mises à jour dans JavaScript. Le texte utilise une police Arial de 40 points. Le contour est décalé de 20 points horizontalement et positionné de sorte que son haut visuel se trouve 10 points sous le bord supérieur de la forme. Le chemin texte est rempli, tandis que le rectangle d’origine reste un contour. L’application des deux chemins avec [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) produit une forme unique contenant le rectangle et le texte.
+Le pont Java utilise des valeurs float et byte explicites pour les paramètres Java correspondants. L’itérateur écrit les coordonnées dans un tableau float Java ; la réflexion lit ses valeurs mises à jour et les renvoie à JavaScript. Le texte utilise une police Arial de 40 points. Le contour est décalé de 20 points horizontalement et positionné de façon à ce que son haut visuel soit 10 points sous le bord supérieur de la forme. Le chemin de texte est rempli, tandis que le rectangle d’origine reste un contour. L’application des deux chemins avec [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) produit une forme unique contenant le rectangle et le texte.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -422,9 +473,9 @@ try {
 
 ## **FAQ**
 
-**Que se passe-t-il du remplissage et du contour après le remplacement de la géométrie ?**
+**Que se passe-t-il avec le remplissage et le contour après le remplacement de la géométrie ?**
 
-Le style reste attaché à la forme ; seul le contour change. Le remplissage et le contour sont appliqués automatiquement à la nouvelle géométrie.
+Le style reste associé à la forme ; seul le contour change. Le remplissage et le contour sont appliqués automatiquement à la nouvelle géométrie.
 
 **Comment faire pivoter correctement une forme personnalisée avec sa géométrie ?**
 
@@ -432,4 +483,4 @@ Utilisez la méthode [setRotation](https://reference.aspose.com/slides/nodejs-ja
 
 **Puis‑je convertir une forme personnalisée en image pour « verrouiller » le résultat ?**
 
-Oui. Exportez la zone de la [diapositive](/slides/fr/nodejs-java/convert-powerpoint-to-png/) requise ou la [forme](/slides/fr/nodejs-java/create-shape-thumbnails/) elle‑même vers un format raster ; cela simplifie le travail ultérieur avec des géométries complexes.
+Oui. Exportez la zone de [slide](/slides/fr/nodejs-java/convert-powerpoint-to-png/) requise ou la [shape](/slides/fr/nodejs-java/create-shape-thumbnails/) elle‑même vers un format raster ; cela simplifie les travaux ultérieurs avec des géométries complexes.

@@ -9,10 +9,10 @@ keywords:
 - aggiungi forma
 - crea forma
 - modifica forma
-- geometria della forma
+- geometria forma
 - percorso geometrico
-- punti del percorso
-- punti di modifica
+- punti percorso
+- modifica punti
 - aggiungi punto
 - rimuovi punto
 - operazione di modifica
@@ -21,65 +21,65 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Crea e personalizza forme in presentazioni PowerPoint con Aspose.Slides per C++: percorsi geometrici, angoli curvi, forme composite."
+description: "Crea e personalizza forme nelle presentazioni PowerPoint con Aspose.Slides per C++: percorsi geometrici, angoli curvi, forme composite."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come personalizzare le forme delle presentazioni in Aspose.Slides modificando la geometria delle forme attraverso i punti di modifica e i percorsi geometrici. Mostra come lavorare con [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) e [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) per modificare le forme esistenti, eseguire operazioni di modifica di base del percorso, aggiungere o rimuovere punti e applicare la geometria aggiornata a una forma.
+Questo articolo spiega come personalizzare le forme di presentazione in Aspose.Slides modificando la geometria delle forme tramite i punti di modifica e i percorsi geometrici. Mostra come lavorare con [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) e [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) per modificare le forme esistenti, eseguire operazioni di modifica di base del percorso, aggiungere o rimuovere punti e applicare la geometria aggiornata a una forma.
 
-Dimostra inoltre come creare forme personalizzate e composite, costruire forme con angoli curvi e determinare se la geometria di una forma è chiusa.
+Dimostra inoltre come creare forme personalizzate e composite, costruire forme con angoli curvi e determinare se una geometria di forma è chiusa.
 
-## **Modifica una forma tramite i punti di modifica**
+## **Modifica di una Forma Utilizzando i Punti di Modifica**
 
 In PowerPoint, è possibile utilizzare **Edit Points** per modificare un quadrato:
 
-* Muovere un angolo verso l'interno o verso l'esterno.
-* Regolare la curvatura in un punto.
+* Spostare un angolo verso l’interno o verso l’esterno.
+* Regolare la curvatura di un punto.
 * Aggiungere nuovi punti.
 
-Modificando i punti è possibile modificare il contorno di una forma o utilizzare una forma esistente come base per una nuova.
+Modificare i punti consente di alterare il contorno di una forma o di utilizzare una forma esistente come base per una nuova.
 
-## **Suggerimenti per la modifica delle forme**
+## **Suggerimenti per la Modifica delle Forme**
 
-![overview_image](custom_shape_0.png)
+![immagine_panoramica](custom_shape_0.png)
 
-Durante la modifica delle forme di PowerPoint, tenere presente questi concetti:
+Quando si modificano forme in PowerPoint, tenere presenti i seguenti concetti:
 
 * Una forma (o il suo percorso) può essere chiusa o aperta.
-* Il percorso di una forma è composto da punti di ancoraggio collegati da segmenti.
+* Il percorso di una forma è costituito da punti di ancoraggio collegati da segmenti.
 * Un segmento può essere dritto o curvo. I punti di ancoraggio e le maniglie di controllo determinano la sua forma.
-* I punti di ancoraggio esistono come punti angolo, punti dritti o punti lisci:
-  * In un punto angolo, i segmenti adiacenti possono incontrarsi con un angolo.
-  * In un punto liscio, le due maniglie di controllo sono allineate e a pari distanza dal punto di ancoraggio.
+* I punti di ancoraggio possono essere punti d’angolo, punti dritti o punti fluidi:
+  * In un punto d’angolo, i segmenti adiacenti possono incontrarsi formando un angolo.
+  * In un punto fluido, le due maniglie di controllo sono allineate e alla stessa distanza dal punto di ancoraggio.
   * In un punto dritto, le due maniglie di controllo sono allineate ma possono trovarsi a distanze diverse dal punto di ancoraggio.
 * Spostare i punti di ancoraggio o regolare le loro maniglie modifica il contorno della forma.
 
-Per modificare le forme di PowerPoint tramite i punti di modifica, **Aspose.Slides** fornisce la classe [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) e l'interfaccia [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+Per modificare le forme di PowerPoint tramite i punti di modifica, **Aspose.Slides** fornisce la classe [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) e l’interfaccia [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
 
-* Un'istanza di [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) rappresenta un percorso geometrico dell'oggetto [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
-* Per recuperare il [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) dall'istanza [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), è possibile utilizzare il metodo [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* Un’istanza di [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) rappresenta il percorso geometrico dell’oggetto [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
+* Per recuperare il [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) da un’istanza di [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), è possibile utilizzare il metodo [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
 * Per impostare il [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) per una forma, è possibile utilizzare questi metodi: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) per forme con un singolo percorso e [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) per forme con percorsi multipli.
 * Per aggiungere segmenti, è possibile utilizzare i metodi sotto [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
-* Utilizzando i metodi [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) e [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/), è possibile impostare l'aspetto di un percorso geometrico.
-* Utilizzando il metodo [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/), è possibile recuperare il percorso geometrico di un [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) come un array di segmenti di percorso.
+* Utilizzando i metodi [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) e [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/), è possibile impostare l’aspetto di un percorso geometrico.
+* Con il metodo [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/), è possibile recuperare il percorso geometrico di un [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) come un array di segmenti del percorso.
 
-## **Operazioni di modifica semplici**
+## **Operazioni di Modifica Semplici**
 
-Utilizzare i seguenti metodi per modificare un percorso geometrico. Le sovraccariche che accettano un indice inseriscono un segmento in quella posizione basata su zero nell'array dei segmenti del percorso.
+Utilizzare i seguenti metodi per modificare un percorso geometrico. Le sovraccariche che accettano un indice inseriscono un segmento in quella posizione zero‑based nell’array dei segmenti del percorso.
 
 | Operazione | Metodo |
 | --- | --- |
 | Aggiungere o inserire una linea retta. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
-| Aggiungere o inserire una curva cubica Bézier con due punti di controllo e un punto finale. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
-| Aggiungere o inserire una curva quadratica Bézier con un punto di controllo e un punto finale. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Aggiungere o inserire una curva Bézier cubica con due punti di controllo e un punto finale. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Aggiungere o inserire una curva Bézier quadratica con un punto di controllo e un punto finale. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
 | Aggiungere un arco ellittico con le dimensioni e gli angoli specificati in gradi. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
-| Chiudere la figura corrente collegando il suo punto finale al punto di partenza. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
-| Impostare il punto di partenza di una figura. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
-| Rimuovere un segmento in un indice basato su zero. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
+| Chiudere la figura corrente collegando il punto finale al punto iniziale. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Impostare il punto iniziale di una figura. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| Rimuovere un segmento a indice zero‑based. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-## **Aggiungere punti personalizzati a una forma**
+## **Aggiungere Punti Personalizzati a una Forma**
 
-Questo esempio inserisce due punti in una forma rettangolare utilizzando [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) e applica il percorso modificato con [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Le coordinate sono locali alla forma: entrambi i nuovi punti si trovano al suo centro, a 100 punti dalla sinistra e 50 punti dall'alto. Gli indici dei segmenti 1 e 4 li posizionano sui bordi superiore e inferiore, tirando questi bordi verso l'interno.
+Questo esempio inserisce due punti in una forma rettangolare utilizzando [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) e applica il percorso modificato con [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Le coordinate sono locali alla forma: entrambi i nuovi punti si trovano al suo centro, a 100 punti dal lato sinistro e 50 punti dall’alto. Gli indici dei segmenti 1 e 4 li posizionano sui bordi superiore e inferiore, tirando questi bordi verso l’interno.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -106,11 +106,11 @@ geometryPath->LineTo(100.0f, 50.0f, 4);
 shape->SetGeometryPath(geometryPath);
 ```
 
-![example1_image](custom_shape_1.png)
+![immagine_esempio1](custom_shape_1.png)
 
-## **Rimuovere punti da una forma**
+## **Rimuovere Punti da una Forma**
 
-Questo esempio modifica il contorno di una forma a cuore rimuovendo il segmento all'indice basato su zero 2 con [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Applicare il percorso modificato con [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) aggiorna il contorno della forma.
+Questo esempio altera il contorno di una forma a cuore rimuovendo il segmento all’indice zero‑based 2 con [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Applicando il percorso modificato con [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), si aggiorna il contorno della forma.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -135,11 +135,11 @@ path->RemoveAt(2);
 
 shape->SetGeometryPath(path);
 ```
-![example2_image](custom_shape_2.png)
+![immagine_esempio2](custom_shape_2.png)
 
-## **Creare una forma personalizzata**
+## **Creare una Forma Personalizzata**
 
-Questo esempio costruisce una stella a cinque punte con [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Raggi esterni e interni alternati di 100 e 50 punti definiscono le punte e le rientranze; un passo di 72 gradi distribuisce uniformemente le cinque punte. Il percorso è chiuso con [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) e applicato a una forma rettangolare usando [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), sostituendo il suo contorno.
+Questo esempio costruisce una stella a cinque punte con [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). I raggi alternati esterno e interno di 100 e 50 punti definiscono le punte e le rientranze; un passo di 72 gradi distribuisce uniformemente le cinque punte. Il percorso è chiuso con [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) e applicato a una forma rettangolare tramite [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), sostituendone il contorno.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -194,11 +194,11 @@ auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
-![example3_image](custom_shape_3.png)
+![immagine_esempio3](custom_shape_3.png)
 
-## **Creare una forma personalizzata composita**
+## **Creare una Forma Personalizzata Composita**
 
-Questo esempio definisce due oggetti [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) chiusi per il terzo superiore e inferiore di una forma. Applicare entrambi i percorsi con [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) crea una singola forma composita con uno spazio attraverso il suo terzo centrale.
+Questo esempio definisce due [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) chiusi per il terzo superiore e inferiore di una forma. Applicando entrambi i percorsi con [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/), si crea una singola forma composita con uno spazio al centro del terzo medio.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -237,11 +237,11 @@ auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath }
 
 shape->SetGeometryPaths(paths);
 ```
-![example4_image](custom_shape_4.png)
+![immagine_esempio4](custom_shape_4.png)
 
-## **Creare una forma personalizzata con angoli curvi**
+## **Creare una Forma Personalizzata con Angoli Curvi**
 
-Questo esempio combina segmenti dritti con [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) per creare una forma con angoli curvi verso l'interno. Ogni dimensione dell'angolo imposta la larghezza e l'altezza dell'arco in punti, e la sweep di -90 gradi disegna un quarto di ellisse in senso antiorario. Il percorso completato è applicato con [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), e la presentazione viene salvata in formato PPTX.
+Questo esempio combina segmenti retti con [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) per creare una forma con angoli curvi verso l’interno. Ogni dimensione dell’angolo imposta la larghezza e l’altezza dell’arco in punti, e il sweep di -90 gradi disegna un quarto di ellisse in senso antiorario. Il percorso completato è applicato con [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), e la presentazione viene salvata in formato PPTX.
 
 ```cpp
 #include <DOM/GeometryPath.h>
@@ -296,9 +296,9 @@ shape->SetGeometryPath(geometryPath);
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Scoprire se la geometria di una forma è chiusa**
+## **Verificare se una Geometria di Forma è Chiusa**
 
-L'utilità seguente verifica se ogni percorso geometrico non vuoto termina con un segmento di chiusura. Legge [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) e confronta il comando del segmento finale [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) con [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Restituisce false quando non ci sono percorsi non vuoti. Questo controlla il comando finale di ciascun percorso; non ispeziona ogni sottofigura all'interno di un percorso. L'esempio stampa `True` per un rettangolo.
+Il helper seguente verifica se ogni percorso geometrico non vuoto termina con un segmento di chiusura. Legge [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) e confronta il [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) finale con [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Restituisce false quando non vi sono percorsi non vuoti. Questo controlla il comando finale di ogni percorso; non ispeziona ogni sotto‑figura all’interno di un percorso. L’esempio stampa `True` per un rettangolo.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -345,11 +345,84 @@ auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 2
 Console::WriteLine(isGeometryClosed(shape));
 ```
 
-## **Estrarre e ispezionare gli elementi della forma**
+## **Ispezionare i Comandi del Percorso Geometrico**
 
-Utilizzare [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) per ispezionare una forma esistente come elementi contenenti punti di percorso e tipi di punto. Convertire ogni [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) restituito in [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) per leggere gli array restituiti da [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) e [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Questa rappresentazione è utile per l'analisi del contorno o per passare la geometria a strumenti di disegno personalizzati.
+Scaricare [contour.pptx](contour.pptx) e posizionarlo nella directory di lavoro dell’applicazione. La prima forma della prima diapositiva ha un bordo superiore rettilineo, una curva Bézier cubica e un bordo di chiusura rettilineo. Utilizzare [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) per leggere i suoi percorsi. Per ogni percorso, [get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) restituisce i segmenti in ordine di disegno. Il comando restituito da [get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) determina come interpretare i valori restituiti da [get_SegmentData](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_segmentdata/).
 
-L'esempio apre una presentazione, trova la prima forma geometrica direttamente nella prima diapositiva e stampa i suoi segmenti di percorso. Utilizzare una presentazione contenente una forma con segmenti dritti e curvi per vedere entrambi i tipi di output. Non ricerca all'interno dei gruppi.
+```cpp
+#include <DOM/IGeometryPath.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/PathCommandType.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"contour.pptx");
+
+auto shape = ExplicitCast<IGeometryShape>(presentation->get_Slide(0)->get_Shape(0));
+auto paths = shape->GetGeometryPaths();
+
+for (auto i = 0; i < paths->get_Length(); ++i)
+{
+    auto segments = paths->idx_get(i)->get_PathData();
+    for (auto j = 0; j < segments->get_Length(); ++j)
+    {
+        auto segment = segments->idx_get(j);
+        auto command = segment->get_PathCommand();
+        auto data = segment->get_SegmentData();
+        String detail;
+        switch (command)
+        {
+            case PathCommandType::MoveTo:
+            case PathCommandType::LineTo:
+                detail = String::Format(u"destination=({0}, {1})", data->idx_get(0), data->idx_get(1));
+                break;
+            case PathCommandType::CubicBezierTo:
+                detail = String::Format(u"control1=({0}, {1}) control2=({2}, {3}) end=({4}, {5})", data);
+                break;
+            case PathCommandType::Close:
+                detail = u"no coordinates";
+                break;
+            default:
+            {
+                auto values = MakeArray<String>(data->get_Length());
+                for (auto k = 0; k < data->get_Length(); ++k)
+                {
+                    values->idx_set(k, String::Format(u"{0}", data->idx_get(k)));
+                }
+                detail = String::Format(u"raw=[{0}]", String::Join(u", ", values));
+                break;
+            }
+        }
+        Console::WriteLine(u"Path {0}, segment {1}: {2} {3}", i, j, Enum<PathCommandType>::GetName(command), detail);
+    }
+}
+```
+
+La forma si trova a (200, 100) punti sulla diapositiva. I punti riportati sono locali alla forma, con (0, 0) nell’angolo superiore sinistro, x crescente verso destra e y crescente verso il basso. Il segmento di chiusura ritorna al punto iniziale senza coordinate aggiuntive.
+
+```text
+Path 0, segment 0: MoveTo destination=(0, 0)
+Path 0, segment 1: LineTo destination=(80, 0)
+Path 0, segment 2: CubicBezierTo control1=(70, 15) control2=(30, 45) end=(0, 60)
+Path 0, segment 3: Close no coordinates
+```
+
+![Forma PowerPoint con bordo superiore rettilineo, bordo curvo dall’angolo superiore destro all’angolo inferiore sinistro e bordo sinistro rettilineo](contour.png)
+
+## **Estrarre e Ispezionare gli Elementi della Forma**
+
+Utilizzare [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) per ispezionare una forma esistente come elementi contenenti i punti del percorso e i tipi di punto. Eseguire il cast di ogni [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) restituito a [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) per leggere gli array restituiti da [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) e [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Questa rappresentazione è utile per l’analisi del contorno o per passare la geometria a strumenti di disegno personalizzati.
+
+L’esempio apre una presentazione, trova la prima forma geometrica direttamente sulla prima diapositiva e stampa i suoi segmenti di percorso. Utilizzare una presentazione che contenga una forma con segmenti rettilinei e curvi per vedere entrambi i tipi di output. Non ricerca all’interno dei gruppi.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -406,7 +479,7 @@ for (auto&& element : shape->CreateShapeElements())
                 break;
             case 3:
                 Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
-                i += 2; // Consuma entrambi i punti di controllo e il punto finale.
+                i += 2; // Consume both control points and the endpoint.
                 break;
         }
         if ((types[i] & 0x80) != 0)
@@ -417,30 +490,30 @@ for (auto&& element : shape->CreateShapeElements())
 }
 ```
 
-Gli array corrispondono per indice: `points[i]` è un punto e `types[i]` ne descrive il ruolo. Il tipo `0` avvia una figura, e il tipo `1` disegna una linea dal punto precedente al punto corrente. Un segmento Bézier cubico inizia dal punto finale precedente e utilizza tre voci consecutive di tipo `3`: due punti di controllo seguiti dal nuovo punto finale. Il ciclo consuma queste tre voci insieme e verifica il punto finale per la chiusura.
+Gli array corrispondono per indice: `points[i]` è un punto e `types[i]` descrive il suo ruolo. Il tipo `0` avvia una figura, e il tipo `1` disegna una linea dal punto precedente al punto corrente. Un segmento Bézier cubico inizia dal punto finale precedente e utilizza tre voci di tipo `3` consecutive: due punti di controllo seguiti dal nuovo punto finale. Il ciclo consuma queste tre voci insieme e verifica il punto finale per la chiusura.
 
-I tipi di punto contengono anche flag. Mascherare con `0x07` per identificare il tipo di segmento, e testare `0x80` separatamente per rilevare un sotto-percorso chiuso. Ad esempio, `129` (`0x81`) indica un punto finale di linea che chiude un sotto-percorso, e `131` (`0x83`) indica un punto finale Bézier che ne chiude uno. Confrontare il valore grezzo solo con `1` o `3` ometterebbe questi casi. Altri flag, come dash (`0x10`) e marker (`0x20`), non modificano il tipo base del segmento.
+I tipi di punto contengono anche flag. Mascherare con `0x07` per identificare il tipo di segmento, e testare `0x80` separatamente per rilevare un sotto‑percorso chiuso. Per esempio, `129` (`0x81`) indica un punto finale di linea che chiude un sotto‑percorso, e `131` (`0x83`) indica un punto finale Bézier che ne chiude uno. Confrontare il valore grezzo solo con `1` o `3` farebbe perdere questi casi. Altri flag, come il tratto (`0x10`) e il marcatore (`0x20`), non cambiano il tipo di segmento di base.
 
-**Coordinate e trasformazioni.** I punti sono misurati in punti (1/72 di pollice), con X che aumenta verso destra e Y che aumenta verso il basso. Per una forma non raggruppata, le coordinate estratte includono già la posizione restituita da [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) e [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) e riflettono la sua larghezza e altezza attuali. Ad esempio, un rettangolo non ruotato a `(100, 200)` con dimensioni `120 × 80` ha i limiti del contorno `(100, 200)`–`(220, 280)`. Non aggiungere nuovamente la posizione della forma. Sottrarre il suo X e Y per ottenere coordinate relative al suo frame non ruotato.
+**Coordinate e trasformazioni.** I punti sono misurati in punti (1/72 di pollice), con X crescente verso destra e Y crescente verso il basso. Per una forma non raggruppata, le coordinate estratte includono già la posizione restituita da [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) e [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) e riflettono la sua larghezza e altezza attuali. Per esempio, un rettangolo non ruotato a `(100, 200)` con dimensioni `120 × 80` ha i limiti del contorno `(100, 200)`–`(220, 280)`. Non aggiungere nuovamente la posizione della forma. Sottrarre X e Y per ottenere le coordinate relative al suo frame non ruotato.
 
-I punti estratti non applicano la rotazione impostata tramite [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) o le capovolgimenti orizzontali e verticali. Per riprodurre il contorno visualizzato, applicare tali trasformazioni attorno al centro della forma. Per le forme raggruppate, considerare anche la mappatura delle coordinate del gruppo e le trasformazioni; non presumere che i punti estratti siano le coordinate finali renderizzate della diapositiva o applicare una traduzione o scala due volte se già riflessa nel frame del figlio.
+I punti estratti non applicano la rotazione impostata tramite [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) né le inversioni orizzontali e verticali. Per ricreare il contorno visualizzato, applicare tali trasformazioni attorno al centro della forma. Per forme raggruppate, considerare anche la mappatura delle coordinate del gruppo e le trasformazioni; non presumere che i punti estratti siano le coordinate finali renderizzate della diapositiva o applicare una traslazione o scala due volte se già riflessa nel frame del figlio.
 
-**Ispezione vs modifica.** Gli array estratti descrivono il contorno; modificarli non aggiorna la forma originale. Scegliere questo approccio quando la tua analisi o il codice di disegno necessita di array di punto/tipo. Usa [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) quando hai bisogno di comandi geometrici nel sistema di coordinate locale della forma o vuoi modificare la sua geometria. Applica i percorsi modificati tramite [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) o [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
+**Ispezione rispetto alla modifica.** Gli array estratti descrivono il contorno; modificarli non aggiorna la forma originale. Scegliere questo approccio quando la tua analisi o il codice di disegno necessitano di array punto/tipo. Utilizzare [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) quando servono i comandi di geometria nel sistema di coordinate locali della forma o quando si desidera modificare la sua geometria. Applicare i percorsi modificati tramite [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) o [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
 
 ## **Convertire GeometryPath in GraphicsPath**
 
-L'attuale API pubblica di Aspose.Slides per C++ non espone conversioni tra percorsi geometrici e percorsi grafici. Per ispezionare un contorno, utilizzare gli elementi della forma come descritto sopra. Per modificare una forma, utilizzare i percorsi geometrici e applicare i percorsi aggiornati alla forma.
+L’attuale API pubblica di Aspose.Slides per C++ non espone conversioni tra percorsi geometrici e percorsi grafici. Per ispezionare un contorno, utilizzare gli elementi della forma come descritto sopra. Per modificare una forma, utilizzare i percorsi geometrici e applicare i percorsi aggiornati alla forma.
 
 ## **FAQ**
 
-**Cosa accadrà al riempimento e al contorno dopo aver sostituito la geometria?**
+**Cosa succederà al riempimento e al contorno dopo aver sostituito la geometria?**
 
-Lo stile rimane sulla forma; solo il contorno cambia. Il riempimento e il contorno vengono applicati automaticamente alla nuova geometria.
+Lo stile rimane associato alla forma; solo il contorno cambia. Il riempimento e il contorno vengono applicati automaticamente alla nuova geometria.
 
 **Come ruoto correttamente una forma personalizzata insieme alla sua geometria?**
 
-Utilizzare il metodo [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) della forma; la geometria ruota con la forma perché è legata al proprio sistema di coordinate.
+Utilizzare il metodo [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) della forma; la geometria ruota con la forma perché è legata al suo sistema di coordinate.
 
-**Posso convertire una forma personalizzata in un'immagine per "bloccare" il risultato?**
+**Posso convertire una forma personalizzata in un’immagine per “bloccarne” il risultato?**
 
-Sì. Esportare l'area della [diapositiva](/slides/it/cpp/convert-powerpoint-to-png/) richiesta o la [forma](/slides/it/cpp/shape-thumbnails/) stessa in un formato raster; questo semplifica il lavoro successivo con geometrie complesse.
+Sì. Esportare l’area della [slide](/slides/it/cpp/convert-powerpoint-to-png/) richiesta o la [shape](/slides/it/cpp/shape-thumbnails/) stessa in un formato raster; questo semplifica il lavoro successivo con geometrie complesse.
