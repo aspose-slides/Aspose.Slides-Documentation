@@ -141,6 +141,34 @@ with slides.Presentation("AccessBuiltInProperties.pptx") as presentation:
     print("Title:", document_properties.title)
 ```
 
+### **Report Revision Number and Editing Time**
+
+To report the revision number and total editing time for each PPTX file in the `presentations` folder, use [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) to retrieve its [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) without loading the slides for editing. Python displays the duration as a `timedelta`, including the day count when the recorded time reaches 24 hours.
+
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+print("File | RevisionNumber | TotalEditingTime")
+for path in Path("presentations").glob("*.pptx"):
+    if path.is_file():
+        info = slides.PresentationFactory.instance.get_presentation_info(str(path))
+        properties = info.read_document_properties()
+        print(f"{path.name} | {properties.revision_number} | {properties.total_editing_time}")
+```
+
+For a presentation with 1 day, 2 hours, and 5 minutes of recorded editing time, the report contains the following row.
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1 day, 2:05:00
+```
+
+[DocumentProperties.revision_number](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/revision_number/) is writable metadata. Its value alone cannot establish how many times the presentation was saved or reconstruct its version history.
+
+[DocumentProperties.total_editing_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/total_editing_time/) reports the editing duration stored in the file. A value of `0:00:00` means the recorded duration is zero, even if someone edited the presentation.
+
 ## **Modify Built-in Properties**
 
 To update built-in metadata, assign values to the writable properties exposed by [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). This example opens an existing presentation, sets [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/), and [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/), then saves the updated presentation with [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). The saved PPTX contains the new metadata.

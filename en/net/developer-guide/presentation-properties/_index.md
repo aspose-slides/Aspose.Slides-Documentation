@@ -152,6 +152,35 @@ Console.WriteLine("Subject: " + documentProperties.Subject);
 Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
+### **Report Revision Number and Editing Time**
+
+To report one row for each PPTX file in the `presentations` folder, call [ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) to retrieve its [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) without loading the slides for editing. The standard `c` format for `TimeSpan` includes the day count when the duration reaches 24 hours.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+Console.WriteLine("File | RevisionNumber | TotalEditingTime");
+foreach (var path in Directory.EnumerateFiles("presentations", "*.pptx"))
+{
+    var info = PresentationFactory.Instance.GetPresentationInfo(path);
+    var properties = info.ReadDocumentProperties();
+    Console.WriteLine($"{Path.GetFileName(path)} | {properties.RevisionNumber} | {properties.TotalEditingTime:c}");
+}
+```
+
+Sample output for a presentation with 1 day, 2 hours, and 5 minutes of recorded editing time:
+
+```text
+File | RevisionNumber | TotalEditingTime
+long.pptx | 17 | 1.02:05:00
+```
+
+[RevisionNumber](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/revisionnumber/) is writable metadata. Its value alone cannot establish how many times the presentation was saved or reconstruct its version history.
+
+[TotalEditingTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/totaleditingtime/) is the editing duration recorded in the file. A value of `00:00:00` means the stored duration is zero. It does not prove that nobody edited the presentation.
+
 ## **Modify Built-in Properties**
 
 To update built-in metadata, assign values to the writable properties exposed by [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). This example opens an existing presentation, sets [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), and [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/), then saves the updated presentation with [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). The saved PPTX contains the new metadata.
