@@ -7,29 +7,31 @@ url: /th/java/chart-formatting/
 keywords:
 - จัดรูปแบบแผนภูมิ
 - การจัดรูปแบบแผนภูมิ
-- เอนทิตี้แผนภูมิ
-- คุณสมบัติของแผนภูมิ
+- องค์ประกอบแผนภูมิ
+- คุณสมบัติแผนภูมิ
 - การตั้งค่าแผนภูมิ
 - ตัวเลือกแผนภูมิ
 - คุณสมบัติฟอนต์
-- ขอบโค้ง
+- ขอบโค้งมน
 - PowerPoint
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิโค้ง."
+description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิที่โค้งมน."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วยการใช้ Aspose.Slides แสดงวิธีการปรับแต่งองค์ประกอบหลักของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อต, และการเติมกำแพง เพื่อปรับปรุงลักษณะและความอ่านง่ายของข้อมูลแผนภูมิ
+บทความนี้อธิบายวิธีจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides โดยแสดงวิธีปรับแต่งองค์ประกอบสำคัญของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อต, และการเติมผนัง เพื่อปรับปรุงรูปลักษณ์และความสามารถในการอ่านข้อมูลของแผนภูมิ
 
-มันยังแสดงวิธีการตั้งค่าคุณสมบัติของตัวอักษรสำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขที่กำหนดล่วงหน้าในข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้ร่วมกันแสดงวิธีการควบคุมทั้งสไตล์การแสดงผลและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
+มันยังสาธิตวิธีตั้งค่าคุณสมบัติฟอนต์สำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขที่กำหนดไว้ล่วงหน้าสำหรับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งมนสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้แสดงวิธีควบคุมทั้งสไตล์ภาพและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
 
-## **จัดรูปแบบเอนทิตี้ของแผนภูมิ**
+สำหรับการเติมและกรอบที่แยกกันในช่วงที่เพิ่มและลดลง, ดูที่ [ตัวอย่างแผนภูมิหุ้น](/slides/th/java/create-chart/#create-stock-charts).
 
-ใช้ [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมเครื่องหมายและข้อมูลค่าเริ่มต้น จากนั้นใช้สไตล์ข้อความและเส้นที่แยกกันสำหรับแกนค่าและแกนประเภท ขนาดตัวอักษรและความกว้างของเส้นระบุเป็นหน่วยจุด; ป้ายชื่อประเภทถูกหมุนที่ 45 องศา
+## **จัดรูปแบบรายการแผนภูมิ**
 
-แกนค่าใช้ [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) อย่างอิสระจากเซลล์ต้นทาง มาตราส่วนของแกนไล่ตั้งแต่ -2 ถึง 15, โดยมีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5 ตัวอย่างนี้ยังรวมการจัดรูปแบบเป็นเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) ที่ตั้งค่าเป็นพัน ดังนั้นให้ปรับการตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายจะอยู่ด้านนอกพื้นที่พล็อตเนื่องจาก [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) ถูกเรียกด้วยค่า `false` การเติมกำแพงหลังและพื้นถูกกำหนดผ่าน [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) และ [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--) แต่พื้นผิวเหล่านี้จะแสดงเฉพาะในแผนภูมิ 3 มิติ
+ใช้ [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมเครื่องหมายและข้อมูลเริ่มต้น, จากนั้นใช้สไตล์ข้อความและเส้นที่แยกต่างหากสำหรับแกนค่และแกนประเภท ขนาดฟอนต์และความกว้างของเส้นระบุเป็นหน่วยจุด; ป้ายชื่อประเภทถูกหมุน 45 องศา
+
+แกนค่าจะใช้ [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) อย่างอิสระจากเซลล์ต้นทาง ช่วงของมันเริ่มจาก -2 ถึง 15, โดยมีช่วงหลักที่ 2 และช่วงรองที่ 0.5 ตัวอย่างนี้ยังรวมการจัดรูปแบบเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) ที่ตั้งเป็นพัน, ดังนั้นให้ปรับการตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายยังคงอยู่ด้านนอกพื้นที่พล็อตเนื่องจาก [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) ถูกเรียกด้วย `false` การเติมผนังด้านหลังและพื้นกำหนดผ่าน [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) และ [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), แต่พื้นผิวนเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
 
 ```java
 import com.aspose.slides.*;
@@ -147,9 +149,9 @@ try {
 }
 ```
 
-## **ตั้งค่าคุณสมบัติตัวอักษรสำหรับแผนภูมิ**
+## **ตั้งค่าคุณสมบัติฟอนต์สำหรับแผนภูมิ**
 
-ตั้งค่าขนาดตัวอักษรเริ่มต้นสำหรับข้อความในแผนภูมิผ่าน [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มโดยใช้ฟอนต์ขนาด 20 จุดและเปิดใช้งานป้ายค่าของชุดข้อมูลแรกผ่าน [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). องค์ประกอบข้อความที่มีการตั้งค่าฟอนต์เฉพาะของตนสามารถทับค่าตั้งต้นของแผนภูมิได้
+ตั้งค่าขนาดฟอนต์เริ่มต้นสำหรับข้อความในแผนภูมิผ่าน [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มโดยใช้ฟอนต์ขนาด 20 จุดและเปิดใช้งานป้ายค่าสำหรับชุดข้อมูลแรกผ่าน [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). ธาตุข้อความที่มีการตั้งค่าฟอนต์อย่างชัดเจนของตนเองสามารถแทนที่ค่าเริ่มต้นของแผนภูมิได้
 
 ```java
 import com.aspose.slides.*;
@@ -168,9 +170,63 @@ try {
 }
 ```
 
+## **ใช้การจัดรูปแบบกรอบข้อความซ้ำสำหรับคำอธิบายแผนภูมิ**
+
+เพื่อให้คำอธิบายตรงกับหัวข้อสไลด์, ตั้งค่า ฟอนต์ของหัวข้อผ่าน [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) ในย่อหน้าที่แรก เรียก [copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) บนรูปแบบที่คืนจาก [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) ของคำอธิบาย มันจะคัดลอกการตั้งค่ากรอบข้อความ, การจัดรูปแบบของย่อหน้าแรก, และคุณสมบัติฟอนต์เริ่มต้นของย่อหนนั้น การจัดรูปแบบที่ใช้โดยตรงกับส่วนย่อยหรือย่อหน้าถัดไปจะคงอยู่เฉพาะในแหล่งที่มานั้น
+
+ตัวอย่างนี้ใช้หัวข้อ Calibri ขนาด 26 จุดสีกรมท่าแบบหนาเป็นแม่แบบ หลังจากจัดสไตล์คำอธิบาย, มันเรียก [copyTo](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) เพื่อใช้การจัดรูปแบบเดียวกันกับคำบรรยายแยก
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(new Color(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ในการนำเสนอที่บันทึกไว้, คำอธิบายและคำบรรยายตรงกับหัวข้อในเรื่องขนาด, ความหนา, และสี คำอธิบายยังคงแสดงชื่อชุดข้อมูล, และคำบรรยายเก็บข้อความของตนเอง หากส่วนในคำบรรยายมีขนาดฟอนต์ที่ระบุไว้แล้ว, ขนาดนั้นจะมีลำดับความสำคัญเหนือค่าดีฟอลต์ของย่อหน้าที่คัดลอก
+
+| ก่อนคัดลอก | หลังคัดลอก |
+| --- | --- |
+| ![แผนภูมิขายไตรมาสพร้อมป้ายคำอธิบายสีดำแบบทั่วไปและคำบรรยายสีดำ](legend-formatting-before.png) | ![แผนภูมิเดียวกันพร้อมป้ายคำอธิบายสีกรมท่าใหญ่ขึ้น, หนา, และคำบรรยายที่ตรงกัน](legend-formatting.png) |
+
 ## **ตั้งค่ารูปแบบตัวเลข**
 
-ใช้ [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) เพื่อใช้รูปแบบตัวเลขในตัวที่สร้างไว้ล่วงหน้ากับเซลล์เวิร์กบุ๊กของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยข้อมูลค่าเริ่มต้นที่รองรับจากเซลล์และกำหนดรูปแบบดัชนี 10 (`0.00%`) ให้กับเซลล์ค่าของแต่ละชุดข้อมูล สิ่งนี้เปลี่ยนวิธีการแสดงค่าในเวิร์กบุ๊กโดยไม่เปลี่ยนตัวเลขพื้นฐาน; ตัวอย่างเช่น 0.25 จะแสดงเป็น 25.00% รูปแบบของแกนและป้ายข้อมูลสามารถกำหนดค่าแยกกันได้
+ใช้ [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) เพื่อใช้รูปแบบตัวเลขที่มีมาในตัวกับเซลล์ workbook ของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยข้อมูลเริ่มต้นที่อ้างอิงจากเซลล์และใช้ดัชนีรูปแบบ 10 (`0.00%`) กับแต่ละเซลล์ค่าของชุดข้อมูล ซึ่งจะเปลี่ยนวิธีการแสดงค่าต่าง ๆ ใน workbook โดยไม่เปลี่ยนตัวเลขพื้นฐาน; ตัวอย่างเช่น 0.25 จะถูกแสดงเป็น 25.00% รูปแบบของแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
 
 ```java
 import com.aspose.slides.*;
@@ -196,7 +252,7 @@ try {
 }
 ```
 
-ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่สร้างไว้ล่วงหน้าพร้อมรูปแบบ Excel ตัวแทนสำหรับภาษีอังกฤษ (สหรัฐอเมริกา) สตริงรูปแบบที่แน่นอนและการแสดงผลอาจแตกต่างกันไปตามแอปพลิเคชันและภาษี, โดยเฉพาะสำหรับสกุลเงินและวันที่ รูปแบบ Excel บางอย่างยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีมาในตัวพร้อมรูปแบบ Excel ตัวแทนสำหรับภาษาอังกฤษ (สหรัฐอเมริกา) สตริงรูปแบบที่แน่นอนและการแสดงผลอาจแตกต่างกันตามแอปพลิเคชันและภาษาท้องถิ่น, โดยเฉพาะอย่างยิ่งสำหรับสกุลเงินและวันที่ บางรูปแบบของ Excel ยังแตกต่างจากค่าปริยายในมาตรฐาน OOXML, ดังที่อธิบายใน [บันทึกหมายเหตุการใช้งานรูปแบบตัวเลขของ Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
 
 | ดัชนี | รูปแบบ |
 | --- | --- |
@@ -237,9 +293,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **ตั้งค่าขอบโค้งของพื้นที่แผนภูมิ**
+## **ตั้งค่าขอบโค้งมนของพื้นที่แผนภูมิ**
 
-เรียกใช้ [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) ด้วยค่า `true` เพื่อทำมุมของพื้นที่แผนภูมิให้โค้ง ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) เพื่อกำหนดเส้นขอบให้เป็นสีเทาเรียบและสไตล์เส้นเดียว ก่อนบันทึกงานนำเสนอ
+เรียก [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) ด้วยค่า `true` เพื่อทำให้มุมของพื้นที่แผนภูมิเป็นมุมโค้ง ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) เพื่อให้เส้นกรอบเป็นสีเทาเข้มแบบทึบและสไตล์เส้นเดี่ยวก่อนบันทึกการนำเสนอ
 
 ```java
 import com.aspose.slides.*;
@@ -261,13 +317,13 @@ try {
 }
 ```
 
-## **แก้ไขหมายเหตุแผนภูมิที่มีอยู่**
+## **แก้ไขคำอธิบายแผนภูมิที่มีอยู่**
 
-แผนภูมิสามารถมีรูปทรงแบบกำหนดเองได้ เช่น หมายเหตุข้อความอธิบายสถานะของรายงาน เข้าถึงรูปทรงเหล่านี้ผ่าน [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), ซึ่งยังปรากฏใน [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) ในอ้างอิง API ของแผนภูมิ คอลเลกชันที่ส่งคืนโดย [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) มีรูปทรงที่เป็นของแผนภูมิ
+แผนภูมิสามารถมีรูปร่างกำหนดเอง, เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปร่างเหล่านี้ผ่าน [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), ที่ปรากฏใน [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) ในอ้างอิง API ของแผนภูมิ คอลเลกชันที่คืนจาก [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) มีรูปร่างที่เป็นของแผนภูมิ
 
-กล่องข้อความธรรมดาที่วางบนแผนภูมิเป็นของสไลด์แม้ว่าจะดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ การวนลูปผ่าน [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) จะพบแผนภูมิและรูปทรงสไลด์ธรรมดา แต่จะไม่แยกรูปทรงแต่ละอันภายในแผนภูมิ ชื่อเรื่องของแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกต่างหาก ไม่ใช่หมายเหตุกำหนดเองในคอลเลกชันนี้
+กล่องข้อความธรรมดาที่วางเหนือแผนภูมิจัดเป็นของสไลด์, แม้ว่าจะดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ การวนลูปผ่าน [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) จะพบแผนภูมิและรูปแบบสไลด์ธรรมดา, แต่จะไม่แสดงรูปร่างแต่ละอันภายในแผนภูมิ ชื่อหัวข้อแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกต่างหาก, ไม่ใช่คำอธิบายกำหนดเองในคอลเลกชันนี้
 
-ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีแผนภูมิพร้อมหมายเหตุที่ไม่มีการจัดกลุ่มที่เขียนว่า "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาที่เขียนว่า "Slide overlay" ตัวอย่างจะค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนหมายเหตุเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ จะตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ที่มีเฟรมข้อความที่ไม่เป็นค่าว่างซึ่งส่งกลับโดย [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) และข้อความที่คาดหวัง
+ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกของไฟล์ประกอบด้วยแผนภูมิที่มีคำอธิบายที่ไม่ได้จัดกลุ่มแสดงข้อความ "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาแสดงข้อความ "Slide overlay" ตัวอย่างค้นหาแผนภูมิเชิงแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ มันตรวจสอบคอลเลกชันว่าเป็นค่าว่างหรือไม่และแก้ไขเฉพาะ [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ที่มีกรอบข้อความไม่เป็น null ที่คืนจาก [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) และข้อความที่คาดไว้
 
 ```java
 import com.aspose.slides.*;
@@ -311,26 +367,26 @@ try {
 }
 ```
 
-เส้นและกล่องข้อความสไลด์จะคงเดิม ภาพต่อไปนี้แสดงอินพุตและผลลัพธ์ที่บันทึกแล้วเปิดใหม่:
+เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง ภาพต่อไปนี้แสดงผลอินพุตและผลลัพธ์ที่บันทึกแล้ว, เปิดใหม่อีกครั้ง:
 
 | ก่อนแก้ไข | หลังแก้ไข |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![คำอธิบายแผนภูมิที่อ่านว่า Preliminary results](chart-annotations-before.png) | ![คำอธิบายแผนภูมิที่อ่านว่า Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-ตัวอย่างตรวจสอบเฉพาะรูปทรงระดับบนสุดของแผนภูมิ หากมีหมายเหตุอยู่ภายใน [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), ให้ตรวจสอบคอลเลกชัน [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) ของกลุ่มนั้นด้วย ทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มซ้อนกันโดยใช้การตรวจสอบข้อความเดียวกันกับรูปทรงลูกของพวกมัน กลุ่มเองเป็นคอนเทนเนอร์; อย่าปฏิบัติโดยให้เป็นกล่องข้อความ
+ตัวอย่างตรวจสอบเฉพาะรูปร่างระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), ให้ตรวจสอบคอลเลกชัน [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) ของกลุ่มนั้นด้วย การทำซ้ำแบบเรียกตัวเองสำหรับกลุ่มที่ซ้อนกัน, ใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูกของพวกมัน กลุ่มเองเป็นคอนเทนเนอร์; อย่าปฏิบัติเช่นเป็นกล่องข้อความ
 {{% /alert %}}
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถตั้งค่าการเติมกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่ในขณะที่ขอบยังคงทึบได้หรือไม่?**
+**ฉันสามารถตั้งค่าการเติมกึ่งโปร่งแสงสำหรับคอลัมน์/พื้นที่ได้ขณะยังคงให้ขอบเป็นทึบหรือไม่?**
 
-ได้. ความโปร่งใสของการเติมและเส้นขอบถูกกำหนดค่าแยกกัน ซึ่งเป็นประโยชน์สำหรับการปรับปรุงความอ่านง่ายของกริดและข้อมูลในภาพที่แน่นหนา
+ใช่. ความโปร่งแสงของการเติมและเส้นขอบถูกกำหนดแยกกัน สิ่งนี้มีประโยชน์สำหรับการปรับปรุงความอ่านง่ายของกริดและข้อมูลในภาพที่แออัด
 
-**ฉันจะจัดการกับป้ายข้อมูลเมื่อตรงกันได้อย่างไร?**
+**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับซ้อนกันได้อย่างไร?**
 
-ลดขนาดตัวอักษร, ปิดใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น ประเภท), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะสำหรับจุดที่เลือกหากจำเป็น, หรือเปลี่ยนรูปแบบเป็น "ค่า + คำอธิบาย"
+ลดขนาดฟอนต์, ปิดใช้งานส่วนประกอบป้ายที่ไม่จำเป็น (เช่น หมวดหมู่), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะจุดที่เลือกหากจำเป็น, หรือเปลี่ยนรูปแบบเป็น “value + legend”
 
-**ฉันสามารถใช้การเติมแบบไล่สีหรือแบบลวดลายกับชุดข้อมูลได้หรือไม่?**
+**ฉันสามารถใช้การเติมแบบไล่สีหรือแบบลวดลายให้กับชุดข้อมูลได้หรือไม่?**
 
-ได้. ชุดข้อมูลรองรับการเติมแบบทึบ, ไล่สี, และลวดลาย ในการปฏิบัติ ควรใช้ไล่สีอย่างจำกัดและหลีกเลี่ยงการผสมผสานที่ทำให้ความคอนทราสต์กับกริดและข้อความลดลง
+ใช่. ชุดข้อมูลรองรับการเติมแบบทึบ, ไล่สี, และลวดลาย ในการใช้งานจริงควรใช้ไล่สีอย่างระมัดระวังและหลีกเลี่ยงการผสมที่ทำให้ความคมชัดกับกริดและข้อความลดลง

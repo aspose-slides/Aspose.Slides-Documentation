@@ -5,31 +5,33 @@ type: docs
 weight: 60
 url: /tr/python-net/chart-formatting/
 keywords:
+- grafiği biçimlendir
 - grafik biçimlendirme
-- grafik formatlama
 - grafik varlığı
 - grafik özellikleri
 - grafik ayarları
 - grafik seçenekleri
 - yazı tipi özellikleri
-- yuvarlak kenar
+- yuvarlatılmış kenarlık
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python ile .NET üzerinden grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı formatları ve yuvarlak grafik kenarlarıyla PowerPoint sunumunuzu yükseltin."
+description: "Aspose.Slides for Python üzerinden .NET ile grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı formatları ve yuvarlatılmış grafik kenarlarıyla PowerPoint sunumunuzu yükseltin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarında nasıl grafik biçimlendireceğini açıklar. Ekseni, ızgara çizgileri, başlıklar, açıklama kutuları, çizim alanı ve duvar doldurmaları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarında grafiklerin nasıl biçimlendirileceğini açıklar. Ekseler, ızgara çizgileri, başlıklar, açıklama kutuları, çizim alanı ve duvar dolgu gibi temel grafik öğelerinin nasıl özelleştirileceğini göstererek grafik verilerinin görünümünü ve okunabilirliğini artırır.
 
-Ayrıca, grafik metni için yazı tipi özelliklerini nasıl ayarlayacağınızı, grafik verilerine önceden tanımlı sayısal biçimleri nasıl uygulayacağınızı ve grafik alanının köşelerini yuvarlatmayı nasıl etkinleştireceğinizi gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edeceğinizi gösterir.
+Grafik metni için yazı tipi özelliklerinin nasıl ayarlanacağını, grafik verilerine önceden tanımlı sayısal biçimlerin nasıl uygulanacağını ve grafik alanı için yuvarlatılmış köşelerin nasıl etkinleştirileceğini de gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edebileceğinizi gösterir.
 
-## **Grafik Varlıklarını Biçimlendir**
+Yükselen ve düşen aralıklar için ayrı dolgu ve kenarlıklar hakkında, [hisse senedi grafik örneği](/slides/tr/python-net/create-chart/#create-stock-charts) bölümüne bakın.
 
-Grafik başlıklarını, eksenleri, ızgara çizgilerini, açıklama kutularını ve çizim alanını biçimlendirmek için [Grafik](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) kullanın. Bu örnek, işaretçili ve varsayılan veri içeren bir çizgi grafik oluşturur, ardından değer ve kategori eksenlerine ayrı metin ve çizgi stilleri uygular. Yazı tipi boyutları ve çizgi kalınlıkları nokta biriminde belirtilir; kategori etiketleri 45 derece döndürülür.
+## **Grafik Varlıklarını Biçimlendirme**
 
-Değer ekseni, kaynak hücrelerden bağımsız olarak [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) kullanır. Ölçeği -2 ile 15 arasında, ana aralıkları 2 ve alt aralıkları 0,5 olarak ayarlar. Örnek ayrıca yüzde biçimlendirmesini [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) binler olarak ayarlanmış şekilde birleştirir; bu ayarları verinizin anlamına ve büyüklüğüne göre uyarlayın. Açıklama kutusu, [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) devre dışı olduğu için çizim alanının dışında kalır. Arka duvar ve zemin doldurmaları [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) ve [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) aracılığıyla yapılandırılır, ancak bu yüzeyler yalnızca 3B grafiklerde görünür.
+Grafik başlıkları, ekseler, ızgara çizgileri, açıklama kutuları ve çizim alanını biçimlendirmek için [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) kullanın. Bu örnek, işaretçiler ve varsayılan verilerle bir çizgi grafik oluşturur, ardından değer ve kategori eksenlerine ayrı metin ve çizgi stilleri uygular. Yazı tipi boyutları ve çizgi kalınlıkları nokta biriminde belirtilir; kategori etiketleri 45 derece döndürülür.
+
+Değer ekseni, kaynak hücrelerden bağımsız olarak [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) kullanır. Ölçeği -2 ile 15 arasındadır, ana aralıklar 2, yan aralıklar 0.5'tir. Örnek ayrıca yüzde biçimlendirmesini, binlere ayarlanmış [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) ile birleştirir; bu ayarları verilerinizin anlamına ve ölçeğine göre uyarlayın. Açıklama kutusu, [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) devre dışı olduğu için çizim alanının dışında kalır. Arka duvar ve taban dolgu renkleri, [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) ve [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) üzerinden yapılandırılır, ancak bu yüzeyler yalnızca 3B grafiklerde görülür.
 
 ```python
 import aspose.slides.charts as charts
@@ -145,9 +147,9 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Grafik İçin Yazı Tipi Özelliklerini Ayarlama**
+## **Grafik için Yazı Tipi Özelliklerini Ayarlama**
 
-Grafik metni için varsayılan yazı tipi boyutunu [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/) aracılığıyla ayarlayın. Örnek, 20 puanlık bir yazı tipine sahip bir küme sütun grafiği oluşturur ve [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) kullanarak ilk seriye değer etiketlerini etkinleştirir. Kendi açık yazı tipi ayarlarına sahip metin öğeleri, grafik varsayılanını geçersiz kılabilir.
+Grafik metni için varsayılan yazı tipi boyutunu [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/) aracılığıyla ayarlayın. Örnek, 20 puanlık bir yazı tipiyle bir kümelenmiş sütun grafik oluşturur ve [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) ile ilk seri için değer etiketlerini etkinleştirir. Kendi açık yazı tipi ayarlarına sahip metin öğeleri, grafik varsayılanını geçersiz kılabilir.
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Bir Grafik Açıklaması için Metin Çerçevesi Biçimlendirmesini Yeniden Kullanma**
+
+Açıklama kutusunu slayt başlığıyla eşleştirmek için, başlığın ilk paragrafındaki yazı tipini [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) üzerinden ayarlayın. Açıklamanın [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) üzerinde [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) çağrısında bulunun. Bu işlem, metin çerçevesi ayarlarını, ilk paragrafın biçimlendirmesini ve o paragrafın varsayılan yazı tipi özelliklerini kopyalar. Bireysel bölümlere ya da sonraki paragraflara doğrudan uygulanan biçimlendirme kaynakta kalır.
+
+Örnek, kalın, lacivert, 26 puan Calibri bir başlığı şablon olarak kullanır. Açıklamayı stilize ettikten sonra, aynı biçimlendirmeyi ayrı bir başlığa uygulamak için [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) kullanır.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Kaydedilen sunumda, açıklama ve başlık boyut, kalınlık ve renk bakımından başlıkla eşleşir. Açıklama hâlâ seri adlarını gösterir, başlık ise kendi metnini korur. Başlıkta zaten açık bir yazı tipi boyutu belirlenmiş bir bölüm varsa, bu boyut kopyalanan paragraf varsayılanının üzerine geçer.
+
+| Kopyalamadan önce | Kopyaladıktan sonra |
+| --- | --- |
+| ![Dönemsel satış grafiği, normal siyah açıklama etiketleri ve siyah başlık ile](legend-formatting-before.png) | ![Aynı grafik, daha büyük, kalın lacivert açıklama etiketleri ve eşleşen başlık ile](legend-formatting.png) |
+
 ## **Sayısal Biçimi Ayarlama**
 
-[ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) kullanarak grafik çalışma kitabı hücrelerine yerleşik bir sayı biçimi uygulayın. Bu örnek, varsayılan hücre tabanlı veri ile bir küme sütun grafiği oluşturur ve her seri değer hücresine format indeksi 10 (`0.00%`) uygular. Bu, temel sayıları değiştirmeden değerlerin çalışma kitabında nasıl görüntüleneceğini değiştirir; örneğin 0.25, 25,00% olarak gösterilir. Eksen ve veri etiketi biçimleri ayrı ayrı yapılandırılabilir.
+Grafik çalışma kitabı hücrelerine yerleşik bir sayı biçimi uygulamak için [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) kullanın. Bu örnek, varsayılan hücre‑destekli veriyle bir kümelenmiş sütun grafik oluşturur ve her seri değer hücresine biçim indeks 10 (`0.00%`) uygular. Bu, sayıları değiştirmeden çalışma kitabında değerlerin nasıl gösterileceğini değiştirir; örneğin 0.25, %25.00 olarak görünür. Ekseler ve veri‑etiket biçimleri ayrı ayrı yapılandırılabilir.
 
 ```python
 import aspose.slides.charts as charts
@@ -183,7 +232,7 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aşağıdaki tablo, İngilizce (Amerika Birleşik Devletleri) yerel ayarı için temsilci Excel biçimleriyle yerleşik sayı biçimi indekslerini listeler. Tam biçim dizgileri ve görüntülenmeleri uygulamaya ve yere göre değişebilir, özellikle para birimi ve tarihlerde. Bazı Excel biçimleri ayrıca OOXML standardındaki varsayılanlardan farklıdır; bu, [Microsoft'un sayı biçimi uygulama notları](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) içinde açıklanmıştır.
+Aşağıdaki tablo, İngiliz (Amerika Birleşik Devletleri) yerel ayarı için temsilci Excel biçimleriyle yerleşik sayı biçimi indekslerini listeler. Kesin biçim dizgileri ve gösterimleri uygulamaya ve yerel ayara göre değişebilir, özellikle para birimi ve tarih biçimleri için. Bazı Excel biçimleri, OOXML standardındaki varsayılanlardan farklıdır; bununla ilgili ayrıntılar [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklanmıştır.
 
 | İndeks | Biçim |
 | --- | --- |
@@ -224,9 +273,9 @@ Aşağıdaki tablo, İngilizce (Amerika Birleşik Devletleri) yerel ayarı için
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Grafik Alanı Yuvarlak Kenarları Ayarlama**
+## **Grafik Alanı Yuvarlatılmış Kenarlıklar Ayarlama**
 
-[Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) etkinleştirerek grafik alanının köşelerini yuvarlayın. Örnek bir küme sütun grafiği oluşturur ve [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) kullanarak kenarlığına katı gri renk ve tek çizgi stili verir, ardından sunumu kaydeder.
+Grafik alanının köşelerini yuvarlatmak için [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) etkinleştirin. Örnek, bir kümelenmiş sütun grafik oluşturur ve kaydetmeden önce [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) ile kenarına düz gri renk ve tek çizgi stili verir.
 
 ```python
 import aspose.slides.charts as charts
@@ -246,11 +295,11 @@ with slides.Presentation() as presentation:
 
 ## **Mevcut Grafik Açıklamalarını Düzenleme**
 
-Bir grafik, rapor durumunu açıklayan bir metin açıklaması gibi özel şekiller içerebilir. Bu şekillere [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/) aracılığıyla erişin. Bunun [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) koleksiyonu, grafik tarafından sahip olunan şekilleri içerir.
+Bir grafik, rapor durumunu açıklayan bir metin açıklaması gibi özel şekiller içerebilir. Bu şekillere [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/) üzerinden erişin. Its [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) koleksiyonu, grafik‑sahibi şekilleri içerir.
 
-Bir grafik üzerine yerleştirilen sıradan bir metin kutusu, grafik parçası gibi görünse de slayta aittir. [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) içinde döngü yapıldığında grafik ve sıradan slayt şekilleri bulunur, ancak grafiğin içindeki ayrı ayrı şekiller listelenmez. Grafik başlıkları ve veri etiketleri ayrı grafik öğeleridir, bu koleksiyonda özel açıklama olarak yer almaz.
+Grafiğin üzerine konulan sıradan bir metin kutusu slayta aittir, grafik parçası gibi görünse de. [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) içinde döngü yapmak, grafiği ve sıradan slayt şekillerini bulur, ancak grafiğin içindeki bireysel şekilleri listelemez. Grafik başlıkları ve veri etiketleri ayrı grafik öğeleridir, bu koleksiyonda özel açıklama değildir.
 
-[chart-annotations.pptx](chart-annotations.pptx) dosyasını indirin ve uygulamanın çalışma dizinine yerleştirin. İlk slaytı, “Preliminary results” metniyle bir gruplandırılmamış açıklama, grafik tarafından sahip olunan bir çizgi ve “Slide overlay” metniyle bir normal slayt metin kutusu içeren bir grafik içerir. Örnek, o slayttaki ilk grafiği bulur ve rapor yayınlanmaya hazır olduğunda açıklamayı “Final results” olarak değiştirir. Boş bir koleksiyon olup olmadığını kontrol eder ve yalnızca `None` olmayan ve beklenen metni içeren bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) içinde [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) düzenler.
+[chart-annotations.pptx](chart-annotations.pptx) dosyasını indirin ve uygulamanın çalışma dizinine koyun. İlk slaytı, “Ön sonuçlar” metniyle bir gruplamadan çıkarılmış açıklama, grafik‑sahibi bir çizgi ve “Slayt yerleşimi” metniyle bir sıradan slayt metin kutusu içerir. Örnek, o slayttaki ilk grafiği bulur ve rapor yayımlamaya hazır olduğunda açıklamayı “Son sonuçlar” olarak değiştirir. Boş bir koleksiyon olup olmadığını kontrol eder ve yalnızca `None` olmayan ve beklenen metni içeren bir [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ve [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) düzenler.
 
 ```python
 import aspose.slides as slides
@@ -277,26 +326,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-Çizgi ve slayt metin kutusu değişmeden kalır. Aşağıdaki görüntüler giriş ve kaydedilip yeniden açılmış sonucu gösterir:
+Çizgi ve slayt metin kutusu değişmeden kalır. Aşağıdaki görseller giriş ve kaydedilip yeniden açılmış sonucu gösterir:
 
 | Düzenlemeden önce | Düzenledikten sonra |
 | --- | --- |
-| ![‘Preliminary results’ okuyan grafik açıklaması](chart-annotations-before.png) | ![‘Final results’ okuyan grafik açıklaması](chart-annotations-after.png) |
+| ![Grafik açıklaması: Ön sonuçlar](chart-annotations-before.png) | ![Grafik açıklaması: Son sonuçlar](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Örnek yalnızca üst‑seviye grafik‑sahibi şekilleri inceler. Bir açıklama bir [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) içinde ise, o grubun [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) koleksiyonunu da inceleyin. Görevi iç içe gruplar için yineleyerek, çocuk şekillerine aynı metin kontrollerini uygulayın. Bir grup kendisi bir kapsayıcıdır; onu bir metin kutusu gibi ele almayın.
+Örnek yalnızca en üst düzeydeki grafik‑sahibi şekilleri inceler. Bir açıklama bir [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) içinde ise, o grubun [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) koleksiyonunu da inceleyin. İç içe gruplar için bu işlemi yineleyerek, alt şekillerine aynı metin kontrollerini uygulayın. Bir grup kendisi bir kapsayıcıdır; onu bir metin kutusu gibi işlemeyin.
 {{% /alert %}}
 
 ## **SSS**
 
-**Sütunlar/alanlar için yarı şeffaf doldurmalar ayarlayabilir ve kenarlığı opak tutabilir miyim?**
+**Sütunlar/alanlar için yarı saydam dolgu ayarlayabilir miyim, kenarlık opak kalırken?**
 
-Evet. Doldurma şeffaflığı ve kenarlık ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verilerin okunabilirliğini artırmak için faydalıdır.
+Evet. Dolgu şeffaflığı ve çerçeve ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verinin okunabilirliğini artırmak için yararlıdır.
 
-**Veri etiketleri üst üste geldiğinde nasıl başa çıkabilirim?**
+**Etiketler üst üste geldiğinde nasıl başa çıkabilirim?**
 
-Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini devre dışı bırakın (örneğin, kategorileri), etiket konumunu ayarlayın, gerekirse sadece seçili noktalar için etiketleri gösterin veya biçimi “değer + açıklama” şeklinde değiştirin.
+Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini devre dışı bırakın (örneğin, kategoriler), etiket konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiketleri gösterin veya biçimi “değer + açıklama” olarak değiştirin.
 
-**Serilere degrade veya desen doldurmaları uygulayabilir miyim?**
+**Serilere degrade veya desen dolguları uygulayabilir miyim?**
 
-Evet. Seriler katı, degrade ve desen doldurmaları destekler. Uygulamada, degradeleri ölçülü kullanın ve ızgara ile metin arasındaki kontrastı azaltan kombinasyonlardan kaçının.
+Evet. Seriler katı, degrade ve desen dolgularını destekler. Pratikte, degradeleri ölçülü kullanın ve ızgara ile metin arasındaki kontrastı azaltan kombinasyonlardan kaçının.

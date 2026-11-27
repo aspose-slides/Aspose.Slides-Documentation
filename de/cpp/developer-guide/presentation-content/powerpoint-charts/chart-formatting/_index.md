@@ -7,7 +7,7 @@ url: /de/cpp/chart-formatting/
 keywords:
 - Diagramm formatieren
 - Diagrammformatierung
-- Diagrammobjekt
+- Diagramm-Entität
 - Diagrammeigenschaften
 - Diagrammeinstellungen
 - Diagrammoptionen
@@ -17,19 +17,21 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides für C++ formatieren und Ihre PowerPoint-Präsentation mit benutzerdefinierten Achsen, Schriften, Zahlenformaten und abgerundeten Diagrammrändern verbessern."
+description: "Erfahren Sie, wie Sie Diagramme mit Aspose.Slides für C++ formatieren und heben Sie Ihre PowerPoint-Präsentation mit benutzerdefinierten Achsen, Schriftarten, Zahlenformaten und abgerundeten Diagrammrahmen hervor."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie Diagramme in PowerPoint‑Präsentationen mit Aspose.Slides formatiert werden. Er zeigt, wie wichtige Diagrammelemente wie Achsen, Gitternetzlinien, Titel, Legenden, der Plot‑Bereich und Wandfüllungen angepasst werden können, um das Aussehen und die Lesbarkeit von Diagrammdaten zu verbessern.
+Dieser Artikel erklärt, wie Diagramme in PowerPoint‑Präsentationen mit Aspose.Slides formatiert werden. Er zeigt, wie wichtige Diagrammelemente wie Achsen, Gitternetzlinien, Titel, Legenden, der Plot‑Bereich und Wandfüllungen angepasst werden können, um das Erscheinungsbild und die Lesbarkeit von Diagrammdaten zu verbessern.
 
-Er demonstriert zudem, wie Schriftarteigenschaften für Diagramm‑Text festgelegt, vordefinierte Zahlenformate auf Diagrammdaten angewendet und abgerundete Ecken für den Diagrammbereich aktiviert werden. Zusammen zeigen diese Beispiele, wie sowohl der visuelle Stil als auch die Datenpräsentation von Diagrammen in einer Präsentation gesteuert werden können.
+Er demonstriert außerdem, wie Schrift‑Eigenschaften für Diagramm‑Text festgelegt, vordefinierte numerische Formate auf Diagrammdaten angewendet und abgerundete Ecken für den Diagrammbereich aktiviert werden. Zusammen zeigen diese Beispiele, wie sowohl der visuelle Stil als auch die Datenpräsentation von Diagrammen in einer Präsentation gesteuert werden können.
+
+Für separate Füllungen und Konturen bei steigenden und fallenden Intervallen siehe das [Beispiel für Aktienkursdiagramm](/slides/de/cpp/create-chart/#create-stock-charts).
 
 ## **Diagramm‑Entitäten formatieren**
 
-Verwenden Sie [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/), um Diagrammtitel, Achsen, Gitternetzlinien, Legenden und den Plot‑Bereich zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Markern und Standarddaten und wendet dann getrennte Text‑ und Linienstile auf seine Werte‑ und Kategorien‑Achsen an. Schriftgrößen und Linienstärken werden in Punkten angegeben; Kategorien‑Beschriftungen werden um 45 Grad gedreht.
+Verwenden Sie [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/), um Diagrammtitel, Achsen, Gitternetzlinien, Legenden und den Plot‑Bereich zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Markern und Standarddaten und wendet dann separate Text‑ und Linien‑Stile auf seine Werte‑ und Kategorien‑Achsen an. Schriftgrößen und Linienstärken werden in Punkten angegeben; Kategorien‑Beschriftungen werden um 45 Grad gedreht.
 
-Die Werte‑Achse verwendet [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) unabhängig von den Quellzellen. Ihr Maßstab reicht von –2 bis 15, mit Hauptintervallen von 2 und Nebenintervallen von 0,5. Das Beispiel kombiniert Prozentformatierung mit [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) auf Tausend, passen Sie diese Einstellungen also an die Bedeutung und Größenordnung Ihrer Daten an. Die Legende bleibt außerhalb des Plot‑Bereichs, weil [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) deaktiviert ist. Rückwand‑ und Bodengrundfüllungen werden über [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) und [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) konfiguriert, diese Flächen sind jedoch nur in 3D‑Diagrammen sichtbar.
+Die Werte‑Achse verwendet [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) unabhängig von den Quellzellen. Ihr Wertebereich reicht von –2 bis 15, mit Hauptintervallen von 2 und Nebenintervallen von 0,5. Das Beispiel kombiniert zudem Prozent‑Formatierung mit [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) auf Tausend, passen Sie diese Einstellungen also an die Bedeutung und Größenordnung Ihrer Daten an. Die Legende bleibt außerhalb des Plot‑Bereichs, weil [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) deaktiviert ist. Hintergrund‑Wand‑ und Boden‑Füllungen werden über [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) bzw. [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) konfiguriert, diese Oberflächen sind jedoch nur in 3D‑Diagrammen sichtbar.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -181,9 +183,9 @@ chart->get_PlotArea()->get_Format()->get_Fill()->get_SolidFillColor()->set_Color
 presentation->Save(u"FormattedChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Schriftart‑Eigenschaften für ein Diagramm festlegen**
+## **Schrift‑Eigenschaften für ein Diagramm festlegen**
 
-Setzen Sie die Standardschriftgröße für Diagramm‑Text über [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). Das Beispiel erstellt ein gruppiertes Säulendiagramm mit einer 20‑Punkt‑Schrift und aktiviert Wert‑Beschriftungen für die erste Serie über [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Textelemente mit eigenen expliziten Schriftarteinstellungen können den Diagramm‑Standard überschreiben.
+Setzen Sie die Standardschriftgröße für Diagramm‑Text über [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). Das Beispiel erstellt ein gruppiertes Säulendiagramm mit einer 20‑Punkt‑Schrift und aktiviert Wert‑Beschriftungen für die erste Serie über [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Textelemente mit eigenen expliziten Schrift‑Einstellungen können die Diagramm‑Standardeinstellung überschreiben.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -216,9 +218,91 @@ chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataL
 presentation->Save(u"FontPropertiesForChart.pptx", SaveFormat::Pptx);
 ```
 
+## **Textfeld‑Formatierung für eine Diagramm‑Legende wiederverwenden**
+
+Um eine Legende an eine Folien‑Überschrift anzupassen, setzen Sie die Schrift im Standard‑Portion‑Format des ersten Absatzes über [get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Verwenden Sie [get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformattedtextcontainer/get_textformat/), um auf das Textformat der Legende zuzugreifen, und rufen Sie anschließend [CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyfrom/) mit dem Textfeld der Überschrift auf. Dadurch werden die Textfeld‑Einstellungen, das Format des ersten Absatzes und die Standard‑Schrift‑Eigenschaften dieses Absatzes kopiert. Formatierungen, die direkt auf einzelne Portionen oder auf spätere Absätze angewendet werden, bleiben lokal beim Ursprung.
+
+Das Beispiel verwendet eine fette Calibri‑Überschrift mit 26 Pt in Marineblau als Vorlage. Nach der Formatierung der Legende wird [CopyTo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyto/) verwendet, um dieselbe Formatierung auf eine separate Beschriftung anzuwenden.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/NullableBool.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/StyleType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto heading = shapes->AddAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+auto sourceTextFrame = heading->AddTextFrame(u"Quarterly sales");
+auto font = sourceTextFrame->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+font->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+font->set_FontHeight(26);
+font->set_FontBold(NullableBool::True);
+font->get_FillFormat()->set_FillType(FillType::Solid);
+font->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(32, 64, 96));
+
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+chart->set_Style(StyleType::Style3);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Retail"));
+workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Online"));
+workbook->GetCell(0, 0, 3, ObjectExt::Box<String>(u"Wholesale"));
+for (auto quarter = 1; quarter <= 4; ++quarter)
+{
+    auto label = String::Format(u"Q{0}", quarter);
+    workbook->GetCell(0, quarter, 0, ObjectExt::Box<String>(label));
+}
+
+chart->set_HasLegend(true);
+auto legend = chart->get_Legend();
+legend->set_Position(LegendPositionType::Bottom);
+auto legendTextFormat = legend->get_TextFormat();
+legendTextFormat->CopyFrom(sourceTextFrame);
+
+auto caption = shapes->AddAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+auto captionTextFrame = caption->AddTextFrame(u"Sales in millions of dollars");
+legendTextFormat->CopyTo(captionTextFrame);
+
+presentation->Save(u"legend-formatting.pptx", SaveFormat::Pptx);
+```
+
+In der gespeicherten Präsentation stimmen Legende und Beschriftung in Größe, Gewicht und Farbe mit der Überschrift überein. Die Legende zeigt weiterhin die Serien‑Namen an, und die Beschriftung behält ihren eigenen Text. Hat ein Teil der Beschriftung bereits eine explizite Schriftgröße, hat diese Vorrang vor dem kopierten Absatz‑Standard.
+
+| Vor dem Kopieren | Nach dem Kopieren |
+| --- | --- |
+| ![Quartalsverkaufsdiagramm mit regulären schwarzen Legendenbeschriftungen und einer schwarzen Bildunterschrift](legend-formatting-before.png) | ![Das gleiche Diagramm mit größeren, fettgedruckten, dunkelblauen Legendenbeschriftungen und einer passenden Bildunterschrift](legend-formatting.png) |
+
 ## **Numerisches Format festlegen**
 
-Verwenden Sie [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/), um ein integriertes Zahlenformat auf Diagramm‑Arbeitsmappenzellen anzuwenden. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit Standard‑, zellgebundenen Daten und wendet Format‑Index 10 (`0.00%`) auf jede Serienwert‑Zelle an. Dadurch ändert sich die Anzeige der Werte in der Arbeitsmappe, ohne die zugrunde liegenden Zahlen zu verändern; zum Beispiel wird 0,25 als 25,00 % dargestellt. Achsen‑ und Daten‑Beschriftungsformate können separat konfiguriert werden.
+Verwenden Sie [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/), um ein integriertes Zahlenformat auf Diagramm‑Arbeitsmappenzellen anzuwenden. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit Standard‑Zell‑Daten und wendet Index 10 (`0.00%`) auf jede Serien‑Wert‑Zelle an. Dadurch ändert sich die Anzeige der Werte in der Arbeitsmappe, ohne die zugrunde liegenden Zahlen zu verändern; zum Beispiel wird 0,25 als 25,00 % angezeigt. Achsen‑ und Daten‑Beschriftungs‑Formate können separat konfiguriert werden.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -253,14 +337,14 @@ for (auto chartSeries : series)
 {
     for (auto dataPoint : chartSeries->get_DataPoints())
     {
-        dataPoint->get_Value()->get_AsCell()->set_PresetNumberFormat(10); // 0.00%
+        dataPoint->get_Value()->get_AsCell()->set_PresetNumberFormat(10); // 0,00%
     }
 }
 
 presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 ```
 
-Die folgende Tabelle listet integrierte Zahlenformat‑Indizes mit repräsentativen Excel‑Formaten für die englische (Vereinigte Staaten) Lokale auf. Die genauen Formatzeichenfolgen und deren Anzeige können je nach Anwendung und Locale variieren, insbesondere bei Währung und Datum. Einige Excel‑Formate weichen zudem von den Vorgaben des OOXML‑Standards ab, wie in den [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) beschrieben.
+Die folgende Tabelle listet integrierte Zahlenformat‑Indizes mit repräsentativen Excel‑Formaten für das englische (USA) Gebietsschema auf. Die genauen Format‑Zeichenketten und deren Anzeige können je nach Anwendung und Gebietsschema variieren, insbesondere bei Währung und Datum. Einige Excel‑Formate unterscheiden sich zudem von den Vorgaben des OOXML‑Standards, wie in den [Hinweisen zur Implementierung von Zahlenformaten von Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) beschrieben.
 
 | Index | Format |
 | --- | --- |
@@ -301,9 +385,9 @@ Die folgende Tabelle listet integrierte Zahlenformat‑Indizes mit repräsentati
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Abgerundete Ränder im Diagrammbereich festlegen**
+## **Abgerundete Ränder des Diagrammbereichs festlegen**
 
-Aktivieren Sie [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/), um die Ecken des Diagrammbereichs abzurunden. Das Beispiel erstellt ein gruppiertes Säulendiagramm und verwendet [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/), um seiner Kontur eine einheitliche graue Farbe und einen ein‑Zug‑Stil zu geben, bevor die Präsentation gespeichert wird.
+Aktivieren Sie [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/), um die Ecken des Diagrammbereichs abzurunden. Das Beispiel erstellt ein gruppiertes Säulendiagramm und verwendet [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/), um seiner Kontur eine einfarbige graue Farbe und einen einfachen Linienstil zu geben, bevor die Präsentation gespeichert wird.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -341,11 +425,11 @@ presentation->Save(u"out.pptx", SaveFormat::Pptx);
 
 ## **Vorhandene Diagramm‑Anmerkungen bearbeiten**
 
-Ein Diagramm kann benutzerdefinierte Formen enthalten, etwa eine Text‑Anmerkung, die den Status eines Berichts erklärt. Greifen Sie über [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/) darauf zu, auch aufgeführt unter [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) in der Chart‑API‑Referenz. Seine [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑Sammlung enthält die zum Diagramm gehörenden Formen.
+Ein Diagramm kann benutzerdefinierte Formen enthalten, z. B. eine Text‑Anmerkung, die den Status eines Berichts erklärt. Greifen Sie auf diese Formen über [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/) zu, die ebenfalls unter [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) in der Diagramm‑API‑Referenz aufgelistet sind. Seine [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑Collection enthält die diagrammbesitzenden Formen.
 
-Ein gewöhnliches Textfeld, das über einem Diagramm platziert ist, gehört zur Folie, selbst wenn es wie Teil des Diagramms aussieht. Das Durchlaufen von [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) findet das Diagramm und die normalen Folienformen, enumeriert jedoch nicht die einzelnen Formen innerhalb des Diagramms. Diagrammtitel und Datenbeschriftungen sind separate Diagrammelemente, keine benutzerdefinierten Anmerkungen in dieser Sammlung.
+Ein gewöhnliches Textfeld, das über ein Diagramm platziert wird, gehört zur Folie, selbst wenn es wie ein Teil des Diagramms aussieht. Das Durchlaufen von [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) findet das Diagramm und gewöhnliche Folien‑Formen, enumeriert jedoch nicht die einzelnen Formen innerhalb des Diagramms. Diagrammtitel und Datenbeschriftungen sind separate Diagrammelemente, keine benutzerdefinierten Anmerkungen in dieser Sammlung.
 
-Laden Sie [chart-annotations.pptx](chart-annotations.pptx) herunter und platzieren Sie die Datei im Arbeitsverzeichnis der Anwendung. Die erste Folie enthält ein Diagramm mit einer nicht gruppierten Anmerkung „Preliminary results“, einer zum Diagramm gehörenden Linie und einem normalen Folientextfeld „Slide overlay“. Das Beispiel findet das erste Diagramm auf dieser Folie und ändert die Anmerkung zu „Final results“, sobald der Bericht veröffentlicht werden soll. Es prüft, ob die Sammlung leer ist, und bearbeitet nur ein [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) mit einem nicht‑null‑[get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) und dem erwarteten Text.
+Laden Sie [chart-annotations.pptx](chart-annotations.pptx) herunter und legen Sie die Datei im Arbeitsverzeichnis der Anwendung ab. Die erste Folie enthält ein Diagramm mit einer nicht gruppierten Anmerkung „Preliminary results“, einer diagrammbesitzenden Linie und einem gewöhnlichen Folien‑Textfeld mit dem Text „Slide overlay“. Das Beispiel findet das erste Diagramm auf dieser Folie und ändert die Anmerkung zu „Final results“, wenn der Bericht zur Veröffentlichung bereit ist. Es prüft, ob die Sammlung leer ist, und bearbeitet nur ein [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) mit einem nicht‑null‑[get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) und dem erwarteten Text.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -407,26 +491,26 @@ else
 }
 ```
 
-Die Linie und das Folientextfeld bleiben unverändert. Die folgenden Bilder zeigen die Eingabe und das gespeicherte, erneut geöffnete Ergebnis:
+Die Linie und das Textfeld der Folie bleiben unverändert. Die folgenden Bilder zeigen die Eingabe und das gespeicherte, erneut geöffnete Ergebnis:
 
-| Vor der Bearbeitung | Nach der Bearbeitung |
+| Vor dem Bearbeiten | Nach dem Bearbeiten |
 | --- | --- |
-| ![Diagramm‑Anmerkung mit dem Text Preliminary results](chart-annotations-before.png) | ![Diagramm‑Anmerkung mit dem Text Final results](chart-annotations-after.png) |
+| ![Diagramm‑Anmerkung mit dem Text Vorläufige Ergebnisse](chart-annotations-before.png) | ![Diagramm‑Anmerkung mit dem Text Endgültige Ergebnisse](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Das Beispiel prüft nur die obersten, zum Diagramm gehörenden Formen. Befindet sich eine Anmerkung innerhalb einer [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), muss auch die [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑Sammlung dieser Gruppe untersucht werden. Wiederholen Sie diesen Vorgang rekursiv für verschachtelte Gruppen und wenden Sie dieselben Textprüfungen auf deren Kindformen an. Eine Gruppe selbst ist ein Container; behandeln Sie sie nicht wie ein Textfeld.
+Das Beispiel untersucht nur die Diagramm‑besitzenden Formen der obersten Ebene. Befindet sich eine Anmerkung innerhalb einer [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), prüfen Sie auch die [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑Collection dieser Gruppe. Wiederholen Sie dies rekursiv für verschachtelte Gruppen und wenden Sie dieselben Text‑Prüfungen auf die Kindelemente an. Eine Gruppe selbst ist ein Container; behandeln Sie sie nicht als Textfeld.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kann ich halbtransparente Füllungen für Säulen/Flächen festlegen, während die Kontur undurchsichtig bleibt?**
+**Kann ich halbtransparente Füllungen für Spalten/Bereiche festlegen und dabei die Kontur undurchsichtig lassen?**
 
-Ja. Füllungs‑Transparenz und Kontur werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Gitternetzes und der Daten in dichten Visualisierungen zu verbessern.
+Ja. Transparenz der Füllung und die Kontur werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Gitternetzes und der Daten in dicht bebilderten Visualisierungen zu verbessern.
 
-**Wie kann ich mit Datenbeschriftungen umgehen, wenn sie überlappen?**
+**Wie kann ich mit Datenbeschriftungen umgehen, wenn sie sich überschneiden?**
 
-Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), passen Sie die Beschriftungsposition an, zeigen Sie Beschriftungen nur für ausgewählte Punkte an oder wechseln Sie das Format zu „Wert + Legende“.
+Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), passen Sie die Beschriftungsposition an, zeigen Sie Beschriftungen nur für ausgewählte Punkte an, falls nötig, oder wechseln Sie zum Format „Wert + Legende“.
 
 **Kann ich Farbverläufe oder Musterfüllungen auf Serien anwenden?**
 
-Ja. Serien unterstützen einfarbige, Verlauf‑ und Musterfüllungen. Verwenden Sie Verläufe sparsam und vermeiden Sie Kombinationen, die den Kontrast zum Gitternetz und zum Text verringern.
+Ja. Serien unterstützen einfarbige, Farbverlauf‑ und Musterfüllungen. In der Praxis sollten Verläufe sparsam eingesetzt und Kombinationen vermieden werden, die den Kontrast zum Gitternetz und zum Text mindern.

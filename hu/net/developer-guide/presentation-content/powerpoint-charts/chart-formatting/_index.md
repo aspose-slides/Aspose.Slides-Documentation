@@ -1,13 +1,13 @@
 ---
-title: Prezentációs diagramok formázása .NET-ben
-linktitle: Diagramformázás
+title: Diagramok formázása PowerPoint prezentációkban .NET-ben
+linktitle: Diagram formázása
 type: docs
 weight: 60
 url: /hu/net/chart-formatting/
 keywords:
 - diagram formázása
-- diagramformázás
-- diagram elem
+- diagram formázás
+- diagram entitás
 - diagram tulajdonságok
 - diagram beállítások
 - diagram opciók
@@ -18,19 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerkedjen meg a diagramok formázásával az Aspose.Slides .NET verzióban, és emelje prezentációját PowerPointban egyedi tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
+description: "Ismerje meg a diagramok formázását az Aspose.Slides .NET verziójában, és emelje a PowerPoint prezentációját egyedi tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan formázhatók diagramok PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan testreszabhatók a diagram kulcsfontosságú elemei, például a tengelyek, a rácsvonalak, a címek, a jelmagyarázatok, a grafikonterület és a fal kitöltései, a diagramadatok megjelenésének és olvashatóságának javítása érdekében.
+Ez a cikk bemutatja, hogyan lehet formázni diagramokat PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan lehet testre szabni a diagram kulcsfontosságú elemeit, például a tengelyeket, a rácsvonalakat, a címeket, a legendákat, a rajzterületet és a falak kitöltéseit, hogy javítsuk a diagram adatok megjelenését és olvashatóságát.
 
-A cikk továbbá bemutatja, hogyan állíthatók be a betűtípus tulajdonságai a diagram szövegéhez, hogyan alkalmazhatók előre beállított numerikus formátumok a diagram adataihoz, és hogyan engedélyezhetők a lekerekített sarkok a diagramterületen. Ezek a példák együtt megmutatják, hogyan szabályozható a diagramok vizuális stílusa és adatmegjelenítése egy prezentációban.
+Emellett bemutatja, hogyan lehet beállítani a betűtípus‑tulajdonságokat a diagram szövegéhez, előre definiált számalakzatokat alkalmazni a diagram adatokra, valamint lekerekített sarkokat engedélyezni a diagram területén. Ezek a példák együtt mutatják, hogyan irányítható a diagram vizuális stílusa és az adatmegjelenítés egyaránt egy prezentációban.
 
-## **Diagramelemek formázása**
+Külön kitöltések és körvonalak a növekvő és csökkenő intervallumokra a [részvénydiagram példa](/slides/hu/net/create-chart/#create-stock-charts) alatt tekinthetők meg.
 
-Használja az [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) elemet a diagramcímek, tengelyek, rácsvonalak, jelmagyarázatok és a grafikonterület formázásához. Ez a példa egy jelölőkkel ellátott vonaldiagramot hoz létre alapértelmezett adatokkal, majd külön szöveg‑ és vonalstílusokat alkalmaz az érték‑ és a kategóriatengelyeire. A betűméretet és a vonalszélességet pontban határozzák meg; a kategóriacímkék 45 fokban vannak elfordítva.
+## **Diagrammelemek formázása**
 
-Az értéktengely a [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) elemet használja a forráscelláktól függetlenül. Skálája -2-től 15-ig terjed, főintervallumok 2‑esek, mellékintervallumok 0,5‑esek. A példa az százalékos formázást is kombinálja a [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ezrekkel beállítva, ezért igazítsa ezeket a beállításokat adatai jelentéséhez és nagyságához. A jelmagyarázat a grafikonterületen kívül marad, mivel a [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) le van tiltva. A háttérfal és a padló kitöltései a [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) és a [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) elemekkel vannak beállítva, de ezek a felületek csak 3D diagramokban láthatók.
+Használja az [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) interfészt a diagram címek, tengelyek, rácsvonalak, legendák és a rajzterület formázásához. Ez a példa egy jelölőkkel ellátott vonaldiagramot hoz létre alapértelmezett adatokkal, majd külön szöveg‑ és vonalstílusokat alkalmaz az érték‑ és kategóriatengelyeken. A betűméreteket és a vonalszélességeket pontban adjuk meg; a kategória‑címkék 45 fokban vannak elforgatva.
+
+Az értéktengely a [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) beállítást használja a forráscelláktól függetlenül. Skálája -2‑től 15‑ig terjed, fő intervallumok 2‑esek, mellék‑intervallumok 0,5‑esek. A példa a százalékos formázást kombinálja a [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ezerre állított beállításával, így ezeket a beállításokat az adatok jelentéséhez és nagyságához igazítsa. A legenda a rajzterület kívül marad, mert a [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) le van tiltva. A hátfal és a padló kitöltései a [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) és a [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) segítségével állíthatók be, de ezek a felületek csak 3D diagramokban láthatók.
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **A diagram betűtípus tulajdonságainak beállítása**
+## **Diagram betűtípus tulajdonságainak beállítása**
 
-Állítsa be a diagram szövegeinek alapértelmezett betűméretét a [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) segítségével. A példa egy klaszterezett oszlopdiagramot hoz létre 20‑pontos betűmérettel, és a [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) használatával engedélyezi az értékcímkéket az első sorozatra. A saját explicit betűtípus-beállításokkal rendelkező szövegelemek felülírhatják a diagram alapértelmezett beállítását.
+Állítsa be a diagram szövegének alapértelmezett betűméretét a [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) segítségével. A példa egy csoportosított oszlopdiagramot hoz létre 20 pontos betűvel, és a [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) használatával engedélyezi az értékcímkéket az első sorozathoz. A saját explicit betűtípus‑beállításokkal rendelkező szövegelemek felülbírálhatják a diagram alapértelmezett beállításait.
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
-## **Numerikus formátum beállítása**
+## **Szövegkeret formázásának újrahasználata diagram legendához**
 
-Használja az [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) elemet, hogy beépített számformátumot alkalmazzon a diagram munkafüzetcelláira. Ez a példa egy alapértelmezett, cella‑alapú adatokkal rendelkező klaszterezett oszlopdiagramot hoz létre, és az 10‑es formátumindexet (`0.00%`) minden sorozat értékcellájára alkalmazza. Ez megváltoztatja a cellák megjelenítését a munkafüzetben anélkül, hogy az alapértékek módosulnának; például a 0,25 25,00%-ként jelenik meg. A tengely- és adatcímkeformátumok külön-külön konfigurálhatók.
+A legenda a diárcímhez való igazításához állítsa be a betűtípust az első bekezdés [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/)‑ben. Hívja meg a [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) metódust a legenda [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) objektumán. Ez beolvassa a szövegkeret beállításait, az első bekezdés formázását, valamint a bekezdés alapértelmezett betűtulajdonságait. Az egyes részekre vagy későbbi bekezdésekre közvetlenül alkalmazott formázás csak a forrásra vonatkozik.
+
+A példa egy félkövér, 26 pontos Calibri címkét használ tengerkék színnel sablonként. A legenda formázása után a [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) segítségével alkalmazza ugyanazt a formázást egy külön feliraton.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+A mentett prezentációban a legenda és a felirat méret, vastagság és szín tekintetében megegyezik a címmel. A legenda továbbra is a sorozatneveket jeleníti meg, a felirat pedig saját szövegét tartja meg. Ha a felirat egy részében már explicit betűméret van megadva, ez a méret előnyt élvez a másolt bekezdés alapértelmezéséhez képest.
+
+| Másolás előtt | Másolás után |
+| --- | --- |
+| ![Negyedéves eladási diagram szabályos fekete legendacímkékkel és fekete felirattal](legend-formatting-before.png) | ![Ugyanaz a diagram nagyobb, félkövér tengerkék legendacímkékkel és egyező felirattal](legend-formatting.png) |
+
+## **Számformátum beállítása**
+
+Használja az [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) metódust beépített számformátum alkalmazásához a diagram munkafüzetcelláira. Ez a példa egy csoportosított oszlopdiagramot hoz létre alapértelmezett, cella‑alapú adatokkal, és a 10. formátumindexet (`0.00%`) alkalmazza minden sorozat értékcellájára. Ez megváltoztatja a cellák megjelenített értékét a munkafüzetben anélkül, hogy a tényleges számok módosulnának; például a 0,25 25,00%-ként jelenik meg. A tengely‑ és adatcímke‑formátumok külön konfigurálhatók.
 
 ```csharp
 using Aspose.Slides;
@@ -191,7 +243,7 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Az alábbi táblázat felsorolja a beépített számformátum-indexeket a megfelelő Excel-formátumokkal az angol (Egyesült Államok) nyelvterületen. A pontos formátumkarakterláncok és megjelenítésük alkalmazásonként és nyelvterületenként eltérhet, különösen a pénznemek és dátumok esetében. Egyes Excel-formátumok eltérnek az OOXML szabvány alapértelmezett beállításaitól is, amint azt a [Microsoft számformátum-implementációs megjegyzéseiben](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) leírják.
+Az alábbi táblázat felsorolja a beépített számformátum‑indexeket jellemző Excel‑formátumokkal az angol (Egyesült Államok) helyi beállításokhoz. A pontos formátumkarakterláncok és megjelenítésük alkalmazásonként és helyi beállításonként eltérhet, különösen a pénznemek és dátumok esetében. Néhány Excel‑formátum eltér az OOXML szabvány alapértelmezéseitől, ahogy azt a [Microsoft számformátum‑implementációs megjegyzéseiben](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) leírják.
 
 | Index | Formátum |
 | --- | --- |
@@ -232,9 +284,9 @@ Az alábbi táblázat felsorolja a beépített számformátum-indexeket a megfel
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Grafikonterület lekerekített szegélyeinek beállítása**
+## **Diagramtér lekerekített szegélyek beállítása**
 
-Engedélyezze az [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) elemet a grafikonterület sarkainak lekerekítéséhez. A példa egy klaszterezett oszlopdiagramot hoz létre, és a [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) segítségével szilárd szürke színű és egyvonalas körvonalat ad a diagramnak, mielőtt mentené a prezentációt.
+Engedélyezze az [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) beállítást a diagram területének sarkainak lekerekítéséhez. A példa egy csoportosított oszlopdiagramot hoz létre, majd a [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) használatával szilárd szürke színt és egyszeres vonalstílust ad a körvonalnak, mielőtt elmentené a prezentációt.
 
 ```csharp
 using System.Drawing;
@@ -254,13 +306,13 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **Meglévő diagram annotációk szerkesztése**
+## **Létező diagram‑annotációk szerkesztése**
 
-Egy diagram egyedi alakzatokat is tartalmazhat, például egy szöveges annotációt, amely a jelentés állapotát magyarázza. Ezekhez az alakzatokhoz az [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) segítségével férhet hozzá, amely a Chart API Referenciában a [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) alatt is fel van sorolva. Az [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) gyűjteménye tartalmazza a diagramhoz tartozó alakzatokat.
+Egy diagram tartalmazhat egyedi alakzatokat, például egy szöveges annotációt, amely a jelentés állapotát magyarázza. Ezeket az alakzatokat az [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) segítségével érheti el, amely a [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) alatti API‑referenciában is szerepel. Az [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) gyűjtemény a diagramhoz tartozó alakzatokat tartalmazza.
 
-Egy egyszerű szövegdoboz, amely egy diagram felett helyezkedik el, a diára tartozik, még ha a diagram részének tűnik is. A [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) bejárásával megtalálható a diagram és a szokásos diaelemek, de nem sorolja fel a diagramon belüli egyedi alakzatokat. A diagramcímek és adatcímkék külön diagramelemek, nem egyéni annotációk ebben a gyűjteményben.
+Az egy egyszerű szövegdoboz, amely a diagram fölött helyezkedik el, a diára tartozik, még ha úgy is néz ki, mintha a diagram része lenne. A [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) átvizsgálása megtalálja a diagramot és a szokásos diakelem‑alakzatokat, de nem sorolja fel a diagramon belüli egyedi alakzatokat. A diagramcímek és adatcímkék külön diagramelemek, nem egyedi annotációk ebben a gyűjteményben.
 
-Töltse le a [chart-annotations.pptx](chart-annotations.pptx) fájlt, és helyezze el az alkalmazás munkakönyvtárában. Az első diáján egy diagram található egy csoportosítatlan „Preliminary results” (Előzetes eredmények) feliratú annotációval, a diagramhoz tartozó vonallal, valamint egy egyszerű „Slide overlay” (Dia átfedés) feliratú szövegdobozzal. A példa megtalálja az első diagramot a dián, és a jelentés közzétételre kész állapotában az annotációt „Final results” (Végleges eredmények) szövegre módosítja. Ellenőrzi, hogy a gyűjtemény nem üres, és csak egy [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) elemet szerkeszt, amelynek nem null értékű [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) és a várt szövege van.
+Töltse le a [chart-annotations.pptx](chart-annotations.pptx) fájlt, és helyezze az alkalmazás munkakönyvtárába. Az első dián egy diagram található egy szétcsoportosított annotációval, amely „Preliminary results” feliratot tartalmaz, egy diagram‑tulajdonú vonallal és egy egyszerű diára helyezett szövegdobozzal, amely „Slide overlay” feliratot mutat. A példa megtalálja az első diagramot ezen a dián, és a jelentés közzététele előtt a annotációt „Final results” szövegre módosítja. Ellenőrzi, hogy a gyűjtemény ne legyen üres, és csak olyan [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) elemet szerkeszt, amelynek nem‑null a [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) és a várt szöveg szerepel benne.
 
 ```csharp
 using System;
@@ -303,26 +355,26 @@ else
 }
 ```
 
-Az vonal és a dia szövegdoboz változatlan marad. A következő képek mutatják a bemenetet és a mentett, újranyitott eredményt:
+A vonal és a diára helyezett szövegdoboz változatlan marad. Az alábbi képek a bemeneti és a mentett, újra megnyitott eredményt mutatják:
 
 | Szerkesztés előtt | Szerkesztés után |
 | --- | --- |
-| ![Diagram annotáció: Előzetes eredmények](chart-annotations-before.png) | ![Diagram annotáció: Végleges eredmények](chart-annotations-after.png) |
+| ![Diagram‑annotáció, amely a „Preliminary results” feliratot jeleníti meg](chart-annotations-before.png) | ![Diagram‑annotáció, amely a „Final results” feliratot jeleníti meg](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-A példa csak a felső szintű, diagramhoz tartozó alakzatokat vizsgálja. Ha egy annotáció egy [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) belsejében van, akkor vizsgálja meg ennek a csoportnak a [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) gyűjteményét is. Ezt rekurzívan ismételje a beágyazott csoportoknál, ugyanazokat a szövegellenőrzéseket alkalmazva a gyermekalakzatokra. Egy csoport önmagában egy tároló; ne kezelje szövegdobozként.
+{{% alert color="info" title="Megjegyzés" %}}
+A példa csak a legfelső szintű, diagram‑tulajdonú alakzatokat vizsgálja. Ha egy annotáció egy [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) belsejében van, akkor vizsgálja meg az adott csoport [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) gyűjteményét is. Ezt rekurzívan ismételje a beágyazott csoportoknál, a szövegellenőrzést ugyanúgy alkalmazva a gyermekalakzatokra. Egy csoport önmagában egy tároló; ne kezelje szövegdobozként.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Be tudok-e állítani félig átlátszó kitöltéseket az oszlopoknál/területeknél, miközben a szegély átlátszatlan marad?**
+**Beállíthatok-e félig átlátszó kitöltéseket az oszlopok/területek számára, miközben a szegély átlátszatlan marad?**
 
-Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez hasznos a rács és az adatok olvashatóságának javításához sűrű vizualizációkban.
+Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez hasznos a rács és a sűrű adatok olvashatóságának javításához.
 
-**Hogyan kezeljem az adatcímkéket, ha átfedik egymást?**
+**Hogyan kezeljem a feliratokat, ha átfedik egymást?**
 
-Csökkentse a betűméretet, tiltsa le a nem lényeges címkeösszetevőket (például a kategóriákat), állítsa be a címke pozícióját, szükség esetén csak a kiválasztott pontok címkéit jelenítse meg, vagy váltson a "value + legend" (érték + jelmagyarázat) formátumra.
+Csökkentse a betűméretet, tiltsa le a nem lényeges feliratkomponenseket (például a kategóriákat), állítsa be a felirat helyzetét, szükség esetén csak a kiválasztott pontok feliratait jelenítse meg, vagy válassza a „érték + legenda” formátumot.
 
-**Használhatok-e színátmenet vagy minta kitöltéseket a sorozatokhoz?**
+**Alkalmazhatok‑e színátmenetes vagy mintás kitöltéseket sorozatokra?**
 
-Igen. A sorozatok támogatják a szilárd, színátmenetes és mintás kitöltéseket. Gyakorlatban mértékkel használjon színátmeneteket, és kerülje azokat a kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.
+Igen. A sorozatok támogatják a szilárd, színátmenetes és mintás kitöltéseket. A gyakorlatban használjon színátmeneteket visszafogottan, és kerülje a kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.

@@ -6,30 +6,32 @@ weight: 60
 url: /fa/php-java/chart-formatting/
 keywords:
 - قالب‌بندی نمودار
-- قالب‌بندی نمودارها
+- قالب‌بندی نمودار
 - موجودیت نمودار
 - ویژگی‌های نمودار
 - تنظیمات نمودار
 - گزینه‌های نمودار
 - ویژگی‌های قلم
-- حاشیه گرد
+- لبه‌های گرد
 - PowerPoint
 - ارائه
 - PHP
 - Aspose.Slides
-description: "قالب‌بندی نمودارها را در Aspose.Slides برای PHP از طریق Java بیاموزید و ارائه PowerPoint خود را با محورها، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد سفارشی‌سازی شده ارتقا دهید."
+description: "یادگیری قالب‌بندی نمودارها در Aspose.Slides برای PHP از طریق Java و ارتقاء ارائه PowerPoint شما با محورها، قلم‌ها، قالب‌های عددی سفارشی و لبه‌های گرد نمودار."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه می‌توان نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کرد. این مقاله نشان می‌دهد که چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، افسانه‌ها، ناحیه رسم و پر کردن دیوارها را سفارشی کنید تا ظاهر و خوانایی داده‌های نمودار بهبود یابد.
+این مقاله توضیح می‌دهد که چگونه می‌توان نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کرد. در آن نشان داده می‌شود که چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، توضیح‌نامه‌ها، ناحیه‌نقاشی و پرکردن دیوارها را سفارشی‌سازی کرد تا ظاهر و خوانایی داده‌های نمودار بهبود یابد.
 
-همچنین نشان می‌دهد که چگونه ویژگی‌های قلم برای متن نمودار تنظیم شود، قالب‌های عددی پیش‌فرض به داده‌های نمودار اعمال گردد و گوشه‌های ناحیه نمودار گرد شود. این مثال‌ها نشان می‌دهند که چگونه سبک بصری و ارائه داده‌های نمودار در یک ارائه را کنترل کنید.
+همچنین نحوه تنظیم ویژگی‌های قلم برای متن نمودار، اعمال قالب‌های عددی پیش‌فرض به داده‌های نمودار و فعال‌سازی گوشه‌های گرد برای ناحیه نمودار نشان داده می‌شود. این مثال‌ها نشان می‌دهند که چگونه می‌توان هم سبک بصری و هم ارائه داده‌های نمودارها را در یک ارائه کنترل کرد.
+
+برای پرکردن‌ها و خط‌کش‌های جداگانه در بازه‌های صعودی و نزولی، به [مثال نمودار سهام](/slides/fa/php-java/create-chart/#create-stock-charts) مراجعه کنید.
 
 ## **قالب‌بندی موجودیت‌های نمودار**
 
-از [نمودار](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، افسانه‌ها و ناحیه رسم استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند و سپس سبک‌های متن و خط را به طور جداگانه برای محورهای مقدار و دسته‌بندی اعمال می‌کند. اندازه‌های قلم و عرض خطوط بر حسب نقطه تعیین شده‌اند؛ برچسب‌های دسته‌بندی با 45 درجه چرخانده می‌شوند.
+از [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، توضیح‌نامه‌ها و ناحیه‌نقاشی استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند و سپس سبک‌های متنی و خطی جداگانه‌ای به محورهاِ مقدار و دسته‌بندی آن اعمال می‌کند. اندازه قلم و عرض خطوط بر حسب پوینت مشخص می‌شوند؛ برچسب‌های دسته‌بندی به اندازه ۴۵ درجه چرخانده می‌شوند.
 
-محور مقدار از [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است، با فواصل اصلی 2 و فواصل فرعی 0.5. این مثال همچنین قالب‌بندی درصد را با [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) که بر روی هزار تنظیم شده ترکیب می‌کند، بنابراین این تنظیمات را بر حسب معنای داده‌ها و مقیاس آن تنظیم کنید. افسانه به دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) با `false` در خارج از ناحیه رسم می‌ماند. پر کردن دیوار پشت و کف از طریق [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) و [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) پیکربندی می‌شود، اما این سطوح فقط در نمودارهای 3‑بعدی قابل مشاهده هستند.
+محور مقدار از [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) به‌صورت مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از ‎‑2 تا 15 است، با بازه‌های اصلی 2 و بازه‌های جزئی 0.5. مثال همچنین قالب درصدی را با [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) که بر روی هزارها تنظیم شده ترکیب می‌کند، بنابراین این تنظیمات را بر اساس معنی و اندازه داده‌های خود تنظیم کنید. توضیح‌نامه به دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) با `false` در خارج از ناحیه‌نقاشی می‌ماند. پرکردن‌های پشت‌دیوار و کف از طریق [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) و [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor) پیکربندی می‌شوند، اما این سطوح فقط در نمودارهای سه‌بعدی قابل مشاهده هستند.
 
 ```php
 use aspose\slides\ChartType;
@@ -155,9 +157,9 @@ try {
 }
 ```
 
-## **تنظیم ویژگی‌های قلم برای نمودار**
+## **تنظیم ویژگی‌های قلم برای یک نمودار**
 
-اندازه پیش‌فرض قلم برای متن نمودار را از طریق [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20‑نقطه‌ای ایجاد می‌کند و برچسب‌های مقدار را برای اولین مجموعه از طریق [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) فعال می‌سازد. عناصر متنی که تنظیمات قلم صریح خود را دارند می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
+اندازه قلم پیش‌فرض متن نمودار را از طریق [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat) تنظیم کنید. مثال یک نمودار ستونی تجمعی با قلم 20 پوینت ایجاد می‌کند و برچسب‌های مقدار برای سری اول را از طریق [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) فعال می‌نماید. عناصر متنی که تنظیمات قلم صریح خود را دارند می‌توانند پیش‌فرض نمودار را نادیده بگیرند.
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
+## **بازاستفاده از قالب‌بندی فریم متن برای توضیح‌نامه نمودار**
+
+برای هم‌خوانی توضیح‌نامه با عنوان اسلاید، قلم عنوان را از طریق [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) در اولین پاراگراف تنظیم کنید. بر روی قالبی که توسط [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) توضیح‌نامه بازگردانده می‌شود، [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) را صدا بزنید. این کار تنظیمات فریم متن، قالب‌بندی اولین پاراگراف و ویژگی‌های قلم پیش‌فرض آن پاراگراف را کپی می‌کند. قالب‌بندی اعمال‌شده مستقیم به قسمت‌های جداگانه یا به پاراگراف‌های بعدی، به منبع محلی می‌ماند.
+
+مثال از عنوان بولد، 26‑پوینت Calibri به رنگ سرمه‌ای به عنوان قالب استفاده می‌کند. پس از استایل‌دهی به توضیح‌نامه، [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) را برای اعمال همان قالب به یک عنوان جداگانه فراخوانی می‌کند.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+در ارائه ذخیره‌شده، توضیح‌نامه و عنوان با عنوان اصلی از نظر اندازه، وزن و رنگ مطابقت دارند. توضیح‌نامه هنوز نام سری‌ها را نمایش می‌دهد و عنوان متن خود را حفظ می‌کند. اگر بخشی در عنوان قبلاً اندازه قلم صریح داشته باشد، آن اندازه بر پیش‌فرض پاراگراف کپی‌شده اولویت دارد.
+
+| قبل از کپی | بعد از کپی |
+| --- | --- |
+| ![نمودار فروش فصلی با برچسب‌های توضیح‌نامه سیاه معمولی و یک عنوان سیاه](legend-formatting-before.png) | ![نمودار مشابه با برچسب‌های توضیح‌نامه بزرگتر، برجسته و رنگ سرمه‌ای و عنوان مطابقت‌دار](legend-formatting.png) |
+
 ## **تنظیم قالب عددی**
 
-از [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) برای اعمال یک قالب عددی پیش‌ساخته به سلول‌های کتاب کار نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض و پشتیبانی‌شده توسط سلول ایجاد می‌کند و ایندکس قالب 10 (`0.00%`) را به هر سلول مقدار مجموعه اعمال می‌نماید. این کار نحوه نمایش مقادیر را در کتاب کار بدون تغییر اعداد پایه تغییر می‌دهد؛ برای مثال 0.25 به صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
+از [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) برای اعمال یک قالب عددی توکار به سلول‌های کتاب کار نمودار استفاده کنید. این مثال یک نمودار ستونی تجمعی با داده‌های پیش‌فرض و پشت‌پوشیده‌به‑سلول ایجاد می‌کند و ایندکس قالب 10 (`0.00%`) را به هر سلول مقدار سری اعمال می‌کند. این کار نحوه نمایش مقدارها را در کتاب کار بدون تغییر اعداد زیرین تغییر می‌دهد؛ برای مثال 0.25 به صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
 
 ```php
 use aspose\slides\ChartType;
@@ -209,9 +272,9 @@ try {
 }
 ```
 
-در جدول زیر ایندکس‌های قالب عددی پیش‌ساخته به همراه قالب‌های نمایشی Excel برای زبان انگلیسی (ایالات متحده) آورده شده است. رشته‌های قالب دقیق و نمایش آنها می‌تواند بر حسب برنامه و محلی متفاوت باشد، به‌ویژه برای ارز و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML تفاوت دارند، همان‌طور که در [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توصیف شده است.
+جدول زیر ایندکس‌های قالب عددی توکار را با قالب‌های نمایشی Excel برای محلی English (United States) فهرست می‌کند. رشته‌های قالب دقیق و نمایش آنها می‌توانند بسته به برنامه و محلی متفاوت باشند، به‌ویژه برای ارزها و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML تفاوت دارند، همان‌طور که در [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
 
-| Index | Format |
+| شماره | قالب |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -250,9 +313,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **گرد کردن مرزهای ناحیه نمودار**
+## **تنظیم حاشیه‌های گرد شده ناحیه نمودار**
 
-با فراخوانی [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) با مقدار `true` گوشه‌های ناحیه نمودار را گرد کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) برای دادن رنگ خاکستری ثابت و سبک خط تک به خطوط بیرونی آن استفاده می‌کند قبل از ذخیره ارائه.
+با فراخوانی [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) با مقدار `true` گوشه‌های ناحیه نمودار را گرد کنید. مثال یک نمودار ستونی تجمعی ایجاد می‌کند و از [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) برای دادن رنگ خاکستری ثابت و سبک خط تک‌خطی به مرزی‌اش قبل از ذخیره‌سازی ارائه استفاده می‌کند.
 
 ```php
 use aspose\slides\ChartType;
@@ -279,11 +342,11 @@ try {
 
 ## **ویرایش حاشیه‌نویسی‌های موجود در نمودار**
 
-یک نمودار می‌تواند شامل اشکال سفارشی باشد، مانند یک حاشیه‌نویسی متنی که وضعیت یک گزارش را توضیح می‌دهد. این اشکال از طریق [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/) در دسترس هستند. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) برگردانده می‌شود شامل اشکال متعلق به نمودار است.
+یک نمودار می‌تواند شامل اشکال سفارشی باشد، مانند یک حاشیه‌نویسی متنی که وضعیت گزارشی را توضیح می‌دهد. به این اشکال از طریق [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes) دسترسی پیدا کنید. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) برگردانده می‌شود شامل اشکال متعلق به نمودار است.
 
-یک کادر متن عادی که بر روی نمودار قرار می‌گیرد متعلق به اسلاید است، حتی اگر شبیه بخشی از نمودار به نظر برسد. با پیمایش [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) می‌توان نمودار و اشکال عادی اسلاید را یافت، اما اشکال فردی داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای از نمودار هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
+یک جعبه متن عادی که بر روی نمودار قرار می‌گیرد، متعلق به اسلاید است، حتی اگر شبیه جزء نمودار به نظر برسد. پیمایش از طریق [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) نمودار و اشکال عادی اسلاید را پیدا می‌کند، اما اشکال فردی داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای از نمودار هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
 
-فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن شامل یک نمودار با یک حاشیه‌نویسی جداشده که متن «Preliminary results» دارد، یک خط متعلق به نمودار و یک کادر متن اسلایدی معمولی با متن «Slide overlay» است. مثال اولین نمودار در آن اسلاید را پیدا می‌کند و حاشیه‌نویسی را به «Final results» تغییر می‌دهد وقتی گزارش آماده انتشار باشد. این مثال بررسی می‌کند که آیا مجموعه خالی است و فقط یک [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) با فریم متنی غیر تهی که توسط [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) برگردانده می‌شود و متن مورد انتظار دارد، ویرایش می‌کند.
+[chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن حاوی یک نمودار با حاشیه‌نویسی بدون گروه "Preliminary results"، یک خط متعلق به نمودار و یک جعبه متن اسلایدی "Slide overlay" است. مثال اولین نمودار را در آن اسلاید پیدا می‌کند و حاشیه‌نویسی را به "Final results" تغییر می‌دهد وقتی گزارش آماده انتشار باشد. مجموعه خالی را بررسی می‌کند و فقط یک [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) با فریم متن غیر تهی که توسط [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) بازگردانده می‌شود و متن مورد انتظار دارد، ویرایش می‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -333,26 +396,26 @@ try {
 }
 ```
 
-خط و کادر متن اسلاید همان‌طور که هستند باقی می‌مانند. تصاویر زیر ورودی و نتیجه ذخیره‌شده، بازگشایی‌شده را نشان می‌دهند:
+خط و جعبه متن اسلاید بدون تغییر می‌مانند. تصاویر زیر ورودی و نتیجه ذخیره‑شده بازگشایی‌شده را نشان می‌دهند:
 
 | قبل از ویرایش | بعد از ویرایش |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![حاشیه‌نویسی نمودار با متن «نتایج اولیه»](chart-annotations-before.png) | ![حاشیه‌نویسی نمودار با متن «نتایج نهایی»](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-مثال فقط اشکال سطح بالای متعلق به نمودار را بررسی می‌کند. اگر حاشیه‌نویسی داخل یک [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) باشد، مجموعه [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو انجام دهید و همان بررسی‌های متنی را برای اشکال فرزند اعمال کنید. یک گروه خود یک محفظه است؛ آن را به‌عنوان کادر متن درنظر نگیرید.
+مثال فقط اشکال سطح‑بالای متعلق به نمودار را بررسی می‌کند. اگر یک حاشیه‌نویسی داخل یک [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) باشد، مجموعهٔ [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و همان بررسی‌های متنی را بر اشکال فرزند آنها اعمال کنید. یک گروه خود یک مخزن است؛ آن را به‌عنوان جعبه متن در نظر نگیرید.
 {{% /alert %}}
 
 ## **سؤالات متداول**
 
-**آیا می‌توان پر کردن‌های نیمه شفاف برای ستون‌ها/ناحیه‌ها تنظیم کرد در حالی که حاشیه به‌صورت مات باقی می‌ماند؟**
+**آیا می‌توانم پرکردن‌های نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه را مات نگه دارم؟**
 
-بله. شفافیت پر کردن و خطوط مرزی به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در بصری‌سازی‌های فشرده مفید است.
+بله. شفافیت پرکردن و خط مرزی به‌صورت جداگانه پیکربندی می‌شوند. این برای بهبود خوانایی شبکه و داده‌ها در تجسم‌های متراکم مفید است.
 
-**چگونه می‌توانم با برچسب‌های داده که همپوشانی دارند مقابله کنم؟**
+**چگونه می‌توانم با برچسب‌های داده که هم‌پوشانی دارند سروکار داشته باشم؟**
 
-اندازه قلم را کاهش دهید، مؤلفه‌های غیرضروری برچسب (مانند دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت لزوم فقط برچسب‌های نقاط انتخابی را نمایش دهید، یا قالب را به «value + legend» تغییر دهید.
+اندازه قلم را کاهش دهید، اجزای غیرضروری برچسب (مثلاً دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت نیاز فقط برای نقاط انتخاب‌شده برچسب نشان دهید، یا قالب را به «value + legend» تغییر دهید.
 
-**آیا می‌توان پر کردن گرادیان یا الگو را به مجموعه‌ها اعمال کرد؟**
+**آیا می‌توانم پرکردن‌های گرادیان یا الگو را بر سری‌ها اعمال کنم؟**
 
-بله. مجموعه‌ها از پر کردن‌های ثابت، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌صورت مقتصد استفاده کنید و ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهند، خودداری کنید.
+بله. سری‌ها از پرکردن‌های ثابت، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌طور محدود استفاده کنید و ترکیب‌هایی که کنتراست را با شبکه و متن کاهش می‌دهند، اجتناب کنید.

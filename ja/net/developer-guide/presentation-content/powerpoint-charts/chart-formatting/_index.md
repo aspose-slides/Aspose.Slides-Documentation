@@ -1,36 +1,38 @@
 ---
-title: .NET でプレゼンテーション チャートをフォーマットする
+title: .NET でプレゼンテーションのチャートをフォーマットする
 linktitle: チャートの書式設定
 type: docs
 weight: 60
 url: /ja/net/chart-formatting/
 keywords:
-- チャートをフォーマット
 - チャートの書式設定
+- チャート書式設定
 - チャートエンティティ
-- チャートプロパティ
+- チャートのプロパティ
 - チャート設定
 - チャートオプション
-- フォントプロパティ
-- 角丸ボーダー
+- フォントのプロパティ
+- 角丸境界
 - PowerPoint
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET におけるチャートの書式設定を学び、カスタム軸、フォント、数値書式、角丸チャート境界を使用して PowerPoint プレゼンテーションを向上させましょう。"
+description: "Aspose.Slides for .NET におけるチャート書式設定を学び、カスタム軸、フォント、数値形式、角丸チャート枠線で PowerPoint プレゼンテーションを向上させましょう。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーション内のチャートの書式設定方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなど、主要なチャート要素をカスタマイズして、チャート データの外観と可読性を向上させる方法を示します。
+この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーション内のグラフの書式設定方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなど、主要なグラフ要素をカスタマイズして、データの外観と可読性を向上させる方法を示します。
 
-また、チャート テキストのフォント プロパティの設定、数値形式のプリセット適用、チャート領域の角を丸める方法も実演します。これらの例を通じて、プレゼンテーション内のチャートのビジュアル スタイルとデータ表現の両方を制御する方法がわかります。
+また、グラフテキストのフォントプロパティを設定する方法、グラフデータにプリセットの数値形式を適用する方法、グラフ領域の角を丸める方法も実演します。これらの例を合わせて、プレゼンテーション内のグラフの視覚スタイルとデータ表示の両方を制御する方法がわかります。
 
-## **チャートエンティティの書式設定**
+上昇区間と下降区間で別々の塗りつぶしとアウトラインを設定する方法については、[株価チャートの例](/slides/ja/net/create-chart/#create-stock-charts)をご覧ください。
 
-[IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) を使用して、チャート タイトル、軸、グリッド線、凡例、プロット領域の書式設定を行います。この例では、マーカー付きの折れ線グラフをデフォルト データで作成し、値軸とカテゴリ軸に個別のテキストと線のスタイルを適用します。フォント サイズと線の太さはポイント単位で指定し、カテゴリ ラベルは 45 度回転させます。
+## **グラフ要素の書式設定**
 
-値軸は、ソース セルとは独立して [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) を使用します。スケールは -2 から 15 までで、メジャー間隔は 2、マイナー間隔は 0.5 です。例では、パーセンテージ書式と [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/)（千単位）を組み合わせているので、データの意味と規模に合わせて設定を調整してください。凡例は [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) が無効になっているため、プロット領域の外側に配置されます。背面壁と床の塗りつぶしは [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) と [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) で構成しますが、これらの面は 3D チャートでのみ表示されます。
+[IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) を使用して、グラフのタイトル、軸、グリッド線、凡例、プロット領域の書式設定を行います。この例では、マーカー付きの折れ線グラフをデフォルトデータで作成し、値軸とカテゴリ軸に別々のテキストと線のスタイルを適用します。フォントサイズと線幅はポイントで指定し、カテゴリラベルは 45 度回転させます。
+
+値軸はソースセルとは独立して [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) を使用します。スケールは -2 から 15 までで、主要間隔は 2、副間隔は 0.5 です。この例では、パーセンテージ書式と [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) を千単位に設定した組み合わせも示しています。データの意味と規模に合わせて設定を調整してください。凡例は [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) が無効になっているためプロット領域の外側に配置されます。バックウォールとフロアの塗りつぶしは [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) と [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) で設定しますが、これらの面は 3D グラフでのみ表示されます。
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **チャート テキストのフォント プロパティの設定**
+## **グラフのフォントプロパティを設定する**
 
-[Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) を使用して、チャート テキストのデフォルト フォント サイズを設定します。この例では、20 ポイント フォントのクラスター化列グラフを作成し、[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) を使用して最初の系列の値ラベルを有効にしています。個別に明示的なフォント設定が行われたテキスト要素は、チャートのデフォルト設定を上書きできます。
+[Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) を使用して、グラフテキストの既定フォントサイズを設定します。この例では、フォントサイズ 20 ポイントのクラスター縦棒グラフを作成し、最初の系列の値ラベルを [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) で有効にしています。個別に明示的なフォント設定が付与されたテキスト要素は、グラフの既定設定を上書きできます。
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
-## **数値書式の設定**
+## **凡例のテキストフレーム書式を再利用する**
 
-[IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) を使用して、チャート ワークブック セルに組み込み数値書式を適用します。この例では、デフォルトのセル バック データを持つクラスター化列グラフを作成し、各系列の値セルに書式インデックス 10（`0.00%`）を適用しています。これにより、基になる数値を変更せずにワークブックでの表示が変わります（例: 0.25 は 25.00% と表示）。軸およびデータ ラベルの書式は個別に設定できます。
+凡例をスライドの見出しに合わせるには、最初の段落の [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) にフォントを設定します。凡例の [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) に対して [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) を呼び出すと、テキストフレーム設定、最初の段落の書式、およびその段落の既定フォントプロパティが取得されます。個々の部分や後続の段落に直接適用された書式は、元のソースにローカルに残ります。
+
+この例では、ネイビーの 26 ポイント Calibri 太字見出しをテンプレートとして使用します。凡例のスタイリング後、[CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) を使って同じ書式を別のキャプションに適用します。
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+保存されたプレゼンテーションでは、凡例とキャプションがサイズ、太さ、色の点で見出しと一致します。凡例は依然として系列名を表示し、キャプションは独自のテキストを保持します。キャプション内の一部に明示的なフォントサイズが設定されている場合、そのサイズがコピーされた段落の既定サイズより優先されます。
+
+| コピー前 | コピー後 |
+| --- | --- |
+| ![通常の黒い凡例ラベルと黒いキャプションが付いた四半期売上グラフ](legend-formatting-before.png) | ![凡例ラベルが大きくなり、太字のネイビーに、キャプションも一致した同じグラフ](legend-formatting.png) |
+
+## **数値形式を設定する**
+
+[IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) を使用して、グラフのブックセルに組み込み数値形式を適用します。この例では、デフォルトのセルバックデータを持つクラスター縦棒グラフを作成し、各系列の値セルに書式インデックス 10 (`0.00%`) を適用しています。これにより、基になる数値は変わらずにブック上での表示が 0.25 → 25.00% のように変更されます。軸とデータラベルの書式は別々に設定可能です。
 
 ```csharp
 using Aspose.Slides;
@@ -191,7 +243,7 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-以下の表は、英語（米国）ロケール向けの代表的な Excel 書式と対応する組み込み数値書式インデックスを示しています。正確な書式文字列と表示は、アプリケーションやロケールによって異なる場合があり、特に通貨や日付で顕著です。一部の Excel 書式は、[Microsoft の数値書式実装メモ](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) に記載されている OOXML 標準のデフォルトとは異なることがあります。
+以下の表は、英語（米国）ロケール向けの代表的な Excel 書式とともに、組み込み数値形式インデックスを一覧にしたものです。正確な書式文字列と表示はアプリケーションやロケールにより異なる場合があり、特に通貨や日付で顕著です。一部の Excel 書式は OOXML 標準の既定書式と異なることがあり、詳細は [Microsoft の数値形式実装ノート](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) を参照してください。
 
 | インデックス | 書式 |
 | --- | --- |
@@ -232,9 +284,9 @@ presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **チャート領域の角丸境界の設定**
+## **グラフ領域の角丸境界を設定する**
 
-[IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) を有効にして、チャート領域の角を丸めます。この例では、クラスター化列グラフを作成し、[LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) を使用してアウトラインに単色のグレーと単一本線スタイルを設定し、プレゼンテーションを保存しています。
+[IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) を有効にして、グラフ領域の角を丸めます。この例では、クラスター縦棒グラフを作成し、[LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) を使用して輪郭を単色のグレーにし、単一線スタイルを設定した上でプレゼンテーションを保存します。
 
 ```csharp
 using System.Drawing;
@@ -254,13 +306,13 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **既存のチャート注釈の編集**
+## **既存のグラフ注釈を編集する**
 
-チャートには、レポートのステータスを説明するテキスト注釈など、カスタム シェイプを含めることができます。これらのシェイプは [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) で取得でき、Chart API リファレンスの [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) にも記載されています。その [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) コレクションには、チャートが所有するシェイプが含まれます。
+グラフには、レポートのステータスを説明するテキスト注釈などのカスタム形状を含めることができます。これらの形状は [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) から取得でき、Chart API Reference の [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) にも一覧化されています。その [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) コレクションには、グラフが所有する形状が含まれます。
 
-チャート上に配置された普通のテキスト ボックスはスライドに属し、チャートの一部に見えても同様です。[Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) を反復処理すると、チャートと通常のスライド シェイプが取得できますが、チャート内部の個々のシェイプは列挙されません。チャート タイトルやデータ ラベルは別個のチャート要素であり、このコレクションのカスタム 注釈ではありません。
+グラフ上に配置された普通のテキストボックスはスライドに属し、グラフの一部に見えてもスライドの形状として扱われます。[Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) を列挙すると、グラフとスライド上の普通の形状は取得できますが、グラフ内部の個々の形状は列挙されません。グラフのタイトルやデータラベルは別個のグラフ要素であり、このコレクションのカスタム注釈には含まれません。
 
-[chart-annotations.pptx](chart-annotations.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置してください。最初のスライドには、未グループ化の注釈「Preliminary results」、チャート所有の線、そして「Slide overlay」というテキスト ボックスが含まれています。例では、そのスライド上の最初のチャートを取得し、レポートが公開できる状態になったときに注釈を「Final results」に変更します。コレクションが空でないか確認し、[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) で非 null の [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) を持ち、期待するテキストを含むものだけを編集します。
+[chart-annotations.pptx](chart-annotations.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置してください。最初のスライドには、"Preliminary results" という未グループ化の注釈、グラフが所有する線、"Slide overlay" という普通のスライドテキストボックスが含まれています。この例では、そのスライド上の最初のグラフを取得し、レポートの公開準備が整ったら注釈を "Final results" に変更します。コレクションが空でないかチェックし、[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) で非 null の [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) を持ち、期待するテキストが含まれるものだけを編集します。
 
 ```csharp
 using System;
@@ -303,26 +355,28 @@ else
 }
 ```
 
-線とスライド テキスト ボックスは変更されません。以下の画像は、入力と保存後に再度開いた結果を示しています。
+線とスライドのテキストボックスは変更されません。以下の画像は、入力と保存後に再度開いた結果を示しています。
 
 | 編集前 | 編集後 |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![「Preliminary results」と表示されたチャート注釈](chart-annotations-before.png) | ![「Final results」と表示されたチャート注釈](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-例はトップレベルのチャート所有シェイプのみを検査します。注釈が [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) 内にある場合は、そのグループの [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) コレクションも検査してください。入れ子になったグループに対しては同様に再帰的に処理し、子シェイプのテキストチェックを適用します。グループ自体はコンテナであり、テキスト ボックスとして扱わないでください。
+
+この例はトップレベルのグラフ所有形状のみを検査します。注釈が [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) 内にある場合は、そのグループの [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) コレクションも検査してください。入れ子になったグループに対しても同様に再帰的に処理し、子形状に対して同じテキストチェックを適用します。グループ自体はコンテナであり、テキストボックスとして扱わないでください。
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**列やエリアに半透明の塗りつぶしを設定し、枠線は不透明のままにできますか？**
+**列や領域に半透明の塗りつぶしを設定し、枠線は不透明のままにできますか？**
 
-はい。塗りつぶしの透明度とアウトラインは別々に設定できます。これにより、密に配置されたビジュアル化においてグリッドやデータの可読性を向上させることができます。
+はい。塗りつぶしの透明度と輪郭は個別に設定できます。これにより、密集した可視化においてグリッドやデータの可読性を向上させることができます。
 
-**ラベルが重なったときはどう対処すればよいですか？**
+**ラベルが重なった場合、どのように対処すればよいですか？**
 
-フォント サイズを小さくする、不要なラベル要素（例: カテゴリ）を非表示にする、ラベル位置を調整する、必要に応じて選択したポイントのみラベルを表示する、または「値 + 凡例」の形式に切り替えるなどの方法があります。
+フォントサイズを縮小する、不要なラベル要素（例：カテゴリ）を非表示にする、ラベル位置を調整する、必要に応じて選択したポイントのみラベルを表示する、または形式を「値＋凡例」に切り替えるなどの方法があります。
 
-**系列にグラデーションやパターンの塗りつぶしを適用できますか？**
+**系列に対してグラデーションやパターンの塗りつぶしを適用できますか？**
 
-はい。系列は単色、グラデーション、パターン塗りつぶしをサポートします。実務ではグラデーションは控えめに使用し、グリッドやテキストとのコントラストが低下する組み合わせは避けてください。
+はい。系列は単色、グラデーション、パターンの塗りつぶしをサポートします。実務では、グラデーションは控えめに使用し、グリッドやテキストとのコントラストが低下する組み合わせは避けてください。

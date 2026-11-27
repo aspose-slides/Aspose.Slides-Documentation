@@ -1,5 +1,5 @@
 ---
-title: Format Grafik Presentasi di C++
+title: Format Grafik Presentasi dalam C++
 linktitle: Pemformatan Grafik
 type: docs
 weight: 60
@@ -12,24 +12,26 @@ keywords:
 - pengaturan grafik
 - opsi grafik
 - properti font
-- batas bulat
+- border bulat
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari pemformatan grafik di Aspose.Slides untuk C++ dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan batas grafik yang bulat."
+description: "Pelajari pemformatan grafik di Aspose.Slides untuk C++ dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan border grafik bulat."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara memformat bagan dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Ini menunjukkan cara menyesuaikan elemen bagan utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan penampilan dan keterbacaan data bagan.
+Artikel ini menjelaskan cara memformat grafik dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen grafik utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isi dinding untuk meningkatkan penampilan dan keterbacaan data grafik.
 
-Ini juga mendemonstrasikan cara mengatur properti font untuk teks bagan, menerapkan format numerik bawaan ke data bagan, dan mengaktifkan sudut bulat untuk area bagan. Bersama‑sama, contoh‑contoh ini menunjukkan cara mengendalikan baik gaya visual maupun penyajian data bagan dalam sebuah presentasi.
+Artikel ini juga mendemonstrasikan cara mengatur properti font untuk teks grafik, menerapkan format numerik bawaan pada data grafik, dan mengaktifkan sudut bulat untuk area grafik. Bersama-sama, contoh-contoh ini menunjukkan cara mengontrol baik gaya visual maupun penyajian data grafik dalam sebuah presentasi.
 
-## **Format Entitas Bagan**
+Untuk isi dan garis luar terpisah pada interval naik dan turun, lihat [contoh grafik saham](/slides/id/cpp/create-chart/#create-stock-charts).
 
-Gunakan [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) untuk memformat judul bagan, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat bagan garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+## **Format Entitas Grafik**
 
-Sumbu nilai menggunakan [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) secara independen dari sel sumber. Skala‑nya berjalan dari -2 hingga 15, dengan interval mayor 2 dan interval minor 0.5. Contoh ini juga menggabungkan pemformatan persentase dengan [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) yang disetel ke ribuan, jadi sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap di luar area plot karena [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) dinonaktifkan. Isian dinding belakang dan lantai dikonfigurasi melalui [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) dan [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), namun permukaan ini hanya terlihat pada bagan 3D.
+Gunakan [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) untuk memformat judul grafik, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat grafik garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan sumbu kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+
+Sumbu nilai menggunakan [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) secara independen dari sel sumber. Skala berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan pemformatan persentase dengan [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) yang disetel ke ribuan, jadi sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap berada di luar area plot karena [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) dinonaktifkan. Isi dinding belakang dan lantai dikonfigurasi melalui [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) dan [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), namun permukaan ini hanya terlihat pada grafik 3D.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -181,9 +183,9 @@ chart->get_PlotArea()->get_Format()->get_Fill()->get_SolidFillColor()->set_Color
 presentation->Save(u"FormattedChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Atur Properti Font untuk Bagan**
+## **Atur Properti Font untuk Grafik**
 
-Atur ukuran font default untuk teks bagan melalui [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). Contoh ini membuat bagan kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Elemen teks dengan pengaturan font eksplisit mereka sendiri dapat menggantikan nilai default bagan.
+Atur ukuran font default untuk teks grafik melalui [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). Contoh ini membuat grafik kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Elemen teks dengan pengaturan font eksplisit mereka sendiri dapat menggantikan nilai default grafik.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -216,9 +218,91 @@ chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataL
 presentation->Save(u"FontPropertiesForChart.pptx", SaveFormat::Pptx);
 ```
 
+## **Gunakan Kembali Pemformatan Bingkai Teks untuk Legenda Grafik**
+
+Untuk menyamakan legenda dengan judul slide, atur font pada format bagian default paragraf pertama melalui [get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Gunakan [get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformattedtextcontainer/get_textformat/) untuk mengakses format teks legenda, lalu panggil [CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyfrom/) dengan bingkai teks judul. Ini menyalin pengaturan bingkai teks, pemformatan paragraf pertama, dan properti font default paragraf tersebut. Pemformatan yang diterapkan langsung pada bagian individu atau pada paragraf selanjutnya tetap lokal pada sumber.
+
+Contoh menggunakan judul Calibri berukuran 26 poin, tebal, berwarna navy sebagai templat. Setelah menata legenda, contoh menggunakan [CopyTo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyto/) untuk menerapkan pemformatan yang sama pada keterangan terpisah.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/NullableBool.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/StyleType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto heading = shapes->AddAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+auto sourceTextFrame = heading->AddTextFrame(u"Quarterly sales");
+auto font = sourceTextFrame->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+font->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+font->set_FontHeight(26);
+font->set_FontBold(NullableBool::True);
+font->get_FillFormat()->set_FillType(FillType::Solid);
+font->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(32, 64, 96));
+
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+chart->set_Style(StyleType::Style3);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Retail"));
+workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Online"));
+workbook->GetCell(0, 0, 3, ObjectExt::Box<String>(u"Wholesale"));
+for (auto quarter = 1; quarter <= 4; ++quarter)
+{
+    auto label = String::Format(u"Q{0}", quarter);
+    workbook->GetCell(0, quarter, 0, ObjectExt::Box<String>(label));
+}
+
+chart->set_HasLegend(true);
+auto legend = chart->get_Legend();
+legend->set_Position(LegendPositionType::Bottom);
+auto legendTextFormat = legend->get_TextFormat();
+legendTextFormat->CopyFrom(sourceTextFrame);
+
+auto caption = shapes->AddAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+auto captionTextFrame = caption->AddTextFrame(u"Sales in millions of dollars");
+legendTextFormat->CopyTo(captionTextFrame);
+
+presentation->Save(u"legend-formatting.pptx", SaveFormat::Pptx);
+```
+
+Pada presentasi yang disimpan, legenda dan keterangan cocok dengan judul dalam ukuran, ketebalan, dan warna. Legenda tetap menampilkan nama seri, dan keterangan mempertahankan teksnya sendiri. Jika sebuah bagian dalam keterangan sudah memiliki ukuran font eksplisit, ukuran tersebut akan mengungguli nilai default paragraf yang disalin.
+
+| Sebelum menyalin | Setelah menyalin |
+| --- | --- |
+| ![Diagram penjualan kuartalan dengan label legenda hitam biasa dan keterangan hitam](legend-formatting-before.png) | ![Diagram yang sama dengan label legenda biru navy yang lebih besar, tebal, dan keterangan yang cocok](legend-formatting.png) |
+
 ## **Atur Format Numerik**
 
-Gunakan [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) untuk menerapkan format angka bawaan ke sel workbook bagan. Contoh ini membuat bagan kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) ke setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di workbook tanpa mengubah angka dasarnya; misalnya, 0.25 ditampilkan sebagai 25.00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
+Gunakan [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) untuk menerapkan format angka bawaan pada sel workbook grafik. Contoh ini membuat grafik kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan dalam workbook tanpa mengubah angka yang mendasarinya; misalnya, 0,25 ditampilkan sebagai 25,00 %. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -253,14 +337,14 @@ for (auto chartSeries : series)
 {
     for (auto dataPoint : chartSeries->get_DataPoints())
     {
-        dataPoint->get_Value()->get_AsCell()->set_PresetNumberFormat(10); // 0.00%
+        dataPoint->get_Value()->get_AsCell()->set_PresetNumberFormat(10); // 0,00%
     }
 }
 
 presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 ```
 
-Tabel berikut mencantumkan indeks format angka bawaan dengan format Excel representatif untuk locale Bahasa Inggris (Amerika Serikat). String format yang tepat dan tampilannya dapat berbeda tergantung aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, seperti dijelaskan di [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Tabel berikut mencantumkan indeks format angka bawaan beserta contoh format Excel untuk locale English (United States). String format yang tepat dan tampilan mereka dapat bervariasi tergantung aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, seperti dijelaskan dalam [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Indeks | Format |
 | --- | --- |
@@ -301,9 +385,9 @@ Tabel berikut mencantumkan indeks format angka bawaan dengan format Excel repres
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Atur Sisi Membulat Area Bagan**
+## **Atur Sudut Bulat Area Grafik**
 
-Aktifkan [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) untuk membuat sudut area bagan menjadi bulat. Contoh ini membuat bagan kolom berkelompok dan menggunakan [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) untuk memberikan kontur dengan warna abu‑abu padat dan gaya garis tunggal sebelum menyimpan presentasi.
+Aktifkan [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) untuk membuat sudut area grafik menjadi bulat. Contoh ini membuat grafik kolom berkelompok dan menggunakan [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) untuk memberi outline warna abu-abu solid dan gaya satu garis sebelum menyimpan presentasi.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -339,13 +423,13 @@ chart->set_HasRoundedCorners(true);
 presentation->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **Sunting Anotasi Bagan yang Ada**
+## **Sunting Anotasi Grafik yang Ada**
 
-Sebuah bagan dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk‑bentuk ini melalui [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), juga terdaftar di bawah [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) dalam Referensi API Bagan. Koleksi [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑nya berisi bentuk yang dimiliki bagan.
+Sebuah grafik dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk-bentuk ini melalui [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), juga terdaftar di bawah [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) dalam Referensi API Grafik. Koleksi [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑nya berisi bentuk‑bentuk yang dimiliki grafik.
 
-Sebuah kotak teks biasa yang ditempatkan di atas bagan termasuk ke slide, meskipun terlihat seperti bagian bagan. Menelusuri [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) menemukan bagan dan bentuk slide biasa, tetapi tidak mengenumerasikan bentuk individual di dalam bagan. Judul bagan dan label data merupakan elemen bagan terpisah, bukan anotasi khusus dalam koleksi ini.
+Kotak teks biasa yang diletakkan di atas grafik termasuk ke slide, meskipun tampak seperti bagian grafik. Iterasi melalui [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) menemukan grafik dan bentuk‑bentuk slide biasa, tetapi tidak mengenumerasi bentuk‑bentuk individu di dalam grafik. Judul grafik dan label data adalah elemen grafik terpisah, bukan anotasi khusus dalam koleksi ini.
 
-Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi bagan dengan anotasi tidak dikelompokkan berisi "Preliminary results", sebuah garis milik bagan, dan kotak teks slide biasa berisi "Slide overlay". Contoh ini menemukan bagan pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa koleksi kosong dan hanya menyunting sebuah [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) dengan [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) yang tidak null serta teks yang diharapkan.
+Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi grafik dengan anotasi tidak dikelompokkan berisi teks “Preliminary results”, sebuah garis milik grafik, dan kotak teks slide biasa berisi teks “Slide overlay”. Contoh menemukan grafik pertama pada slide tersebut dan mengubah anotasi menjadi “Final results” ketika laporan siap dipublikasikan. Contoh memeriksa apakah koleksi kosong dan hanya menyunting sebuah [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) yang memiliki [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) tidak null serta teks yang diharapkan.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -407,26 +491,26 @@ else
 }
 ```
 
-Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menunjukkan input dan hasil yang disimpan serta dibuka kembali:
+Garis dan kotak teks slide tetap tidak berubah. Gambar berikut memperlihatkan hasil sebelum dan sesudah penyimpanan ulang:
 
-| Sebelum penyuntingan | Setelah penyuntingan |
+| Sebelum menyunting | Setelah menyunting |
 | --- | --- |
-| ![Anotasi bagan membaca Hasil awal](chart-annotations-before.png) | ![Anotasi bagan membaca Hasil akhir](chart-annotations-after.png) |
+| ![Anotasi grafik bertuliskan Hasil sementara](chart-annotations-before.png) | ![Anotasi grafik bertuliskan Hasil akhir](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Contoh ini memeriksa hanya bentuk milik bagan pada tingkat atas. Jika sebuah anotasi berada di dalam sebuah [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), periksa juga koleksi [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) milik grup tersebut. Ulangi secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah kontainer; jangan perlakukan sebagai kotak teks.
+Contoh hanya memeriksa bentuk‑bentuk tingkat atas yang dimiliki grafik. Jika sebuah anotasi berada di dalam sebuah [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), periksa juga koleksi [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) pada grup tersebut. Ulangi secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah kontainer; jangan perlakukan sebagai kotak teks.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apakah saya dapat mengatur isian semi‑transparan untuk kolom/area sambil mempertahankan border tidak tembus pandang?**
+**Apakah saya dapat mengatur isi semi-transparan untuk kolom/area sambil mempertahankan batas tidak transparan?**
 
-Ya. Transparansi isian dan kontur dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan grid dan data dalam visualisasi yang padat.
+Ya. Transparansi isi dan outline dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
 
-**Bagaimana saya dapat menangani label data ketika mereka tumpang tindih?**
+**Bagaimana cara menangani label data ketika mereka saling tumpang tindih?**
 
-Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk titik yang dipilih jika diperlukan, atau ubah format menjadi "nilai + legenda".
+Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk titik yang dipilih bila perlu, atau ganti format menjadi “nilai + legenda”.
 
-**Apakah saya dapat menerapkan isian gradasi atau pola pada seri?**
+**Apakah saya dapat menerapkan isi gradien atau pola pada seri?**
 
-Ya. Seri mendukung isian padat, gradasi, dan pola. Secara praktis, gunakan gradasi secara hemat dan hindari kombinasi yang mengurangi kontras dengan grid dan teks.
+Ya. Seri mendukung isi padat, gradien, dan pola. Pada praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.

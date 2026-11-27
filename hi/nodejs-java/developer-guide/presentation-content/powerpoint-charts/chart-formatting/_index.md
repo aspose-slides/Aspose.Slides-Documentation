@@ -16,21 +16,23 @@ keywords:
 - PowerPoint
 - प्रस्तुति
 - Node.js
-- जावास्क्रिप्ट
+- JavaScript
 - Aspose.Slides
-description: "Aspose.Slides के लिए Node.js में जावा के माध्यम से चार्ट फ़ॉर्मेटिंग सीखें और कस्टम अक्ष, फ़ॉन्ट, संख्या स्वरूप और गोल चार्ट किनारों के साथ अपनी PowerPoint प्रस्तुति को उन्नत बनाएं।"
+description: "Aspose.Slides के लिए Node.js में जावास्क्रिप्ट के माध्यम से चार्ट फ़ॉर्मेटिंग सीखें और कस्टम अक्ष, फ़ॉन्ट, संख्या स्वरूप और गोल चार्ट किनारों के साथ अपनी PowerPoint प्रस्तुति को उन्नत बनाएँ।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फ़ॉर्मेट करने के बारे में बताता है। यह अक्ष, ग्रिड रेखाएँ, शीर्षक, लीजेंड, प्लॉट एरिया और वॉल भराव जैसे प्रमुख चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता को कैसे बेहतर बनाया जाए, यह दर्शाता है।
+यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फ़ॉर्मेट करने के बारे में बताता है। यह अक्ष, ग्रिड लाइनें, शीर्षक, लीजेंड, प्लॉट क्षेत्र और वॉल फ़िल्स जैसे प्रमुख चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता को बेहतर बनाना दर्शाता है।
 
-यह यह भी दिखाता है कि चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण कैसे सेट करें, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक स्वरूप कैसे लागू करें, और चार्ट एरिया के किनारों को गोल कैसे बनाएं। ये उदाहरण मिलकर प्रस्तुति में चार्ट के दृश्य शैली और डेटा प्रस्तुति दोनों को नियंत्रित करने के तरीके दिखाते हैं।
+यह भी दर्शाता है कि चार्ट टेक्स्ट के फ़ॉन्ट गुण कैसे सेट करें, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक प्रारूप कैसे लागू करें, और चार्ट क्षेत्र के लिए गोल कोने सक्षम कैसे करें। साथ में, ये उदाहरण दिखाते हैं कि प्रस्तुतिकरण में चार्ट की दृश्य शैली और डेटा प्रस्तुति दोनों को कैसे नियंत्रित करें।
 
-## **चार्ट इकाइयों को फ़ॉर्मेट करें**
+उठती और गिरती अंतरालों पर अलग-अलग फ़िल और रूपरेखा के लिए, देखें [स्टॉक चार्ट उदाहरण](/slides/hi/nodejs-java/create-chart/#create-stock-charts)।
 
-[चार्ट](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) का उपयोग करके चार्ट शीर्षक, अक्ष, ग्रिड रेखाएँ, लीजेंड और प्लॉट एरिया को फ़ॉर्मेट करें। यह उदाहरण मार्कर और डिफ़ॉल्ट डेटा वाला एक लाइन चार्ट बनाता है, फिर उसके मान और श्रेणी अक्षों पर अलग‑अलग टेक्स्ट और लाइन शैलियाँ लागू करता है। फ़ॉन्ट आकार और लाइन चौड़ाई पॉइंट में निर्दिष्ट की गई है; श्रेणी लेबल 45 डिग्री घुमाए गए हैं।
+## **चार्ट इकाइयों को स्वरूपित करें**
 
-मान अक्ष [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) को स्रोत कोशिकाओं से स्वतंत्र रूप से उपयोग करता है। इसका स्केल -2 से 15 तक है, प्रमुख अंतराल 2 और गौण अंतराल 0.5 है। यह उदाहरण प्रतिशत स्वरूप को [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) के साथ हजारों पर सेट करके भी जोड़ता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार अनुकूलित करें। लीजेंड प्लॉट एरिया के बाहर रहता है क्योंकि [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) को `false` किया गया है। बैक‑वॉल और फ़्लोर भराव को [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) और [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) के माध्यम से कॉन्फ़िगर किया जाता है, पर ये सतहें केवल 3D चार्ट में ही दिखाई देती हैं।
+चार्ट को फ़ॉर्मेट करने के लिए [चार्ट](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) का उपयोग करें। यह उदाहरण मार्कर और डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, फिर उसके मान और श्रेणी अक्षों पर अलग‑अलग टेक्स्ट और लाइन शैलियों को लागू करता है। फ़ॉन्ट आकार और लाइन चौड़ाई पॉइंट्स में निर्दिष्ट हैं; श्रेणी लेबल 45 डिग्री घुमाए गए हैं।
+
+मान अक्ष [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) का उपयोग स्रोत कोशिकाओं से स्वतंत्र रूप से करता है। इसका स्केल -2 से 15 तक है, प्रमुख अंतराल 2 और गौण अंतराल 0.5 हैं। उदाहरण प्रतिशत स्वरूपण को [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) के साथ हज़ारों पर सेट करके भी जोड़ता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार अनुकूलित करें। लीजेंड प्लॉट क्षेत्र के बाहर रहता है क्योंकि [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) को `false` के साथ बुलाया गया है। बैक‑वॉल और फ़्लोर फ़िल्स को क्रमशः [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) और [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) के माध्यम से कॉन्फ़िगर किया जाता है, लेकिन ये सतहें केवल 3D चार्ट में ही दिखाई देती हैं।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **एक चार्ट के लिए फ़ॉन्ट गुण सेट करें**
+## **चार्ट के लिए फ़ॉन्ट गुण सेट करें**
 
-[Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) के माध्यम से चार्ट टेक्स्ट के लिए डिफ़ॉल्ट फ़ॉन्ट आकार सेट करें। यह उदाहरण 20‑पॉइंट फ़ॉन्ट वाले एक क्लस्टर्ड कॉलम चार्ट बनाता है और पहले सीरीज़ के लिए [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) द्वारा मान लेबल सक्षम करता है। अपने स्वयं के स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट तत्व चार्ट के डिफ़ॉल्ट को ओवरराइड कर सकते हैं।
+[Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) के माध्यम से चार्ट टेक्स्ट के लिए डिफ़ॉल्ट फ़ॉन्ट आकार सेट करें। उदाहरण 20‑पॉइंट फ़ॉन्ट के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और पहले सीरीज़ के लिए [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) के द्वारा मान लेबल सक्षम करता है। अपने स्वयं के स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट तत्व चार्ट के डिफ़ॉल्ट को अधिलेखित कर सकते हैं।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **चार्ट लीजेंड के लिए टेक्स्ट फ्रेम स्वरूपण पुनः उपयोग करें**
+
+स्लाइड शीर्षक से मेल खाने के लिए, पहले पैरा‍ग्राफ़ पर [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) के माध्यम से शीर्षक का फ़ॉन्ट सेट करें। लीजेंड के [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat) द्वारा लौटाए गए स्वरूप पर [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) को कॉल करें। यह टेक्स्ट फ्रेम सेटिंग्स, पहले पैराग्राफ की फ़ॉर्मेटिंग और उस पैराग्राफ के डिफ़ॉल्ट फ़ॉन्ट गुणों को कॉपी करता है। व्यक्तिगत हिस्सों या बाद के पैराग्राफ़ पर सीधे लागू फ़ॉर्मेटिंग स्रोत पर बनी रहती है।
+
+उदाहरण एक मोटे, 26‑पॉइंट Calibri शीर्षक को नेवी रंग में टेम्पलेट के रूप में उपयोग करता है। लीजेंड को स्टाइल करने के बाद, यह समान फ़ॉर्मेटिंग को एक अलग कैप्शन पर लागू करने के लिए [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) को कॉल करता है।
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+सहेजी गई प्रस्तुति में, लीजेंड और कैप्शन आकार, वजन और रंग में शीर्षक से मेल खाते हैं। लीजेंड अभी भी सीरीज़ नाम दिखाता है, और कैप्शन अपना स्वयं का टेक्स्ट रखता है। यदि कैप्शन में कोई हिस्सा पहले से स्पष्ट फ़ॉन्ट आकार रखता है, तो वह आकार कॉपी किए गए पैराग्राफ़ डिफ़ॉल्ट पर प्राथमिकता लेगा।
+
+| Before copying | After copying |
+| --- | --- |
+| ![त्रैमासिक बिक्री चार्ट जिसमें नियमित काले लीजेंड लेबल और काली कैप्शन है](legend-formatting-before.png) | ![एक ही चार्ट जिसमें बड़े, मोटे नेवी लीजेंड लेबल और मिलते हुए कैप्शन हैं](legend-formatting.png) |
+
 ## **संख्यात्मक स्वरूप सेट करें**
 
-[ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) का उपयोग करके चार्ट वर्कबुक कोशिकाओं पर निर्मित संख्या स्वरूप लागू करें। यह उदाहरण डिफ़ॉल्ट, सेल‑बैक्ड डेटा वाला एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रत्येक सीरीज़ मान कोशिका पर स्वरूप सूचकांक 10 (`0.00%`) लागू करता है। यह वर्कबुक में मानों के प्रदर्शित रूप को बदलता है बिना मूल संख्याओं को बदले; उदाहरण के लिए, 0.25 को 25.00% के रूप में दिखाया जाएगा। अक्ष और डेटा‑लेबल स्वरूप को अलग‑अलग कॉन्फ़िगर किया जा सकता है।
+[ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) का उपयोग करके चार्ट वर्कबुक कोशिकाओं पर बिल्ट‑इन संख्या स्वरूप लागू करें। यह उदाहरण डिफ़ॉल्ट, सेल‑बैक्ड डेटा के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रत्येक सीरीज़ मान कोशिका पर स्वरूप सूचकांक 10 (`0.00%`) लागू करता है। इससे वर्कबुक में मानों का प्रदर्शन बदलता है जबकि अंतर्निहित संख्या नहीं बदलती; उदाहरण के लिये, 0.25 को 25.00% दिखाया जाता है। अक्ष और डेटा‑लेबल स्वरूप को अलग‑अलग कॉन्फ़िगर किया जा सकता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,9 +254,9 @@ try {
 }
 ```
 
-नीचे तालिका में अंग्रेज़ी (संयुक्त राज्य) लोकेल के प्रतिनिधि Excel स्वरूपों के साथ निर्मित संख्या स्वरूप सूचकांक सूचीबद्ध हैं। सटीक स्वरूप स्ट्रिंग्स और उनका प्रदर्शन अनुप्रयोग और लोकेल के अनुसार बदल सकता है, विशेषकर मुद्रा और तिथि के लिए। कुछ Excel स्वरूप OOXML मानक के डिफ़ॉल्ट से भी अलग होते हैं, जैसा कि [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
+निम्न तालिका इंग्लिश (United States) लोकैल के लिए प्रतिनिधि Excel स्वरूपों के साथ बिल्ट‑इन संख्या स्वरूप सूचकांकों को दर्शाती है। सटीक स्वरूप स्ट्रिंग और उनका प्रदर्शन अनुप्रयोग और लोकैल के अनुसार बदल सकता है, विशेष रूप से मुद्रा और तिथि के लिए। कुछ Excel स्वरूप OOXML मानक के डिफ़ॉल्ट से भी भिन्न होते हैं, जैसा कि [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
 
-| Index | Format |
+| सूचकांक | स्वरूप |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -241,7 +297,7 @@ try {
 
 ## **चार्ट क्षेत्र के गोल किनारे सेट करें**
 
-[Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) को `true` के साथ कॉल करके चार्ट क्षेत्र के किनारों को गोल करें। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और उसके रूपरेखा को ठोस ग्रे रंग तथा सिंगल‑लाइन शैली देने के लिए [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) का उपयोग करता है, फिर प्रस्तुति को सहेजता है।
+[Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) को `true` के साथ कॉल करके चार्ट क्षेत्र के कोनों को गोल करें। उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) का उपयोग करके उसकी रूपरेखा को ठोस ग्रे रंग और सिंगल‑लाइन शैली देता है, फिर प्रस्तुति सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -263,13 +319,13 @@ try {
 }
 ```
 
-## **मौजूदा चार्ट एनोटेशन संपादित करें**
+## **मौजूदा चार्ट टिप्पणी संपादित करें**
 
-एक चार्ट में कस्टम आकार, जैसे रिपोर्ट की स्थिति बताने वाला टेक्स्ट एनोटेशन, हो सकता है। इन आकारों तक पहुंचने के लिए [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) का प्रयोग करें। [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) द्वारा लौटाई गई संग्रह में चार्ट‑स्वामित्व वाले आकार शामिल होते हैं।
+एक चार्ट में कस्टम आकार हो सकते हैं, जैसे कि रिपोर्ट की स्थिति समझाने वाला टेक्स्ट एनोटेशन। इन आकारों तक पहुंचने के लिए [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) का उपयोग करें। [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) द्वारा लौटाए गए संग्रह में चार्ट‑स्वामित्व वाले आकार होते हैं।
 
-एक साधारण टेक्स्ट बॉक्स जो चार्ट के ऊपर रखा गया है वह स्लाइड का हिस्सा रहता है, भले ही वह चार्ट का हिस्सा जैसा दिखे। [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) के माध्यम से इटरिट करने से चार्ट और साधारण स्लाइड आकार मिलते हैं, पर चार्ट के भीतर व्यक्तिगत आकारों की सूची नहीं बनती। चार्ट शीर्षक और डेटा लेबल अलग‑अलग चार्ट तत्व हैं, न कि इस संग्रह में कस्टम एनोटेशन।
+एक सामान्य टेक्स्ट बॉक्स जो चार्ट के ऊपर रखा गया हो, वह स्लाइड से संबंधित होता है, भले ही वह चार्ट का हिस्सा दिखे। [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) के माध्यम से इटरेट करने पर चार्ट और सामान्य स्लाइड आकार मिलते हैं, लेकिन चार्ट के भीतर व्यक्तिगत आकार नहीं गिने जाते। चार्ट शीर्षक और डेटा लेबल अलग‑अलग चार्ट तत्व होते हैं, न कि इस संग्रह में कस्टम एनोटेशन।
 
-[chart-annotations.pptx](chart-annotations.pptx) डाउनलोड करें और उसे एप्लिकेशन की कार्यशील निर्देशिका में रखें। इसकी पहली स्लाइड में एक चार्ट है जिसमें अनग्रुप्ड एनोटेशन "Preliminary results", एक चार्ट‑स्वामित्व वाली रेखा और एक साधारण स्लाइड टेक्स्ट बॉक्स "Slide overlay" है। उदाहरण पहले चार्ट को ढूँढता है और रिपोर्ट प्रकाशित होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली संग्रह की जाँच करता है और केवल उस [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) को संपादित करता है जिसका टेक्स्ट फ्रेम [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) द्वारा गैर‑null लौटाया गया हो और अपेक्षित टेक्स्ट हो।
+[chart-annotations.pptx](chart-annotations.pptx) डाउनलोड करके इसे एप्लिकेशन की कार्य निर्देशिका में रखें। इसकी पहली स्लाइड में एक चार्ट है जिसमें अनग्रुप्ड एनोटेशन "Preliminary results", चार्ट‑स्वामित्व वाली रेखा, और एक सामान्य स्लाइड टेक्स्ट बॉक्स "Slide overlay" है। उदाहरण उस स्लाइड पर पहला चार्ट ढूँढता है और रिपोर्ट प्रकाशित होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली संग्रह की जाँच करता है और केवल उन [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) को संपादित करता है जिनका टेक्स्ट फ़्रेम [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) द्वारा गैर‑null लौटाया गया हो और जिसकी सामग्री अपेक्षित हो।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,26 +371,26 @@ try {
 }
 ```
 
-रेखा और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहते हैं। नीचे की छवियों में इनपुट और सहेजा गया, पुनः खोला गया परिणाम दिखाया गया है:
+रेखा और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहते हैं। इनपुट और सहेजे गए, पुनः खोलने योग्य परिणाम नीचे दिखाए गए हैं:
 
-| Editing से पहले | Editing के बाद |
+| Before editing | After editing |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![प्रारंभिक परिणाम दर्शाने वाली चार्ट टिप्पणी](chart-annotations-before.png) | ![अंतिम परिणाम दर्शाने वाली चार्ट टिप्पणी](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-उदाहरण केवल शीर्ष‑स्तर के चार्ट‑स्वामित्व वाले आकारों की जाँच करता है। यदि कोई एनोटेशन किसी [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) के भीतर है, तो उस समूह के [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) संग्रह को भी जाँचें। नेस्टेड समूहों के लिए इसे पुनरावृत्त रूप से करें, और उनके चाइल्ड आकारों पर समान टेक्स्ट जाँच लागू करें। समूह स्वयं एक कंटेनर है; इसे टेक्स्ट बॉक्स मानकर नहीं चलें।
+उदाहरण केवल शीर्ष‑स्तरीय चार्ट‑स्वामित्व वाले आकारों की जांच करता है। यदि कोई एनोटेशन किसी [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) के भीतर है, तो उस समूह की [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) संग्रह की भी जांच करें। नेस्टेड समूहों के लिए यह प्रक्रिया पुनरावर्ती रूप से दोहराएँ, उनके बाल आकारों पर समान टेक्स्ट जाँच लागू करें। एक समूह स्वयं एक कंटेनर है; इसे टेक्स्ट बॉक्स के रूप में न देखें।
 {{% /alert %}}
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं कॉलम/एरिया के लिए अर्द्ध‑पारदर्शी भराव सेट कर सकता हूँ जबकि सीमा को अपारदर्शी रखूँ?**
+**क्या मैं कॉलम/क्षेत्रों के लिए अर्द्ध‑पारदर्शी फ़िल सेट कर सकता हूँ जबकि किनारा अपारदर्शी बना रहे?**
 
-हां। भराव की पारदर्शिता और रूपरेखा को अलग‑अलग कॉन्फ़िगर किया जाता है। यह ग्रिड और घनी विज़ुअलाइज़ेशन में डेटा की पठनीयता सुधारने में सहायक है।
+हाँ। फ़िल पारदर्शिता और रूपरेखा को अलग‑अलग कॉन्फ़िगर किया जाता है। यह घने दृश्यावलियों में ग्रिड और डेटा की पठनीयता सुधारने में उपयोगी है।
 
 **डेटा लेबल ओवरलैप होने पर मैं क्या करूँ?**
 
-फ़ॉन्ट आकार घटाएँ, गैर‑आवश्यक लेबल घटकों को अक्षम करें (जैसे श्रेणियों को), लेबल की स्थिति समायोजित करें, आवश्यकता पड़ने पर केवल चयनित बिंदुओं के लिए लेबल दिखाएँ, या स्वरूप को "value + legend" में बदलें।
+फ़ॉन्ट आकार घटाएँ, गैर‑जरूरी लेबल घटकों (जैसे श्रेणियां) को निष्क्रिय करें, लेबल की स्थिति समायोजित करें, आवश्यक होने पर केवल चयनित बिंदुओं के लिए लेबल दिखाएँ, या स्वरूप को “value + legend” में बदलें।
 
-**क्या मैं सीरीज़ पर ग्रेडिएंट या पैटर्न भराव लागू कर सकता हूँ?**
+**क्या मैं श्रृंखलाओं पर ग्रेडिएंट या पैटर्न फ़िल लागू कर सकता हूँ?**
 
-हां। सीरीज़ ठोस, ग्रेडिएंट और पैटर्न भराव का समर्थन करती हैं। वास्तविक उपयोग में ग्रेडिएंट का सीमित उपयोग करें और ऐसे संयोजन से बचें जो ग्रिड और टेक्स्ट के साथ कंट्रास्ट घटा दें।
+हाँ। श्रृंखलाएँ ठोस, ग्रेडिएंट और पैटर्न फ़िल का समर्थन करती हैं। व्यवहार में, ग्रेडिएंट को सीमित रूप में उपयोग करें और ऐसी संयोजन से बचें जो ग्रिड और टेक्स्ट के साथ कंट्रास्ट घटा दें।

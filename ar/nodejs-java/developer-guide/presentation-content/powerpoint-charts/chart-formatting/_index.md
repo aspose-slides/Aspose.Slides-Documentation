@@ -1,12 +1,12 @@
 ---
 title: تنسيق مخططات العرض التقديمي في JavaScript
-linktitle: تنسيق المخططات
+linktitle: تنسيق المخطط
 type: docs
 weight: 60
 url: /ar/nodejs-java/chart-formatting/
 keywords:
 - تنسيق المخطط
-- تنسيق المخططات
+- تنسيق المخطط
 - كيان المخطط
 - خصائص المخطط
 - إعدادات المخطط
@@ -14,23 +14,25 @@ keywords:
 - خصائص الخط
 - حد مستدير
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعلم تنسيق المخططات في Aspose.Slides لـ Node.js عبر Java وارتقِ بعرض PowerPoint التقديمي باستخدام محاور مخصصة، وخطوط، وتنسيقات رقمية، وحدود مخطط مستديرة."
+description: "تعلم تنسيق المخططات في Aspose.Slides لـ Node.js عبر Java وارتقِ بعرض PowerPoint الخاص بك باستخدام محاور مخصصة، خطوط، تنسيقات رقمية، وحدود مخطط مستديرة."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. تظهر كيفية تخصيص عناصر المخطط الرئيسية مثل المحاور وخطوط الشبكة والعناوين والأساطير ومنطقة الرسم وتعبئة الجدران لتحسين مظهر البيانات وقابلية قراءتها.
+توضح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. تُظهر كيفية تخصيص عناصر المخطط الأساسية مثل المحاور، وخطوط الشبكة، والعناوين، والأساطير، ومنطقة الرسم، وتعبئات الجدران لتحسين مظهر البيانات وقابليتها للقراءة.
 
-كما توضح كيفية تعيين خصائص الخط لنص المخطط، وتطبيق تنسيقات رقمية معدة مسبقًا على بيانات المخطط، وتمكين زوايا مستديرة لمنطقة المخطط. تُظهر هذه الأمثلة معًا كيفية التحكم في كل من النمط البصري وعرض البيانات للمخططات في العرض التقديمي.
+كما تُظهر كيفية ضبط خصائص الخط لنص المخطط، وتطبيق تنسيقات رقمية مُعدة مسبقًا على بيانات المخطط، وتمكين الزوايا المستديرة لمنطقة المخطط. معًا، تُظهر هذه الأمثلة كيفية التحكم في كل من النمط البصري وعرض البيانات للمخططات في العرض التقديمي.
 
-## **تنسيق كيانات المخطط**
+للحصول على تعبئات وتحديدات منفصلة للفترات الصاعدة والهابطة، راجع [مثال مخطط الأسهم](/slides/ar/nodejs-java/create-chart/#create-stock-charts).
 
-استخدم [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) لتنسيق عناوين المخطط والمحاور وخطوط الشبكة والأساطير ومنطقة الرسم. يخلق هذا المثال مخططًا خطيًا مع علامات ونقاط بيانات افتراضية، ثم يطبق أنماط نصية وخطية منفصلة على محوري القيمة والفئة. يتم تحديد أحجام الخطوط وعروض الخطوط بالنقاط؛ وتُدوَّر تسميات الفئة بزاوية 45 درجة.
+## **تنسيق كائنات المخطط**
 
-يستخدم محور القيمة الدالة [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) بشكل مستقل عن الخلايا المصدرية. يمتد مقياسه من -2 إلى 15، مع فواصل رئيسية مقدارها 2 وفواصل فرعية مقدارها 0.5. يجمع المثال أيضًا بين تنسيق النسبة المئوية واستخدام [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) إلى الآلاف، لذا قم بتكييف هذه الإعدادات وفقًا لمعنى وحجم بياناتك. تبقى الأسطورة خارج منطقة الرسم لأن [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) تُستدعى بالـ `false`. يتم تكوين تعبئة الجدار الخلفي والأرضية عبر [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) و [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor)، لكن هذه الأسطح لا تُظهر إلا في المخططات ثلاثية الأبعاد.
+استخدم [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) لتنسيق عناوين المخطط، والمحاور، وخطوط الشبكة، والأساطير، ومنطقة الرسم. تُنشئ هذه المثال مخططًا خطيًا مع علامات وبيانات افتراضية، ثم تطبق أنماط نص وخط منفصلة على محوري القيمة والفئة. يتم تحديد أحجام الخطوط وعرض الخطوط بالنقاط؛ تُدوَّر تسميات الفئة بزاوية 45 درجة.
+
+يستخدم محور القيمة الدالة [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) بشكل مستقل عن خلايا المصدر. يمتد نطاقه من -2 إلى 15، مع فواصل رئيسية قدرها 2 وفواصل فرعية قدرها 0.5. يجمع المثال أيضًا تنسيق النسبة المئوية مع الدالة [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) المضبوطة على الآلاف، لذا يجب تعديل هذه الإعدادات وفقًا لمعنى وحجم البيانات الخاصة بك. يبقى الأسطورة خارج منطقة الرسم لأن الدالة [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) تُستدعى بقيمة `false`. يتم تكوين تعبئات الجدار الخلفي والأرضية عبر [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) و [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor)، ولكن هذه الأسطح تُظهر فقط في المخططات ثلاثية الأبعاد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **تعيين خصائص الخط لمخطط**
+## **تعيين خصائص الخط للمخطط**
 
-عيّن حجم الخط الافتراضي لنص المخطط عبر [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). يخلق المثال مخطط أعمدة مجمع بحجم خط 20 نقطة ويفعل تسميات القيم للسلسلة الأولى عبر [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). يمكن لعناصر النص التي لديها إعدادات خط صريحة أن تتجاوز الإعداد الافتراضي للمخطط.
+قم بتعيين حجم الخط الافتراضي لنص المخطط عبر [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). تُنشئ هذه المثال مخطط أعمدة متجمع بحجم خط 20 نقطة وتُمكّن تسميات القيم للسلسلة الأولى عبر [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). يمكن لعناصر النص التي لديها إعدادات خط صريحة خاصة بها أن تتجاوز الإعداد الافتراضي للمخطط.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **إعادة استخدام تنسيق إطار النص لوسيلة إيضاح المخطط**
+
+لمطابقة وسيلة الإيضاح مع عنوان الشريحة، قم بضبط خط العنوان عبر [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) في الفقرة الأولى. استدعِ الدالة [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) على التنسيق الذي تُرجعه وسيلة الإيضاح من [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat). يقوم بنسخ إعدادات إطار النص، وتنسيق الفقرة الأولى، وخصائص الخط الافتراضية لتلك الفقرة. يبقى التنسيق المطبّق مباشرة على أجزاء فردية أو على فقرات لاحقة محليًا على المصدر.
+
+تستخدم المثال عنوانًا بCalibri غامق بحجم 26 نقطة وباللون النيلي كنموذج. بعد تنسيق وسيلة الإيضاح، تستدعي الدالة [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) لتطبيق نفس التنسيق على تسمية توضيحية منفصلة.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+في العرض التقديمي المحفوظ، تتطابق وسيلة الإيضاح والتسمية التوضيحية مع العنوان من حيث الحجم والوزن واللون. لا تزال وسيلة الإيضاح تعرض أسماء السلاسل، وتحتفظ التسمية التوضيحية بنصها الخاص. إذا كان هناك جزء في التسمية التوضيحية يملك حجم خط صريحًا مسبقًا، فإن ذلك الحجم يحظى بالأولوية على الإعداد الافتراضي للفقرة المنسوخة.
+
+| قبل النسخ | بعد النسخ |
+| --- | --- |
+| ![مخطط مبيعات ربع سنوية مع تسميات وسيلة إيضاح سوداء عادية وتسمية توضيحية سوداء](legend-formatting-before.png) | ![نفس المخطط مع تسميات وسيلة إيضاح أكبر، غامقة، باللون النيلي وتسمية توضيحية متطابقة](legend-formatting.png) |
+
 ## **تعيين التنسيق الرقمي**
 
-استخدم [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) لتطبيق تنسيق رقم مدمج على خلايا دفتر عمل المخطط. يُنشئ هذا المثال مخطط أعمدة مجمع ببيانات افتراضية مدعومة بالخلية ويطبق فهرس التنسيق 10 (`0.00%`) على كل خلية قيمة للسلسلة. يغير هذا طريقة عرض القيم في دفتر العمل دون تعديل الأرقام الأساسية؛ على سبيل المثال، تُعرض 0.25 كـ 25.00%. يمكن تكوين تنسيقات المحور وتنسيقات تسميات البيانات بشكل منفصل.
+استخدم [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) لتطبيق تنسيق رقمي مدمج على خلايا دفتر عمل المخطط. تُنشئ هذه المثال مخطط أعمدة متجمع ببيانات افتراضية مدعومة بالخلية وتطبق فهرس التنسيق 10 (`0.00%`) على كل خلية قيمة للمتسلسلة. يُغيّر هذا طريقة عرض القيم في دفتر العمل دون تعديل الأرقام الأساسية؛ على سبيل المثال، يتم عرض 0.25 كـ 25.00٪. يمكن تكوين تنسيقات المحاور وتسمية البيانات بشكل منفصل.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,7 +254,7 @@ try {
 }
 ```
 
-القائمة التالية تسرد فهارس تنسيقات الأرقام المدمجة مع تنسيقات Excel التمثيلية للمنطقة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق الدقيقة وعرضها حسب التطبيق والمنطقة، خاصةً للعملات والتواريخ. بعض تنسيقات Excel تختلف أيضًا عن الإعدادات الافتراضية في معيار OOXML، كما هو موضح في [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+القائمة التالية تُظهر مؤشرات تنسيقات الأرقام المدمجة مع صيغ Excel النموذجية للغة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق وعرضها حسب التطبيق والمنطقة، خاصةً بالنسبة للعملة والتواريخ. بعض صيغ Excel تختلف أيضًا عن القيم الافتراضية في معيار OOXML، كما هو موضح في [ملاحظات تنفيذ تنسيق الأرقام من مايكروسوفت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | المؤشر | التنسيق |
 | --- | --- |
@@ -241,7 +297,7 @@ try {
 
 ## **تعيين حدود مستديرة لمنطقة المخطط**
 
-استدعِ [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) مع `true` لجعل زوايا منطقة المخطط مستديرة. يُنشئ المثال مخطط أعمدة مجمع ويستخدم [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) لإعطاء حدوده لونًا رماديًا صلبًا ونمط خط واحد قبل حفظ العرض التقديمي.
+استدعِ الدالة [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) مع القيمة `true` لتقويس زوايا منطقة المخطط. تُنشئ هذه المثال مخطط أعمدة متجمع وتستخدم [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) لإعطاء حدوده لونًا رماديًا صلبًا ونمط خط أحادي قبل حفظ العرض التقديمي.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -263,13 +319,13 @@ try {
 }
 ```
 
-## **تحرير التعليقات التوضيحية للمخطط الموجودة**
+## **تحرير تعليقات المخطط الحالية**
 
-يمكن أن يحتوي المخطط على أشكال مخصصة، مثل تعليق نصي يوضح حالة تقرير. يمكنك الوصول إلى هذه الأشكال عبر [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). المجموعة التي تُرجعها [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) تحتوي على الأشكال المملوكة للمخطط.
+يمكن أن يحتوي المخطط على أشكال مخصصة، مثل ملاحظة نصية تشرح حالة تقرير. يمكن الوصول إلى هذه الأشكال عبر [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). المجموعة التي تُرجعها الدالة [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) تحتوي على الأشكال المملوكة للمخطط.
 
-مربع النص العادي الموضوع فوق المخطط يخص الشريحة، حتى وإن بدا كجزء من المخطط. يكتشف التكرار عبر [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) المخطط والأشكال العادية للشريحة، لكنه لا يُدرج الأشكال الفردية داخل المخطط. عناوين المخطط وتسميات البيانات هي عناصر مخطط منفصلة، ليست تعليقات توضيحية مخصصة في هذه المجموعة.
+صناديق النص العادية الموضوعة فوق المخطط تنتمي إلى الشريحة، حتى لو بدت كجزء من المخطط. يؤدي التكرار عبر [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) إلى العثور على المخطط وأشكال الشريحة العادية، لكنه لا يسرد الأشكال الفردية داخل المخطط. عناوين المخطط وتسمية البيانات هي عناصر مخطط منفصلة، وليست ملاحظات مخصصة في هذه المجموعة.
 
-قم بتنزيل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل العمل الخاص بالتطبيق. تحتوي شريحته الأولى على مخطط مع تعليق غير مجموع يُظهر "Preliminary results"، وخط مملوك للمخطط، ومربع نص شريحة عادي يُظهر "Slide overlay". يتعرف المثال على أول مخطط في تلك الشريحة ويغيّر التعليق إلى "Final results" عندما يصبح التقرير جاهزًا للنشر. يتحقق من أن المجموعة ليست فارغة ويعدل فقط [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) التي تُعيد إطار نص غير فارغ عبر [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) والنص المتوقع.
+قم بتنزيل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل العمل الخاص بالتطبيق. تحتوي الشريحة الأولى على مخطط مع ملاحظة غير مجمعة تحمل النص "النتائج الأولية"، وخط مملوك للمخطط، وصندوق نص عادي على الشريحة يحمل النص "تراكب الشريحة". يجد المثال أول مخطط في تلك الشريحة ويغيّر الملاحظة إلى "النتائج النهائية" عندما يكون التقرير جاهزًا للنشر. يتحقق من وجود مجموعة فارغة ولا يحرّر إلا [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) يحتوي على إطار نص غير فارغ تُرجعه الدالة [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) والنص المتوقع.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,26 +371,28 @@ try {
 }
 ```
 
-يبقى الخط ومربع النص الشريحة كما هو دون تغيير. تُظهر الصور التالية الإدخال والنتيجة المحفوظة بعد إعادة الفتح:
+يبقى الخط وصندوق نص الشريحة دون تغيير. توضح الصور التالية الإدخال والنتيجة المحفوظة والمفتوحة مرة أخرى:
 
 | قبل التعديل | بعد التعديل |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![ملاحظة مخطط تُظهر "النتائج الأولية"](chart-annotations-before.png) | ![ملاحظة مخطط تُظهر "النتائج النهائية"](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-يفحص المثال فقط الأشكال المملوكة للمخطط على المستوى الأعلى. إذا كان هناك تعليق داخل [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/)، فافحص مجموعة [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) الخاصة بها أيضًا. كرّر ذلك بصورة متكررة للمجموعات المتداخلة، مع تطبيق نفس فحوصات النص على الأشكال الفرعية. المجموعة نفسها حاوية؛ لا تعاملها كصندوق نص.
+
+المثال يفحص فقط الأشكال المملوكة للمخطط في المستوى العلوي. إذا كانت الملاحظة داخل [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/)، فافحص مجموعة [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) كذلك. كرر ذلك بشكل متكرر للمجموعات المتداخلة، مطبقًا نفس فحوصات النص على الأشكال التابعة لها. المجموعة نفسها حاوية؛ لا تعاملها كصندوق نص.
+
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني تعيين تعبئة نصف شفافة للأعمدة/المناطق مع الحفاظ على الحد غير شفاف؟**
+**هل يمكنني تعيين تعبئات شبه شفافة للأعمدة/المناطق مع الحفاظ على الحدود غير شفافة؟**
 
-نعم. تُضبط شفافية التعبئة والحد الخارجي بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
+نعم. يتم تكوين شفافية التعبئة والحدود بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
 
-**كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
+**كيف يمكنني التعامل مع تسميات البيانات عند تداخلها؟**
 
-قلل حجم الخط، أو عطل مكونات التسمية غير الضرورية (مثل الفئات)، أو اضبط موضع التسمية، أو اعرض التسميات فقط للنقاط المختارة إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + الأسطورة".
+قلل حجم الخط، عطل مكونات التسمية غير الضرورية (مثلاً الفئات)، ضبط موضع التسمية، إظهار التسميات فقط للنقاط المختارة إذا لزم الأمر، أو غير الصيغة إلى "القيمة + الأسطورة".
 
-**هل يمكنني تطبيق تعبئة تدرج لوني أو نمط على السلاسل؟**
+**هل يمكنني تطبيق تعبئات تدرجية أو بنمط على السلاسل؟**
 
-نعم. تدعم السلاسل تعبئات صلبة، وتدرجات لونية، ونقوش. في الممارسة العملية، استخدم التدرجات باعتدال وتجنّب الجمع بينها بحيث لا يقلل التباين مع الشبكة والنص.
+نعم. تدعم السلاسل تعبئات صلبة، وتدرجية، وبنمط. في التطبيق العملي، استخدم التدرجات باعتدال وتجنب التركيبات التي تقلل التباين مع الشبكة والنص.

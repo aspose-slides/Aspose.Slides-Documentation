@@ -1,5 +1,5 @@
 ---
-title: Formattare i grafici della presentazione in PHP
+title: Formattare i grafici delle presentazioni in PHP
 linktitle: Formattazione del grafico
 type: docs
 weight: 60
@@ -17,19 +17,21 @@ keywords:
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Impara la formattazione dei grafici in Aspose.Slides per PHP tramite Java e migliora la tua presentazione PowerPoint con assi personalizzati, caratteri, formati numerici e bordi arrotondati dei grafici."
+description: "Impara la formattazione dei grafici in Aspose.Slides per PHP via Java e migliora la tua presentazione PowerPoint con assi personalizzati, caratteri, formati numerici e bordi arrotondati del grafico."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come formattare i grafici nelle presentazioni PowerPoint utilizzando Aspose.Slides. Mostra come personalizzare gli elementi chiave del grafico, come assi, linee della griglia, titoli, legende, area del grafico e riempimenti delle pareti, per migliorare l'aspetto e la leggibilità dei dati del grafico.
+Questo articolo spiega come formattare i grafici nelle presentazioni PowerPoint utilizzando Aspose.Slides. Mostra come personalizzare gli elementi chiave del grafico, come assi, linee della griglia, titoli, legende, area del grafico e riempimenti delle pareti, per migliorare l’aspetto e la leggibilità dei dati del grafico.
 
-Dimostra inoltre come impostare le proprietà del carattere per il testo del grafico, applicare formati numerici predefiniti ai dati del grafico e abilitare gli angoli arrotondati per l'area del grafico. Insieme, questi esempi mostrano come controllare sia lo stile visivo sia la presentazione dei dati dei grafici in una presentazione.
+Dimostra inoltre come impostare le proprietà del carattere per il testo del grafico, applicare formati numerici predefiniti ai dati del grafico e abilitare gli angoli arrotondati per l’area del grafico. Insieme, questi esempi mostrano come controllare sia lo stile visivo sia la presentazione dei dati dei grafici in una presentazione.
+
+Per riempimenti e contorni separati su intervalli in aumento e diminuzione, vedere l’[esempio di grafico azionario](/slides/it/php-java/create-chart/#create-stock-charts).
 
 ## **Formattare le Entità del Grafico**
 
-Usa [Grafico](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) per formattare i titoli del grafico, gli assi, le linee della griglia, le legende e l'area del grafico. Questo esempio crea un grafico a linee con marcatori e dati predefiniti, quindi applica stili di testo e di linea separati ai suoi assi dei valori e delle categorie. Le dimensioni del carattere e le larghezze delle linee sono specificate in punti; le etichette delle categorie sono ruotate di 45 gradi.
+Usa [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) per formattare titoli del grafico, assi, linee della griglia, legende e area del grafico. Questo esempio crea un grafico a linee con marcatori e dati predefiniti, quindi applica stili di testo e di linea separati ai suoi assi dei valori e delle categorie. Le dimensioni dei caratteri e gli spessori delle linee sono specificati in punti; le etichette delle categorie sono ruotate di 45 gradi.
 
-L'asse dei valori utilizza [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) in modo indipendente dalle celle di origine. La sua scala va da -2 a 15, con intervalli principali di 2 e intervalli secondari di 0,5. L'esempio combina anche la formattazione percentuale con [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) impostato su migliaia, quindi adatta queste impostazioni al significato e alla grandezza dei tuoi dati. La legenda rimane fuori dall'area del grafico perché [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) è chiamato con `false`. I riempimenti del retro e del pavimento sono configurati tramite [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) e [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), ma queste superfici sono visibili solo nei grafici 3D.
+L’asse dei valori utilizza [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) in modo indipendente dalle celle di origine. La sua scala va da -2 a 15, con intervalli principali di 2 e intervalli secondari di 0,5. L’esempio combina anche la formattazione percentuale con [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) impostata su migliaia, quindi adatta queste impostazioni al significato e alla grandezza dei tuoi dati. La legenda rimane fuori dall’area del grafico perché [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) è chiamato con `false`. I riempimenti del retro-parete e del pavimento sono configurati tramite [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) e [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor), ma queste superfici sono visibili solo nei grafici 3D.
 
 ```php
 use aspose\slides\ChartType;
@@ -157,7 +159,7 @@ try {
 
 ## **Impostare le Proprietà del Carattere per un Grafico**
 
-Imposta la dimensione predefinita del carattere per il testo del grafico tramite [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). L'esempio crea un grafico a colonne raggruppate con un carattere da 20 punti e abilita le etichette dei valori per la prima serie tramite [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Gli elementi di testo con impostazioni di carattere esplicite possono sovrascrivere il valore predefinito del grafico.
+Imposta la dimensione predefinita del carattere per il testo del grafico tramite [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat). L’esempio crea un grafico a colonne raggruppate con un carattere da 20 punti e abilita le etichette dei valori per la prima serie tramite [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). Gli elementi di testo con impostazioni di carattere esplicite possono sovrascrivere il valore predefinito del grafico.
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
+## **Riutilizzare la Formattazione del Riquadro di Testo per la Legenda del Grafico**
+
+Per far corrispondere una legenda al titolo diapositive, imposta il carattere del titolo tramite [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) sul primo paragrafo. Chiama [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) sul formato restituito da [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) della legenda. Copia le impostazioni del riquadro di testo, la formattazione del primo paragrafo e le proprietà di carattere predefinite di quel paragrafo. La formattazione applicata direttamente a singole porzioni o a paragrafi successivi rimane locale alla sorgente.
+
+L’esempio utilizza un titolo in grassetto, Calibri da 26 punti, color navy come modello. Dopo aver stilizzato la legenda, chiama [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) per applicare la stessa formattazione a una didascalia separata.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Nella presentazione salvata, la legenda e la didascalia corrispondono al titolo per dimensione, peso e colore. La legenda continua a mostrare i nomi delle serie, e la didascalia mantiene il proprio testo. Se una porzione nella didascalia ha già una dimensione del carattere esplicita, tale dimensione ha la precedenza sul valore predefinito del paragrafo copiato.
+
+| Prima della copia | Dopo la copia |
+| --- | --- |
+| ![Grafico vendite trimestrali con etichette legenda nere regolari e didascalia nera](legend-formatting-before.png) | ![Lo stesso grafico con etichette legenda navy più grandi, in grassetto, e didascalia corrispondente](legend-formatting.png) |
+
 ## **Impostare il Formato Numerico**
 
-Utilizza [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) per applicare un formato numerico predefinito alle celle della cartella di lavoro del grafico. Questo esempio crea un grafico a colonne raggruppate con dati predefiniti basati su celle e applica l'indice di formato 10 (`0.00%`) a ciascuna cella di valore della serie. Ciò modifica il modo in cui i valori sono mostrati nella cartella di lavoro senza alterare i numeri sottostanti; ad esempio, 0.25 viene visualizzato come 25,00%. I formati degli assi e delle etichette dei dati possono essere configurati separatamente.
+Usa [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) per applicare un formato numerico incorporato alle celle del foglio di lavoro del grafico. Questo esempio crea un grafico a colonne raggruppate con dati predefiniti basati su celle e applica l’indice di formato 10 (`0.00%`) a ciascuna cella del valore della serie. Questo modifica il modo in cui i valori sono visualizzati nel foglio di lavoro senza alterare i numeri sottostanti; ad esempio, 0,25 viene visualizzato come 25,00 %. I formati degli assi e delle etichette dati possono essere configurati separatamente.
 
 ```php
 use aspose\slides\ChartType;
@@ -199,7 +262,7 @@ try {
         $dataPoints = $chartSeries->getDataPoints();
         for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
             $dataPoint = $dataPoints->get_Item($j);
-            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0,00%
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
         }
     }
 
@@ -209,7 +272,7 @@ try {
 }
 ```
 
-La tabella seguente elenca gli indici dei formati numerici predefiniti con i relativi formati Excel rappresentativi per le impostazioni locali inglesi (Stati Uniti). Le stringhe di formato esatte e la loro visualizzazione possono variare a seconda dell'applicazione e della lingua, in particolare per valute e date. Alcuni formati Excel differiscono anche dalle impostazioni predefinite nello standard OOXML, come descritto nelle [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+La tabella seguente elenca gli indici dei formati numerici incorporati con i formati Excel rappresentativi per la locale English (United States). Le stringhe di formato esatte e la loro visualizzazione possono variare in base all’applicazione e alla locale, in particolare per valuta e date. Alcuni formati Excel differiscono anche dai valori predefiniti nello standard OOXML, come descritto nelle [note di implementazione del formato numerico di Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Indice | Formato |
 | --- | --- |
@@ -250,9 +313,9 @@ La tabella seguente elenca gli indici dei formati numerici predefiniti con i rel
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Impostare i Bordi Arrotondati dell'Area del Grafico**
+## **Impostare Bordi Arrotondati per l’Area del Grafico**
 
-Chiama [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) con `true` per arrotondare gli angoli dell'area del grafico. L'esempio crea un grafico a colonne raggruppate e utilizza [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) per dare al suo contorno un colore grigio solido e uno stile a linea singola prima di salvare la presentazione.
+Chiama [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) con `true` per arrotondare gli angoli dell’area del grafico. L’esempio crea un grafico a colonne raggruppate e utilizza [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) per dare al suo contorno un colore grigio solido e uno stile a linea singola prima di salvare la presentazione.
 
 ```php
 use aspose\slides\ChartType;
@@ -277,13 +340,13 @@ try {
 }
 ```
 
-## **Modificare le Annotazioni del Grafico Esistenti**
+## **Modificare le Annotazioni Esistenti del Grafico**
 
-Un grafico può contenere forme personalizzate, come un'annotazione di testo che spiega lo stato di un rapporto. Accedi a queste forme tramite [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). La collezione restituita da [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) contiene le forme di proprietà del grafico.
+Un grafico può contenere forme personalizzate, ad esempio un’annotazione di testo che spiega lo stato di un report. Accedi a queste forme tramite [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes). La collezione restituita da [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) contiene le forme di proprietà del grafico.
 
-Una casella di testo ordinaria posizionata sopra un grafico appartiene alla diapositiva, anche se sembra far parte del grafico. Iterare attraverso [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) trova il grafico e le forme della diapositiva ordinarie, ma non elenca le forme individuali all'interno del grafico. I titoli del grafico e le etichette dei dati sono elementi del grafico separati, non annotazioni personalizzate in questa collezione.
+Una casella di testo ordinaria posizionata sopra un grafico appartiene alla diapositiva, anche se sembra parte del grafico. Iterare attraverso [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) trova il grafico e le forme della diapositiva ordinaria, ma non elenca le singole forme all’interno del grafico. Titoli del grafico ed etichette dati sono elementi distinti del grafico, non annotazioni personalizzate in questa collezione.
 
-Scarica [chart-annotations.pptx](chart-annotations.pptx) e posizionalo nella directory di lavoro dell'applicazione. La sua prima diapositiva contiene un grafico con un'annotazione non raggruppata con il testo "Preliminary results", una linea di proprietà del grafico e una casella di testo della diapositiva ordinaria con il testo "Slide overlay". L'esempio trova il primo grafico su quella diapositiva e cambia l'annotazione in "Final results" quando il rapporto è pronto per la pubblicazione. Controlla se la collezione è vuota e modifica solo un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) con un frame di testo non nullo restituito da [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) e il testo previsto.
+Scarica [chart-annotations.pptx](chart-annotations.pptx) e posizionalo nella directory di lavoro dell’applicazione. La sua prima diapositiva contiene un grafico con un’annotazione non raggruppata che recita “Preliminary results”, una linea di proprietà del grafico e una casella di testo della diapositiva che recita “Slide overlay”. L’esempio trova il primo grafico su quella diapositiva e cambia l’annotazione in “Final results” quando il report è pronto per la pubblicazione. Controlla se la collezione è vuota e modifica solo un [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) con un riquadro di testo non nullo restituito da [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) e con il testo previsto.
 
 ```php
 use aspose\slides\Presentation;
@@ -333,26 +396,26 @@ try {
 }
 ```
 
-La linea e la casella di testo della diapositiva rimangono inalterate. Le immagini seguenti mostrano l'input e il risultato salvato e riaperto:
+La linea e la casella di testo della diapositiva rimangono inalterate. Le immagini seguenti mostrano l’input e il risultato salvato e riaperto:
 
 | Prima della modifica | Dopo la modifica |
 | --- | --- |
-| ![Annotazione del grafico con testo Preliminary results](chart-annotations-before.png) | ![Annotazione del grafico con testo Final results](chart-annotations-after.png) |
+| ![Annotazione del grafico con “Preliminary results”](chart-annotations-before.png) | ![Annotazione del grafico con “Final results”](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-L'esempio esamina solo le forme di primo livello di proprietà del grafico. Se un'annotazione è all'interno di un [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), ispeziona anche la collezione [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) di quel gruppo. Ripeti questo in modo ricorsivo per i gruppi annidati, applicando gli stessi controlli di testo alle loro forme figlie. Un gruppo è un contenitore; non trattarlo come una casella di testo.
+{{% alert color="info" title="Nota" %}}
+L’esempio esamina solo le forme di proprietà del grafico di livello superiore. Se un’annotazione si trova all’interno di un [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), ispeziona anche la collezione [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) di quel gruppo. Ripeti ricorsivamente per i gruppi nidificati, applicando gli stessi controlli di testo alle forme figlie. Un gruppo è un contenitore; non trattarlo come una casella di testo.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Posso impostare riempimenti semitrasparenti per colonne/aree mantenendo il bordo opaco?**
+**Posso impostare riempimenti semi‑trasparenti per colonne/aree mantenendo il contorno opaco?**
 
-Sì. La trasparenza del riempimento e il contorno sono configurati separatamente. Questo è utile per migliorare la leggibilità della griglia e dei dati in visualizzazioni dense.
+Sì. La trasparenza del riempimento e il contorno sono configurati separatamente. È utile per migliorare la leggibilità della griglia e dei dati in visualizzazioni dense.
 
 **Come posso gestire le etichette dei dati quando si sovrappongono?**
 
-Riduci la dimensione del carattere, disabilita componenti non essenziali delle etichette (ad esempio, le categorie), regola la posizione dell'etichetta, mostra le etichette solo per i punti selezionati se necessario, o cambia il formato in "valore + legenda".
+Riduci la dimensione del carattere, disabilita componenti dell’etichetta non essenziali (ad esempio le categorie), regola la posizione dell’etichetta, mostra le etichette solo per i punti selezionati se necessario, oppure passa al formato “valore + legenda”.
 
 **Posso applicare riempimenti a gradiente o a motivo alle serie?**
 
-Sì. Le serie supportano riempimenti solidi, a gradiente e a motivo. In pratica, utilizza i gradienti con parsimonia ed evita combinazioni che riducono il contrasto con la griglia e il testo.
+Sì. Le serie supportano riempimenti solidi, a gradiente e a motivo. In pratica, utilizza i gradienti con parsimonia e evita combinazioni che riducono il contrasto con la griglia e il testo.

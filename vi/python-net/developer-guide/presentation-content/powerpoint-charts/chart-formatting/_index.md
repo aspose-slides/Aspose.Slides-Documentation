@@ -1,5 +1,5 @@
 ---
-title: Định dạng biểu đồ trong bản trình bày bằng Python
+title: Định dạng biểu đồ trong bản trình chiếu bằng Python
 linktitle: Định dạng biểu đồ
 type: docs
 weight: 60
@@ -12,24 +12,26 @@ keywords:
 - cài đặt biểu đồ
 - tùy chọn biểu đồ
 - thuộc tính phông chữ
-- viền bo tròn
+- viền tròn
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Học cách định dạng biểu đồ trong Aspose.Slides cho Python thông qua .NET và nâng cao bản trình bày PowerPoint của bạn với các trục tùy chỉnh, phông chữ, định dạng số và viền biểu đồ bo tròn."
+description: "Tìm hiểu cách định dạng biểu đồ trong Aspose.Slides cho Python thông qua .NET và nâng cao bản trình chiếu PowerPoint của bạn với các trục, phông chữ, định dạng số và viền biểu đồ tròn tùy chỉnh."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách định dạng biểu đồ trong bản trình bày PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần quan trọng của biểu đồ như các trục, đường lưới, tiêu đề, chú giải, vùng vẽ và màu nền tường để cải thiện ngoại hình và khả năng đọc dữ liệu biểu đồ.
+Bài viết này giải thích cách định dạng biểu đồ trong bản trình bày PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần chính của biểu đồ như trục, đường lưới, tiêu đề, chú giải, khu vực vẽ và màu nền tường để cải thiện diện mạo và khả năng đọc dữ liệu biểu đồ.
 
-Nó cũng trình bày cách thiết lập thuộc tính phông chữ cho văn bản biểu đồ, áp dụng các định dạng số đã định sẵn cho dữ liệu biểu đồ và bật góc bo tròn cho khu vực biểu đồ. Những ví dụ này cho thấy cách kiểm soát cả phong cách hiển thị và cách trình bày dữ liệu của biểu đồ trong một bản trình bày.
+Nó cũng trình bày cách đặt thuộc tính phông chữ cho văn bản biểu đồ, áp dụng định dạng số được đặt sẵn cho dữ liệu biểu đồ và bật các góc tròn cho khu vực biểu đồ. Cùng nhau, những ví dụ này cho thấy cách kiểm soát cả kiểu dáng trực quan và cách trình bày dữ liệu của biểu đồ trong bản trình bày.
+
+Đối với việc tô màu và viền riêng biệt trên các khoảng tăng và giảm, xem [ví dụ biểu đồ chứng khoán](/slides/vi/python-net/create-chart/#create-stock-charts).
 
 ## **Định dạng các thực thể biểu đồ**
 
-Sử dụng [Biểu đồ](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) để định dạng tiêu đề, trục, đường lưới, chú giải và vùng vẽ của biểu đồ. Ví dụ này tạo một biểu đồ đường có dấu đánh dấu và dữ liệu mặc định, sau đó áp dụng các kiểu văn bản và đường riêng biệt cho trục giá trị và trục danh mục. Kích thước phông chữ và độ rộng đường được chỉ định bằng điểm; nhãn danh mục được xoay 45 độ.
+Sử dụng [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) để định dạng tiêu đề biểu đồ, trục, đường lưới, chú giải và khu vực vẽ. Ví dụ này tạo một biểu đồ đường có các điểm đánh dấu và dữ liệu mặc định, sau đó áp dụng các kiểu văn bản và đường riêng biệt cho trục giá trị và trục danh mục của nó. Kích thước phông chữ và độ rộng đường được chỉ định bằng điểm; nhãn danh mục được quay 45 độ.
 
-Trục giá trị sử dụng [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) độc lập với các ô nguồn. Thang đo chạy từ -2 đến 15, với khoảng cách lớn là 2 và khoảng cách nhỏ là 0,5. Ví dụ cũng kết hợp định dạng phần trăm với [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) được đặt thành hàng nghìn, vì vậy hãy điều chỉnh các thiết lập này cho ý nghĩa và quy mô dữ liệu của bạn. Chú giải ở ngoài vùng vẽ vì [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) bị tắt. Màu nền phía sau và sàn được cấu hình qua [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) và [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), nhưng những bề mặt này chỉ hiện ra trong biểu đồ 3D.
+Trục giá trị sử dụng [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) độc lập với các ô nguồn. Thang của nó chạy từ -2 đến 15, với khoảng chính là 2 và khoảng phụ là 0.5. Ví dụ cũng kết hợp định dạng phần trăm với [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) được đặt thành nghìn, vì vậy hãy điều chỉnh các cài đặt này phù hợp với ý nghĩa và độ lớn của dữ liệu của bạn. Chú giải vẫn nằm ngoài khu vực vẽ vì [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) bị tắt. Các màu nền tường sau và sàn được cấu hình thông qua [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) và [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), nhưng các bề mặt này chỉ hiển thị trong biểu đồ 3D.
 
 ```python
 import aspose.slides.charts as charts
@@ -147,7 +149,7 @@ with slides.Presentation() as presentation:
 
 ## **Đặt thuộc tính phông chữ cho biểu đồ**
 
-Đặt kích thước phông chữ mặc định cho văn bản biểu đồ thông qua [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Ví dụ này tạo một biểu đồ cột cụm với phông chữ 20 điểm và bật nhãn giá trị cho chuỗi đầu tiên thông qua [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Các yếu tố văn bản có cài đặt phông chữ riêng có thể ghi đè lên mặc định của biểu đồ.
+Đặt kích thước phông chữ mặc định cho văn bản biểu đồ thông qua [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Ví dụ tạo một biểu đồ cột nhóm với phông chữ 20 điểm và bật nhãn giá trị cho chuỗi đầu tiên thông qua [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Các phần tử văn bản có cài đặt phông chữ riêng có thể ghi đè lên mặc định của biểu đồ.
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Tái sử dụng định dạng khung văn bản cho chú giải biểu đồ**
+
+Để khớp chú giải với tiêu đề slide, đặt phông chữ thông qua [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) trên đoạn văn đầu tiên của tiêu đề. Gọi [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) trên [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) của chú giải. Nó sao chép các cài đặt khung văn bản, định dạng của đoạn văn đầu tiên và các thuộc tính phông chữ mặc định của đoạn văn đó. Định dạng được áp dụng trực tiếp cho các phần riêng lẻ hoặc cho các đoạn văn sau sẽ giữ lại cục bộ trong nguồn.
+
+Ví dụ sử dụng một tiêu đề in đậm, màu xanh hải quân, phông chữ Calibri 26 điểm làm mẫu. Sau khi định dạng chú giải, nó sử dụng [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) để áp dụng cùng một định dạng cho một chú thích riêng.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Trong bản trình bày đã lưu, chú giải và chú thích khớp với tiêu đề về kích thước, độ đậm và màu sắc. Chú giải vẫn hiển thị tên chuỗi, và chú thích giữ lại văn bản riêng của nó. Nếu một phần trong chú thích đã có kích thước phông chữ rõ ràng, kích thước đó sẽ được ưu tiên hơn mặc định của đoạn đã sao chép.
+
+| Trước khi sao chép | Sau khi sao chép |
+| --- | --- |
+| ![Biểu đồ doanh thu quý với nhãn chú giải đen thông thường và chú thích đen](legend-formatting-before.png) | ![Biểu đồ tương tự với nhãn chú giải màu xanh hải quân, lớn hơn, in đậm và chú thích phù hợp](legend-formatting.png) |
+
 ## **Đặt định dạng số**
 
-Sử dụng [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) để áp dụng một định dạng số tích hợp sẵn cho các ô bảng tính của biểu đồ. Ví dụ này tạo một biểu đồ cột cụm với dữ liệu mặc định dựa trên ô và áp dụng chỉ mục định dạng 10 (`0.00%`) cho mỗi ô giá trị của chuỗi. Điều này thay đổi cách hiển thị giá trị trong bảng tính mà không thay đổi các số gốc; ví dụ, 0.25 được hiển thị là 25.00%. Các định dạng trục và nhãn dữ liệu có thể được cấu hình riêng biệt.
+Sử dụng [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) để áp dụng định dạng số tích hợp sẵn cho các ô trong bảng tính biểu đồ. Ví dụ này tạo một biểu đồ cột nhóm với dữ liệu mặc định dựa trên ô và áp dụng chỉ số định dạng 10 (`0.00%`) cho mỗi ô giá trị chuỗi. Điều này thay đổi cách hiển thị các giá trị trong bảng tính mà không thay đổi số thực tế; ví dụ, 0.25 được hiển thị là 25.00%. Các định dạng trục và nhãn dữ liệu có thể được cấu hình riêng biệt.
 
 ```python
 import aspose.slides.charts as charts
@@ -183,7 +232,7 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Bảng sau liệt kê các chỉ mục định dạng số tích hợp sẵn kèm theo các định dạng Excel tiêu biểu cho miền tiếng Anh (Hoa Kỳ). Các chuỗi định dạng chính xác và cách hiển thị có thể khác nhau tùy vào ứng dụng và miền, đặc biệt đối với tiền tệ và ngày tháng. Một số định dạng Excel cũng khác so với mặc định trong tiêu chuẩn OOXML, như mô tả trong [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Bảng sau liệt kê các chỉ số định dạng số tích hợp sẵn cùng với các định dạng Excel tiêu biểu cho bản địa Anh (Hoa Kỳ). Các chuỗi định dạng chính xác và cách hiển thị chúng có thể khác nhau tùy ứng dụng và bản địa, đặc biệt đối với tiền tệ và ngày tháng. Một số định dạng Excel cũng khác với mặc định trong tiêu chuẩn OOXML, như mô tả trong [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Chỉ số | Định dạng |
 | --- | --- |
@@ -224,9 +273,9 @@ Bảng sau liệt kê các chỉ mục định dạng số tích hợp sẵn kè
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Đặt viền bo tròn cho khu vực biểu đồ**
+## **Đặt viền tròn cho khu vực biểu đồ**
 
-Bật [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) để bo tròn các góc của khu vực biểu đồ. Ví dụ này tạo một biểu đồ cột cụm và sử dụng [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) để đặt viền ngoài màu xám đặc và kiểu đường đơn trước khi lưu bản trình bày.
+Bật [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) để làm tròn các góc của khu vực biểu đồ. Ví dụ tạo một biểu đồ cột nhóm và sử dụng [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) để đặt viền ngoài của nó thành màu xám đặc và kiểu một đường trước khi lưu bản trình bày.
 
 ```python
 import aspose.slides.charts as charts
@@ -246,11 +295,11 @@ with slides.Presentation() as presentation:
 
 ## **Chỉnh sửa chú thích biểu đồ hiện có**
 
-Một biểu đồ có thể chứa các hình dạng tùy chỉnh, chẳng hạn như chú thích văn bản giải thích trạng thái của báo cáo. Truy cập các hình dạng này qua [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Bộ sưu tập [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) của nó chứa các hình dạng thuộc sở hữu của biểu đồ.
+Một biểu đồ có thể chứa các hình dạng tùy chỉnh, chẳng hạn như chú thích văn bản giải thích trạng thái của báo cáo. Truy cập các hình dạng này qua [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Bộ sưu tập [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) của nó chứa các hình dạng thuộc về biểu đồ.
 
-Một hộp văn bản thông thường đặt lên trên biểu đồ thuộc về slide, ngay cả khi nó trông giống như một phần của biểu đồ. Duyệt qua [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) sẽ tìm thấy biểu đồ và các hình dạng slide thông thường, nhưng không liệt kê các hình dạng riêng lẻ bên trong biểu đồ. Tiêu đề biểu đồ và nhãn dữ liệu là các thành phần riêng biệt của biểu đồ, không phải là chú thích tùy chỉnh trong bộ sưu tập này.
+Một hộp văn bản thông thường đặt lên trên biểu đồ thuộc về slide, ngay cả khi trông giống như một phần của biểu đồ. Duyệt qua [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) sẽ tìm thấy biểu đồ và các hình dạng slide thông thường, nhưng không liệt kê các hình dạng riêng lẻ bên trong biểu đồ. Tiêu đề biểu đồ và nhãn dữ liệu là các thành phần biểu đồ riêng biệt, không phải là chú thích tùy chỉnh trong bộ sưu tập này.
 
-Tải xuống [chart-annotations.pptx](chart-annotations.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên của tệp chứa một biểu đồ với một chú thích chưa nhóm có nội dung "Preliminary results", một đường thẳng thuộc sở hữu của biểu đồ, và một hộp văn bản slide bình thường có nội dung "Slide overlay". Ví dụ tìm biểu đồ đầu tiên trên slide đó và thay đổi chú thích thành "Final results" khi báo cáo đã sẵn sàng để công bố. Nó kiểm tra xem bộ sưu tập có rỗng hay không và chỉ chỉnh sửa một [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) có [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) không phải `None` và chứa văn bản mong đợi.
+Tải xuống [chart-annotations.pptx](chart-annotations.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên chứa một biểu đồ với một chú thích không nhóm ghi "Preliminary results", một đường thuộc biểu đồ và một hộp văn bản slide thông thường ghi "Slide overlay". Ví dụ tìm biểu đồ đầu tiên trên slide đó và thay đổi chú thích thành "Final results" khi báo cáo đã sẵn sàng công bố. Nó kiểm tra bộ sưu tập rỗng và chỉ chỉnh sửa một [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) có [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) không phải `None` và chứa văn bản mong đợi.
 
 ```python
 import aspose.slides as slides
@@ -277,26 +326,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-Đường thẳng và hộp văn bản slide vẫn không thay đổi. Các hình ảnh sau đây hiển thị đầu vào và kết quả đã lưu, mở lại:
+Đường và hộp văn bản slide vẫn không thay đổi. Các hình ảnh sau hiển thị đầu vào và kết quả đã lưu, mở lại:
 
 | Trước khi chỉnh sửa | Sau khi chỉnh sửa |
 | --- | --- |
-| ![Chú thích biểu đồ đọc Preliminary results](chart-annotations-before.png) | ![Chú thích biểu đồ đọc Final results](chart-annotations-after.png) |
+| ![Chú thích biểu đồ ghi "Preliminary results"](chart-annotations-before.png) | ![Chú thích biểu đồ ghi "Final results"](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Ví dụ chỉ kiểm tra các hình dạng thuộc sở hữu cấp đầu của biểu đồ. Nếu một chú thích nằm trong một [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), hãy kiểm tra bộ sưu tập [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) của nhóm đó nữa. Lặp lại quá trình này một cách đệ quy cho các nhóm lồng nhau, áp dụng cùng các kiểm tra văn bản cho các hình dạng con của chúng. Một nhóm tự nó là một container; không coi nó như một hộp văn bản.
+Ví dụ chỉ kiểm tra các hình dạng cấp cao nhất thuộc biểu đồ. Nếu một chú thích nằm bên trong [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), hãy kiểm tra bộ sưu tập [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) của nhóm đó nữa. Lặp lại quá trình này một cách đệ quy cho các nhóm lồng nhau, áp dụng các kiểm tra văn bản giống nhau cho các hình dạng con của chúng. Một nhóm tự nó là một container; không nên xem nó như một hộp văn bản.
 {{% /alert %}}
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể đặt màu nền bán trong suốt cho cột/khu vực trong khi giữ viền không trong suốt không?**
+**Có thể đặt màu nền bán trong suốt cho cột/khu vực trong khi giữ viền không trong suốt không?**
 
-Có. Độ trong suốt màu nền và viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc lưới và dữ liệu trong các biểu đồ dày đặc.
+Có. Độ trong suốt của màu nền và viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc của lưới và dữ liệu trong các biểu đồ dày đặc.
 
-**Làm thế nào tôi có thể xử lý nhãn dữ liệu khi chúng chồng lên nhau?**
+**Làm sao để xử lý nhãn dữ liệu khi chúng chồng lên nhau?**
 
-Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), điều chỉnh vị trí nhãn, chỉ hiển thị nhãn cho các điểm được chọn nếu cần, hoặc chuyển định dạng sang "giá trị + chú giải".
+Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), điều chỉnh vị trí nhãn, chỉ hiển thị nhãn cho các điểm đã chọn nếu cần, hoặc chuyển định dạng thành "giá trị + chú giải".
 
-**Tôi có thể áp dụng màu nền gradient hoặc họa tiết cho các chuỗi không?**
+**Có thể áp dụng màu nền gradient hoặc họa tiết cho các chuỗi không?**
 
 Có. Các chuỗi hỗ trợ màu nền đặc, gradient và họa tiết. Trong thực tế, sử dụng gradient một cách hạn chế và tránh các kết hợp làm giảm độ tương phản với lưới và văn bản.

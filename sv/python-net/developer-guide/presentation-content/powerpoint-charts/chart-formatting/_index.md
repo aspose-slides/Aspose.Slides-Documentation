@@ -7,12 +7,12 @@ url: /sv/python-net/chart-formatting/
 keywords:
 - formatera diagram
 - diagramformatering
-- diagramsobjekt
+- diagramobjekt
 - diagramegenskaper
 - diagraminställningar
 - diagramalternativ
-- teckensnittsegenskaper
-- avrundade kanter
+- teckenegenskaper
+- avrundad kant
 - PowerPoint
 - presentation
 - Python
@@ -21,15 +21,17 @@ description: "Lär dig diagramformatering i Aspose.Slides för Python via .NET o
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man formaterar diagram i PowerPoint‑presentationer med Aspose.Slides. Den visar hur man anpassar viktiga diagramkomponenter såsom axlar, rutnät, titlar, förklaringar, plot‑området och väggfyllningar för att förbättra diagrammets utseende och läsbarhet.
+Den här artikeln förklarar hur man formaterar diagram i PowerPoint-presentationer med Aspose.Slides. Den visar hur man anpassar viktiga diagramkomponenter såsom axlar, rutnätlinjer, rubriker, förklaringar, plotområdet och väggfyllningar för att förbättra utseendet och läsbarheten för diagramdata.
 
-Den demonstrerar också hur man anger teckensnittsegenskaper för diagramtext, använder förinställda numeriska format för diagramdata och aktiverar avrundade hörn för diagramområdet. Tillsammans visar dessa exempel hur man styr både den visuella stilen och datapresentationen för diagram i en presentation.
+Den demonstrerar också hur man ställer in teckenegenskaper för diagramtext, använder förinställda numeriska format för diagramdata och aktiverar avrundade hörn för diagramområdet. Tillsammans visar dessa exempel hur man styr både den visuella stilen och datapresentationen för diagram i en presentation.
+
+För separata fyllningar och konturer på stigande och fallande intervall, se [exempel på aktiediagram](/slides/sv/python-net/create-chart/#create-stock-charts).
 
 ## **Formatera diagramobjekt**
 
-Använd [Diagram](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) för att formatera diagramtitlar, axlar, rutnät, förklaringar och plot‑området. Detta exempel skapar ett linjediagram med markörer och standarddata, och tilldelar sedan separata text‑ och linjestilar till dess värde‑ och kategori‑axlar. Teckenstorlekar och linjebredd anges i punkter; kategorietiketter roteras 45 grader.
+Använd [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) för att formatera diagramrubriker, axlar, rutnätlinjer, förklaringar och plotområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text‑ och linjestilar på dess värde‑ och kategoriaxlar. Teckenstorlekar och linjebreddar anges i punkter; kategorietiketter roteras 45 grader.
 
-Värdeaxeln använder [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) oberoende av källcellerna. Dess skala går från -2 till 15, med huvudintervall på 2 och delintervall på 0,5. Exemplet kombinerar även procentformat med [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) satt till tusental, så anpassa dessa inställningar efter betydelse och omfattning för dina data. Förklaringen placeras utanför plot‑området eftersom [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) är inaktiverad. Bakväggs‑ och golvfyllningar konfigureras via [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) och [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), men dessa ytor är bara synliga i 3D‑diagram.
+Värdeaxeln använder [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) oberoende av källcellerna. Dess skala sträcker sig från -2 till 15, med stora intervall på 2 och små intervall på 0,5. Exemplet kombinerar även procentformatering med [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) inställt på tusental, så anpassa dessa inställningar efter betydelsen och storleken på dina data. Förklaringen förblir utanför plotområdet eftersom [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) är inaktiverad. Bakväggs‑ och golvfyllningar konfigureras via [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) och [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), men dessa ytor är bara synliga i 3D‑diagram.
 
 ```python
 import aspose.slides.charts as charts
@@ -145,9 +147,9 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ange teckensnittsegenskaper för ett diagram**
+## **Ställ in teckensegenskaper för ett diagram**
 
-Ange standardteckensnittsstorlek för diagramtext via [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Exemplet skapar ett grupperat stapeldiagram med 20‑punkts teckensnitt och aktiverar värdetiketter för den första serien via [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Textobjekt med egna explicita teckensnitt kan åsidosätta diagramstandarderna.
+Ställ in standardteckenstorlek för diagramtext via [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Exemplet skapar ett grupperat stapeldiagram med 20‑punkts tecken och aktiverar värdetiketter för den första serien via [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Textelement med egna uttryckliga teckeninställningar kan åsidosätta diagramstandardinställningen.
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ange det numeriska formatet**
+## **Återanvänd textramsformatering för diagramförklaring**
 
-Använd [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) för att tillämpa ett inbyggt talformat på diagrammets arbetsboks­celler. Detta exempel skapar ett grupperat stapeldiagram med standard, cellstödd data och använder formatindex 10 (`0.00%`) för varje serievärdescell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; exempelvis visas 0,25 som 25,00 %. Axel‑ och datatetikettformat kan konfigureras separat.
+För att matcha en förklaring med en slide‑rubrik, ställ in tecknet via [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) på rubrikens första stycke. Anropa [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) på förklaringens [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/). Det kopierar textramsinställningarna, första styckets formatering och det styckets standardteckensegenskaper. Formatering som tillämpas direkt på enskilda delar eller på senare stycken förblir lokala för källan.
+
+Exemplet använder en rubrik i fet, marinblå, 26‑punkts Calibri som mall. Efter formatering av förklaringen använder det [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) för att tillämpa samma formatering på en separat bildtext.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+I den sparade presentationen matchar förklaringen och bildtexten rubriken i storlek, vikt och färg. Förklaringen visar fortfarande serienamnen, och bildtexten behåller sin egen text. Om en del i bildtexten redan har en explicit teckenstorlek, har den storleken företräde framför det kopierade stycke‑standardvärdet.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Kvartalsförsäljningsdiagram med vanliga svarta förklaringsetiketter och en svart bildtext](legend-formatting-before.png) | ![Samma diagram med större, fet marina förklaringsetiketter och en matchande bildtext](legend-formatting.png) |
+
+## **Ställ in numeriskt format**
+
+Använd [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) för att tillämpa ett inbyggt talformat på diagrammets arbetsboksfält. Detta exempel skapar ett grupperat stapeldiagram med standard‑cellbaserad data och tillämpar formatindex 10 (`0.00%`) på varje serievärdefält. Detta förändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0,25 som 25,00 %. Axelformat och dataetikettformat kan konfigureras separat.
 
 ```python
 import aspose.slides.charts as charts
@@ -183,7 +232,7 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Följande tabell listar inbyggda talformatindex med representativa Excel‑format för den engelska (USA)‑lokalen. De exakta formatsträngarna och deras visning kan variera mellan program och språk, särskilt för valuta och datum. Vissa Excel‑format avviker också från standarderna i OOXML, enligt [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Tabellen nedan listar inbyggda talformatindex med representativa Excel‑format för den engelska (USA)‑lokalen. De exakta formatsträngarna och deras visning kan variera mellan applikationer och språk, särskilt för valuta och datum. Vissa Excel‑format skiljer sig också från standardvärdena i OOXML‑standarden, som beskrivs i [Microsofts anteckningar om implementering av talformat](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Format |
 | --- | --- |
@@ -224,7 +273,7 @@ Följande tabell listar inbyggda talformatindex med representativa Excel‑forma
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Ange avrundade kanter för diagramområde**
+## **Ställ in avrundade kanter för diagramområde**
 
 Aktivera [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) för att runda hörnen på diagramområdet. Exemplet skapar ett grupperat stapeldiagram och använder [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
 
@@ -246,11 +295,11 @@ with slides.Presentation() as presentation:
 
 ## **Redigera befintliga diagramanteckningar**
 
-Ett diagram kan innehålla anpassade former, exempelvis en textanteckning som förklarar statusen för en rapport. Åtkomst till dessa former sker via [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Dess [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑samling innehåller de former som ägs av diagrammet.
+Ett diagram kan innehålla anpassade former, såsom en textanteckning som förklarar statusen för en rapport. Åtkomst dessa former via [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Dess [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑samling innehåller diagramägda former.
 
-En vanlig textruta placerad ovanpå ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Genom att iterera över [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) hittas både diagrammet och vanliga bildformer, men inte de enskilda formerna inuti diagrammet. Diagramtitlar och datatetiketter är separata diagramelement, inte anpassade anteckningar i denna samling.
+En vanlig textruta placerad över ett diagram tillhör sliden, även om den ser ut som en del av diagrammet. Genomgång av [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) hittar diagrammet och vanliga slide‑former, men räknar inte upp de enskilda formerna inuti diagrammet. Diagramrubriker och dataetiketter är separata diagramdelar, inte anpassade anteckningar i denna samling.
 
-Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en upplöst anteckning som lyder "Preliminary results", en diagramägd linje och en vanlig bildtextruta med texten "Slide overlay". Exemplet hittar första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är klar för publicering. Det kontrollerar om samlingen är tom och redigerar endast en [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) med en [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) som inte är `None` och som innehåller den förväntade texten.
+Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första slide innehåller ett diagram med en ogrupperad anteckning som säger "Preliminary results", en diagramägd linje och en vanlig slide‑textruta som säger "Slide overlay". Exemplet hittar det första diagrammet på den sliden och ändrar anteckningen till "Final results" när rapporten är redo att publiceras. Det kontrollerar att samlingen inte är tom och redigerar endast en [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) med ett [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) som inte är `None` och som innehåller den förväntade texten.
 
 ```python
 import aspose.slides as slides
@@ -277,26 +326,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-Linjen och bildtextrutan förblir oförändrade. Följande bilder visar indata och det sparade, återöppnade resultatet:
+Linjen och slide‑textrutan förblir oförändrade. Följande bilder visar indata och det sparade, återöppnade resultatet:
 
-| Före redigering | Efter redigering |
+| Before editing | After editing |
 | --- | --- |
-| ![Diagramanteckning som visar Preliminary results](chart-annotations-before.png) | ![Diagramanteckning som visar Final results](chart-annotations-after.png) |
+| ![Diagramanteckning med text Preliminary results](chart-annotations-before.png) | ![Diagramanteckning med text Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Exemplet granskar endast de top‑nivå diagramägda formerna. Om en anteckning finns i en [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), inspektera också den gruppens [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑samling. Upprepa detta rekursivt för nästlade grupper och applicera samma textkontroller på deras underliggande former. En grupp är i sig en behållare; behandla den inte som en textruta.
+Exemplet undersöker endast diagramets högsta nivå former. Om en anteckning är inne i en [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), inspektera även den gruppens [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑samling. Upprepa detta rekursivt för inbäddade grupper och tillämpa samma textkontroller på deras underordnade former. En grupp i sig är en behållare; behandla den inte som en textruta.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kan jag ange halvtransparenta fyllningar för kolumner/områden samtidigt som kanten förblir opak?**
+**Kan jag sätta halvtransparenta fyllningar för kolumner/områden samtidigt som kanten förblir ogenomskinlig?**
 
-Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
+Ja. Fyllnadstransparens och kontur konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
 
-**Hur kan jag hantera datatetiketter när de överlappar?**
+**Hur kan jag hantera dataetiketter när de överlappar?**
 
-Minska teckenstorleken, inaktivera icke‑essentiella etikettkomponenter (t.ex. kategorier), justera etikettpositionen, visa etiketter endast för utvalda punkter vid behov, eller byt format till "värde + förklaring".
+Minska teckenstorleken, inaktivera icke‑viktiga etikettdelar (t.ex. kategorier), justera etikettens position, visa etiketter endast för valda punkter om nödvändigt, eller byt formatet till "värde + legend".
 
 **Kan jag tillämpa gradient‑ eller mönsterfyllningar på serier?**
 
-Ja. Serier stöder solid, gradient och mönsterfyllningar. I praktiken bör gradienter användas sparsamt och kombinationer som minskar kontrasten mot rutnätet och text undvikas.
+Ja. Serier stödjer solida, gradient‑ och mönsterfyllningar. I praktiken bör gradienter användas sparsamt och kombinationer som minskar kontrasten mot rutnätet och texten bör undvikas.

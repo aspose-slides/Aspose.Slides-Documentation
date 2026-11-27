@@ -1,35 +1,37 @@
 ---
-title: Grafieken in presentatie opmaken in Java
-linktitle: Grafiekopmaak
+title: Diagrammen in presentaties formatteren in Java
+linktitle: Diagramopmaak
 type: docs
 weight: 60
 url: /nl/java/chart-formatting/
 keywords:
-- grafiek opmaken
-- grafiekopmaak
-- grafiekelement
-- grafiekeigenschappen
-- grafiekinstellingen
-- grafiekopties
-- lettertypeeigenschappen
+- diagram formatteren
+- diagramopmaak
+- diagramonderdeel
+- diagrameigenschappen
+- diagraminstellingen
+- diagramopties
+- lettertype-eigenschappen
 - afgeronde rand
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Leer grafiekopmaak in Aspose.Slides voor Java en til uw PowerPoint-presentatie naar een hoger niveau met aangepaste assen, lettertypen, getalopmaak en afgeronde grafiekranden."
+description: "Leer diagramopmaak in Aspose.Slides voor Java en verbeter uw PowerPoint-presentatie met aangepaste assen, lettertypen, nummerformaten en afgeronde diagramranden."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je grafieken in PowerPoint‑presentaties kunt opmaken met Aspose.Slides. Het laat zien hoe je belangrijke grafiekelementen zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wandvullingen kunt aanpassen om het uiterlijk en de leesbaarheid van grafiekgegevens te verbeteren.
+Dit artikel legt uit hoe u diagrammen in PowerPoint‑presentaties kunt formatteren met Aspose.Slides. Het toont hoe u belangrijke diagramonderdelen zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wand‑vullingen kunt aanpassen om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
 
-Het toont tevens hoe je lettertype‑eigenschappen voor grafiekttekst kunt instellen, vooraf ingestelde numerieke opmaak kunt toepassen op grafiekgegevens, en afgeronde hoeken voor het grafiekgebied kunt inschakelen. Samen laten deze voorbeelden zien hoe je zowel de visuele stijl als de gegevenspresentatie van grafieken in een presentatie kunt beheersen.
+Het laat ook zien hoe u lettertype‑eigenschappen voor diagramtekst instelt, voorgedefinieerde numerieke opmaken op diagramgegevens toepast, en afgeronde hoeken voor het diagramgebied inschakelt. Samen laten deze voorbeelden zien hoe u zowel de visuele stijl als de gegevenspresentatie van diagrammen in een presentatie kunt beheersen.
 
-## **Grafiekelementen opmaken**
+Voor afzonderlijke vullingen en omtrekken op stijgende en dalende intervallen, zie het [stock chart example](/slides/nl/java/create-chart/#create-stock-charts).
 
-Gebruik [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) om grafiektitels, assen, rasterlijnen, legenda’s en het plotgebied op te maken. Dit voorbeeld maakt een lijngrafiek met markeringen en standaardgegevens, en past vervolgens afzonderlijke tekst‑ en lijnstijlen toe op de waardenas en categorinas. Lettergroottes en lijndiktes worden gespecificeerd in punten; categorielabels worden 45 graden gedraaid.
+## **Diagramonderdelen formatteren**
 
-De waardenas gebruikt [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met hoofdintervallen van 2 en subintervallen van 0,5. Het voorbeeld combineert ook procentopmaak met [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) ingesteld op duizenden, dus pas deze instellingen aan de betekenis en omvang van je gegevens aan. De legenda blijft buiten het plotgebied omdat [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) wordt aangeroepen met `false`. Achterwand‑ en vloer‑vullingen worden geconfigureerd via [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) en [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), maar deze oppervlakken zijn alleen zichtbaar in 3D‑grafieken.
+Gebruik [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) om diagramtitels, assen, rasterlijnen, legenda’s en het plotgebied te formatteren. Dit voorbeeld maakt een lijndiagram met markeringen en standaardgegevens, en past vervolgens afzonderlijke tekst‑ en lijstopmaak toe op zijn waardenas en categorie‑as. Lettergroottes en lijndiktes worden opgegeven in punten; categorielabels worden 45 graden gedraaid.
+
+De waardenas gebruikt [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met grote intervallen van 2 en kleine intervallen van 0,5. Het voorbeeld combineert ook procent‑opmaak met [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) ingesteld op duizenden, dus pas deze instellingen aan op de betekenis en omvang van uw gegevens. De legenda blijft buiten het plotgebied omdat [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) wordt aangeroepen met `false`. Achter‑wand‑ en vloer‑vullingen worden geconfigureerd via [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) en [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), maar deze oppervlakken zijn alleen zichtbaar in 3D‑diagrammen.
 
 ```java
 import com.aspose.slides.*;
@@ -147,9 +149,9 @@ try {
 }
 ```
 
-## **Lettertype‑eigenschappen voor een grafiek instellen**
+## **Lettertype‑eigenschappen voor een diagram instellen**
 
-Stel de standaardlettergrootte voor grafiekttekst in via [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). Het voorbeeld maakt een gegroepeerde kolomgrafiek met een lettergrootte van 20 punten en schakelt waardelabels voor de eerste serie in via [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Tekstelementen met eigen expliciete lettertype‑instellingen kunnen de standaard van de grafiek overschrijven.
+Stel de standaardlettergrootte voor diagramtekst in via [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). Het voorbeeld maakt een gegroepeerd kolomdiagram met een lettergrootte van 20 punten en schakelt waardelabels in voor de eerste reeks via [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Tekstelementen met eigen expliciete lettertype‑instellingen kunnen de standaard van het diagram overschrijven.
 
 ```java
 import com.aspose.slides.*;
@@ -168,9 +170,63 @@ try {
 }
 ```
 
-## **Numerieke opmaak instellen**
+## **Tekstkader‑opmaak hergebruiken voor een diagramlegenda**
 
-Gebruik [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) om een ingebouwde nummeropmaak toe te passen op de werkbladcellen van een grafiek. Dit voorbeeld maakt een gegroepeerde kolomgrafiek met standaard, cel‑ondersteunde gegevens en past formaatindex 10 (`0.00%`) toe op elke waardecel van de serie. Dit verandert de weergave van de waarden in het werkblad zonder de onderliggende getallen aan te passen; bijvoorbeeld, 0,25 wordt weergegeven als 25,00 %. As‑ en datalabel‑opmaak kunnen afzonderlijk worden geconfigureerd.
+Om een legenda overeen te laten komen met een dia‑kop, stel het lettertype van de kop in via [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) op de eerste alinea. Roep [copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) aan op de opmaak die wordt geretourneerd door de legenda‑[getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iformattedtextcontainer/#getTextFormat--). Het kopieert de instellingen van het tekstkader, de opmaak van de eerste alinea en de standaardlettertype‑eigenschappen van die alinea. Opmaak die rechtstreeks op individuele delen of op latere alinea’s wordt toegepast, blijft lokaal voor de bron.
+
+Het voorbeeld gebruikt een vette, 26‑punt Calibri‑kop in marineblauw als sjabloon. Na het stijlen van de legenda, wordt [copyTo](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) aangeroepen om dezelfde opmaak toe te passen op een aparte bijschrift.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(new Color(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In de opgeslagen presentatie komen de legenda en het bijschrift overeen met de kop in grootte, dikte en kleur. De legenda toont nog steeds de reeksnamen, en het bijschrift behoudt zijn eigen tekst. Als een deel in het bijschrift al een expliciete lettergrootte heeft, heeft die grootte voorrang boven de gekopieerde standaard van de alinea.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Kwartaalverkoopdiagram met gewone zwarte legende labels en een zwarte bijschrift](legend-formatting-before.png) | ![Hetzelfde diagram met grotere, vette marineblauwe legende labels en een overeenkomend bijschrift](legend-formatting.png) |
+
+## **Numeriek formaat instellen**
+
+Gebruik [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) om een ingebouwd nummerformaat toe te passen op werkbladcellen van het diagram. Dit voorbeeld maakt een gegroepeerd kolomdiagram met standaard, cel‑ondersteunde gegevens en past formaat‑index 10 (`0.00%`) toe op elke waarde‑cel van de reeks. Dit verandert hoe de waarden worden weergegeven in het werkblad zonder de onderliggende getallen te wijzigen; bijvoorbeeld, 0,25 wordt weergegeven als 25,00%. As‑ en data‑label‑opmaak kunnen afzonderlijk worden geconfigureerd.
 
 ```java
 import com.aspose.slides.*;
@@ -196,7 +252,7 @@ try {
 }
 ```
 
-De volgende tabel geeft ingebouwde nummeropmaak‑indices weer met representatieve Excel‑opmaken voor de Engelse (Verenigde Staten) locale. De exacte opmaak‑strings en hun weergave kunnen per toepassing en locale variëren, vooral voor valuta en datums. Sommige Excel‑opmaken wijken ook af van de standaardwaarden in de OOXML‑standaard, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+De onderstaande tabel geeft ingebouwde nummerformaat‑indices weer met representatieve Excel‑formaten voor de Engelse (Verenigde Staten) taalinstelling. De exacte opmaak‑strings en hun weergave kunnen per toepassing en locale verschillen, met name voor valuta en datums. Sommige Excel‑formaten wijken ook af van de standaarden in de OOXML‑specificatie, zoals beschreven in [Microsoft’s number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Formaat |
 | --- | --- |
@@ -237,9 +293,9 @@ De volgende tabel geeft ingebouwde nummeropmaak‑indices weer met representatie
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Afgeronde randen van grafiekgebied instellen**
+## **Afgeronde randen voor diagramgebied instellen**
 
-Roep [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) aan met `true` om de hoeken van het grafiekgebied af te ronden. Het voorbeeld maakt een gegroepeerde kolomgrafiek en gebruikt [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) om de omtrek een solide grijze kleur en een enkel‑lijnstijl te geven voordat de presentatie wordt opgeslagen.
+Roep [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) aan met `true` om de hoeken van het diagramgebied af te ronden. Het voorbeeld maakt een gegroepeerd kolomdiagram en gebruikt [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) om de omtrek een effen grijze kleur en een enkele‑lijn stijl te geven voordat de presentatie wordt opgeslagen.
 
 ```java
 import com.aspose.slides.*;
@@ -261,13 +317,13 @@ try {
 }
 ```
 
-## **Bestaande grafiekaannotaties bewerken**
+## **Bestaande diagramannotaties bewerken**
 
-Een grafiek kan aangepaste vormen bevatten, zoals een tekstannotatie die de status van een rapport toelicht. Toegang tot deze vormen krijg je via [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), ook vermeld onder [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) in de Chart‑API‑referentie. De collectie die wordt geretourneerd door [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) bevat de aan de grafiek toegewezen vormen.
+Een diagram kan aangepaste vormen bevatten, zoals een tekstannotatie die de status van een rapport uitlegt. Toegang tot deze vormen krijg je via [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), ook vermeld onder [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) in de Chart API‑referentie. De collectie die wordt geretourneerd door [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) bevat de diagram‑eigendom vormen.
 
-Een gewone tekstvak die over een grafiek wordt geplaatst, behoort tot de dia, zelfs als het eruitziet als onderdeel van de grafiek. Door te itereren over [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) worden de grafiek en gewone dia‑vormen gevonden, maar de individuele vormen binnen de grafiek worden niet opgesomd. Grafiektitels en datalabels zijn afzonderlijke grafiekelementen, geen aangepaste annotaties in deze collectie.
+Een gewone tekstvak die over een diagram wordt geplaatst, behoort tot de dia, zelfs als het eruitziet als onderdeel van het diagram. Door te itereren over [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) worden zowel het diagram als gewone dia‑vormen gevonden, maar niet de individuele vormen binnen het diagram. Diagramtitels en data‑labels zijn afzonderlijke diagramelementen, geen aangepaste annotaties in deze collectie.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de applicatie. De eerste dia bevat een grafiek met een niet‑gegroepeerde annotatie met de tekst “Preliminary results”, een grafiek‑eigendom lijn, en een gewoon tekstvak op de dia met de tekst “Slide overlay”. Het voorbeeld vindt de eerste grafiek op die dia en wijzigt de annotatie naar “Final results” zodra het rapport klaar is om gepubliceerd te worden. Het controleert op een lege collectie en bewerkt alleen een [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) met een niet‑null tekstframe geretourneerd door [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) en de verwachte tekst.
+Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de applicatie. De eerste dia bevat een diagram met een niet‑gegroepeerde annotatie met de tekst "Preliminary results", een diagram‑eigenaars lijn, en een gewoon dia‑tekstvak met de tekst "Slide overlay". Het voorbeeld vindt het eerste diagram op die dia en wijzigt de annotatie naar "Final results" wanneer het rapport klaar is om gepubliceerd te worden. Het controleert op een lege collectie en bewerkt alleen een [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) met een niet‑null tekstkader dat wordt geretourneerd door [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) en de verwachte tekst.
 
 ```java
 import com.aspose.slides.*;
@@ -311,26 +367,26 @@ try {
 }
 ```
 
-De lijn en het tekstvak op de dia blijven ongewijzigd. De onderstaande afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
+De lijn en het tekstvak op de dia blijven ongewijzigd. De volgende afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
 
-| Voor bewerking | Na bewerking |
+| Before editing | After editing |
 | --- | --- |
-| ![Grafiekannotatie met tekst Preliminary results](chart-annotations-before.png) | ![Grafiekannotatie met tekst Final results](chart-annotations-after.png) |
+| ![Diagramannotatie met tekst Preliminary results](chart-annotations-before.png) | ![Diagramannotatie met tekst Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Het voorbeeld inspecteert alleen de vorm‑objecten die direct aan de grafiek toebehoren. Als een annotatie zich binnen een [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/) bevindt, inspecteer dan ook de [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) collectie van die groep. Herhaal dit recursief voor geneste groepen, en pas dezelfde tekstcontroles toe op hun onderliggende vormen. Een groep zelf is een container; beschouw het niet als een tekstvak.
+Het voorbeeld controleert alleen de diagram‑eigendom vormen op het hoogste niveau. Als een annotatie zich binnen een [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/) bevindt, inspecteer dan ook de [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) collectie van die groep. Herhaal dit recursief voor geneste groepen, waarbij dezelfde tekstreferenties op hun onderliggende vormen worden toegepast. Een groep zelf is een container; beschouw deze niet als een tekstvak.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kan ik semi‑transparante vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
+**Kan ik halfdoorzichtige vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
 
-Ja. Vullings‑transparantie en de omtrek worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
+Ja. Vullings‑transparantie en de omtrek worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dicht opeengepakte visualisaties te verbeteren.
 
-**Hoe kan ik omgaan met datalabels wanneer ze overlappen?**
+**Hoe kan ik omgaan met data‑labels wanneer ze overlappen?**
 
-Verminder de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon alleen labels voor geselecteerde punten indien nodig, of wijzig het formaat naar “waarde + legenda”.
+Verminder de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon labels alleen voor geselecteerde punten indien nodig, of wijzig het formaat naar "waarde + legenda".
 
-**Kan ik gradient‑ of patroonvullingen toepassen op series?**
+**Kan ik verlopen‑ of patroonvullingen toepassen op reeksen?**
 
-Ja. Series ondersteunen soliede, gradient‑ en patroonvullingen. Gebruik in de praktijk gradients spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.
+Ja. Reeksen ondersteunen solide, verloop‑ en patroonvullingen. Gebruik verlopen spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.

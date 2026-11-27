@@ -8,29 +8,31 @@ keywords:
 - قالب‌بندی نمودار
 - قالب‌بندی نمودار
 - موجودیت نمودار
-- ویژگی‌های نمودار
+- خصوصیات نمودار
 - تنظیمات نمودار
 - گزینه‌های نمودار
-- ویژگی‌های قلم
-- حاشیهٔ گرد
+- خصوصیات قلم
+- حاشیه گرد
 - PowerPoint
 - ارائه
 - Android
 - Java
 - Aspose.Slides
-description: "یادگیری قالب‌بندی نمودار در Aspose.Slides برای اندروید با استفاده از جاوا و ارتقاء ارائهٔ PowerPoint خود با محورهای سفارشی، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد نمودار."
+description: "قالب‌بندی نمودارها را در Aspose.Slides برای اندروید با استفاده از جاوا بیاموزید و ارائه PowerPoint خود را با محورها، قلم‌ها، قالب‌های عددی سفارشی و حاشیه‌های گرد نمودار ارتقاء دهید."
 ---
-## **نگاه کلی**
+## **نمای کلی**
 
-این مقاله توضیح می‌دهد چگونه نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کنیم. این مقاله نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، افسانه‌ها، ناحیه رسم و پرکردن دیوارها را سفارشی کنیم تا ظاهر و قابلیت خواندن داده‌های نمودار بهبود یابد.
+این مقاله توضیح می‌دهد چگونه نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کنیم. این مقاله نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، راهنماها، ناحیه رسم و پر کردن دیوارها را سفارشی‌سازی کنیم تا ظاهر و خوانایی داده‌های نمودار بهبود یابد.
 
-همچنین نحوه تنظیم ویژگی‌های قلم برای متن نمودار، اعمال قالب‌های عددی از پیش تعریف‌شده به داده‌های نمودار، و فعال‌سازی گوشه‌های گرد برای ناحیه نمودار را نشان می‌دهد. این مثال‌ها نشان می‌دهند چگونه می‌توان هم سبک بصری و هم ارائه داده‌های نمودار را در یک ارائه کنترل کرد.
+همچنین نشان می‌دهد چگونه خصوصیات قلم برای متن نمودار تنظیم شود، قالب‌های عددی پیش‌تنظیم‌شده بر داده‌های نمودار اعمال گردد و گوشه‌های گرد برای ناحیه نمودار فعال شود. این مثال‌ها به‌صورت ترکیبی نشان می‌دهند چگونه سبک بصری و ارائه داده‌های نمودار را در یک ارائه کنترل کنیم.
+
+برای پر کردن‌ها و خطوط جداگانه در بازه‌های صعودی و نزولی، به [مثال نمودار سهام](/slides/fa/androidjava/create-chart/#create-stock-charts) مراجعه کنید.
 
 ## **قالب‌بندی موجودیت‌های نمودار**
 
-از [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، افسانه‌ها و ناحیه رسم استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند، سپس سبک‌های متن و خط جداگانه‌ای را بر محورهاى مقدار و دسته‌بندی اعمال می‌کند. اندازه‌های قلم و عرض خطوط بر حسب پوینت مشخص شده‌اند؛ برچسب‌های دسته‌بندی به میزان 45 درجه چرخانده می‌شوند.
+از [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، راهنماها و ناحیه رسم استفاده کنید. این مثال یک نمودار خطی با مارکرها و داده‌های پیش‌فرض ایجاد می‌کند، سپس سبک‌های متن و خط جداگانه‌ای برای محور مقدار و محور دسته‌بندی آن اعمال می‌نماید. اندازه قلم و ضخامت خطوط بر حسب پوینت مشخص شده‌اند؛ برچسب‌های دسته‌بندی با زاویه ۴۵ درجه چرخانده می‌شوند.
 
-محور مقدار از [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) به‌صورت مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است، با فاصله‌های اصلی 2 و فاصله‌های فرعی 0.5. مثال همچنین قالب‌بندی درصدی را با [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) تنظیم شده بر روی هزارها ترکیب می‌کند، بنابراین این تنظیمات را بر اساس معنی و بزرگی داده‌های خود تنظیم کنید. افسانه به دلیل اینکه [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) با `false` فراخوانی شده خارج از ناحیه رسم می‌ماند. پرکردن‌های پشت‌دیوار و کف از طریق [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) و [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) پیکربندی می‌شوند، اما این سطوح فقط در نمودارهای سه‌بعدی قابل مشاهده هستند.
+محور مقدار از متد [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) به‌صورت مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از ‎-۲ تا ۱۵ است، با فاصله‌های اصلی ۲ و فاصله‌های فرعی ۰.۵. این مثال همچنین قالب‌بندی درصد را با متد [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) که روی هزار تنظیم شده ترکیب می‌کند، بنابراین این تنظیمات را مطابق با معنای داده‌ها و مقیاس آن‌ها تنظیم کنید. راهنما به‌دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) با مقدار `false` خارج از ناحیه رسم می‌ماند. پر کردن‌های دیوار پشتی و کف از طریق [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) و [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) پیکربندی می‌شوند، اما این سطوح تنها در نمودارهای سه‌بعدی قابل مشاهده‌اند.
 
 ```java
 import com.aspose.slides.*;
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **تنظیم ویژگی‌های قلم برای یک نمودار**
+## **تنظیم خصوصیات قلم برای یک نمودار**
 
-اندازه پیش‌فرض قلم برای متن نمودار را از طریق [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20 پوینت ایجاد می‌کند و برچسب‌های مقدار برای اولین سری را از طریق [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) فعال می‌سازد. عناصر متنی که تنظیمات قلم صریح خود را دارند می‌توانند تنظیمات پیش‌فرض نمودار را بازنویسی کنند.
+اندازه قلم پیش‌فرض برای متن نمودار را از طریق [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم ۲۰ پوینت ایجاد می‌کند و با استفاده از متد [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) برچسب‌های مقدار را برای سری اول فعال می‌نماید. عناصر متنی با تنظیمات قلم صریح خود می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
 
 ```java
 import com.aspose.slides.*;
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **استفاده مجدد از قالب‌بندی فریم متن برای راهنمای نمودار**
+
+برای مطابقت راهنما با عنوان اسلاید، قلم عنوان را از طریق [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) در اولین پاراگراف تنظیم کنید. سپس بر روی قالب بازگردانده‌شده توسط [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) راهنما، متد [copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) را فراخوانی کنید. این متد تنظیمات فریم متن، قالب‌بندی اولین پاراگراف و خصوصیات قلم پیش‌فرض آن پاراگراف را کپی می‌کند. قالب‌بندی اعمال‌شده مستقیماً بر بخش‌های منفرد یا پاراگراف‌های بعدی فقط بر منبع محلی می‌ماند.
+
+مثال از یک عنوان بولد، ۲۶ پوینت Calibri به رنگ نیلی به عنوان الگو استفاده می‌کند. پس از استایل‌دادن به راهنما، متد [copyTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) برای اعمال همان قالب‌بندی به یک کپشن جداگانه فراخوانی می‌شود.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(Color.rgb(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+در ارائه ذخیره‌شده، راهنما و کپشن از نظر اندازه، وزن و رنگ با عنوان مطابقت دارند. راهنما همچنان نام‌های سری‌ها را نمایش می‌دهد و کپشن متن خود را حفظ می‌کند. اگر بخشی از کپشن قبلاً دارای اندازه قلم صریح باشد، آن اندازه بر پیش‌فرض پاراگراف کپی‌شده تقدم دارد.
+
+| قبل از کپی | بعد از کپی |
+| --- | --- |
+| ![نمودار فروش فصلی با برچسب‌های راهنمایی سیاه معمولی و کپشن سیاه](legend-formatting-before.png) | ![نمودار همان با برچسب‌های راهنمایی بزرگ‌تر، بولد و نیلی و کپشن منطبق](legend-formatting.png) |
+
 ## **تنظیم قالب عددی**
 
-از [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) برای اعمال یک قالب عددی پیش‌تعریف‌شده به سلول‌های کارنامه نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض و پشت‌سلولی ایجاد می‌کند و شاخص قالب 10 (`0.00%`) را به هر سلول مقدار سری اعمال می‌نماید. این کار نحوه نمایش مقادیر را در کتاب‌کار بدون تغییر اعداد اصلی تغییر می‌دهد؛ برای مثال، 0.25 به صورت 25.00٪ نمایش داده می‌شود. قالب‌های محورها و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
+از [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) برای اعمال یک قالب عددی داخلی به سلول‌های کارپوشه نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض پشتیبانی‌شده توسط سلول ایجاد می‌کند و ایندکس قالب ۱۰ (`0.00%`) را به هر سلول مقدار سری اعمال می‌نماید. این کار نحوه نمایش مقادیر را در کارپوشه بدون تغییر عددهای زیرین تغییر می‌دهد؛ برای مثال، ۰٫۲۵ به صورت ۲۵٫۰۰٪ نمایش داده می‌شود. قالب‌های محور و برچسب داده‌ها می‌توانند به‌صورت جداگانه پیکربندی شوند.
 
 ```java
 import com.aspose.slides.*;
@@ -197,7 +253,7 @@ try {
 }
 ```
 
-جدول زیر شاخص‌های قالب عددی داخلی را همراه با قالب‌های نمایشی Excel برای محل (United States) انگلیسی فهرست می‌کند. رشته‌های قالب دقیق و نمایش آن‌ها ممکن است بسته به برنامه و مکان‌گذاری، به‌ویژه برای ارزها و تاریخ‌ها، متفاوت باشد. برخی از قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML تفاوت دارند، همان‌طور که در [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
+جدول زیر فهرست ایندکس‌های قالب عددی داخلی همراه با قالب‌های نمایشی Excel برای محل (en-US) را نشان می‌دهد. رشته‌های قالب دقیق و نمایش آن‌ها می‌توانند بسته به برنامه و محل متفاوت باشند، به‌ویژه برای ارزها و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML تفاوت دارند، همان‌طور که در [یادداشت‌های پیاده‌سازی قالب عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
 
 | شاخص | قالب |
 | --- | --- |
@@ -238,9 +294,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **تنظیم لبه‌های گرد ناحیهٔ نمودار**
+## **تنظیم گوشه‌های گرد برای ناحیه نمودار**
 
-با فراخوانی [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) و مقدار `true`، گوشه‌های ناحیهٔ نمودار را گرد کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) برای دادن رنگ خاکستری ثابت و سبک خط تک‌خطی به حاشیهٔ آن پیش از ذخیرهٔ ارائه استفاده می‌کند.
+متد [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) را با مقدار `true` فراخوانی کنید تا گوشه‌های ناحیه نمودار گرد شوند. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از طریق [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) رنگ خطی ثابت خاکستری و سبک تک‌خطی به مرز آن اختصاص می‌دهد قبل از ذخیرهٔ ارائه.
 
 ```java
 import com.aspose.slides.*;
@@ -264,11 +320,11 @@ try {
 
 ## **ویرایش حاشیه‌نویسی‌های موجود در نمودار**
 
-یک نمودار می‌تواند اشکال سفارشی مانند یک حاشیه‌نویسی متنی که وضعیت گزارشی را توضیح می‌دهد، شامل شود. به این اشکال از طریق [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--) که همچنین تحت [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) در مرجع API نمودار فهرست شده است، دسترسی داشته باشید. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) برگردانده می‌شود، اشکال مالکیت‌دار توسط نمودار را شامل می‌شود.
+یک نمودار می‌تواند شامل اشکال سفارشی باشد، مانند یک حاشیه‌نویسی متنی که وضعیت گزارشی را توضیح می‌دهد. به این اشکال از طریق [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--) دسترسی داشته باشید؛ این متد همچنین در زیر [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) در مستندات API نمودار فهرست شده است. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) بازگردانده می‌شود، اشکال متعلق به نمودار را شامل می‌شود.
 
-یک جعبهٔ متن عادی که بر روی نمودار قرار می‌گیرد به اسلاید تعلق دارد، حتی اگر شبیه بخشی از نمودار به نظر برسد. پیمایش از طریق [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) نمودار و اشکال عادی اسلاید را پیدا می‌کند، اما اشکال منفرد داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده به‌عنوان عناصر جداگانهٔ نمودار محسوب می‌شوند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
+یک جعبه متنی معمولی که بر روی نمودار قرار می‌گیرد، به اسلاید تعلق دارد، حتی اگر شبیه بخشی از نمودار به‌نظر برسد. با تکرار روی [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--)، نمودار و اشکال معمولی اسلاید یافت می‌شوند، اما اشکال فردی داخل نمودار فهرست نمی‌شوند. عناوین نمودار و برچسب‌های داده، عناصر جداگانهٔ نمودار هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
 
-فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشهٔ کاری برنامه قرار دهید. اسلاید اول آن شامل یک نمودار با حاشیه‌نویسی جداسازی‑نشده با متن «Preliminary results»، یک خط مالکیت‌دار نمودار، و یک جعبهٔ متن اسلایدی با متن «Slide overlay» است. مثال اولین نمودار آن اسلاید را پیدا می‌کند و حاشیه‌نویسی را به «Final results» تغییر می‌دهد وقتی گزارش آماده انتشار باشد. این مثال وجود یک مجموعه خالی را بررسی می‌کند و فقط یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) با چارچوب متن غیر‌خالی که توسط [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) برگردانده می‌شود و متن مورد انتظار دارد، ویرایش می‌نماید.
+فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشهٔ کاری برنامه بگذارید. اسلاید اول آن شامل یک نمودار با حاشیه‌نویسی بدون گروه «Preliminary results»، یک خط متعلق به نمودار و یک جعبه متنی اسلایدی «Slide overlay» است. مثال اولین نمودار آن اسلاید را پیدا می‌کند و حاشیه‌نویسی را به «Final results» تغییر می‌دهد وقتی گزارش آماده انتشار است. این مثال برای مجموعهٔ خالی بررسی می‌کند و فقط یک [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) با فریم متن غیر‌خالی برگرفته از [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) و متن مورد انتظار را ویرایش می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -312,26 +368,26 @@ try {
 }
 ```
 
-خط و جعبهٔ متن اسلاید دست‌نخورده می‌مانند. تصاویر زیر ورودی و نتیجهٔ ذخیره‌شده و بازگشایی‌شده را نشان می‌دهند:
+خط و جعبهٔ متنی اسلاید بدون تغییر باقی می‌مانند. تصاویر زیر ورودی و نتیجهٔ ذخیره‌شده و باز شده را نشان می‌دهند:
 
 | قبل از ویرایش | بعد از ویرایش |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![حاشیه‌نویسی نمودار با متن Preliminary results](chart-annotations-before.png) | ![حاشیه‌نویسی نمودار با متن Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-مثال فقط اشکال مالکیت‌دار سطح بالای نمودار را بررسی می‌کند. اگر حاشیه‌نویسی داخل یک [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) باشد، مجموعهٔ [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو انجام دهید و همان بررسی‌های متنی را روی اشکال فرزندی آنها اعمال کنید. یک گروه خود یک محفظه است؛ آن را به‌عنوان جعبهٔ متن درنظر نگیرند.
+مثال فقط شکل‌های سطح‑بالای متعلق به نمودار را بررسی می‌کند. اگر حاشیه‌نویسی داخل یک [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) باشد، مجموعهٔ [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) همان گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو انجام دهید و همان چک‌های متنی را بر روی اشکال فرزند اعمال کنید. یک گروه خود یک مخزن است؛ آن را به‌عنوان جعبهٔ متن در نظر نگیرید.
 {{% /alert %}}
 
 ## **سوالات متداول**
 
-**آیا می‌توانم پرکردن‌های نیمه‑شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه آن‌ها مات باقی می‌ماند؟**
+**آیا می‌توانم پر کردن‌های نیمه‌شفاف برای ستون‌ها/ناحیه‌ها داشته باشم در حالی که حاشیه را مات باقی می‌گذارم؟**
 
-بله. شفافیت پرکردن و خط خارجی به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در تجسم‌های متراکم مفید است.
+بله. شفافیت پر کردن و خطوط حاشیه به‌صورت جداگانه پیکربندی می‌شوند. این امر برای بهبود خوانایی شبکه و داده‌ها در نمایش‌های پرپیکسل مفید است.
 
-**چگونه می‌توانم با برچسب‌های داده که هم‌پوشانی دارند برخورد کنم؟**
+**چگونه می‌توانم با برچسب‌های داده‌ای که هم‌پوشانی دارند برخورد کنم؟**
 
-اندازه قلم را کاهش دهید، مؤلفه‌های غیرضروری برچسب‌ها (مثلاً دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت لزوم فقط برچسب‌های نقاط انتخاب‌شده را نمایش دهید، یا قالب را به «مقدار + افسانه» تغییر دهید.
+اندازه قلم را کاهش دهید، مؤلفه‌های غیرضروری برچسب (مانند دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت لزوم فقط برای نقاط انتخابی برچسب را نشان دهید، یا قالب را به «مقدار + راهنما» تغییر دهید.
 
-**آیا می‌توانم پرکردن‌های گرادیان یا الگو را به سری‌ها اعمال کنم؟**
+**آیا می‌توانم پر کردن‌های گرادیان یا الگو را برای سری‌ها اعمال کنم؟**
 
-بله. سری‌ها از پرکردن‌های ثابت، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌صورت مقتصدانه استفاده کنید و ترکیباتی که کنتراست با شبکه و متن را کاهش می‌دهند، اجتناب کنید.
+بله. سری‌ها از پر کردن‌های ثابت، گرادیان و الگو پشتیبانی می‌کنند. در عمل از گرادیان‌ها به‌صرفه استفاده کنید و ترکیب‌هایی که کنتراست را با شبکه و متن کاهش می‌دهند، جلوگیری کنید.

@@ -1,36 +1,38 @@
 ---
-title: จัดรูปแบบแผนภูมิการนำเสนอใน JavaScript
-linktitle: การจัดรูปแบบแผนภูมิ
+title: "จัดรูปแบบแผนภูมิการนำเสนอใน JavaScript"
+linktitle: "การจัดรูปแบบแผนภูมิ"
 type: docs
 weight: 60
 url: /th/nodejs-java/chart-formatting/
 keywords:
-- รูปแบบแผนภูมิ
-- การจัดรูปแบบแผนภูมิ
-- ส่วนประกอบแผนภูมิ
-- คุณสมบัติของแผนภูมิ
-- การตั้งค่าแผนภูมิ
-- ตัวเลือกแผนภูมิ
-- คุณสมบัติฟอนต์
-- ขอบโค้ง
-- PowerPoint
-- การนำเสนอ
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Node.js ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิที่โค้งมน."
+- "จัดรูปแบบแผนภูมิ"
+- "การจัดรูปแบบแผนภูมิ"
+- "องค์ประกอบแผนภูมิ"
+- "คุณสมบัติของแผนภูมิ"
+- "การตั้งค่าแผนภูมิ"
+- "ตัวเลือกแผนภูมิ"
+- "คุณสมบัติตัวอักษร"
+- "ขอบโค้ง"
+- "PowerPoint"
+- "การนำเสนอ"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Node.js ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, แบบอักษร, รูปแบบตัวเลข, และขอบแผนภูมิที่โค้ง."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides โดยแสดงให้เห็นการปรับแต่งส่วนสำคัญของแผนภูมิ เช่น แกน เส้นกริด ชื่อเรื่อง คำอธิบาย (legend) พื้นที่แผนภูมิ และการเติมสีผนัง เพื่อปรับปรุงลักษณะและความอ่านเข้าใจของข้อมูลในแผนภูมิ
+บทความนี้อธิบายวิธีจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วยการใช้ Aspose.Slides ซึ่งแสดงวิธีปรับแต่งองค์ประกอบสำคัญของแผนภูมิเช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อต, และการเติมสีของผนัง เพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ
 
-บทความยังสาธิตวิธีตั้งค่าคุณสมบัติฟอนต์สำหรับข้อความในแผนภูมิ การใช้รูปแบบตัวเลขที่กำหนดไว้ล่วงหน้าสำหรับข้อมูลแผนภูมิ และการเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้แสดงวิธีควบคุมทั้งสไตล์การแสดงผลและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
+บทความยังสาธิตวิธีตั้งค่าคุณสมบัติตัวอักษรสำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขสำเร็จรูปกับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้แสดงวิธีควบคุมทั้งสไตล์การแสดงผลและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
 
-## **จัดรูปแบบส่วนประกอบของแผนภูมิ**
+สำหรับการเติมสีและขอบที่แยกต่างหากบนช่วงที่เพิ่มขึ้นและลดลง, ดูที่ [ตัวอย่างแผนภูมิสต็อก](/slides/th/nodejs-java/create-chart/#create-stock-charts)
 
-ใช้ [แผนภูมิ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่แผนภูมิ ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมเครื่องหมายและข้อมูลค่าเริ่มต้น แล้วจึงใช้สไตล์ข้อความและเส้นที่แยกต่างหากสำหรับแกนค่าและแกนประเภท ขนาดฟอนต์และความกว้างของเส้นระบุเป็นจุด; ป้ายชื่อประเภทจะหมุน 45 องศา
+## **จัดรูปแบบองค์ประกอบของแผนภูมิ**
 
-แกนค่าใช้ [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) อย่างอิสระจากเซลล์ต้นทาง ช่วงค่าของแกนเริ่มจาก -2 ถึง 15, มีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5 ตัวอย่างยังรวมการจัดรูปแบบเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) ที่ตั้งค่าเป็นพัน ดังนั้นให้ปรับตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและระดับของข้อมูล คำอธิบายอยู่ด้านนอกพื้นที่แผนภูมิเนื่องจากเรียกใช้ [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) ด้วย `false` การเติมสีผนังหลังและพื้นดูกำหนดผ่าน [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) และ [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) แต่พื้นผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
+ใช้ [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) เพื่อจัดรูปแบบชื่อแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมมาร์คเกอร์และข้อมูลเริ่มต้น จากนั้นใช้สไตล์ข้อความและเส้นที่แยกกันสำหรับแกนค่าตัวและแกนประเภท ขนาดตัวอักษรและความกว้างของเส้นระบุเป็นจุด; ป้ายชื่อประเภทถูกหมุน 45 องศา
+
+แกนค่าตัวใช้ [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) อย่างอิสระจากเซลล์ต้นทาง ช่วงค่าของมันอยู่ระหว่าง -2 ถึง 15 โดยมีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5 ตัวอย่างยังรวมการจัดรูปแบบเป็นเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) ที่ตั้งค่าเป็นพัน ดังนั้นจึงปรับการตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายยังคงอยู่ด้านนอกพื้นที่พล็อตเพราะ [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) ถูกเรียกด้วยค่า `false` การเติมสีผนังกับพื้นผิวพื้นกำหนดผ่าน [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) และ [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) แต่พื้นผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **ตั้งค่าคุณสมบัติฟอนต์สำหรับแผนภูมิ**
+## **ตั้งค่าคุณสมบัติตัวอักษรสำหรับแผนภูมิ**
 
-ตั้งค่าขนาดฟอนต์เริ่มต้นสำหรับข้อความในแผนภูมิผ่าน [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) ตัวอย่างสร้างแผนภูมิคอลัมน์แบบจัดกลุ่มพร้อมฟอนต์ขนาด 20 จุดและเปิดใช้งานป้ายค่าสำหรับชุดข้อมูลแรกผ่าน [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) องค์ประกอบข้อความที่มีการกำหนดฟอนต์เฉพาะของตนสามารถทับค่าตั้งต้นของแผนภูมิได้
+ตั้งค่าขนาดตัวอักษรเริ่มต้นสำหรับข้อความในแผนภูมิผ่าน [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มพร้อมฟอนต์ขนาด 20 จุดและเปิดใช้งานการแสดงป้ายค่าของชุดข้อมูลแรกผ่าน [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) องค์ประกอบข้อความที่มีการตั้งค่าฟอนต์โดยเฉพาะสามารถลบล้างค่าตั้งต้นของแผนภูมิได้
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **ใช้การจัดรูปแบบกรอบข้อความซ้ำสำหรับคำอธิบายแผนภูมิ**
+
+เพื่อให้คำอธิบายสอดคล้องกับหัวข้อสไลด์ ให้ตั้งค่าฟอนต์ของหัวข้อผ่าน [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ในย่อหน้าที่หนึ่ง เรียก [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) บนรูปแบบที่ได้จาก [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat) ของคำอธิบาย มันจะคัดลอกการตั้งค่ากรอบข้อความ การจัดรูปแบบของย่อหน้าแรกและคุณสมบัติฟอนต์เริ่มต้นของย่อคนั้น การจัดรูปแบบที่ใช้โดยตรงกับส่วนย่อยหรือย่อหน้าต่อมาจะคงอยู่เฉพาะแหล่งที่มา
+
+ตัวอย่างใช้หัวข้อ Calibri หนา 26 จุดสีกรมท่เป็นแม่แบบ หลังจากจัดรูปแบบคำอธิบายแล้ว จะเรียก [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) เพื่อใช้การจัดรูปแบบเดียวกันกับคำอธิบายแยก
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ในงานนำเสนอที่บันทึกแล้ว คำอธิบายและคำอธิบายย่อยจะตรงกับหัวข้อในเรื่องของขนาด น้ำหนัก และสี คำอธิบายยังคงแสดงชื่อชุดข้อมูล และคำอธิบายย่อยคงข้อความของตัวเอง หากส่วนหนึ่งในคำอธิบายย่อยมีขนาดฟอนต์ที่กำหนดไว้แล้ว ขนาดนั้นจะมีลำดับความสำคัญเหนือค่าตั้งต้นของย่อหน้าที่คัดลอก
+
+| ก่อนคัดลอก | หลังคัดลอก |
+| --- | --- |
+| ![แผนภูมิการขายรายไตรมาสพร้อมป้ายคำอธิบายสีดำแบบปกติและคำอธิบายสีดำ](legend-formatting-before.png) | ![แผนภูมิเดียวกันที่มีป้ายอธิบายสีกรมท่าใหญ่ขึ้นหนาและคำอธิบายที่สอดคล้องกัน](legend-formatting.png) |
+
 ## **ตั้งค่ารูปแบบตัวเลข**
 
-ใช้ [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) เพื่อใช้รูปแบบตัวเลขที่มีอยู่ในตัวสำหรับเซลล์ในสมุดงานของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบจัดกลุ่มด้วยข้อมูลค่าเริ่มต้นที่อิงเซลล์ และใช้รูปแบบดัชนี 10 (`0.00%`) กับเซลล์ค่าของแต่ละชุดข้อมูล สิ่งนี้เปลี่ยนวิธีการแสดงค่าที่สมุดงานโดยไม่เปลี่ยนตัวเลขจริง; ตัวอย่างเช่น 0.25 จะแสดงเป็น 25.00% รูปแบบแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
+ใช้ [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) เพื่อใช้รูปแบบตัวเลขที่มีอยู่แล้วกับเซลล์ในเวิร์กบุ๊กของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มโดยใช้ข้อมูลเริ่มต้นที่มาจากเซลล์ และใช้รูปแบบดัชนี 10 (`0.00%`) กับเซลล์ค่าของแต่ละชุดข้อมูล การทำเช่นนี้จะเปลี่ยนการแสดงค่าภายในเวิร์กบุ๊กโดยไม่เปลี่ยนตัวเลขพื้นฐาน; ตัวอย่างเช่น 0.25 จะถูกแสดงเป็น 25.00% รูปแบบแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,7 +254,7 @@ try {
 }
 ```
 
-ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีอยู่ในตัวพร้อมรูปแบบ Excel ตัวอย่างสำหรับภาษาอังกฤษ (สหรัฐอเมริกา) สตริงรูปแบบที่แน่นอนและการแสดงผลอาจแตกต่างกันตามแอปพลิเคชันและภาษาโดยเฉพาะสำหรับสกุลเงินและวันที่ บางรูปแบบของ Excel ยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
+ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีอยู่พร้อมรูปแบบ Excel ที่เป็นตัวอย่างสำหรับโลแคล English (United States) รูปแบบสตริงที่แน่นอนและการแสดงผลอาจแตกต่างกันตามแอปพลิเคชันและโลแคล โดยเฉพาะสำหรับสกุลเงินและวันที่ บางรูปแบบ Excel ยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
 
 | ดัชนี | รูปแบบ |
 | --- | --- |
@@ -241,7 +297,7 @@ try {
 
 ## **ตั้งค่าขอบโค้งของพื้นที่แผนภูมิ**
 
-เรียกใช้ [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) ด้วยค่า `true` เพื่อทำมุมของพื้นที่แผนภูมิให้โค้ง ตัวอย่างสร้างแผนภูมิคอลัมน์แบบจัดกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) เพื่อให้โครงร่างของแผนภูมิมีสีเทาเข้มแบบทึบและสไตล์เส้นเดียวก่อนบันทึกงานนำเสนอ
+เรียก [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) ด้วยค่า `true` เพื่อทำให้มุมของพื้นที่แผนภูมิเป็นโค้ง ตัวอย่างสร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) เพื่อให้เส้นขอบเป็นสีเทาแข็งและสไตล์เส้นเดี่ยวก่อนบันทึกงานนำเสนอ
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -263,13 +319,13 @@ try {
 }
 ```
 
-## **แก้ไขคำอธิบายแผนภูมิที่มีอยู่**
+## **แก้ไขหมายเหตุแผนภูมิที่มีอยู่**
 
-แผนภูมิสามารถประกอบด้วยรูปร่างที่กำหนดเอง เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปร่างเหล่านี้ผ่าน [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) คอลเลกชันที่คืนค่ามาจาก [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) จะมีรูปร่างที่เป็นของแผนภูมิ
+แผนภูมิอาจมีรูปร่างที่กำหนดเอง เช่น หมายเหตุข้อความอธิบายสถานะของรายงาน เข้าถึงรูปร่างเหล่านี้ผ่าน [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) คอลเลกชันที่คืนค่าจาก [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) มีรูปร่างที่เป็นของแผนภูมิ
 
-กล่องข้อความธรรมดาที่วางไว้บนแผนภูมิเป็นของสไลด์ แม้ว่ามันดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ การวนลูปผ่าน [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) จะพบทั้งแผนภูมิและรูปร่างสไลด์ทั่วไป แต่จะไม่แสดงรายชื่อรูปร่างแต่ละชิ้นภายในแผนภูมิ ชื่อเรื่องแผนภูมิและป้ายข้อมูลเป็นส่วนแยกของแผนภูมิ ไม่ใช่คำอธิบายที่กำหนดเองในคอลเลกชันนี้
+กล่องข้อความธรรมดาที่วางเหนือแผนภูมิเกี่ยวข้องกับสไลด์ แม้จะดูเหมือนเป็นส่วนของแผนภูมิ การวนซ้ำผ่าน [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) จะพบแผนภูมิและรูปร่างสไลด์ทั่วไป แต่จะไม่แสดงรายการรูปร่างแยกภายในแผนภูมิ ชื่อแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกจากกัน ไม่ได้เป็นหมายเหตุที่กำหนดเองในคอลเลกชันนี้
 
-ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีแผนภูมิพร้อมคำอธิบายที่ไม่ได้จัดกลุ่มว่า “Preliminary results”, เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาที่แสดงว่า “Slide overlay” ตัวอย่างค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น “Final results” เมื่อรายงานพร้อมเผยแพร่ มันตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ที่มีกรอบข้อความไม่เป็นค่าว่างตามที่คืนค่ามาจาก [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) และข้อความที่คาดหวัง
+ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีแผนภูมิพร้อมหมายเหตุที่ไม่ได้จัดกลุ่มข้อความ "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาข้อความ "Slide overlay" ตัวอย่างค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนหมายเหตุเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ จะตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ที่มีกรอบข้อความไม่เป็นค่าว่างซึ่งคืนค่าจาก [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) และมีข้อความที่คาดหวัง
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,26 +371,23 @@ try {
 }
 ```
 
-เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง ภาพต่อไปนี้แสดงผลก่อนและหลังการบันทึกใหม่
+เส้นและกล่องข้อความสไลด์จะคงเดิม รูปภาพต่อไปนี้แสดงผลลัพธ์ก่อนและหลังการบันทึกและเปิดใหม่:
 
 | ก่อนแก้ไข | หลังแก้ไข |
 | --- | --- |
-| ![คำอธิบายแผนภูมิอ่านว่า Preliminary results](chart-annotations-before.png) | ![คำอธิบายแผนภูมิอ่านว่า Final results](chart-annotations-after.png) |
+| ![หมายเหตุแผนภูมิแสดงผลลัพธ์เบื้องต้น](chart-annotations-before.png) | ![หมายเหตุแผนภูมิแสดงผลลัพธ์สุดท้าย](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-ตัวอย่างตรวจสอบเฉพาะรูปร่างระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) ให้ตรวจสอบคอลเลกชัน [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) ของกลุ่มนั้นด้วย ทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มซ้อนกันโดยใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูกของมัน กลุ่มเองเป็นคอนเทนเนอร์; ไม่ควรถือว่าเป็นกล่องข้อความ
+{{% alert color="info" title="หมายเหตุ" %}}
+ตัวอย่างตรวจสอบเฉพาะรูปร่างที่เป็นของแผนภูมิระดับบนสุด หากหมายเหตุอยู่ภายใน [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), ให้ตรวจสอบคอลเลกชัน [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) ของกลุ่มนั้นด้วย การทำซ้ำแบบเรียกซ้อนไปยังกลุ่มย่อยที่ซ้อนกันโดยใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูกของพวกมัน กลุ่มเองเป็นคอนเทนเนอร์; อย่าถือว่าเป็นกล่องข้อความ
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถตั้งค่าสีเติมกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่ได้โดยยังคงขอบทึบไว้หรือไม่?**
+**ฉันสามารถตั้งค่าการเติมสีกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่ในขณะที่คงเส้นขอบให้ทึบได้หรือไม่?**  
+ใช่ การโปร่งแสงของการเติมสีและเส้นขอบถูกกำหนดค่าแยกกัน สิ่งนี้เป็นประโยชน์สำหรับการปรับปรุงความอ่านง่ายของกริดและข้อมูลในภาพที่แออัด
 
-ใช่ การโปร่งใสของสีเติมและโครงร่างตั้งค่าแยกจากกัน ซึ่งเป็นประโยชน์ในการทำให้กริดและข้อมูลในภาพที่ซับซ้อนอ่านง่ายขึ้น
+**จะจัดการกับป้ายข้อมูลเมื่อมันทับซ้อนกันอย่างไร?**  
+ลดขนาดฟอนต์, ปิดส่วนประกอบป้ายที่ไม่สำคัญ (เช่น หมวดหมู่), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะจุดที่เลือกหากจำเป็น, หรือสลับรูปแบบเป็น "ค่า + คำอธิบาย"
 
-**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับกันอย่างไร?**
-
-ลดขนาดฟอนต์ ปิดใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น ประเภท) ปรับตำแหน่งป้าย แสดงป้ายเฉพาะจุดที่เลือกเท่านั้นหากจำเป็น หรือเปลี่ยนรูปแบบเป็น “ค่า + คำอธิบาย”
-
-**ฉันสามารถใช้การเติมแบบไล่สีหรือแบบลวดลายกับชุดข้อมูลได้หรือไม่?**
-
-ได้ ชุดข้อมูลรองรับการเติมแบบทึบ, ไล่สี, และลวดลาย อย่างไรก็ตามควรใช้ไล่สีอย่างระมัดระวังและหลีกเลี่ยงการผสมผสานที่ทำให้ความคอนทราสต์กับกริดและข้อความลดลง
+**ฉันสามารถใช้การเติมสีแบบไล่ระดับสีหรือรูปแบบให้กับชุดข้อมูลได้หรือไม่?**  
+ได้ ชุดข้อมูลรองรับการเติมสีแบบทึบ, ไล่ระดับสี, และรูปแบบ ในการปฏิบัติใช้ไล่ระดับสีอย่างประหยัดและหลีกเลี่ยงการผสมที่ลดความคอนทราสต์กับกริดและข้อความ

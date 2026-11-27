@@ -5,27 +5,33 @@ type: docs
 weight: 60
 url: /cs/php-java/chart-formatting/
 keywords:
-- formátovat graf
+- formát grafu
 - formátování grafu
-- prvek grafu
+- entita grafu
 - vlastnosti grafu
 - nastavení grafu
-- volby grafu
+- možnosti grafu
 - vlastnosti písma
 - zaoblený okraj
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Naučte se formátování grafů v Aspose.Slides pro PHP přes Java a vylepšete svou PowerPoint prezentaci pomocí vlastních os, písem, číselných formátů a zaoblených okrajů grafu."
+description: "Naučte se formátování grafů v Aspose.Slides pro PHP pomocí Java a vylepšete svou PowerPoint prezentaci pomocí vlastních os, písem, číselných formátů a zaoblených okrajů grafu."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak formátovat grafy v prezentacích PowerPoint pomocí Aspose.Slides. Ukazuje, jak přizpůsobit klíčové prvky grafu, jako jsou osy, mřížkové čáry, nadpisy, legendy, oblast vykreslování a výplně stěn, aby se zlepšil vzhled a čitelnost dat grafu. Také ukazuje, jak nastavit vlastnosti písma pro text v grafu, aplikovat předdefinované číselné formáty na data grafu a povolit zaoblené rohy oblasti grafu. Společně tyto příklady ukazují, jak řídit jak vizuální styl, tak prezentaci dat v grafu v prezentaci.
+Tento článek vysvětluje, jak formátovat grafy v prezentacích PowerPoint pomocí Aspose.Slides. Ukazuje, jak přizpůsobit hlavní prvky grafu, jako jsou osy, mřížkové čáry, názvy, legendy, oblast vykreslování a výplně stěn, aby se zlepšil vzhled a čitelnost dat v grafu.
 
-## **Formátování prvků grafu**
+Také ukazuje, jak nastavit vlastnosti písma pro text grafu, použít předdefinované číselné formáty na data grafu a povolit zaoblené rohy oblasti grafu. Společně tyto příklady ukazují, jak řídit jak vizuální styl, tak prezentaci dat grafu v prezentaci.
 
-Použijte [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) k formátování nadpisů grafu, os, mřížkových čar, legend a oblasti vykreslování. Tento příklad vytvoří čárový graf s značkami a výchozími daty, poté aplikuje samostatné styly textu a čar na jeho hodnotovou a kategoriální osu. Velikosti písma a šířky čar jsou zadány v bodech; popisky kategorií jsou otočeny o 45 stupňů. Osová osa používá [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) nezávisle na zdrojových buňkách. Její měřítko jde od -2 do 15, s hlavními intervaly 2 a vedlejšími intervaly 0,5. Příklad také kombinuje formátování procent s [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) nastaveným na tisíce, takže tato nastavení přizpůsobte významu a velikosti vašich dat. Legenda zůstává mimo oblast vykreslování, protože [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) je voláno s `false`. Výplně zadní stěny a podlahy jsou nakonfigurovány pomocí [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) a [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), ale tyto povrchy jsou viditelné jen v 3D grafech.
+Pro samostatné výplně a obrysy v rostoucích a klesajících intervalech viz [příklad akciového grafu](/slides/cs/php-java/create-chart/#create-stock-charts).
+
+## **Formátování entit grafu**
+
+Použijte [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) k formátování názvů grafů, os, mřížkových čar, legend a oblasti vykreslování. Tento příklad vytvoří čárový graf s značkami a výchozími daty, poté aplikuje samostatné styly textu a čáry na osu hodnot a osu kategorií. Velikosti písma a šířky čar jsou zadány v bodech; štítky kategorií jsou otočeny o 45 stupňů.
+
+Cílová osa používá [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) nezávisle na zdrojových buňkách. Jejich rozsah jde od -2 do 15, s hlavními intervaly 2 a vedlejšími intervaly 0,5. Příklad také kombinuje formátování procent s [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) nastaveným na tisíce, takže přizpůsobte tato nastavení významu a velikosti vašich dat. Legenda zůstává mimo oblast vykreslování, protože [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) je volána s `false`. Výplně zadní stěny a podlahy jsou konfigurovány pomocí [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) a [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor), ale tyto povrchy jsou viditelné pouze v 3D grafech.
 
 ```php
 use aspose\slides\ChartType;
@@ -153,7 +159,7 @@ try {
 
 ## **Nastavení vlastností písma pro graf**
 
-Nastavte výchozí velikost písma pro text v grafu pomocí [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). Tento příklad vytvoří sloupcový graf se shluky s písmem o 20 bodech a povolí hodnotové popisky pro první sérii pomocí [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Textové prvky s vlastními explicitními nastaveními písma mohou přepsat výchozí nastavení grafu.
+Nastavte výchozí velikost písma pro text grafu pomocí [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat). Příklad vytvoří seskupený sloupcový graf s fontem 20 bodů a povolí hodnotové popisky pro první sérii přes [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). Textové prvky s vlastními explicitními nastaveními písma mohou přepsat výchozí nastavení grafu.
 
 ```php
 use aspose\slides\ChartType;
@@ -174,9 +180,70 @@ try {
 }
 ```
 
+## **Znovupoužití formátování textového rámce pro legendu grafu**
+
+Pro sladění legendy s nadpisem snímku nastavte písmo nadpisu prostřednictvím [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) v prvním odstavci. Zavolejte [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) na formát vrácený [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) legendy. Zkopíruje nastavení textového rámce, formátování prvního odstavce a výchozí vlastnosti písma tohoto odstavce. Formátování aplikované přímo na jednotlivé části nebo na pozdější odstavce zůstává lokální ke zdroji.
+
+Příklad používá tučný nadpis Calibri 26 bodů v námořnické barvě jako šablonu. Po naformátování legendy zavolá [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) k použití stejného formátování na samostatný popisek.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+V uložené prezentaci se legenda a popisek shodují s nadpisem co do velikosti, tloušťky a barvy. Legenda i nadále zobrazuje názvy sérií a popisek si zachovává vlastní text. Pokud má část v popisku již explicitně nastavenou velikost písma, tato velikost má přednost před zkopírovaným výchozím nastavením odstavce.
+
+| Před kopírováním | Po kopírování |
+| --- | --- |
+| ![Čtvrtletní prodejní graf s běžnými černými popisky legendy a černým popiskem](legend-formatting-before.png) | ![Stejný graf s většími tučnými námořnickými popisky legendy a odpovídajícím popiskem](legend-formatting.png) |
+
 ## **Nastavení číselného formátu**
 
-Použijte [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) k aplikaci vestavěného číselného formátu na buňky sešitu grafu. Tento příklad vytvoří sloupcový graf se shluky s výchozími, buňkami podloženými daty a aplikuje formát indexu 10 (`0.00%`) na buňku hodnoty každé série. Tím se změní způsob zobrazení hodnot v sešitu, aniž by se změnily podkladová čísla; například 0,25 se zobrazí jako 25,00 %. Formáty os a popisků dat lze nastavit samostatně.
+Použijte [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) k použití vestavěného číselného formátu na buňky sešitů grafu. Tento příklad vytvoří seskupený sloupcový graf s výchozími, buňkou podloženými daty a použije formátový index 10 (`0.00%`) na buňku hodnoty každé série. Tím se změní způsob, jakým jsou hodnoty zobrazeny v sešitě, aniž by se změnila podkladová čísla; například 0,25 se zobrazí jako 25,00 %. Formáty os a popisků dat lze konfigurovat odděleně.
 
 ```php
 use aspose\slides\ChartType;
@@ -195,7 +262,7 @@ try {
         $dataPoints = $chartSeries->getDataPoints();
         for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
             $dataPoint = $dataPoints->get_Item($j);
-            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0,00%
         }
     }
 
@@ -205,7 +272,7 @@ try {
 }
 ```
 
-Následující tabulka uvádí vestavěné indexy číselných formátů s reprezentativními formáty Excelu pro lokální nastavení angličtiny (USA). Přesné řetězce formátů a jejich zobrazení se mohou lišit podle aplikace a lokality, zejména pro měny a data. Některé formáty Excelu se také liší od výchozích v standardu OOXML, jak je popsáno v [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Následující tabulka uvádí vestavěné indexy číselných formátů s reprezentativními formáty Excelu pro anglickou (USA) lokalizaci. Přesné řetězce formátů a jejich zobrazení se mohou lišit podle aplikace a lokality, zejména u měn a dat. Některé formáty Excelu se také liší od výchozích v standardu OOXML, jak je popsáno v [poznámkách k implementaci číselných formátů Microsoftu](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Formát |
 | --- | --- |
@@ -248,7 +315,7 @@ Následující tabulka uvádí vestavěné indexy číselných formátů s repre
 
 ## **Nastavení zaoblených okrajů oblasti grafu**
 
-Zavolejte [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) s `true`, aby se zaoblily rohy oblasti grafu. Příklad vytvoří sloupcový graf se shluky a použije [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) aby obrys dostal jednolitou šedou barvu a styl jedné čáry před uložením prezentace.
+Zavolejte [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) s hodnotou `true`, aby se zaoblily rohy oblasti grafu. Příklad vytvoří seskupený sloupcový graf a pomocí [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) nastaví jeho obrys na plnou šedou barvu a jednolinkový styl před uložením prezentace.
 
 ```php
 use aspose\slides\ChartType;
@@ -275,7 +342,11 @@ try {
 
 ## **Úprava existujících anotací grafu**
 
-Graf může obsahovat vlastní tvary, například textovou anotaci vysvětlující stav zprávy. Přístup k těmto tvarům získáte přes [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). Kolekce vrácená metodou [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) obsahuje tvary vlastněné grafem. Běžná textová pole umístěná nad grafem patří ke snímku, i když vypadají jako součást grafu. Procházením [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) se najde graf a běžné tvary snímku, ale nevyjmenují se jednotlivé tvary uvnitř grafu. Nadpisy grafu a popisky dat jsou samostatné prvky grafu, nikoli vlastní anotace v této kolekci. Stáhněte [chart-annotations.pptx](chart-annotations.pptx) a umístěte jej do pracovního adresáře aplikace. Jeho první snímek obsahuje graf s nezdruženou anotací „Preliminary results“, čárou patřící grafu a běžným textovým polem snímku s „Slide overlay“. Příklad najde první graf na tomto snímku a změní anotaci na „Final results“, když je zpráva připravena k publikaci. Kontroluje, zda je kolekce prázdná, a upravuje pouze [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) s ne‑null textovým rámcem vráceným metodou [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) a očekávaným textem.
+Graf může obsahovat vlastní tvary, například textovou anotaci vysvětlující stav zprávy. Přístup k těmto tvarům získáte prostřednictvím [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes). Kolekce vrácená metodou [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) obsahuje tvary patřící grafu.
+
+Obyčejné textové pole umístěné nad grafem patří ke snímku, i když vypadá jako součást grafu. Iterací přes [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) se najde graf a běžné tvary snímku, ale nevyjmenovává jednotlivé tvary uvnitř grafu. Tituly grafu a popisky dat jsou samostatné prvky grafu, nikoli vlastní anotace v této kolekci.
+
+Stáhněte [chart-annotations.pptx](chart-annotations.pptx) a umístěte jej do pracovního adresáře aplikace. Jeho první snímek obsahuje graf s rozdělenou anotací s textem „Preliminary results“, čárou patřící grafu a běžným textovým polem snímku s textem „Slide overlay“. Příklad najde první graf na tomto snímku a změní anotaci na „Final results“, když je zpráva připravena k publikaci. Kontroluje prázdnou kolekci a upravuje pouze [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) s nenulovým textovým rámcem vráceným metodou [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) a očekávaným textem.
 
 ```php
 use aspose\slides\Presentation;
@@ -325,26 +396,26 @@ try {
 }
 ```
 
-Čára a textové pole snímku zůstávají nezměněny. Následující obrázky ukazují vstup a uložený, znovu otevřený výsledek:
+Čára a textové pole snímku zůstávají beze změny. Následující obrázky ukazují vstup a uložený, znovu otevřený výsledek:
 
 | Před úpravou | Po úpravě |
 | --- | --- |
-| ![Anotace grafu – Předběžné výsledky](chart-annotations-before.png) | ![Anotace grafu – Konečné výsledky](chart-annotations-after.png) |
+| ![Anotace grafu s textem Preliminary results](chart-annotations-before.png) | ![Anotace grafu s textem Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Příklad kontroluje pouze tvary nejvyšší úrovně patřící grafu. Pokud je anotace uvnitř [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), prohlédněte také kolekci [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) dané skupiny. Opakujte to rekurzivně pro vnořené skupiny a použijte stejné textové kontroly na jejich podřízené tvary. Skupina sama je kontejner; neberte ji za textové pole.
+Příklad prověřuje pouze tvary na nejvyšší úrovni patřící grafu. Pokud je anotace uvnitř [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), zkontrolujte také kolekci [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) této skupiny. Opakujte to rekurzivně pro vnořené skupiny a použijte stejné kontrolní texty na jejich podřízené tvary. Skupina sama je kontejner; nepovažujte ji za textové pole.
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Mohu nastavit poloprůhledné výplně pro sloupce/oblasti a zároveň zachovat okraj neprůhledný?**
+**Mohu nastavit poloprůhledné výplně pro sloupce/oblasti a zároveň zachovat neprůhledný okraj?**
 
 Ano. Průhlednost výplně a obrys jsou konfigurovány odděleně. To je užitečné pro zlepšení čitelnosti mřížky a dat v hustých vizualizacích.
 
 **Jak mohu řešit překrývající se popisky dat?**
 
-Zmenšete velikost písma, zakažte nepodstatné komponenty popisků (například kategorie), upravte pozici popisku, zobrazte popisky pouze pro vybrané body, pokud je to nutné, nebo přepněte formát na „hodnota + legenda“.
+Zmenšete velikost písma, zakažte nepodstatné komponenty popisků (například kategorie), upravte pozici popisku, zobrazte popisky jen pro vybrané body, pokud je to nutné, nebo přepněte formát na "hodnota + legenda".
 
-**Mohu aplikovat přechodové nebo vzorové výplně na řady?**
+**Mohu na série použít gradientní nebo vzorové výplně?**
 
-Ano. Řady podporují plné, přechodové a vzorové výplně. V praxi používejte přechody střídmě a vyhněte se kombinacím, které snižují kontrast s mřížkou a textem.
+Ano. Série podporují plné, gradientní a vzorové výplně. V praxi používejte gradienty střídmě a vyhněte se kombinacím, které snižují kontrast vůči mřížce a textu.

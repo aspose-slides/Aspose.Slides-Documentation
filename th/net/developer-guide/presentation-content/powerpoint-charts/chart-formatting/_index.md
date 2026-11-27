@@ -1,20 +1,20 @@
 ---
-title: จัดรูปแบบแผนภูมิการนำเสนอใน .NET
-linktitle: การจัดรูปแบบแผนภูมิ
+title: "จัดรูปแบบแผนภูมิการนำเสนอใน .NET"
+linktitle: "การจัดรูปแบบแผนภูมิ"
 type: docs
 weight: 60
 url: /th/net/chart-formatting/
 keywords:
-- จัดรูปแบบแผนภูมิ
-- การจัดรูปแบบแผนภูมิ
-- องค์ประกอบแผนภูมิ
-- คุณสมบัติของแผนภูมิ
-- การตั้งค่าแผนภูมิ
-- ตัวเลือกแผนภูมิ
-- คุณสมบัติฟอนต์
-- ขอบโค้ง
+- "จัดรูปแบบแผนภูมิ"
+- "การจัดรูปแบบแผนภูมิ"
+- "เอนทิตี้ของแผนภูมิ"
+- "คุณสมบัติของแผนภูมิ"
+- "การตั้งค่าแผนภูมิ"
+- "ตัวเลือกแผนภูมิ"
+- "คุณสมบัติฟอนต์"
+- "ขอบโค้ง"
 - PowerPoint
-- การนำเสนอ
+- "การนำเสนอ"
 - .NET
 - C#
 - Aspose.Slides
@@ -22,15 +22,17 @@ description: "เรียนรู้การจัดรูปแบบแผ
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วยการใช้ Aspose.Slides โดยแสดงวิธีการปรับแต่งองค์ประกอบสำคัญของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อตและการเติมผนัง เพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ
+บทความนี้อธิบายวิธีกำหนดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides แสดงวิธีการปรับแต่งองค์ประกอบสำคัญของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่แผนภูมิ, และการเติมผนัง เพื่อปรับปรุงลักษณะและความอ่านง่ายของข้อมูลแผนภูมิ
 
-นอกจากนี้ยังสาธิตวิธีการตั้งค่าคุณสมบัติฟอนต์สำหรับข้อความในแผนภูมิ, การใช้รูปแบบตัวเลขที่กำหนดไว้ล่วงหน้ากับข้อมูลแผนภูมิ, และการเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้แสดงให้เห็นวิธีการควบคุมทั้งสไตล์ด้านภาพและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
+ยังแสดงวิธีตั้งค่าคุณสมบัติตัวอักษรสำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขสำเร็จรูปกับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้แสดงวิธีควบคุมสไตล์ภาพและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอพร้อมกัน
 
-## **จัดรูปแบบเอนทิตีของแผนภูมิ**
+สำหรับการเติมและขอบแยกต่างหากในช่วงที่เพิ่มและลดลง ดูที่ [ตัวอย่างแผนภูมิหุ้น](/slides/th/net/create-chart/#create-stock-charts)
 
-ใช้ [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบาย และพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมเครื่องหมายและข้อมูลเริ่มต้น จากนั้นนำสไตล์ข้อความและเส้นที่แยกต่างหากไปใช้กับแกนค่าที่และแกนประเภท ความสูงของฟอนต์และความกว้างของเส้นกำหนดเป็นจุด; ป้ายชื่อประเภทถูกหมุน 45 องศา
+## **กำหนดรูปแบบเอนทิตี้ของแผนภูมิ**
 
-แกนค่าที่ใช้ [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) แยกจากเซลล์ต้นทาง ช่วงสเกลตั้งแต่ -2 ถึง 15, มีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5 ตัวอย่างนี้ยังรวมการจัดรูปแบบเป็นเปอร์เซ็นต์พร้อม [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ที่ตั้งค่าเป็นพัน ดังนั้นควรปรับการตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายอยู่ด้านนอกพื้นที่พล็อตเนื่องจาก [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) ถูกปิดใช้งาน การเติมผนังหลังและพื้นดินกำหนดผ่าน [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) และ [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) แต่ผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3D
+ใช้ [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) เพื่อกำหนดรูปแบบชื่อเรื่อง, แกน, เส้นกริด, คำอธิบาย, และพื้นที่แผนภูมิ ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมเครื่องหมายและข้อมูลเริ่มต้น จากนั้นใช้สไตล์ข้อความและเส้นแยกต่างหากกับแกนค่าและแกนประเภท ขนาดฟอนต์และความกว้างเส้นระบุเป็นจุด; ป้ายชื่อประเภทถูกหมุน 45 องศา
+
+แกนค่าจะใช้ [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) อย่างอิสระจากเซลล์ต้นฉบับ ช่วงของแกนเป็นจาก -2 ถึง 15, ด้วยช่วงหลัก 2 และช่วงย่อย 0.5 ตัวอย่างนี้ยังรวมการจัดรูปแบบเปอร์เซ็นต์กับ [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ตั้งค่าเป็นพัน ดังนั้นให้ปรับการตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายอยู่ด้านนอกพื้นที่แผนภูมิเนื่องจาก [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) ถูกปิด การเติมผนังหลังและพื้นผ่าน [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) และ [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) แต่พื้นผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3D
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่าคุณสมบัติฟอนต์สำหรับแผนภูมิ**
+## **ตั้งค่าคุณสมบัติตัวอักษรสำหรับแผนภูมิ**
 
-กำหนดขนาดฟอนต์เริ่มต้นสำหรับข้อความในแผนภูมิโดยใช้ [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มพร้อมฟอนต์ขนาด 20 จุดและเปิดใช้งานป้ายค่าให้กับซีรีส์แรกผ่าน [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). องค์ประกอบข้อความที่มีการตั้งค่าฟอนต์เฉพาะของตนสามารถลบค่าตั้งต้นของแผนภูมิได้
+ตั้งขนาดฟอนต์เริ่มต้นสำหรับข้อความแผนภูมิผ่าน [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) ตัวอย่างสร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยฟอนต์ 20 จุดและเปิดใช้งานป้ายค่าของชุดแรกผ่าน [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) ส่วนประกอบข้อความที่มีการตั้งค่าฟอนต์เฉพาะของตนเองสามารถครอบคลุมค่าปริยายของแผนภูมิได้
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่ารูปแบบตัวเลข**
+## **ใช้การจัดรูปแบบกรอบข้อความซ้ำสำหรับคำอธิบายแผนภูมิ**
 
-ใช้ [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) เพื่อใช้รูปแบบตัวเลขที่สร้างไว้ล่วงหน้าในเซลล์เวิร์กบุ๊กของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มพร้อมข้อมูลที่อิงเซลล์เริ่มต้น และกำหนดรูปแบบดัชนี 10 (`0.00%`) ให้กับแต่ละเซลล์ค่าของซีรีส์ ซึ่งจะเปลี่ยนการแสดงค่าที่เวิร์กบุ๊กโดยไม่เปลี่ยนตัวเลขพื้นฐาน; ตัวอย่างเช่น 0.25 จะปรากฏเป็น 25.00% รูปแบบแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
+เพื่อให้คำอธิบายตรงกับหัวข้อสไลด์ ให้ตั้งค่าฟอนต์ใน [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) ของย่อหน้าที่แรก เรียก [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) บน [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) ของคำอธิบาย มันจะอ่านการตั้งค่ากรอบข้อความ, การจัดรูปแบบของย่อหน้าที่แรก, และคุณสมบัติตัวอักษรปริยายของย่อหน้านั้น การจัดรูปแบบที่ใช้โดยตรงกับส่วนย่อยหรือย่อหน้าต่อมาจะคงอยู่ในแหล่งที่มานั้น
+
+ตัวอย่างใช้หัวข้อหนา, 26 จุด Calibri สีกรมท่าเป็นแม่แบบ หลังจากจัดรูปแบบคำอธิบายแล้ว ใช้ [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) เพื่อใช้การจัดรูปแบบเดียวกันกับคำอธิบายแยก
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+ในงานนำเสนอที่บันทึก คำอธิบายและคำอธิบายแคปชั่นตรงกับหัวข้อในด้านขนาด, น้ำหนัก, และสี คำอธิบายยังคงแสดงชื่อชุดข้อมูล, และแคปชั่นเก็บข้อความของตนเอง หากส่วนหนึ่งในแคปชั่นมีขนาดฟอนต์ที่ระบุไว้แล้ว ขนาดนั้นจะมีลำดับความสำคัญเหนือค่าปริยายที่คัดลอกมา
+
+| ก่อนคัดลอก | หลังคัดลอก |
+| --- | --- |
+| ![แผนภูมิการขายไตรมาสที่มีป้ายคำอธิบายสีดำธรรมดาและแคปชั่นสีดำ](legend-formatting-before.png) | ![แผนภูมิเดียวกันที่มีป้ายคำอธิบายสีกรมท่าใหญ่ขึ้น, หนาและแคปชั่นที่ตรงกัน](legend-formatting.png) |
+
+## **กำหนดรูปแบบตัวเลข**
+
+ใช้ [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) เพื่อนำรูปแบบตัวเลขที่สร้างไว้ล่วงหน้าไปใช้กับเซลล์ในสมุดงานของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยข้อมูลเริ่มต้นที่รองรับเซลล์และกำหนดรูปแบบดัชนี 10 (`0.00%`) ให้กับเซลล์ค่าชุดข้อมูลแต่ละชุด การทำเช่นนี้ทำให้ค่าที่แสดงในสมุดงานเปลี่ยนไปโดยไม่เปลี่ยนตัวเลขพื้นฐาน; ตัวอย่างเช่น 0.25 จะแสดงเป็น 25.00% รูปแบบแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
 
 ```csharp
 using Aspose.Slides;
@@ -191,7 +243,7 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่สร้างไว้ล่วงหน้าพร้อมรูปแบบ Excel ตัวอย่างสำหรับภาษอังกฤษ (สหรัฐอเมริกา) รูปแบบสตริงที่แน่นอนและการแสดงผลอาจแตกต่างกันไปตามแอปพลิเคชันและภาษาท้องถิ่น โดยเฉพาะอย่างยิ่งสำหรับสกุลเงินและวันที่ รูปแบบ Excel บางอย่างก็แตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
+ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่สร้างไว้ล่วงหน้าพร้อมรูปแบบ Excel ตัวอย่างสำหรับพื้นที่ภาษาอังกฤษ (สหรัฐอเมริกา) สตริงรูปแบบที่แน่นอนและการแสดงผลอาจแตกต่างกันตามแอปพลิเคชันและภูมิภาค, โดยเฉพาะอย่างยิ่งสำหรับสกุลเงินและวันที่ รูปแบบ Excel บางอย่างยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
 
 | ดัชนี | รูปแบบ |
 | --- | --- |
@@ -234,7 +286,7 @@ presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 
 ## **ตั้งค่าขอบโค้งของพื้นที่แผนภูมิ**
 
-เปิดใช้งาน [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) เพื่อทำให้มุมของพื้นที่แผนภูมิเป็นโค้ง ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) เพื่อกำหนดโครงร่างเป็นสีเทาแบบทึบและสไตล์เส้นเดี่ยวก่อนบันทึกงานนำเสนอ
+เปิดใช้งาน [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) เพื่อทำให้มุมของพื้นที่แผนภูมิเป็นโค้ง ตัวอย่างสร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) เพื่อกำหนดขอบด้วยสีเทาแบบทึบและสไตล์เส้นเดี่ยวก่อนบันทึกงานนำเสนอ
 
 ```csharp
 using System.Drawing;
@@ -256,11 +308,11 @@ presentation.Save("out.pptx", SaveFormat.Pptx);
 
 ## **แก้ไขคำอธิบายแผนภูมิที่มีอยู่**
 
-แผนภูมิสามารถมีรูปทรงที่กำหนดเองได้ เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปทรงเหล่านี้ผ่าน [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), ซึ่งยังปรากฏภายใต้ [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) ในอ้างอิง API ของ Chart คอลเลกชัน [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) จะบรรจุรูปทรงที่เป็นของแผนภูมิ
+แผนภูมิสามารถมีรูปทรงแบบกำหนดเองได้, เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปทรงเหล่านี้ผ่าน [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), ซึ่งยังแสดงใน [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) ในอ้างอิง API ของ Chart คอลเลกชัน [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) ของมันประกอบด้วยรูปทรงที่เป็นของแผนภูมิ
 
-กล่องข้อความธรรมดาที่วางเหนือแผนภูมิจัดเป็นของสไลด์ แม้ว่ามันจะดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ การวนลูปผ่าน [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) จะพบบแผนภูมิและรูปทรงสไลด์ธรรมดา แต่จะไม่แสดงรูปทรงแต่ละอันภายในแผนภูมิ ชื่อเรื่องของแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกต่างหาก ไม่ใช่คำอธิบายที่กำหนดเองในคอลเลกชันนี้
+กล่องข้อความปกติที่วางอยู่เหนือแผนภูมิเป็นของสไลด์ แม้ว่ามันอาจดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ การวนลูปผ่าน [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) จะพบแผนภูมิและรูปทรงสไลด์ปกติ, แต่จะไม่แสดงรูปทรงแต่ละรูปภายในแผนภูมิ ชื่อเรื่องแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกจากกัน, ไม่ใช่คำอธิบายกำหนดเองในคอลเลกชันนี้
 
-ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีแผนภูมิที่มีคำอธิบายที่ไม่รวมกลุ่มแสดงว่า "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาที่เขียนว่า "Slide overlay". ตัวอย่างจะค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ จะตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ที่มี [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) ไม่เป็นค่า null และข้อความตรงตามที่คาดหวัง
+ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกของไฟล์มีแผนภูมิพร้อมคำอธิบายที่ไม่ได้จัดกลุ่มว่า “Preliminary results”, เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ปกติที่มีคำว่า “Slide overlay” ตัวอย่างค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น “Final results” เมื่อรายงานพร้อมเผยแพร่ จะตรวจสอบคอลเลกชันที่ว่างเปล่าและแก้ไขเฉพาะ [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ที่มี [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) ไม่เป็นค่า null และมีข้อความที่คาดหวัง
 
 ```csharp
 using System;
@@ -303,26 +355,26 @@ else
 }
 ```
 
-เส้นและกล่องข้อความสไลด์จะคงเดิม ตารางต่อไปนี้แสดงภาพก่อนและหลังการบันทึกใหม่:
+เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง ภาพต่อไปนี้แสดงผลอินพุตและผลลัพธ์ที่บันทึกและเปิดใหม่
 
 | ก่อนแก้ไข | หลังแก้ไข |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![คำอธิบายแผนภูมิที่อ่านว่า Preliminary results](chart-annotations-before.png) | ![คำอธิบายแผนภูมิที่อ่านว่า Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-ตัวอย่างจะตรวจสอบเฉพาะรูปทรงระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), ให้ตรวจสอบคอลเลกชัน [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) ของกลุ่มนั้นด้วย ทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มซ้อนกัน และใช้การตรวจสอบข้อความเดียวกันกับรูปทรงลูกของพวกมัน กลุ่มเองเป็นตัวคอนเทนเนอร์; อย่าถือว่ามันเป็นกล่องข้อความ
+ตัวอย่างตรวจสอบเฉพาะรูปทรงระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), ให้ตรวจสอบคอลเลกชัน [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) ของกลุ่มนั้นด้วย แล้วทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มซ้อนกัน, ใช้การตรวจสอบข้อความเดียวกันกับรูปทรงลูกของพวกมัน กลุ่มเองเป็นคอนเทนเนอร์; อย่าปฏิบัติเช่นเป็นกล่องข้อความ
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถตั้งค่าการเติมสีกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่ในขณะที่ยังคงขอบไม่โปร่งใสได้หรือไม่?**
+**ฉันสามารถตั้งค่าการเติมสีกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่ในขณะที่ยังคงขอบสีทึบได้หรือไม่?**
 
-ใช่ การตั้งค่าความโปร่งใสของการเติมและโครงร่างทำแยกกัน ซึ่งมีประโยชน์สำหรับการปรับปรุงความอ่านง่ายของกริดและข้อมูลในภาพที่แน่นหนา
+ได้ การโปร่งแสงของการเติมและขอบถูกกำหนดแยกกัน ซึ่งเป็นประโยชน์ในการปรับปรุงการอ่านของกริดและข้อมูลในภาพที่หนาแน่น
 
-**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับกันได้อย่างไร?**
+**ฉันจะจัดการกับป้ายข้อมูลเมื่อติดกันอย่างไร?**
 
-ลดขนาดฟอนต์, ปิดใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น ประเภท), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะสำหรับจุดที่เลือกหากจำเป็น, หรือเปลี่ยนรูปแบบเป็น "ค่า + คำอธิบาย"
+ลดขนาดฟอนต์, ปิดใช้งานส่วนประกอบของป้ายที่ไม่สำคัญ (เช่น ประเภท), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะจุดที่เลือกถ้าจำเป็น, หรือสลับรูปแบบเป็น “ค่า + คำอธิบาย”
 
-**ฉันสามารถใช้การเติมไล่สีหรือแบบลวดลายกับซีรีส์ได้หรือไม่?**
+**ฉันสามารถใช้การเติมแบบไล่สีหรือแบบลายเส้นให้กับชุดข้อมูลได้หรือไม่?**
 
-ได้ ซีรีส์รองรับการเติมแบบทึบ, ไล่สี, และลวดลาบ ในการใช้งานจริงควรใช้ไล่สีอย่างระมัดระวังและหลีกเลี่ยงการผสมผสานที่ทำให้ความคอนทราสต์กับกริดและข้อความลดลง
+ได้ ชุดข้อมูลรองรับการเติมแบบทึบ, ไล่สี, และลายเส้น ในการใช้งานจริงควรใช้ไล่สีอย่างระมัดระวังและหลีกเลี่ยงการผสมผสานที่ลดความคอนทราสต์กับกริดและข้อความ

@@ -1,5 +1,5 @@
 ---
-title: Format Diagram Presentasi dalam Java
+title: Format Diagram Presentasi di Java
 linktitle: Pemformatan Diagram
 type: docs
 weight: 60
@@ -12,24 +12,26 @@ keywords:
 - pengaturan diagram
 - opsi diagram
 - properti font
-- border bulat
+- garis tepi bulat
 - PowerPoint
 - presentasi
 - Java
 - Aspose.Slides
-description: "Pelajari pemformatan diagram di Aspose.Slides untuk Java dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan border diagram yang melengkung."
+description: "Pelajari pemformatan diagram di Aspose.Slides untuk Java dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan garis tepi diagram yang melengkung."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara memformat diagram dalam presentasi PowerPoint menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen diagram utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isi dinding untuk meningkatkan tampilan dan keterbacaan data diagram.
+Artikel ini menjelaskan cara memformat diagram dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen diagram utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data diagram.
 
-Artikel ini juga memperagakan cara mengatur properti font untuk teks diagram, menerapkan format numerik bawaan pada data diagram, dan mengaktifkan sudut melengkung untuk area diagram. Bersama-sama, contoh-contoh ini menunjukkan cara mengontrol baik gaya visual maupun penyajian data diagram dalam sebuah presentasi.
+Artikel ini juga mendemonstrasikan cara mengatur properti font untuk teks diagram, menerapkan format numerik bawaan pada data diagram, dan mengaktifkan sudut melengkung untuk area diagram. Bersama‑sama, contoh‑contoh ini menunjukkan cara mengendalikan baik gaya visual maupun penyajian data diagram dalam sebuah presentasi.
 
-## **Memformat Entitas Diagram**
+Untuk isian dan garis tepi terpisah pada interval naik dan turun, lihat [contoh diagram saham](/slides/id/java/create-chart/#create-stock-charts).
 
-Gunakan [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) untuk memformat judul diagram, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat diagram garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan sumbu kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+## **Format Entitas Diagram**
 
-Sumbu nilai menggunakan [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) secara terpisah dari sel sumber. Skala sumbu dimulai dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan pemformatan persentase dengan [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) yang disetel ke ribuan, jadi sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap berada di luar area plot karena [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) dipanggil dengan `false`. Isi back‑wall dan lantai dikonfigurasi melalui [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) dan [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), tetapi permukaan ini hanya terlihat pada diagram 3D.
+Gunakan [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) untuk memformat judul diagram, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat diagram garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis yang terpisah pada sumbu nilai dan sumbu kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+
+Sumbu nilai menggunakan [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) secara terpisah dari sel sumber. Skala sumbu berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan pemformatan persentase dengan [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) yang disetel ke ribuan, jadi sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap di luar area plot karena [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) dipanggil dengan `false`. Isian dinding belakang dan lantai dikonfigurasi melalui [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) dan [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), namun permukaan ini hanya terlihat pada diagram 3D.
 
 ```java
 import com.aspose.slides.*;
@@ -147,9 +149,9 @@ try {
 }
 ```
 
-## **Mengatur Properti Font untuk Diagram**
+## **Atur Properti Font untuk Diagram**
 
-Tetapkan ukuran font default untuk teks diagram melalui [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). Contoh ini membuat diagram kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Elemen teks dengan pengaturan font eksplisit mereka sendiri dapat menggantikan default diagram.
+Atur ukuran font default untuk teks diagram melalui [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). Contoh ini membuat diagram kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Elemen teks dengan pengaturan font eksplisitnya dapat menimpa default diagram.
 
 ```java
 import com.aspose.slides.*;
@@ -168,9 +170,63 @@ try {
 }
 ```
 
-## **Mengatur Format Numerik**
+## **Gunakan Kembali Pemformatan Bingkai Teks untuk Legenda Diagram**
 
-Gunakan [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) untuk menerapkan format nomor bawaan pada sel workbook diagram. Contoh ini membuat diagram kolom berkelompok dengan data default yang disimpan di sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di workbook tanpa mengubah angka dasarnya; misalnya, 0,25 ditampilkan sebagai 25,00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
+Untuk menyamakan legenda dengan judul slide, atur font judul melalui [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) pada paragraf pertama. Panggil [copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) pada format yang dikembalikan oleh [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) legenda. Metode ini menyalin pengaturan bingkai teks, pemformatan paragraf pertama, dan properti font default paragraf tersebut. Pemformatan yang diterapkan langsung pada bagian individual atau pada paragraf selanjutnya tetap lokal pada sumber.
+
+Contoh menggunakan judul Calibri 26 poin tebal berwarna navy sebagai templat. Setelah menata legenda, contoh memanggil [copyTo](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) untuk menerapkan pemformatan yang sama pada keterangan terpisah.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(new Color(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pada presentasi yang disimpan, legenda dan keterangan cocok dengan judul dalam ukuran, ketebalan, dan warna. Legenda tetap menampilkan nama‑nama seri, dan keterangan mempertahankan teksnya sendiri. Jika sebuah bagian dalam keterangan sudah memiliki ukuran font eksplisit, ukuran tersebut akan mengambil prioritas atas default paragraf yang disalin.
+
+| Sebelum menyalin | Setelah menyalin |
+| --- | --- |
+| ![Diagram penjualan kuartalan dengan label legenda hitam biasa dan keterangan hitam](legend-formatting-before.png) | ![Diagram yang sama dengan label legenda biru tua yang lebih besar, tebal, dan keterangan yang cocok](legend-formatting.png) |
+
+## **Atur Format Numerik**
+
+Gunakan [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) untuk menerapkan format angka bawaan pada sel buku kerja diagram. Contoh ini membuat diagram kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di buku kerja tanpa mengubah angka dasar; misalnya, 0,25 ditampilkan sebagai 25,00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
 
 ```java
 import com.aspose.slides.*;
@@ -196,7 +252,7 @@ try {
 }
 ```
 
-Berikut ini tabel yang mencantumkan indeks format nomor bawaan dengan format Excel perwakilan untuk locale Bahasa Inggris (Amerika Serikat). String format tepat dan tampilannya dapat bervariasi menurut aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default standar OOXML, seperti dijelaskan dalam [catatan implementasi format nomor Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Tabel berikut mencantumkan indeks format angka bawaan beserta contoh format Excel untuk lokal Inggris (Amerika Serikat). String format tepat dan tampilannya dapat bervariasi menurut aplikasi dan lokal, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, seperti yang dijelaskan dalam [catatan implementasi format angka Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Indeks | Format |
 | --- | --- |
@@ -237,9 +293,9 @@ Berikut ini tabel yang mencantumkan indeks format nomor bawaan dengan format Exc
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Mengatur Pinggiran Bulat pada Area Diagram**
+## **Atur Bingkai Sudut Membulat Area Diagram**
 
-Panggil [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) dengan `true` untuk membuat sudut area diagram menjadi bulat. Contoh ini membuat diagram kolom berkelompok dan menggunakan [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) untuk memberi garis luar diagram warna abu‑abu solid dan gaya satu garis sebelum menyimpan presentasi.
+Panggil [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) dengan `true` untuk membulatkan sudut area diagram. Contoh ini membuat diagram kolom berkelompok dan menggunakan [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) untuk memberi outline warna abu‑abu solid dan gaya garis tunggal sebelum menyimpan presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -261,13 +317,13 @@ try {
 }
 ```
 
-## **Menyunting Anotasi Diagram yang Ada**
+## **Sunting Anotasi Diagram yang Ada**
 
-Diagram dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk‑bentuk ini melalui [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), juga terdaftar di bawah [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) dalam Referensi API Diagram. Koleksi yang dikembalikan oleh [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) berisi bentuk‑bentuk milik diagram.
+Sebuah diagram dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status sebuah laporan. Akses bentuk‑bentuk ini melalui [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), juga tercantum di bawah [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) dalam Referensi API Diagram. Koleksi yang dikembalikan oleh [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) berisi bentuk‑bentuk milik diagram.
 
-Kotak teks biasa yang ditempatkan di atas diagram menjadi bagian slide, meskipun terlihat seperti bagian diagram. Iterasi melalui [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) menemukan diagram dan bentuk slide biasa, tetapi tidak mengenumerasi bentuk‑bentuk individu di dalam diagram. Judul diagram dan label data adalah elemen diagram terpisah, bukan anotasi khusus dalam koleksi ini.
+Kotak teks biasa yang ditempatkan di atas diagram termasuk ke slide, meskipun terlihat seperti bagian diagram. Iterasi melalui [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) menemukan diagram dan bentuk slide biasa, tetapi tidak menelusuri bentuk‑bentuk individual di dalam diagram. Judul diagram dan label data adalah elemen diagram terpisah, bukan anotasi khusus dalam koleksi ini.
 
-Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi diagram dengan anotasi tidak berkelompok berisi "Preliminary results", sebuah garis milik diagram, dan kotak teks slide biasa berisi "Slide overlay". Contoh ini menemukan diagram pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa apakah koleksi kosong dan hanya menyunting sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) dengan bingkai teks tidak null yang dikembalikan oleh [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) serta teks yang diharapkan.
+Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi diagram dengan anotasi tidak tergabung berisi teks "Preliminary results", sebuah garis milik diagram, dan kotak teks slide biasa berisi teks "Slide overlay". Contoh menemukan diagram pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Contoh memeriksa apakah koleksi kosong dan hanya menyunting sebuah [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) dengan bingkai teks tidak null yang dikembalikan oleh [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) serta teks yang diharapkan.
 
 ```java
 import com.aspose.slides.*;
@@ -311,26 +367,26 @@ try {
 }
 ```
 
-Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menunjukkan masukan dan hasil yang disimpan serta dibuka kembali:
+Garis dan kotak teks slide tetap tidak berubah. Gambar berikut memperlihatkan input dan hasil yang disimpan serta dibuka kembali:
 
-| Sebelum penyuntingan | Setelah penyuntingan |
+| Sebelum menyunting | Setelah menyunting |
 | --- | --- |
-| ![Anotasi diagram berisi Preliminary results](chart-annotations-before.png) | ![Anotasi diagram berisi Final results](chart-annotations-after.png) |
+| ![Anotasi diagram bertuliskan Preliminary results](chart-annotations-before.png) | ![Anotasi diagram bertuliskan Final results](chart-annotations-after.png) |
 
-{{% alert color="info" title="Catatan" %}}
-Contoh ini memeriksa hanya bentuk milik diagram tingkat atas. Jika sebuah anotasi berada di dalam [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), periksa koleksi [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) grup tersebut juga. Ulangi secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah wadah; jangan perlakukan sebagai kotak teks.
+{{% alert color="info" title="Note" %}}
+Contoh hanya memeriksa bentuk milik diagram pada tingkat atas. Jika sebuah anotasi berada di dalam sebuah [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), periksa koleksi [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) grup tersebut juga. Lakukan ini secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah wadah; jangan memperlakukannya sebagai kotak teks.
 {{% /alert %}}
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apakah saya dapat menetapkan isian semi-transparan untuk kolom/area sambil menjaga batas tetap buram?**
+**Apakah saya dapat mengatur isian semi‑transparan untuk kolom/area sambil menjaga batas tetap opak?**
 
-Ya. Transparansi isian dan garis luar dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan grid dan data pada visualisasi yang padat.
+Ya. Transparansi isian dan outline diatur secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
 
-**Bagaimana saya dapat menangani label data ketika mereka tumpang tindih?**
+**Bagaimana saya bisa menangani label data ketika mereka tumpang tindih?**
 
-Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk titik yang dipilih bila perlu, atau ubah format menjadi "nilai + legenda".
+Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya kategori), sesuaikan posisi label, tampilkan label hanya untuk titik yang dipilih jika diperlukan, atau ubah format menjadi "value + legend".
 
 **Apakah saya dapat menerapkan isian gradien atau pola pada seri?**
 
-Ya. Seri mendukung isian solid, gradien, dan pola. Dalam praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan grid dan teks.
+Ya. Seri mendukung isian solid, gradien, dan pola. Pada praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.

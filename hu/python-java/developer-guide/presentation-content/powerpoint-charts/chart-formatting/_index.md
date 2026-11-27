@@ -1,6 +1,6 @@
 ---
-title: Pythonban a bemutató diagramok formázása
-linktitle: Diagram formázás
+title: Prezentációs diagramok formázása Pythonban
+linktitle: Diagramformázás
 type: docs
 weight: 60
 url: /hu/python-java/chart-formatting/
@@ -17,19 +17,21 @@ keywords:
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Ismerje meg a diagramok formázását az Aspose.Slides Python számára Java útján, és emelje fel PowerPoint prezentációját egyéni tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
+description: "Ismerje meg a diagramok formázását az Aspose.Slides for Python via Java segítségével, és emelje fel PowerPoint prezentációját egyedi tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan formázhatók diagramok PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan testreszabhatók a diagram kulcsfontosságú elemei, például a tengelyek, rácsvonalak, címek, jelmagyarázatok, ábraterület és falkitöltések, a diagram adatok megjelenésének és olvashatóságának javítása érdekében.
+Ez a cikk bemutatja, hogyan formázhatók diagramok PowerPoint-prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan testreszabhatók a diagram kulcselemei, például tengelyek, rasztervonalak, címek, jelmagyarázatok, a rajzoló terület és a fal kitöltései, a diagram adatainak megjelenésének és olvashatóságának javítása érdekében.
 
-A cikk továbbá bemutatja, hogyan állítható be a betűtípus tulajdonsága a diagram szövegéhez, hogyan alkalmazhatók előre definiált számformátumok a diagram adataihoz, és hogyan engedélyezhetők lekerekített sarkok a diagram területén. Ezek a példák együtt megmutatják, hogyan szabályozható a diagram megjelenési stílusa és az adatmegjelenítés egy prezentációban.
+A cikk bemutatja továbbá, hogyan állíthatók be a diagram szövegének betűtípus‑tulajdonságai, hogyan alkalmazhatók előre definiált számformátumok a diagram adataira, valamint hogyan lehet lekerekített sarkokat engedélyezni a diagram területen. Ezek a példák együttesen azt mutatják, hogyan lehet a diagramok vizuális stílusát és adatmegjelenítését egy prezentációban szabályozni.
+
+A fel- és lemenő időszakokra külön kitöltések és körvonalak esetén lásd a [stock chart példa](/slides/hu/python-java/create-chart/#create-stock-charts).
 
 ## **Diagramelemek formázása**
 
-Használja a [Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/chart/)‑t a diagram címek, tengelyek, rácsvonalak, jelmagyarázatok és az ábraterület formázásához. Ez a példa egy vonaldiagramot hoz létre jelölőkkel és alapértelmezett adatokkal, majd külön szöveg‑ és vonalstílusokat alkalmaz az érték‑ és kategória‑tengelyekre. A betűméretek és vonalszélességek pontban vannak megadva; a kategória‑címkék 45 fokra vannak elfordítva.
+Használja a [Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) elemet diagramcímek, tengelyek, rasztervonalak, jelmagyarázatok és a rajzoló terület formázásához. Ez a példa egy vonaldiagramot hoz létre jelölőkkel és alapértelmezett adatokkal, majd külön szöveg‑ és vonalstílusokat alkalmaz az érték‑ és kategóriatengelyeire. A betűméretek és vonalszélességek pontban vannak megadva; a kategóriacímkék 45 fokban vannak elforgatva.
 
-Az értéktengely a [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat)‑t használja a forráscelláktól függetlenül. Skálája –2‑től 15‑ig terjed, főosztók léptéke 2, kisebb osztók 0.5. A példa százalékos formátumot kombinál a [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) ezrekre állított beállításával, ezért ezeket a beállításokat a saját adatai jelentéséhez és nagyságához igazítsa. A jelmagyarázat a ábraterületen kívül marad, mert a [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) `False`‑ra van állítva. A hátfal és a padló kitöltései a [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) és a [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) segítségével konfigurálható, de ezek a felületek csak 3D diagramokban láthatók.
+Az értéktengely a [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) függvényt használja a forráscelláktól függetlenül. A skála -2‑től 15‑ig terjed, nagyobb intervallumok 2‑esek, kisebbek 0,5‑osak. A példa a százalékos formázást kombinálja a [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) ezrekre beállításával, ezért ezeket a beállításokat az adatok jelentésének és nagyságának megfelelően kell módosítani. A jelmagyarázat a rajzoló terület kívül marad, mert a [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) `False` értékkel van meghívva. A hátfal és a talaj kitöltései a [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) és a [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) segítségével vannak beállítva, de ezek a felületek csak 3D diagramokban láthatóak.
 
 ```python
 import jpype
@@ -157,9 +159,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Diagram betűtípus tulajdonságainak beállítása**
+## **Betűtípus‑tulajdonságok beállítása diagramhoz**
 
-Állítsa be a diagram szövegének alapértelmezett betűméretét a [Diagram.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) segítségével. A példa egy csoportosított oszlopdiagramot hoz létre 20‑pontos betűtípussal, és az első sorra a [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue)‑t hívva engedélyezi az értékcímkéket. A saját explicit betűtípust beállító szövegelemek felülbírálhatják a diagram alapértelmezését.
+Állítsa be a diagram szövegének alapértelmezett betűméretét a [Diagram.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) segítségével. A példa egy klaszter oszlopdiagramot hoz létre 20 pont betűmérettel, és az első sorozat értékcímkéit a [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) függvénnyel engedélyezi. Azok a szövegelemek, amelyek saját explicit betűtípusbeállításokkal rendelkeznek, felülírhatják a diagram alapértelmezését.
 
 ```python
 import jpype
@@ -183,9 +185,69 @@ finally:
     presentation.dispose()
 ```
 
+## **Szövegkeret formázás újrahasználata diagram jelmagyarázatnál**
+
+A jelmagyarázatot a diacímhez igazítva állítsa be a címsor betűtípusát a [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) függvénnyel az első bekezdésen. Hívja meg a [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom) függvényt a jelmagyarázat [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) által visszaadott formátumon. Ez átmásolja a szövegkeret beállításait, az első bekezdés formázását, valamint annak alapértelmezett betűtípus‑tulajdonságait. Az egyes részekre vagy későbbi bekezdésekre közvetlenül alkalmazott formázás a forráson marad helyi.
+
+A példa egy félkövér, 26 pont Calibri címet kék színben használ sablonként. A jelmagyarázat stílusozása után a [copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) függvényt hívja meg, hogy ugyanazt a formázást egy külön feliratra alkalmazza.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+A mentett prezentációban a jelmagyarázat és a felirat méret, súly és szín tekintetében megegyezik a címmel. A jelmagyarázat továbbra is a sorozatneveket jeleníti meg, a felirat pedig a saját szövegét tartja meg. Ha a felirat egy részében már explicit betűméret van megadva, az a méret felülírja a másolt bekezdés alapértelmezését.
+
+| Másolás előtt | Másolás után |
+| --- | --- |
+| ![Negyedéves eladási diagram rendszeres fekete jelmagyarázati címkékkel és fekete felirattal](legend-formatting-before.png) | ![Ugyanez a diagram nagyobb, vastag tengerkék jelmagyarázati címkékkel és egyező felirattal](legend-formatting.png) |
+
 ## **Számformátum beállítása**
 
-Használja a [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat)‑t beépített számformátum alkalmazásához a diagram munkafüzet‑celláira. Ez a példa egy csoportosított oszlopdiagramot hoz létre alapértelmezett, cella‑alapú adatokkal, és az index 10‑es (`0.00%`) formátumot alkalmazza minden sor értékcellájára. Ez megváltoztatja, hogyan jelennek meg az értékek a munkafüzetben anélkül, hogy az alapszámok módosulnának; például a 0.25 25.00 %-ként jelenik meg. A tengely‑ és adatcímke‑formátumok külön‑külön is beállíthatók.
+Használja a [DiagramAdatCella.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) függvényt beépített számformátum alkalmazásához a diagram munkafüzetcelláira. Ez a példa egy klaszter oszlopdiagramot hoz létre alapértelmezett, cella‑alapú adatokkal, és a 10‑es formátumindexet (`0.00%`) minden sorozat értékcellájára alkalmazza. Ez megváltoztatja, hogyan jelennek meg az értékek a munkafüzetben anélkül, hogy a tényleges számok módosulnának; például a 0,25 25,00%-ként jelenik meg. Az tengely‑ és adatcímke‑formátumok külön is beállíthatók.
 
 ```python
 import jpype
@@ -212,9 +274,9 @@ finally:
     presentation.dispose()
 ```
 
-Az alábbi táblázat felsorolja a beépített számformátum‑indexeket a megfelelő Excel‑formátumokkal az angol (Egyesült Államok) nyelvterületen. A pontos formátumkarakterláncok és megjelenítésük alkalmazásonként és nyelvterületenként változhat, különösen a pénznemek és dátumok esetén. Néhány Excel‑formátum eltér az OOXML szabvány alapértelmezett formátumaitól, ahogyan azt a [Microsoft számformátum‑implementációs jegyzetek](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) leírja.
+Az alábbi táblázat felsorolja a beépített számformátum‑indexeket az angol (USA) helyi beállításokhoz tartozó tipikus Excel‑formátumokkal. A pontos formátumkarakterláncok és megjelenítésük alkalmazásonként és helyi beállításonként változhat, különösen pénznem és dátum esetén. Néhány Excel‑formátum eltér az OOXML szabvány alapértelmezettjeitől, amint azt a [Microsoft számformátum‑implementációs megjegyzéseiben](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) leírják.
 
-| Index | Format |
+| Index | Formátum |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -253,9 +315,9 @@ Az alábbi táblázat felsorolja a beépített számformátum‑indexeket a megf
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Diagramterület lekerekített szegélyek beállítása**
+## **Diagramterület lekerekített szegélyeinek beállítása**
 
-Hívja a [Diagram.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners)‑t `True`‑val a diagram területének sarkainak lekerekítéséhez. A példa egy csoportosított oszlopdiagramot hoz létre, majd a [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat)‑et használja a kontúr szilárd szürke színre és egyetlen vonalstílusra állításához, mielőtt mentené a prezentációt.
+Hívja meg a [Diagram.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) függvényt `True` értékkel a diagram terület sarkainak lekerekítéséhez. A példa egy klaszter oszlopdiagramot hoz létre, és a [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) segítségével szilárd szürke színt és egyszeres vonalstílust ad a körvonalnak, mielőtt mentené a prezentációt.
 
 ```python
 import jpype
@@ -283,13 +345,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Meglévő diagram megjegyzések szerkesztése**
+## **Meglévő diagramjegyzetek szerkesztése**
 
-Egy diagram tartalmazhat saját alakzatokat, például egy szöveges megjegyzést, amely a jelentés állapotát magyarázza. Ezekhez az alakzatokhoz a [Diagram.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes)‑on keresztül férhet hozzá. A [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) által visszaadott gyűjtemény a diagram által birtokolt alakzatokat tartalmazza.
+Egy diagram tartalmazhat egyedi alakzatokat, például egy szöveges megjegyzést, amely a jelentés állapotát magyarázza. Ezeket az alakzatokat a [Diagram.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) segítségével érheti el. A [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) által visszaadott gyűjtemény a diagramhoz tartozó alakzatokat tartalmazza.
 
-Egy egyszerű szövegdoboz, amely a diagram fölött helyezkedik el, a diára tartozik, még ha úgy is néz ki, mintha a diagram része lenne. Az [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) bejárása megtalálja a diagramot és a szokásos diák alakzatait, de nem sorolja fel a diagramon belüli egyedi alakzatokat. A diagramcímek és adatcímkék külön diagramelemek, nem egyéni megjegyzések ebben a gyűjteményben.
+Egy diagram fölé helyezett egyszerű szövegdoboz a diára tartozik, még ha úgy is tűnik, mintha a diagram része lenne. Az [Dia.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) végigiterálása megtalálja a diagramot és a szokásos diaelemeket, de nem sorolja fel a diagramon belüli egyedi alakzatokat. A diagramcímek és adatcímkék külön diagramelemek, nem egyéni megjegyzések ebben a gyűjteményben.
 
-Töltse le a [chart-annotations.pptx](chart-annotations.pptx)‑t, és helyezze az alkalmazás munkakönyvtárába. Az első dia egy diagramot tartalmaz egy csoportosított megjegyzéssel, amely a „Preliminary results” feliratot mutatja, egy diagram‑tulajdonú vonallal és egy egyszerű diára helyezett szövegdobozzal, amely a „Slide overlay” feliratot tartalmazza. A példa megkeresi az első diagramot ezen a dián, és a jelentés közzétételére készülve a megjegyzést „Final results”‑ra módosítja. Ellenőrzi, hogy a gyűjtemény nem üres, és csak olyan [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet szerkeszt, amelynek a [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) által visszaadott szövegtárolója nem `None`, és a várt szöveget tartalmazza.
+Töltse le a [chart-annotations.pptx](chart-annotations.pptx) fájlt, és helyezze az alkalmazás munkakönyvtárába. Az első dia egy diagramot tartalmaz egy csoportosítatlan megjegyzéssel, amely a „Preliminary results” szöveget tartalmazza, egy diagramhoz tartozó vonallal és egy egyszerű diaszövegdobozzal, amely a „Slide overlay” feliratot mutatja. A példa megtalálja az első diagramot ezen a dián, és a megjegyzést „Final results” szövegre módosítja, amikor a jelentés közzétételre készül. Ellenőrzi, hogy a gyűjtemény nem üres, és csak egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) elemet szerkeszt, amelynek a [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) metódusa nem `None`, és a várt szöveget tartalmazza.
 
 ```python
 import jpype
@@ -330,28 +392,27 @@ finally:
     presentation.dispose()
 ```
 
-A vonal és a diára helyezett szövegdoboz változatlan marad. Az alábbi képek az eredeti és a mentett, újra megnyitott állapotot mutatják:
+A vonal és a diaszövegdoboz változatlan marad. Az alábbi képek a bemeneti és a mentett, újra megnyitott eredményt mutatják:
 
 | Szerkesztés előtt | Szerkesztés után |
 | --- | --- |
-| ![Diagram megjegyzés, amely az “Preliminary results” feliratot tartalmazza](chart-annotations-before.png) | ![Diagram megjegyzés, amely a “Final results” feliratot tartalmazza](chart-annotations-after.png) |
+| ![Diagramjegyzet, amely a Preliminary results szöveget tartalmazza](chart-annotations-before.png) | ![Diagramjegyzet, amely a Final results szöveget tartalmazza](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-
-A példa csak a legfelső szintű, diagram‑tulajdonú alakzatokat vizsgálja. Ha egy megjegyzés egy [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/)‑ben van, akkor vizsgálja meg annak a csoportnak a [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) gyűjteményét is. Ezt rekurzívan ismételje a beágyazott csoportoknál, ugyanazt a szöveg‑ellenőrzést alkalmazva a gyermek alakzatokra. Maga a csoport egy tároló; ne kezelje szövegdobozként.
+A példa csak a legfelső szintű, diagramhoz tartozó alakzatokat vizsgálja. Ha egy megjegyzés egy [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) belsejében van, akkor vizsgálja meg az adott csoport [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) gyűjteményét is. Ismételje ezt rekurzívan a belső csoportoknál, ugyanazokat a szövegellenőrzéseket alkalmazva a gyermekalakzatokra. A csoport önmagában egy tároló; ne kezelje szövegdobozként.
 
 {{% /alert %}}
 
 ## **GYIK**
 
-**Beállíthatok félig átlátszó kitöltéseket oszlopokhoz/területekhez, miközben a keret átlátszatlan marad?**
+**Beállíthatok félig átlátszó kitöltéseket oszlopokhoz/területekhez, miközben a szegély átlátszatlan marad?**
 
-Igen. A kitöltés átlátszósága és a körvonal külön‑külön állítható be. Ez hasznos a rács és az adatok olvashatóságának javításához sűrű ábrázolásokban.
+Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez hasznos a rács és az adatok olvashatóságának javításához sűrű vizualizációk esetén.
 
-**Hogyan kezelhetem az adatcímkéket, amikor azok átfedik egymást?**
+**Hogyan kezeljem az adatcímkéket, ha átfedik egymást?**
 
-Csökkentse a betűméretet, tiltsa le a nem létfontosságú címkeelemeket (például a kategóriákat), állítsa be a címke pozícióját, szükség esetén csak a kiválasztott pontokhoz mutasson címkét, vagy válassza az „érték + jelmagyarázat” formátumot.
+Csökkentse a betűméretet, tiltsa le a nem létfontosságú címke‑komponenseket (például a kategóriákat), módosítsa a címke pozícióját, szükség esetén csak a kiválasztott pontok címkéit jelenítse meg, vagy váltsa a formátumot „érték + jelmagyarázat” formára.
 
-**Alkalmazhatok színátmenetes vagy mintás kitöltéseket sorozatokra?**
+**Alkalmazhatok‑e gradient‑ vagy mintakövet kitöltéseket sorozatokra?**
 
-Igen. A sorozatok támogatják a szilárd, színátmenetes és mintás kitöltéseket. Gyakorlati tanács: használja a színátmeneteket mértékkel, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.
+Igen. A sorozatok támogatják a szilárd, gradient és mintakövet kitöltéseket. Gyakorlatban használjon gradienseket takarékosan, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.

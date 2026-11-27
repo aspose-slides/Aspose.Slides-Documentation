@@ -1,12 +1,12 @@
 ---
 title: تنسيق مخططات العروض التقديمية في PHP
-linktitle: تنسيق المخططات
+linktitle: تنسيق المخطط
 type: docs
 weight: 60
 url: /ar/php-java/chart-formatting/
 keywords:
 - تنسيق المخطط
-- تنسيق المخططات
+- تنسيق المخطط
 - كيان المخطط
 - خصائص المخطط
 - إعدادات المخطط
@@ -17,19 +17,21 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم تنسيق المخططات في Aspose.Slides للـ PHP عبر Java وارتقِ بعرض PowerPoint التقديمي الخاص بك باستخدام محاور مخصصة، خطوط، تنسيقات عددية، وحدود مخطط مستديرة."
+description: "تعلم تنسيق المخططات في Aspose.Slides لـ PHP عبر Java وارتقِ بعرض PowerPoint الخاص بك باستخدام محاور مخصصة، خطوط، تنسيقات رقمية، وحدود مخطط مستديرة."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. توضح كيفية تخصيص عناصر المخطط الأساسية مثل المحاور، وخطوط الشبكة، والعناوين، والوسائط، ومنطقة الرسم، وتعبئات الجدران لتحسين مظهر وقراءة بيانات المخطط.
+تشرح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. تُظهر كيفية تخصيص العناصر الرئيسية للمخطط مثل المحاور وخطوط الشبكة والعناوين والأساطير ومنطقة الرسم وتعبئات الجدران لتحسين مظهر وقراءة بيانات المخطط.
 
-كما توضح كيفية ضبط خصائص الخط لنص المخطط، وتطبيق تنسيقات عددية مسبقة الإعداد على بيانات المخطط، وتمكين زوايا مستديرة لمنطقة المخطط. معًا، تُظهر هذه الأمثلة كيفية التحكم في كل من النمط البصري وعرض البيانات للمخططات في العرض التقديمي.
+كما توضح كيف يمكن ضبط خصائص الخط لنص المخطط، وتطبيق تنسيقات رقمية مسبقة الإعداد على بيانات المخطط، وتفعيل الزوايا المستديرة لمنطقة المخطط. تُظهر هذه الأمثلة معًا كيفية التحكم في كل من النمط البصري وتقديم البيانات للمخططات في العرض التقديمي.
+
+للحصول على تعبئات وحدود منفصلة للفترات الصاعدة والهابطة، راجع [مثال المخطط السهمي](/slides/ar/php-java/create-chart/#create-stock-charts).
 
 ## **تنسيق كائنات المخطط**
 
-استخدم [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) لتنسيق عناوين المخطط، والمحاور، وخطوط الشبكة، والوسائط، ومنطقة الرسم. يُنشئ هذا المثال مخططًا خطيًا مع علامات وبيانات افتراضية، ثم يطبق أنماط نصية وخطية منفصلة على محوري القيمة والفئة. تُحدد أحجام الخطوط وعرض الخطوط بالنقاط؛ وتُدوَّر تسميات الفئات بزاوية 45 درجة.
+استخدم [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) لتنسيق عناوين المخطط والمحاور وخطوط الشبكة والأساطير ومنطقة الرسم. يُنشئ هذا المثال مخطط خط مع علامات وبيانات افتراضية، ثم يطبق أنماط نص وخط منفصلة على محوري القيمة والفئة. يتم تحديد أحجام الخطوط وعرض الخطوط بالنقاط؛ وتُدوَّر تسميات الفئة بزاوية 45 درجة.
 
-يستخدم المحور القيمي [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) بشكل مستقل عن خلايا المصدر. يمتد مقياسه من -2 إلى 15، مع فواصل رئيسية مقدارها 2 وفواصل فرعية مقدارها 0.5. يجمع المثال أيضًا بين تنسيق النسبة المئوية و[setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) المعين إلى الآلاف، لذا اضبط هذه الإعدادات وفقًا لمعنى وحجم بياناتك. يبقى الأسطورة خارج منطقة الرسم لأن [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) يُستدعى بـ `false`. تُضبط تعبئات الجدار الخلفي والأرضية عبر [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) و[getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/)، ولكن هذه الأسطح تُظهر فقط في المخططات ثلاثية الأبعاد.
+يستخدم محور القيمة [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) بشكل مستقل عن الخلايا المصدرية. يمتد مقياسه من -2 إلى 15، مع فواصل رئيسية قدرها 2 وفواصل ثانوية قدرها 0.5. يجمع المثال أيضًا تنسيق النسبة المئوية مع [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) المُضبط على الآلاف، لذا قم بتكييف هذه الإعدادات وفق معنى وحجم بياناتك. يبقى السطر الأسطوري خارج منطقة الرسم لأن [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) يُستدعى بـ `false`. تُضبط تعبئات الجدار الخلفي والأرضية عبر [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) و[getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor)، لكن هذه الأسطح تُظهر فقط في المخططات ثلاثية الأبعاد.
 
 ```php
 use aspose\slides\ChartType;
@@ -155,9 +157,9 @@ try {
 }
 ```
 
-## **ضبط خصائص الخط للمخطط**
+## **تعيين خصائص الخط لمخطط**
 
-اضبط حجم الخط الافتراضي لنص المخطط عبر [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). يُنشئ المثال مخطط أعمدة مجمع بحجم خط 20 نقطة ويفعل تسمية القيم للسلسلة الأولى عبر [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). يمكن لعناصر النص التي لديها إعدادات خط صريحة خاصة بها تجاوز الإعداد الافتراضي للمخطط.
+قم بتعيين حجم الخط الافتراضي لنص المخطط عبر [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat). ينشئ المثال مخطط أعمدة مجمّع بحجم خط 20 نقطة ويُفعّل تسميات القيم للسلسلة الأولى عبر [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). يمكن لعناصر النص ذات إعدادات الخط الصريحة أن تتجاوز إعدادات المخطط الافتراضية.
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
-## **ضبط التنسيق الرقمي**
+## **إعادة استخدام تنسيق إطار النص لوسيلة إيضاح المخطط**
 
-استخدم [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) لتطبيق تنسيق رقم مدمج على خلايا مصنف المخطط. يُنشئ هذا المثال مخطط أعمدة مجمع ببيانات افتراضية مدعومة بالخلايا ويطبق فهرس التنسيق 10 (`0.00%`) على كل خلية قيمة لسلسلة. يغيّر ذلك طريقة عرض القيم في المصنف دون تعديل الأرقام الأساسية؛ على سبيل المثال، يُعرض 0.25 كـ 25.00%. يمكن ضبط تنسيقات المحور وتنسيقات تسميات البيانات بصورة مستقلة.
+لمطابقة الأسطورية مع عنوان الشريحة، اضبط خط العنوان عبر [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) في الفقرة الأولى. استدعِ [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) على التنسيق المُرجع من [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) الخاص بالأسطورية. ينقل ذلك إعدادات إطار النص، وتنسيق الفقرة الأولى، وخصائص الخط الافتراضية لتلك الفقرة. التنسيقات التي تُطبَّق مباشرةً على أجزاء منفردة أو على فقرات لاحقة تبقى محلية للمصدر.
+
+يستخدم المثال عنوانًا بخط Calibri بنحو 26 نقطة، غامقًا ولونًا أزرقًا داكنًا كقالب. بعد تنسيق الأسطورية، يستدعي [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) لتطبيق نفس التنسيق على تسمية توضيحية منفصلة.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+في العرض التقديمي المحفوظ، تتطابق الأسطورية والتسمية مع العنوان في الحجم والوزن واللون. لا تزال الأسطورية تعرض أسماء السلاسل، وتحتفظ التسمية بنصها الخاص. إذا كان هناك جزء في التسمية يملك بالفعل حجم خط صريح، فإن ذلك الحجم يأخذ الأسبقية على الخط الافتراضي المنسوخ للفقرة.
+
+| قبل النسخ | بعد النسخ |
+| --- | --- |
+| ![مخطط المبيعات ربع السنوي مع تسميات أسطورة سوداء عادية وتعليق أسود](legend-formatting-before.png) | ![نفس المخطط مع تسميات أسطورة أزرق داكن أكبر وغامق وتعليق مطابقة](legend-formatting.png) |
+
+## **تعيين تنسيق الأرقام**
+
+استخدم [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) لتطبيق تنسيق رقم مدمج على خلايا دفتر عمل المخطط. يُنشئ هذا المثال مخطط أعمدة مجمّع ببيانات افتراضية مدعومة بالخلايا، ويُطبِّق فهرس التنسيق 10 (`0.00%`) على كل خلية قيمة سلسلة. يغيّر ذلك طريقة عرض القيم في دفتر العمل دون تعديل الأرقام الأساسية؛ على سبيل المثال، يتم عرض 0.25 كـ 25.00٪. يمكن تكوين تنسيقات المحور وتسمية البيانات بصورة منفصلة.
 
 ```php
 use aspose\slides\ChartType;
@@ -209,9 +272,9 @@ try {
 }
 ```
 
-القائمة التالية تُظهر فهارس تنسيقات الأعداد المدمجة مع صيغ Excel النموذجية للمنطقة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق الدقيقة وعرضها حسب التطبيق والمنطقة، خاصةً للعملات والتواريخ. بعض صيغ Excel تختلف أيضًا عن القيم الافتراضية في معيار OOXML، كما هو موضح في [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+الجدول التالي يُظهر فهارس تنسيقات الأرقام المدمجة مع صيغ Excel النموذجية للمنطقة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق الدقيقة وعرضها حسب التطبيق والمنطقة، خاصةً للعملات والتواريخ. بعض صيغ Excel تختلف أيضًا عن القيم الافتراضية في معيار OOXML، كما هو موضح في [ملاحظات تنفيذ تنسيق الأرقام من Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| الفهرس | الصيغة |
+| المؤشر | التنسيق |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -250,9 +313,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **إعداد حدود مستديرة لمنطقة المخطط**
+## **تعيين حدود محدبة لمنطقة المخطط**
 
-استدعِ [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) مع `true` لتقويس زوايا منطقة المخطط. يُنشئ المثال مخطط أعمدة مجمع ويستخدم [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) لإعطاء حدوده لونًا رماديًا صلبًا ونمط خط أحادي قبل حفظ العرض التقديمي.
+استدعِ [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) مع `true` لجعل زوايا منطقة المخطط مستديرة. يُنشئ المثال مخطط أعمدة مجمّع ويستخدم [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) لإعطاء حدود المخطط لونًا رماديًا صلبًا ونمط خط أحادي قبل حفظ العرض التقديمي.
 
 ```php
 use aspose\slides\ChartType;
@@ -277,13 +340,13 @@ try {
 }
 ```
 
-## **تحرير تعليقات المخطط الموجودة**
+## **تحرير توضيحات المخطط الموجودة**
 
-يمكن للمخطط أن يحتوي على أشكال مخصصة، مثل تعليق نصي يوضح حالة تقرير. للوصول إلى هذه الأشكال، استخدم [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). التجميع الذي تُعيده [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) يحتوي على الأشكال المملوكة للمخطط.
+يمكن أن يحتوي المخطط على أشكال مخصصة، مثل توضيح نصي يشرح حالة تقرير. يمكن الوصول إلى هذه الأشكال عبر [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes). المجموعة التي تُرجِعها [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) تحتوي على الأشكال المملوكة للمخطط.
 
-مربع النص العادي الموضوع فوق المخطط ينتمي إلى الشريحة، حتى وإن بدا كجزء من المخطط. يُظهر التكرار عبر [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) المخطط والأشكال العادية على الشريحة، ولكنه لا يُدرج الأشكال الفردية داخل المخطط. عناوين المخططات وتسميات البيانات هي عناصر مخطط منفصلة، ليست تعليقات مخصصة في هذا التجميع.
+مربع نص عادي يُوضع فوق المخطط ينتمي إلى الشريحة، حتى لو بدا كجزء من المخطط. يُظهر التصفح عبر [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) المخطط والأشكال العادية في الشريحة، لكنه لا يُعدِّد الأشكال الفردية داخل المخطط. عناوين المخطط وتسمية البيانات هي عناصر مخطط منفصلة، وليست توضيحات مخصصة في هذه المجموعة.
 
-حمّل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل عمل التطبيق. تحتوي شريحته الأولى على مخطط بتعليق غير مجمع يقرأ "Preliminary results"، وخط مملوك للمخطط، ومربع نص شريحة عادي يقرأ "Slide overlay". يجد المثال أول مخطط على تلك الشريحة ويغيّر التعليق إلى "Final results" عندما يصبح التقرير جاهزًا للنشر. يتحقق من أن التجميع غير فارغ ولا يُعدِّل سوى [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) التي يُعيدها [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) بإطار نص غير فارغ والنص المتوقع.
+قم بتحميل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل العمل للتطبيق. تحتوي شريحةه الأولى على مخطط مع توضيح غير مجموعة يُظهر "Preliminary results"، وخط مملوك للمخطط، ومربع نص شريحة عادي يُظهر "Slide overlay". يجد المثال أول مخطط على تلك الشريحة ويغيّر التوضيح إلى "Final results" عندما يصبح التقرير جاهزًا للنشر. يتحقق من وجود مجموعة فارغة ولا يعدِّل سوى [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) التي تُرجِع إطار نص غير فارغ عبر [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) والنص المتوقع.
 
 ```php
 use aspose\slides\Presentation;
@@ -333,26 +396,26 @@ try {
 }
 ```
 
-يبقى الخط ومربع النص على الشريحة دون تغيير. تُظهر الصور التالية الإدخال والنتيجة المحفوظة المفتوحة مرة أخرى:
+يظل الخط ومربع نص الشريحة دون تغيير. تُظهر الصور التالية الإدخال والنتيجة المحفوظة بعد إعادة الفتح:
 
 | قبل التحرير | بعد التحرير |
 | --- | --- |
-| ![تعليق مخطط يقرأ Preliminary results](chart-annotations-before.png) | ![تعليق مخطط يقرأ Final results](chart-annotations-after.png) |
+| ![توضيح المخطط يقرأ النتائج الأولية](chart-annotations-before.png) | ![توضيح المخطط يقرأ النتائج النهائية](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-يفحص المثال فقط الأشكال المملوكة للمخطط على المستوى الأعلى. إذا كان التعليق داخل [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/)، تحقق من تجميع هذا المجموعة عبر [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) أيضًا. كرر ذلك بصورة متتالية للمجموعات المتداخلة، مطبقًا نفس فحوصات النص على الأشكال الفرعية. المجموعة نفسها حاوية؛ لا تعاملها كمربع نص.
+{{% alert color="info" title="ملاحظة" %}}
+يفحص المثال فقط الأشكال المملوكة للمخطط على المستوى الأعلى. إذا كان هناك توضيح داخل [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/)، فافحص مجموعة ذلك [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) أيضًا. كرِّر ذلك بصورة متداخلة للمجموعات المتداخلة، مع تطبيق نفس فحوصات النص على أشكالها الفرعية. المجموعة نفسها هي حاوية؛ لا تعاملها كصندوق نص.
 {{% /alert %}}
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تعيين تعبئات نصف شفافة للأعمدة/المناطق مع الحفاظ على الحد غير شفاف؟**
+**هل يمكنني تعيين تعبئات شبه شفافة للأعمدة/المناطق مع إبقاء الحدود غير شفافة؟**
 
-نعم. تُضبط شفافية التعبئة والحد الخارجي بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
+نعم. تُضبط شفافية التعبئة والحدود بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
 
 **كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
 
-قلل حجم الخط، عطل مكونات التسمية غير الضرورية (مثل الفئات)، اضبط موضع التسمية، اعرض التسمية فقط للنقاط المختارة إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + الوسيط".
+قلل حجم الخط، عطل مكونات التسمية غير الضرورية (مثلاً الفئات)، اضبط موضع التسمية، اعرض التسميات للنقاط المحددة فقط إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + الأسطورية".
 
-**هل يمكنني تطبيق تعبئات متدرجة أو نمطية للسلاسل؟**
+**هل يمكنني تطبيق تعبئات تدرجية أو بنقوش على السلاسل؟**
 
-نعم. تدعم السلاسل تعبئات صلبة، ومتدرجة، ونمطية. في الممارسة العملية، استعمل المتدرجات باعتدال وتجنب الجمع بينهما إذا كان ذلك يقلل من التباين مع الشبكة والنص.
+نعم. تدعم السلاسل تعبئات صلبة، تدرجية، وبنقوش. في الممارسة العملية، استخدم التدرجات بحذر وتجنب الجمع الذي يقلل من التباين مع الشبكة والنص.

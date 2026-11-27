@@ -14,23 +14,25 @@ keywords:
 - thuộc tính phông chữ
 - viền bo tròn
 - PowerPoint
-- trình chiếu
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng biểu đồ trong Aspose.Slides cho Android bằng Java và nâng cao bản trình chiếu PowerPoint của bạn với các trục, phông chữ, định dạng số tùy chỉnh và viền biểu đồ bo tròn."
+description: "Học cách định dạng biểu đồ trong Aspose.Slides cho Android bằng Java và nâng cao bản trình chiếu PowerPoint của bạn với các trục tùy chỉnh, phông chữ, định dạng số và viền biểu đồ bo tròn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách định dạng biểu đồ trong các bản trình bày PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần chính của biểu đồ như trục, đường lưới, tiêu đề, chú giải, khu vực vẽ và các lớp nền tường để cải thiện giao diện và khả năng đọc dữ liệu biểu đồ.
+Bài viết này giải thích cách định dạng biểu đồ trong bản trình bày PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần chính của biểu đồ như trục, các đường lưới, tiêu đề, chú giải, khu vực vẽ và các màu tường để cải thiện ngoại hình và khả năng đọc dữ liệu biểu đồ.
 
-Nó cũng minh họa cách đặt thuộc tính phông chữ cho văn bản biểu đồ, áp dụng định dạng số có sẵn cho dữ liệu biểu đồ và bật góc bo tròn cho khu vực biểu đồ. Các ví dụ này cho thấy cách kiểm soát cả kiểu hình ảnh và cách trình bày dữ liệu của biểu đồ trong một bản trình bày.
+Nó cũng minh họa cách đặt thuộc tính phông chữ cho văn bản biểu đồ, áp dụng định dạng số đã định sẵn cho dữ liệu biểu đồ và cho phép góc bo tròn cho khu vực biểu đồ. Cùng nhau, những ví dụ này cho thấy cách kiểm soát cả phong cách hình ảnh và cách trình bày dữ liệu của biểu đồ trong một bản trình bày.
+
+Đối với các màu nền và viền riêng biệt trên các khoảng thời gian tăng và giảm, xem **[ví dụ biểu đồ cổ phiếu](/slides/vi/androidjava/create-chart/#create-stock-charts)**.
 
 ## **Định dạng các thực thể biểu đồ**
 
-Sử dụng [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) để định dạng tiêu đề biểu đồ, trục, đường lưới, chú giải và khu vực vẽ. Ví dụ này tạo một biểu đồ đường có các dấu đánh dấu và dữ liệu mặc định, sau đó áp dụng các kiểu văn bản và đường riêng biệt cho trục giá trị và trục danh mục của nó. Kích thước phông chữ và độ rộng đường được chỉ định bằng điểm; nhãn danh mục được quay 45 độ.
+Sử dụng [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) để định dạng tiêu đề, trục, đường lưới, chú giải và khu vực vẽ của biểu đồ. Ví dụ này tạo một biểu đồ đường có các điểm đánh dấu và dữ liệu mặc định, sau đó áp dụng các kiểu văn bản và đường riêng biệt cho trục giá trị và trục danh mục của nó. Kích thước phông chữ và độ rộng đường được chỉ định bằng điểm; nhãn danh mục được xoay 45 độ.
 
-Trục giá trị sử dụng [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) một cách độc lập với các ô nguồn. Thang đo của nó chạy từ -2 đến 15, với khoảng cách lớn là 2 và khoảng cách nhỏ là 0.5. Ví dụ cũng kết hợp định dạng phần trăm với [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) được đặt thành nghìn, vì vậy hãy điều chỉnh các thiết lập này cho phù hợp với ý nghĩa và quy mô dữ liệu của bạn. Chú giải ở ngoài khu vực vẽ vì [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) được gọi với `false`. Các lớp nền tường sau và sàn được cấu hình thông qua [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) và [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), nhưng những bề mặt này chỉ hiển thị trong các biểu đồ 3D.
+Trục giá trị sử dụng [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) một cách độc lập với các ô nguồn. Thang đo chạy từ -2 đến 15, với các khoảng chính là 2 và các khoảng phụ là 0.5. Ví dụ cũng kết hợp định dạng phần trăm với [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) được đặt thành nghìn, vì vậy hãy điều chỉnh các thiết lập này phù hợp với ý nghĩa và quy mô dữ liệu của bạn. Chú giải được đặt ở ngoài khu vực vẽ vì [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) được gọi với `false`. Các màu nền mặt sau và sàn được cấu hình thông qua [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) và [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), nhưng các bề mặt này chỉ hiển thị trong biểu đồ 3D.
 
 ```java
 import com.aspose.slides.*;
@@ -150,7 +152,7 @@ try {
 
 ## **Đặt thuộc tính phông chữ cho biểu đồ**
 
-Đặt kích thước phông chữ mặc định cho văn bản biểu đồ thông qua [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--). Ví dụ tạo một biểu đồ cột nhóm với phông chữ 20 điểm và bật nhãn giá trị cho chuỗi đầu tiên thông qua [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Các phần tử văn bản có cài đặt phông chữ riêng có thể ghi đè lên mặc định của biểu đồ.
+Đặt kích thước phông chữ mặc định cho văn bản biểu đồ thông qua [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--). Ví dụ tạo một biểu đồ cột nhóm với phông chữ 20 điểm và bật nhãn giá trị cho chuỗi đầu tiên thông qua [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Các yếu tố văn bản có cài đặt phông chữ riêng có thể ghi đè lên mặc định của biểu đồ.
 
 ```java
 import com.aspose.slides.*;
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **Tái sử dụng định dạng khung văn bản cho chú giải biểu đồ**
+
+Để đồng bộ chú giải với tiêu đề slide, đặt phông chữ tiêu đề thông qua [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) trên đoạn văn đầu tiên. Gọi [copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) trên định dạng trả về bởi [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) của chú giải. Nó sao chép các cài đặt khung văn bản, định dạng đoạn văn đầu tiên và các thuộc tính phông chữ mặc định của đoạn văn đó. Định dạng được áp dụng trực tiếp cho các phần riêng lẻ hoặc cho các đoạn sau sẽ chỉ áp dụng cục bộ cho nguồn.
+
+Ví dụ sử dụng tiêu đề đậm, 26 điểm Calibri màu xanh hải quân làm mẫu. Sau khi tạo kiểu cho chú giải, nó gọi [copyTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) để áp dụng cùng một định dạng cho một chú thích riêng.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(Color.rgb(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Trong bản trình bày đã lưu, chú giải và chú thích khớp với tiêu đề về kích thước, độ đậm và màu sắc. Chú giải vẫn hiển thị tên chuỗi, và chú thích giữ nguyên văn bản của nó. Nếu một phần trong chú thích đã có kích thước phông chữ xác định, kích thước đó sẽ ưu tiên hơn so với đoạn văn mặc định được sao chép.
+
+| Trước khi sao chép | Sau khi sao chép |
+| --- | --- |
+| ![Biểu đồ doanh thu hàng quý với nhãn chú giải màu đen thông thường và chú thích màu đen](legend-formatting-before.png) | ![Biểu đồ tương tự với nhãn chú giải màu xanh hải quân đậm, lớn hơn và chú thích phù hợp](legend-formatting.png) |
+
 ## **Đặt định dạng số**
 
-Sử dụng [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) để áp dụng một định dạng số tích hợp sẵn cho các ô workbook của biểu đồ. Ví dụ này tạo một biểu đồ cột nhóm với dữ liệu mặc định, hỗ trợ bởi ô, và áp dụng chỉ số định dạng 10 (`0.00%`) cho mỗi ô giá trị chuỗi. Điều này thay đổi cách hiển thị giá trị trong workbook mà không thay đổi các số thực tế; ví dụ, 0.25 được hiển thị là 25.00%. Các định dạng trục và nhãn dữ liệu có thể được cấu hình riêng biệt.
+Sử dụng [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) để áp dụng một định dạng số được tích hợp sẵn cho các ô trong sổ làm việc của biểu đồ. Ví dụ này tạo một biểu đồ cột nhóm với dữ liệu mặc định được hỗ trợ bởi ô và áp dụng chỉ mục định dạng 10 (`0.00%`) cho mỗi ô giá trị chuỗi. Điều này thay đổi cách hiển thị các giá trị trong sổ làm việc mà không thay đổi các số gốc; ví dụ, 0.25 sẽ được hiển thị là 25.00%. Các định dạng trục và nhãn dữ liệu có thể được cấu hình riêng biệt.
 
 ```java
 import com.aspose.slides.*;
@@ -187,7 +243,7 @@ try {
     {
         for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0,00%
         }
     }
 
@@ -197,9 +253,9 @@ try {
 }
 ```
 
-Bảng sau liệt kê các chỉ số định dạng số tích hợp sẵn với các định dạng Excel đại diện cho ngôn ngữ Anh (Hoa Kỳ). Các chuỗi định dạng và cách hiển thị chúng có thể khác nhau tùy theo ứng dụng và ngôn ngữ, đặc biệt đối với tiền tệ và ngày tháng. Một số định dạng Excel cũng khác với mặc định trong tiêu chuẩn OOXML, như mô tả trong [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Bảng sau liệt kê các chỉ số định dạng số tích hợp sẵn cùng các định dạng Excel đại diện cho miền Anh (Hoa Kỳ). Các chuỗi định dạng chính xác và cách hiển thị của chúng có thể khác nhau tùy theo ứng dụng và miền, đặc biệt đối với tiền tệ và ngày tháng. Một số định dạng Excel cũng khác với mặc định trong tiêu chuẩn OOXML, như mô tả trong **[ghi chú triển khai định dạng số của Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)**.
 
-| Chỉ mục | Định dạng |
+| Chỉ số | Định dạng |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -240,7 +296,7 @@ Bảng sau liệt kê các chỉ số định dạng số tích hợp sẵn vớ
 
 ## **Đặt viền bo tròn cho khu vực biểu đồ**
 
-Gọi [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) với `true` để làm tròn các góc của khu vực biểu đồ. Ví dụ tạo một biểu đồ cột nhóm và sử dụng [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) để đặt đường viền của nó thành màu xám đặc và kiểu đường đơn trước khi lưu bản trình bày.
+Gọi [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) với `true` để bo tròn các góc của khu vực biểu đồ. Ví dụ tạo một biểu đồ cột nhóm và sử dụng [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) để đặt viền của nó thành màu xám đặc và kiểu đường một đơn trước khi lưu bản trình bày.
 
 ```java
 import com.aspose.slides.*;
@@ -264,11 +320,11 @@ try {
 
 ## **Chỉnh sửa chú thích biểu đồ hiện có**
 
-Một biểu đồ có thể chứa các hình dạng tùy chỉnh, chẳng hạn như chú thích văn bản giải thích trạng thái của một báo cáo. Truy cập các hình dạng này thông qua [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), cũng được liệt kê dưới [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) trong Tài liệu tham khảo API Chart. Bộ sưu tập trả về bởi [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) chứa các hình dạng thuộc sở hữu của biểu đồ.
+Một biểu đồ có thể chứa các hình dạng tùy chỉnh, chẳng hạn như một chú thích văn bản giải thích trạng thái của báo cáo. Truy cập các hình dạng này thông qua [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), cũng được liệt kê dưới [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) trong Tham chiếu API của Chart. Bộ sưu tập trả về bởi [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) chứa các hình dạng thuộc sở hữu của biểu đồ.
 
-Một hộp văn bản thông thường được đặt lên trên biểu đồ thuộc về slide, ngay cả khi nó trông giống như một phần của biểu đồ. Duyệt qua [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) sẽ tìm thấy biểu đồ và các hình dạng slide thông thường, nhưng không liệt kê các hình dạng riêng lẻ bên trong biểu đồ. Tiêu đề biểu đồ và nhãn dữ liệu là các thành phần biểu đồ riêng biệt, không phải là chú thích tùy chỉnh trong bộ sưu tập này.
+Một hộp văn bản thông thường được đặt lên trên biểu đồ thuộc về slide, ngay cả khi nó trông giống như một phần của biểu đồ. Duyệt qua [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) sẽ tìm thấy biểu đồ và các hình dạng slide thông thường, nhưng không liệt kê các hình dạng riêng lẻ bên trong biểu đồ. Tiêu đề biểu đồ và nhãn dữ liệu là các thành phần riêng biệt của biểu đồ, không phải là chú thích tùy chỉnh trong bộ sưu tập này.
 
-Tải xuống [chart-annotations.pptx](chart-annotations.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên chứa một biểu đồ với một chú thích chưa được nhóm có nội dung "Preliminary results", một đường thuộc sở hữu biểu đồ, và một hộp văn bản slide thông thường có nội dung "Slide overlay". Ví dụ tìm biểu đồ đầu tiên trên slide đó và thay đổi chú thích thành "Final results" khi báo cáo đã sẵn sàng để xuất bản. Nó kiểm tra bộ sưu tập rỗng và chỉ chỉnh sửa một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) có khung văn bản không null được trả về bởi [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) và có nội dung văn bản mong đợi.
+Tải xuống **[chart-annotations.pptx](chart-annotations.pptx)** và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên của nó chứa một biểu đồ với một chú thích chưa nhóm có nội dung "Preliminary results", một đường thẳng thuộc sở hữu của biểu đồ, và một hộp văn bản slide thông thường có nội dung "Slide overlay". Ví dụ tìm biểu đồ đầu tiên trên slide đó và thay đổi chú thích thành "Final results" khi báo cáo đã sẵn sàng để xuất bản. Nó kiểm tra xem bộ sưu tập có rỗng không và chỉ chỉnh sửa một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) có khung văn bản không null trả về bởi [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) và chứa văn bản mong đợi.
 
 ```java
 import com.aspose.slides.*;
@@ -312,26 +368,26 @@ try {
 }
 ```
 
-Đường và hộp văn bản slide vẫn không thay đổi. Các hình ảnh sau đây hiển thị đầu vào và kết quả đã lưu, mở lại:
+Đường thẳng và hộp văn bản slide vẫn không thay đổi. Các hình ảnh dưới đây cho thấy đầu vào và kết quả đã lưu, mở lại:
 
 | Trước khi chỉnh sửa | Sau khi chỉnh sửa |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Chú thích biểu đồ có nội dung Preliminary results](chart-annotations-before.png) | ![Chú thích biểu đồ có nội dung Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Ví dụ chỉ kiểm tra các hình dạng thuộc sở hữu cấp cao nhất của biểu đồ. Nếu một chú thích nằm bên trong một [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), hãy kiểm tra bộ sưu tập [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) của nhóm đó nữa. Lặp lại quá trình này một cách đệ quy cho các nhóm lồng nhau, áp dụng cùng các kiểm tra văn bản cho các hình dạng con của chúng. Một nhóm tự nó là một container; không xem nó như một hộp văn bản.
+Ví dụ chỉ kiểm tra các hình dạng thuộc sở hữu cấp cao nhất của biểu đồ. Nếu một chú thích nằm bên trong một [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), hãy kiểm tra bộ sưu tập [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) của nhóm đó. Lặp lại quá trình này một cách đệ quy cho các nhóm lồng nhau, áp dụng cùng các kiểm tra văn bản cho các hình dạng con của chúng. Một nhóm tự nó là một container; không nên xem nó như một hộp văn bản.
 {{% /alert %}}
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Có thể đặt màu nền bán trong suốt cho cột/khu vực trong khi giữ viền không trong suốt không?**
+**Tôi có thể đặt màu nền bán trong suốt cho cột/khu vực trong khi giữ viền không trong suốt không?**
 
-Có. Độ trong suốt của màu nền và đường viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc lưới và dữ liệu trong các biểu đồ dày đặc.
+Có. Độ trong suốt của màu nền và viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc của lưới và dữ liệu trong các biểu đồ dày đặc.
 
-**Làm sao xử lý các nhãn dữ liệu khi chúng chồng lấn?**
+**Làm thế nào để xử lý nhãn dữ liệu khi chúng chồng lên nhau?**
 
-Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), điều chỉnh vị trí nhãn, hiển thị nhãn chỉ cho các điểm được chọn nếu cần, hoặc chuyển định dạng thành "giá trị + chú giải".
+Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), điều chỉnh vị trí nhãn, hiển thị nhãn chỉ cho các điểm được chọn nếu cần, hoặc chuyển định dạng sang "giá trị + chú giải".
 
-**Có thể áp dụng màu nền gradient hoặc họa tiết cho chuỗi dữ liệu không?**
+**Tôi có thể áp dụng màu nền gradient hoặc mẫu cho các chuỗi dữ liệu không?**
 
-Có. Các chuỗi hỗ trợ màu nền đặc, gradient và họa tiết. Thực tế, nên sử dụng gradient một cách tiết kiệm và tránh các kết hợp làm giảm độ tương phản với lưới và văn bản.
+Có. Các chuỗi hỗ trợ màu nền rắn, gradient và mẫu. Trong thực hành, hãy sử dụng gradient một cách hạn chế và tránh các kết hợp làm giảm độ tương phản với lưới và văn bản.

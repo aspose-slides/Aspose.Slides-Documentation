@@ -1,5 +1,5 @@
 ---
-title: Định dạng biểu đồ trong bài thuyết trình bằng .NET
+title: Định dạng biểu đồ trong .NET
 linktitle: Định dạng biểu đồ
 type: docs
 weight: 60
@@ -14,23 +14,25 @@ keywords:
 - thuộc tính phông chữ
 - viền bo tròn
 - PowerPoint
-- bài thuyết trình
+- trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng biểu đồ trong Aspose.Slides cho .NET và nâng cao bài thuyết trình PowerPoint của bạn với trục tùy chỉnh, phông chữ, định dạng số và viền bỉu đồ bo tròn."
+description: "Tìm hiểu cách định dạng biểu đồ trong Aspose.Slides cho .NET và nâng cao bản trình chiếu PowerPoint của bạn với các trục, phông chữ, định dạng số và viền biểu đồ bo tròn tùy chỉnh."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách định dạng biểu đồ trong bản trình bày PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần chính của biểu đồ như trục, đường lưới, tiêu đề, chú giải, khu vực vẽ và màu nền tường để cải thiện ngoại hình và khả năng đọc dữ liệu biểu đồ.
+Bài viết này giải thích cách định dạng biểu đồ trong bản trình chiếu PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần chính của biểu đồ như trục, đường lưới, tiêu đề, chú giải, khu vực vẽ và các lớp nền tường để cải thiện giao diện và khả năng đọc dữ liệu biểu đồ.
 
-Nó cũng trình bày cách thiết lập thuộc tính phông chữ cho văn bản biểu đồ, áp dụng các định dạng số có sẵn cho dữ liệu biểu đồ và bật bo tròn góc cho khu vực biểu đồ. Những ví dụ này cho thấy cách kiểm soát cả phong cách trực quan và cách trình bày dữ liệu của các biểu đồ trong bản trình bày.
+Nó cũng minh họa cách đặt thuộc tính phông chữ cho văn bản biểu đồ, áp dụng các định dạng số có sẵn cho dữ liệu biểu đồ và bật góc bo tròn cho vùng biểu đồ. Cùng nhau, các ví dụ này cho thấy cách kiểm soát cả kiểu dáng trực quan và cách trình bày dữ liệu của biểu đồ trong bản trình chiếu.
 
-## **Định dạng các thực thể biểu đồ**
+Để có các lớp nền và viền riêng biệt cho các khoảng tăng và giảm, hãy xem [ví dụ biểu đồ chứng khoán](/slides/vi/net/create-chart/#create-stock-charts).
 
-Sử dụng [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) để định dạng tiêu đề biểu đồ, trục, đường lưới, chú giải và khu vực vẽ. Ví dụ này tạo một biểu đồ đường có các điểm đánh dấu và dữ liệu mặc định, sau đó áp dụng các kiểu văn bản và đường riêng biệt cho trục giá trị và trục danh mục của nó. Kích thước phông chữ và độ rộng đường được chỉ định bằng điểm; nhãn danh mục được xoay 45 độ.
+## **Định dạng Các Thực Thể Biểu Đồ**
 
-Trục giá trị sử dụng [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) độc lập với các ô nguồn. Thang đo chạy từ -2 đến 15, với khoảng cách lớn là 2 và khoảng cách nhỏ là 0.5. Ví dụ cũng kết hợp định dạng phần trăm với [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) được đặt thành hàng nghìn, vì vậy hãy điều chỉnh các thiết lập này phù hợp với ý nghĩa và quy mô dữ liệu của bạn. Chú giải nằm ngoài khu vực vẽ vì [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) bị tắt. Màu nền tường sau và sàn được cấu hình thông qua [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) và [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), nhưng những bề mặt này chỉ hiển thị trong biểu đồ 3D.
+Sử dụng [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) để định dạng tiêu đề biểu đồ, trục, đường lưới, chú giải và khu vực vẽ. Ví dụ này tạo một biểu đồ đường với các điểm đánh dấu và dữ liệu mặc định, sau đó áp dụng các kiểu văn bản và đường riêng biệt cho trục giá trị và trục danh mục của nó. Kích thước phông chữ và độ rộng đường được chỉ định bằng điểm; nhãn danh mục được xoay 45 độ.
+
+Trục giá trị sử dụng [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) một cách độc lập với các ô nguồn. Dải giá trị của nó chạy từ -2 đến 15, với khoảng cách lớn là 2 và khoảng cách nhỏ là 0.5. Ví dụ cũng kết hợp định dạng phần trăm với [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) được đặt là hàng nghìn, vì vậy hãy điều chỉnh các cài đặt này phù hợp với ý nghĩa và quy mô dữ liệu của bạn. Chú giải nằm ngoài khu vực vẽ vì [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) bị tắt. Các lớp nền tường và nền sàn được cấu hình thông qua [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) và [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), nhưng các bề mặt này chỉ hiển thị trong biểu đồ 3D.
 
 ```csharp
 using System.Drawing;
@@ -146,7 +148,7 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Đặt thuộc tính phông chữ cho biểu đồ**
+## **Đặt Thuộc Tính Phông Chữ cho Biểu Đồ**
 
 Đặt kích thước phông chữ mặc định cho văn bản biểu đồ thông qua [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Ví dụ tạo một biểu đồ cột nhóm với phông chữ 20 điểm và bật nhãn giá trị cho chuỗi đầu tiên thông qua [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Các yếu tố văn bản có cài đặt phông chữ riêng có thể ghi đè lên mặc định của biểu đồ.
 
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
-## **Đặt định dạng số**
+## **Tái Sử Dụng Định Dạng Khung Văn Bản cho Chú Giải Biểu Đồ**
 
-Sử dụng [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) để áp dụng một định dạng số có sẵn cho các ô bảng tính của biểu đồ. Ví dụ này tạo một biểu đồ cột nhóm với dữ liệu mặc định, dựa trên ô và áp dụng chỉ số định dạng 10 (`0.00%`) cho mỗi ô giá trị chuỗi. Điều này thay đổi cách hiển thị giá trị trong bảng tính mà không thay đổi số liệu gốc; ví dụ, 0.25 sẽ hiển thị dưới dạng 25.00%. Định dạng trục và nhãn dữ liệu có thể được cấu hình riêng biệt.
+Để đồng bộ chú giải với tiêu đề slide, đặt phông chữ trong [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) của đoạn văn đầu tiên. Gọi [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) trên [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) của chú giải. Nó sẽ đọc các cài đặt khung văn bản, định dạng của đoạn văn đầu tiên và các thuộc tính phông chữ mặc định của đoạn đó. Định dạng được áp dụng trực tiếp cho các phần riêng lẻ hoặc cho các đoạn sau sẽ chỉ áp dụng cục bộ cho nguồn.
+
+Ví dụ sử dụng tiêu đề in đậm, phông Calibri 26 điểm màu xanh hải quân làm mẫu. Sau khi định dạng chú giải, nó dùng [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) để áp dụng cùng một định dạng cho một chú thích riêng biệt.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+Trong bản trình chiếu đã lưu, chú giải và chú thích khớp với tiêu đề về kích thước, độ đậm và màu sắc. Chú giải vẫn hiển thị tên các chuỗi, và chú thích giữ nguyên nội dung của mình. Nếu một phần trong chú thích đã có kích thước phông chữ rõ ràng, kích thước đó sẽ ưu tiên hơn so với mặc định đoạn được sao chép.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Biểu đồ doanh thu hàng quý với nhãn chú giải đen thông thường và chú thích đen](legend-formatting-before.png) | ![Biểu đồ tương tự với nhãn chú giải màu xanh hải quân lớn hơn, đậm và chú thích phù hợp](legend-formatting.png) |
+
+## **Đặt Định Dạng Số**
+
+Sử dụng [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) để áp dụng định dạng số có sẵn cho các ô trong bảng tính biểu đồ. Ví dụ này tạo một biểu đồ cột nhóm với dữ liệu mặc định dựa trên ô và áp dụng chỉ mục định dạng 10 (`0.00%`) cho mỗi ô giá trị chuỗi. Điều này thay đổi cách hiển thị giá trị trong bảng tính mà không thay đổi số liệu gốc; ví dụ, 0.25 sẽ hiển thị là 25.00%. Định dạng trục và nhãn dữ liệu có thể được cấu hình riêng biệt.
 
 ```csharp
 using Aspose.Slides;
@@ -191,7 +243,7 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Bảng sau liệt kê các chỉ số định dạng số có sẵn cùng với các định dạng Excel đại diện cho ngôn ngữ Anh (Hoa Kỳ). Các chuỗi định dạng chính xác và cách hiển thị có thể khác nhau tùy theo ứng dụng và ngôn ngữ, đặc biệt đối với tiền tệ và ngày tháng. Một số định dạng Excel cũng khác so với mặc định trong chuẩn OOXML, như mô tả trong [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Bảng sau liệt kê các chỉ mục định dạng số có sẵn cùng với các định dạng Excel tiêu biểu cho ngôn ngữ tiếng Anh (Hoa Kỳ). Các chuỗi định dạng và cách hiển thị chính xác có thể khác nhau tùy ứng dụng và ngôn ngữ, đặc biệt đối với tiền tệ và ngày tháng. Một số định dạng Excel cũng khác so với mặc định trong tiêu chuẩn OOXML, như mô tả trong [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Chỉ mục | Định dạng |
 | --- | --- |
@@ -232,9 +284,9 @@ Bảng sau liệt kê các chỉ số định dạng số có sẵn cùng với 
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Bật bo tròn góc cho khu vực biểu đồ**
+## **Đặt Viền Bo Tròn cho Vùng Biểu Đồ**
 
-Bật [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) để bo tròn các góc của khu vực biểu đồ. Ví dụ tạo một biểu đồ cột nhóm và sử dụng [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) để đặt đường viền của nó thành màu xám đặc và kiểu đường đơn trước khi lưu bản trình bày.
+Kích hoạt [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) để bo tròn các góc của vùng biểu đồ. Ví dụ tạo một biểu đồ cột nhóm và sử dụng [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) để đặt viền của nó thành màu xám đặc và kiểu đường đơn trước khi lưu bản trình chiếu.
 
 ```csharp
 using System.Drawing;
@@ -254,13 +306,13 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **Chỉnh sửa chú thích biểu đồ hiện có**
+## **Chỉnh Sửa Chú Thích Biểu Đồ Hiện Có**
 
-Một biểu đồ có thể chứa các hình dạng tùy chỉnh, chẳng hạn như chú thích văn bản giải thích trạng thái của báo cáo. Truy cập các hình dạng này thông qua [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), cũng được liệt kê dưới [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) trong Tham chiếu API của Chart. Bộ sưu tập [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) của nó chứa các hình dạng thuộc sở hữu của biểu đồ.
+Một biểu đồ có thể chứa các hình dạng tùy chỉnh, chẳng hạn như chú thích văn bản giải thích trạng thái của báo cáo. Truy cập các hình dạng này qua [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), cũng được liệt kê dưới [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) trong Tham chiếu API Biểu Đồ. Bộ sưu tập [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) của nó chứa các hình dạng thuộc biểu đồ.
 
-Một hộp văn bản thông thường được đặt lên trên biểu đồ thuộc về slide, ngay cả khi nó trông giống như một phần của biểu đồ. Duyệt qua [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) sẽ tìm thấy biểu đồ và các hình dạng slide thông thường, nhưng không liệt kê các hình dạng riêng lẻ bên trong biểu đồ. Tiêu đề biểu đồ và nhãn dữ liệu là các phần tử biểu đồ riêng biệt, không phải là chú thích tùy chỉnh trong bộ sưu tập này.
+Một hộp văn bản thông thường đặt lên trên biểu đồ thuộc về slide, ngay cả khi nó trông giống như một phần của biểu đồ. Duyệt qua [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) sẽ tìm thấy biểu đồ và các hình dạng slide thông thường, nhưng không liệt kê các hình dạng riêng lẻ bên trong biểu đồ. Tiêu đề biểu đồ và nhãn dữ liệu là các thành phần biểu đồ riêng biệt, không phải là chú thích tùy chỉnh trong bộ sưu tập này.
 
-Tải xuống [chart-annotations.pptx](chart-annotations.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên của nó chứa một biểu đồ với một chú thích chưa nhóm ghi "Preliminary results", một đường thuộc sở hữu biểu đồ và một hộp văn bản slide thông thường ghi "Slide overlay". Ví dụ tìm biểu đồ đầu tiên trên slide đó và thay đổi chú thích thành "Final results" khi báo cáo đã sẵn sàng để xuất bản. Nó kiểm tra xem bộ sưu tập có rỗng không và chỉ chỉnh sửa một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) có [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) không null và chứa văn bản mong đợi.
+Tải xuống [chart-annotations.pptx](chart-annotations.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên của nó chứa một biểu đồ với chú thích chưa nhóm ghi "Preliminary results", một đường thuộc biểu đồ, và một hộp văn bản slide thông thường ghi "Slide overlay". Ví dụ tìm biểu đồ đầu tiên trên slide đó và thay đổi chú thích thành "Final results" khi báo cáo sẵn sàng công bố. Nó kiểm tra xem bộ sưu tập có rỗng không và chỉ chỉnh sửa một [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) có [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) không null và chứa văn bản mong muốn.
 
 ```csharp
 using System;
@@ -303,26 +355,26 @@ else
 }
 ```
 
-Đường và hộp văn bản slide vẫn không thay đổi. Các hình ảnh sau cho thấy đầu vào và kết quả đã lưu, mở lại:
+Đường và hộp văn bản slide vẫn không thay đổi. Các hình ảnh sau đây hiển thị đầu vào và kết quả đã lưu, mở lại:
 
-| Trước khi chỉnh sửa | Sau khi chỉnh sửa |
+| Before editing | After editing |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Chú thích biểu đồ ghi Kết quả sơ bộ](chart-annotations-before.png) | ![Chú thích biểu đồ ghi Kết quả cuối cùng](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Ví dụ chỉ kiểm tra các hình dạng thuộc sở hữu cấp cao nhất của biểu đồ. Nếu một chú thích nằm bên trong một [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), cũng cần kiểm tra bộ sưu tập [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) của nhóm đó. Lặp lại quá trình này một cách đệ quy cho các nhóm lồng nhau, áp dụng cùng các kiểm tra văn bản cho các hình dạng con của chúng. Một nhóm tự nó là một bộ chứa; không nên coi nó là một hộp văn bản.
+Ví dụ chỉ kiểm tra các hình dạng thuộc biểu đồ ở cấp cao nhất. Nếu một chú thích nằm trong một [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), hãy kiểm tra bộ sưu tập [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) của nhóm đó nữa. Lặp lại quá trình này một cách đệ quy cho các nhóm lồng nhau, áp dụng cùng các kiểm tra văn bản cho các hình dạng con của chúng. Một nhóm tự nó là một container; không nên xem nó như một hộp văn bản.
 {{% /alert %}}
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể đặt màu nền bán trong suốt cho các cột/khu vực trong khi giữ viền không trong suốt không?**
+**Tôi có thể đặt lớp nền bán trong suốt cho cột/khu vực trong khi giữ viền không trong suốt không?**
 
-Có. Độ trong suốt của nền và đường viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc lưới và dữ liệu trong các hình ảnh mật độ cao.
+Có. Độ trong suốt của lớp nền và viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc của lưới và dữ liệu trong các biểu đồ dày đặc.
 
-**Làm sao xử lý các nhãn dữ liệu khi chúng chồng lên nhau?**
+**Làm thế nào để xử lý các nhãn dữ liệu khi chúng chồng lên nhau?**
 
-Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), điều chỉnh vị trí nhãn, chỉ hiển thị nhãn cho các điểm được chọn nếu cần, hoặc chuyển định dạng sang "giá trị + chú giải".
+Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), điều chỉnh vị trí nhãn, chỉ hiển thị nhãn cho các điểm đã chọn nếu cần, hoặc chuyển định dạng sang "giá trị + chú giải".
 
-**Tôi có thể áp dụng nền gradient hoặc hoa văn cho chuỗi dữ liệu không?**
+**Tôi có thể áp dụng lớp nền gradient hoặc họa tiết cho chuỗi không?**
 
-Có. Các chuỗi hỗ trợ nền đặc, gradient và hoa văn. Thực tế, hãy sử dụng gradient một cách tiết kiệm và tránh các kết hợp làm giảm độ tương phản với lưới và văn bản.
+Có. Các chuỗi hỗ trợ lớp nền đồng nhất, gradient và họa tiết. Trong thực tế, nên sử dụng gradient một cách hạn chế và tránh các kết hợp làm giảm độ tương phản với lưới và văn bản.

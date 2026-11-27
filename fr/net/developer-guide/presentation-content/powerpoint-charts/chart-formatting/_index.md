@@ -1,18 +1,18 @@
 ---
-title: Mise en forme des graphiques de présentation dans .NET
-linktitle: Mise en forme des graphiques
+title: Formater les graphiques de présentation en .NET
+linktitle: Mise en forme du graphique
 type: docs
 weight: 60
 url: /fr/net/chart-formatting/
 keywords:
 - format de graphique
 - mise en forme du graphique
-- entité de graphique
+- entité du graphique
 - propriétés du graphique
 - paramètres du graphique
 - options du graphique
 - propriétés de police
-- bordure arrondie
+- bord arrondi
 - PowerPoint
 - présentation
 - .NET
@@ -22,15 +22,17 @@ description: "Apprenez la mise en forme des graphiques avec Aspose.Slides pour .
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment formater les graphiques dans les présentations PowerPoint en utilisant Aspose.Slides. Il montre comment personnaliser les éléments clés du graphique tels que les axes, les lignes de grille, les titres, les légendes, la zone de tracé et les remplissages des murs afin d'améliorer l'apparence et la lisibilité des données du graphique.
+Cet article explique comment mettre en forme les graphiques dans les présentations PowerPoint en utilisant Aspose.Slides. Il montre comment personnaliser les éléments clés du graphique tels que les axes, les lignes de quadrillage, les titres, les légendes, la zone de tracé et les remplissages de mur afin d’améliorer l’apparence et la lisibilité des données du graphique.
 
-Il démontre également comment définir les propriétés de police pour le texte du graphique, appliquer des formats numériques prédéfinis aux données du graphique et activer les coins arrondis pour la zone du graphique. Ensemble, ces exemples montrent comment maîtriser à la fois le style visuel et la présentation des données des graphiques dans une présentation.
+Il montre également comment définir les propriétés de police pour le texte du graphique, appliquer des formats numériques prédéfinis aux données du graphique et activer les coins arrondis pour la zone du graphique. Ensemble, ces exemples montrent comment contrôler à la fois le style visuel et la présentation des données des graphiques dans une présentation.
 
-## **Mettre en forme les entités du graphique**
+Pour des remplissages et des contours séparés sur les intervalles haussiers et baissiers, voir l'[exemple de graphique boursier](/slides/fr/net/create-chart/#create-stock-charts).
 
-Utilisez [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) pour formater les titres du graphique, les axes, les lignes de grille, les légendes et la zone de tracé. Cet exemple crée un graphique en ligne avec des repères et des données par défaut, puis applique des styles de texte et de ligne séparés à ses axes de valeur et de catégorie. Les tailles de police et les épaisseurs de ligne sont spécifiées en points ; les libellés de catégorie sont pivotés de 45 degrés.
+## **Formater les entités du graphique**
 
-L'axe des valeurs utilise [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) indépendamment des cellules source. Son étendue va de -2 à 15, avec des intervalles majeurs de 2 et des intervalles mineurs de 0,5. L'exemple combine également la mise en forme en pourcentage avec [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) réglé sur milliers, adaptez donc ces paramètres à la signification et à l'ampleur de vos données. La légende reste à l'extérieur de la zone de tracé parce que [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) est désactivé. Les remplissages du mur arrière et du plancher sont configurés via [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) et [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), mais ces surfaces ne sont visibles que dans les graphiques 3D.
+Utilisez [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) pour formater les titres de graphique, les axes, les lignes de quadrillage, les légendes et la zone de tracé. Cet exemple crée un graphique en ligne avec des repères et des données par défaut, puis applique des styles de texte et de ligne séparés à ses axes de valeur et de catégorie. Les tailles de police et les épaisseurs de ligne sont spécifiées en points ; les libellés de catégorie sont inclinés de 45 degrés.
+
+L'axe de valeur utilise [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) de manière indépendante des cellules sources. Son étendue va de -2 à 15, avec des intervalles majeurs de 2 et des intervalles mineurs de 0,5. L'exemple combine également le formatage de pourcentage avec [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) réglé sur des milliers, adaptez donc ces paramètres à la signification et à l'amplitude de vos données. La légende reste à l'extérieur de la zone de tracé parce que [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) est désactivé. Les remplissages du mur arrière et du plancher sont configurés via [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) et [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), mais ces surfaces ne sont visibles que dans les graphiques 3D.
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Définir les propriétés de police d'un graphique**
+## **Définir les propriétés de police pour un graphique**
 
-Définissez la taille de police par défaut pour le texte du graphique via [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). L'exemple crée un graphique à colonnes groupées avec une police de 20 points et active les étiquettes de valeur pour la première série via [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Les éléments de texte disposant de leurs propres paramètres de police explicites peuvent remplacer la valeur par défaut du graphique.
+Définissez la taille de police par défaut pour le texte du graphique via [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). L'exemple crée un histogramme groupé avec une police de 20 points et active les libellés de valeur pour la première série via [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Les éléments de texte avec leurs propres paramètres de police explicites peuvent remplacer la valeur par défaut du graphique.
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **Réutiliser le formatage du cadre de texte pour la légende d'un graphique**
+
+Pour faire correspondre une légende à l'en-tête d'une diapositive, définissez la police dans le [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) du premier paragraphe. Appelez [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) sur le [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) de la légende. Il lit les paramètres du cadre de texte, le formatage du premier paragraphe et les propriétés de police par défaut de ce paragraphe. Le formatage appliqué directement à des portions individuelles ou à des paragraphes ultérieurs reste local à la source.
+
+L'exemple utilise un en-tête Calibri gras de 26 points en bleu marine comme modèle. Après la mise en forme de la légende, il utilise [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) pour appliquer le même formatage à une légende séparée.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+Dans la présentation enregistrée, la légende et la légende séparée correspondent à l'en-tête en taille, poids et couleur. La légende affiche toujours les noms des séries, et la légende séparée conserve son propre texte. Si une portion de la légende possède déjà une taille de police explicite, cette taille prend le pas sur le paragraphe par défaut copié.
+
+| Avant la copie | Après la copie |
+| --- | --- |
+| ![Graphique des ventes trimestrielles avec des libellés de légende noirs réguliers et une légende noire](legend-formatting-before.png) | ![Le même graphique avec des libellés de légende marine gras et plus grands et une légende correspondante](legend-formatting.png) |
+
 ## **Définir le format numérique**
 
-Utilisez [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) pour appliquer un format numérique intégré aux cellules du classeur du graphique. Cet exemple crée un graphique à colonnes groupées avec des données par défaut liées aux cellules et applique l'indice de format 10 (`0.00%`) à chaque cellule de valeur de série. Cela modifie la façon dont les valeurs sont affichées dans le classeur sans changer les nombres sous-jacents ; par exemple, 0,25 s'affiche sous la forme 25,00 %. Les formats des axes et des étiquettes de données peuvent être configurés séparément.
+Utilisez [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) pour appliquer un format numérique intégré aux cellules du classeur du graphique. Cet exemple crée un histogramme groupé avec des données par défaut stockées dans les cellules et applique l'indice de format 10 (`0.00%`) à chaque cellule de valeur de série. Cela modifie la façon dont les valeurs sont affichées dans le classeur sans changer les nombres sous‑jacents ; par exemple, 0,25 s'affiche sous la forme 25,00 %. Les formats des axes et des libellés de données peuvent être configurés séparément.
 
 ```csharp
 using Aspose.Slides;
@@ -191,9 +243,9 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Le tableau suivant répertorie les indices de formats numériques intégrés avec les formats Excel représentatifs pour la locale anglais (États‑Unis). Les chaînes de format exactes et leur affichage peuvent varier selon l'application et la locale, notamment pour les devises et les dates. Certains formats Excel diffèrent également des valeurs par défaut du standard OOXML, comme décrit dans les [Notes d'implémentation du format numérique de Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Le tableau suivant répertorie les indices de formats numériques intégrés avec les formats Excel représentatifs pour la locale anglais (États‑Unis). Les chaînes de format exactes et leur affichage peuvent varier selon l'application et la locale, notamment pour les monnaies et les dates. Certains formats Excel diffèrent également des valeurs par défaut de la norme OOXML, comme indiqué dans les [notes d’implémentation des formats numériques de Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| Index | Format |
+| Indice | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -232,9 +284,9 @@ Le tableau suivant répertorie les indices de formats numériques intégrés ave
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Définir les bordures arrondies de la zone du graphique**
+## **Définir des coins arrondis pour la zone du graphique**
 
-Activez [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) pour arrondir les coins de la zone du graphique. L'exemple crée un graphique à colonnes groupées et utilise [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) pour donner à son contour une couleur gris solide et un style de ligne simple avant d'enregistrer la présentation.
+Activez [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) pour arrondir les coins de la zone du graphique. L'exemple crée un histogramme groupé et utilise [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) pour donner à son contour une couleur grise unie et un style à ligne unique avant d’enregistrer la présentation.
 
 ```csharp
 using System.Drawing;
@@ -254,13 +306,13 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **Modifier les annotations existantes du graphique**
+## **Modifier les annotations de graphique existantes**
 
-Un graphique peut contenir des formes personnalisées, comme une annotation texte expliquant l'état d'un rapport. Accédez à ces formes via [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), également répertoriées sous [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) dans la référence API du graphique. Sa collection [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) contient les formes appartenant au graphique.
+Un graphique peut contenir des formes personnalisées, comme une annotation texte expliquant l’état d’un rapport. Accédez à ces formes via [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), également listées sous [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) dans la référence API du graphique. Sa collection [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) contient les formes détenues par le graphique.
 
-Une zone de texte ordinaire placée au-dessus d'un graphique appartient à la diapositive, même si elle ressemble à une partie du graphique. Parcourir [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) trouve le graphique et les formes ordinaires de la diapositive, mais n'énumère pas les formes individuelles à l'intérieur du graphique. Les titres de graphique et les étiquettes de données sont des éléments de graphique distincts, pas des annotations personnalisées dans cette collection.
+Une zone de texte ordinaire placée sur un graphique appartient à la diapositive, même si elle ressemble à une partie du graphique. Parcourir [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) trouve le graphique ainsi que les formes ordinaires de la diapositive, mais n’énumère pas les formes individuelles à l’intérieur du graphique. Les titres de graphique et les libellés de données sont des éléments de graphique distincts, pas des annotations personnalisées dans cette collection.
 
-Téléchargez [chart-annotations.pptx](chart-annotations.pptx) et placez‑le dans le répertoire de travail de l'application. Sa première diapositive contient un graphique avec une annotation non groupée affichant « Preliminary results », une ligne appartenant au graphique, et une zone de texte ordinaire affichant « Slide overlay ». L'exemple trouve le premier graphique de cette diapositive et change l'annotation en « Final results » lorsque le rapport est prêt à être publié. Il vérifie si la collection est vide et ne modifie qu'une [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) dont le [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) n'est pas nul et qui contient le texte attendu.
+Téléchargez [chart-annotations.pptx](chart-annotations.pptx) et placez‑le dans le répertoire de travail de l’application. Sa première diapositive contient un graphique avec une annotation non groupée affichant « Preliminary results », une ligne appartenant au graphique et une zone de texte ordinaire de diapositive affichant « Slide overlay ». L’exemple trouve le premier graphique de cette diapositive et change l’annotation en « Final results » lorsque le rapport est prêt à être publié. Il vérifie une collection vide et ne modifie qu’une [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ayant un [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) non nul et le texte attendu.
 
 ```csharp
 using System;
@@ -303,26 +355,26 @@ else
 }
 ```
 
-La ligne et la zone de texte de la diapositive restent inchangées. Les images suivantes montrent l'entrée et le résultat sauvegardé puis rouverts :
+La ligne et la zone de texte de la diapositive restent inchangées. Les images suivantes montrent l’entrée et le résultat enregistré, rouvert :
 
 | Avant la modification | Après la modification |
 | --- | --- |
-| ![Annotation du graphique affichant Preliminary results](chart-annotations-before.png) | ![Annotation du graphique affichant Final results](chart-annotations-after.png) |
+| ![Annotation de graphique affichant Preliminary results](chart-annotations-before.png) | ![Annotation de graphique affichant Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-L'exemple examine uniquement les formes appartenant au graphique au niveau supérieur. Si une annotation se trouve à l'intérieur d'un [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), inspectez également la collection [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) de ce groupe. Répétez cela de manière récursive pour les groupes imbriqués, en appliquant les mêmes vérifications de texte à leurs formes enfants. Un groupe lui‑même est un conteneur ; ne le traitez pas comme une zone de texte.
+L’exemple n’inspecte que les formes détenues directement par le graphique. Si une annotation se trouve à l’intérieur d’un [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), inspectez également la collection [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) de ce groupe. Répétez cela de façon récursive pour les groupes imbriqués, en appliquant les mêmes vérifications de texte à leurs formes enfants. Un groupe est lui‑même un conteneur ; ne le traitez pas comme une zone de texte.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Puis-je définir des remplissages semi‑transparents pour les colonnes/aires tout en conservant le bord opaque ?**
+**Puis-je définir des remplissages semi-transparents pour les colonnes/zones tout en conservant le bord opaque ?**
 
 Oui. La transparence du remplissage et le contour sont configurés séparément. Cela est utile pour améliorer la lisibilité de la grille et des données dans des visualisations denses.
 
-**Comment gérer les étiquettes de données lorsqu'elles se chevauchent ?**
+**Comment gérer les libellés de données lorsqu'ils se chevauchent ?**
 
-Réduisez la taille de la police, désactivez les composants d'étiquettes non essentiels (par exemple, les catégories), ajustez la position de l'étiquette, affichez les étiquettes uniquement pour les points sélectionnés si nécessaire, ou passez au format « valeur + légende ».
+Réduisez la taille de la police, désactivez les composants de libellé non essentiels (par exemple, les catégories), ajustez la position du libellé, affichez les libellés uniquement pour les points sélectionnés si nécessaire, ou passez au format « valeur + légende ».
 
 **Puis-je appliquer des remplissages en dégradé ou en motif aux séries ?**
 
-Oui. Les séries supportent les remplissages solides, en dégradé et en motif. En pratique, utilisez les dégradés avec parcimonie et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.
+Oui. Les séries prennent en charge les remplissages unis, en dégradé et en motif. En pratique, utilisez les dégradés avec parcimonie et évitez les combinaisons qui réduisent le contraste avec la grille et le texte.

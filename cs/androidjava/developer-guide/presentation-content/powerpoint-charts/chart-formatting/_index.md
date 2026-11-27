@@ -1,16 +1,16 @@
 ---
 title: Formátování grafů v prezentaci pro Android
-linktitle: Formátování grafu
+linktitle: Formátování grafů
 type: docs
 weight: 60
 url: /cs/androidjava/chart-formatting/
 keywords:
-- formátovat graf
 - formátování grafu
+- formátování grafů
 - entita grafu
 - vlastnosti grafu
 - nastavení grafu
-- možnosti grafu
+- volby grafu
 - vlastnosti písma
 - zaoblený okraj
 - PowerPoint
@@ -18,19 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se formátovat grafy v Aspose.Slides pro Android pomocí Javy a vylepšete svou PowerPoint prezentaci pomocí vlastních os, písem, číselných formátů a zaoblených okrajů grafu."
+description: "Naučte se formátování grafů v Aspose.Slides pro Android pomocí Javy a vylepšete svou PowerPoint prezentaci pomocí vlastních os, písem, číselných formátů a zaoblených okrajů grafu."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pomocí Aspose.Slides formátovat grafy v prezentacích PowerPoint. Ukazuje, jak přizpůsobit klíčové prvky grafu, jako jsou osy, mřížkové čáry, nadpisy, legendy, oblast grafu a výplně stěn, aby se zlepšil vzhled a čitelnost dat v grafu.
+Tento článek vysvětluje, jak formátovat grafy v prezentacích PowerPoint pomocí Aspose.Slides. Ukazuje, jak přizpůsobit klíčové prvky grafu, jako jsou osy, mřížkové čáry, názvy, legendy, oblast vykreslování a výplně stěn, aby se zlepšil vzhled a čitelnost dat v grafu.
 
-Také demonstruje, jak nastavit vlastnosti písma pro text v grafu, použít předdefinované číselné formáty na data grafu a povolit zaoblené rohy oblasti grafu. Společně tyto příklady ukazují, jak řídit jak vizuální styl, tak prezentaci dat v grafech v prezentaci.
+Také ukazuje, jak nastavit vlastnosti písma pro text v grafu, použít předdefinované číselné formáty na data grafu a povolit zaoblené rohy oblasti grafu. Tyto příklady společně ukazují, jak řídit jak vizuální styl, tak i prezentaci dat v grafu v prezentaci.
+
+Pro samostatné výplně a obrysy během rostoucích a klesajících intervalů viz [příklad akciového grafu](/slides/cs/androidjava/create-chart/#create-stock-charts).
 
 ## **Formátování entit grafu**
 
-Použijte [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) k formátování názvů grafu, os, mřížkových čar, legend a oblasti grafu. Tento příklad vytvoří čárový graf s značkami a výchozími daty a poté aplikuje samostatné styly textu a čáry na osu hodnot i osu kategorií. Velikosti písma a šířky čar jsou zadány v bodech; štítky kategorií jsou otočeny o 45 stupňů.
+Použijte [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) k formátování názvů grafu, os, mřížkových čar, legend a oblasti vykreslování. Tento příklad vytvoří spojnicový graf s značkami a výchozími daty, poté aplikuje samostatné styly textu a čáry na jeho hodnotové a kategoriové osy. Velikosti písma a šířky čar jsou zadány v bodech; popisky kategorií jsou otočeny o 45 stupňů.
 
-Osa hodnot používá [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) nezávisle na zdrojových buňkách. Její měřítko běží od -2 do 15, s hlavními intervaly 2 a menšími intervaly 0,5. Příklad také kombinuje formátování procent s [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) nastaveným na tisíce, takže přizpůsobte tato nastavení významu a rozsahu vašich dat. Legenda zůstává mimo oblast grafu, protože [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) je voláno s `false`. Výplně zadní stěny a podlahy jsou nakonfigurovány pomocí [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) a [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), ale tyto plochy jsou viditelné pouze v 3D grafech.
+Hodnotová osa používá [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) nezávisle na zdrojových buňkách. Její měřítko běží od -2 do 15, s hlavními intervaly 2 a vedlejšími intervaly 0,5. Příklad také kombinuje formátování procent s [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) nastaveným na tisíce, proto přizpůsobte tato nastavení významu a velikosti vašich dat. Legenda zůstává mimo oblast vykreslování, protože [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) je voláno s hodnotou `false`. Výplně zadní stěny a podlahy jsou konfigurovány pomocí [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) a [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), ale tyto povrchy jsou viditelné jen v 3D grafech.
 
 ```java
 import com.aspose.slides.*;
@@ -150,7 +152,7 @@ try {
 
 ## **Nastavení vlastností písma pro graf**
 
-Nastavte výchozí velikost písma pro text v grafu pomocí [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--). Příklad vytvoří seskupený sloupcový graf s 20‑bodovým písmem a povolí popisky hodnot pro první řadu pomocí [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Textové prvky s vlastními explicitními nastaveními písma mohou přepsat výchozí nastavení grafu.
+Nastavte výchozí velikost písma pro text grafu pomocí [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--). Příklad vytvoří seskupený sloupcový graf s 20bodovým písmem a umožní zobrazovat hodnotové popisky pro první řadu pomocí [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Textové prvky s vlastními explicitními nastaveními písma mohou přepsat výchozí nastavení grafu.
 
 ```java
 import com.aspose.slides.*;
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **Znovupoužití formátování textového rámce pro legendu grafu**
+
+Aby legenda odpovídala nadpisu snímku, nastavte písmo nadpisu pomocí [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) v prvním odstavci. Zavolejte [copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) na formátu vráceném metodou [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) legendy. Zkopíruje nastavení textového rámce, formátování prvního odstavce a výchozí vlastnosti písma tohoto odstavce. Formátování aplikované přímo na jednotlivé části nebo na pozdější odstavce zůstává lokální pro zdroj.
+
+Příklad používá tučný, 26bodový nadpis v Calibri v námořní modré jako šablonu. Po stylování legendy zavolá [copyTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) k aplikaci stejného formátování na samostatný popisek.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(Color.rgb(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+V uložené prezentaci legenda a popisek odpovídají nadpisu ve velikosti, tučnosti a barvě. Legenda stále zobrazuje názvy řad a popisek si zachovává svůj vlastní text. Pokud část popisku již má explicitní velikost písma, tato velikost má přednost před zkopírovaným výchozím nastavením odstavce.
+
+| Před kopírováním | Po kopírování |
+| --- | --- |
+| ![Čtvrtletní prodejní graf s běžnými černými popisky legendy a černým popiskem](legend-formatting-before.png) | ![Stejný graf s většími, tučnými námořními popisky legendy a odpovídajícím popiskem](legend-formatting.png) |
+
 ## **Nastavení číselného formátu**
 
-Použijte [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) , aby se na buňky sešitu grafu aplikoval vestavěný číselný formát. Tento příklad vytvoří seskupený sloupcový graf s výchozími, buňkou podporovanými daty a použije formátový index 10 (`0.00%`) na buňku hodnot každé řady. Tím se změní způsob, jakým jsou hodnoty zobrazeny v sešitu, aniž by se změnila podkladová čísla; například 0,25 se zobrazí jako 25,00 %. Formáty os a popisků dat lze nastavit odděleně.
+Použijte [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) k aplikaci vestavěného číselného formátu na buňky sešitu grafu. Tento příklad vytvoří seskupený sloupcový graf s výchozími, buňkou podporovanými daty a použije formátový index 10 (`0.00%`) na každou buňku hodnot řady. Tím se změní způsob, jakým jsou hodnoty zobrazeny v sešitu, aniž by se změnila podkladová čísla; například 0,25 se zobrazí jako 25,00 %. Formáty os a popisků dat lze konfigurovat samostatně.
 
 ```java
 import com.aspose.slides.*;
@@ -197,7 +253,7 @@ try {
 }
 ```
 
-Následující tabulka uvádí vestavěné indexy číselných formátů s reprezentativními formáty Excelu pro anglické (Spojené státy) prostředí. Přesné řetězce formátu a jejich zobrazení se mohou lišit podle aplikace a locale, zejména u měn a dat. Některé formáty Excelu se také liší od výchozích hodnot ve standardu OOXML, jak je popsáno v [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Následující tabulka uvádí vestavěné indexy číselných formátů s reprezentativními formáty Excelu pro anglickou (Spojené státy) lokalizaci. Přesné řetězce formátů a jejich zobrazení se mohou lišit podle aplikace a locale, zejména u měn a dat. Některé formáty Excelu se také liší od výchozích v standardu OOXML, jak je popsáno v [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Formát |
 | --- | --- |
@@ -240,7 +296,7 @@ Následující tabulka uvádí vestavěné indexy číselných formátů s repre
 
 ## **Nastavení zaoblených okrajů oblasti grafu**
 
-Zavolejte [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) s hodnotou `true`, aby se zaoblivily rohy oblasti grafu. Příklad vytvoří seskupený sloupcový graf a pomocí [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) nastaví jeho obrys na plnou šedou barvu a jednoprvkový styl čáry před uložením prezentace.
+Zavolejte [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) s hodnotou `true`, aby se zaoblivily rohy oblasti grafu. Příklad vytvoří seskupený sloupcový graf a použije [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) k nastavení obrysu na plnou šedou barvu a jednojádrový styl čáry před uložením prezentace.
 
 ```java
 import com.aspose.slides.*;
@@ -264,11 +320,11 @@ try {
 
 ## **Úprava existujících anotací grafu**
 
-Graf může obsahovat vlastní tvary, například textovou anotaci vysvětlující stav zprávy. Přístup k těmto tvarům získáte přes [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), který je také uveden pod [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) v referenci API grafu. Kolekce vrácená metodou [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) obsahuje tvary vlastněné grafem.
+Graf může obsahovat vlastní tvary, jako je textová anotace vysvětlující stav zprávy. K těmto tvarům přistupujte pomocí [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), také uvedených pod [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) v referenci API grafu. Kolekce vrácená metodou [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) obsahuje tvary vlastněné grafem.
 
-Běžná textová pole umístěná nad grafem patří k snímku, i když vypadají jako součást grafu. Procházení pomocí [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) najde graf a běžné tvary snímku, ale nevyjmenuje jednotlivé tvary uvnitř grafu. Nadpisy grafu a popisky dat jsou samostatné prvky grafu, nikoli vlastní anotace v této kolekci.
+Běžná textová rámeček umístěná nad grafem patří ke snímku, i když vypadá jako součást grafu. Procházení pomocí [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) nalezne graf a běžné tvary snímku, ale nevyjmenuje jednotlivé tvary uvnitř grafu. Tituly grafu a popisky dat jsou samostatné prvky grafu, ne vlastní anotace v této kolekci.
 
-Stáhněte [chart-annotations.pptx](chart-annotations.pptx) a umístěte jej do pracovního adresáře aplikace. Jeho první snímek obsahuje graf s ne seskupenou anotací čtenou „Preliminary results“, s linkou vlastněnou grafem a běžným textovým polem snímku čteným „Slide overlay“. Příklad najde první graf na tomto snímku a změní anotaci na „Final results“, když je zpráva připravena k publikaci. Kontroluje, zda je kolekce prázdná, a upravuje pouze [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) s nenulovým textovým rámcem vráceným metodou [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) a očekávaným textem.
+Stáhněte [chart-annotations.pptx](chart-annotations.pptx) a umístěte jej do pracovní složky aplikace. Jeho první snímek obsahuje graf s neseskupenou anotací s textem „Preliminary results“, čárou vlastněnou grafem a běžnou textovou rámečkem snímku s textem „Slide overlay“. Příklad najde první graf na tomto snímku a změní anotaci na „Final results“, když je zpráva připravena k publikaci. Kontroluje, zda je kolekce prázdná, a upravuje pouze [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) s nenulovým textovým rámcem vráceným metodou [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) a očekávaným textem.
 
 ```java
 import com.aspose.slides.*;
@@ -312,26 +368,26 @@ try {
 }
 ```
 
-Čára a textové pole snímku zůstávají beze změny. Následující obrázky ukazují vstup a uložený, znovu otevřený výsledek:
+Čára a textová rámeček snímku zůstávají nezměněny. Následující obrázky ukazují vstup a uložený, znovu otevřený výsledek:
 
-| Before editing | After editing |
+| Před úpravou | Po úpravě |
 | --- | --- |
-| ![Anotace grafu s textem Preliminary results](chart-annotations-before.png) | ![Anotace grafu s textem Final results](chart-annotations-after.png) |
+| ![Anotace grafu s textem Předběžné výsledky](chart-annotations-before.png) | ![Anotace grafu s textem Konečné výsledky](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Příklad kontroluje pouze tvary na nejvyšší úrovni vlastněné grafem. Pokud je anotace uvnitř [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), zkontrolujte také kolekci [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) této skupiny. Opakujte to rekurzivně pro vnořené skupiny a aplikujte stejné kontroly textu na jejich podřízené tvary. Skupina sama o sobě je kontejner; nepovažujte ji za textové pole.
+Příklad kontroluje pouze tvary na nejvyšší úrovni vlastněné grafem. Pokud je anotace uvnitř [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), zkontrolujte také kolekci [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) této skupiny. Opakujte to rekurzivně pro vnořené skupiny a aplikujte stejné kontroly textu na jejich podřízené tvary. Skupina samotná je kontejner; nepovažujte ji za textový rámeček.
 {{% /alert %}}
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Mohu nastavit poloprůhledné výplně pro sloupce/oblasti a přitom zachovat neprůhledný okraj?**
+**Mohu nastavit poloprůhledné výplně pro sloupce/oblasti a zároveň zachovat okraj neprůhledný?**
 
 Ano. Průhlednost výplně a obrys jsou konfigurovány odděleně. To je užitečné pro zlepšení čitelnosti mřížky a dat v hustých vizualizacích.
 
-**Jak mohu řešit překrývající se popisky dat?**
+**Jak mohu řešit popisky dat, když se překrývají?**
 
-Snižte velikost písma, zakažte nepodstatné součásti popisků (například kategorie), upravte pozici popisku, zobrazte popisky jen pro vybrané body, pokud je to nutné, nebo přepněte formát na „hodnota + legenda“.
+Zmenšete velikost písma, deaktivujte nepodstatné součásti popisků (například kategorie), upravte pozici popisku, zobrazte popisky pouze pro vybrané body, pokud je to nutné, nebo změňte formát na „hodnota + legenda“.
 
-**Mohu na řady aplikovat gradientní nebo vzorové výplně?**
+**Mohu na řady použít gradientní nebo vzorové výplně?**
 
 Ano. Řady podporují plné, gradientní a vzorové výplně. V praxi používejte gradienty střídmě a vyhněte se kombinacím, které snižují kontrast s mřížkou a textem.

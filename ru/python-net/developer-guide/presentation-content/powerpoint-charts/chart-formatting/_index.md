@@ -5,31 +5,31 @@ type: docs
 weight: 60
 url: /ru/python-net/chart-formatting/
 keywords:
-- формат диаграммы
+- форматировать диаграмму
 - форматирование диаграмм
-- элемент диаграммы
+- объект диаграммы
 - свойства диаграммы
 - настройки диаграммы
-- опции диаграммы
+- параметры диаграммы
 - свойства шрифта
 - скруглённая граница
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Изучите форматирование диаграмм в Aspose.Slides для Python через .NET и улучшите вашу презентацию PowerPoint с помощью пользовательских осей, шрифтов, числовых форматов и скруглённых границ диаграмм."
+description: "Изучите форматирование диаграмм в Aspose.Slides для Python через .NET и улучшите свою презентацию PowerPoint с помощью пользовательских осей, шрифтов, числовых форматов и скруглённых границ диаграмм."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как форматировать диаграммы в презентациях PowerPoint с помощью Aspose.Slides. Она показывает, как настраивать ключевые элементы диаграммы, такие как оси, линии сетки, заголовки, легенды, область построения и заполнения стен, чтобы улучшить внешний вид и читаемость данных диаграммы.
+В этой статье объясняется, как форматировать диаграммы в презентациях PowerPoint с помощью Aspose.Slides. Показано, как настраивать основные элементы диаграммы, такие как оси, сетка, заголовки, легенды, область построения и заливку стен, чтобы улучшить внешний вид и читаемость данных диаграммы. Также демонстрируется, как установить свойства шрифта для текста диаграммы, применить предустановленные числовые форматы к данным диаграммы и включить закруглённые уголки области диаграммы. Вместе эти примеры показывают, как управлять как визуальным стилем, так и представлением данных диаграмм в презентации.
 
-Также демонстрируется, как установить свойства шрифта для текста диаграммы, применить предустановленные числовые форматы к данным диаграммы и включить скруглённые углы для области диаграммы. Вместе эти примеры показывают, как контролировать как визуальный стиль, так и представление данных диаграмм в презентации.
+Для отдельной заливки и контуров на растущих и падающих интервалах см. [пример диаграммы акций](/slides/ru/python-net/create-chart/#create-stock-charts).
 
 ## **Форматирование элементов диаграммы**
 
-Используйте [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) для форматирования заголовков диаграмм, осей, линий сетки, легенд и области построения. Этот пример создаёт линейную диаграмму с маркерами и данными по умолчанию, затем применяет отдельные стили текста и линий к её значениям и категориальным осям. Размеры шрифтов и толщины линий указаны в пунктах; подписи категорий повернуты на 45 градусов.
+Используйте [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) для форматирования заголовков диаграммы, осей, линий сетки, легенд и области построения. Этот пример создаёт линейную диаграмму с маркерами и данными по умолчанию, затем применяет отдельные стили текста и линий к её оси значений и оси категорий. Размеры шрифта и ширина линий задаются в пунктах; подписи категорий повернуты на 45 градусов.
 
-Ось значений использует [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) независимо от исходных ячеек. Её масштаб идёт от -2 до 15 с основными интервалами 2 и вспомогательными интервалами 0,5. Пример также сочетает процентное форматирование с [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/), установленным в тысячи, поэтому адаптируйте эти настройки к смыслу и масштабу ваших данных. Легенда остаётся вне области построения, потому что [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) отключён. Заполнение задней стены и пола настраивается через [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) и [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), но эти поверхности видимы только в 3D‑диаграммах.
+Ось значений использует [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) независимо от исходных ячеек. её шкала идёт от -2 до 15, с основными интервалами 2 и второстепенными интервалами 0,5. В примере также комбинируется форматирование процентов с [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) установленным в тысячи, поэтому адаптируйте эти настройки к смыслу и масштабу ваших данных. Легенда остаётся вне области построения, потому что [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) отключён. Заполнение задней стены и пола настраивается через [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) и [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), но эти поверхности видны только в 3D‑диаграммах.
 
 ```python
 import aspose.slides.charts as charts
@@ -147,7 +147,7 @@ with slides.Presentation() as presentation:
 
 ## **Установить свойства шрифта для диаграммы**
 
-Установите размер шрифта по умолчанию для текста диаграммы через [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Пример создаёт сгруппированную столбчатую диаграмму с 20‑пунктовым шрифтом и включает отображение значений для первой серии через [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Текстовые элементы со своими явными настройками шрифта могут переопределять значение по умолчанию диаграммы.
+Установите размер шрифта по умолчанию для текста диаграммы через [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Пример создаёт сгруппированную столбчатую диаграмму с шрифтом 20 пунктов и включает метки значений для первой серии через [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Текстовые элементы со своими явными настройками шрифта могут переопределять значение по умолчанию диаграммы.
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +163,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Повторное использование форматирования текстового фрейма для легенды диаграммы**
+
+Чтобы согласовать легенду с заголовком слайда, задайте шрифт через [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) у первого абзаца заголовка. Вызовите [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) у [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) легенды. Это копирует настройки текстового фрейма, форматирование первого абзаца и свойства шрифта по умолчанию этого абзаца. Форматирование, применённое непосредственно к отдельным частям или к последующим абзацам, остаётся локальным для источника.
+
+В примере в качестве шаблона используется заголовок с жирным шрифтом, темно‑синим цветом, 26‑пунктовым Calibri. После стилизации легенды используется [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) , чтобы применить то же форматирование к отдельной подписи.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+В сохранённой презентации легенда и подпись соответствуют заголовку по размеру, толщине и цвету. Легенда по‑прежнему отображает имена серий, а подпись сохраняет собственный текст. Если часть подписи уже имеет явный размер шрифта, этот размер имеет приоритет над скопированным значением по умолчанию абзаца.
+
+| До копирования | После копирования |
+| --- | --- |
+| ![Квартальная диаграмма продаж с обычными чёрными метками легенды и чёрной подписью](legend-formatting-before.png) | ![Та же диаграмма с более крупными, жирными тёмно‑синими метками легенды и соответствующей подписью](legend-formatting.png) |
+
 ## **Установить числовой формат**
 
-Используйте [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) для применения встроенного числового формата к ячейкам рабочей книги диаграммы. Этот пример создаёт сгруппированную столбчатую диаграмму с данными по умолчанию, хранящимися в ячейках, и применяет индекс формата 10 (`0.00%`) к каждой ячейке значений серии. Это меняет способ отображения значений в рабочей книге без изменения самих чисел; например, 0.25 выводится как 25.00%. Форматы осей и подписей данных можно настраивать независимо.
+Используйте [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) для применения встроенного числового формата к ячейкам рабочей книги диаграммы. Этот пример создаёт сгруппированную столбчатую диаграмму с данными по умолчанию, поддерживаемыми ячейками, и применяет индекс формата 10 (`0.00%`) к каждой ячейке значения серии. Это меняет отображение значений в рабочей книге без изменения самих чисел; например, 0,25 отображается как 25,00 %. Форматы осей и меток данных можно настраивать отдельно.
 
 ```python
 import aspose.slides.charts as charts
@@ -178,12 +225,12 @@ with slides.Presentation() as presentation:
 
     for series in chart.chart_data.series:
         for data_point in series.data_points:
-            data_point.value.as_cell.preset_number_format = 10  # 0.00%
+            data_point.value.as_cell.preset_number_format = 10  # 0,00%
 
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Следующая таблица перечисляет встроенные индексы числовых форматов с характерными форматами Excel для локали English (United States). Точные строки формата и их отображение могут различаться в зависимости от приложения и локали, особенно для валют и дат. Некоторые форматы Excel также отличаются от значений по умолчанию в стандарте OOXML, как описано в [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+В следующей таблице перечислены встроенные индексы числовых форматов с типичными форматами Excel для локали English (United States). Точные строки формата и их отображение могут различаться в зависимости от приложения и локали, особенно для валют и дат. Некоторые форматы Excel также отличаются от значений по умолчанию в стандарте OOXML, как описано в [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Индекс | Формат |
 | --- | --- |
@@ -226,7 +273,7 @@ with slides.Presentation() as presentation:
 
 ## **Установить скруглённые границы области диаграммы**
 
-Включите [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) для скругления углов области диаграммы. Пример создаёт сгруппированную столбчатую диаграмму и использует [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) для задания контуру сплошного серого цвета и одиночного стиля линии перед сохранением презентации.
+Включите [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) чтобы округлить уголки области диаграммы. Пример создаёт сгруппированную столбчатую диаграмму и использует [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) для придания её контуру сплошного серого цвета и одно‑линейного стиля перед сохранением презентации.
 
 ```python
 import aspose.slides.charts as charts
@@ -246,11 +293,11 @@ with slides.Presentation() as presentation:
 
 ## **Редактировать существующие аннотации диаграммы**
 
-Диаграмма может содержать пользовательские фигуры, например текстовую аннотацию, объясняющую статус отчёта. Доступ к этим фигурам осуществляется через [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Его коллекция [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) содержит фигуры, принадлежащие диаграмме.
+Диаграмма может содержать пользовательские формы, например текстовую аннотацию, объясняющую статус отчёта. Доступ к этим формам осуществляется через [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Его коллекция [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) содержит формы, принадлежащие диаграмме.
 
-Обычный текстовый блок, помещённый поверх диаграммы, принадлежит слайду, даже если выглядит как часть диаграммы. Перебор через [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) находит диаграмму и обычные фигуры слайда, но не перечисляет отдельные фигуры внутри диаграммы. Заголовки диаграмм и подписи данных являются отдельными элементами диаграммы, а не пользовательскими аннотациями в этой коллекции.
+Обычный текстовый блок, размещённый над диаграммой, относится к слайду, даже если выглядит как часть диаграммы. Перебор через [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) находит диаграмму и обычные формы слайда, но не перечисляет отдельные формы внутри диаграммы. Заголовки диаграмм и метки данных являются отдельными элементами диаграммы, а не пользовательскими аннотациями в этой коллекции.
 
-Скачайте [chart-annotations.pptx](chart-annotations.pptx) и разместите его в рабочем каталоге приложения. На первом слайде находится диаграмма с разъединённой аннотацией «Preliminary results», линией, принадлежащей диаграмме, и обычным текстовым блоком слайда «Slide overlay». Пример находит первую диаграмму на этом слайде и меняет аннотацию на «Final results», когда отчёт готов к публикации. Он проверяет, не пуста ли коллекция, и редактирует только [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) с [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/), который не равен `None` и содержит ожидаемый текст.
+Скачайте [chart-annotations.pptx](chart-annotations.pptx) и разместите его в рабочем каталоге приложения. Его первый слайд содержит диаграмму с не сгруппированной аннотацией «Preliminary results», принадлежащей диаграмме линией и обычным текстовым блоком слайда «Slide overlay». Пример находит первую диаграмму на этом слайде и меняет аннотацию на «Final results», когда отчет готов к публикации. Он проверяет коллекцию на пустоту и редактирует только [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) с [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) , который не равен `None` и содержит ожидаемый текст.
 
 ```python
 import aspose.slides as slides
@@ -277,26 +324,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-Линия и текстовый блок слайда остаются без изменений. Ниже показаны исходное изображение и сохранённый, открытый повторно результат:
+Линия и текстовый блок слайда остаются без изменений. Ниже показаны изображения входных данных и сохранённого, повторно открытого результата:
 
 | До редактирования | После редактирования |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Аннотация диаграммы с текстом «Preliminary results»](chart-annotations-before.png) | ![Аннотация диаграммы с текстом «Final results»](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Пример проверяет только фигуры верхнего уровня, принадлежащие диаграмме. Если аннотация находится внутри [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), проверьте также коллекцию [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) этой группы. Делайте это рекурсивно для вложенных групп, применяя те же проверочные условия к их дочерним фигурам. Сама группа является контейнером; не рассматривайте её как текстовый блок.
+Пример проверяет только формы верхнего уровня, принадлежащие диаграмме. Если аннотация находится внутри [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), проверьте также коллекцию [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) этой группы. Повторяйте это рекурсивно для вложенных групп, применяя те же проверки текста к их дочерним формам. Группа сама по себе является контейнером; не рассматривайте её как текстовый блок.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Могу ли я установить полупрозрачные заливки для столбцов/областей, оставив границу непрозрачной?**
+**Могу ли я задать полупрозрачные заливки для столбцов/областей, оставив границу непрозрачной?**
 
-Да. Прозрачность заливки и контур настраиваются отдельно. Это полезно для повышения читаемости сетки и данных в плотных визуализациях.
+Да. Прозрачность заливки и обводка настраиваются отдельно. Это полезно для улучшения читаемости сетки и данных в плотных визуализациях.
 
-**Как справиться с подписью данных, когда они перекрываются?**
+**Как справиться с метками данных, когда они перекрываются?**
 
-Уменьшите размер шрифта, отключите необязательные компоненты подписи (например, категории), скорректируйте позицию подписи, при необходимости показывайте подписи только для выбранных точек или переключите формат на «значение + легенда».
+Уменьшите размер шрифта, отключите несущественные компоненты меток (например, категории), отрегулируйте позицию метки, при необходимости показывайте метки только для выбранных точек или переключите формат на "value + legend".
 
-**Могу ли я применять градиентные или узорчатые заливки к сериям?**
+**Могу ли я применить градиентную или шаблонную заливку к сериям?**
 
-Да. Серии поддерживают сплошные, градиентные и узорчатые заливки. На практике используйте градиенты умеренно и избегайте комбинаций, снижающих контрастность относительно сетки и текста.
+Да. Серии поддерживают сплошные, градиентные и шаблонные заливки. На практике используйте градиенты умеренно и избегайте комбинаций, снижающих контраст с сеткой и текстом.

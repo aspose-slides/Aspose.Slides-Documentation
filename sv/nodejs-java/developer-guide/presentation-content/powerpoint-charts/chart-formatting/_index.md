@@ -1,5 +1,5 @@
 ---
-title: Formatera presentationsdiagram i JavaScript
+title: Formatera diagram i presentationer i JavaScript
 linktitle: Diagramformatering
 type: docs
 weight: 60
@@ -11,26 +11,28 @@ keywords:
 - diagramegenskaper
 - diagraminställningar
 - diagramalternativ
-- teckensnittsegenskaper
-- avrundad kant
+- teckensegenskaper
+- rundade kanter
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig diagramformatering i Aspose.Slides för Node.js via Java och förbättra din PowerPoint-presentation med anpassade axlar, teckensnitt, talformat och avrundade diagramkanter."
+description: "Lär dig diagramformatering i Aspose.Slides för Node.js via Java och förbättra din PowerPoint-presentation med anpassade axlar, teckensnitt, talformat och rundade diagramkanter."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man formaterar diagram i PowerPoint-presentationer med Aspose.Slides. Den visar hur man anpassar viktiga diagramdelar såsom axlar, rutnätlinjer, titlar, legender, plotområdet och väggfyllningar för att förbättra diagrammens utseende och läsbarhet.
+Den här artikeln förklarar hur du formaterar diagram i PowerPoint-presentationer med Aspose.Slides. Den visar hur du anpassar viktiga diagramdelar som axlar, rutnätslinjer, titlar, förklaringar, plotområdet och väggfyllningar för att förbättra diagrammens utseende och läsbarhet.
 
-Den visar också hur man anger teckensnittsegenskaper för diagramtext, tillämpar förinställda numeriska format på diagramdata och aktiverar avrundade hörn för diagramområdet. Tillsammans visar dessa exempel hur man styr både den visuella stilen och datavisningen för diagram i en presentation.
+Den demonstrerar också hur du ställer in teckensegenskaper för diagramtext, tillämpar förinställda numeriska format på diagramdata och aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur du kontrollerar både den visuella stilen och datapresentationen för diagram i en presentation.
+
+För separata fyllningar och konturer på stigande och fallande intervaller, se [exempel på aktiediagram](/slides/sv/nodejs-java/create-chart/#create-stock-charts).
 
 ## **Formatera diagramobjekt**
 
-Använd [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) för att formatera diagramtitlar, axlar, rutnätlinjer, legender och plotområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text- och linjestilar på dess värde- och kategoriajlar. Teckenstorlekar och linjebredder anges i punkter; kategorietiketter roteras 45 grader.
+Använd [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) för att formatera diagramtitlar, axlar, rutnätslinjer, förklaringar och plotområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text- och linjestilar på dess värde- och kategoriaxlar. Teckenstorlekar och linjebredder anges i punkter; kategorietiketter roteras 45 grader.
 
-Värdeaxeln använder [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) oberoende av källcellerna. Dess skala går från -2 till 15, med huvudintervall på 2 och delintervall på 0.5. Exemplet kombinerar också procentformatering med [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) satt till tusental, så anpassa dessa inställningar efter betydelsen och storleken på dina data. Legenden förblir utanför plotområdet eftersom [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) anropas med `false`. Bakväggs- och golvfyllningar konfigureras via [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) och [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), men dessa ytor är endast synliga i 3D-diagram.
+Värdeaxeln använder [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) oberoende av källcellerna. Dess skala sträcker sig från -2 till 15, med huvudintervall på 2 och delintervall på 0,5. Exemplet kombinerar också procentformat med [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) satt till tusental, så anpassa dessa inställningar efter betydelse och storlek på dina data. Förklaringen hålls utanför plotområdet eftersom [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) anropas med `false`. Bakväggs- och golvfyllningar konfigureras via [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) och [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), men dessa ytor är endast synliga i 3D-diagram.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **Ange teckensnittsegenskaper för ett diagram**
+## **Ställ in teckensegenskaper för ett diagram**
 
-Ange standardteckenstorlek för diagramtext via [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). Exemplet skapar ett grupperat stapeldiagram med ett 20‑punkts teckensnitt och aktiverar värdetiketter för den första serien via [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Textelement med egna explicita teckeninställningar kan överskrida diagrammets standard.
+Ställ in standardteckenstorleken för diagramtext via [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). Exemplet skapar ett hopgruppat stapeldiagram med ett 20‑punkts teckensnitt och aktiverar värdetiketter för den första serien via [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Textelement med egna uttryckliga teckensnittinställningar kan åsidosätta diagrammets standard.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
-## **Ange det numeriska formatet**
+## **Återanvänd formatering av textram för en diagramförklaring**
 
-Använd [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) för att tillämpa ett inbyggt talformat på diagrammets arbetsboksceller. Detta exempel skapar ett grupperat stapeldiagram med standard, cellbaserade data och tillämpar formatindex 10 (`0.00%`) på varje serievärdecell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0.25 som 25.00 %. Axel- och datatetikettformat kan konfigureras separat.
+För att matcha en förklaring till en bildrubrik, ställ in rubrikens teckensnitt via [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) på det första stycket. Anropa [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) på formatet som returneras av förklaringens [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat). Det kopierar textramens inställningar, det första styckets formatering och det styckets standardteckensnittsegenskaper. Formatering som appliceras direkt på enskilda portioner eller på senare stycken förblir lokalt för källan.
+
+Exemplet använder en fet, 26‑punkts Calibri‑rubrik i marinblått som mall. Efter att förklaringen har stylats anropar det [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) för att tillämpa samma formatering på en separat bildtext.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+I den sparade presentationen matchar förklaringen och bildtexten rubriken i storlek, vikt och färg. Förklaringen visar fortfarande serienamnen, och bildtexten behåller sin egen text. Om en del i bildtexten redan har en explicit teckenstorlek, får den storleken företräde framför det kopierade styckets standard.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Kvartalsförsäljningsdiagram med vanliga svarta förklaringsetiketter och en svart bildtext](legend-formatting-before.png) | ![Samma diagram med större, fet, marinblå förklaringsetiketter och en matchande bildtext](legend-formatting.png) |
+
+## **Ställ in numeriskt format**
+
+Använd [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) för att tillämpa ett inbyggt talformat på diagrammets arbetsboksceller. Detta exempel skapar ett hopgruppat stapeldiagram med standard, cellstödd data och tillämpar formatindex 10 (`0.00%`) på varje serievärdescell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; exempelvis visas 0,25 som 25,00 %. Axel- och datatetikettformat kan konfigureras separat.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -188,7 +244,7 @@ try {
         let chartSeries = series.get_Item(i);
         for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
             let dataPoint = chartSeries.getDataPoints().get_Item(j);
-            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0,00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0.00%
         }
     }
 
@@ -198,7 +254,7 @@ try {
 }
 ```
 
-Följande tabell listar inbyggda talformatindex med representativa Excel-format för den engelska (USA) lokalen. De exakta formatsträngarna och deras visning kan variera mellan applikationer och lokaler, särskilt för valuta och datum. Vissa Excel-format skiljer sig också från standardinställningarna i OOXML-standarden, enligt [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Följande tabell listar inbyggda talformatindex med representativa Excel-format för den engelska (USA) lokalen. De exakta formatsträngarna och deras visning kan variera mellan program och lokaler, särskilt för valuta och datum. Vissa Excel-format skiljer sig också från standardvärdena i OOXML‑standarden, enligt [Microsofts anteckningar om implementering av talformat](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Format |
 | --- | --- |
@@ -239,9 +295,9 @@ Följande tabell listar inbyggda talformatindex med representativa Excel-format 
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Ange avrundade kanter för diagramområdet**
+## **Ställ in rundade kanter för diagramområde**
 
-Anropa [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) med `true` för att runda hörnen på diagramområdet. Exemplet skapar ett grupperat stapeldiagram och använder [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
+Anropa [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) med `true` för att göra hörnen på diagramområdet rundade. Exemplet skapar ett hopgruppat stapeldiagram och använder [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) för att ge dess kontur en solid grå färg och en enkellinjefärg innan presentationen sparas.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -265,11 +321,11 @@ try {
 
 ## **Redigera befintliga diagramanteckningar**
 
-Ett diagram kan innehålla anpassade former, såsom en textanteckning som förklarar statusen för en rapport. Åtkomst till dessa former sker via [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). Samlingen som returneras av [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) innehåller diagramägda former.
+Ett diagram kan innehålla anpassade former, t.ex. en textanteckning som förklarar status för en rapport. Åtkomst till dessa former sker via [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). Samlingen som returneras av [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) innehåller diagrammets egna former.
 
-En vanlig textruta placerad ovanpå ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Genom att iterera över [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) hittas både diagrammet och vanliga bildformer, men de enskilda formerna i diagrammet listas inte. Diagramtitlar och datatetiketter är separata diagramelement, inte anpassade anteckningar i denna samling.
+En vanlig textruta placerad ovanpå ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Att iterera genom [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) hittar diagrammet och vanliga bildformer, men räknar inte upp de enskilda formerna inuti diagrammet. Diagramtitlar och datalabels är separata diagramelement, inte anpassade anteckningar i denna samling.
 
-Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en ogrupperad anteckning som lyder "Preliminary results", en diagramägd linje och en vanlig bildtextruta som lyder "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är klar för publicering. Det kontrollerar om samlingen är tom och redigerar endast en [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) med en icke‑null textram som returneras av [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) och den förväntade texten.
+Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en ogrupperad anteckning med texten "Preliminary results", en diagramägd linje och en vanlig bildtextruta med texten "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är redo att publiceras. Det kontrollerar om samlingen är tom och redigerar endast en [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) med en icke‑null textram som returneras av [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) och den förväntade texten.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,26 +371,26 @@ try {
 }
 ```
 
-Linjen och bildtextrutan förblir oförändrade. Följande bilder visar ingången och det sparade, återöppnade resultatet:
+Linjen och bildtextrutan förblir oförändrade. Följande bilder visar indata och det sparade, återöppnade resultatet:
 
-| Före redigering | Efter redigering |
+| Before editing | After editing |
 | --- | --- |
-| ![Diagramanteckning som visar Preliminary results](chart-annotations-before.png) | ![Diagramanteckning som visar Final results](chart-annotations-after.png) |
+| ![Diagramanteckning med texten Preliminära resultat](chart-annotations-before.png) | ![Diagramanteckning med texten Slutresultat](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Exemplet granskar endast diagramägd former på översta nivån. Om en anteckning finns inuti en [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) ska även den gruppens [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes)-samling inspekteras. Upprepa detta rekursivt för inbäddade grupper och tillämpa samma textkontroller på deras barnformer. En grupp är i sig en behållare; behandla den inte som en textruta.
+Exemplet inspekterar endast diagrammets egna former på toppnivå. Om en anteckning finns inuti en [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), inspektera även den gruppens [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes)-samling. Upprepa detta rekursivt för nästlade grupper och tillämpa samma textkontroller på deras underordnade former. En grupp i sig är en behållare; behandla den inte som en textruta.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kan jag ange halvgenomskinliga fyllningar för kolumner/områden samtidigt som kanten förblir opak?**
+**Kan jag ange halvgenomskinliga fyllningar för staplar/områden samtidigt som kantlinjen förblir ogenomskinlig?**
 
-Ja. Fyllnadstransparens och kontur konfigureras separat. Detta är användbart för att förbättra läsbarheten av rutnätet och data i täta visualiseringar.
+Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
 
-**Hur kan jag hantera datatetiketter när de överlappar?**
+**Hur kan jag hantera datalabels när de överlappar?**
 
-Minska teckenstorleken, inaktivera icke‑nödvändiga etikettkomponenter (till exempel kategorier), justera etikettpositionen, visa etiketter endast för utvalda punkter om det behövs, eller byt formatet till "värde + legend".
+Minska teckenstorleken, inaktivera icke‑nödvändiga etikettkomponenter (t.ex. kategorier), justera etikettens position, visa etiketter endast för utvalda punkter om det behövs, eller byt formatet till "värde + förklaring".
 
-**Kan jag tillämpa gradient‑ eller mönsterfyllningar på serier?**
+**Kan jag tillämpa gradient- eller mönsterfyllningar på serier?**
 
-Ja. Serier stödjer solida, gradient‑ och mönsterfyllningar. I praktiken bör gradienter användas sparsamt och undvika kombinationer som minskar kontrasten mot rutnätet och texten.
+Ja. Serier stöder solida, gradient‑ och mönsterfyllningar. I praktiken bör gradienter användas sparsamt och undvika kombinationer som minskar kontrasten mot rutnätet och texten.

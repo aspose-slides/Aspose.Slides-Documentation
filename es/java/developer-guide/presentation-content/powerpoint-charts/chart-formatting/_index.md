@@ -1,35 +1,37 @@
 ---
-title: Formatear gráficos de presentación en Java
-linktitle: Formato de gráficos
+title: Formato de gráficos de presentación en Java
+linktitle: Formato de Gráficos
 type: docs
 weight: 60
 url: /es/java/chart-formatting/
 keywords:
-- formatear gráfico
 - formato de gráfico
+- formato de gráficos
 - entidad de gráfico
-- propiedades del gráfico
-- ajustes del gráfico
-- opciones del gráfico
+- propiedades de gráfico
+- configuración de gráfico
+- opciones de gráfico
 - propiedades de fuente
 - borde redondeado
 - PowerPoint
 - presentación
 - Java
 - Aspose.Slides
-description: "Aprenda a dar formato a los gráficos en Aspose.Slides para Java y mejore su presentación de PowerPoint con ejes personalizados, fuentes, formatos numéricos y bordes redondeados del gráfico."
+description: "Aprenda a formatear gráficos en Aspose.Slides para Java y mejore su presentación de PowerPoint con ejes, fuentes, formatos numéricos y bordes redondeados de gráficos personalizados."
 ---
 ## **Resumen**
 
-Este artículo explica cómo dar formato a los gráficos en presentaciones de PowerPoint mediante Aspose.Slides. Muestra cómo personalizar los elementos clave del gráfico, como ejes, líneas de cuadrícula, títulos, leyendas, el área de trazado y los rellenos de paredes, para mejorar la apariencia y la legibilidad de los datos del gráfico.
+Este artículo explica cómo dar formato a los gráficos en presentaciones de PowerPoint mediante Aspose.Slides. Muestra cómo personalizar elementos clave del gráfico, como ejes, líneas de cuadrícula, títulos, leyendas, el área de trazado y los rellenos de paredes, para mejorar la apariencia y la legibilidad de los datos del gráfico.
 
-También demuestra cómo establecer propiedades de fuente para el texto del gráfico, aplicar formatos numéricos predefinidos a los datos del gráfico y habilitar esquinas redondeadas para el área del gráfico. En conjunto, estos ejemplos muestran cómo controlar tanto el estilo visual como la presentación de datos de los gráficos en una presentación.
+También muestra cómo establecer propiedades de fuente para el texto del gráfico, aplicar formatos numéricos predefinidos a los datos del gráfico y habilitar esquinas redondeadas para el área del gráfico. En conjunto, estos ejemplos demuestran cómo controlar tanto el estilo visual como la presentación de datos de los gráficos en una presentación.
 
-## **Formatear entidades del gráfico**
+Para rellenos y contornos separados en intervalos ascendentes y descendentes, consulte el [ejemplo de gráfico de acciones](/slides/es/java/create-chart/#create-stock-charts).
 
-Utilice [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) para dar formato a los títulos de los gráficos, ejes, líneas de cuadrícula, leyendas y el área de trazado. Este ejemplo crea un gráfico de líneas con marcadores y datos predeterminados, y luego aplica estilos de texto y de línea independientes a sus ejes de valores y de categorías. Los tamaños de fuente y los anchos de línea se especifican en puntos; las etiquetas de categoría se rotan 45 grados.
+## **Formato de entidades del gráfico**
 
-El eje de valores utiliza [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) independientemente de las celdas de origen. Su escala va de -2 a 15, con intervalos mayores de 2 y menores de 0,5. El ejemplo también combina el formato de porcentaje con [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) establecido en miles, por lo que adapte estos ajustes al significado y magnitud de sus datos. La leyenda permanece fuera del área de trazado porque [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) se llama con `false`. Los rellenos de la pared trasera y del suelo se configuran mediante [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) y [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), pero estas superficies solo son visibles en gráficos 3D.
+Utilice [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) para dar formato a los títulos del gráfico, ejes, líneas de cuadrícula, leyendas y el área de trazado. Este ejemplo crea un gráfico de líneas con marcadores y datos predeterminados, y luego aplica estilos de texto y línea separados a sus ejes de valores y de categorías. Los tamaños de fuente y los anchos de línea se especifican en puntos; las etiquetas de categoría están rotadas 45 grados.
+
+El eje de valores utiliza [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) independientemente de las celdas de origen. Su escala va de -2 a 15, con intervalos mayores de 2 y menores de 0,5. El ejemplo también combina el formato de porcentaje con [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) establecido en miles, por lo que adapte estas configuraciones al significado y magnitud de sus datos. La leyenda permanece fuera del área de trazado porque se llama a [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) con `false`. Los rellenos de la pared trasera y del suelo se configuran mediante [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) y [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), pero estas superficies solo son visibles en gráficos 3D.
 
 ```java
 import com.aspose.slides.*;
@@ -149,7 +151,7 @@ try {
 
 ## **Establecer propiedades de fuente para un gráfico**
 
-Establezca el tamaño de fuente predeterminado para el texto del gráfico mediante [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). El ejemplo crea un gráfico de columnas agrupadas con una fuente de 20 puntos y habilita las etiquetas de valor para la primera serie mediante [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Los elementos de texto con sus propias configuraciones explícitas de fuente pueden sobrescribir el valor predeterminado del gráfico.
+Establezca el tamaño de fuente predeterminado para el texto del gráfico mediante [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). El ejemplo crea un gráfico de columnas agrupadas con una fuente de 20 puntos y habilita etiquetas de valor para la primera serie mediante [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Los elementos de texto con sus propias configuraciones explícitas de fuente pueden sobrescribir el valor predeterminado del gráfico.
 
 ```java
 import com.aspose.slides.*;
@@ -168,9 +170,63 @@ try {
 }
 ```
 
+## **Reutilizar el formato del marco de texto para la leyenda de un gráfico**
+
+Para que una leyenda coincida con el encabezado de una diapositiva, establezca la fuente del encabezado mediante [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) en el primer párrafo. Llame a [copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) sobre el formato devuelto por el [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) de la leyenda. Copia la configuración del marco de texto, el formato del primer párrafo y las propiedades de fuente predeterminadas de ese párrafo. El formato aplicado directamente a porciones individuales o a párrafos posteriores permanece local al origen.
+
+El ejemplo utiliza un encabezado en Calibri negrita de 26 puntos en color azul marino como plantilla. Después de dar estilo a la leyenda, llama a [copyTo](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) para aplicar el mismo formato a una leyenda separada.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(new Color(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+En la presentación guardada, la leyenda y la leyenda coinciden con el encabezado en tamaño, peso y color. La leyenda sigue mostrando los nombres de las series, y la leyenda conserva su propio texto. Si una porción en la leyenda ya tiene un tamaño de fuente explícito, ese tamaño tiene prioridad sobre el valor predeterminado del párrafo copiado.
+
+| Antes de copiar | Después de copiar |
+| --- | --- |
+| ![Gráfico de ventas trimestrales con etiquetas de leyenda negras regulares y una leyenda negra](legend-formatting-before.png) | ![El mismo gráfico con etiquetas de leyenda más grandes, negrita y azul marino y una leyenda correspondiente](legend-formatting.png) |
+
 ## **Establecer el formato numérico**
 
-Utilice [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) para aplicar un formato numérico incorporado a las celdas del libro de trabajo del gráfico. Este ejemplo crea un gráfico de columnas agrupadas con datos predeterminados respaldados por celdas y aplica el índice de formato 10 (`0.00%`) a cada celda de valor de la serie. Esto modifica la forma en que los valores se muestran en el libro de trabajo sin cambiar los números subyacentes; por ejemplo, 0.25 se muestra como 25,00 %. Los formatos de ejes y de etiquetas de datos pueden configurarse por separado.
+Utilice [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) para aplicar un formato numérico incorporado a las celdas del libro de trabajo del gráfico. Este ejemplo crea un gráfico de columnas agrupadas con datos predeterminados respaldados por celdas y aplica el índice de formato 10 (`0.00%`) a cada celda de valor de la serie. Esto cambia la forma en que los valores se muestran en el libro de trabajo sin modificar los números subyacentes; por ejemplo, 0.25 se muestra como 25,00%. Los formatos del eje y de las etiquetas de datos pueden configurarse por separado.
 
 ```java
 import com.aspose.slides.*;
@@ -186,7 +242,7 @@ try {
     {
         for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0,00%
         }
     }
 
@@ -196,7 +252,7 @@ try {
 }
 ```
 
-La siguiente tabla enumera los índices de formatos numéricos incorporados con sus formatos representativos de Excel para la configuración regional en inglés (Estados Unidos). Las cadenas de formato exactas y su visualización pueden variar según la aplicación y la configuración regional, particularmente para moneda y fechas. Algunos formatos de Excel también difieren de los valores predeterminados en el estándar OOXML, como se describe en [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+La tabla siguiente enumera los índices de formatos numéricos incorporados con formatos representativos de Excel para la configuración regional en inglés (Estados Unidos). Las cadenas de formato exactas y su presentación pueden variar según la aplicación y la configuración regional, particularmente para moneda y fechas. Algunos formatos de Excel también difieren de los valores predeterminados en la norma OOXML, como se describe en [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Índice | Formato |
 | --- | --- |
@@ -261,13 +317,13 @@ try {
 }
 ```
 
-## **Editar anotaciones de gráfico existentes**
+## **Editar anotaciones de gráficos existentes**
 
-Un gráfico puede contener formas personalizadas, como una anotación de texto que explica el estado de un informe. Acceda a estas formas mediante [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), también enumeradas bajo [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) en la Referencia de la API del gráfico. La colección devuelta por [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) contiene las formas propietarias del gráfico.
+Un gráfico puede contener formas personalizadas, como una anotación de texto que explique el estado de un informe. Acceda a estas formas mediante [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), también enumerado bajo [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) en la referencia de la API de Chart. La colección devuelta por [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) contiene las formas propias del gráfico.
 
-Un cuadro de texto ordinario colocado sobre un gráfico pertenece a la diapositiva, incluso si parece parte del gráfico. Iterar mediante [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) encuentra el gráfico y las formas ordinarias de la diapositiva, pero no enumera las formas individuales dentro del gráfico. Los títulos del gráfico y las etiquetas de datos son elementos de gráfico separados, no anotaciones personalizadas en esta colección.
+Un cuadro de texto ordinario colocado sobre un gráfico pertenece a la diapositiva, incluso si parece parte del gráfico. Al iterar a través de [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) se encuentran el gráfico y las formas ordinarias de la diapositiva, pero no se enumeran las formas individuales dentro del gráfico. Los títulos del gráfico y las etiquetas de datos son elementos de gráfico separados, no anotaciones personalizadas en esta colección.
 
-Descargue [chart-annotations.pptx](chart-annotations.pptx) y colóquelo en el directorio de trabajo de la aplicación. Su primera diapositiva contiene un gráfico con una anotación sin agrupar que dice "Preliminary results", una línea propietaria del gráfico y un cuadro de texto ordinario de la diapositiva que dice "Slide overlay". El ejemplo encuentra el primer gráfico en esa diapositiva y cambia la anotación a "Final results" cuando el informe está listo para publicarse. Verifica si la colección está vacía y solo edita un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) con un marco de texto no nulo devuelto por [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) y el texto esperado.
+Descargue [chart-annotations.pptx](chart-annotations.pptx) y colóquelo en el directorio de trabajo de la aplicación. Su primera diapositiva contiene un gráfico con una anotación desagruada que dice "Preliminary results", una línea propia del gráfico y un cuadro de texto ordinario de la diapositiva que dice "Slide overlay". El ejemplo encuentra el primer gráfico en esa diapositiva y cambia la anotación a "Final results" cuando el informe está listo para publicarse. Comprueba si la colección está vacía y solo edita un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) con un marco de texto no nulo devuelto por [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) y que contiene el texto esperado.
 
 ```java
 import com.aspose.slides.*;
@@ -313,24 +369,24 @@ try {
 
 La línea y el cuadro de texto de la diapositiva permanecen sin cambios. Las siguientes imágenes muestran la entrada y el resultado guardado y reabierto:
 
-| Antes de la edición | Después de la edición |
+| Antes de editar | Después de editar |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Anotación del gráfico que dice "Preliminary results"](chart-annotations-before.png) | ![Anotación del gráfico que dice "Final results"](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-El ejemplo inspecciona solo las formas de nivel superior propietarias del gráfico. Si una anotación está dentro de un [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), inspeccione también la colección [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) de ese grupo. Repita esto de forma recursiva para los grupos anidados, aplicando las mismas comprobaciones de texto a sus formas hijas. Un grupo en sí es un contenedor; no lo trate como un cuadro de texto.
+El ejemplo inspecciona solo las formas propias del gráfico en el nivel superior. Si una anotación está dentro de un [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), inspeccione también la colección [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) de ese grupo. Repita esto recursivamente para grupos anidados, aplicando las mismas comprobaciones de texto a sus formas hijas. Un grupo en sí es un contenedor; no lo trate como un cuadro de texto.
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**¿Puedo establecer rellenos semitransparentes para columnas/áreas manteniendo el borde opaco?**
+**¿Puedo establecer rellenos semitransparentes para columnas/áreas mientras mantengo el borde opaco?**
 
 Sí. La transparencia del relleno y el contorno se configuran por separado. Esto es útil para mejorar la legibilidad de la cuadrícula y los datos en visualizaciones densas.
 
-**¿Cómo puedo gestionar las etiquetas de datos cuando se superponen?**
+**¿Cómo puedo manejar las etiquetas de datos cuando se superponen?**
 
-Reduzca el tamaño de la fuente, desactive los componentes de etiqueta no esenciales (por ejemplo, categorías), ajuste la posición de la etiqueta, muestre etiquetas solo para los puntos seleccionados si es necesario, o cambie el formato a "valor + leyenda".
+Reduzca el tamaño de la fuente, desactive componentes de etiqueta no esenciales (por ejemplo, categorías), ajuste la posición de la etiqueta, muestre etiquetas solo para puntos seleccionados si es necesario, o cambie el formato a "valor + leyenda".
 
-**¿Puedo aplicar rellenos de degradado o patrón a las series?**
+**¿Puedo aplicar rellenos degradados o con patrón a las series?**
 
-Sí. Las series admiten rellenos sólidos, degradados y de patrón. En la práctica, use degradados con moderación y evite combinaciones que reduzcan el contraste con la cuadrícula y el texto.
+Sí. Las series admiten rellenos sólidos, degradados y con patrón. En la práctica, use degradados con moderación y evite combinaciones que reduzcan el contraste con la cuadrícula y el texto.

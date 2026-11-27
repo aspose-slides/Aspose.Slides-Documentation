@@ -1,5 +1,5 @@
 ---
-title: एंड्रॉइड पर प्रस्तुति चार्ट को स्वरूपित करें
+title: Android पर प्रस्तुति चार्ट स्वरूपित करें
 linktitle: चार्ट स्वरूपण
 type: docs
 weight: 60
@@ -15,22 +15,24 @@ keywords:
 - गोल किनारा
 - PowerPoint
 - प्रस्तुति
-- एंड्रॉइड
-- जावा
+- Android
+- Java
 - Aspose.Slides
-description: "Aspose.Slides for Android में जावा के माध्यम से चार्ट स्वरूपण सीखें और कस्टम एक्सिस, फ़ॉन्ट, संख्या स्वरूप और गोल चार्ट किनारों के साथ अपनी PowerPoint प्रस्तुति को उन्नत बनाएं।"
+description: "Aspose.Slides for Android में Java के माध्यम से चार्ट स्वरूपण सीखें और कस्टम अक्ष, फ़ॉन्ट, संख्यात्मक स्वरूप और गोल चार्ट किनारों के साथ अपनी PowerPoint प्रस्तुति को उन्नत बनायें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को स्वरूपित करने का तरीका समझाता है। यह एक्सिस, ग्रिड लाइन्स, शीर्षक, लीजेंड, प्लॉट एरिया, और वॉल फ़िल्स जैसे मुख्य चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता को बेहतर बनाने का प्रदर्शन करता है।
+यह लेख PowerPoint प्रस्तुतियों में चार्ट को Aspose.Slides का उपयोग करके स्वरूपित करने के तरीके को समझाता है। यह अक्ष, ग्रिड रेखाएं, शीर्षक, लीजेंड, प्लॉट क्षेत्र, और दीवार भराव जैसी प्रमुख चार्ट तत्वों को अनुकूलित करने का प्रदर्शन करता है ताकि चार्ट डेटा की उपस्थिति और पठनीयता में सुधार हो सके।
 
-यह चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण निर्धारित करने, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक स्वरूप लागू करने, और चार्ट एरिया के लिए गोल किनारों को सक्षम करने का भी प्रदर्शन करता है। ये उदाहरण मिलकर प्रस्तुतिकरण में चार्ट के दृश्य शैली और डेटा प्रस्तुति दोनों को नियंत्रित करने के तरीके दर्शाते हैं।
+यह चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण सेट करने, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक स्वरूप लागू करने, और चार्ट क्षेत्र के लिए गोल कोनों को सक्षम करने का भी प्रदर्शन करता है। साथ में, ये उदाहरण दिखाते हैं कि कैसे प्रस्तुतियों में चार्ट के दृश्य शैली और डेटा प्रस्तुति दोनों को नियंत्रित किया जा सकता है।
 
-## **चार्ट घटकों को स्वरूपित करना**
+उभयनिर्देशीय अंतराल पर अलग भराव और रूपरेखा के लिए, देखें [स्टॉक चार्ट उदाहरण](/slides/hi/androidjava/create-chart/#create-stock-charts)।
 
-चार्ट शीर्षक, एक्सिस, ग्रिड लाइन्स, लीजेंड और प्लॉट एरिया को स्वरूपित करने के लिए [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) का उपयोग करें। यह उदाहरण मार्कर वाले एक लाइन चार्ट को डिफ़ॉल्ट डेटा के साथ बनाता है, फिर उसके वैल्यू और कैटेगरी एक्सिस पर अलग-अलग टेक्स्ट और लाइन शैलियों को लागू करता है। फ़ॉन्ट आकार और लाइन चौड़ाई पॉइंट्स में निर्दिष्ट हैं; कैटेगरी लेबल को 45 डिग्री घुमाया गया है।
+## **चार्ट घटकों का स्वरूपण**
 
-वैल्यू एक्सिस स्रोत कोशिकाओं से स्वतंत्र रूप से [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) का उपयोग करता है। इसका स्केल -2 से 15 तक है, प्रमुख अंतराल 2 और छोटा अंतराल 0.5 है। यह उदाहरण प्रतिशत स्वरूप को [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) को हजारों पर सेट करके भी जोड़ता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार समायोजित करें। लेजेंड प्लॉट एरिया के बाहर रहता है क्योंकि [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) को `false` के साथ बुलाया गया है। बैक-वॉल और फर्श भराव [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) और [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) के माध्यम से कॉन्फ़िगर किए जाते हैं, लेकिन ये सतहें केवल 3D चार्ट में ही दृश्य होती हैं।
+चार्ट शीर्षकों, अक्षों, ग्रिड रेखाओं, लीजेंड और प्लॉट क्षेत्र को स्वरूपित करने के लिए [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) का उपयोग करें। यह उदाहरण मार्कर और डिफ़ॉल्ट डेटा वाले लाइन चार्ट बनाता है, फिर इसके मान और वर्गीकरण अक्षों पर अलग टेक्स्ट और रेखा शैलियों को लागू करता है। फ़ॉन्ट आकार और रेखा चौड़ाई पॉइंट में निर्दिष्ट की जाती हैं; वर्गीकरण लेबल को 45 डिग्री घुमा दिया जाता है।
+
+मान अक्ष स्रोत कोशिकाओं से स्वतंत्र रूप से [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) का उपयोग करता है। इसका स्केल -2 से 15 तक है, प्रमुख अंतराल 2 और द्वितीयक अंतराल 0.5 हैं। यह उदाहरण प्रतिशत स्वरूपण को [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) को हजारों पर सेट करने के साथ भी संयोजित करता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार अनुकूलित करें। लीजेंड प्लॉट क्षेत्र के बाहर रहता है क्योंकि [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) को `false` के साथ बुलाया गया है। बैक‑वॉल और फ़्लोर भराव को [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) और [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) के माध्यम से कॉन्फ़िगर किया जाता है, लेकिन ये सतहें केवल 3D चार्ट में दिखाई देती हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -150,7 +152,7 @@ try {
 
 ## **चार्ट के लिए फ़ॉन्ट गुण सेट करें**
 
-चार्ट टेक्स्ट के लिए डिफ़ॉल्ट फ़ॉन्ट आकार को [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--) के माध्यम से सेट करें। यह उदाहरण 20 पॉइंट फ़ॉन्ट के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और पहले श्रृंखला के लिए [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) के द्वारा मान लेबल सक्षम करता है। अपने स्वयं के स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट तत्व चार्ट के डिफ़ॉल्ट को ओवरराइड कर सकते हैं।
+चार्ट टेक्स्ट के लिए डिफ़ॉल्ट फ़ॉन्ट आकार को [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--) के माध्यम से सेट करें। यह उदाहरण 20 पॉइंट फ़ॉन्ट वाले क्लस्टर्ड कॉलम चार्ट बनाता है और [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) के द्वारा प्रथम श्रृंखला के लिए मान लेबल सक्षम करता है। अपने स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट तत्व चार्ट के डिफ़ॉल्ट को ओवरराइड कर सकते हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **चार्ट लीजेंड के लिए टेक्स्ट फ्रेम स्वरूपण का पुन: उपयोग करें**
+
+लेजेंड को स्लाइड शीर्षक के साथ मेल खाने के लिए, पहले पैराग्राफ पर [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) के माध्यम से शीर्षक का फ़ॉन्ट सेट करें। लेजेंड के [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) द्वारा लौटाए गए स्वरूप पर [copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) को कॉल करें। यह टेक्स्ट फ्रेम सेटिंग्स, पहले पैराग्राफ का स्वरूप, और उस पैराग्राफ की डिफ़ॉल्ट फ़ॉन्ट गुण कॉपी करता है। व्यक्तिगत भागों या बाद के पैराग्राफ़ पर सीधे लागू किया गया स्वरूप स्रोत के स्थानीय रहता है।
+
+यह उदाहरण टेम्पलेट के रूप में नेवी रंग में बोल्ड, 26‑पॉइंट कैलिब्री शीर्षक का उपयोग करता है। लेजेंड को स्टाइल करने के बाद, यह एक अलग कैप्शन पर वही स्वरूप लागू करने के लिए [copyTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) को कॉल करता है।
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(Color.rgb(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+सहेजे गए प्रस्तुति में, लेजेंड और कैप्शन आकार, वजन और रंग में शीर्षक से मेल खाते हैं। लेजेंड अभी भी श्रृंखला नाम प्रदर्शित करता है, और कैप्शन अपना स्वयं का पाठ रखता है। यदि कैप्शन के किसी भाग में पहले से स्पष्ट फ़ॉन्ट आकार मौजूद है, तो वह आकार कॉपी किए गए पैराग्राफ़ डिफ़ॉल्ट पर प्राथमिकता लेता है।
+
+| कॉपी करने से पहले | कॉपी करने के बाद |
+| --- | --- |
+| ![त्रैमासिक बिक्री चार्ट जिसमें सामान्य काली लेजेंड लेबल और काली कैप्शन है](legend-formatting-before.png) | ![उसी चार्ट में बड़े, बोल्ड नेवी लेजेंड लेबल और मिलते-जुलते कैप्शन](legend-formatting.png) |
+
 ## **संख्यात्मक स्वरूप सेट करें**
 
-[IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) का उपयोग करके चार्ट कार्यपुस्तिका कोशिकाओं पर एक बिल्ट-इन नंबर फ़ॉर्मेट लागू करें। यह उदाहरण डिफ़ॉल्ट, सेल-समर्थित डेटा के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रत्येक श्रृंखला मान कोशिका पर फ़ॉर्मेट इंडेक्स 10 (`0.00%`) लागू करता है। यह कार्यपुस्तिका में मानों को बदलें बिना संख्याओं को बदले उनके प्रदर्शन को बदलता है; उदाहरण के लिए, 0.25 को 25.00% दिखाया जाता है। एक्सिस और डेटा-लेबल फ़ॉर्मेट को अलग-अलग कॉन्फ़िगर किया जा सकता है।
+[IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) का उपयोग करके चार्ट वर्कबुक कोशिकाओं पर निर्मित संख्या स्वरूप लागू करें। यह उदाहरण डिफ़ॉल्ट, सेल‑बैक्ड डेटा वाले क्लस्टर्ड कॉलम चार्ट बनाता है और प्रत्येक श्रृंखला मान कोशिका पर स्वरूप इंडेक्स 10 (`0.00%`) लागू करता है। यह वर्कबुक में मानों के प्रदर्शित होने के तरीके को बदलता है बिना अंतर्निहित संख्याओं को बदले; उदाहरण के लिए, 0.25 को 25.00% दिखाया जाएगा। अक्ष और डेटा‑लेबल स्वरूप को अलग‑अलग कॉन्फ़िगर किया जा सकता है।
 
 ```java
 import com.aspose.slides.*;
@@ -197,7 +253,7 @@ try {
 }
 ```
 
-निम्न तालिका में निर्मित संख्या स्वरूप सूचकांक और उनके प्रतिनिधित्व वाले Excel स्वरूपों को इंग्लिश (United States) लोकैल के लिए सूचीबद्ध किया गया है। वास्तविक स्वरूप स्ट्रिंग और उनका प्रदर्शन अनुप्रयोग और लोकैल के अनुसार बदल सकता है, विशेष रूप से मुद्रा और तिथियों के लिये। कुछ Excel स्वरूप OOXML मानक के डिफॉल्ट से भी भिन्न होते हैं, जैसा कि [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
+निम्न तालिका में अंग्रेज़ी (संयुक्त राज्य) क्षेत्र के प्रतिनिधि Excel स्वरूपों के साथ निर्मित संख्या स्वरूप सूचकांक सूचीबद्ध हैं। सटीक स्वरूप स्ट्रिंग और उनका प्रदर्शन एप्लिकेशन और लोकेल के अनुसार अलग हो सकता है, विशेषकर मुद्रा और तिथियों के लिए। कुछ Excel स्वरूप OOXML मानक के डिफ़ॉल्ट से भी भिन्न होते हैं, जैसा कि [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
 
 | सूचकांक | स्वरूप |
 | --- | --- |
@@ -238,9 +294,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **चार्ट एरिया के गोल किनारे सेट करें**
+## **चार्ट क्षेत्र गोल किनारे सेट करें**
 
-[IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) को `true` के साथ बुलाकर चार्ट एरिया के किनारों को गोल करें। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) का उपयोग करके उसकी रूपरेखा को ठोस ग्रे रंग और सिंगल-लाइन शैली देता है, फिर प्रस्तुति को सहेजता है।
+`true` के साथ [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) को कॉल करके चार्ट क्षेत्र के कोनों को गोल करें। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और सहेजने से पहले उसकी रूपरेखा को ठोस ग्रे रंग और सिंगल‑लाइन शैली देने के लिए [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) का उपयोग करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -264,11 +320,11 @@ try {
 
 ## **मौजूदा चार्ट एनोटेशन संपादित करें**
 
-एक चार्ट में कस्टम शैप्स हो सकते हैं, जैसे कि रिपोर्ट की स्थिति बताने वाला टेक्स्ट एनोटेशन। इन शैप्स तक पहुंचने के लिए [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--) का उपयोग करें, जो [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) में भी सूचीबद्ध है। [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) द्वारा लौटाई गई कलेक्शन में चार्ट-स्वामित्व वाले शैप्स शामिल होते हैं।
+एक चार्ट में कस्टम आकृतियां हो सकती हैं, जैसे रिपोर्ट की स्थिति समझाने वाला टेक्स्ट एनोटेशन। इन आकृतियों तक पहुंचने के लिए [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--) का उपयोग करें, जो [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) के अंतर्गत भी सूचीबद्ध है। [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) द्वारा लौटाए गए संग्रह में चार्ट‑स्वामित्व वाली आकृतियां होती हैं।
 
-एक सामान्य टेक्स्ट बॉक्स जो चार्ट के ऊपर रखा जाता है, वह स्लाइड का हिस्सा होता है, चाहे वह चार्ट का हिस्सा जैसा दिखे। [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) के माध्यम से इटरेट करने पर चार्ट और सामान्य स्लाइड शैप्स मिलते हैं, लेकिन चार्ट के अंदर व्यक्तिगत शैप्स को नहीं गिना जाता। चार्ट शीर्षक और डेटा लेबल अलग-अलग चार्ट तत्व होते हैं, न कि इस कलेक्शन में कस्टम एनोटेशन।
+एक सामान्य टेक्स्ट बॉक्स जो चार्ट के ऊपर रखी जाती है, स्लाइड की ही होती है, भले ही वह चार्ट का हिस्सा लगती हो। [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) के माध्यम से इटररेट करने से चार्ट और सामान्य स्लाइड आकृतियां मिलती हैं, लेकिन चार्ट के भीतर की व्यक्तिगत आकृतियों को सूचीबद्ध नहीं करता। चार्ट शीर्षक और डेटा लेबल अलग‑अलग चार्ट तत्व होते हैं, इस संग्रह में कस्टम एनोटेशन नहीं होते।
 
-[chart-annotations.pptx](chart-annotations.pptx) डाउनलोड करें और इसे अनुप्रयोग की कार्य निर्देशिका में रखें। इस फ़ाइल की पहली स्लाइड में एक चार्ट है जिसमें अनग्रुप्ड एनोटेशन "Preliminary results", एक चार्ट-स्वामित्व वाली लाइन, और एक सामान्य स्लाइड टेक्स्ट बॉक्स "Slide overlay" है। उदाहरण उस स्लाइड पर पहले चार्ट को खोजता है और रिपोर्ट तैयार होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली कलेक्शन की जाँच करता है और केवल उन [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) को संपादित करता है जिनमें गैर-शून्य टेक्स्ट फ्रेम हो, जिसे [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) द्वारा प्राप्त किया गया हो और अपेक्षित टेक्स्ट हो।
+[chart-annotations.pptx](chart-annotations.pptx) डाउनलोड करें और इसे एप्लिकेशन की कार्यशील निर्देशिका में रखें। इसकी पहली स्लाइड में एक चार्ट है जिसमें "Preliminary results" पढ़ने वाला अनग्रुप्ड एनोटेशन, एक चार्ट‑स्वामित्व वाली रेखा, और "Slide overlay" पढ़ने वाला सामान्य स्लाइड टेक्स्ट बॉक्स है। उदाहरण उस स्लाइड पर पहला चार्ट खोजता है और रिपोर्ट प्रकाशित करने के लिए तैयार होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली संग्रह की जाँच करता है और केवल एक ऐसे [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) को संपादित करता है जिसका नॉन‑नल टेक्स्ट फ्रेम [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) द्वारा लौटाया जाता है और अपेक्षित टेक्स्ट मौजूद है।
 
 ```java
 import com.aspose.slides.*;
@@ -312,26 +368,23 @@ try {
 }
 ```
 
-लाइन और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहता है। निम्न छवियां इनपुट और सहेजे गए, पुनः खोले गए परिणाम को दर्शाती हैं:
+रेखा और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहता है। निम्न छवियां इनपुट और सहेजे गए, फिर खोलने पर प्राप्त परिणाम दिखाती हैं:
 
-| संपादन से पहले | संपादन के बाद |
+| संपादन से पहले | संशोधन के बाद |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![चार्ट एनोटेशन जिसमें "Preliminary results" लिखा है](chart-annotations-before.png) | ![चार्ट एनोटेशन जिसमें "Final results" लिखा है](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-उदाहरण केवल शीर्ष-स्तर के चार्ट-स्वामित्व वाले शैप्स की जांच करता है। यदि कोई एनोटेशन [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) के भीतर है, तो उस समूह की [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) कलेक्शन को भी निरीक्षण करें। नेस्टेड समूहों के लिए इसे पुनरावर्ती रूप से दोहराएँ, और उनके चाइल्ड शैप्स पर समान टेक्स्ट जाँच लागू करें। समूह स्वयं एक कंटेनर है; इसे टेक्स्ट बॉक्स की तरह न मानें।
+यह उदाहरण केवल शीर्ष‑स्तर के चार्ट‑स्वामित्व वाले आकृतियों की जाँच करता है। यदि कोई एनोटेशन किसी [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) के भीतर है, तो उस समूह की [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) संग्रह को भी जाँचें। नेस्टेड समूहों के लिए इसे पुनरावर्ती रूप से दोहराएँ, उनके चाइल्ड शैप्स पर समान टेक्स्ट जांच लागू करें। स्वयं एक समूह एक कंटेनर है; इसे टेक्स्ट बॉक्स के रूप में न मानें।
 {{% /alert %}}
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं कॉलम/एरिया के लिए अर्ध-पारदर्शी फ़िल्स सेट कर सकता हूँ जबकि सीमा को अपारदर्शी रख सकता हूँ?**
+**क्या मैं कॉलम/एरिया के लिए अर्ध-पारदर्शी भराव सेट कर सकता हूँ जबकि बॉर्डर अपारदर्शी रखूँ?**  
+हां। भराव की पारदर्शिता और रूपरेखा को अलग‑अलग कॉन्फ़िगर किया जाता है। यह घनी दृश्यावली में ग्रिड और डेटा की पठनीयता सुधारने में उपयोगी है।
 
-हाँ। फ़िल ट्रांसपैरेंसी और बाहरी रूपरेखा को अलग से कॉन्फ़िगर किया जाता है। यह ग्रिड और घनी विज़ुअलाइज़ेशन में डेटा की पठनीयता सुधारने में उपयोगी है।
+**डेटा लेबल ओवरलैप होने पर मैं कैसे निपटूँ?**  
+फ़ॉन्ट आकार कम करें, अनावश्यक लेबल घटकों को अक्षम करें (उदाहरण के लिए, वर्गीकरण), लेबल स्थान समायोजित करें, आवश्यक होने पर केवल चयनित बिंदुओं के लिए लेबल दिखाएँ, या स्वरूप को "मान + लीजेंड" में बदलें।
 
-**डेटा लेबल ओवरलैप होने पर मैं क्या करूँ?**
-
-फ़ॉन्ट आकार घटाएँ, गैर-आवश्यक लेबल घटकों को अक्षम करें (जैसे, कैटेगरी), लेबल स्थितियों को समायोजित करें, आवश्यक हो तो केवल चयनित बिंदुओं के लिए लेबल दिखाएँ, या फ़ॉर्मेट को "value + legend" में बदलें।
-
-**क्या मैं श्रृंखलाओं पर ग्रेडिएंट या पैटर्न फ़िल्स लागू कर सकता हूँ?**
-
-हाँ। श्रृंखलाएँ ठोस, ग्रेडिएंट और पैटर्न फ़िल्स को समर्थन देती हैं। व्यावहारिक रूप से, ग्रेडिएंट को संयमित रूप से उपयोग करें और ऐसी संयोजन से बचें जो ग्रिड और टेक्स्ट के साथ कंट्रास्ट कम कर दें।
+**क्या मैं श्रृंखला पर ग्रेडिएंट या पैटर्न भराव लागू कर सकता हूँ?**  
+हां। श्रृंखला ठोस, ग्रेडिएंट और पैटर्न भराव का समर्थन करती हैं। वास्तव में, ग्रेडिएंट का सीमित उपयोग करें और ऐसी संयोजन से बचें जो ग्रिड और टेक्स्ट के साथ कंट्रास्ट को घटाते हैं।

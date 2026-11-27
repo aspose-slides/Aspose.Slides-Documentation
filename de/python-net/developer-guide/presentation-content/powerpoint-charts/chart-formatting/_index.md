@@ -7,31 +7,31 @@ url: /de/python-net/chart-formatting/
 keywords:
 - Diagramm formatieren
 - Diagrammformatierung
-- Diagramm-Entität
+- Diagrammelement
 - Diagrammeigenschaften
 - Diagrammeinstellungen
 - Diagrammoptionen
-- Schriftarteigenschaften
-- Abgerundete Ränder
+- Schrifteigenschaften
+- abgerundete Rahmen
 - PowerPoint
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramme mit Aspose.Slides für Python via .NET formatieren und Ihre PowerPoint-Präsentation mit benutzerdefinierten Achsen, Schriften, Zahlenformaten und abgerundeten Diagrammrändern verbessern."
+description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides für Python via .NET formatieren und Ihre PowerPoint‑Präsentation mit benutzerdefinierten Achsen, Schriften, Zahlenformaten und abgerundeten Diagrammrahmen aufwerten."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie Diagramme in PowerPoint-Präsentationen mithilfe von Aspose.Slides formatiert werden. Er zeigt, wie wichtige Diagrammelemente wie Achsen, Gitternetzlinien, Titel, Legenden, der Zeichenbereich und Wandfüllungen angepasst werden, um das Aussehen und die Lesbarkeit der Diagrammdaten zu verbessern.
+Dieser Artikel erklärt, wie man Diagramme in PowerPoint‑Präsentationen mit Aspose.Slides formatiert. Er zeigt, wie wichtige Diagrammelemente wie Achsen, Gitternetzlinien, Titel, Legenden, der Zeichenbereich und Wandfüllungen angepasst werden können, um das Erscheinungsbild und die Lesbarkeit der Diagrammdaten zu verbessern.
 
-Er demonstriert außerdem, wie Schriftarteigenschaften für Diagrammtext festgelegt, voreingestellte Zahlenformate auf Diagrammdaten angewendet und abgerundete Ecken für den Diagrammbereich aktiviert werden. Zusammen zeigen diese Beispiele, wie sowohl der visuelle Stil als
+Er demonstriert zudem, wie Schriftarteigenschaften für Diagrammtext festgelegt, vordefinierte Zahlenformate auf Diagrammdaten angewendet und runde Ecken für den Diagrammbereich aktiviert werden. Zusammen zeigen diese Beispiele, wie sowohl der visuelle Stil als auch die Datenpräsentation von Diagrammen in einer Präsentation gesteuert werden können.
 
-wie die Datenpräsentation von Diagrammen in einer Präsentation gesteuert werden können.
+Für separate Füllungen und Konturen bei steigenden und fallenden Intervallen siehe das [Beispiel für Aktienchart](/slides/de/python-net/create-chart/#create-stock-charts).
 
-## **Diagramm‑Entitäten formatieren**
+## **Diagrammelemente formatieren**
 
-Verwenden Sie [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) , um Diagrammtitel, Achsen, Gitternetzlinien, Legenden und den Zeichenbereich zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Markern und Standarddaten und wendet dann separate Text‑ und Linienstile auf seine Werte‑ und Kategorienachsen an. Schriftgrößen und Linienbreiten werden in Punkten angegeben; Kategorienbeschriftungen werden um 45 Grad gedreht.
+Verwenden Sie [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), um Diagrammtitel, Achsen, Gitternetzlinien, Legenden und den Zeichenbereich zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Markern und Standarddaten und wendet dann separate Text‑ und Linien‑Stile auf seine Werte‑ und Kategorien‑Achsen an. Schriftgrößen und Linienstärken werden in Punkt angegeben; Kategorien‑Beschriftungen werden um 45 Grad gedreht.
 
-Die Werteachse verwendet [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) unabhängig von den Quellzellen. Ihre Skala reicht von -2 bis 15, mit großen Intervallen von 2 und kleinen Intervallen von 0,5. Das Beispiel kombiniert außerdem Prozentformatierung mit [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) , das auf Tausend eingestellt ist, passen Sie diese Einstellungen also an die Bedeutung und Größe Ihrer Daten an. Die Legende bleibt außerhalb des Zeichenbereichs, weil [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) deaktiviert ist. Rückwand‑ und Bodfüllungen werden über [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) bzw. [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) konfiguriert, jedoch sind diese Oberflächen nur in 3D‑Diagrammen sichtbar.
+Die Werte‑Achse verwendet [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) unabhängig von den Quellzellen. Ihr Wertebereich reicht von -2 bis 15, mit Hauptintervallen von 2 und Nebenintervallen von 0,5. Das Beispiel kombiniert außerdem Prozentformatierung mit [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) auf Tausend, sodass Sie diese Einstellungen an die Bedeutung und Größe Ihrer Daten anpassen sollten. Die Legende bleibt außerhalb des Zeichenbereichs, weil [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) deaktiviert ist. Hinter‑Wand‑ und Boden‑Füllungen werden über [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) bzw. [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) konfiguriert, diese Flächen sind jedoch nur in 3D‑Diagrammen sichtbar.
 
 ```python
 import aspose.slides.charts as charts
@@ -147,9 +147,9 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Schriftarteigenschaften für ein Diagramm festlegen**
+## **Schrifteigenschaften für ein Diagramm festlegen**
 
-Legen Sie die Standardschriftgröße für Diagrammtext über [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/) fest. Das Beispiel erstellt ein gruppiertes Säulendiagramm mit einer 20‑Punkt‑Schrift und aktiviert Wertbeschriftungen für die erste Reihe über [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) . Textelemente mit eigenen expliziten Schriftarteinstellungen können den Diagramm‑Standard überschreiben.
+Stellen Sie die Standardschriftgröße für Diagrammtext über [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/) ein. Das Beispiel erstellt ein gruppiertes Säulendiagramm mit einer 20‑Punkt‑Schrift und aktiviert Wertbeschriftungen für die erste Serie über [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Textelemente mit eigenen expliziten Schrifteinstellungen können die Diagramm‑Standardwerte überschreiben.
 
 ```python
 import aspose.slides.charts as charts
@@ -165,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Textfeldformatierung für eine Diagrammlegende wiederverwenden**
+
+Um eine Legende an eine Folien‑Überschrift anzupassen, setzen Sie die Schriftart über [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) im ersten Absatz der Überschrift. Rufen Sie [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) auf dem [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) der Legende auf. Dabei werden die Einstellungen des Textfelds, die Formatierung des ersten Absatzes und die Standard‑Schrifteigenschaften dieses Absatzes kopiert. Auf einzelne Textteile oder spätere Absätze direkt angewendete Formatierungen bleiben nur für die Quelle lokal.
+
+Das Beispiel verwendet eine fette, marineblaue Überschrift in 26‑Punkt‑Calibri als Vorlage. Nach der Gestaltung der Legende wird [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) verwendet, um dieselbe Formatierung auf eine separate Beschriftung anzuwenden.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+In der gespeicherten Präsentation stimmen Legende und Beschriftung in Größe, Stärke und Farbe mit der Überschrift überein. Die Legende zeigt weiterhin die Seriennamen an, und die Beschriftung behält ihren eigenen Text. Hat ein Teil der Beschriftung bereits eine explizite Schriftgröße, so hat diese Vorrang vor dem kopierten Absatz‑Standard.
+
+| Vor dem Kopieren | Nach dem Kopieren |
+| --- | --- |
+| ![Quartalsverkaufsdiagramm mit normalen schwarzen Legendenbeschriftungen und einer schwarzen Beschriftung](legend-formatting-before.png) | ![Dasselbe Diagramm mit größeren, fetten, marineblauen Legendenbeschriftungen und einer passenden Beschriftung](legend-formatting.png) |
+
 ## **Numerisches Format festlegen**
 
-Verwenden Sie [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) , um ein integriertes Zahlenformat auf Diagramm‑Arbeitsmappen‑Zellen anzuwenden. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit Standard‑ und zellbasierten Daten und wendet Formatindex 10 (`0.00%`) auf jede Wertzelle der Reihe an. Dadurch wird die Anzeige der Werte in der Arbeitsmappe geändert, ohne die zugrunde liegenden Zahlen zu verändern; beispielsweise wird 0,25 als 25,00 % angezeigt. Achsen‑ und Datenbeschriftungsformate können separat konfiguriert werden.
+Verwenden Sie [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/), um ein integriertes Zahlenformat auf Diagramm‑Arbeitsblattzellen anzuwenden. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit Standard‑, zellbasierten Daten und wendet den Format‑Index 10 (`0.00%`) auf jede Serienwertzelle an. Dadurch wird die Anzeige der Werte im Arbeitsblatt geändert, ohne die zugrunde liegenden Zahlen zu verändern; zum Beispiel wird 0,25 als 25,00 % angezeigt. Achsen‑ und Datenbeschriftungsformate können getrennt konfiguriert werden.
 
 ```python
 import aspose.slides.charts as charts
@@ -185,7 +232,7 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Die folgende Tabelle listet integrierte Zahlenformat‑Indizes mit repräsentativen Excel‑Formaten für das englische (USA‑) Gebietsschema auf. Die genauen Formatzeichenfolgen und deren Anzeige können je nach Anwendung und Gebietsschema variieren, insbesondere bei Währung und Datumsangaben. Einige Excel‑Formate unterscheiden sich zudem von den Vorgaben des OOXML‑Standards, wie in den [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) beschrieben.
+Die folgende Tabelle listet integrierte Zahlenformatindizes mit repräsentativen Excel‑Formaten für das englische (Vereinigte Staaten) Gebietsschema auf. Die genauen Formatzeichenfolgen und deren Darstellung können je nach Anwendung und Gebietsschema variieren, insbesondere bei Währung und Datumsangaben. Einige Excel‑Formate unterscheiden sich zudem von den Vorgaben des OOXML‑Standards, wie in den [Hinweisen zur Implementierung von Zahlenformaten von Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) beschrieben.
 
 | Index | Format |
 | --- | --- |
@@ -226,9 +273,9 @@ Die folgende Tabelle listet integrierte Zahlenformat‑Indizes mit repräsentati
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Abgerundete Ecken für Diagrammbereich festlegen**
+## **Abgerundete Ränder des Diagrammbereichs festlegen**
 
-Aktivieren Sie [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) , um die Ecken des Diagrammbereichs abzurunden. Das Beispiel erstellt ein gruppiertes Säulendiagramm und verwendet [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) , um dessen Kontur eine einheitliche graue Farbe und einen einlinigen Stil zu geben, bevor die Präsentation gespeichert wird.
+Aktivieren Sie [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/), um die Ecken des Diagrammbereichs abzurunden. Das Beispiel erstellt ein gruppiertes Säulendiagramm und verwendet [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/), um seiner Kontur eine durchgehend graue Farbe und einen einlinigen Stil zu geben, bevor die Präsentation gespeichert wird.
 
 ```python
 import aspose.slides.charts as charts
@@ -246,13 +293,13 @@ with slides.Presentation() as presentation:
     presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Vorhandene Diagramm‑Anmerkungen bearbeiten**
+## **Vorhandene Diagramm‑Annotationen bearbeiten**
 
-Ein Diagramm kann benutzerdefinierte Formen enthalten, etwa eine Textanmerkung, die den Status eines Berichts erklärt. Greifen Sie über [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/) auf diese Formen zu. Seine [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑Sammlung enthält die dem Diagramm gehörenden Formen.
+Ein Diagramm kann benutzerdefinierte Formen enthalten, z. B. eine Textannotation, die den Status eines Berichts erklärt. Greifen Sie über [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/) auf diese Formen zu. Seine [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑Sammlung enthält die dem Diagramm zugehörigen Formen.
 
-Ein gewöhnliches Textfeld, das über einem Diagramm platziert ist, gehört zur Folie, selbst wenn es wie Teil des Diagramms aussieht. Beim Durchlaufen von [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) werden das Diagramm und gewöhnliche Folienformen gefunden, jedoch nicht die einzelnen Formen innerhalb des Diagramms aufgelistet. Diagrammtitel und Datenbeschriftungen sind separate Diagrammelemente, keine benutzerdefinierten Anmerkungen in dieser Sammlung.
+Ein gewöhnliches Textfeld, das über einem Diagramm platziert wird, gehört zur Folie, auch wenn es wie ein Teil des Diagramms aussieht. Das Durchlaufen von [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) findet das Diagramm und die normalen Folienformen, enumeriert jedoch nicht die einzelnen Formen innerhalb des Diagramms. Diagrammtitel und Datenbeschriftungen sind separate Diagrammelemente, keine benutzerdefinierten Annotationen in dieser Sammlung.
 
-Laden Sie [chart-annotations.pptx](chart-annotations.pptx) herunter und legen Sie sie im Arbeitsverzeichnis der Anwendung ab. Die erste Folie enthält ein Diagramm mit einer nicht gruppierten Anmerkung mit dem Text „Preliminary results“, einer diagrammbesitzenden Linie und einem gewöhnlichen Folientextfeld mit dem Text „Slide overlay“. Das Beispiel findet das erste Diagramm auf dieser Folie und ändert die Anmerkung zu „Final results“, wenn der Bericht veröffentlicht werden soll. Es prüft, ob die Sammlung leer ist, und bearbeitet nur ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) mit einem [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) , das nicht `None` ist und den erwarteten Text enthält.
+Laden Sie [chart-annotations.pptx](chart-annotations.pptx) herunter und legen Sie sie im Arbeitsverzeichnis der Anwendung ab. Die erste Folie enthält ein Diagramm mit einer nicht gruppierten Annotation „Preliminary results“, einer dem Diagramm zugehörigen Linie und einem normalen Folientextfeld mit dem Text „Slide overlay“. Das Beispiel findet das erste Diagramm auf dieser Folie und ändert die Annotation zu „Final results“, wenn der Bericht veröffentlicht werden soll. Es prüft, ob die Sammlung leer ist, und bearbeitet nur ein [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) mit einem [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/), das nicht `None` ist und den erwarteten Text enthält.
 
 ```python
 import aspose.slides as slides
@@ -279,26 +326,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-Die Linie und das Folientextfeld bleiben unverändert. Die folgenden Bilder zeigen die Eingabe und das gespeicherte, erneut geöffnete Ergebnis:
+Die Linie und das Folientextfeld bleiben unverändert. Die folgenden Bilder zeigen die Eingabe sowie das gespeicherte, erneut geöffnete Ergebnis:
 
-| Vor der Bearbeitung | Nach der Bearbeitung |
+| Vor dem Bearbeiten | Nach dem Bearbeiten |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Diagramm‑Annotation mit dem Text Preliminary results](chart-annotations-before.png) | ![Diagramm‑Annotation mit dem Text Final results](chart-annotations-after.png) |
 
-{{% alert color="info" title="Hinweis" %}}
-Das Beispiel untersucht nur die obersten, diagrammbesitzenden Formen. Befindet sich eine Anmerkung innerhalb einer [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) , prüfen Sie ebenfalls die [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑Sammlung dieser Gruppe. Wiederholen Sie dies rekursiv für verschachtelte Gruppen und wenden Sie dieselben Textprüfungen auf deren Unterformen an. Eine Gruppe selbst ist ein Behälter; behandeln Sie sie nicht als Textfeld.
+{{% alert color="info" title="Note" %}}
+Das Beispiel untersucht nur die Diagramm‑formen auf oberster Ebene. Befindet sich eine Annotation innerhalb einer [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), prüfen Sie auch die [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑Sammlung dieser Gruppe. Wiederholen Sie dies rekursiv für verschachtelte Gruppen und wenden Sie dieselben Textprüfungen auf deren Kindformen an. Eine Gruppe selbst ist ein Container; behandeln Sie sie nicht als Textfeld.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kann ich halbtransparente Füllungen für Spalten/Bereiche festlegen, während der Rand undurchsichtig bleibt?**
+**Kann ich halbtransparente Füllungen für Säulen/Flächen setzen, während die Kontur undurchsichtig bleibt?**
 
-Ja. Fülltransparenz und Kontur werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Gitternetzes und der Daten in dichten Visualisierungen zu verbessern.
+Ja. Fülltransparenz und Kontur werden separat konfiguriert. Das ist nützlich, um die Lesbarkeit des Gitternetzes und der Daten in dichten Visualisierungen zu verbessern.
 
-**Wie kann ich mit überlappenden Datenbeschriftungen umgehen?**
+**Wie kann ich mit Datenbeschriftungen umgehen, wenn sie sich überschneiden?**
 
-Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), passen Sie die Beschriftungsposition an, zeigen Sie Beschriftungen nur für ausgewählte Punkte an, falls nötig, oder wechseln Sie das Format zu „Wert + Legende“.
+Verkleinern Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), passen Sie die Beschriftungsposition an, zeigen Sie Beschriftungen nur für ausgewählte Punkte an, falls nötig, oder wechseln Sie das Format zu "Wert + Legende".
 
-**Kann ich Farbverläufe oder Musterfüllungen auf Reihen anwenden?**
+**Kann ich Farbverlauf‑ oder Musterfüllungen auf Serien anwenden?**
 
-Ja. Reihen unterstützen feste, gradientbasierte und Musterfüllungen. Verwenden Sie Gradientfüllungen jedoch sparsam und vermeiden Sie Kombinationen, die den Kontrast zum Gitter und zum Text verringern.
+Ja. Serien unterstützen einfarbige, Farbverlauf‑ und Musterfüllungen. Verwenden Sie Farbverläufe jedoch sparsam und vermeiden Sie Kombinationen, die den Kontrast zum Gitter und Text verringern.

@@ -11,7 +11,7 @@ keywords:
 - diagramegenskaper
 - diagraminställningar
 - diagramalternativ
-- teckengegenskaper
+- teckensnittsegenskaper
 - rundade kanter
 - PowerPoint
 - presentation
@@ -21,13 +21,17 @@ description: "Lär dig diagramformatering i Aspose.Slides för C++ och förbätt
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du formaterar diagram i PowerPoint-presentationer med hjälp av Aspose.Slides. Den visar hur du anpassar viktiga diagramkomponenter såsom axlar, rutnätlinjer, rubriker, förklaringar, diagramområdet och väggfyllningar för att förbättra utseendet och läsbarheten för diagramdata. Den demonstrerar också hur du anger teckenegenskaper för diagramtext, använder förinställda numeriska format på diagramdata och aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur du styr både den visuella stilen och datapresentationen för diagram i en presentation.
+Denna artikel förklarar hur du formaterar diagram i PowerPoint-presentationer med hjälp av Aspose.Slides. Den visar hur du anpassar viktiga diagelement såsom axlar, rutnätslinjer, titlar, förklaringar, plotområdet och väggfyllningar för att förbättra utseendet och läsbarheten för diagramdata.
+
+Den visar också hur du ställer in teckensnittsegenskaper för diagramtext, tillämpar fördefinierade numeriska format på diagramdata och aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur du styr både den visuella stilen och datapräsentationen av diagram i en presentation.
+
+För separata fyllningar och konturer på stigande och fallande intervaller, se [exempel på aktiediagram](/slides/sv/cpp/create-chart/#create-stock-charts).
 
 ## **Formatera diagramobjekt**
 
-Använd [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) för att formatera diagramrubriker, axlar, rutnätlinjer, förklaringar och diagramområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text- och linjestilar på dess värde- och kategoriaxlar. Teckenstorlekar och linjebreddar anges i punkter; kategorietiketter roteras 45 grader.
+Använd [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) för att formatera diagramtitlar, axlar, rutnätslinjer, förklaringar och plotområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text- och linjestilar på dess värde- och kategoriaxlar. Typsnittsstorlekar och linjebreddar anges i punkter; kategorietiketter roteras 45 grader.
 
-Värdeaxeln använder [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) oberoende av källdatat. Dess skala sträcker sig från -2 till 15, med huvudintervall på 2 och delintervall på 0,5. Exemplet kombinerar även procentformatering med [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) inställd på tusental, så anpassa dessa inställningar efter dina data's betydelse och storlek. Förklaringen förblir utanför diagramområdet eftersom [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) är inaktiverad. Bakväggs- och golvfyllningar konfigureras via [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) och [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), men dessa ytor är endast synliga i 3D-diagram.
+Värdeaxeln använder [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) oberoende av källcellerna. Dess skala går från -2 till 15, med huvudintervall på 2 och delintervall på 0.5. Exemplet kombinerar också procentformatering med [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) satt till tusental, så anpassa dessa inställningar efter betydelsen och storleken på dina data. Förklaringen förblir utanför plotområdet eftersom [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) är inaktiverad. Bakväggs- och golvfyllningar konfigureras via [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) och [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), men dessa ytor är endast synliga i 3D-diagram.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -179,9 +183,9 @@ chart->get_PlotArea()->get_Format()->get_Fill()->get_SolidFillColor()->set_Color
 presentation->Save(u"FormattedChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ange teckenegenskaper för ett diagram**
+## **Ställ in teckensnittsegenskaper för ett diagram**
 
-Ange standardteckenstorlek för diagramtext via [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). Exemplet skapar ett grupperat stapeldiagram med en 20-punkts teckenstorlek och aktiverar värdetiketter för den första serien via [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Tekstelement med egna explicita teckeninställningar kan åsidosätta diagrammets standard.
+Ställ in standardteckensnittsstorleken för diagramtext via [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). Exemplet skapar ett staplat kolumndiagram med ett 20-punkts teckensnitt och aktiverar värdetiketter för den första serien via [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Textelement med egna explicita teckensnittinställningar kan åsidosätta diagrammets standard.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -214,9 +218,91 @@ chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataL
 presentation->Save(u"FontPropertiesForChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Ange det numeriska formatet**
+## **Återanvänd textramformatering för en diagramförklaring**
 
-Använd [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) för att tillämpa ett inbyggt talformat på diagrammets arbetsboksceller. Detta exempel skapar ett grupperat stapeldiagram med standarddata som stöds av celler och tillämpar formatindex 10 (`0.00%`) på varje serievärdescell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0,25 som 25,00 %. Axel- och datatetikettformat kan konfigureras separat.
+För att matcha en förklaring till en bildrubrik, ställ in teckensnittet i det första styckets standarddelformat via [get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Använd [get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformattedtextcontainer/get_textformat/) för att komma åt förklaringens textformat, och anropa sedan [CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyfrom/) med rubrikens textram. Detta kopierar textrammens inställningar, det första styckets formatering och styckets standardteckensnittsegenskaper. Formatering som appliceras direkt på enskilda delar eller på senare stycken förblir lokal för källan.
+
+Exemplet använder en fet, 26-punkts Calibri-rubrik i marinblå som mall. Efter att ha stylat förklaringen använder det [CopyTo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyto/) för att applicera samma formatering på en separat bildtext.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/NullableBool.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/StyleType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto heading = shapes->AddAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+auto sourceTextFrame = heading->AddTextFrame(u"Quarterly sales");
+auto font = sourceTextFrame->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+font->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+font->set_FontHeight(26);
+font->set_FontBold(NullableBool::True);
+font->get_FillFormat()->set_FillType(FillType::Solid);
+font->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(32, 64, 96));
+
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+chart->set_Style(StyleType::Style3);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Retail"));
+workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Online"));
+workbook->GetCell(0, 0, 3, ObjectExt::Box<String>(u"Wholesale"));
+for (auto quarter = 1; quarter <= 4; ++quarter)
+{
+    auto label = String::Format(u"Q{0}", quarter);
+    workbook->GetCell(0, quarter, 0, ObjectExt::Box<String>(label));
+}
+
+chart->set_HasLegend(true);
+auto legend = chart->get_Legend();
+legend->set_Position(LegendPositionType::Bottom);
+auto legendTextFormat = legend->get_TextFormat();
+legendTextFormat->CopyFrom(sourceTextFrame);
+
+auto caption = shapes->AddAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+auto captionTextFrame = caption->AddTextFrame(u"Sales in millions of dollars");
+legendTextFormat->CopyTo(captionTextFrame);
+
+presentation->Save(u"legend-formatting.pptx", SaveFormat::Pptx);
+```
+
+I den sparade presentationen matchar förklaringen och bildtexten rubriken i storlek, tjocklek och färg. Förklaringen visar fortfarande serienamnen, och bildtexten behåller sin egen text. Om en del i bildtexten redan har en explicit teckensnittsstorlek, har den storleken företräde framför den kopierade stycke‑standardinställningen.
+
+| Före kopiering | Efter kopiering |
+| --- | --- |
+| ![Kvartalsförsäljningsdiagram med vanliga svarta förklaringsetiketter och en svart bildtext](legend-formatting-before.png) | ![Samma diagram med större, fet marinblå förklaringsetiketter och en matchande bildtext](legend-formatting.png) |
+
+## **Ställ in numeriskt format**
+
+Använd [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) för att tillämpa ett inbyggt talformat på diagrammets arbetsboks-celler. Detta exempel skapar ett staplat kolumndiagram med standard, cellstödd data och tillämpar formatindex 10 (`0.00%`) på varje serievärdecell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0,25 som 25,00 %. Axel- och datalabelformat kan konfigureras separat.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -251,14 +337,14 @@ for (auto chartSeries : series)
 {
     for (auto dataPoint : chartSeries->get_DataPoints())
     {
-        dataPoint->get_Value()->get_AsCell()->set_PresetNumberFormat(10); // 0.00%
+        dataPoint->get_Value()->get_AsCell()->set_PresetNumberFormat(10); // 0,00%
     }
 }
 
 presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 ```
 
-Följande tabell listar inbyggda talformatindex med representativa Excel-format för den engelska (USA) lokalen. De exakta formatsträngarna och deras visning kan variera beroende på program och region, särskilt för valuta och datum. Vissa Excel-format skiljer sig också från standarderna i OOXML, enligt [Microsofts anteckningar om talformatimplementation](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Följande tabell listar inbyggda talformatindex med representativa Excel-format för den engelska (USA) lokalen. De exakta formatsträngarna och deras visning kan variera beroende på program och lokal, särskilt för valuta och datum. Vissa Excel-format skiljer sig också från standardvärdena i OOXML-standarden, enligt [Microsofts anteckningar om implementering av talformat](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Format |
 | --- | --- |
@@ -299,9 +385,9 @@ Följande tabell listar inbyggda talformatindex med representativa Excel-format 
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Ange rundade kanter för diagramområdet**
+## **Ställ in rundade kanter för diagramområdet**
 
-Aktivera [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) för att runda hörnen på diagramområdet. Exemplet skapar ett grupperat stapeldiagram och använder [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
+Aktivera [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) för att runda hörnen på diagramområdet. Exemplet skapar ett staplat kolumndiagram och använder [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -337,13 +423,13 @@ chart->set_HasRoundedCorners(true);
 presentation->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **Redigera befintliga diagramanteckningar**
+## **Redigera befintliga diagramkommentarer**
 
-Ett diagram kan innehålla anpassade former, såsom en textanteckning som förklarar statusen för en rapport. Åtkom dessa former via [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), även listade under [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) i Chart API‑referensen. Dess [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)-samling innehåller de diagramägda formerna.
+Ett diagram kan innehålla anpassade former, som en textkommentar som förklarar statusen för en rapport. Åtkomst till dessa former sker via [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), även listade under [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) i Diagram‑API‑referensen. Dess [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑samling innehåller de diagramägda formerna.
 
-En vanlig textruta placerad ovanpå ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Genom att iterera över [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) hittar man diagrammet och vanliga bildformer, men metoden enumererar inte de enskilda formerna inne i diagrammet. Diagramrubriker och datatetiketter är separata diagramelement, inte anpassade anteckningar i denna samling.
+En vanlig textruta placerad över ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Genom att iterera över [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) hittar man diagrammet och vanliga bildformer, men enumererar inte de enskilda formerna inne i diagrammet. Diagramtitlar och datalabels är separata diagramelement, inte anpassade kommentarer i denna samling.
 
-Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en fristående anteckning som lyder "Preliminary results", en diagramägd linje och en vanlig bildtextruta som lyder "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är redo att publiceras. Det kontrollerar om samlingen är tom och redigerar bara en [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) med ett icke‑null [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) och den förväntade texten.
+Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en ogrupperad kommentar som säger "Preliminary results", en diagramägd linje och en vanlig bildtextruta som säger "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar kommentaren till "Final results" när rapporten är redo att publiceras. Det kontrollerar om samlingen är tom och redigerar endast en [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) med en icke‑null [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) och den förväntade texten.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -409,22 +495,22 @@ Linjen och bildtextrutan förblir oförändrade. Följande bilder visar indata o
 
 | Före redigering | Efter redigering |
 | --- | --- |
-| ![Diagramanteckning med texten Preliminary results](chart-annotations-before.png) | ![Diagramanteckning med texten Final results](chart-annotations-after.png) |
+| ![Diagramkommentar med texten Preliminary results](chart-annotations-before.png) | ![Diagramkommentar med texten Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Exemplet inspekterar endast diagramägd former på topnivå. Om en anteckning finns inuti en [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), bör du även inspektera den gruppens [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑samling. Upprepa detta rekursivt för nästlade grupper och tillämpa samma textkontroller på deras barnformer. En grupp är i sig en behållare; behandla den inte som en textruta.
+Exemplet undersöker endast diagramets övergripande former. Om en kommentar är inuti en [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), inspektera även den gruppens [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑samling. Upprepa detta rekursivt för nästlade grupper och tillämpa samma textkontroller på deras barnformer. En grupp i sig är en behållare; behandla den inte som en textruta.
 {{% /alert %}}
 
 ## **Vanliga frågor**
 
-**Kan jag sätta halvgenomskinliga fyllningar för kolumner/områden samtidigt som kanten förblir ogenomskinlig?**
+**Kan jag ställa in halvtransparenta fyllningar för kolumner/områden samtidigt som kanten förblir opak?**
 
-Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
+Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten av rutnätet och data i täta visualiseringar.
 
-**Hur kan jag hantera datatetiketter när de överlappar?**
+**Hur kan jag hantera datalabels när de överlappar?**
 
-Minska teckenstorleken, inaktivera icke‑nödvändiga etikettkomponenter (t.ex. kategorier), justera etikettpositionen, visa etiketter endast för valda punkter om det behövs, eller byt format till "värde + förklaring".
+Minska teckensnittsstorleken, inaktivera icke‑nödvändiga labelkomponenter (t.ex. kategorier), justera labelpositionen, visa label endast för utvalda punkter om det behövs, eller byt formatet till "värde + förklaring".
 
-**Kan jag använda gradient‑ eller mönsterfyllningar på serier?**
+**Kan jag tillämpa gradient‑ eller mönsterfyllningar på serier?**
 
-Ja. Serier stödjer solid, gradient‑ och mönsterfyllning. I praktiken bör du använda gradienter sparsamt och undvika kombinationer som minskar kontrasten mot rutnätet och texten.
+Ja. Serier stödjer solida, gradient‑ och mönsterfyllningar. I praktiken bör gradienter användas sparsamt och kombinationer som minskar kontrasten mot rutnätet och texten undvikas.

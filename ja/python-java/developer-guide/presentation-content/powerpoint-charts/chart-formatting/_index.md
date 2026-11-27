@@ -1,35 +1,37 @@
 ---
-title: Python でプレゼンテーション チャートの書式設定
-linktitle: チャート書式設定
+title: Python でプレゼンテーションのチャートをフォーマットする
+linktitle: チャートの書式設定
 type: docs
 weight: 60
 url: /ja/python-java/chart-formatting/
 keywords:
 - チャートの書式設定
 - チャート書式設定
-- チャート エンティティ
-- チャート プロパティ
+- チャートエンティティ
+- チャートプロパティ
 - チャート設定
 - チャートオプション
-- フォント プロパティ
-- 丸みのある枠線
+- フォントプロパティ
+- 角丸境界線
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Java 経由で Python 用 Aspose.Slides のチャート書式設定を学び、カスタム軸、フォント、数値書式、丸みを帯びたチャート枠線で PowerPoint プレゼンテーションを強化しましょう。"
+description: "Java 経由で Python 用 Aspose.Slides のチャート書式設定を学び、カスタム軸、フォント、数値形式、角丸チャート境界線で PowerPoint プレゼンテーションを向上させましょう。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーション内のチャートをフォーマットする方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなどの主要なチャート要素をカスタマイズし、チャート データの外観と可読性を向上させる方法を示します。
+この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションのチャートの書式設定方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなどの主要なチャート要素をカスタマイズし、チャートデータの外観と可読性を向上させる方法を示します。
 
-また、チャート テキストのフォント プロパティの設定、チャート データへの事前定義数値形式の適用、およびチャート領域の角を丸める方法も実演します。これらの例を組み合わせることで、プレゼンテーション内のチャートのビジュアル スタイルとデータの提示方法の両方を制御できることが示されています。
+さらに、チャートテキストのフォントプロパティの設定、チャートデータへの事前設定数値形式の適用、チャート領域の角丸化の有効化方法も示します。これらの例は、プレゼンテーション内のチャートの視覚的スタイルとデータ表示の両方を制御する方法を示しています。
 
-## **チャート エンティティの書式設定**
+上昇および下降区間の塗りつぶしとアウトラインを別々に設定する方法については、[株価チャート例](/slides/ja/python-java/create-chart/#create-stock-charts)をご覧ください。
 
-[チャート](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) を使用してチャートのタイトル、軸、グリッド線、凡例、プロット領域をフォーマットします。この例はマーカー付きの折れ線グラフをデフォルト データで作成し、値軸とカテゴリ軸に個別のテキストと線のスタイルを適用します。フォント サイズと線幅はポイントで指定され、カテゴリ ラベルは 45 度回転します。
+## **チャート要素の書式設定**
 
-値軸はソース セルとは独立して [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) を使用します。そのスケールは -2 から 15 までで、主間隔が 2、副間隔が 0.5 です。この例ではパーセンテージ書式と [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) を「千」に設定した組み合わせも示しています。データの意味と規模に合わせて設定を調整してください。凡例は [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) が `False` で呼び出されるため、プロット領域の外側に配置されます。背面壁と床の塗りつぶしは [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) と [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) で構成されますが、これらのサーフェスは 3D チャートでのみ表示されます。
+チャートのタイトル、軸、グリッド線、凡例、プロット領域の書式設定には、[Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) を使用します。この例では、マーカー付きの折れ線グラフをデフォルトデータで作成し、値軸とカテゴリ軸に別々のテキストおよび線のスタイルを適用します。フォントサイズと線幅はポイントで指定され、カテゴリラベルは 45 度回転します。
+
+値軸はソースセルに依存せず [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) を使用します。目盛りは -2 から 15 までで、メジャー間隔が 2、マイナー間隔が 0.5 です。また、例ではパーセンテージ書式と [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) を千単位に設定した組み合わせも示していますので、データの意味と規模に合わせて設定を調整してください。凡例は [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) を `False` で呼び出すためプロット領域の外側に表示されます。バックウォールとフロアの塗りつぶしはそれぞれ [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) と [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) で構成されますが、これらの面は 3D チャートでのみ表示されます。
 
 ```python
 import jpype
@@ -157,9 +159,9 @@ finally:
     presentation.dispose()
 ```
 
-## **チャートのフォント プロパティを設定する**
+## **チャートのフォントプロパティの設定**
 
-[Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) を使用してチャート テキストのデフォルト フォント サイズを設定します。この例は 20 ポイント フォントのクラスター化縦棒グラフを作成し、[setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) によって最初の系列の値ラベルを有効にします。独自の明示的なフォント設定を持つテキスト要素は、チャートのデフォルトを上書きできます。
+チャートテキストの既定フォントサイズは [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) を介して設定します。この例では、20 ポイント フォントのクラスター化された縦棒グラフを作成し、最初の系列に対して [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) を使用して値ラベルを有効にします。独自の明示的なフォント設定を持つテキスト要素は、チャートの既定設定を上書きできます。
 
 ```python
 import jpype
@@ -183,9 +185,69 @@ finally:
     presentation.dispose()
 ```
 
-## **数値形式を設定する**
+## **チャート凡例のテキストフレーム書式の再利用**
 
-[ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) を使用して、チャート ワークブックセルに組み込み数値形式を適用します。この例はデフォルトのセルベース データを持つクラスター化縦棒グラフを作成し、各系列の値セルに書式インデックス 10 (`0.00%`) を適用します。これにより、基になる数値は変更せずにワークブック内の表示が変わります。たとえば、0.25 は 25.00% と表示されます。軸とデータ ラベルの書式は別々に構成できます。
+凡例をスライドの見出しに合わせるには、最初の段落の [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) で見出しのフォントを設定します。凡例の [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) が返す書式に対して [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom) を呼び出します。これによりテキストフレーム設定、最初の段落の書式、およびその段落の既定フォントプロパティがコピーされます。個々の部分や後続の段落に直接適用された書式は、ソースにローカルに残ります。
+
+例では、太字・26 ポイントの Calibri 見出し（ネイビー）をテンプレートとして使用しています。凡例を装飾した後、[copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) を呼び出して別のキャプションにも同じ書式を適用します。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+保存されたプレゼンテーションでは、凡例とキャプションが見出しとサイズ、太さ、色で一致しています。凡例は依然として系列名を表示し、キャプションは独自のテキストを保持します。キャプション内の部分に明示的なフォントサイズが設定されている場合、そのサイズがコピーされた段落の既定よりも優先されます。
+
+| コピー前 | コピー後 |
+| --- | --- |
+| ![四半期別売上チャート（黒い凡例ラベルと黒いキャプション）](legend-formatting-before.png) | ![同じチャート（大きく太字のネイビー凡例ラベルと一致するキャプション）](legend-formatting.png) |
+
+## **数値形式の設定**
+
+[ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) を使用して、チャートワークブックセルに組み込みの数値形式を適用します。この例では、デフォルトのセルベースデータを持つクラスター化された縦棒グラフを作成し、各系列の値セルに書式インデックス 10 (`0.00%`) を適用します。この設定はワークブック内の表示方法を変更しますが、元の数値は変更されません。たとえば、0.25 は 25.00% と表示されます。軸とデータラベルの書式は別々に構成できます。
 
 ```python
 import jpype
@@ -212,9 +274,9 @@ finally:
     presentation.dispose()
 ```
 
-以下の表は、英語（米国）ロケール向けの代表的な Excel 書式とともに組み込み数値形式インデックスを一覧にしたものです。正確な書式文字列とその表示は、アプリケーションやロケールにより異なる場合があります。特に通貨や日付の書式は、[Microsoft の数値形式実装ノート](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) に記載されているように、OOXML 標準のデフォルトとは異なることがあります。
+以下の表は、英語（米国）ロケール向けの代表的な Excel 書式とともに組み込み数値形式インデックスを一覧化したものです。正確な書式文字列と表示はアプリケーションやロケールによって異なる場合があり、特に通貨や日付では差異が生じます。一部の Excel 書式は OOXML 標準の既定と異なることがあり、詳細は [Microsoft の数値形式実装ノート](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) に記載されています。
 
-| インデックス | 書式 |
+| Index | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -253,9 +315,9 @@ finally:
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **チャート領域の角を丸める**
+## **チャート領域の角丸境界線の設定**
 
-`True` を指定して [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) を呼び出すと、チャート領域の角が丸くなります。この例はクラスター化縦棒グラフを作成し、[getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) を使用して輪郭に単色のグレイと単線スタイルを設定した後、プレゼンテーションを保存します。
+[Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) に `True` を指定して、チャート領域の角を丸めます。この例では、クラスター化された縦棒グラフを作成し、[getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) を使用して輪郭に単色のグレーと単線スタイルを設定した後、プレゼンテーションを保存します。
 
 ```python
 import jpype
@@ -283,13 +345,13 @@ finally:
     presentation.dispose()
 ```
 
-## **既存のチャート注釈を編集する**
+## **既存のチャート注釈の編集**
 
-チャートには、レポートのステータスを説明するテキスト注釈などのカスタム シェイプを含めることができます。これらのシェイプは [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) を介して取得します。[getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) が返すコレクションには、チャートが所有するシェイプが含まれます。
+チャートには、レポートの状態を説明するテキスト注釈などのカスタム形状を含めることができます。これらの形状は [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) を介して取得します。 [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) が返すコレクションには、チャートが所有する形状が含まれます。
 
-チャート上に配置された通常のテキスト ボックスはスライドに属し、チャートの一部に見えてもスライドのシェイプです。[Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) を反復処理するとチャートと通常のスライド シェイプが見つかりますが、チャート内部の個々のシェイプは列挙されません。チャートのタイトルやデータ ラベルは別個のチャート要素であり、このコレクション内のカスタム 注釈ではありません。
+チャート上に配置された普通のテキストボックスはスライドに属し、チャートの一部に見えてもスライドの所有物です。 [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) を反復処理すると、チャートと普通のスライド形状が見つかりますが、チャート内部の個々の形状は列挙されません。チャートタイトルやデータラベルは別個のチャート要素であり、このコレクション内のカスタム注釈ではありません。
 
-[chart-annotations.pptx](chart-annotations.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置します。最初のスライドには、"Preliminary results" というテキスト 注釈、チャート所有のライン、"Slide overlay" というテキスト ボックスが含まれています。例ではそのスライド上の最初のチャートを取得し、レポートが公開準備できたときに注釈を "Final results" に変更します。コレクションが空でないことを確認し、[AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) の [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) が `None` でなく、期待するテキストを持つ場合にのみ編集します。
+[chart-annotations.pptx](chart-annotations.pptx) をダウンロードしてアプリケーションの作業ディレクトリに配置します。最初のスライドには「Preliminary results」という注釈、チャート所有の線、そして「Slide overlay」というテキストボックスが含まれています。例ではそのスライド上の最初のチャートを取得し、レポートが公開準備できたときに注釈を「Final results」に変更します。空コレクションをチェックし、[AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) の [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) が `None` でないテキストフレームを持つ場合にのみ、期待されるテキストと照合して編集します。
 
 ```python
 import jpype
@@ -330,26 +392,26 @@ finally:
     presentation.dispose()
 ```
 
-ラインとスライドのテキスト ボックスは変更されません。以下の画像は入力と保存後に再度開いた結果を示しています。
+線とスライドのテキストボックスは変更されません。以下の画像は入力と保存後に再度開いた結果を示しています。
 
 | 編集前 | 編集後 |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![「Preliminary results」注釈付きチャート](chart-annotations-before.png) | ![「Final results」注釈付きチャート](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-例ではトップレベルのチャート所有シェイプのみを調べます。注釈が [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) の内部にある場合は、そのグループの [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) コレクションも調べます。入れ子になったグループに対して同様に再帰的に実行し、子シェイプに対して同じテキストチェックを適用します。グループ自体はコンテナであり、テキスト ボックスとして扱わないでください。
+例はトップレベルのチャート所有形状のみを調べます。注釈が [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) 内にある場合は、そのグループの [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) コレクションも調べてください。入れ子になったグループについては再帰的に同じテキストチェックを子形状に適用します。グループ自体はコンテナであり、テキストボックスとして扱わないでください。
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**列やエリアの塗りつぶしを半透明にし、枠線は不透明のままにできますか？**
+**列や領域に半透明の塗りつぶしを設定し、枠線は不透明のままにできますか？**
 
-はい。塗りつぶしの透明度と輪郭は個別に設定できます。これにより、グリッドやデータが密集した可視化でも可読性が向上します。
+はい。塗りつぶしの透明度と輪郭は個別に設定できます。これにより、密集したビジュアライゼーションでグリッドやデータの可読性を向上させることができます。
 
-**ラベルが重なったときはどう対処すればよいですか？**
+**データラベルが重なった場合、どう対処すればよいですか？**
 
-フォント サイズを小さくする、重要でないラベル要素（例: カテゴリ）を非表示にする、ラベル位置を調整する、必要に応じて選択したポイントのみラベルを表示する、または書式を「値 + 凡例」に切り替えるなどの方法があります。
+フォントサイズを縮小する、不要なラベル要素（たとえばカテゴリ）を無効にする、ラベル位置を調整する、必要に応じて選択ポイントのみラベルを表示する、またはフォーマットを「値 + 凡例」に切り替える方法があります。
 
-**系列にグラデーションやパターンの塗りつぶしを適用できますか？**
+**系列にグラデーションやパターン塗りつぶしを適用できますか？**
 
-はい。系列は単色、グラデーション、パターン塗りつぶしをサポートします。実務ではグラデーションの使用は控えめにし、グリッドやテキストとのコントラストを低下させる組み合わせは避けてください。
+はい。系列は単色、グラデーション、パターン塗りつぶしをサポートします。実務ではグラデーションは控えめに使用し、グリッドやテキストとのコントラストを損なう組み合わせは避けてください。

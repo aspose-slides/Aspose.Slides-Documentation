@@ -1,36 +1,38 @@
 ---
-title: تنسيق مخططات العرض في .NET
+title: تنسيق مخططات العرض التقديمي في .NET
 linktitle: تنسيق المخطط
 type: docs
 weight: 60
 url: /ar/net/chart-formatting/
 keywords:
 - تنسيق المخطط
-- تنسيق المخططات
+- تنسيق المخطط
 - كيان المخطط
 - خصائص المخطط
 - إعدادات المخطط
 - خيارات المخطط
 - خصائص الخط
-- حد مستدير
+- حدود مستديرة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعرّف على تنسيق المخططات في Aspose.Slides لـ .NET وارتقِ بعرض PowerPoint الخاص بك باستخدام محاور مخصصة، خطوط، تنسيقات رقمية، وحدود مخطط مستديرة."
+description: "تعلم تنسيق المخططات في Aspose.Slides لـ .NET وارتقِ بعرض PowerPoint الخاص بك باستخدام محاور مخصصة، خطوط، تنسيقات رقمية، وحدود مخطط مستديرة."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. تُظهر كيفية تخصيص عناصر المخطط الأساسية مثل المحاور، خطوط الشبكة، العناوين، وسادة الألوان، منطقة الرسم، وتعبئة الجدران لتحسين مظهر وقراءة بيانات المخطط.
+توضح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. تُظهر كيفية تخصيص عناصر المخطط الأساسية مثل المحاور، خطوط الشبكة، العناوين، الأساطير، منطقة الرسم، وتعبئات الجدران لتحسين مظهر البيانات وقابليتها للقراءة.
 
-كما تُظهر كيفية ضبط خصائص الخط لنص المخطط، تطبيق تنسيقات عددية مُعرفة مسبقًا على بيانات المخطط، وتمكين الزوايا المستديرة لمنطقة المخطط. معًا، تُظهر هذه الأمثلة كيفية التحكم في النمط البصري وعرض البيانات للمخططات في العرض التقديمي.
+كما توضح كيفية ضبط خصائص الخط لنص المخطط، وتطبيق تنسيقات رقمية مُسبقة على بيانات المخطط، وتمكين الزوايا المستديرة لمنطقة المخطط. معًا، تُظهر هذه الأمثلة كيفية التحكم في كل من الأسلوب البصري وعرض البيانات للمخططات في العرض التقديمي.
+
+للحصول على تعبئات وتحديدات منفصلة على الفواصل الصاعدة والهابطة، راجع [مثال مخطط الأسهم](/slides/ar/net/create-chart/#create-stock-charts).
 
 ## **تنسيق كيانات المخطط**
 
-استخدم [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) لتنسيق عناوين المخطط، المحاور، خطوط الشبكة، وسادة الألوان، ومنطقة الرسم. يخلق هذا المثال مخططًا خطيًا مع علامات وبيانات افتراضية، ثم يطبق أنماط نصية وخطية منفصلة على محوري القيم والفئات. تُحدد أحجام الخطوط وعرض الخطوط بالنقاط؛ تُدوَّر تسميات الفئات بزاوية 45 درجة.
+استخدم [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) لتنسيق عناوين المخطط، والمحاور، وخطوط الشبكة، والأساطير، ومنطقة الرسم. ينشئ هذا المثال مخططًا خطيًا مع علامات وبيانات افتراضية، ثم يطبق أنماط نصية وخطية منفصلة على محوري القيم والفئات. يتم تحديد حجم الخطوط وعرض الخطوط بالنقاط؛ تُدوَّر تسميات الفئات بزاوية 45 درجة.
 
-يستخدم محور القيم [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) بشكل مستقل عن الخلايا المصدر. يمتد مقياسه من -2 إلى 15، مع فواصل رئيسية قدرها 2 وفواصل فرعية قدرها 0.5. يجمع المثال أيضًا بين تنسيق النسبة المئوية و[DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) المُضبط على الآلاف، لذا قم بتكييف هذه الإعدادات وفقًا لمعنى وحجم بياناتك. تبقى وسادة الألوان خارج منطقة الرسم لأن [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) معطَّلة. تُضبط تعبئة الجدار الخلفي والأرضية عبر [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) و[Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/)، لكن هذه الأسطح تظهر فقط في المخططات ثلاثية الأبعاد.
+يستخدم محور القيم [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) بشكل مستقل عن خلايا المصدر. يتراوح مقياسه من -2 إلى 15، مع فواصل رئيسية بمقدار 2 وفواصل فرعية بمقدار 0.5. يجمع المثال أيضًا تنسيق النسبة المئوية مع [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) المضبوطة على الآلاف، لذا عدل هذه الإعدادات لتتناسب مع معنى وحجم بياناتك. يبقى الأسطورة خارج منطقة الرسم لأن [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) غير مفعّل. يتم تكوين تعبئات الجدار الخلفي والأرضية عبر [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) و[Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/)، لكن هذه الأسطح تظهر فقط في المخططات ثلاثية الأبعاد.
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **ضبط خصائص الخط لمخطط**
+## **ضبط خصائص الخط للمخطط**
 
-اضبط حجم الخط الافتراضي لنص المخطط عبر [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). ينشئ المثال مخطط أعمدة متجمع مع خط بحجم 20 نقطة ويفعّل تسميات القيم للسلسلة الأولى عبر [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). يمكن لعناصر النص التي لها إعدادات خط صريحة خاصة أن تتجاوز الإعداد الافتراضي للمخطط.
+حدد حجم الخط الافتراضي لنص المخطط من خلال [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). ينشئ المثال مخطط أعمدة متجمع بخط 20 نقطة ويُفعّل تسميات القيم للسلسلة الأولى عبر [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). يمكن لعناصر النص التي لها إعدادات خط صريحة خاصة أن تتجاوز الإعداد الافتراضي للمخطط.
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
-## **تعيين التنسيق الرقمي**
+## **إعادة استخدام تنسيق إطار النص لوسيلة إيضاح المخطط**
 
-استخدم [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) لتطبيق تنسيق عدد مدمج على خلايا دفتر عمل المخطط. يخلق هذا المثال مخطط أعمدة متجمع ببيانات افتراضية مدعومة بالخلايا ويطبق فهرس التنسيق 10 (`0.00%`) على كل خلية قيمة سلسلة. يغيّر هذا طريقة عرض القيم في دفتر العمل دون تغيير الأعداد الأساسية؛ على سبيل المثال، تُعرض 0.25 كـ 25.00%. يمكن تكوين تنسيقات المحور وتنسيقات تسميات البياناتSeparately.
+لمطابقة وسيلة الإيضاح مع عنوان الشريحة، اضبط الخط في [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) للفقرة الأولى. استدعِ [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) على [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) لوسيلة الإيضاح. يقرأ هذا إعدادات إطار النص، وتنسيق الفقرة الأولى، وخصائص الخط الافتراضية لتلك الفقرة. يبقى التنسيق المطبق مباشرة على أجزاء فردية أو على فقرات لاحقة محليًا إلى المصدر.
+
+يستخدم المثال عنوانًا بخط Calibri سميك بحجم 26 نقطة باللون النيلي كنموذج. بعد تنسيق وسيلة الإيضاح، يستخدم [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) لتطبيق نفس التنسيق على تسمية توضيحية منفصلة.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+في العرض المحفوظ، تتطابق وسيلة الإيضاح والتسمية التوضيحية مع العنوان من حيث الحجم والسمك واللون. لا تزال وسيلة الإيضاح تعرض أسماء السلاسل، وتحتفظ التسمية التوضيحية بنصها الخاص. إذا كان جزء من التسمية التوضيحية يحتوي بالفعل على حجم خط صريح، فإن ذلك الحجم يعتلي على حجم الفقرة المنسوخ.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
+## **ضبط التنسيق الرقمي**
+
+استخدم [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) لتطبيق تنسيق رقمي مدمج على خلايا دفتر عمل المخطط. ينشئ هذا المثال مخطط أعمدة متجمع ببيانات افتراضية مدعومة بالخلايا ويطبق فهرس التنسيق 10 (`0.00%`) على كل خلية قيمة سلسلة. يغيّر ذلك طريقة عرض القيم في دفتر العمل دون تغيير الأرقام الأساسية؛ على سبيل المثال، يتم عرض 0.25 كـ 25.00%. يمكن تكوين تنسيقات المحاور وتسميات البيانات بشكل منفصل.
 
 ```csharp
 using Aspose.Slides;
@@ -191,9 +243,9 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-القائمة التالية تُظهر فهارس تنسيقات الأعداد المدمجة مع صيغ Excel النموذجية للغة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق وعرضها حسب التطبيق واللغة، خصوصًا للعملات والتواريخ. بعض صيغ Excel تختلف أيضًا عن الافتراضيات في معيار OOXML، كما هو موضح في [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+القائمة التالية توضح فهارس تنسيقات الأرقام المدمجة مع صيغ Excel تمثيلية للغة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق الدقيقة وعرضها حسب التطبيق واللغة، خاصةً للعملات والتواريخ. بعض صيغ Excel تختلف أيضًا عن القيم الافتراضية في معيار OOXML، كما هو موضح في [ملاحظات تنفيذ تنسيق الأرقام من مايكروسفت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| الفهرس | الصيغة |
+| الفهرس | التنسيق |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -232,9 +284,9 @@ presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **تعيين حدود مستديرة لمنطقة المخطط**
+## **ضبط حدود منطقة المخطط المستديرة**
 
-فعّل [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) لتقريب زوايا منطقة المخطط. ينشئ المثال مخطط أعمدة متجمع ويستخدم [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) لمنح حدودها لونًا رماديًا صلبًا ونمط خط وحيد قبل حفظ العرض التقديمي.
+فعّل [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) لتقوّيم زوايا منطقة المخطط. ينشئ المثال مخطط أعمدة متجمع ويستخدم [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) لإعطاء حدوده لونًا رماديًا صلبًا ونمط خط واحد قبل حفظ العرض.
 
 ```csharp
 using System.Drawing;
@@ -254,13 +306,13 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **تحرير تعليقات المخطط الموجودة**
+## **تحرير تعليقات المخطط الحالية**
 
-يمكن للمخطط أن يحتوي على أشكال مخصصة، مثل تعليق نصي يوضح حالة تقرير. يمكن الوصول إلى هذه الأشكال عبر [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/)، المذكورة أيضًا تحت [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) في مرجع API الخاص بالمخطط. يحتوي مجموعة [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) على الأشكال المملوكة للمخطط.
+يمكن للمخطط أن يحتوي على أشكال مخصصة، مثل تعليقات نصية توضح حالة تقرير. يمكن الوصول إلى هذه الأشكال عبر [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/)، المذكورة أيضًا تحت [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) في مرجع واجهة برمجة تطبيقات المخطط. تحتوي مجموعة [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) الخاصة به على الأشكال المملوكة للمخطط.
 
-مربع نص عادي موضع فوق المخطط ينتمي إلى الشريحة، حتى لو ظهر كجزء من المخطط. يكتشف التكرار عبر [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) المخطط والأشكال العادية للشريحة، لكنه لا يُدرج الأشكال الفردية داخل المخطط. عناوين المخطط وتسميات البيانات هي عناصر مخطط منفصلة، ليست تعليقات مخصصة في هذه المجموعة.
+يُعتبر مربع النص العادي الموضوع فوق المخطط جزءًا من الشريحة، حتى وإن بدا كجزء من المخطط. يكتشف التكرار عبر [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) المخطط والأشكال العادية في الشريحة، لكنه لا يسرد الأشكال الفردية داخل المخطط. عناوين المخططات وتسميات البيانات هي عناصر مخطط منفصلة، ليست تعليقات مخصصة في هذه المجموعة.
 
-حمّل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل العمل الخاص بالتطبيق. تحتوي شريحته الأولى على مخطط مع تعليق غير مُجَمَّع يقرأ "Preliminary results"، وخط مملوك للمخطط، ومربع نص عادي على الشريحة يقرأ "Slide overlay". يجد المثال المخطط الأول في تلك الشريحة ويغيّر التعليق إلى "Final results" عندما يصبح التقرير جاهزًا للنشر. يتحقق من وجود مجموعة فارغة ولا يُعدِّل سوى [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) التي تحتوي على [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) غير فارغ والنص المتوقع.
+حمّل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل عمل التطبيق. تحتوي الشريحة الأولى على مخطط مع تعليق غير مجمع مكتوب "Preliminary results"، وخط مملوك للمخطط، ومربع نص عادي على الشريحة مكتوب "Slide overlay". يجد المثال المخطط الأول في تلك الشريحة ويغيّر التعليق إلى "Final results" عندما يكون التقرير جاهزًا للنشر. يتحقق من وجود مجموعة فارغة ويعدل فقط [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) يحتوي على [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) غير فارغ والنص المتوقع.
 
 ```csharp
 using System;
@@ -303,26 +355,26 @@ else
 }
 ```
 
-يبقى الخط ومربع النص على الشريحة دون تغيير. تُظهر الصور التالية المدخل والنتيجة المحفوظة المفتوحة مجددًا:
+يبقى الخط ومربع النص على الشريحة دون تغيير. تُظهر الصور التالية المدخل والنتيجة المحفوظة التي تم فتحها مرة أخرى:
 
-| قبل التحرير | بعد التحرير |
+| Before editing | After editing |
 | --- | --- |
 | ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-يفحص المثال فقط الأشكال ذات المستوى الأعلى المملوكة للمخطط. إذا كان التعليق داخل [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/)، فافحص مجموعة [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) الخاصة بذلك أيضًا. كرِّر ذلك بصورة متداخلة للمجموعات المتداخلة، مطبقًا نفس فحوصات النص على الأشكال الفرعية. المجموعة نفسها حاوية؛ لا تُعاملها كصندوق نص.
+{{% alert color="info" title="ملاحظة" %}}
+يفحص المثال فقط الأشكال المملوكة للمخطط على المستوى الأعلى. إذا كان التعليق داخل [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/)، فافحص مجموعة [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) الخاصة بذلك المجموعة أيضًا. كرّر ذلك بشكل متكرر للمجموعات المتداخلة، مطبقًا نفس فحوصات النص على الأشكال التابعة لها. المجموعة نفسها هي حاوية؛ لا تعاملها كمربع نص.
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني ضبط تعبئات نصف شفافة للأعمدة/المناطق مع الحفاظ على الحدود غير شفافة؟**
+**هل يمكنني تعيين تعبئات شبه شفافة للأعمدة/المناطق مع الحفاظ على الحدود غير شفافة؟**
 
 نعم. يتم تكوين شفافية التعبئة والحدود بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
 
-**كيف يمكنني معالجة تسميات البيانات عندما تتداخل؟**
+**كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
 
-قلل حجم الخط، عطل المكونات غير الضرورية للتسميات (مثل الفئات)، اضبط موضع التسمية، أظهر التسميات فقط للنقاط المحددة إذا لزم الأمر، أو غير الصيغة إلى "القيمة + وسادة الألوان".
+قلل حجم الخط، عطل مكونات التسمية غير الضرورية (مثل الفئات)، اضبط موضع التسمية، اعرض التسميات فقط للنقاط المختارة إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + الأسطورة".
 
-**هل يمكنني تطبيق تعبئات متدرجة أو نمطية للسلاسل؟**
+**هل يمكنني تطبيق تعبئات تدرجية أو نمطية على السلاسل؟**
 
-نعم. تدعم السلاسل تعبئات صلبة، متدرجة، ونمطية. في الممارسة العملية، استخدم التدرجات باعتدال وتجنب الجمع الذي يقلل من التباين مع الشبكة والنص.
+نعم. تدعم السلاسل التعبئات الصلبة، والتدرجية، والنمطية. في الممارسة العملية، استخدم التدرجات بشكل محدود وتجنب التركيبات التي تقلل من التباين مع الشبكة والنص.

@@ -1,35 +1,37 @@
 ---
-title: Formatowanie wykresów w prezentacji w Javie
-linktitle: Formatowanie wykresu
+title: Formatuj wykresy w prezentacji w Javie
+linktitle: Formatowanie wykresów
 type: docs
 weight: 60
 url: /pl/java/chart-formatting/
 keywords:
-- formatowanie wykresu
+- format wykresu
 - formatowanie wykresu
 - element wykresu
 - właściwości wykresu
 - ustawienia wykresu
 - opcje wykresu
 - właściwości czcionki
-- zaokrąglona krawędź
+- zaokrąglone obramowanie
 - PowerPoint
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Poznaj formatowanie wykresów w Aspose.Slides dla Javy i podnieś swoją prezentację PowerPoint dzięki niestandardowym osiom, czcionkom, formatom liczb oraz zaokrąglonym krawędziom wykresu."
+description: "Poznaj formatowanie wykresów w Aspose.Slides dla Javy i podnieś swoją prezentację PowerPoint dzięki niestandardowym osiom, czcionkom, formatom liczb oraz zaokrąglonym obramowaniom wykresu."
 ---
 ## **Przegląd**
 
 Ten artykuł wyjaśnia, jak formatować wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides. Pokazuje, jak dostosować kluczowe elementy wykresu, takie jak osie, linie siatki, tytuły, legendy, obszar wykresu i wypełnienia ścian, aby poprawić wygląd i czytelność danych wykresu.
 
-Pokazuje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wbudowane formaty liczbowe do danych wykresu oraz włączyć zaokrąglone rogi obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
+Demonstruje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wbudowane formaty liczbowe do danych wykresu oraz włączyć zaokrąglone rogi dla obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
 
-## **Formatuj elementy wykresu**
+Aby uzyskać oddzielne wypełnienia i kontury w rosnących i spadających przedziałach, zobacz [przykład wykresu giełdowego](/slides/pl/java/create-chart/#create-stock-charts).
 
-Użyj [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) do formatowania tytułów wykresu, osi, linii siatki, legend i obszaru wykresu. Ten przykład tworzy wykres liniowy ze znacznikami i domyślnymi danymi, a następnie stosuje oddzielne style tekstu i linii do osi wartości i osi kategorii. Rozmiary czcionek i grubości linii podane są w punktach; etykiety kategorii są obrócone o 45 stopni.
+## **Formatowanie elementów wykresu**
 
-Oś wartości używa [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) niezależnie od komórek źródłowych. Jej skala rozciąga się od -2 do 15, z głównymi przedziałami co 2 i mniejszymi przedziałami co 0,5. Przykład łączy także formatowanie procentowe z [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) ustawionym na tysiące, więc dostosuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) jest wywoływana z wartością `false`. Wypełnienia tylnej ściany i podłogi konfigurowane są za pomocą [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) i [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), ale te powierzchnie są widoczne tylko w wykresach 3D.
+Użyj [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) do formatowania tytułów wykresu, osi, linii siatki, legend i obszaru wykresu. Ten przykład tworzy wykres liniowy z markerami i domyślnymi danymi, a następnie stosuje oddzielne style tekstu i linii do jego osi wartości i osi kategorii. Rozmiary czcionek i grubości linii podawane są w punktach; etykiety kategorii są obrócone o 45 stopni.
+
+Oś wartości używa [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) niezależnie od komórek źródłowych. Skala biegnie od -2 do 15, z głównymi podziałkami co 2 i podziałkami pomocniczymi co 0,5. Przykład łączy formatowanie procentowe z ustawieniem [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) na tysiące, więc dostosuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) jest wywoływane z `false`. Wypełnienia tylnej ściany i podłogi konfigurowane są przez [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) i [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), ale te powierzchnie są widoczne tylko w wykresach 3D.
 
 ```java
 import com.aspose.slides.*;
@@ -147,9 +149,9 @@ try {
 }
 ```
 
-## **Ustaw właściwości czcionki dla wykresu**
+## **Ustawienie właściwości czcionki dla wykresu**
 
-Ustaw domyślny rozmiar czcionki dla tekstu wykresu za pomocą [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). Przykład tworzy wykres kolumnowy grupowany z czcionką 20 punktów i włącza etykiety wartości dla pierwszej serii przy użyciu [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Elementy tekstowe z własnymi explicit ustawieniami czcionki mogą zastąpić domyślne ustawienia wykresu.
+Ustaw domyślny rozmiar czcionki dla tekstu wykresu poprzez [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). Przykład tworzy skumulowany wykres słupkowy z czcionką o rozmiarze 20 punktów i włącza etykiety wartości dla pierwszej serii przez [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Elementy tekstowe z własnymi explicite ustawieniami czcionki mogą nadpisać domyślne ustawienia wykresu.
 
 ```java
 import com.aspose.slides.*;
@@ -168,9 +170,63 @@ try {
 }
 ```
 
-## **Ustaw format liczbowy**
+## **Ponowne użycie formatowania ramki tekstowej dla legendy wykresu**
 
-Użyj [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Ten przykład tworzy wykres kolumnowy grupowany z domyślnymi, opartymi na komórkach danymi i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmiany leżących pod spodem liczb; na przykład 0,25 jest wyświetlane jako 25,00%. Format osi i etykiet danych może być konfigurowany oddzielnie.
+Aby dopasować legendę do nagłówka slajdu, ustaw czcionkę nagłówka poprzez [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) w pierwszym akapicie. Wywołaj [copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) na formacie zwróconym przez [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) legendy. Kopiuje to ustawienia ramki tekstowej, formatowanie pierwszego akapitu oraz domyślne właściwości czcionki tego akapitu. Formatowanie zastosowane bezpośrednio do poszczególnych fragmentów lub do późniejszych akapitów pozostaje lokalne dla źródła.
+
+Przykład używa pogrubionego, 26‑punktowego nagłówka Calibri w kolorze granatowym jako szablonu. Po wystylizowaniu legendy wywołuje [copyTo](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) w celu zastosowania tego samego formatowania do oddzielnego podpisu.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(new Color(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+W zapisanej prezentacji legenda i podpis są zgodne z nagłówkiem pod względem rozmiaru, wagi i koloru. Legenda nadal wyświetla nazwy serii, a podpis zachowuje własny tekst. Jeśli fragment w podpisie ma już explicite rozmiar czcionki, ten rozmiar ma pierwszeństwo przed skopiowanym domyślnym rozmiarem akapitu.
+
+| Przed kopiowaniem | Po kopiowaniu |
+| --- | --- |
+| ![Wykres sprzedaży kwartalnej z regularnymi czarnymi etykietami legendy i czarnym podpisem](legend-formatting-before.png) | ![Ten sam wykres z większymi, pogrubionymi granatowymi etykietami legendy i dopasowanym podpisem](legend-formatting.png) |
+
+## **Ustawienie formatu liczbowego**
+
+Użyj [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Ten przykład tworzy skumulowany wykres słupkowy z domyślnymi danymi przechowywanymi w komórkach i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmiany rzeczywistych liczb; na przykład 0,25 jest wyświetlane jako 25,00 %. Formaty osi i etykiet danych mogą być konfigurowane osobno.
 
 ```java
 import com.aspose.slides.*;
@@ -186,7 +242,7 @@ try {
     {
         for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0,00%
         }
     }
 
@@ -196,7 +252,7 @@ try {
 }
 ```
 
-Poniższa tabela zawiera indeksy wbudowanych formatów liczbowych wraz z reprezentatywnymi formatami Excel dla ustawień regionalnych English (United States). Dokładne ciągi formatów i ich wyświetlanie mogą się różnić w zależności od aplikacji i ustawień regionalnych, szczególnie dla walut i dat. Niektóre formaty Excel różnią się także od domyślnych w standardzie OOXML, jak opisano w [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Poniższa tabela zawiera wbudowane indeksy formatów liczbowych wraz z reprezentatywnymi formatami Excel dla anglojęzycznego (Stany Zjednoczone) regionu. Dokładne ciągi formatów i ich wyświetlanie mogą się różnić w zależności od aplikacji i ustawień regionalnych, szczególnie w przypadku walut i dat. Niektóre formaty Excel różnią się również od domyślnych w standardzie OOXML, jak opisano w [notatkach Microsoft dotyczących implementacji formatu liczbowego](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Indeks | Format |
 | --- | --- |
@@ -237,9 +293,9 @@ Poniższa tabela zawiera indeksy wbudowanych formatów liczbowych wraz z repreze
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Ustaw zaokrąglone krawędzie obszaru wykresu**
+## **Ustawienie zaokrąglonych krawędzi obszaru wykresu**
 
-Wywołaj [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) z wartością `true`, aby zaokrąglić rogi obszaru wykresu. Przykład tworzy wykres kolumnowy grupowany i używa [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) aby nadać jego obramowaniu jednolity szary kolor i jednoliniowy styl przed zapisaniem prezentacji.
+Wywołaj [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) z `true`, aby zaokrąglić rogi obszaru wykresu. Przykład tworzy skumulowany wykres słupkowy i używa [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) aby nadać jego konturowi pełny szary kolor oraz jednolitą linię przed zapisaniem prezentacji.
 
 ```java
 import com.aspose.slides.*;
@@ -261,13 +317,13 @@ try {
 }
 ```
 
-## **Edytuj istniejące adnotacje wykresu**
+## **Edycja istniejących adnotacji wykresu**
 
-Wykres może zawierać niestandardowe kształty, takie jak adnotacja tekstowa wyjaśniająca status raportu. Dostęp do tych kształtów uzyskuje się poprzez [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), również wymieniony w [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) w odniesieniu do API wykresu. Kolekcja zwrócona przez [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) zawiera kształty należące do wykresu.
+Wykres może zawierać niestandardowe kształty, takie jak adnotacja tekstowa wyjaśniająca stan raportu. Dostęp do tych kształtów uzyskasz przez [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), wymienioną również pod [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) w dokumentacji API wykresu. Kolekcja zwrócona przez [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) zawiera kształty należące do wykresu.
 
-Zwykły pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda jak część wykresu. Iterowanie przez [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) znajduje wykres i zwykłe kształty slajdu, ale nie wylicza poszczególnych kształtów wewnątrz wykresu. Tytuły wykresów i etykiety danych są oddzielnymi elementami wykresu, a nie niestandardowymi adnotacjami w tej kolekcji.
+Zwykły pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda na część wykresu. Iteracja przez [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) znajduje wykres i zwykłe kształty slajdu, ale nie wylicza poszczególnych kształtów wewnątrz wykresu. Tytuły wykresów i etykiety danych są odrębnymi elementami wykresu, a nie niestandardowymi adnotacjami w tej kolekcji.
 
-Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Jego pierwszy slajd zawiera wykres z niezagregowaną adnotacją o treści „Preliminary results”, linią należącą do wykresu oraz zwykłym polem tekstowym slajdu o treści „Slide overlay”. Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na „Final results”, gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja nie jest pusta i edytuje jedynie [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) z niepustą ramką tekstową zwróconą przez [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) oraz z oczekiwanym tekstem.
+Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Na pierwszym slajdzie znajduje się wykres z niegrupowaną adnotacją „Preliminary results”, linią należącą do wykresu oraz zwykłym polem tekstowym slajdu z napisem „Slide overlay”. Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na „Final results”, gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja nie jest pusta, i edytuje jedynie [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) z niepustą ramką tekstową zwróconą przez [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) oraz oczekiwanym tekstem.
 
 ```java
 import com.aspose.slides.*;
@@ -311,26 +367,26 @@ try {
 }
 ```
 
-Linia i pole tekstowe slajdu pozostają niezmienione. Poniższe obrazy prezentują wejściowy oraz zapisany, ponownie otwarty wynik:
+Linia i pole tekstowe slajdu pozostają niezmienione. Poniższe obrazy pokazują wejście oraz zapisany, ponownie otwarty wynik:
 
-| Before editing | After editing |
+| Przed edycją | Po edycji |
 | --- | --- |
-| ![Adnotacja wykresu – Preliminary results](chart-annotations-before.png) | ![Adnotacja wykresu – Final results](chart-annotations-after.png) |
+| ![Adnotacja wykresu z napisem Preliminary results](chart-annotations-before.png) | ![Adnotacja wykresu z napisem Final results](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-Przykład sprawdza tylko kształty będące własnością wykresu na najwyższym poziomie. Jeśli adnotacja znajduje się wewnątrz [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), sprawdź także zbiór [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) tej grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich podrzędnych kształtów. Grupa sama w sobie jest kontenerem; nie traktuj jej jako pola tekstowego.
+{{% alert color="info" title="Uwaga" %}}
+Przykład sprawdza tylko kształty znajdujące się bezpośrednio w wykresie. Jeśli adnotacja znajduje się wewnątrz [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), należy również przejrzeć kolekcję [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) tej grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich podrzędnych kształtów. Grupa sama w sobie jest kontenerem; nie traktuj jej jako pola tekstowego.
 {{% /alert %}}
 
-## **Najczęściej zadawane pytania**
+## **FAQ**
 
 **Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, zachowując nieprzezroczyste obramowanie?**
 
-Tak. Przezroczystość wypełnienia i obramowanie są konfigurowane osobno. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
+Tak. Przezroczystość wypełnienia i kontur są konfigurowane osobno. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
 
-**Jak mogę radzić sobie z etykietami danych, gdy zachodzą na siebie?**
+**Jak mogę radzić sobie z etykietami danych, gdy nakładają się na siebie?**
 
-Zredukuj rozmiar czcionki, wyłącz nieistotne elementy etykiet (na przykład kategorie), dostosuj położenie etykiet, w razie potrzeby wyświetlaj etykiety tylko dla wybranych punktów lub zmień format na „wartość + legenda”.
+Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (np. kategorie), dostosuj pozycję etykiety, pokaż etykiety tylko dla wybranych punktów w razie potrzeby lub przełącz format na „wartość + legenda”.
 
-**Czy mogę zastosować wypełnienia gradientowe lub wzorzec do serii?**
+**Czy mogę zastosować wypełnienia gradientowe lub wzorcowe dla serii?**
 
-Tak. Serii można stosować wypełnienia jednolite, gradientowe i wzorzec. W praktyce używaj gradientów oszczędnie i unikaj kombinacji, które zmniejszają kontrast z siatką i tekstem.
+Tak. Serie obsługują wypełnienia stałe, gradientowe i wzorcowe. W praktyce stosuj gradienty oszczędnie i unikaj kombinacji, które obniżają kontrast z siatką i tekstem.

@@ -5,9 +5,9 @@ type: docs
 weight: 60
 url: /ko/androidjava/chart-formatting/
 keywords:
-- 차트 서식 지정
 - 차트 서식
-- 차트 요소
+- 차트 포맷팅
+- 차트 엔터티
 - 차트 속성
 - 차트 설정
 - 차트 옵션
@@ -18,19 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Java를 통해 Android용 Aspose.Slides에서 차트 서식 지정 방법을 배우고, 사용자 지정 축, 글꼴, 숫자 형식 및 둥근 차트 테두리로 PowerPoint 프레젠테이션을 향상시킵니다."
+description: "Aspose.Slides for Android(Java)를 사용하여 차트 서식을 배우고, 사용자 지정 축, 글꼴, 숫자 형식 및 둥근 차트 테두리로 PowerPoint 프레젠테이션을 향상시키세요."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides를 사용하여 PowerPoint 프레젠테이션에서 차트를 서식 지정하는 방법을 설명합니다. 차트 데이터의 외관과 가독성을 향상시키기 위해 축, 눈금선, 제목, 범례, 플롯 영역 및 벽 채우기와 같은 주요 차트 요소를 사용자 정의하는 방법을 보여 줍니다.
+이 문서는 Aspose.Slides를 사용하여 PowerPoint 프레젠테이션에서 차트를 포맷하는 방법을 설명합니다. 축, 눈금선, 제목, 범례, 플롯 영역 및 벽면 채우기와 같은 주요 차트 요소를 사용자 지정하여 차트 데이터의 외관과 가독성을 향상시키는 방법을 보여줍니다.
 
-또한 차트 텍스트에 대한 글꼴 속성을 설정하고, 차트 데이터에 사전 정의된 숫자 형식을 적용하며, 차트 영역에 둥근 모서리를 활성화하는 방법을 보여 줍니다. 이러한 예제들을 통해 프레젠테이션의 차트 시각 스타일과 데이터 표시를 모두 제어하는 방법을 확인할 수 있습니다.
+또한 차트 텍스트에 대한 글꼴 속성을 설정하고, 차트 데이터에 사전 설정된 숫자 형식을 적용하며, 차트 영역에 둥근 모서리를 활성화하는 방법을 시연합니다. 이러한 예제를 통해 프레젠테이션에서 차트의 시각 스타일과 데이터 표시를 모두 제어하는 방법을 배울 수 있습니다.
 
-## **차트 엔티티 서식 지정**
+상승 및 하강 구간에 대해 별도의 채우기와 외곽선을 적용하려면 [주식 차트 예제](/slides/ko/androidjava/create-chart/#create-stock-charts)를 참조하세요.
 
-차트 제목, 축, 눈금선, 범례 및 플롯 영역을 서식 지정하려면 [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/)을 사용합니다. 이 예제는 마커와 기본 데이터를 포함한 꺾은선형 차트를 만든 다음 값 축과 범주 축에 개별 텍스트 및 선 스타일을 적용합니다. 글꼴 크기와 선 두께는 포인트 단위로 지정되며, 범주 레이블은 45도 회전됩니다.
+## **차트 엔터티 형식 지정**
 
-값 축은 소스 셀과 무관하게 [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-)을 사용합니다. 스케일은 -2에서 15까지이며 주요 간격은 2, 보조 간격은 0.5입니다. 이 예제는 또한 퍼센트 서식을 [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-)과 함께 천 단위로 설정하여 결합하므로 데이터의 의미와 크기에 맞게 이러한 설정을 조정하십시오. 범례는 [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-)를 `false` 로 호출했기 때문에 플롯 영역 밖에 배치됩니다. 백월 및 바닥 채우기는 [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) 및 [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--)을 통해 구성되지만, 이러한 표면은 3D 차트에서만 표시됩니다.
+[IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/)을 사용하여 차트 제목, 축, 눈금선, 범례 및 플롯 영역을 포맷합니다. 이 예제는 마커가 있는 선 차트를 기본 데이터와 함께 생성한 다음, 값 축과 범주 축에 별도의 텍스트 및 선 스타일을 적용합니다. 글꼴 크기와 선 너비는 포인트 단위로 지정되며, 범주 레이블은 45도 회전됩니다.
+
+값 축은 소스 셀과 무관하게 [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-)을 사용합니다. 눈금은 -2에서 15까지이며, 주요 간격은 2, 부간격은 0.5입니다. 이 예제는 백분율 형식을 [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-)을 천 단위로 설정한 것과 결합하므로, 데이터의 의미와 규모에 맞게 이러한 설정을 조정하세요. 범례는 [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-)을 `false`로 호출했기 때문에 플롯 영역 외부에 유지됩니다. 백월과 바닥 채우기는 [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) 및 [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--)을 통해 구성하지만, 이러한 표면은 3D 차트에서만 표시됩니다.
 
 ```java
 import com.aspose.slides.*;
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **차트에 대한 글꼴 속성 설정**
+## **차트의 글꼴 속성 설정**
 
-차트 텍스트의 기본 글꼴 크기는 [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--)을 통해 설정합니다. 이 예제는 20포인트 글꼴을 사용한 클러스터된 열 차트를 만든 다음 [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-)를 통해 첫 번째 시리즈에 값 레이블을 활성화합니다. 자체 명시적 글꼴 설정이 있는 텍스트 요소는 차트 기본값을 재정의할 수 있습니다.
+[Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--)을 통해 차트 텍스트의 기본 글꼴 크기를 설정합니다. 예제는 20포인트 글꼴을 사용한 군집형 열 차트를 생성하고, 첫 번째 시리즈에 대해 [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-)를 사용하여 값 레이블을 활성화합니다. 자체 명시적 글꼴 설정을 가진 텍스트 요소는 차트 기본값을 재정의할 수 있습니다.
 
 ```java
 import com.aspose.slides.*;
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **차트 범례에 텍스트 프레임 서식 재사용**
+
+슬라이드 제목과 범례를 일치시키려면 첫 번째 단락의 [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--)을 사용하여 제목의 글꼴을 설정합니다. 범례의 [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformattedtextcontainer/#getTextFormat--)이 반환한 형식에 대해 [copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-)을 호출합니다. 이렇게 하면 텍스트 프레임 설정, 첫 번째 단락 서식 및 해당 단락의 기본 글꼴 속성이 복사됩니다. 개별 부분 또는 이후 단락에 직접 적용된 서식은 원본에만 국한됩니다.
+
+예제는 네이비 색상의 굵은 26포인트 Calibri 제목을 템플릿으로 사용합니다. 범례를 스타일링한 후, [copyTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-)를 호출하여 동일한 서식을 별도의 캡션에 적용합니다.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(Color.rgb(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+저장된 프레젠테이션에서 범례와 캡션은 크기, 두께 및 색상 면에서 제목과 일치합니다. 범례는 여전히 시리즈 이름을 표시하고, 캡션은 자체 텍스트를 유지합니다. 캡션의 일부에 명시적 글꼴 크기가 이미 지정된 경우, 해당 크기가 복사된 단락 기본값보다 우선합니다.
+
+| 복사 전 | 복사 후 |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **숫자 형식 설정**
 
-[IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-)을 사용하여 차트 워크북 셀에 내장 숫자 형식을 적용합니다. 이 예제는 기본 셀 기반 데이터를 사용한 클러스터된 열 차트를 만든 다음 각 시리즈 값 셀에 형식 인덱스 10(`0.00%`)을 적용합니다. 이렇게 하면 기본 숫자는 변경되지 않으면서 워크북에 표시되는 값이 변합니다; 예를 들어 0.25는 25.00%로 표시됩니다. 축 및 데이터 레이블 형식은 별도로 구성할 수 있습니다.
+[IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-)을 사용하여 차트 워크북 셀에 내장 숫자 형식을 적용합니다. 이 예제는 기본 셀 기반 데이터를 가진 군집형 열 차트를 생성하고, 각 시리즈 값 셀에 형식 인덱스 10(`0.00%`)을 적용합니다. 이렇게 하면 기본 숫자를 변경하지 않고 워크북에서 값 표시 방식이 바뀝니다(예: 0.25가 25.00%로 표시). 축 및 데이터 레이블 형식은 별도로 구성할 수 있습니다.
 
 ```java
 import com.aspose.slides.*;
@@ -197,7 +253,7 @@ try {
 }
 ```
 
-다음 표는 미국 영어 로케일에 대한 대표적인 Excel 형식과 함께 내장 숫자 형식 인덱스를 나열합니다. 정확한 형식 문자열 및 표시 방식은 응용 프로그램 및 로케일에 따라 다를 수 있으며, 특히 통화와 날짜 형식에 차이가 있습니다. 일부 Excel 형식은 OOXML 표준의 기본값과 다르며, 이는 [Microsoft의 숫자 형식 구현 노트](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)에서 설명합니다.
+다음 표는 미국 영어 로케일에 대한 대표적인 Excel 형식을 포함한 내장 숫자 형식 인덱스를 나열합니다. 정확한 형식 문자열과 표시 방식은 애플리케이션 및 로케일에 따라 달라질 수 있으며, 특히 통화와 날짜 형식이 다르게 나타날 수 있습니다. 일부 Excel 형식은 OOXML 표준의 기본값과도 차이가 있으며, 이는 [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)에 설명되어 있습니다.
 
 | 인덱스 | 형식 |
 | --- | --- |
@@ -238,9 +294,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **차트 영역 둥근 모서리 설정**
+## **차트 영역 둥근 테두리 설정**
 
-[IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-)에 `true` 를 전달하여 차트 영역의 모서리를 둥글게 합니다. 이 예제는 클러스터된 열 차트를 만든 다음 [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--)을 사용해 외곽선에 단색 회색과 단일 선 스타일을 적용하고 프레젠테이션을 저장합니다.
+[IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-)을 `true`와 함께 호출하면 차트 영역의 모서리가 둥글게 됩니다. 예제는 군집형 열 차트를 만든 뒤, [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--)을 사용해 외곽선에 단색 회색과 단일 선 스타일을 적용한 다음 프레젠테이션을 저장합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -264,11 +320,11 @@ try {
 
 ## **기존 차트 주석 편집**
 
-차트에는 보고서 상태를 설명하는 텍스트 주석과 같은 사용자 정의 도형을 포함할 수 있습니다. 이러한 도형은 [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--)를 통해 액세스할 수 있으며, 이는 차트 API 레퍼런스의 [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--)에도 나와 있습니다. [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--)가 반환하는 컬렉션에는 차트가 소유한 도형이 들어 있습니다.
+차트에는 보고서 상태를 설명하는 텍스트 주석과 같은 사용자 정의 도형을 포함할 수 있습니다. 이러한 도형은 [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--)를 통해 액세스할 수 있으며, 이는 차트 API 레퍼런스의 [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--)에도 나열됩니다. [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--)가 반환하는 컬렉션에는 차트가 소유한 도형이 포함됩니다.
 
-차트 위에 배치된 일반 텍스트 상자는 차트의 일부처럼 보여도 슬라이드에 속합니다. [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--)를 반복하면 차트와 일반 슬라이드 도형을 찾을 수 있지만 차트 내부의 개별 도형은 열거되지 않습니다. 차트 제목과 데이터 레이블은 별개의 차트 요소이며 이 컬렉션의 사용자 정의 주석이 아닙니다.
+차트 위에 배치된 일반 텍스트 상자는 차트의 일부처럼 보이더라도 슬라이드에 속합니다. [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--)를 반복하면 차트와 일반 슬라이드 도형을 찾을 수 있지만, 차트 내부의 개별 도형은 열거되지 않습니다. 차트 제목과 데이터 레이블은 별도의 차트 요소이며, 이 컬렉션에 포함된 사용자 정의 주석이 아닙니다.
 
-[chart-annotations.pptx](chart-annotations.pptx)를 다운로드하여 애플리케이션 작업 디렉터리에 배치합니다. 첫 번째 슬라이드에는 "Preliminary results"라는 그룹화되지 않은 주석과 차트 소유 라인, 그리고 "Slide overlay"라는 일반 슬라이드 텍스트 상자가 있는 차트가 포함되어 있습니다. 예제는 해당 슬라이드에서 첫 번째 차트를 찾아 보고서를 게시할 준비가 되었을 때 주석을 "Final results"로 변경합니다. 컬렉션이 비어 있는지 확인하고, [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) 중에서 [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--)이 반환하는 널이 아닌 텍스트 프레임을 가지고 기대 텍스트와 일치하는 경우에만 편집합니다.
+[chart-annotations.pptx](chart-annotations.pptx)를 다운로드하여 애플리케이션 작업 디렉터리에 두세요. 첫 번째 슬라이드에는 “Preliminary results”라는 주석, 차트가 소유한 선, 그리고 “Slide overlay”라는 텍스트가 있는 일반 슬라이드 텍스트 상자가 포함된 차트가 있습니다. 예제는 해당 슬라이드에서 첫 번째 차트를 찾아 보고서가 게시 준비가 되었을 때 주석을 “Final results”로 변경합니다. 빈 컬렉션을 확인하고, [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) 중 [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--)이 null이 아니며 예상 텍스트를 가진 경우에만 편집합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -312,26 +368,26 @@ try {
 }
 ```
 
-선과 슬라이드 텍스트 상자는 변경되지 않은 채로 남습니다. 다음 이미지들은 입력 파일과 저장 후 다시 연 결과를 보여 줍니다:
+선과 슬라이드 텍스트 상자는 변경되지 않은 상태로 유지됩니다. 다음 이미지에서는 입력과 저장 후 다시 연 결과를 보여줍니다:
 
 | 편집 전 | 편집 후 |
 | --- | --- |
 | ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-예제는 최상위 차트 소유 도형만 검사합니다. 주석이 [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) 내부에 있는 경우 해당 그룹의 [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) 컬렉션도 검사합니다. 중첩된 그룹에 대해 재귀적으로 반복하면서 자식 도형에 동일한 텍스트 검사를 적용합니다. 그룹 자체는 컨테이너이며 텍스트 상자로 취급하지 마십시오.
+예제는 최상위 차트 소유 도형만 검사합니다. 주석이 [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) 내부에 있는 경우 해당 그룹의 [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) 컬렉션도 검사하십시오. 중첩 그룹에 대해서는 재귀적으로 동일한 텍스트 검사를 적용합니다. 그룹 자체는 컨테이너이며, 텍스트 상자로 취급하지 마세요.
 {{% /alert %}}
 
-## **자주 묻는 질문**
+## **FAQ**
 
-**열/영역에 반투명 채우기를 적용하면서 테두리를 불투명하게 유지할 수 있나요?**
+**열/영역에 반투명 채우기를 적용하면서 테두리는 불투명하게 유지할 수 있나요?**
 
-예. 채우기 투명도와 외곽선은 별도로 설정됩니다. 이는 복잡한 시각화에서 격자와 데이터의 가독성을 높이는 데 유용합니다.
+네. 채우기 투명도와 외곽선은 별도로 구성됩니다. 이는 격자와 데이터가 조밀한 시각화에서 가독성을 높이는 데 유용합니다.
 
-**데이터 레이블이 겹칠 때 어떻게 처리할 수 있나요?**
+**레이블이 겹칠 때 어떻게 처리해야 하나요?**
 
-글꼴 크기를 줄이고, 불필요한 레이블 요소(예: 범주)를 비활성화하며, 레이블 위치를 조정하고, 필요에 따라 선택된 포인트에만 레이블을 표시하거나 형식을 "값 + 범례"로 전환하십시오.
+글꼴 크기를 줄이거나, 필요 없는 레이블 요소(예: 카테고리)를 비활성화하고, 레이블 위치를 조정하거나, 필요한 경우 선택된 포인트에만 레이블을 표시하거나, “값 + 범례” 형식으로 전환하십시오.
 
-**시리즈에 그라디언트 또는 패턴 채우기를 적용할 수 있나요?**
+**시리즈에 그라데이션 또는 패턴 채우기를 적용할 수 있나요?**
 
-예. 시리즈는 단색, 그라디언트, 패턴 채우기를 모두 지원합니다. 실제로는 그라디언트를 적게 사용하고 격자와 텍스트와의 대비를 감소시키는 조합은 피하십시오.
+네. 시리즈는 단색, 그라데이션 및 패턴 채우기를 지원합니다. 실제 사용에서는 그라데이션을 적게 사용하고, 격자와 텍스트 대비를 떨어뜨리는 조합은 피하는 것이 좋습니다.

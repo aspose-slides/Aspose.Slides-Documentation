@@ -1,5 +1,5 @@
 ---
-title: Formatera presentationsdiagram i Java
+title: Formatera diagram i presentationer i Java
 linktitle: Diagramformatering
 type: docs
 weight: 60
@@ -11,23 +11,27 @@ keywords:
 - diagramegenskaper
 - diagraminställningar
 - diagramalternativ
-- teckensegenskaper
-- avrundade kanter
+- teckensnittsegenskaper
+- rundade kanter
 - PowerPoint
 - presentation
 - Java
 - Aspose.Slides
-description: "Lär dig diagramformatering i Aspose.Slides för Java och förbättra din PowerPoint-presentation med anpassade axlar, teckensnitt, talformat och avrundade diagramkanter."
+description: "Lär dig diagramformatering i Aspose.Slides för Java och förbättra din PowerPoint-presentation med anpassade axlar, teckensnitt, nummerformat och rundade diagramkanter."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man formaterar diagram i PowerPoint‑presentationer med Aspose.Slides. Den visar hur man anpassar viktiga diagramdelar såsom axlar, rutnätlinjer, titlar, förklaringar, diagramområdet och väggfyllningar för att förbättra utseendet och läsbarheten för diagramdata. Den visar även hur man ställer in teckenegenskaper för diagramtext, tillämpar förinställda numeriska format på diagramdata och aktiverar avrundade hörn för diagramområdet. Tillsammans visar dessa exempel hur man styr både den visuella stilen och datapresentationen för diagram i en presentation.
+Denna artikel förklarar hur man formaterar diagram i PowerPoint-presentationer med Aspose.Slides. Den visar hur man anpassar viktiga diagramelement såsom axlar, rutnätlinjer, titlar, förklaringar, plotområdet och väggfyllningar för att förbättra utseendet och läsbarheten för diagramdata.
+
+Den demonstrerar också hur man ställer in teckensnittsegenskaper för diagramtext, tillämpar fördefinierade numeriska format på diagramdata och aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur man styr både den visuella stilen och datavisningen för diagram i en presentation.
+
+För separata fyllningar och konturer på stigande och fallande intervall, se [exempel på aktiediagram](/slides/sv/java/create-chart/#create-stock-charts).
 
 ## **Formatera diagramobjekt**
 
-Använd [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) för att formatera diagramtitlar, axlar, rutnätlinjer, förklaringar och diagramområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text‑ och linjestilar på dess värde‑ och kategoriaxlar. Teckenstorlekar och linjebreddar anges i punkt; kategorietiketter roteras 45 grader.
+Använd [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) för att formatera diagramtitlar, axlar, rutnätlinjer, förklaringar och plotområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text- och linjestilar på dess värde- och kategoriaxlar. Teckensnittsstorlekar och linjebreddar anges i punkter; kategorietiketter roteras 45 grader.
 
-Värdeaxeln använder [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) oberoende av källcellerna. Dess skala sträcker sig från -2 till 15, med huvudintervall på 2 och mindre intervall på 0,5. Exemplet kombinerar också procentformatering med [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) satt till tusental, så anpassa dessa inställningar efter betydelsen och omfattningen av dina data. Förklaringen placeras utanför diagramområdet eftersom [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) anropas med `false`. Bakväggs‑ och golv‑fyllningar konfigureras via [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) och [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), men dessa ytor är endast synliga i 3D‑diagram.
+Värdeaxeln använder [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) oberoende av källcellerna. Dess skala sträcker sig från -2 till 15, med huvudintervall på 2 och delintervall på 0,5. Exemplet kombinerar även procentformatering med [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) satt till tusental, så anpassa dessa inställningar efter meningen och storleken på dina data. Förklaringen ligger utanför plotområdet eftersom [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) anropas med `false`. Bakväggs- och golvfyllningar konfigureras via [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) och [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), men dessa ytor är endast synliga i 3D-diagram.
 
 ```java
 import com.aspose.slides.*;
@@ -145,9 +149,9 @@ try {
 }
 ```
 
-## **Ställ in teckensegenskaper för ett diagram**
+## **Ange teckensnittsegenskaper för ett diagram**
 
-Ställ in standardteckenstorlek för diagramtext via [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). Exemplet skapar ett staplat kolumndiagram med ett 20‑punkts teckensnitt och aktiverar värdetiketter för den första serien via [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Textelement med egna explicita teckensnittinställningar kan åsidosätta diagrammets standard.
+Ange standardteckensnittsstorlek för diagramtext via [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). Exemplet skapar ett grupperat stapeldiagram med ett 20-punkts teckensnitt och aktiverar värdeetiketter för den första serien via [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Textelement med egna uttryckliga teckensnittinställningar kan åsidosätta diagrammets standard.
 
 ```java
 import com.aspose.slides.*;
@@ -166,9 +170,63 @@ try {
 }
 ```
 
-## **Ställ in det numeriska formatet**
+## **Återanvänd textramformatering för en diagramförklaring**
 
-Använd [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) för att tillämpa ett inbyggt talformat på diagrammets arbetsboksceller. Detta exempel skapar ett staplat kolumndiagram med standard‑, cell‑baserad data och tillämpar formatindex 10 (`0.00%`) på varje serie‑värdecell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0,25 som 25,00 %. Axel‑ och datatetikettformat kan konfigureras separat.
+För att matcha en förklaring med en bildspelsrubrik, ange rubrikens teckensnitt via [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) på det första stycket. Anropa [copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) på formatet som returneras av förklaringens [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iformattedtextcontainer/#getTextFormat--). Det kopierar textraminställningarna, det första styckets formatering och styckets standardteckensnittsegenskaper. Formatering som tillämpas direkt på enskilda delar eller på senare stycken förblir lokala för källan.
+
+Exemplet använder en fet, 26-punkts Calibri‑rubrik i marinblå som mall. Efter att ha formaterat förklaringen anropar det [copyTo](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) för att tillämpa samma formatering på en separat bildtext.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(new Color(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+I den sparade presentationen matchar förklaringen och bildtexten rubriken i storlek, vikt och färg. Förklaringen visar fortfarande serienamnen, och bildtexten behåller sin egen text. Om en del i bildtexten redan har en uttryckt teckensnittsstorlek, får den storleken företräde framför det kopierade stycket som standard.
+
+| Innan kopiering | Efter kopiering |
+| --- | --- |
+| ![Kvartalsförsäljningsdiagram med vanliga svarta förklaringsetiketter och en svart bildtext](legend-formatting-before.png) | ![Samma diagram med större, fetta marinblå förklaringsetiketter och en matchande bildtext](legend-formatting.png) |
+
+## **Ange numeriskt format**
+
+Använd [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) för att tillämpa ett inbyggt nummerformat på diagrammets arbetsboks-celler. Detta exempel skapar ett grupperat stapeldiagram med standard, cellbaserad data och tillämpar formatindex 10 (`0.00%`) på varje series värdecell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0,25 som 25,00 %. Axel- och dataetikettformat kan konfigureras separat.
 
 ```java
 import com.aspose.slides.*;
@@ -194,7 +252,7 @@ try {
 }
 ```
 
-Följande tabell listar inbyggda talformatindex med representativa Excel‑format för den engelska (USA) språkvarianten. De exakta formatsträngarna och deras visning kan variera mellan program och språkvariant, särskilt för valuta och datum. Vissa Excel‑format skiljer sig också från standardvärdena i OOXML‑standarden, som beskrivs i [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Följande tabell listar inbyggda nummerformatindex med representativa Excel-format för den engelska (USA) lokalen. De exakta formatsträngarna och deras visning kan variera mellan program och lokaler, särskilt för valuta och datum. Vissa Excel-format avviker också från standardvärdena i OOXML‑standarden, som beskrivs i [Microsofts anteckningar om implementering av nummerformat](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Format |
 | --- | --- |
@@ -235,9 +293,9 @@ Följande tabell listar inbyggda talformatindex med representativa Excel‑forma
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Ställ in avrundade kanter för diagramområdet**
+## **Ange rundade kanter för diagramområde**
 
-Anropa [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) med `true` för att avrunda hörnen på diagramområdet. Exemplet skapar ett staplat kolumndiagram och använder [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
+Anropa [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) med `true` för att runda hörnen på diagramområdet. Exemplet skapar ett grupperat stapeldiagram och använder [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
 
 ```java
 import com.aspose.slides.*;
@@ -261,11 +319,11 @@ try {
 
 ## **Redigera befintliga diagramanteckningar**
 
-Ett diagram kan innehålla egna former, såsom en textanteckning som förklarar statusen för en rapport. Åtkomst till dessa former sker via [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), även listade under [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) i Chart API‑referensen. Samlingen som returneras av [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) innehåller diagram­ägda former.
+Ett diagram kan innehålla anpassade former, såsom en textanteckning som förklarar statusen för en rapport. Åtkomst till dessa former sker via [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), även listade under [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) i Diagram‑API‑referensen. Samlingen som returneras av [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) innehåller diagramägda former.
 
-En vanlig textruta placerad ovanpå ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Genom att iterera över [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) hittas diagrammet och vanliga bildformer, men de enskilda formerna i diagrammet räknas inte upp. Diagramtitlar och datatetiketter är separata diagram‑element, inte anpassade anteckningar i denna samling.
+En vanlig textruta placerad över ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Iterering genom [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) hittar diagrammet och vanliga bildformer, men räknar inte upp de enskilda formerna inne i diagrammet. Diagramtitlar och dataetiketter är separata diagramelement, inte anpassade anteckningar i denna samling.
 
-Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en ogrupperad anteckning med texten "Preliminary results", en diagram‑ägd linje och en vanlig bildtextruta med texten "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är klar för publicering. Det kontrollerar om samlingen är tom och redigerar endast en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) med en icke‑null textram som returneras av [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) och den förväntade texten.
+Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en ogrupperad anteckning som lyder "Preliminära resultat", en diagramägd linje och en vanlig bildtextruta som lyder "Bildöverlappning". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Slutresultat" när rapporten är klar för publicering. Det kontrollerar om samlingen är tom och redigerar endast en [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) med en icke‑null textram som returneras av [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) och den förväntade texten.
 
 ```java
 import com.aspose.slides.*;
@@ -309,26 +367,26 @@ try {
 }
 ```
 
-Linjen och bildtextrutan förblir oförändrade. Följande bilder visar indata och det sparade, öppnade resultatet:
+Linjen och bildtextrutan förblir oförändrade. Följande bilder visar indata och det sparade, återöppnade resultatet:
 
-| Before editing | After editing |
+| Innan redigering | Efter redigering |
 | --- | --- |
-| ![Diagramanteckning med text Preliminary results](chart-annotations-before.png) | ![Diagramanteckning med text Final results](chart-annotations-after.png) |
+| ![Diagramanteckning som visar Preliminära resultat](chart-annotations-before.png) | ![Diagramanteckning som visar Slutresultat](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-Exemplet inspekterar endast diagram‑ägda former på top‑nivå. Om en anteckning finns inne i en [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), inspektera även den gruppens [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--)‑samling. Upprepa detta rekursivt för nästlade grupper och tillämpa samma textkontroller på deras underliggande former. En grupp i sig är en behållare; behandla den inte som en textruta.
+{{% alert color="info" title="Obs" %}}
+Exemplet granskar endast diagramägd former på toppnivå. Om en anteckning ligger i en [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/), inspektera även den gruppens [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--)‑samling. Upprepa detta rekursivt för nästlade grupper och tillämpa samma textkontroller på deras underliggande former. En grupp i sig är en behållare; behandla den inte som en textruta.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kan jag ställa in semitransparenta fyllningar för kolumner/områden samtidigt som kanten förblir opak?**
+**Kan jag sätta halvt genomskinliga fyllningar för kolumner/områden samtidigt som kanterna förblir ogenomskinliga?**
 
-Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten av rutnätet och data i täta visualiseringar.
+Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
 
-**Hur kan jag hantera datatetiketter när de överlappar?**
+**Hur kan jag hantera dataetiketter när de överlappar?**
 
-Minska teckenstorleken, inaktivera icke‑nödvändiga komponenter i etiketten (t.ex. kategorier), justera etikettens position, visa etiketter endast för utvalda punkter om nödvändigt, eller byt formatet till "värde + förklaring".
+Minska teckensnittsstorleken, inaktivera icke‑nödvändiga etikettkomponenter (t.ex. kategorier), justera etikettpositionen, visa etiketter endast för valda punkter om nödvändigt, eller byt formatet till "värde + förklaring".
 
-**Kan jag applicera gradient‑ eller mönsterfyllningar på serier?**
+**Kan jag tillämpa gradient‑ eller mönsterfyllningar på serier?**
 
-Ja. Serier stöder solid, gradient‑ och mönsterfyllningar. I praktiken bör gradienter användas sparsamt och kombinationer som minskar kontrasten mot rutnätet och texten undvikas.
+Ja. Serier stöder solida, gradient‑ och mönsterfyllningar. I praktiken bör gradienter användas sparsamt och kombinationer som minskar kontrasten mot rutnätet och texten undvikas.

@@ -1,35 +1,37 @@
 ---
-title: تنسيق مخططات العرض في بايثون
+title: تنسيق مخططات العرض التقديمي في Python
 linktitle: تنسيق المخططات
 type: docs
 weight: 60
 url: /ar/python-java/chart-formatting/
 keywords:
-  - تنسيق المخطط
-  - تنسيق المخططات
-  - كيان المخطط
-  - خصائص المخطط
-  - إعدادات المخطط
-  - خيارات المخطط
-  - خصائص الخط
-  - حد مستدير
-  - PowerPoint
-  - العرض التقديمي
-  - Python
-  - Aspose.Slides
-description: "تعرّف على تنسيق المخططات في Aspose.Slides للغة Python عبر Java وارتق بعرض PowerPoint الخاص بك باستخدام محاور مخصصة، خطوط، تنسيقات رقمية، وحدود مخطط مستديرة."
+- تنسيق المخطط
+- تنسيق المخططات
+- كيان المخطط
+- خصائص المخطط
+- إعدادات المخطط
+- خيارات المخطط
+- خصائص الخط
+- حد مستدير
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تعلم تنسيق المخططات في Aspose.Slides للغة Python عبر Java وارتقِ بعرض PowerPoint الخاص بك باستخدام محاور مخصصة، خطوط، تنسيقات رقمية، وحدود مخطط مستديرة."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. توضح كيفية تخصيص العناصر الرئيسية للمخطط مثل المحاور، خطوط الشبكة، العناوين، وسيلة الإيضاح، منطقة الرسم، وتعبئة الجدران لتحسين مظهر وقراءة بيانات المخطط.
+توضح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. تُظهر كيفية تخصيص العناصر الأساسية للمخطط مثل المحاور وخطوط الشبكة والعناوين والأساطير ومنطقة الرسم وتعبئة الجدران لتحسين مظهر البيانات وقابليتها للقراءة.
 
-كما توضح كيفية تعيين خصائص الخط للنص داخل المخطط، وتطبيق تنسيقات رقمية مسبقة الإعداد على بيانات المخطط، وتفعيل الزوايا المستديرة لمنطقة المخطط. معًا، تُظهر هذه الأمثلة كيفية التحكم في كل من النمط البصري وعرض البيانات للمخططات في العرض التقديمي.
+كما توضح كيفية تعيين خصائص الخط لنص المخطط، وتطبيق تنسيقات عددية مسبقة على بيانات المخطط، وتمكين الزوايا المستديرة لمنطقة المخطط. تُظهر هذه الأمثلة معًا كيفية التحكم في كل من النمط البصري وعرض البيانات للمخططات في العرض التقديمي.
+
+للتعبئات والخطوط المنفصلة للفواصل الصاعدة والهابطة، راجع [مثال مخطط الأسهم](/slides/ar/python-java/create-chart/#create-stock-charts).
 
 ## **تنسيق كيانات المخطط**
 
-استخدم [مخطط](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) لتنسيق عناوين المخطط، والمحاور، وخطوط الشبكة، وسيلة الإيضاح، ومنطقة الرسم. يُنشئ هذا المثال مخططًا خطيًا مع علامات وبيانات افتراضية، ثم يطبق أنماط نص وخط منفصلة على محوري القيم والفئات. تُحدد أحجام الخطوط وعروض الخطوط بالنقاط؛ تُدوَّر تسميات الفئات بزاوية 45 درجة.
+استخدم [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) لتنسيق عناوين المخطط، والمحاور، وخطوط الشبكة، والأساطير، ومنطقة الرسم. يُنشئ هذا المثال مخططًا خطيًا مع مؤشرات وبيانات افتراضية، ثم يطبق أنماط نصية وخطية منفصلة على محوري القيم والفئات. يتم تحديد أحجام الخطوط وعرض الخطوط بالنقاط؛ ويتم تدوير تسميات الفئات بزاوية 45 درجة.
 
-يستخدم محور القيم الدالة [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) بصورة مستقلة عن خلايا المصدر. يمتد مقياسه من -2 إلى 15، مع فواصل رئيسية تبلغ 2 وفواصل فرعية 0.5. يجمع المثال أيضًا التنسيق النسيبي مع الدالة [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) المضبوطة على الآلاف، لذا عليك تعديل هذه الإعدادات لتتناسب مع معنى وحجم بياناتك. تظل وسيلة الإيضاح خارج منطقة الرسم لأن دالة [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) تُستدعى مع `False`. تُضبط تعبئات الجدار الخلفي والأرضية عبر [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) و[getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor)، لكن هذه الأسطح تُظهر فقط في المخططات ثلاثية الأبعاد.
+يستخدم محور القيم الدالة [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) بشكل مستقل عن خلايا المصدر. يمتد مقياسه من -2 إلى 15، مع فواصل رئيسية مقدارها 2 وفواصل فرعية مقدارها 0.5. يجمع المثال أيضًا بين تنسيق النسبة المئوية والدالة [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) المضبوطة على الآلاف، لذا قم بتكييف هذه الإعدادات مع معنى وحجم بياناتك. يبقى الأسطورة خارج منطقة الرسم لأن الدالة [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) تُستدعى بالقيمة `False`. يتم تكوين تعبئة الجدار الخلفي والأرضية عبر [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) و[getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor)، لكن هذه السطوح لا تظهر إلا في المخططات ثلاثية الأبعاد.
 
 ```python
 import jpype
@@ -159,7 +161,7 @@ finally:
 
 ## **تعيين خصائص الخط لمخطط**
 
-حدد حجم الخط الافتراضي لنص المخطط عبر [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). يُنشئ المثال مخطط أعمدة متجمع بخط 20 نقطة ويفعل تسميات القيم للسلسلة الأولى عبر [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). يمكن لعناصر النص التي تمتلك إعدادات خط صريحة أن تتجاوز الإعداد الافتراضي للمخطط.
+عيّن حجم الخط الافتراضي لنص المخطط عبر [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). ينشئ المثال مخطط أعمدة مجمّع بحجم خط 20 نقطة ويفعل تسميات القيم للسلسلة الأولى عبر [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). يمكن لعناصر النص التي لديها إعدادات خط صريحة أن تتجاوز الإعداد الافتراضي للمخطط.
 
 ```python
 import jpype
@@ -183,9 +185,69 @@ finally:
     presentation.dispose()
 ```
 
+## **إعادة استخدام تنسيق إطار النص لأسطورة المخطط**
+
+لمطابقة الأسطورة مع عنوان الشريحة، عيّن خط العنوان عبر [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) في الفقرة الأولى. استدعِ [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom) على التنسيق الذي تُرجعه الدالة [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) الخاصة بالأسطورة. هذه العملية تنسخ إعدادات إطار النص، وتنسيق الفقرة الأولى، وخصائص الخط الافتراضية لتلك الفقرة. يظل التنسيق المطبق مباشرةً على أجزاء معينة أو على فقرات لاحقة محليًا بالنسبة للمصدر.
+
+يستخدم المثال عنوانًا بخط Calibri غامق بحجم 26 نقطة ولون أزرق داكن كالقالب. بعد تنسيق الأسطورة، يستدعي [copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) لتطبيق نفس التنسيق على تسمية توضيحية منفصلة.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+في العرض التقديمي المحفوظ، تتطابق الأسطورة والتسمية التوضيحية مع العنوان من حيث الحجم والوزن واللون. لا تزال الأسطورة تعرض أسماء السلاسل، وتحتفظ التسمية التوضيحية بنصها الخاص. إذا كان هناك جزء في التسمية التوضيحية يحتوي بالفعل على حجم خط صريح، فإن ذلك الحجم يتفوق على حجم الفقرة المنسوخ.
+
+| قبل النسخ | بعد النسخ |
+| --- | --- |
+| ![مخطط مبيعات ربع سنوي مع تسميات أسطورة سوداء عادية وتسمية توضيحية سوداء](legend-formatting-before.png) | ![نفس المخطط مع تسميات أسطورة زرقاء داكنة غامقة أكبر وتسمية توضيحية متطابقة](legend-formatting.png) |
+
 ## **تعيين التنسيق الرقمي**
 
-استخدم [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) لتطبيق تنسيق رقمي مدمج على خلايا دفتر عمل المخطط. يُنشئ هذا المثال مخطط أعمدة متجمع ببيانات افتراضية مدعومة بالخلايا ويطبّق الفهرس 10 (`0.00%`) على خلية قيمة كل سلسلة. يغيّر هذا طريقة عرض القيم في دفتر العمل دون تعديل الأرقام الأساسية؛ على سبيل المثال، يتم عرض 0.25 كـ 25.00٪. يمكن تكوين تنسيقات المحاور وتسميات البيانات بشكل منفصل.
+استخدم [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) لتطبيق تنسيق رقم مدمج على خلايا دفاتر العمل الخاصة بالمخطط. يُنشئ هذا المثال مخطط أعمدة مجمّع ببيانات افتراضية مدعومة بالخلايا ويُطبق الفهرس 10 (`0.00%`) على كل خلية قيمة للسلسلة. يغيّر ذلك طريقة عرض القيم في دفتر العمل دون تعديل الأرقام الأساسية؛ على سبيل المثال، يُعرض 0.25 كـ 25.00٪. يمكن تكوين تنسيقات المحور وتنسيقات تسميات البيانات بشكل منفصل.
 
 ```python
 import jpype
@@ -212,7 +274,7 @@ finally:
     presentation.dispose()
 ```
 
-الجدول التالي يدرج مؤشرات تنسيقات الأرقام المدمجة مع صيغ Excel التمثيلية للغة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق وعرضها بحسب التطبيق واللغة، خصوصًا للعملات والتواريخ. بعض صيغ Excel تختلف أيضًا عن القيم الافتراضية في معيار OOXML، كما هو موضح في [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+الجدول التالي يسرد فهارس تنسيقات الأرقام المدمجة مع صيغ Excel ممثلة للغة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق الدقيقة وعرضها بحسب التطبيق واللغة، خاصة للعملات والتواريخ. بعض صيغ Excel تختلف أيضًا عن القيم الافتراضية في معيار OOXML، كما هو موضح في [ملاحظات مايكروسوفت حول تنفيذ تنسيق الأرقام](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | الفهرس | التنسيق |
 | --- | --- |
@@ -255,7 +317,7 @@ finally:
 
 ## **تعيين حدود مستديرة لمنطقة المخطط**
 
-استدعِ [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) مع `True` لتقويس زوايا منطقة المخطط. يُنشئ المثال مخطط أعمدة متجمع ويستخدم [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) لإعطاء حدوده لونًا رماديًا صلبًا ونمط خط واحد قبل حفظ العرض التقديمي.
+استدعِ الدالة [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) مع القيمة `True` لتقويس زوايا منطقة المخطط. يُنشئ المثال مخطط أعمدة مجمّع ويستخدم [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) لإعطاء حدوده لونًا رماديًا صلبًا ونمط خط أحادي قبل حفظ العرض التقديمي.
 
 ```python
 import jpype
@@ -283,13 +345,13 @@ finally:
     presentation.dispose()
 ```
 
-## **تحرير تعليقات المخطط الموجودة**
+## **تحرير التعليقات التوضيحية للمخطط الموجودة**
 
-يمكن للمخطط أن يحتوي على أشكال مخصصة، مثل تعليقات نصية توضح حالة تقرير ما. يمكن الوصول إلى هذه الأشكال عبر [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). المجموعة التي تُرجعها الدالة [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) تحتوي على الأشكال المملوكة للمخطط.
+يمكن للمخطط أن يحتوي على أشكال مخصصة، مثل تعليق نصي يوضح حالة تقرير. وَصُل إلى هذه الأشكال عبر [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). المجموعة التي تُرجعها الدالة [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) تحتوي على الأشكال المملوكة للمخطط.
 
-مربع النص العادي الموضوع فوق المخطط ينتمي إلى الشريحة، حتى وإن بدا كجزء من المخطط. يؤدي التكرار عبر [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) إلى العثور على المخطط وأشكال الشريحة العادية، لكنه لا يسرد الأشكال الفردية داخل المخطط. عناوين المخطط وتسميات البيانات هي عناصر مخطط منفصلة، وليست تعليقات مخصصة في هذه المجموعة.
+مربع نص عادي موضوع فوق المخطط ينتمي إلى الشريحة، حتى لو بدا كجزء من المخطط. يَكتشف الاستعراض عبر [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) المخطط والأشكال العادية في الشريحة، لكنه لا يعدّ الأشكال الفردية داخل المخطط. عناوين المخطط وتسميات البيانات هي عناصر مخطط منفصلة، وليست تعليقات مخصصة في هذه المجموعة.
 
-نزِّل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل عمل التطبيق. تحتوي الشريحة الأولى على مخطط به تعليق غير مجموع يُظهر النص "Preliminary results"، وخط مملوك للمخطط، ومربع نص عادي على الشريحة يُظهر النص "Slide overlay". يحدد المثال أول مخطط في تلك الشريحة ويغيّر التعليق إلى "Final results" عندما يكون التقرير جاهزًا للنشر. يتحقق من أن المجموعة غير فارغة ويُعدِّل فقط [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) الذي يحتوي على إطار نص ليس `None` يُرجعه [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) والنص المتوقع.
+حمّل الملف [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل عمل التطبيق. يحتوي الشريحة الأولى على مخطط مع تعليق غير مجمع يُظهر النص "Preliminary results"، وخط مملوك للمخطط، ومربع نص عادي في الشريحة يُظهر النص "Slide overlay". يجد المثال أول مخطط على تلك الشريحة ويغيّر التعليق إلى "Final results" عندما يصبح التقرير جاهزًا للنشر. يتحقق من وجود مجموعة فارغة ولا يحرّر سوى [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ذو إطار نص غير `None` تُرجعه الدالة [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame)، ويتأكد من النص المتوقع.
 
 ```python
 import jpype
@@ -330,26 +392,28 @@ finally:
     presentation.dispose()
 ```
 
-يبقى الخط ومربع النص على الشريحة دون تعديل. تُظهر الصور التالية الإدخال والنتيجة المحفوظة والتي أُعيد فتحها:
+يبقى الخط ومربع النص في الشريحة دون تغيير. تُظهر الصور التالية الإدخال والنتيجة المحفوظة عند إعادة الفتح:
 
-| قبل التعديل | بعد التعديل |
+| قبل التحرير | بعد التحرير |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![تعليق مخطط يقرأ Preliminary results](chart-annotations-before.png) | ![تعليق مخطط يقرأ Final results](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-يفحص المثال فقط الأشكال المملوكة للمخطط على المستوى الأعلى. إذا كان التعليق داخل [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/)، فافحص مجموعة [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) لذلك التجميع أيضًا. كرّر ذلك بشكل متكرر للمجموعات المتداخلة، مع تطبيق نفس فحوصات النص على الأشكال الفرعية. المجموعة نفسها هي حاوية؛ لا تُعاملها كمربع نص.
+{{% alert color="info" title="ملاحظة" %}}
+
+يفحص المثال فقط الأشكال المملوكة للمخطط على المستوى الأعلى. إذا كان التعليق داخل [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/)، فافحص مجموعة تلك الأشكال عبر الدالة [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) كذلك. كرّر ذلك بصورة متكررة للمجموعات المتداخلة، مطبقًا نفس فحوصات النص على الأشكال الفرعية. المجموعة نفسها حاوية؛ لا تُعامِلها كصندوق نص.
+
 {{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تعيين تعبئات شبه شفافة للأعمدة/المناطق مع الحفاظ على الحدود غير شفافة؟**
+**هل يمكنني تعيين تعبئات نصف شفافة للأعمدة/المساحات مع الحفاظ على حد غير شفاف؟**
 
-نعم. يتم تكوين شفافية التعبئة والحدود بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
+نعم. يتم تكوين شفافية التعبئة والخط الخارجي بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
 
 **كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
 
-قلل حجم الخط، عطل مكونات التسمية غير الضرورية (مثل الفئات)، اضبط موضع التسمية، اعرض التسميات فقط للنقاط المحددة إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + وسيلة الإيضاح".
+قلل حجم الخط، عطل المكونات غير الضرورية للتسمية (مثل الفئات)، عدّل موضع التسمية، اعرض التسميات فقط للنقاط المختارة إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + الأسطورة".
 
 **هل يمكنني تطبيق تعبئات تدرجية أو نمطية على السلاسل؟**
 
-نعم. تدعم السلاسل تعبئات صلبة، وتدرجية، ونمطية. في الواقع، استخدم التدرجات بحذر وتجنب التركيبات التي تقلل من التباين مع الشبكة والنص.
+نعم. تدعم السلاسل تعبئات صلبة، وتدرجية، ونمطية. في الممارسة العملية، استخدم التدرجات باعتدال وتجنب الجمعات التي تقلل التباين مع الشبكة والنص.

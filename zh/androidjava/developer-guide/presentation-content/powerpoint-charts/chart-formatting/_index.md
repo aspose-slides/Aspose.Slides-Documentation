@@ -18,19 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "了解在 Android 上通过 Java 使用 Aspose.Slides 的图表格式化，并通过自定义坐标轴、字体、数字格式和圆角图表边框提升您的 PowerPoint 演示文稿。"
+description: "通过 Java 在 Android 上使用 Aspose.Slides 学习图表格式化，并通过自定义坐标轴、字体、数字格式和圆角图表边框提升您的 PowerPoint 演示文稿。"
 ---
 ## **概述**
 
-本文说明如何使用 Aspose.Slides 在 PowerPoint 演示文稿中格式化图表。它展示了如何自定义轴、网格线、标题、图例、绘图区以及墙面填充等关键图表元素，以提升图表数据的外观和可读性。
+本文解释了如何使用 Aspose.Slides 在 PowerPoint 演示文稿中格式化图表。它展示了如何自定义关键图表元素，例如坐标轴、网格线、标题、图例、绘图区域和墙面填充，以提升图表数据的外观和可读性。
 
-还演示了如何为图表文本设置字体属性、对图表数据应用预设数值格式，以及为图表区域启用圆角。通过这些示例，可了解如何同时控制演示文稿中图表的视觉样式和数据呈现。
+它还演示了如何为图表文本设置字体属性、对图表数据应用预设数字格式，以及为图表区域启用圆角。这些示例共同展示了如何控制演示文稿中图表的视觉样式和数据呈现。
+
+有关上升和下降区间的单独填充和轮廓，请参阅[股票图表示例](/slides/zh/androidjava/create-chart/#create-stock-charts)。
 
 ## **格式化图表实体**
 
-使用[IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/)来格式化图表标题、轴、网格线、图例和绘图区。此示例创建了一个带有标记和默认数据的折线图，然后为其值轴和分类轴分别应用文本和线条样式。字体大小和线宽以磅为单位指定；分类标签旋转 45 度。
+使用[IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/)来格式化图表标题、坐标轴、网格线、图例和绘图区域。本示例创建了一个带有标记和默认数据的折线图，然后为其数值轴和类别轴分别应用文本和线条样式。字体大小和线宽以磅为单位指定；类别标签旋转 45 度。
 
-值轴使用[setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-)独立于源单元格。其刻度范围为 -2 到 15，主间隔为 2，次间隔为 0.5。示例还将百分比格式与[setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-)（设置为千）结合使用，请根据数据的含义和量级自行调整这些设置。图例因为调用了[setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-)并传入 `false`，所以位于绘图区之外。背墙和地板填充通过[getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--)和[getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--)进行配置，但这些表面仅在 3D 图表中可见。
+数值轴使用[setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-)，独立于源单元格。其刻度范围为 -2 到 15，主间隔为 2，次间隔为 0.5。示例还将百分比格式与[setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) 设置为千位相结合，因此请根据数据的含义和量级调整这些设置。由于对[setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) 传入 `false`，图例保持在绘图区域外。背墙和地板填充通过[getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) 和[getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) 进行配置，但这些表面仅在 3D 图表中可见。
 
 ```java
 import com.aspose.slides.*;
@@ -150,7 +152,7 @@ try {
 
 ## **为图表设置字体属性**
 
-通过[Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--)设置图表文本的默认字体大小。示例创建了一个聚簇柱形图，默认字体为 20 磅，并通过[setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-)为第一系列启用数值标签。具有显式字体设置的文本元素可以覆盖图表的默认设置。
+通过[Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--)设置图表文本的默认字体大小。示例创建了一个使用 20 磅字体的簇状柱形图，并通过[setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) 为第一系列启用数值标签。具有显式字体设置的文本元素可以覆盖图表默认设置。
 
 ```java
 import com.aspose.slides.*;
@@ -169,9 +171,63 @@ try {
 }
 ```
 
-## **设置数值格式**
+## **重用文本框格式以用于图例**
 
-使用[IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-)将内置数字格式应用于图表工作簿单元格。此示例创建了一个聚簇柱形图，使用默认的单元格数据，并将格式索引 10（`0.00%`）应用于每个系列的数值单元格。这只会改变工作簿中值的显示方式，而不改变底层数字；例如，0.25 将显示为 25.00%。轴和数据标签的格式可以分别配置。
+要使图例与幻灯片标题匹配，可在第一段落上通过[getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) 设置标题的字体。对图例的[getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) 返回的格式调用[copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-)，它会复制文本框设置、第一段落的格式以及该段落的默认字体属性。直接应用于单独部分或后续段落的格式仍局限于源。
+
+示例使用加粗、26 磅、深蓝色的 Calibri 标题作为模板。为图例设置样式后，它调用[copyTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) 将相同的格式应用于单独的说明文字。
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(Color.rgb(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+在保存的演示文稿中，图例和说明文字在大小、粗细和颜色上与标题保持一致。图例仍显示系列名称，说明文字保留其自身文本。如果说明文字中的某个部分已有显式的字体大小，则该大小优先于复制的段落默认值。
+
+| 复制前 | 复制后 |
+| --- | --- |
+| ![季度销售图，常规黑色图例标签和黑色说明文字](legend-formatting-before.png) | ![相同的图表，带有更大、加粗深蓝色图例标签和匹配的说明文字](legend-formatting.png) |
+
+## **设置数字格式**
+
+使用[IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-)将内置数字格式应用于图表工作簿单元格。此示例创建了一个带有默认、基于单元格数据的簇状柱形图，并对每个系列的数值单元格应用格式索引 10 (`0.00%`)。这会改变工作簿中数值的显示方式，而不更改底层数字；例如，0.25 将显示为 25.00%。坐标轴和数据标签格式可以分别配置。
 
 ```java
 import com.aspose.slides.*;
@@ -197,7 +253,7 @@ try {
 }
 ```
 
-下表列出了内置数字格式索引及其在美国英语地区的典型 Excel 格式。具体的格式字符串及其显示可能因应用程序和地区而异，尤其是货币和日期。一些 Excel 格式也与 OOXML 标准的默认值不同，详见[Microsoft 的数字格式实现说明](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)。
+下表列出了内置数字格式索引及其在英语（美国）地区的代表性 Excel 格式。确切的格式字符串及其显示可能因应用程序和地区而异，特别是对于货币和日期。一些 Excel 格式也与 OOXML 标准的默认值不同，详见[Microsoft 的数字格式实现说明](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)。
 
 | 索引 | 格式 |
 | --- | --- |
@@ -238,9 +294,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **为图表区域设置圆角边框**
+## **设置图表区域圆角边框**
 
-调用[IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-)并传入 `true`，即可为图表区域的角落设置圆角。示例创建了一个聚簇柱形图，并使用[getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--)为其轮廓设置了实心灰色和单线样式，然后保存演示文稿。
+使用 `true` 调用[IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-)来使图表区域的角变圆。示例创建了一个簇状柱形图，并在保存演示文稿前使用[getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) 为其轮廓设置实线灰色和单线样式。
 
 ```java
 import com.aspose.slides.*;
@@ -262,13 +318,13 @@ try {
 }
 ```
 
-## **编辑现有图表注释**
+## **编辑现有图表批注**
 
-图表可以包含自定义形状，例如说明报告状态的文本注释。可通过[IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--)访问这些形状，该方法在 Chart API 参考中也列为[Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--)。通过[getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--)返回的集合包含图表拥有的形状。
+图表可以包含自定义形状，例如说明报告状态的文本批注。可通过[IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--)访问这些形状，该方法也在 Chart API 参考中的[Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--)下列出。由[getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) 返回的集合包含图表拥有的形状。
 
-普通的文本框如果放在图表上方，则属于幻灯片，即使它看起来像图表的一部分。遍历[Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--)可以找到图表本身以及普通幻灯片形状，但不会枚举图表内部的各个形状。图表标题和数据标签是独立的图表元素，而不是该集合中的自定义注释。
+放置在图表上的普通文本框属于幻灯片，即使它看起来像图表的一部分。遍历[Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) 可以找到图表以及普通幻灯片形状，但不会枚举图表内部的单个形状。图表标题和数据标签是独立的图表元素，而不是此集合中的自定义批注。
 
-下载[chart-annotations.pptx](chart-annotations.pptx)并将其放置在应用程序的工作目录中。其第一页包含一个图表，图表上有未分组的注释 “Preliminary results”、图表拥有的线条以及一个普通的幻灯片文本框 “Slide overlay”。示例在该幻灯片上找到第一个图表，并在报告准备发布时将注释改为 “Final results”。代码会检查集合是否为空，并仅编辑通过[getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--)返回且文本框非空的[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)。
+下载[chart-annotations.pptx](chart-annotations.pptx)并将其放置在应用程序的工作目录中。其第一张幻灯片包含一个图表，图表上有一个未分组的批注，内容为“Preliminary results”，以及图表拥有的一条线和一个普通幻灯片文本框，内容为“Slide overlay”。示例在该幻灯片上找到第一张图表，并在报告准备发布时将批注更改为“Final results”。它会检查集合是否为空，并仅编辑具有非空文本框（由[getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) 返回）的[IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)，且文本符合预期。
 
 ```java
 import com.aspose.slides.*;
@@ -312,26 +368,26 @@ try {
 }
 ```
 
-线条和幻灯片文本框保持不变。下图展示了编辑前后的效果：
+该线条和幻灯片文本框保持不变。以下图像显示了输入以及保存后重新打开的结果：
 
 | 编辑前 | 编辑后 |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![图表批注，内容为 初步结果](chart-annotations-before.png) | ![图表批注，内容为 最终结果](chart-annotations-after.png) |
 
-{{% alert color="info" title="注意" %}}
-示例仅检查顶层的图表拥有的形状。如果注释位于[IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/)内部，需要同时检查该组的[getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--)集合。对嵌套组递归执行相同的文本检查。组本身是容器，不应将其视为文本框。
+{{% alert color="info" title="Note" %}}
+示例仅检查顶层的图表拥有形状。如果批注位于[IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) 内部，请同样检查该组的[getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) 集合。对嵌套组递归执行此操作，对其子形状应用相同的文本检查。组本身是一个容器；不要把它当作文本框。
 {{% /alert %}}
 
 ## **常见问题**
 
-**我可以为柱形/面积图设置半透明填充，同时保持边框不透明吗？**
+**我可以为柱形/区域设置半透明填充，同时保持边框不透明吗？**
 
-可以。填充透明度和轮廓是分开配置的。这对于在密集的可视化中提升网格和数据的可读性非常有用。
+可以。填充透明度和轮廓是分别配置的。这对于在密集的可视化中提高网格和数据的可读性非常有用。
 
-**当数据标签重叠时该怎么办？**
+**当数据标签重叠时，我该如何处理？**
 
-可以减小字体大小，关闭非必要的标签组件（例如类别），调整标签位置，必要时仅为选定的数据点显示标签，或改为 “值 + 图例” 的格式。
+减小字体大小，禁用非必需的标签组件（例如类别），调整标签位置，必要时仅为选定点显示标签，或将格式切换为“数值 + 图例”。
 
-**我可以为系列应用渐变或图案填充吗？**
+**我可以对系列应用渐变或图案填充吗？**
 
-可以。系列支持实色、渐变和图案填充。实际使用时建议适度使用渐变，并避免与网格和文本形成低对比度的组合。
+可以。系列支持实色、渐变和图案填充。实际使用中，应谨慎使用渐变，并避免与网格和文本的对比度降低的组合。

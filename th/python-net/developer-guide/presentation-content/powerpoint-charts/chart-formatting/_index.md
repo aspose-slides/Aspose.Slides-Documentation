@@ -1,34 +1,37 @@
 ---
-title: "จัดรูปแบบแผนภูมิในงานนำเสนอโดยใช้ Python"
-linktitle: "การจัดรูปแบบแผนภูมิ"
+title: การจัดรูปแบบแผนภูมิในงานนำเสนอโดยใช้ Python
+linktitle: การจัดรูปแบบแผนภูมิ
 type: docs
 weight: 60
 url: /th/python-net/chart-formatting/
 keywords:
-- "จัดรูปแบบแผนภูมิ"
-- "การจัดรูปแบบแผนภูมิ"
-- "องค์ประกอบแผนภูมิ"
-- "คุณสมบัติแผนภูมิ"
-- "การตั้งค่าแผนภูมิ"
-- "ตัวเลือกแผนภูมิ"
-- "คุณสมบัติฟอนต์"
-- "ขอบโค้ง"
+- จัดรูปแบบแผนภูมิ
+- การจัดรูปแบบแผนภูมิ
+- เอนทิตีแผนภูมิ
+- คุณสมบัติแผนภูมิ
+- การตั้งค่าแผนภูมิ
+- ตัวเลือกแผนภูมิ
+- คุณสมบัติแบบอักษร
+- ขอบโค้ง
 - PowerPoint
-- "การนำเสนอ"
+- การนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Python ผ่าน .NET และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิที่โค้งมน."
+description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Python ผ่าน .NET และยกระดับงานนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, แบบอักษร, รูปแบบตัวเลข, และขอบแผนภูมิโค้ง."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดรูปแบบแผนภูมิในการนำเสนอ PowerPoint โดยใช้ Aspose.Slides แสดงวิธีปรับแต่งองค์ประกอบหลักของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อ, คำอธิบาย, พื้นที่พล็อต, และการเติมผนัง เพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ  
-มันยังแสดงวิธีตั้งค่าแอตทริบิวต์ฟอนต์สำหรับข้อความในแผนภูมิ, นำรูปแบบตัวเลขที่กำหนดล่วงหน้าไปใช้กับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้ร่วมกันแสดงวิธีควบคุมทั้งสไตล์ภาพและการนำเสนอข้อมูลของแผนภูมิในการนำเสนอ
+บทความนี้อธิบายวิธีจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วยการใช้ Aspose.Slides. มันแสดงวิธีปรับแต่งองค์ประกอบสำคัญของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อเรื่อง, ค่าตัวอักษรอธิบาย, พื้นที่พล็อต, และการเติมผนังเพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ
+
+นอกจากนี้ยังสาธิตวิธีตั้งค่าคุณสมบัติของแบบอักษรสำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขที่กำหนดล่วงหน้าให้กับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ. ตัวอย่างเหล่านี้แสดงวิธีควบคุมทั้งสไตล์การแสดงผลและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
+
+สำหรับการเติมและขอบที่แยกกันในช่วงที่เพิ่มและลด, ดูที่ [ตัวอย่างแผนภูมิหุ้น](/slides/th/python-net/create-chart/#create-stock-charts)
 
 ## **จัดรูปแบบองค์ประกอบของแผนภูมิ**
 
-ใช้ [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) เพื่อจัดรูปแบบชื่อแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมเครื่องหมายและข้อมูลค่าเริ่มต้น, จากนั้นใช้สไตล์ข้อความและเส้นแยกต่างหากสำหรับแกนค่และแกนประเภท ขนาดฟอนต์และความกว้างของเส้นระบุเป็นจุด; ป้ายชื่อประเภทถูกหมุน 45 องศา  
+ใช้ [แผนภูมิ](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) เพื่อจัดรูปแบบชื่อเรื่อง, แกน, เส้นกริด, ค่าตัวอักษรอธิบาย, และพื้นที่พล็อต. ตัวอย่างนี้สร้างแผนภูมิเส้นที่มีเครื่องหมายและข้อมูลเริ่มต้น, จากนั้นใช้สไตล์ข้อความและเส้นแยกต่างหากสำหรับแกนค่และแกนประเภท. ขนาดแบบอักษรและความกว้างเส้นระบุเป็นหน่วยจุด; ป้ายชื่อประเภทถูกหมุน 45 องศา.
 
-แกนค่าใช้ [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) อย่างอิสระจากเซลล์ต้นทาง มาตราส่วนของมันเริ่มจาก -2 ถึง 15 โดยช่วงหลักที่ 2 และช่วงรองที่ 0.5 ตัวอย่างนี้ยังผสมการจัดรูปแบบเปอร์เซ็นต์กับ [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) ตั้งเป็นพัน ดังนั้นปรับการตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายอยู่ด้านนอกพื้นที่พล็อตเนื่องจาก [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) ถูกปิดใช้งาน การเติมผนังหลังและพื้นกำหนดผ่าน [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) และ [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), แต่พื้นผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
+แกนค่ใช้ [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) อย่างอิสระจากเซลล์ต้นทาง. ช่วงของแกนรันจาก -2 ถึง 15, โดยมีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5. ตัวอย่างนี้ยังรวมการฟอร์แมตเปอร์เซ็นต์กับ [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) ที่ตั้งเป็นพัน, ดังนั้นให้ปรับตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ. ค่าตัวอักษรอธิบายอยู่ด้านนอกพื้นที่พล็อตเนื่องจาก [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) ถูกปิด. การเติมผนังด้านหลังและพื้นจัดการผ่าน [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) และ [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), แต่พื้นผิวเหล่านี้มองเห็นได้เฉพาะในแผนภูมิ 3D.
 
 ```python
 import aspose.slides.charts as charts
@@ -144,9 +147,9 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตั้งค่าแอตทริบิวต์ฟอนต์สำหรับแผนภูมิ**
+## **ตั้งค่าคุณสมบัติแบบอักษรสำหรับแผนภูมิ**
 
-ตั้งค่าขนาดฟอนต์เริ่มต้นสำหรับข้อความแผนภูมิผ่าน [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มพร้อมฟอนต์ขนาด 20 จุดและเปิดใช้งานป้ายค่สำหรับชุดแรกผ่าน [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). ส่วนประกอบข้อความที่มีการตั้งค่าฟอนต์เฉพาะของตัวเองสามารถทับค่าตั้งต้นของแผนภูมิได้
+กำหนดขนาดแบบอักษรเริ่มต้นสำหรับข้อความแผนภูมิผ่าน [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีแบบอักษรขนาด 20 จุดและเปิดใช้งานป้ายค่าของซีรีส์แรกผ่าน [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). อิลิเมนต์ข้อความที่มีการตั้งค่าแบบอักษรของตนเองสามารถทับค่าดีฟอลต์ของแผนภูมิได้.
 
 ```python
 import aspose.slides.charts as charts
@@ -162,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **ใช้การจัดรูปแบบกรอบข้อความซ้ำสำหรับค่าตัวอักษรอธิบายของแผนภูมิ**
+
+เพื่อให้ค่าตัวอักษรอธิบายตรงกับหัวข้อสไลด์, ตั้งค่าแบบอักษรผ่าน [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) ของย่อหน้าตัวแรกของหัวข้อ. เรียกใช้ [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) บน [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) ของค่าตัวอักษรอธิบาย. มันคัดลอกการตั้งค่ากรอบข้อความ, การจัดรูปแบบของย่อหน้าแรก, และคุณสมบัติแบบอักษรเริ่มต้นของย่อหน้านั้น. การจัดรูปแบบที่กำหนดโดยตรงให้กับส่วนย่อยแต่ละส่วนหรือให้กับย่อหน้าต่อ ๆ ไปจะคงอยู่เฉพาะแหล่งข้อมูลนั้น.
+
+ตัวอย่างใช้หัวข้อที่เป็นตัวหนา, สีกรมทม, 26 จุด Calibri เป็นแม่แบบ. หลังจากสไตล์ค่าตัวอักษรอธิบาย, ตัวอย่างใช้ [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) เพื่อใช้การจัดรูปแบบเดียวกันกับคำอธิบายที่แยกออกมา.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+ในงานนำเสนอที่บันทึกแล้ว, ค่าตัวอักษรอธิบายและคำอธิบายตรงกับหัวข้อในด้านขนาด, ความหนา, และสี. ค่าตัวอักษรอธิบายยังคงแสดงชื่อซีรีส์, และคำอธิบายยังคงมีข้อความของตนเอง. หากส่วนหนึ่งในคำอธิบายมีขนาดแบบอักษรที่กำหนดไว้แล้ว, ขนาดนั้นจะมีลำดับความสำคัญเหนือค่าดีฟอลต์ของย่อหน้าที่คัดลอกมา.
+
+| ก่อนคัดลอก | หลังคัดลอก |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **ตั้งค่ารูปแบบตัวเลข**
 
-ใช้ [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) เพื่อใช้รูปแบบตัวเลขที่มีมาในตัวกับเซลล์เวิร์กบุ๊กของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยข้อมูลค่าเริ่มต้นที่มาจากเซลล์และกำหนดรูปแบบดัชนี 10 (`0.00%`) ให้กับเซลล์ค่าของแต่ละชุด การนี้ทำให้การแสดงค่าต่างๆ ในเวิร์กบุ๊กเปลี่ยนโดยไม่แก้เลขฐาน; ตัวอย่างเช่น 0.25 จะแสดงเป็น 25.00% รูปแบบของแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
+ใช้ [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) เพื่อใช้รูปแบบตัวเลขที่สร้างไว้ล่วงหน้ากับเซลล์เวิร์กบุ๊กของแผนภูมิ. ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่ใช้ข้อมูลที่แบ็คด้วยเซลล์และใช้รูปแบบดัชนี 10 (`0.00%`) กับเซลล์ค่าของแต่ละซีรีส์. สิ่งนี้เปลี่ยนวิธีการแสดงค่าที่เวิร์กบุ๊กโดยไม่เปลี่ยนตัวเลขต้นฉบับ; ตัวอย่างเช่น 0.25 จะปรากฏเป็น 25.00%. รูปแบบแกนและป้ายข้อมูลสามารถกำหนดค่าแยกกันได้.
 
 ```python
 import aspose.slides.charts as charts
@@ -182,7 +232,7 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีมาในตัวพร้อมรูปแบบ Excel ตัวอย่างสำหรับภูมิภาคอังกฤษ (สหรัฐอเมริกา) รูปแบบสตริงที่แน่นอนและการแสดงผลอาจแตกต่างตามแอปพลิเคชันและภูมิภาค โดยเฉพาะสำหรับสกุลเงินและวันที่ บางรูปแบบ Excel ยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายใน [บันทึกอธิบายรูปแบบตัวเลขของ Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่สร้างไว้ล่วงหน้าพร้อมรูปแบบ Excel ตัวแทนสำหรับพื้นที่ภาษาอังกฤษ (สหรัฐอเมริกา). สตริงรูปแบบและการแสดงผลอาจแตกต่างตามแอปพลิเคชันและพื้นที่, โดยเฉพาะอย่างยิ่งสำหรับสกุลเงินและวันที่. รูปแบบ Excel บางอย่างยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML, ดังที่อธิบายใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | ดัชนี | รูปแบบ |
 | --- | --- |
@@ -225,7 +275,7 @@ with slides.Presentation() as presentation:
 
 ## **ตั้งค่าขอบโค้งของพื้นที่แผนภูมิ**
 
-เปิดใช้งาน [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) เพื่อทำให้มุมของพื้นที่แผนภูมิเป็นมุมโค้ง ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) เพื่อกำหนดเส้นขอบเป็นสีเทาแบบทึบและสไตล์เส้นเดียวก่อนบันทึกการนำเสนอ
+เปิดใช้งาน [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) เพื่อทำให้มุมของพื้นที่แผนภูมิเป็นโค้ง. ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) เพื่อให้ขอบของมันเป็นสีเทาแบบทึบและสไตล์เส้นเดียวก่อนบันทึกงานนำเสนอ.
 
 ```python
 import aspose.slides.charts as charts
@@ -245,11 +295,11 @@ with slides.Presentation() as presentation:
 
 ## **แก้ไขคำอธิบายแผนภูมิที่มีอยู่**
 
-แผนภูมิสามารถมีรูปร่างที่กำหนดเอง เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปร่างเหล่านี้ผ่าน [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). คอลเลกชัน [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) ของมันประกอบด้วยรูปร่างที่เป็นของแผนภูมิ  
+แผนภูมิสามารถมีรูปร่างที่กำหนดเองได้, เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน. เข้าถึงรูปร่างเหล่านี้ผ่าน [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). คอลlektion [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) ของมันมีรูปร่างที่เป็นของแผนภูมิ.
 
-กล่องข้อความทั่วไปที่วางเหนือแผนภูมิเป็นของสไลด์ แม้ว่าจะดูเหมือนเป็นส่วนของแผนภูมิ การวนผ่าน [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) จะพบแผนภูมิและรูปร่างสไลด์ทั่วไป แต่ไม่ได้แสดงรายการรูปร่างย่อยภายในแผนภูมิ ชื่อแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกจากกัน ไม่ใช่คำอธิบายที่กำหนดเองในคอลเลกชันนี้  
+กล่องข้อความธรรมดาที่วางเหนือแผนภูมิถือเป็นของสไลด์, แม้ว่ามันจะดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ. การวนลูปผ่าน [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) จะพบแผนภูมิและรูปร่างสไลด์ทั่วไป, แต่จะไม่แสดงรูปร่างแต่ละอันภายในแผนภูมิ. ชื่อเรื่องแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกต่างหาก, ไม่ใช่คำอธิบายกำหนดเองในคอลlektionนี้.
 
-ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกของมันมีแผนภูมิพร้อมคำอธิบายที่ไม่ได้จัดกลุ่มที่เขียนว่า "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ทั่วไปที่เขียนว่า "Slide overlay". ตัวอย่างจะค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ จะตรวจสอบคอลเลกชันที่ว่างและแก้ไขเฉพาะ [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ที่มี [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) ที่ไม่เป็น `None` และมีข้อความตามที่คาดหวัง
+ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน. สไลด์แรกของไฟล์นี้มีแผนภูมิพร้อมคำอธิบายที่ไม่ได้รวมกลุ่มโดยมีข้อความ “Preliminary results”, เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาที่มีข้อความ “Slide overlay”. ตัวอย่างค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น “Final results” เมื่อรายงานพร้อมเผยแพร่. มันตรวจสอบว่าคอลlektionว่างหรือไม่และแก้ไขเฉพาะ [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) ที่มี [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) ไม่เป็น `None` และมีข้อความตามที่คาดไว้.
 
 ```python
 import aspose.slides as slides
@@ -276,23 +326,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง. ภาพต่อไปนี้แสดงอินพุตและผลลัพธ์ที่บันทึกแล้วเปิดใหม่:
+เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง. ภาพต่อไปนี้แสดงอินพุตและผลลัพธ์ที่บันทึกและเปิดใหม่อีกครั้ง:
 
 | ก่อนแก้ไข | หลังแก้ไข |
 | --- | --- |
-| ![คำอธิบายแผนภูมิอ่าน Preliminary results](chart-annotations-before.png) | ![คำอธิบายแผนภูมิอ่าน Final results](chart-annotations-after.png) |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-ตัวอย่างตรวจสอบเฉพาะรูปร่างระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) ให้ตรวจสอบคอลเลกชัน [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) ของกลุ่มนั้นด้วย ทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มซ้อนกัน และใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูกของพวกมัน กลุ่มเองเป็นคอนเทนเนอร์; อย่าปฏิบัติมันเป็นกล่องข้อความ
+ตัวอย่างตรวจสอบเฉพาะรูปร่างระดับบนสุดที่เป็นของแผนภูมิ. หากคำอธิบายอยู่ภายใน [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), ตรวจสอบคอลlektion [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) ของกลุ่มนั้นด้วย. ทำซ้ำขั้นตอนนี้แบบเรียกซ้ำสำหรับกลุ่มที่ซ้อนกัน, ใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูกของพวกมัน. กลุ่มเองเป็นคอนเทนเนอร์; อย่าพิจารณาให้เป็นกล่องข้อความ.
 {{% /alert %}}
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถตั้งค่าสีเติมกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่ในขณะที่ยังคงให้ขอบทึบได้หรือไม่?**  
-ใช่ ความโปร่งใสของการเติมและเส้นขอบกำหนดแยกกัน นี่เป็นประโยชน์ในการปรับปรุงความอ่านง่ายของกริดและข้อมูลในภาพที่มีความหนาแน่นสูง  
+**ฉันสามารถตั้งค่าการเติมกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่โดยยังคงให้ขอบเป็นทึบได้หรือไม่?**
 
-**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับซ้อนกันได้อย่างไร?**  
-ลดขนาดฟอนต์, ปิดใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น หมวดหมู่), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะจุดที่เลือกหากจำเป็น, หรือเปลี่ยนรูปแบบเป็น "value + legend"  
+ได้. ความโปร่งใสของการเติมและขอบสามารถกำหนดค่าแยกกันได้ ซึ่งเป็นประโยชน์สำหรับการปรับปรุงความอ่านง่ายของกริดและข้อมูลในภาพที่ซับซ้อน.
 
-**ฉันสามารถใช้การเติมแบบไล่สีหรือแบบลายเส้นกับชุดข้อมูลได้หรือไม่?**  
-ใช่ ชุดข้อมูลรองรับการเติมแบบทึบ, ไล่สี, และลายเส้น ในการใช้งานจริงให้ใช้ไล่สีอย่างจำกัดและหลีกเลี่ยงการผสมที่ทำให้ความคอนทราสต์กับกริดและข้อความลดลง
+**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับกันอย่างไร?**
+
+ลดขนาดแบบอักษร, ปิดการใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น ประเภท), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะจุดที่เลือกหากจำเป็น, หรือสลับรูปแบบเป็น “ค่า + คำอธิบาย”.
+
+**ฉันสามารถใช้การเติมแบบไล่ระดับสีหรือแบบลายเส้นให้กับซีรีส์ได้หรือไม่?**
+
+ได้. ซีรีส์รองรับการเติมแบบทึบ, ไล่ระดับสี, และลายเส้น. ในการปฏิบัติ, ใช้ไล่ระดับสีอย่างประหยัดและหลีกเลี่ยงการผสมผสานที่ลดความคอนทราสต์กับกริดและข้อความ.

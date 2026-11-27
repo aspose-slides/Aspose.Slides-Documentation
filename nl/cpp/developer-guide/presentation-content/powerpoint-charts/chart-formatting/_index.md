@@ -7,10 +7,10 @@ url: /nl/cpp/chart-formatting/
 keywords:
 - grafiek opmaken
 - grafiekopmaak
-- grafiekelement
-- grafiekeigenschappen
-- grafiekinstellingen
-- grafiekopties
+- grafiekonderdeel
+- grafiek eigenschappen
+- grafiek instellingen
+- grafiek opties
 - lettertype-eigenschappen
 - afgeronde rand
 - PowerPoint
@@ -21,15 +21,17 @@ description: "Leer grafiekopmaak in Aspose.Slides voor C++ en til uw PowerPoint-
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je grafieken in PowerPoint‑presentaties kunt opmaken met Aspose.Slides. Het toont hoe je belangrijke grafiekelementen zoals assen, rasterlijnen, titels, legenda’s, het plot‑gebied en wand‑vullingen kunt aanpassen om het uiterlijk en de leesbaarheid van grafiekgegevens te verbeteren.
+Dit artikel legt uit hoe je diagrammen in PowerPoint‑presentaties kunt opmaken met behulp van Aspose.Slides. Het laat zien hoe je belangrijke diagramonderdelen zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wandsvullingen kunt aanpassen om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
 
-Het laat ook zien hoe je lettertype‑eigenschappen voor grafiektetekst instelt, vooraf ingestelde getalnotaties op grafiekgegevens toepast en afgeronde hoeken voor het grafiekgebied inschakelt. Samen laten deze voorbeelden zien hoe je zowel de visuele stijl als de gegevenspresentatie van grafieken in een presentatie kunt beheersen.
+Het toont ook hoe je lettertype‑eigenschappen voor diagramtekst kunt instellen, vooraf gedefinieerde numerieke opmaak op diagramgegevens kunt toepassen en afgeronde hoeken voor het diagramgebied kunt inschakelen. Samen laten deze voorbeelden zien hoe je zowel de visuele stijl als de weergave van gegevens van diagrammen in een presentatie kunt beheersen.
 
-## **Grafiek‑elementen opmaken**
+Voor aparte vullingen en contouren op stijgende en dalende intervallen, zie het [voorbeeld van een aandelengrafiek](/slides/nl/cpp/create-chart/#create-stock-charts).
 
-Gebruik [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) om grafiektitels, assen, rasterlijnen, legenda’s en het plot‑gebied op te maken. Dit voorbeeld maakt een lijngrafiek met markeringen en standaardgegevens, en past vervolgens afzonderlijke tekst‑ en lijnstijlen toe op de waardenas en categorienaam. Lettergroottes en lijndiktes worden in punten opgegeven; categorielabels worden 45 graden gekanteld.
+## **Diagramonderdelen opmaken**
 
-De waardenas gebruikt [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) onafhankelijk van de broncellen. De schaal loopt van –2 tot 15, met hoofd‑intervallen van 2 en minor‑intervallen van 0,5. Het voorbeeld combineert bovendien procent‑opmaak met [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) ingesteld op duizenden, dus pas deze instellingen aan op de betekenis en omvang van je gegevens. De legenda blijft buiten het plot‑gebied omdat [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) is uitgeschakeld. Achter‑wand‑ en vloer‑vullingen worden geconfigureerd via [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) en [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), maar deze oppervlakken zijn alleen zichtbaar in 3D‑grafieken.
+Gebruik [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) om diagramtitels, assen, rasterlijnen, legenda’s en het plotgebied op te maken. Dit voorbeeld maakt een lijndiagram met markers en standaardgegevens, en past vervolgens afzonderlijke tekst‑ en lijnstijlen toe op de waarden‑ en categorisatie‑assen. Lettergrootten en lijndiktes worden in punten gespecificeerd; categorielabels worden 45 graad gedraaid.
+
+De waardenas gebruikt [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met hoofdintervallen van 2 en subintervallen van 0,5. Het voorbeeld combineert procent‑opmaak met [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) ingesteld op duizenden, dus pas deze instellingen aan op de betekenis en omvang van jouw gegevens. De legenda blijft buiten het plotgebied omdat [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) uitgeschakeld is. Achter‑wand‑ en vloer‑vullingen worden geconfigureerd via [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) en [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), maar deze oppervlakken zijn alleen zichtbaar in 3D‑diagrammen.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -181,9 +183,9 @@ chart->get_PlotArea()->get_Format()->get_Fill()->get_SolidFillColor()->set_Color
 presentation->Save(u"FormattedChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Lettertype‑eigenschappen voor een grafiek instellen**
+## **Lettertype‑eigenschappen instellen voor een diagram**
 
-Stel de standaardlettergrootte voor grafiektetekst in via [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). Het voorbeeld maakt een gegroepeerde kolomgrafiek met een lettergrootte van 20 punten en schakelt waardelabels in voor de eerste serie via [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van de grafiek overschrijven.
+Stel de standaardlettergrootte voor diagramtekst in via [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). Het voorbeeld maakt een gegroepeerd kolomdiagram met een lettergrootte van 20 punten en schakelt waardenlabels voor de eerste serie in via [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van het diagram overschrijven.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -216,9 +218,91 @@ chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataL
 presentation->Save(u"FontPropertiesForChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Getalnotatie instellen**
+## **Tekstkaderopmaak hergebruiken voor een diagramlegenda**
 
-Gebruik [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) om een ingebouwde getalnotatie toe te passen op werkboekcellen van de grafiek. Dit voorbeeld maakt een gegroepeerde kolomgrafiek met standaard, cel‑ondersteunde gegevens en past notatie‑index 10 (`0.00%`) toe op elke serie‑waardecel. Hierdoor verandert de weergave van de waarden in het werkboek zonder de onderliggende cijfers te wijzigen; bijvoorbeeld, 0,25 wordt weergegeven als 25,00 %. Assen‑ en data‑label‑formaten kunnen afzonderlijk worden geconfigureerd.
+Om een legenda af te stemmen op een dia‑kop, stel je het lettertype in van het standaardgedeelte‑formaat van de eerste alinea via [get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Gebruik [get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformattedtextcontainer/get_textformat/) om toegang te krijgen tot de tekstopmaak van de legenda, en roep vervolgens [CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyfrom/) aan met het tekstkader van de kop. Dit kopieert de instellingen van het tekstkader, de opmaak van de eerste alinea en de standaardlettertype‑eigenschappen van die alinea. Opmaak die direct op individuele gedeelten of op latere alinea’s wordt toegepast, blijft lokaal bij de bron.
+
+Het voorbeeld gebruikt een vet, 26‑punt Calibri‑kop in marineblauw als sjabloon. Na het opmaken van de legenda wordt [CopyTo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyto/) gebruikt om dezelfde opmaak toe te passen op een apart bijschrift.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/NullableBool.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/StyleType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto heading = shapes->AddAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+auto sourceTextFrame = heading->AddTextFrame(u"Quarterly sales");
+auto font = sourceTextFrame->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+font->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+font->set_FontHeight(26);
+font->set_FontBold(NullableBool::True);
+font->get_FillFormat()->set_FillType(FillType::Solid);
+font->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(32, 64, 96));
+
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+chart->set_Style(StyleType::Style3);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Retail"));
+workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Online"));
+workbook->GetCell(0, 0, 3, ObjectExt::Box<String>(u"Wholesale"));
+for (auto quarter = 1; quarter <= 4; ++quarter)
+{
+    auto label = String::Format(u"Q{0}", quarter);
+    workbook->GetCell(0, quarter, 0, ObjectExt::Box<String>(label));
+}
+
+chart->set_HasLegend(true);
+auto legend = chart->get_Legend();
+legend->set_Position(LegendPositionType::Bottom);
+auto legendTextFormat = legend->get_TextFormat();
+legendTextFormat->CopyFrom(sourceTextFrame);
+
+auto caption = shapes->AddAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+auto captionTextFrame = caption->AddTextFrame(u"Sales in millions of dollars");
+legendTextFormat->CopyTo(captionTextFrame);
+
+presentation->Save(u"legend-formatting.pptx", SaveFormat::Pptx);
+```
+
+In de opgeslagen presentatie komen de legenda en het bijschrift overeen met de kop in grootte, gewicht en kleur. De legenda toont nog steeds de serienaam, en het bijschrift behoudt zijn eigen tekst. Als een gedeelte in het bijschrift al een expliciete lettergrootte heeft, heeft die grootte voorrang op de gekopieerde alinea‑standaard.
+
+| Voor het kopiëren | Na het kopiëren |
+| --- | --- |
+| ![Kwartaalverkoopgrafiek met gewone zwarte legende‑labels en een zwart bijschrift](legend-formatting-before.png) | ![Dezelfde grafiek met grotere, vette marineblauwe legende‑labels en een bijpassend bijschrift](legend-formatting.png) |
+
+## **Numerieke opmaak instellen**
+
+Gebruik [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) om een ingebouwde getalopmaak toe te passen op diagram‑werkboekcellen. Dit voorbeeld maakt een gegroepeerd kolomdiagram met standaard, cel‑ondersteunde gegevens en past formaat‑index 10 (`0.00%`) toe op elke seriewaardecel. Hiermee verandert de weergave van de waarden in het werkboek zonder de onderliggende cijfers te wijzigen; bijvoorbeeld, 0,25 wordt weergegeven als 25,00 %. As‑ en gegevens‑label‑formaten kunnen apart worden geconfigureerd.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -260,7 +344,7 @@ for (auto chartSeries : series)
 presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 ```
 
-De volgende tabel geeft de ingebouwde getalnotatie‑indices weer met representatieve Excel‑formaten voor de Engelse (Verenigde Staten) locale. De exacte notatie‑strings en hun weergave kunnen per toepassing en locale variëren, vooral voor valuta en datums. Sommige Excel‑formaten wijken ook af van de standaardinstellingen in de OOXML‑specificatie, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+De volgende tabel geeft ingebouwde getalopmaak‑indices weer met representatieve Excel‑formaten voor de Engelse (Verenigde Staten) locale. De exacte format‑strings en hun weergave kunnen per toepassing en locale verschillen, met name voor valuta en datums. Sommige Excel‑formaten wijken ook af van de standaarden in de OOXML‑specificatie, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Formaat |
 | --- | --- |
@@ -301,9 +385,9 @@ De volgende tabel geeft de ingebouwde getalnotatie‑indices weer met representa
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Afgeronde randen voor het grafiekgebied inschakelen**
+## **Afgeronde randen voor diagramgebied instellen**
 
-Schakel [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) in om de hoeken van het grafiekgebied af te ronden. Het voorbeeld maakt een gegroepeerde kolomgrafiek en gebruikt [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) om de omtrek een effen grijze kleur en een enkele lijnstijl te geven voordat de presentatie wordt opgeslagen.
+Schakel [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) in om de hoeken van het diagramgebied af te ronden. Het voorbeeld maakt een gegroepeerd kolomdiagram en gebruikt [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) om de omtrek een effen grijze kleur en een enkele lijnstijl te geven voordat de presentatie wordt opgeslagen.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -339,13 +423,13 @@ chart->set_HasRoundedCorners(true);
 presentation->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **Bestaande grafiekannotaties bewerken**
+## **Bestaande diagramannotaties bewerken**
 
-Een grafiek kan aangepaste vormen bevatten, zoals een tekstaanduiding die de status van een rapport uitlegt. Toegang tot deze vormen krijg je via [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), ook vermeld onder [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) in de Chart‑API‑referentie. De collectie [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) bevat de door de grafiek beheerde vormen.
+Een diagram kan aangepaste vormen bevatten, zoals een tekstaanduiding die de status van een rapport uitlegt. Toegang tot deze vormen krijg je via [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), ook vermeld onder [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) in de Diagram‑API‑referentie. De [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑collectie bevat de diagram‑eigen vormen.
 
-Een gewone tekstvak boven een grafiek behoort tot de dia, zelfs als het eruitziet als onderdeel van de grafiek. Door te itereren over [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) worden de grafiek en de gewone dia‑vormen gevonden, maar niet de individuele vormen binnen de grafiek. Grafiektitels en datalabels zijn afzonderlijke grafiekelementen, geen aangepaste annotaties in deze collectie.
+Een gewone tekstvak geplaatst boven een diagram behoort tot de dia, zelfs als het eruitziet als onderdeel van het diagram. Itereren over [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) vindt zowel het diagram als gewone dia‑vormen, maar geeft de individuele vormen binnen het diagram niet weer. Diagramtitels en gegevens‑labels zijn afzonderlijke diagramonderdelen, geen aangepaste annotaties in deze collectie.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de toepassing. De eerste dia bevat een grafiek met een niet‑gegroepeerde annotatie “Preliminary results”, een door de grafiek beheerde lijn, en een gewoon tekstvak “Slide overlay”. Het voorbeeld zoekt de eerste grafiek op die dia en wijzigt de annotatie naar “Final results” wanneer het rapport klaar is voor publicatie. Het controleert op een lege collectie en bewerkt alleen een [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) met een niet‑null [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) en de verwachte tekst.
+Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de applicatie. De eerste dia bevat een diagram met een niet‑gegroepeerde annotatie met de tekst “Preliminary results”, een diagram‑eigen lijn, en een gewoon tekstvak op de dia met de tekst “Slide overlay”. Het voorbeeld vindt het eerste diagram op die dia en wijzigt de annotatie naar “Final results” zodra het rapport klaar is om te publiceren. Het controleert of de collectie leeg is en bewerkt alleen een [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) met een niet‑null [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) en de verwachte tekst.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -407,28 +491,28 @@ else
 }
 ```
 
-De lijn en het tekstvak blijven ongewijzigd. De volgende afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
+De lijn en het tekstvak op de dia blijven ongewijzigd. De volgende afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
 
-| Voor bewerken | Na bewerken |
+| Voor het bewerken | Na het bewerken |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Diagramannotatie met de tekst Preliminary results](chart-annotations-before.png) | ![Diagramannotatie met de tekst Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
 
-Het voorbeeld inspecteert alleen de top‑level door de grafiek beheerde vormen. Als een annotatie zich binnen een [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/) bevindt, inspecteer dan ook de [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) collectie van die groep. Herhaal dit recursief voor geneste groepen, en pas dezelfde tekstcontroles toe op hun onderliggende vormen. Een groep zelf is een container; behandel het niet als een tekstvak.
+Het voorbeeld inspecteert alleen de diagram‑eigen vormen op het hoogste niveau. Als een annotatie zich binnen een [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/) bevindt, inspecteer dan ook de [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/)‑collectie van die groep. Herhaal dit recursief voor geneste groepen en pas dezelfde tekstcontroles toe op hun onderliggende vormen. Een groep zelf is een container; behandel het niet als een tekstvak.
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kan ik halftransparante vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
+**Kan ik half‑transparante vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
 
-Ja. Transparantie van de vulling en de omtrek worden apart geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
+Ja. Vullings‑transparantie en de omtrek worden apart geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
 
-**Hoe ga ik om met datalabels die overlappen?**
+**Hoe kan ik omgaan met gegevenslabels die overlappen?**
 
-Verminder de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon labels alleen voor geselecteerde punten indien nodig, of schakel over naar het formaat “waarde + legenda”.
+Verminder de lettergrootte, schakel niet‑essentiële label‑componenten uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon alleen labels voor geselecteerde punten indien nodig, of schakel over naar het formaat “waarde + legenda”.
 
-**Kan ik verloop‑ of patroonvullingen op series toepassen?**
+**Kan ik verloop‑ of patroonvullingen toepassen op series?**
 
-Ja. Series ondersteunen effen, verloop‑ en patroonvullingen. Gebruik verlopen spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.
+Ja. Series ondersteunen solide, verloop‑ en patroon‑vullingen. Gebruik in de praktijk verlopen spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.

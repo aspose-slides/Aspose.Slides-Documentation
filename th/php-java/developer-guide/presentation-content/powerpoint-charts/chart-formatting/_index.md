@@ -11,25 +11,27 @@ keywords:
 - คุณสมบัติแผนภูมิ
 - การตั้งค่าแผนภูมิ
 - ตัวเลือกแผนภูมิ
-- คุณสมบัติตัวอักษร
+- คุณสมบัติฟอนต์
 - ขอบโค้ง
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ PHP ผ่าน Java และยกระดับงานนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ตัวอักษร, รูปแบบตัวเลข, และขอบแผนภูมิที่โค้ง"
+description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ PHP ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิที่โค้งมน."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides แสดงวิธีปรับแต่งองค์ประกอบสำคัญของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อต และการเติมสีกำแพง เพื่อปรับปรุงลักษณะและความอ่านง่ายของข้อมูลแผนภูมิ
+บทความนี้อธิบายวิธีจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides โดยแสดงวิธีปรับแต่งส่วนประกอบหลักของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อต, และการเติมผนัง เพื่อปรับปรุงลักษณะและความอ่านง่ายของข้อมูลแผนภูมิ
 
-นอกจากนี้ยังสาธิตวิธีตั้งค่าคุณสมบัติตัวอักษรสำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขที่กำหนดไว้ล่วงหน้าในข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้ร่วมกันแสดงวิธีควบคุมทั้งสไตล์การแสดงผลและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
+บทความยังสาธิตวิธีตั้งค่าคุณสมบัติกแบบอักษรสำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขสำเร็จรูปกับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งของพื้นที่แผนภูมิ ตัวอย่างเหล่านี้ร่วมกันแสดงวิธีควบคุมทั้งสไตล์ภาพและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
 
-## **จัดรูปแบบเอนทิตีแผนภูมิ**
+สำหรับการเติมและเส้นขอบแยกต่างหากบนช่วงที่เพิ่มขึ้นและลดลง ดู[ตัวอย่างแผนภูมิหุ้น](/slides/th/php-java/create-chart/#create-stock-charts)
 
-ใช้ [แผนภูมิ](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมเครื่องหมายและข้อมูลค่าเริ่มต้น แล้วใช้สไตล์ข้อความและเส้นแยกกันสำหรับแกนค่และแกนหมวดหมู่ ขนาดตัวอักษรและความกว้างของเส้นระบุเป็นจุด; ป้ายชื่อหมวดหมู่อยู่ในมุม 45 องศา
+## **จัดรูปแบบองค์ประกอบแผนภูมิ**
 
-แกนค่ใช้ [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) อย่างอิสระจากเซลล์ต้นทาง สเกลวิ่งจาก -2 ถึง 15, ด้วยช่วงหลัก 2 และช่วงย่อย 0.5 ตัวอย่างนี้ยังรวมการจัดรูปแบบเป็นเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) ที่ตั้งค่าเป็นพัน ดังนั้นปรับการตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายจะอยู่ด้านนอกพื้นที่พล็อตเพราะ [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) ถูกเรียกด้วย `false` การเติมสีผนังด้านหลังและพื้นผ่าน [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) และ [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) แต่พื้นผิวเหล่านี้มองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
+ใช้[Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/)เพื่อจัดรูปแบบชื่อเรื่องแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมตัวบ่งชี้และข้อมูลเริ่มต้น แล้วใช้สไตล์ข้อความและเส้นแยกต่างหากกับแกนค่และแกนประเภทของมัน ขนาดแบบอักษรและความกว้างของเส้นกำหนดเป็นจุด; ป้ายกำกับประเภทจะหมุน 45 องศา
+
+แกนค่าใช้[setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat)โดยอิสระจากเซลล์ต้นฉบับ ช่วงสเกลเริ่มตั้งแต่ -2 ถึง 15, มีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5 ตัวอย่างนี้ยังผสานการจัดรูปแบบเปอร์เซ็นต์กับ[setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit)ตั้งเป็นพัน ดังนั้นให้ปรับค่าตามความหมายและขนาดของข้อมูลของคุณ คำอธิบายอยู่ด้านนอกพื้นที่พล็อตเพราะ[setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay)ถูกเรียกด้วย `false` การเติมผนังหลังและพื้นผ่าน[getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall)และ[getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor) แต่พื้นผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
 
 ```php
 use aspose\slides\ChartType;
@@ -155,9 +157,9 @@ try {
 }
 ```
 
-## **ตั้งค่าคุณสมบัติตัวอักษรสำหรับแผนภูมิ**
+## **ตั้งค่าคุณสมบัติฟอนต์สำหรับแผนภูมิ**
 
-ตั้งค่าขนาดตัวอักษรค่าเริ่มต้นสำหรับข้อความในแผนภูมิผ่าน [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/) ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มพร้อมฟอนต์ขนาด 20 จุดและเปิดใช้งานป้ายค่าของซีรีส์แรกผ่าน [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) องค์ประกอบข้อความที่มีการตั้งค่าฟอนต์เฉพาะของตนเองสามารถทับค่าที่ตั้งไว้ของแผนภูมิได้
+ตั้งขนาดฟอนต์เริ่มต้นสำหรับข้อความแผนภูมิผ่าน[Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat) ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มพร้อมฟอนต์ขนาด 20 จุดและเปิดใช้งานป้ายค่าของชุดแรกผ่าน[setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) องค์ประกอบข้อความที่มีการตั้งค่าฟอนต์แบบชัดเจนของตนเองสามารถแทนที่ค่าเริ่มต้นของแผนภูมิได้
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
+## **ใช้การจัดรูปแบบกรอบข้อความซ้ำสำหรับคำอธิบายแผนภูมิ**
+
+เพื่อให้คำอธิบายตรงกับหัวข้อสไลด์ ให้ตั้งค่าฟอนต์ของหัวข้อผ่าน[getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat)บนย่อหน้าที่หนึ่ง เรียก[copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom)บนรูปแบบที่ได้จาก[getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat)ของคำอธิบาย มันจะคัดลอกการตั้งค่ากรอบข้อความ, การจัดรูปแบบของย่อหน้าแรก, และคุณสมบัติตัวอักษรเริ่มต้นของย่อมนั้น การจัดรูปแบบที่ใช้งานโดยตรงกับส่วนย่อยแต่ละส่วนหรือกับย่อหน้าถัดไปจะคงอยู่เฉพาะที่แหล่งข้อมูล
+
+ตัวอย่างใช้หัวข้อ Calibri ขนาด 26 จุดหนา สีกรมท่าเป็นแม่แบบ หลังจากสไตล์คำอธิบายแล้ว จะเรียก[copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo)เพื่อใช้รูปแบบเดียวกันกับคำบรรยายแยกต่างหาก
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+ในการนำเสนอที่บันทึกไว้ คำอธิบายและคำบรรยายจะตรงกับหัวข้อในด้านขนาด, น้ำหนัก, และสี คำอธิบายยังคงแสดงชื่อชุดข้อมูล, ส่วนคำบรรยายยังคงข้อความของตนเอง หากส่วนในคำบรรยายมีการตั้งค่าขนาดฟอนต์อย่างชัดเจน ขนาดนั้นจะมีลำดับความสำคัญเหนือค่าตั้งต้นของย่อหน้าที่คัดลอก
+
+| ก่อนคัดลอก | หลังคัดลอก |
+| --- | --- |
+| ![แผนภูมิยอดขายไตรมาสที่มีคำอธิบายสีดำและคำบรรยายสีดำ](legend-formatting-before.png) | ![แผนภูมิเดียวกันที่มีคำอธิบายสีกรมท่าสีขาวหนาและคำบรรยายที่ตรงกัน](legend-formatting.png) |
+
 ## **ตั้งค่ารูปแบบตัวเลข**
 
-ใช้ [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) เพื่อใช้รูปแบบตัวเลขในตัวที่สร้างไว้ล่วงหน้าในเซลล์เวิร์กบุ๊กของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยข้อมูลค่าเริ่มต้นที่อาศัยเซลล์และใช้รูปแบบดัชนี 10 (`0.00%`) กับเซลล์ค่าของแต่ละซีรีส์ นี้ทำให้การแสดงค่าที่เวิร์กบุ๊กเปลี่ยนโดยไม่กระทบตัวเลขจริง ตัวอย่างเช่น 0.25 จะปรากฏเป็น 25.00% สามารถกำหนดรูปแบบแกนและป้ายข้อมูลแยกกันได้
+ใช้[ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat)เพื่อใช้รูปแบบตัวเลขที่ฝังในเซลล์งานของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยข้อมูลค่าตั้งต้นที่รับจากเซลล์และตั้งค่ารหัสรูปแบบ 10 (`0.00%`) ให้กับเซลค่าของแต่ละชุด ค่าจะถูกแสดงในเวิร์กบุ๊กโดยไม่เปลี่ยนแปลงตัวเลขเดิม; ตัวอย่างเช่น 0.25 จะถูกแสดงเป็น 25.00% รูปแบบแกนและป้ายข้อมูลสามารถกำหนดแยกต่างหากได้
 
 ```php
 use aspose\slides\ChartType;
@@ -209,7 +272,7 @@ try {
 }
 ```
 
-ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีในตัวพร้อมรูปแบบ Excel ตัวแทนสำหรับภาษาที่ใช้ในสหรัฐอเมริกา ข้อความรูปแบบที่แท้จริงและการแสดงผลอาจแตกต่างตามแอปพลิเคชันและภาษาท้องถิ่น โดยเฉพาะอย่างยิ่งสำหรับสกุลเงินและวันที่ รูปแบบ Excel บางอย่างก็อาจแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ดังที่อธิบายใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
+ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่ฝังไว้พร้อมรูปแบบ Excel ตัวอย่างสำหรับภาษาอังกฤษ (สหรัฐอเมริกา) สตริงรูปแบบที่แท้จริงและการแสดงผลอาจแตกต่างตามแอปพลิเคชันและภาษา โดยเฉพาะสำหรับสกุลเงินและวันที่ รูปแบบ Excel บางรายการยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายไว้ใน[Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
 
 | ดัชนี | รูปแบบ |
 | --- | --- |
@@ -250,9 +313,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **ตั้งค่าขอบโค้งของพื้นที่แผนภูมิ**
+## **ตั้งค่าขอบโค้งมนของพื้นที่แผนภูมิ**
 
-เรียกใช้ [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) ด้วย `true` เพื่อทำให้มุมของพื้นที่แผนภูมิโค้ง ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) เพื่อกำหนดเส้นขอบเป็นสีเทาแบบทึบและสไตล์เส้นเดี่ยวก่อนบันทึกงานนำเสนอ
+เรียก[Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners)ด้วย `true` เพื่อทำให้มุมของพื้นที่แผนภูมิเป็นโค้ง ตัวอย่างสร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้[getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat)เพื่อกำหนดเส้นขอบเป็นสีเทาแบบทึบและสไตล์เส้นเดียวก่อนบันทึกงานนำเสนอ
 
 ```php
 use aspose\slides\ChartType;
@@ -279,11 +342,11 @@ try {
 
 ## **แก้ไขคำอธิบายแผนภูมิที่มีอยู่**
 
-แผนภูมิสามารถมีรูปร่างที่กำหนดเองได้ เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปร่างเหล่านี้ผ่าน [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/) คอลเลกชันที่คืนจาก [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) มีรูปร่างที่เป็นของแผนภูมิ
+แผนภูมิสามารถมีรูปร่างแบบกำหนดเองได้ เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปร่างเหล่านี้ผ่าน[Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes) คอลเลกชันที่ได้จาก[getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes)ประกอบด้วยรูปร่างที่เป็นของแผนภูมิ
 
-กล่องข้อความธรรมดาที่วางเหนือแผนภูมิเป็นของสไลด์ แม้ว่าจะดูเหมือนเป็นส่วนหนึ่งของแผนภูมิก็ตาม การวนลูปผ่าน [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) จะพบแผนภูมิและรูปร่างสไลด์ทั่วไป แต่จะไม่ได้ enumerate รูปร่างแต่ละตัวภายในแผนภูมิ ชื่อเรื่องแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกจากกัน ไม่ใช่คำอธิบายกำหนดเองในคอลเลกชันนี้
+กล่องข้อความธรรมดาที่วางเหนือแผนภูมิเป็นของสไลด์ แม้ว่าจะดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ การวนลูปผ่าน[Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/)จะพบแผนภูมิและรูปร่างสไลด์ปกติ แต่จะไม่แสดงรูปร่างที่อยู่ภายในแผนภูมิ คำอธิบายแผนภูมิและป้ายข้อมูลเป็นส่วนแยกของแผนภูมิ ไม่ใช่คำอธิบายแบบกำหนดเองในคอลเลกชันนี้
 
-ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีแผนภูมิที่มีคำอธิบายแยกกลุ่มอ่านว่า "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาที่อ่านว่า "Slide overlay" ตัวอย่างค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ มันตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ที่มีกรอบข้อความไม่เป็นค่า null จาก [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) และข้อความที่คาดหวัง
+ดาวน์โหลด[chart-annotations.pptx](chart-annotations.pptx)และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีแผนภูมิพร้อมคำอธิบายที่ไม่ได้รวมกลุ่มโดยอ่านว่า "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาที่อ่านว่า "Slide overlay" ตัวอย่างค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น "Final results" เมื่อต้องการเผยแพร่รายงาน ตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ[AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)ที่มีกรอบข้อความไม่เป็นค่า null จาก[getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame)และข้อความที่คาดหวัง
 
 ```php
 use aspose\slides\Presentation;
@@ -333,26 +396,23 @@ try {
 }
 ```
 
-เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง ภาพต่อไปนี้แสดงผลอินพุตและผลลัพธ์ที่บันทึกแล้วเปิดใหม่:
+เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง รูปภาพต่อไปนี้แสดงอินพุตและผลลัพธ์ที่บันทึกแล้วและเปิดใหม่อีกครั้ง:
 
 | ก่อนแก้ไข | หลังแก้ไข |
 | --- | --- |
-| ![คำอธิบายแผนภูมิแสดงผลลัพธ์เบื้องต้น](chart-annotations-before.png) | ![คำอธิบายแผนภูมิแสดงผลลัพธ์สุดท้าย](chart-annotations-after.png) |
+| ![คำอธิบายแผนภูมิแสดงข้อความ Preliminary results](chart-annotations-before.png) | ![คำอธิบายแผนภูมิแสดงข้อความ Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-ตัวอย่างตรวจสอบเฉพาะรูปร่างระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) ให้ตรวจสอบคอลเลกชัน [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) ของกลุ่มนั้นด้วย ทำซ้ำแบบรีเคอร์ซีฟสำหรับกลุ่มย่อยทั้งหมดโดยใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูก กลุ่มเองเป็นคอนเทนเนอร์; อย่าปฏิบัติกลุ่มเป็นกล่องข้อความ
+ตัวอย่างตรวจสอบเฉพาะรูปร่างระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน[GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), ให้ตรวจสอบคอลเลกชัน[getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes)ของกลุ่มนั้นด้วย แล้วทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มซ้อนกัน, ใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูกของพวกมัน กลุ่มเองเป็นคอนเทนเนอร์; อย่าปฏิบัติกลุ่มเป็นกล่องข้อความ
 {{% /alert %}}
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถตั้งค่าการเติมสีกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่ในขณะที่ยังคงให้เส้นขอบทึบได้หรือไม่?**
+**ฉันสามารถตั้งค่าสีเติมครึ่งโปร่งแสงสำหรับคอลัมน์/พื้นที่ในขณะที่คงเส้นขอบให้ทึบได้หรือไม่?**  
+ได้ การโปร่งใสของการเติมและเส้นขอบถูกกำหนดแยกกัน ซึ่งเป็นประโยชน์ในการทำให้กริดและข้อมูลอ่านง่ายขึ้นในภาพที่มีความหนาแน่นสูง
 
-ใช่ การเติมความโปร่งแสงและเส้นขอบถูกกำหนดค่าแยกกัน สิ่งนี้เป็นประโยชน์ในการเพิ่มความอ่านง่ายของกริดและข้อมูลในภาพที่หนาแน่น
+**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับกันอย่างไร?**  
+ลดขนาดฟอนต์, ปิดใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น ประเภท), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะจุดที่เลือกหากจำเป็น, หรือเปลี่ยนรูปแบบเป็น "ค่า + คำอธิบาย"
 
-**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับซ้อนกันได้อย่างไร?**
-
-ลดขนาดตัวอักษร ปิดใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น หมวดหมู่) ปรับตำแหน่งป้าย แสดงป้ายเฉพาะจุดที่เลือกหากจำเป็น หรือสลับรูปแบบเป็น "ค่า + คำอธิบาย"
-
-**ฉันสามารถใช้การเติมสีแบบไล่สีหรือแพทเทิร์นกับซีรีส์ได้หรือไม่?**
-
-ได้ ซีรีส์รองรับการเติมสีแบบทึบ, ไล่สี, และแพทเทิร์น ในการใช้งานจริงควรใช้ไล่สีอย่างระมัดระวังและหลีกเลี่ยงการผสมผสานที่ทำให้คอนทราสต์กับกริดและข้อความลดลง
+**ฉันสามารถใช้การเติมแบบไล่โทนสีหรือรูปแบบบนชุดข้อมูลได้หรือไม่?**  
+ได้ ชุดข้อมูลรองรับการเติมแบบทึบ, ไล่โทนสี, และรูปแบบ ในการใช้งานจริงควรใช้ไล่โทนสีอย่างระมัดระวังและหลีกเลี่ยงการผสมที่ทำให้ความคมชัดของกริดและข้อความลดลง

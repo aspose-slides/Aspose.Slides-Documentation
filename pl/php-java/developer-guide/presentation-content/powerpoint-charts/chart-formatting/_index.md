@@ -1,11 +1,11 @@
 ---
-title: Formatowanie wykresów w prezentacji w PHP
+title: Formatowanie wykresów prezentacji w PHP
 linktitle: Formatowanie wykresów
 type: docs
 weight: 60
 url: /pl/php-java/chart-formatting/
 keywords:
-- formatowanie wykresu
+- format wykresu
 - formatowanie wykresu
 - element wykresu
 - właściwości wykresu
@@ -23,13 +23,15 @@ description: "Poznaj formatowanie wykresów w Aspose.Slides dla PHP przy użyciu
 
 Ten artykuł wyjaśnia, jak formatować wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides. Pokazuje, jak dostosować kluczowe elementy wykresu, takie jak osie, linie siatki, tytuły, legendy, obszar wykresu oraz wypełnienia ścian, aby poprawić wygląd i czytelność danych wykresu.
 
-Demonstruje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wstępnie zdefiniowane formaty numeryczne do danych wykresu oraz włączyć zaokrąglone rogi obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
+Pokazuje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wstępnie zdefiniowane formaty liczbowe do danych wykresu oraz włączyć zaokrąglone rogi obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresów w prezentacji.
 
-## **Formatowanie elementów wykresu**
+Aby uzyskać oddzielne wypełnienia i kontury w rosnących i spadających przedziałach, zobacz [przykład wykresu akcji](/slides/pl/php-java/create-chart/#create-stock-charts).
 
-Użyj [Wykres](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) do formatowania tytułów wykresu, osi, linii siatki, legend oraz obszaru wykresu. Ten przykład tworzy wykres liniowy z znacznikami i domyślnymi danymi, a następnie stosuje oddzielne style tekstu i linii do jego osi wartości i osi kategorii. Rozmiary czcionek i grubości linii są określone w punktach; etykiety kategorii są obrócone o 45 stopni.
+## **Formatuj elementy wykresu**
 
-Oś wartości używa [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) niezależnie od komórek źródłowych. Jej skala biegnie od -2 do 15, z głównymi przedziałami co 2 i mniejszymi przedziałami co 0,5. Przykład łączy również formatowanie procentowe z [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) ustawionym na tysiące, więc dopasuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) jest wywoływana z wartością `false`. Wypełnienia tylnej ściany i podłogi są konfigurowane przy użyciu [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) oraz [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), ale te powierzchnie są widoczne jedynie w wykresach 3D.
+Użyj [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/), aby formatować tytuły wykresu, osie, linie siatki, legendy oraz obszar wykresu. Ten przykład tworzy wykres liniowy z znacznikami i danymi domyślnymi, a następnie stosuje oddzielne style tekstu i linii dla osi wartości i osi kategorii. Rozmiary czcionek i szerokości linii są podawane w punktach; etykiety kategorii są obrócone o 45 stopni.
+
+Oś wartości używa [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) niezależnie od komórek źródłowych. Jej skala rozciąga się od -2 do 15, z głównymi interwałami co 2 i mniejszymi co 0,5. Przykład łączy także formatowanie procentowe z [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) ustawionym na tysiące, więc dostosuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) jest wywoływana z wartością `false`. Wypełnienia tylnej ściany i podłogi są konfigurowane za pomocą [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) oraz [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor), ale te powierzchnie są widoczne tylko w wykresach 3D.
 
 ```php
 use aspose\slides\ChartType;
@@ -157,7 +159,7 @@ try {
 
 ## **Ustaw właściwości czcionki dla wykresu**
 
-Ustaw domyślny rozmiar czcionki dla tekstu wykresu za pomocą [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). Przykład tworzy zestawiony wykres słupkowy z czcionką 20 punktów i włącza etykiety wartości dla pierwszej serii przy użyciu [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Elementy tekstowe z własnymi wyraźnymi ustawieniami czcionki mogą nadpisać domyślne ustawienia wykresu.
+Ustaw domyślny rozmiar czcionki dla tekstu wykresu za pomocą [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat). Przykład tworzy wykres słupkowy grupowany z czcionką 20 punktów i włącza etykiety wartości dla pierwszej serii za pomocą [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). Elementy tekstowe z własnymi wyraźnymi ustawieniami czcionki mogą nadpisać domyślne ustawienie wykresu.
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
-## **Ustaw format numeryczny**
+## **Ponowne użycie formatowania ramki tekstowej dla legendy wykresu**
 
-Użyj [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Przykład tworzy zestawiony wykres słupkowy z domyślnymi danymi opartymi na komórkach i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmiany leżących pod nimi liczb; na przykład 0,25 jest wyświetlane jako 25,00%. Formaty osi i etykiet danych można konfigurować oddzielnie.
+Aby dopasować legendę do nagłówka slajdu, ustaw czcionkę nagłówka za pomocą [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) w pierwszym paragrafie. Wywołaj [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) na formacie zwróconym przez [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) legendy. Kopiuje to ustawienia ramki tekstowej, formatowanie pierwszego paragrafu oraz domyślne właściwości czcionki tego paragrafu. Formatowanie zastosowane bezpośrednio do poszczególnych fragmentów lub późniejszych paragrafów pozostaje lokalne dla źródła.
+
+Przykład używa pogrubionego nagłówka Calibri 26‑punktowego w kolorze granatowym jako szablonu. Po sformatowaniu legendy wywołuje [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo), aby zastosować to samo formatowanie do oddzielnego podpisu.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+W zapisanej prezentacji legenda i podpis odpowiadają nagłówkowi pod względem rozmiaru, grubości i koloru. Legenda nadal wyświetla nazwy serii, a podpis zachowuje własny tekst. Jeśli fragment w podpisie ma już określony rozmiar czcionki, ten rozmiar ma pierwszeństwo przed skopiowanym domyślnym rozmiarem paragrafu.
+
+| Przed kopiowaniem | Po kopiowaniu |
+| --- | --- |
+| ![Wykres sprzedaży kwartalnej z regularnymi czarnymi etykietami legendy i czarnym podpisem](legend-formatting-before.png) | ![Ten sam wykres z większymi, pogrubionymi, granatowymi etykietami legendy i dopasowanym podpisem](legend-formatting.png) |
+
+## **Ustaw format liczbowy**
+
+Użyj [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat), aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Ten przykład tworzy wykres słupkowy grupowany z domyślnymi danymi opartymi na komórkach i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmiany rzeczywistych liczb; na przykład 0,25 jest wyświetlane jako 25,00%. Formaty osi i etykiet danych można konfigurować osobno.
 
 ```php
 use aspose\slides\ChartType;
@@ -199,7 +262,7 @@ try {
         $dataPoints = $chartSeries->getDataPoints();
         for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
             $dataPoint = $dataPoints->get_Item($j);
-            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0,00%
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
         }
     }
 
@@ -209,7 +272,7 @@ try {
 }
 ```
 
-Poniższa tabela zawiera wbudowane indeksy formatów liczbowych wraz z charakterystycznymi formatami Excel dla ustawień regionalnych angielski (Stany Zjednoczone). Dokładne ciągi formatów i ich wyświetlanie mogą się różnić w zależności od aplikacji i ustawień regionalnych, szczególnie w przypadku walut i dat. Niektóre formaty Excel różnią się również od domyślnych w standardzie OOXML, jak opisano w [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Poniższa tabela zawiera wbudowane indeksy formatów liczbowych wraz z przykładowymi formatami Excel dla ustawień języka angielskiego (Stany Zjednoczone). Dokładne ciągi formatów i ich wyświetlanie mogą się różnić w zależności od aplikacji i regionu, zwłaszcza dla walut i dat. Niektóre formaty Excel różnią się również od domyślnych w standardzie OOXML, jak opisano w [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Indeks | Format |
 | --- | --- |
@@ -252,7 +315,7 @@ Poniższa tabela zawiera wbudowane indeksy formatów liczbowych wraz z charakter
 
 ## **Ustaw zaokrąglone krawędzie obszaru wykresu**
 
-Wywołaj [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) z wartością `true`, aby zaokrąglić rogi obszaru wykresu. Przykład tworzy zestawiony wykres słupkowy i używa [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/), aby nadać jego obrysowi jednolity szary kolor oraz styl jednej linii przed zapisaniem prezentacji.
+Wywołaj [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) z wartością `true`, aby zaokrąglić rogi obszaru wykresu. Przykład tworzy wykres słupkowy grupowany i używa [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat), aby nadać jego konturowi jednolity szary kolor oraz styl pojedynczej linii przed zapisaniem prezentacji.
 
 ```php
 use aspose\slides\ChartType;
@@ -279,11 +342,11 @@ try {
 
 ## **Edytuj istniejące adnotacje wykresu**
 
-Wykres może zawierać niestandardowe kształty, takie jak adnotacja tekstowa wyjaśniająca status raportu. Uzyskaj dostęp do tych kształtów poprzez [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). Zbiór zwrócony przez [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) zawiera kształty należące do wykresu.
+Wykres może zawierać własne kształty, takie jak adnotacja tekstowa wyjaśniająca status raportu. Uzyskaj dostęp do tych kształtów poprzez [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes). Kolekcja zwracana przez [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) zawiera kształty należące do wykresu.
 
-Zwykłe pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda na część wykresu. Iterowanie przez [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) znajduje wykres i zwykłe kształty slajdu, ale nie wymienia poszczególnych kształtów wewnątrz wykresu. Tytuły wykresu i etykiety danych są oddzielnymi elementami wykresu, a nie niestandardowymi adnotacjami w tej kolekcji.
+Zwykłe pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda jak część wykresu. Iterowanie przez [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) znajduje wykres oraz zwykłe kształty slajdu, ale nie wylicza poszczególnych kształtów wewnątrz wykresu. Tytuły wykresów i etykiety danych są oddzielnymi elementami wykresu, a nie własnymi adnotacjami w tej kolekcji.
 
-Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera wykres z niezgrupowaną adnotacją o treści „Preliminary results”, linią należącą do wykresu oraz zwykłym polem tekstowym slajdu o treści „Slide overlay”. Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na „Final results”, gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja jest pusta i edytuje tylko [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) z niepustą ramką tekstową zwróconą przez [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) oraz oczekiwanym tekstem.
+Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera wykres z niegrupowaną adnotacją o treści „Preliminary results”, linią należącą do wykresu oraz zwykłym polem tekstowym slajdu o treści „Slide overlay”. Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na „Final results”, gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja nie jest pusta i edytuje jedynie [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) z nie‑nullową ramką tekstową zwróconą przez [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) oraz oczekiwanym tekstem.
 
 ```php
 use aspose\slides\Presentation;
@@ -333,26 +396,26 @@ try {
 }
 ```
 
-Linia i pole tekstowe slajdu pozostają niezmienione. Poniższe obrazy pokazują wejście oraz zapisany, ponownie otwarty wynik:
+Linia i pole tekstowe slajdu pozostają niezmienione. Poniższe obrazy pokazują wejściowy plik i zapisany, ponownie otwarty wynik:
 
 | Przed edycją | Po edycji |
 | --- | --- |
-| ![Adnotacja wykresu z tekstem Preliminary results](chart-annotations-before.png) | ![Adnotacja wykresu z tekstem Final results](chart-annotations-after.png) |
+| ![Adnotacja wykresu z napisem "Preliminary results"](chart-annotations-before.png) | ![Adnotacja wykresu z napisem "Final results"](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Przykład sprawdza tylko kształty należące do wykresu na najwyższym poziomie. Jeśli adnotacja znajduje się wewnątrz [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), sprawdź również kolekcję [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) tej grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich podrzędnych kształtów. Grupa sama w sobie jest kontenerem; nie traktuj jej jako pola tekstowego.
+Przykład sprawdza tylko kształty na najwyższym poziomie należące do wykresu. Jeśli adnotacja znajduje się wewnątrz [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), należy również przejrzeć kolekcję [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) tego grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich podrzędnych kształtów. Grupa sama w sobie jest kontenerem; nie traktuj jej jako pola tekstowego.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, zachowując nieprzezroczyste obramowanie?**
 
-Tak. Przezroczystość wypełnienia i obramowanie są konfigurowane osobno. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
+Tak. Przezroczystość wypełnienia i kontur są konfigurowane osobno. Jest to przydatne do zwiększenia czytelności siatki i danych w gęstych wizualizacjach.
 
-**Jak mogę radzić sobie z etykietami danych, gdy zachodzą na siebie?**
+**Jak mogę poradzić sobie z nakładającymi się etykietami danych?**
 
-Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (na przykład kategorie), dostosuj pozycję etykiety, wyświetlaj etykiety tylko dla wybranych punktów w razie potrzeby lub zmień format na „wartość + legenda”.
+Zredukuj rozmiar czcionki, wyłącz nieistotne elementy etykiet (na przykład kategorie), dostosuj położenie etykiet, wyświetlaj etykiety tylko dla wybranych punktów w razie potrzeby lub przełącz format na „wartość + legenda”.
 
 **Czy mogę zastosować wypełnienia gradientowe lub wzorcowe do serii?**
 
-Tak. Serie obsługują wypełnienia jednolite, gradientowe i wzorcowe. W praktyce stosuj gradienty oszczędnie i unikaj kombinacji, które zmniejszają kontrast z siatką i tekstem.
+Tak. Serie obsługują wypełnienia jednorodne, gradientowe i wzorcowe. W praktyce stosuj gradienty oszczędnie i unikaj kombinacji, które obniżają kontrast względem siatki i tekstu.

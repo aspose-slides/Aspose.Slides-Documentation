@@ -1,37 +1,32 @@
 ---
-title: Format Diagram Presentasi di .NET
-linktitle: Pemformatan Diagram
+title: Format Grafik Presentasi dalam .NET
+linktitle: Pemformatan Grafik
 type: docs
 weight: 60
 url: /id/net/chart-formatting/
 keywords:
-- format diagram
-- pemformatan diagram
-- entitas diagram
-- properti diagram
-- pengaturan diagram
-- opsi diagram
+- format grafik
+- pemformatan grafik
+- entitas grafik
+- properti grafik
+- pengaturan grafik
+- opsi grafik
 - properti font
-- batas bulat
+- bingkai melengkung
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari pemformatan diagram di Aspose.Slides untuk .NET dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, serta batas diagram yang bulat."
+description: "Pelajari pemformatan grafik di Aspose.Slides untuk .NET dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, serta border grafik yang melengkung."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-Artikel ini menjelaskan cara memformat diagram dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Ini menunjukkan cara menyesuaikan elemen diagram utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data diagram.
+Artikel ini menjelaskan cara memformat grafik dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen utama grafik seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data grafik. Artikel ini juga memperlihatkan cara mengatur properti font untuk teks grafik, menerapkan format numerik bawaan pada data grafik, dan mengaktifkan sudut melengkung untuk area grafik. Bersama-sama, contoh-contoh ini menunjukkan cara mengendalikan baik gaya visual maupun penyajian data grafik dalam sebuah presentasi. Untuk isian dan garis luar terpisah pada interval naik dan turun, lihat [contoh grafik saham](/slides/id/net/create-chart/#create-stock-charts).
 
-Artikel ini juga memperlihatkan cara mengatur properti font untuk teks diagram, menerapkan format numerik bawaan pada data diagram, dan mengaktifkan sudut bulat untuk area diagram. Bersama-sama, contoh‑contoh ini menunjukkan cara mengontrol gaya visual serta penyajian data diagram dalam sebuah presentasi.
+## **Memformat Entitas Grafik**
 
-## **Memformat Entitas Diagram**
-
-Gunakan [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) untuk memformat judul diagram, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat diagram garis dengan penanda dan data default, lalu menerapkan gaya teks dan garis terpisah pada sumbu nilai dan kategori. Ukuran font serta lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
-
-Sumbu nilai menggunakan [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) secara terpisah dari sel sumber. Skala berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan pemformatan persentase dengan [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) yang disetel ke ribuan, jadi sesuaikan pengaturan ini dengan arti dan besaran data Anda. Legenda tetap berada di luar area plot karena [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) dinonaktifkan. Isian dinding belakang dan lantai dikonfigurasi melalui [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) dan [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), tetapi permukaan ini hanya terlihat pada diagram 3D.
-
+Gunakan [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) untuk memformat judul grafik, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat grafik garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat. Sumbu nilai menggunakan [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) secara terpisah dari sel sumber. Skala sumbu berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan pemformatan persentase dengan [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) yang disetel ke ribuan, sehingga sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap berada di luar area plot karena [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) dinonaktifkan. Isian back-wall dan floor dikonfigurasi melalui [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) dan [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), tetapi permukaan ini hanya terlihat pada grafik 3D.
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -146,10 +141,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Mengatur Properti Font untuk Diagram**
+## **Mengatur Properti Font untuk Grafik**
 
-Atur ukuran font default untuk teks diagram melalui [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Contoh ini membuat diagram kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Elemen teks dengan pengaturan font eksplisit dapat menggantikan nilai default diagram.
-
+Atur ukuran font default untuk teks grafik melalui [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Contoh ini membuat grafik kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Elemen teks dengan pengaturan font eksplisitnya sendiri dapat menggantikan nilai default grafik.
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
@@ -165,11 +159,56 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **Menggunakan Ulang Pemformatan Bingkai Teks untuk Legenda Grafik**
+
+Untuk menyesuaikan legenda dengan judul slide, atur font pada [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) paragraf pertama. Panggil [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) pada [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) legenda. Metode ini membaca pengaturan bingkai teks, format paragraf pertama, dan properti font default paragraf tersebut. Pemformatan yang diterapkan langsung pada bagian individual atau pada paragraf berikutnya tetap lokal pada sumber. Contoh ini menggunakan judul Calibri tebal 26 poin dengan warna navy sebagai templat. Setelah menata legenda, contoh ini menggunakan [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) untuk menerapkan pemformatan yang sama pada keterangan terpisah.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+Dalam presentasi yang disimpan, legenda dan keterangan cocok dengan judul dalam ukuran, ketebalan, dan warna. Legenda masih menampilkan nama seri, dan keterangan mempertahankan teksnya sendiri. Jika sebuah bagian dalam keterangan sudah memiliki ukuran font eksplisit, ukuran tersebut memiliki prioritas lebih tinggi dibandingkan default paragraf yang disalin.
+
+| Sebelum menyalin | Setelah menyalin |
+| --- | --- |
+| ![Grafik penjualan kuartalan dengan label legenda hitam biasa dan keterangan hitam](legend-formatting-before.png) | ![Grafik yang sama dengan label legenda navy lebih besar dan tebal serta keterangan yang cocok](legend-formatting.png) |
 
 ## **Mengatur Format Numerik**
 
-Gunakan [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) untuk menerapkan format angka bawaan pada sel buku kerja diagram. Contoh ini membuat diagram kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di buku kerja tanpa mengubah angka dasarnya; misalnya, 0,25 ditampilkan sebagai 25,00 %. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
-
+Gunakan [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) untuk menerapkan format angka bawaan pada sel buku kerja grafik. Contoh ini membuat grafik kolom berkelompok dengan data default berbasis sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di buku kerja tanpa mengubah angka dasarnya; misalnya, 0,25 ditampilkan sebagai 25,00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
 ```csharp
 using Aspose.Slides;
 using Aspose.Slides.Charts;
@@ -185,14 +224,14 @@ foreach (var chartSeries in series)
 {
     foreach (var dataPoint in chartSeries.DataPoints)
     {
-        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0,00%
     }
 }
 
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Tabel berikut mencantumkan indeks format angka bawaan dengan contoh format Excel untuk locale Inggris (Amerika Serikat). String format tepat dan tampilan mereka dapat bervariasi menurut aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, sebagaimana dijelaskan dalam [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Tabel berikut mencantumkan indeks format angka bawaan dengan contoh format Excel untuk locale Bahasa Inggris (Amerika Serikat). String format yang tepat dan tampilan mereka dapat bervariasi tergantung aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, seperti yang dijelaskan dalam [catatan implementasi format angka Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Indeks | Format |
 | --- | --- |
@@ -233,10 +272,9 @@ Tabel berikut mencantumkan indeks format angka bawaan dengan contoh format Excel
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Mengatur Sudut Bulat pada Area Diagram**
+## **Mengatur Bingkai Membulat pada Area Grafik**
 
-Aktifkan [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) untuk membuat sudut bulat pada area diagram. Contoh ini membuat diagram kolom berkelompok dan menggunakan [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) untuk memberi garis luar warna abu‑abu solid dengan gaya satu‑garis sebelum menyimpan presentasi.
-
+Aktifkan [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) untuk membulatkan sudut area grafik. Contoh ini membuat grafik kolom berkelompok dan menggunakan [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) untuk memberi garis tepi warna abu-abu solid dan gaya satu garis sebelum menyimpan presentasi.
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -255,14 +293,9 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **Mengedit Anotasi Diagram yang Ada**
+## **Menyunting Anotasi Grafik yang Ada**
 
-Diagram dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk‑bentuk ini melalui [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), yang juga tercantum di bawah [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) dalam Referensi API Diagram. Koleksi [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)‑nya berisi bentuk‑bentuk yang dimiliki diagram.
-
-Kotak teks biasa yang ditempatkan di atas diagram menjadi milik slide, meskipun terlihat seperti bagian diagram. Mengiterasi melalui [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) menemukan diagram serta bentuk slide biasa, tetapi tidak menelusuri bentuk individu di dalam diagram. Judul diagram dan label data adalah elemen diagram terpisah, bukan anotasi khusus dalam koleksi ini.
-
-Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi diagram dengan anotasi tidak tergabung yang berisi teks "Preliminary results", sebuah garis milik diagram, dan kotak teks slide biasa berisi teks "Slide overlay". Contoh ini menemukan diagram pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa koleksi kosong dan hanya mengedit sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) yang memiliki [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) tidak null serta teks yang diharapkan.
-
+Sebuah grafik dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk-bentuk ini melalui [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), juga terdaftar di bawah [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) dalam Referensi API Grafik. Koleksi [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)‑nya berisi bentuk yang dimiliki grafik. Sebuah kotak teks biasa yang ditempatkan di atas grafik menjadi milik slide, meskipun tampak seperti bagian grafik. Mengiterasi melalui [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) menemukan grafik dan bentuk slide biasa, tetapi tidak mengenumerasi bentuk individual di dalam grafik. Judul grafik dan label data adalah elemen grafik terpisah, bukan anotasi khusus dalam koleksi ini. Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi grafik dengan anotasi tak berkelompok yang berisi "Preliminary results", sebuah garis milik grafik, dan sebuah kotak teks slide biasa yang berisi "Slide overlay". Contoh ini menemukan grafik pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa apakah koleksi kosong dan hanya menyunting sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) dengan [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) tidak null serta teks yang diharapkan.
 ```csharp
 using System;
 using System.Linq;
@@ -306,24 +339,24 @@ else
 
 Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menunjukkan input dan hasil yang disimpan serta dibuka kembali:
 
-| Sebelum diedit | Setelah diedit |
+| Sebelum mengedit | Setelah mengedit |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Anotasi grafik berisi Preliminary results](chart-annotations-before.png) | ![Anotasi grafik berisi Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Contoh ini memeriksa hanya bentuk‑bentuk tingkat atas yang dimiliki diagram. Jika anotasi berada di dalam sebuah [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), periksa juga koleksi [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) grup tersebut. Ulangi secara rekursif untuk grup bersarang, menerapkan cek teks yang sama pada bentuk anaknya. Sebuah grup sendiri merupakan wadah; jangan perlakukan sebagai kotak teks.
+Contoh ini memeriksa hanya bentuk tingkat atas yang dimiliki grafik. Jika sebuah anotasi berada di dalam [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), periksa koleksi [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) grup tersebut juga. Ulangi secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah wadah; jangan memperlakukan sebagai kotak teks.
 {{% /alert %}}
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apakah saya dapat menetapkan isian semi‑transparan untuk kolom/area sambil menjaga batas tetap opak?**
+**Apakah saya dapat mengatur isian semi-transparan untuk kolom/area sambil menjaga batas tetap tidak tembus pandang?**
 
-Ya. Transparansi isian dan garis luar dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
+Ya. Transparansi isian dan garis tepi dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
 
-**Bagaimana cara menangani label data ketika mereka saling tumpang tindih?**
+**Bagaimana saya dapat menangani label data ketika mereka saling tumpang tindih?**
 
-Kurangi ukuran font, nonaktifkan komponen label yang tidak esensial (misalnya kategori), sesuaikan posisi label, tampilkan label hanya untuk titik terpilih bila perlu, atau ubah format menjadi "nilai + legenda".
+Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk poin terpilih jika diperlukan, atau ubah format menjadi "nilai + legenda".
 
 **Apakah saya dapat menerapkan isian gradien atau pola pada seri?**
 
-Ya. Seri mendukung isian padat, gradien, dan pola. Praktiknya, gunakan gradien dengan hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.
+Ya. Seri mendukung isian solid, gradien, dan pola. Dalam praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.
