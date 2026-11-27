@@ -1,35 +1,37 @@
 ---
-title: Formátování grafů prezentace v Pythonu
+title: Formátování grafů v prezentaci v Pythonu
 linktitle: Formátování grafu
 type: docs
 weight: 60
 url: /cs/python-java/chart-formatting/
 keywords:
-- formátovat graf
+- formát grafu
 - formátování grafu
 - prvek grafu
 - vlastnosti grafu
 - nastavení grafu
-- možnosti grafu
+- volby grafu
 - vlastnosti písma
 - zaoblený okraj
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Naučte se formátovat grafy v Aspose.Slides pro Python pomocí Javy a vylepšete svou prezentaci PowerPoint pomocí vlastních os, písem, číselných formátů a zaoblených okrajů grafu."
+description: "Naučte se formátovat grafy v Aspose.Slides pro Python pomocí Javy a vylepšete svou PowerPoint prezentaci pomocí vlastních os, písem, číselných formátů a zaoblených okrajů grafu."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pomocí Aspose.Slides formátovat grafy v prezentacích PowerPoint. Ukazuje, jak přizpůsobit klíčové prvky grafu, jako jsou osy, mřížkové čáry, nadpisy, legendy, vykreslovací oblast a výplně stěn, aby se zlepšil vzhled a čitelnost dat v grafu.
+V tomto článku se vysvětluje, jak pomocí Aspose.Slides formátovat grafy v prezentacích PowerPoint. Ukazuje, jak přizpůsobit klíčové prvky grafu, jako jsou osy, mřížky, názvy, legendy, oblast grafu a výplně stěn, aby se zlepšil vzhled a čitelnost dat v grafu.
 
-Také demonstruje, jak nastavit vlastnosti písma pro text v grafu, použít předdefinované číselné formáty pro data v grafu a povolit zaoblené rohy pro oblast grafu. Tyto příklady ukazují, jak ovládat jak vizuální styl, tak prezentaci dat v grafu v prezentaci.
+Také demonstruje, jak nastavit vlastnosti písma pro text v grafu, použít předdefinované číselné formáty na data v grafu a povolit zaoblené rohy oblasti grafu. Společně tyto příklady ukazují, jak řídit jak vizuální styl, tak prezentaci dat v grafech v prezentaci.
 
-## **Formátovat entity grafu**
+Pro samostatné výplně a obrysy na rostoucích a klesajících intervalech viz [příklad akciového grafu](/slides/cs/python-java/create-chart/#create-stock-charts).
 
-Použijte [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) k formátování nadpisů grafu, os, mřížkových čar, legend a vykreslovací oblasti. Tento příklad vytváří čárový graf s značkami a výchozími daty, poté aplikuje samostatné textové a čárové styly na osu hodnot a osu kategorií. Velikosti písma a šířky čar jsou zadány v bodech; štítky kategorií jsou otočeny o 45 stupňů.
+## **Formátování prvků grafu**
 
-Osa hodnot používá [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) nezávisle na zdrojových buňkách. Její měřítko běží od -2 do 15 s hlavními intervaly 2 a vedlejšími intervaly 0,5. Příklad také kombinuje formátování procent s [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) nastaveným na tisíce, takže upravte tato nastavení podle významu a rozsahu vašich dat. Legenda zůstává mimo vykreslovací oblast, protože [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) je volána s `False`. Výplně zadní stěny a podlahy jsou konfigurovány pomocí [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) a [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), ale tyto povrchy jsou viditelné jen v 3D grafech.
+Použijte [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) k formátování názvů grafu, os, mřížek, legend a oblasti grafu. Tento příklad vytvoří čárový graf s značkami a výchozími daty, poté použije samostatné styly textu a čáry pro hodnotovou a kategoriální osu. Velikosti písma a šířky čar jsou zadány v bodech; štítky kategorií jsou otočeny o 45 stupňů.
+
+Osa hodnot používá [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) nezávisle na zdrojových buňkách. Její rozsah jde od -2 do 15, s hlavními intervaly 2 a vedlejšími intervaly 0,5. Příklad také kombinuje formátování procent s [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) nastaveným na tisíce, takže přizpůsobte tato nastavení významu a velikosti vašich dat. Legenda zůstává mimo oblast grafu, protože [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) je voláno s `False`. Výplně zadní stěny a podlahy jsou konfigurovány pomocí [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) a [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), ale tyto povrchy jsou viditelné pouze ve 3D grafech.
 
 ```python
 import jpype
@@ -157,9 +159,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Nastavit vlastnosti písma pro graf**
+## **Nastavení vlastností písma pro graf**
 
-Nastavte výchozí velikost písma pro text v grafu pomocí [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). Příklad vytváří seskupený sloupcový graf s 20‑bodovým písmem a povoluje štítky hodnot pro první sérii pomocí [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Textové prvky s vlastními explicitními nastaveními písma mohou přebít výchozí nastavení grafu.
+Nastavte výchozí velikost písma pro text v grafu pomocí [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). Příklad vytvoří seskupený sloupcový graf s 20bodovým písmem a povolí popisky hodnot pro první řadu pomocí [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Textové prvky s vlastními explicitními nastaveními písma mohou přepsat výchozí nastavení grafu.
 
 ```python
 import jpype
@@ -183,9 +185,69 @@ finally:
     presentation.dispose()
 ```
 
-## **Nastavit číselný formát**
+## **Znovupoužití formátování textového rámce pro legendu grafu**
 
-Použijte [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) k aplikaci vestavěného číselného formátu na buňky pracovního sešitu grafu. Tento příklad vytváří seskupený sloupcový graf s výchozími, buňkami podloženými daty a aplikuje formátový index 10 (`0.00%`) na buňku hodnoty každé série. Tím se změní způsob, jakým jsou hodnoty zobrazeny v sešitu, aniž by se změnily podkladové číslice; například 0,25 se zobrazí jako 25,00 %. Formáty os a popisků dat lze konfigurovat odděleně.
+Aby se legenda shodovala s nadpisem snímku, nastavte písmo nadpisu pomocí [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) v prvním odstavci. Zavolejte [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom) na formát vrácený [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) legendy. Tím se zkopírují nastavení textového rámce, formátování prvního odstavce a výchozí vlastnosti písma tohoto odstavce. Formátování aplikované přímo na jednotlivé části nebo na pozdější odstavce zůstává lokální pro zdroj.
+
+Příklad používá tučný 26bodový nadpis v Calibri barvy námořnické modré jako šablonu. Po stylizaci legendy volá [copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) k aplikaci stejného formátování na samostatný popisek.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+V uložené prezentaci se legenda a popisek shodují s nadpisem v velikosti, tloušťce a barvě. Legenda stále zobrazuje názvy řad a popisek si zachovává vlastní text. Pokud má část v popisku již explicitně nastavenou velikost písma, tato velikost má přednost před zkopírovaným výchozím nastavením odstavce.
+
+| Před kopírováním | Po kopírování |
+| --- | --- |
+| ![Čtvrtletní prodejní graf s běžnými černými popisky legendy a černým popiskem](legend-formatting-before.png) | ![Stejný graf s většími, tučnými námořnickými popisky legendy a odpovídajícím popiskem](legend-formatting.png) |
+
+## **Nastavení číselného formátu**
+
+Použijte [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) k aplikaci vestavěného číselného formátu na buňky sešitu grafu. Tento příklad vytvoří seskupený sloupcový graf s výchozími, buňkami podloženými daty a aplikuje formát indexu 10 (`0.00%`) na buňku každé hodnoty řady. Tím se změní způsob, jakým jsou hodnoty v sešitu zobrazeny, aniž by se změnila podkladová čísla; například 0,25 se zobrazí jako 25,00 %. Formáty os a popisků dat lze nastavit samostatně.
 
 ```python
 import jpype
@@ -212,7 +274,7 @@ finally:
     presentation.dispose()
 ```
 
-Následující tabulka uvádí vestavěné číselné formátové indexy s reprezentativními formáty Excelu pro anglické (USA) národní prostředí. Přesné řetězce formátů a jejich zobrazení se mohou lišit podle aplikace a národního prostředí, zejména pro měny a data. Některé formáty Excelu se také liší od výchozích hodnot v standardu OOXML, jak je popsáno v [poznámkách k implementaci číselného formátu společnosti Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Následující tabulka uvádí vestavěné indexy číselných formátů s reprezentativními formáty Excelu pro anglické (Spojené státy) místní nastavení. Přesné řetězce formátů a jejich zobrazení se mohou lišit podle aplikace a locale, zejména pro měny a data. Některé formáty Excelu se také liší od výchozích v standardu OOXML, jak je popsáno v [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Formát |
 | --- | --- |
@@ -253,9 +315,9 @@ Následující tabulka uvádí vestavěné číselné formátové indexy s repre
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Nastavit zakulacené okraje oblasti grafu**
+## **Nastavení zaoblených okrajů oblasti grafu**
 
-Zavolejte [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) s `True`, aby se rohy oblasti grafu zaoblily. Příklad vytváří seskupený sloupcový graf a používá [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) k nastavení obrysu na pevnou šedou barvu a jednojádrový styl před uložením prezentace.
+Zavolejte [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) s `True` pro zaoblení rohu oblasti grafu. Příklad vytvoří seskupený sloupcový graf a použije [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) k nastavení jeho obrysu na plnou šedou barvu a jednobarevný styl čáry před uložením prezentace.
 
 ```python
 import jpype
@@ -283,13 +345,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Upravit existující poznámky k grafu**
+## **Úprava existujících anotací grafu**
 
-Graf může obsahovat vlastní tvary, například textovou poznámku vysvětlující stav zprávy. Přístup k těmto tvarům získáte přes [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). Kolekce vrácená metodou [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) obsahuje tvary vlastněné grafem.
+Graf může obsahovat vlastní tvary, například textovou anotaci vysvětlující stav zprávy. Přístup k těmto tvarům získáte pomocí [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). Kolekce vrácená metodou [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) obsahuje tvary patřící grafu.
 
-Obyčejné textové pole umístěné nad grafem patří do snímku, i když vypadá jako součást grafu. Procházením [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) se najde graf a běžné tvary snímku, ale nevyjmenují se jednotlivé tvary uvnitř grafu. Nadpisy grafu a popisky dat jsou samostatné grafické prvky, nikoli vlastní poznámky v této kolekci.
+Běžná textová rámeček umístěná nad grafem patří snímku, i když vypadá jako součást grafu. Procházení pomocí [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) najde graf a běžné tvary snímku, ale nevyjmenuje jednotlivé tvary uvnitř grafu. Názvy grafů a popisky dat jsou samostatné prvky grafu, ne vlastní anotace v této kolekci.
 
-Stáhněte [chart-annotations.pptx](chart-annotations.pptx) a umístěte jej do pracovního adresáře aplikace. Jeho první snímek obsahuje graf s neagregovanou poznámkou „Preliminary results“, řádkem vlastněným grafem a obyčejným textovým polem snímku „Slide overlay“. Příklad najde první graf na tomto snímku a změní poznámku na „Final results“, když je zpráva připravena k publikaci. Ověří, zda je kolekce prázdná, a upraví pouze [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) s textovým rámečkem odlišným od `None`, který vrací [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame), a očekávaný text.
+Stáhněte [chart-annotations.pptx](chart-annotations.pptx) a umístěte jej do pracovního adresáře aplikace. Jeho první snímek obsahuje graf s neagregovanou anotací s textem „Preliminary results“, čárou patřící grafu a běžným textovým rámečkem snímku s textem „Slide overlay“. Příklad najde první graf na tomto snímku a změní anotaci na „Final results“, když je zpráva připravena k publikaci. Kontroluje, zda je kolekce prázdná, a upravuje pouze [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) s textovým rámcem odlišným od `None`, který vrací [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) a očekávaný text.
 
 ```python
 import jpype
@@ -330,26 +392,26 @@ finally:
     presentation.dispose()
 ```
 
-Čára a textové pole snímku zůstávají beze změny. Následující obrázky ukazují vstupní soubor a uložený, znovu otevřený výsledek:
+Čára a textový rámeček snímku zůstávají beze změny. Následující obrázky ukazují vstup a uložený, znovu otevřený výsledek:
 
 | Před úpravou | Po úpravě |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Anotace grafu s textem Předběžné výsledky](chart-annotations-before.png) | ![Anotace grafu s textem Konečné výsledky](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-Příklad zkoumá pouze tvary na nejvyšší úrovni, které vlastní graf. Pokud je poznámka uvnitř [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), také prozkoumejte kolekci [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) této skupiny. Opakujte to rekurzivně pro vnořené skupiny a použijte stejné kontroly textu na jejich podřízené tvary. Skupina sama je kontejner; nepovažujte ji za textové pole.
+{{% alert color="info" title="Poznámka" %}}
+Příklad kontroluje pouze tvary na nejvyšší úrovni patřící grafu. Pokud je anotace uvnitř [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), zkontrolujte také kolekci [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) této skupiny. Opakujte to rekurzivně pro vnořené skupiny a použijte stejné kontrolní texty na jejich podřízené tvary. Skupina sama je kontejner; nepovažujte ji za textový rámeček.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Mohu nastavit poloprůhledné výplně pro sloupce/oblastí a přitom zachovat okraj neprůhledný?**
+**Mohu nastavit poloprůhledné výplně pro sloupce/oblasti a zachovat okraj neprůhledný?**
 
-Ano. Průhlednost výplně a obrys jsou konfigurovány odděleně. To je užitečné pro zlepšení čitelnosti mřížky a dat v hustých vizualizacích.
+Ano. Průhlednost výplně a obrys jsou konfigurovány zvlášť. To je užitečné pro zlepšení čitelnosti mřížky a dat v hustých vizualizacích.
 
 **Jak mohu řešit překrývající se popisky dat?**
 
-Zmenšte velikost písma, vypněte nepodstatné komponenty popisků (například kategorie), upravte umístění popisku, zobrazujte popisky jen pro vybrané body, nebo přepněte formát na „hodnota + legenda“.
+Snižte velikost písma, vypněte nepodstatné komponenty popisků (například kategorie), upravte pozici popisku, zobrazte popisky jen pro vybrané body, pokud je to nutné, nebo přepněte formát na „hodnota + legenda“.
 
-**Mohu na sérii použít gradientní nebo vzorové výplně?**
+**Mohu použít gradientové nebo vzorové výplně pro řady?**
 
-Ano. Série podporují pevné, gradientní a vzorové výplně. V praxi používejte gradienty střídmě a vyhněte se kombinacím, které snižují kontrast vůči mřížce a textu.
+Ano. Řady podporují plné, gradientové a vzorové výplně. V praxi používejte gradienty střídmě a vyhýbejte se kombinacím, které snižují kontrast s mřížkou a textem.

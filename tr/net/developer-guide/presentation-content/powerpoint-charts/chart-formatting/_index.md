@@ -1,12 +1,12 @@
 ---
-title: .NET'te Sunum Grafiklerini Biçimlendirme
-linktitle: Grafik Biçimlendirme
+title: ".NET'te Sunum Grafiklerini Biçimlendirme"
+linktitle: "Grafik Biçimlendirme"
 type: docs
 weight: 60
 url: /tr/net/chart-formatting/
 keywords:
-- grafik formatı
 - grafik biçimlendirme
+- grafik formatlama
 - grafik öğesi
 - grafik özellikleri
 - grafik ayarları
@@ -18,19 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides for .NET içinde grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı biçimleri ve yuvarlatılmış grafik kenarlarıyla PowerPoint sunumunuzu yükseltin.
+description: "Aspose.Slides for .NET'te grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı formatları ve yuvarlatılmış grafik kenarlarıyla PowerPoint sunumunuzu geliştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarında grafiklerin nasıl biçimlendirileceğini açıklar. Eksenler, ızgara çizgileri, başlıklar, lejantlar, çizim alanı ve duvar doldurmaları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarında grafiklerin nasıl biçimlendirileceğini açıklar. Eksenler, ızgara çizgileri, başlıklar, açıklamalar, çizim alanı ve duvar dolgu gibi ana grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
 
-Ayrıca grafik metni için yazı tipi özelliklerini nasıl ayarlayacağınızı, grafik verilerine önceden ayarlanmış sayısal biçimleri nasıl uygulayacağınızı ve grafik alanı için yuvarlatılmış köşeleri nasıl etkinleştireceğinizi gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edebileceğinizi gösterir.
+Ayrıca grafik metni için yazı tipi özelliklerini nasıl ayarlayacağınızı, grafik verilerine önceden tanımlı sayısal biçimleri nasıl uygulayacağınızı ve grafik alanı için yuvarlak köşeleri nasıl etkinleştireceğinizi gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin görsel stilini ve veri sunumunu nasıl kontrol edebileceğinizi gösterir.
 
-## **Grafik Varlıklarını Biçimlendir**
+For separate fills and outlines on rising and falling intervals, see the [hisse senedi grafik örneği](/slides/tr/net/create-chart/#create-stock-charts).
 
-Grafik başlıklarını, eksenleri, ızgara çizgilerini, lejantları ve çizim alanını biçimlendirmek için [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) kullanın. Bu örnek, işaretçili ve varsayılan verili bir çizgi grafik oluşturur, ardından değer ve kategori eksenlerine ayrı metin ve çizgi stilleri uygular. Yazı tipi boyutları ve çizgi kalınlıkları puan cinsinden belirtilir; kategori etiketleri 45 derece döndürülür.
+## **Grafik Nesnelerini Biçimlendirme**
 
-Değer ekseni, kaynak hücrelerden bağımsız olarak [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) kullanır. Ölçeği -2 ile 15 arasında olup, ana aralıklar 2 ve alt aralıklar 0.5 olarak ayarlanmıştır. Örnek ayrıca yüzde biçimlendirmesini binlere ayarlanmış [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ile birleştirir; bu ayarları verinizin anlamına ve büyüklüğüne göre uyarlayın. Lejant, [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) devre dışı bırakıldığı için çizim alanının dışında kalır. Arka duvar ve zemin doldurmaları [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) ve [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) aracılığıyla yapılandırılır, ancak bu yüzeyler yalnızca 3D grafiklerde görülür.
+Grafik başlıklarını, eksenleri, ızgara çizgilerini, açıklamaları ve çizim alanını biçimlendirmek için [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) kullanın. Bu örnek, işaretçili ve varsayılan veri içeren bir çizgi grafiği oluşturur ve ardından değer ve kategori eksenlerine ayrı metin ve çizgi stilleri uygular. Yazı tipi boyutları ve çizgi kalınlıkları puan cinsinden belirtilir; kategori etiketleri 45 derece döndürülür.
+
+Değer ekseni, kaynak hücrelerden bağımsız olarak [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) kullanır. Ölçeği -2 ile 15 arasında gider, büyük aralıkları 2, küçük aralıkları 0,5'tir. Örnek ayrıca, yüzde biçimlendirmesini binlik olarak ayarlanmış [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ile birleştirir; bu ayarları verilerinizin anlamı ve ölçeğine göre uyarlayın. Açıklama, [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) devre dışı olduğundan çizim alanının dışında kalır. Arka duvar ve zemin dolgu, [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) ve [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) aracılığıyla yapılandırılır, ancak bu yüzeyler yalnızca 3B grafiklerde görünür.
 
 ```csharp
 using System.Drawing;
@@ -148,7 +150,7 @@ presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 
 ## **Grafik İçin Yazı Tipi Özelliklerini Ayarlama**
 
-[Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) aracılığıyla grafik metni için varsayılan yazı tipi boyutunu ayarlayın. Örnek, 20 puan yazı tipine sahip bir küme sütun grafiği oluşturur ve [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) kullanarak ilk seriye değer etiketlerini etkinleştirir. Kendi açık yazı tipi ayarlarına sahip metin öğeleri, grafik varsayılanını geçersiz kılabilir.
+Grafik metni için varsayılan yazı tipi boyutunu [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) aracılığıyla ayarlayın. Bu örnek, 20 puanlık bir yazı tipiyle kümelenmiş bir sütun grafiği oluşturur ve ilk seri için değer etiketlerini [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) kullanarak etkinleştirir. Kendi açıkça tanımlanmış yazı tipi ayarlarına sahip metin öğeleri, grafik varsayılanını geçersiz kılabilir.
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **Grafik Açıklaması İçin Metin Çerçevesi Biçimlendirmesini Yeniden Kullanma**
+
+Bir legend'i slayt başlığıyla eşleştirmek için, ilk paragrafın [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) içinde yazı tipini ayarlayın. Legend'in [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) üzerinde [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) çağırın. Bu, metin çerçevesi ayarlarını, ilk paragrafın biçimlendirmesini ve o paragrafın varsayılan yazı tipi özelliklerini okur. Doğrudan bireysel bölümlere ya da sonraki paragraflara uygulanan biçimlendirme, kaynağa özgü kalır.
+
+Örnek, koyu mavi renkte, 26 puanlık Calibri başlığı şablon olarak kullanır. Legend'i stillendirdikten sonra, aynı biçimlendirmeyi ayrı bir başlığa uygulamak için [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) kullanır.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+Kaydedilen sunumda, legend ve başlık boyut, kalınlık ve renk açısından başlıkla eşleşir. Legend hâlâ seri adlarını gösterir ve başlık kendi metnini korur. Başlıktaki bir bölümde zaten açıkça bir yazı tipi boyutu belirlenmişse, bu boyut kopyalanan paragraf varsayılanının üzerine yazılır.
+
+| Kopyalamadan önce | Kopyaladıktan sonra |
+| --- | --- |
+| ![Düzenli siyah legend etiketleri ve siyah başlık içeren üç aylık satış grafiği](legend-formatting-before.png) | ![Aynı grafik, daha büyük, koyu mavi legend etiketleri ve eşleşen bir başlık ile](legend-formatting.png) |
+
 ## **Sayısal Biçimi Ayarlama**
 
-[IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) kullanarak grafik çalışma kitabı hücrelerine yerleşik bir sayı biçimi uygulayın. Bu örnek, varsayılan hücre destekli veri ile bir küme sütun grafiği oluşturur ve her seri değer hücresine format indeksi 10 (`0.00%`) uygular. Bu, temel sayıları değiştirmeden değerlerin çalışma kitabında nasıl göründüğünü değiştirir; örneğin 0.25, %25.00 olarak gösterilir. Eksen ve veri etiketi biçimleri ayrı ayrı yapılandırılabilir.
+[IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) kullanarak grafik çalışma kitabı hücrelerine yerleşik bir sayı biçimi uygulayın. Bu örnek, varsayılan hücre tabanlı verilerle kümelenmiş bir sütun grafiği oluşturur ve her seri değer hücresine biçim indeksi 10 (`0.00%`) uygular. Bu, temel sayıları değiştirmeden değerlerin çalışma kitabında nasıl gösterileceğini değiştirir; örneğin, 0.25 değeri 25.00% olarak gösterilir. Eksen ve veri etiketi biçimleri ayrı ayrı yapılandırılabilir.
 
 ```csharp
 using Aspose.Slides;
@@ -191,9 +243,9 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Aşağıdaki tablo, İngilizce (Amerika Birleşik Devletleri) yerel ayarı için temsilci Excel biçimleriyle birlikte yerleşik sayı biçim indeklerini listeler. Kesin biçim dizgileri ve bunların gösterimi uygulama ve yerel ayara göre değişebilir, özellikle para birimi ve tarih için. Bazı Excel biçimleri ayrıca OOXML standardındaki varsayılanlardan farklıdır; bu, [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklanmıştır.
+Aşağıdaki tablo, İngilizce (Amerika Birleşik Devletleri) yerel ayarı için temsilci Excel biçimleriyle yerleşik sayı biçimi indekslerini listeler. Tam biçim dizgeleri ve gösterimleri, özellikle para birimi ve tarih için, uygulama ve yerel ayara göre değişebilir. Bazı Excel biçimleri, [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklandığı gibi OOXML standardındaki varsayılanlardan da farklıdır.
 
-| İndeks | Biçim |
+| Indeks | Biçim |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -234,7 +286,7 @@ Aşağıdaki tablo, İngilizce (Amerika Birleşik Devletleri) yerel ayarı için
 
 ## **Grafik Alanı Yuvarlatılmış Kenarlıklarını Ayarlama**
 
-[IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) etkinleştirerek grafik alanının köşelerini yuvarlatın. Örnek bir küme sütun grafiği oluşturur ve [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) kullanarak kenarlığına sade gri bir renk ve tek satır stili verir, ardından sunumu kaydeder.
+[IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) etkinleştirerek grafik alanının köşelerini yuvarlayın. Örnek, kümelenmiş bir sütun grafiği oluşturur ve kaydetmeden önce dış çizgisine katı gri renk ve tek çizgi stili vermek için [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) kullanır.
 
 ```csharp
 using System.Drawing;
@@ -256,11 +308,11 @@ presentation.Save("out.pptx", SaveFormat.Pptx);
 
 ## **Mevcut Grafik Açıklamalarını Düzenleme**
 
-Bir grafik, rapor durumunu açıklayan bir metin açıklaması gibi özel şekiller içerebilir. Bu şekillere [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) aracılığıyla erişilir; ayrıca Grafik API Referansında [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) altında listelenir. Bunun [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) koleksiyonu grafik tarafından sahip olunan şekilleri içerir.
+Bir grafik, bir raporun durumunu açıklayan bir metin açıklaması gibi özel şekiller içerebilir. Bu şekillere, Chart API Referansında [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) altında da listelenen [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) aracılığıyla erişilir. Bunun [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) koleksiyonu, grafik tarafından sahip olunan şekilleri içerir.
 
-Grafiğin üzerine yerleştirilen sıradan bir metin kutusu, grafik parçası gibi görünse bile slayta aittir. [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) üzerinde döngü yaptığınızda grafik ve sıradan slayt şekilleri bulunur, ancak grafik içindeki bireysel şekiller listelenmez. Grafik başlıkları ve veri etiketleri ayrı grafik öğeleridir, bu koleksiyondaki özel açıklama değildir.
+Grafiğin üzerine yerleştirilen sıradan bir metin kutusu, grafik parçası gibi görünse bile slayta aittir. [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) üzerinden dönerken grafik ve sıradan slayt şekilleri bulunur, ancak grafik içindeki bireysel şekiller listelenmez. Grafik başlıkları ve veri etiketleri ayrı grafik öğeleridir; bu koleksiyonda özel açıklama olarak yer almazlar.
 
-[chart-annotations.pptx](chart-annotations.pptx) dosyasını indirin ve uygulamanın çalışma dizinine yerleştirin. İlk slaytı, "Preliminary results" metninde bir ayrılmış açıklama, grafik tarafından sahip olunan bir çizgi ve "Slide overlay" metninde bir sıradan slayt metin kutusu içeren bir grafik içerir. Örnek, o slayttaki ilk grafiği bulur ve rapor yayınlanmaya hazır olduğunda açıklamayı "Final results" olarak değiştirir. Boş bir koleksiyon olup olmadığını kontrol eder ve yalnızca null olmayan bir [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) içeren ve beklenen metni taşıyan bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) düzenler.
+[chart-annotations.pptx](chart-annotations.pptx) dosyasını indirin ve uygulamanın çalışma dizinine yerleştirin. İlk slaytı, "Preliminary results" metnini içeren gruplanmamış bir açıklama, grafik tarafından sahip olunan bir çizgi ve "Slide overlay" metnini içeren sıradan bir slayt metin kutusu içeren bir grafik içerir. Örnek, o slayttaki ilk grafiği bulur ve rapor yayınlanmaya hazır olduğunda açıklamayı "Final results" olarak değiştirir. Boş bir koleksiyon olup olmadığını kontrol eder ve yalnızca beklendiği gibi bir metin çerçevesi ([TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/)) ve metni olan bir [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) düzenler.
 
 ```csharp
 using System;
@@ -303,23 +355,26 @@ else
 }
 ```
 
-Çizgi ve slayt metin kutusu değişmeden kalır. Aşağıdaki görseller giriş ve kaydedilip yeniden açılan sonucu gösterir:
+Çizgi ve slayt metin kutusu değişmeden kalır. Aşağıdaki görseller, girdi ve kaydedilip tekrar açılmış sonu gösterir:
 
 | Düzenlemeden önce | Düzenledikten sonra |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Preliminary results okuyan grafik açıklaması](chart-annotations-before.png) | ![Final results okuyan grafik açıklaması](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Örnek yalnızca üst düzey grafik sahip şekilleri inceler. Bir açıklama bir [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) içinde ise o grubun [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) koleksiyonunu da inceleyin. İç içe gruplar için bunu yineleyerek aynı metin kontrollerini alt şekillere uygulayın. Bir grup kendisi bir konteynerdir; onu bir metin kutusu olarak değerlendirmeyin.
+Örnek yalnızca birinci seviye grafik-ait şekilleri inceler. Bir açıklama bir [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) içinde ise, o grubun [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) koleksiyonunu da inceleyin. İç içe gruplar için bunu yineleyin ve aynı metin kontrollerini alt şekillerine uygulayın. Bir grup kendisi bir kapsayıcıdır; onu bir metin kutusu gibi işlemeyin.
 {{% /alert %}}
 
 ## **SSS**
 
-**Sütunlar/alanlar için yarı saydam doldurmalar ayarlayıp kenarlığı opak tutabilir miyim?**  
-Evet. Dolgu şeffaflığı ve kenarlık ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgaranın ve verinin okunabilirliğini artırmak için faydalıdır.
+**Sütunlar/alalar için yarı saydam dolgu ayarlarken kenarı opak tutabilir miyim?**
 
-**Veri etiketleri üst üste geldiğinde nasıl başa çıkabilirim?**  
-Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini devre dışı bırakın (örneğin, kategoriler), etiket konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiketleri gösterin veya formatı "değer + lejant" olarak değiştirin.
+Evet. Dolgu saydamlığı ve dış kenar ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verilerin okunabilirliğini artırmak için faydalıdır.
 
-**Serilere degrade veya desen dolguları uygulayabilir miyim?**  
-Evet. Seriler, katı, degrade ve desen doldurmaları destekler. Pratikte, degradeleri ölçülü kullanın ve ızgara ve metinle kontrastı azaltan kombinasyonlardan kaçının.
+**Veri etiketleri üst üste bindiğinde nasıl başa çıkabilirim?**
+
+Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini devre dışı bırakın (örneğin, kategorileri), etiket konumunu ayarlayın, gerekirse sadece seçili noktalar için etiket gösterin veya formatı "değer + açıklama" olarak değiştirin.
+
+**Serilere degrade veya desen dolguları uygulayabilir miyim?**
+
+Evet. Seriler katı, degrade ve desen dolgularını destekler. Pratikte, degradeleri ölçülü kullanın ve ızgara ve metinle kontrastı azaltan kombinasyonlardan kaçının.

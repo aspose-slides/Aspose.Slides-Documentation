@@ -1,35 +1,37 @@
 ---
-title: "C++에서 프레젠테이션 차트 서식 지정"
-linktitle: "차트 서식 지정"
+title: C++에서 프레젠테이션 차트 서식 지정
+linktitle: 차트 서식 지정
 type: docs
 weight: 60
 url: /ko/cpp/chart-formatting/
 keywords:
-- "차트 서식 지정"
-- "차트 서식 지정"
-- "차트 엔터티"
-- "차트 속성"
-- "차트 설정"
-- "차트 옵션"
-- "글꼴 속성"
-- "둥근 테두리"
-- "PowerPoint"
-- "프레젠테이션"
-- "C++"
-- "Aspose.Slides"
-description: "Aspose.Slides for C++에서 차트 서식 지정 방법을 배우고, 사용자 지정 축, 글꼴, 숫자 형식 및 둥근 차트 테두리를 통해 PowerPoint 프레젠테이션을 향상시키세요."
+- 차트 서식
+- 차트 서식 지정
+- 차트 엔터티
+- 차트 속성
+- 차트 설정
+- 차트 옵션
+- 글꼴 속성
+- 둥근 테두리
+- PowerPoint
+- 프레젠테이션
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++에서 차트 서식 지정 방법을 배우고 사용자 지정 축, 글꼴, 숫자 형식 및 둥근 차트 테두리를 통해 PowerPoint 프레젠테이션을 향상시킵니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides를 사용하여 PowerPoint 프레젠테이션에서 차트를 서식 지정하는 방법을 설명합니다. 축, 눈금선, 제목, 범례, 플롯 영역 및 벽 채우기와 같은 핵심 차트 요소를 사용자 지정하여 차트 데이터의 외관과 가독성을 향상시키는 방법을 보여줍니다.
+이 문서는 Aspose.Slides를 사용하여 PowerPoint 프레젠테이션에서 차트를 서식 지정하는 방법을 설명합니다. 축, 눈금선, 제목, 범례, 플롯 영역 및 벽 채우기와 같은 주요 차트 요소를 사용자 지정하여 차트 데이터의 외관과 가독성을 향상시키는 방법을 보여줍니다.
 
-또한 차트 텍스트의 글꼴 속성을 설정하고, 차트 데이터에 사전 설정된 숫자 형식을 적용하며, 차트 영역에 둥근 모서리를 활성화하는 방법을 시연합니다. 이러한 예제들은 프레젠테이션에서 차트의 시각적 스타일과 데이터 표시를 모두 제어하는 방법을 보여줍니다.
+또한 차트 텍스트에 대한 글꼴 속성을 설정하고, 차트 데이터에 사전 정의된 숫자 형식을 적용하며, 차트 영역에 둥근 모서리를 활성화하는 방법을 보여줍니다. 이러한 예제들은 프레젠테이션 내 차트의 시각적 스타일과 데이터 표현을 모두 제어하는 방법을 보여줍니다.
+
+For separate fills and outlines on rising and falling intervals, see the [주식 차트 예제](/slides/ko/cpp/create-chart/#create-stock-charts).
 
 ## **차트 엔터티 서식 지정**
 
-Use [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
+차트 제목, 축, 눈금선, 범례 및 플롯 영역을 서식 지정하려면 [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/)을 사용하십시오. 이 예제는 마커와 기본 데이터를 사용한 라인 차트를 만든 다음 값 축과 범주 축에 별도의 텍스트 및 선 스타일을 적용합니다. 글꼴 크기와 선 굵기는 포인트 단위로 지정되며, 범주 레이블은 45도 회전됩니다.
 
-The value axis uses [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) is disabled. Back-wall and floor fills are configured through [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) and [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), but these surfaces are only visible in 3D charts.
+값 축은 소스 셀과 무관하게 [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/)을 사용합니다. 눈금은 -2에서 15까지이며 주요 간격은 2, 보간 간격은 0.5입니다. 이 예제는 또한 백분율 서식을 [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/)을 천 단위로 설정한 것과 결합하므로 데이터의 의미와 크기에 맞게 이 설정을 조정하십시오. [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/)가 비활성화되어 있기 때문에 범례는 플롯 영역 외부에 유지됩니다. 백월과 바닥 채우기는 [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) 및 [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/)을 통해 구성되지만 이러한 표면은 3D 차트에서만 표시됩니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -183,7 +185,7 @@ presentation->Save(u"FormattedChart_out.pptx", SaveFormat::Pptx);
 
 ## **차트의 글꼴 속성 설정**
 
-Set the default font size for chart text through [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Text elements with their own explicit font settings can override the chart default.
+[Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/)을 통해 차트 텍스트의 기본 글꼴 크기를 설정합니다. 이 예제는 20포인트 글꼴을 사용한 클러스터형 열 차트를 만들고 [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/)을 통해 첫 번째 시리즈에 값 레이블을 활성화합니다. 자체 명시적인 글꼴 설정이 있는 텍스트 요소는 차트 기본값을 재정의할 수 있습니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -216,9 +218,91 @@ chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataL
 presentation->Save(u"FontPropertiesForChart.pptx", SaveFormat::Pptx);
 ```
 
+## **차트 범례에 텍스트 프레임 서식 재사용**
+
+범례를 슬라이드 제목에 맞추려면 [get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/)을 통해 첫 번째 단락의 기본 부분 형식에 글꼴을 설정하십시오. [get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformattedtextcontainer/get_textformat/)을 사용하여 범례의 텍스트 서식에 접근한 다음, 제목의 텍스트 프레임과 함께 [CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyfrom/)을 호출합니다. 이렇게 하면 텍스트 프레임 설정, 첫 번째 단락의 서식 및 해당 단락의 기본 글꼴 속성이 복사됩니다. 개별 부분이나 후속 단락에 직접 적용된 서식은 소스에 국한됩니다.
+
+예제는 네이비 색상의 굵은 26포인트 Calibri 제목을 템플릿으로 사용합니다. 범례를 스타일링한 후에는 [CopyTo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyto/)를 사용하여 동일한 서식을 별도의 캡션에 적용합니다.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/NullableBool.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/StyleType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto heading = shapes->AddAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+auto sourceTextFrame = heading->AddTextFrame(u"Quarterly sales");
+auto font = sourceTextFrame->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+font->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+font->set_FontHeight(26);
+font->set_FontBold(NullableBool::True);
+font->get_FillFormat()->set_FillType(FillType::Solid);
+font->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(32, 64, 96));
+
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+chart->set_Style(StyleType::Style3);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Retail"));
+workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Online"));
+workbook->GetCell(0, 0, 3, ObjectExt::Box<String>(u"Wholesale"));
+for (auto quarter = 1; quarter <= 4; ++quarter)
+{
+    auto label = String::Format(u"Q{0}", quarter);
+    workbook->GetCell(0, quarter, 0, ObjectExt::Box<String>(label));
+}
+
+chart->set_HasLegend(true);
+auto legend = chart->get_Legend();
+legend->set_Position(LegendPositionType::Bottom);
+auto legendTextFormat = legend->get_TextFormat();
+legendTextFormat->CopyFrom(sourceTextFrame);
+
+auto caption = shapes->AddAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+auto captionTextFrame = caption->AddTextFrame(u"Sales in millions of dollars");
+legendTextFormat->CopyTo(captionTextFrame);
+
+presentation->Save(u"legend-formatting.pptx", SaveFormat::Pptx);
+```
+
+저장된 프레젠테이션에서 범례와 캡션은 크기, 굵기, 색상 면에서 제목과 일치합니다. 범례는 여전히 시리즈 이름을 표시하고, 캡션은 자체 텍스트를 유지합니다. 캡션의 일부에 이미 명시적인 글꼴 크기가 지정된 경우, 해당 크기가 복사된 단락 기본값보다 우선합니다.
+
+| Before copying | After copying |
+| --- | --- |
+| ![정규 검은색 범례 레이블과 검은색 캡션이 있는 분기별 매출 차트](legend-formatting-before.png) | ![더 크고 굵은 네이비 색상 범례 레이블 및 일치하는 캡션이 있는 동일한 차트](legend-formatting.png) |
+
 ## **숫자 형식 설정**
 
-Use [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
+[IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/)을 사용하여 차트 워크북 셀에 내장된 숫자 형식을 적용합니다. 이 예제는 기본 셀 기반 데이터를 가진 클러스터형 열 차트를 만들고 각 시리즈 값 셀에 형식 인덱스 10(`0.00%`)을 적용합니다. 이렇게 하면 기본 숫자를 변경하지 않고 워크북에서 값이 표시되는 방식이 바뀝니다; 예를 들어 0.25는 25.00%로 표시됩니다. 축 및 데이터 레이블 형식은 별도로 구성할 수 있습니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -260,7 +344,7 @@ for (auto chartSeries : series)
 presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 ```
 
-다음 표는 영어(미국) 로케일에 대한 대표적인 Excel 형식을 가진 내장 숫자 형식 인덱스를 나열합니다. 정확한 형식 문자열과 표시 방식은 애플리케이션 및 로케일에 따라 다를 수 있으며, 특히 통화와 날짜 형식이 그렇습니다. 일부 Excel 형식은 [Microsoft의 숫자 형식 구현 노트](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)에 설명된 OOXML 표준 기본값과도 차이가 있습니다.
+다음 표는 영어(미국) 로케일에 대한 대표적인 Excel 형식과 함께 내장 숫자 형식 인덱스를 나열합니다. 정확한 형식 문자열 및 표시 방식은 애플리케이션과 로케일에 따라 다를 수 있으며, 특히 통화 및 날짜의 경우 그렇습니다. 일부 Excel 형식은 [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)에서 설명된 바와 같이 OOXML 표준의 기본값과 다르기도 합니다.
 
 | 인덱스 | 형식 |
 | --- | --- |
@@ -301,9 +385,9 @@ presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **차트 영역 둥근 테두리 설정**
+## **차트 영역 둥근 모서리 설정**
 
-Enable [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) to round the corners of the chart area. The example creates a clustered column chart and uses [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) to give its outline a solid gray color and a single-line style before saving the presentation.
+[IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/)을 활성화하여 차트 영역의 모서리를 둥글게 합니다. 이 예제는 클러스터형 열 차트를 만들고 [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/)을 사용하여 저장하기 전에 외곽선을 단색 회색과 단일 선 스타일로 설정합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -341,11 +425,11 @@ presentation->Save(u"out.pptx", SaveFormat::Pptx);
 
 ## **기존 차트 주석 편집**
 
-A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), also listed under [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) in the Chart API Reference. Its [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) collection contains the chart-owned shapes.
+차트에는 보고서 상태를 설명하는 텍스트 주석과 같은 사용자 정의 도형이 포함될 수 있습니다. 이러한 도형은 [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/)를 통해 액세스할 수 있으며, Chart API Reference의 [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/)에도 나열됩니다. 해당 [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) 컬렉션에는 차트가 소유한 도형이 포함됩니다.
 
-An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+차트 위에 배치된 일반 텍스트 상자는 차트의 일부처럼 보여도 슬라이드에 속합니다. [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/)를 반복하면 차트와 일반 슬라이드 도형을 찾을 수 있지만 차트 내부의 개별 도형은 열거되지 않습니다. 차트 제목과 데이터 레이블은 별도의 차트 요소이며, 이 컬렉션의 사용자 정의 주석이 아닙니다.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) with a non-null [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) and the expected text.
+[chart-annotations.pptx](chart-annotations.pptx)를 다운로드하여 애플리케이션 작업 디렉터리에 두십시오. 첫 번째 슬라이드에는 "Preliminary results"(예비 결과)라는 그룹화되지 않은 주석과 차트 전용 선, 그리고 "Slide overlay"(슬라이드 오버레이)라는 일반 슬라이드 텍스트 상자가 있는 차트가 포함되어 있습니다. 이 예제는 해당 슬라이드의 첫 번째 차트를 찾아 보고서가 게시될 준비가 되면 주석을 "Final results"(최종 결과)로 변경합니다. 컬렉션이 비어 있는지 확인하고 비어 있지 않은 [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) 중 [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/)이 null이 아니고 예상 텍스트를 가진 경우에만 편집합니다.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -407,26 +491,26 @@ else
 }
 ```
 
-The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+선과 슬라이드 텍스트 상자는 변경되지 않은 채로 남습니다. 다음 이미지들은 입력 파일과 저장 후 다시 연 결과를 보여줍니다:
 
 | 편집 전 | 편집 후 |
 | --- | --- |
 | ![예비 결과를 읽는 차트 주석](chart-annotations-before.png) | ![최종 결과를 읽는 차트 주석](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-The example inspects only the top-level chart-owned shapes. If an annotation is inside an [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), inspect that group's [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
+예제는 최상위 차트 소유 도형만 검사합니다. 주석이 [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/) 안에 있는 경우 해당 그룹의 [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) 컬렉션도 검사하십시오. 중첩된 그룹에 대해 재귀적으로 반복하며 자식 도형에 동일한 텍스트 검사를 적용합니다. 그룹 자체는 컨테이너이며 텍스트 상자로 취급하지 마십시오.
 {{% /alert %}}
 
 ## **FAQ**
 
 **열/영역에 반투명 채우기를 적용하면서 테두리는 불투명하게 유지할 수 있나요?**
 
-예. 채우기 투명도와 외곽선은 별도로 구성됩니다. 이는 복잡한 시각화에서 격자와 데이터의 가독성을 개선하는 데 유용합니다.
+예. 채우기 투명도와 외곽선은 별도로 구성됩니다. 이는 복잡한 시각화에서 그리드와 데이터의 가독성을 향상시키는 데 유용합니다.
 
 **레이블이 겹칠 때 어떻게 처리할 수 있나요?**
 
-글꼴 크기를 줄이거나, 중요하지 않은 레이블 구성 요소(예: 카테고리)를 비활성화하고, 레이블 위치를 조정하거나, 필요에 따라 선택된 포인트에만 레이블을 표시하거나, 형식을 "값 + 범례"로 전환하십시오.
+글꼴 크기를 줄이고, 필수적이지 않은 레이블 구성 요소(예: 범주)를 비활성화하고, 레이블 위치를 조정하거나, 필요에 따라 선택된 포인트에만 레이블을 표시하거나, 형식을 "값 + 범례"로 전환하십시오.
 
-**시리즈에 그라디언트 또는 패턴 채우기를 적용할 수 있나요?**
+**시리즈에 그라디언트 또는 무늬 채우기를 적용할 수 있나요?**
 
-예. 시리즈는 단색, 그라디언트 및 패턴 채우기를 지원합니다. 실제 사용에서는 그라디언트를 절제해서 사용하고, 격자와 텍스트 대비를 감소시키는 조합은 피하는 것이 좋습니다.
+예. 시리즈는 단색, 그라디언트 및 무늬 채우기를 지원합니다. 실제로는 그라디언트를 적게 사용하고, 그리드와 텍스트와의 대비를 감소시키는 조합은 피하십시오.

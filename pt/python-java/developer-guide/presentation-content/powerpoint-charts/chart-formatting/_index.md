@@ -1,5 +1,5 @@
 ---
-title: Format​ar Gráficos de Apresentação em Python
+title: Formatar Gráficos de Apresentação em Python
 linktitle: Formatação de Gráficos
 type: docs
 weight: 60
@@ -17,19 +17,21 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Aprenda a formatar gráficos no Aspose.Slides para Python via Java e eleve sua apresentação PowerPoint com eixos personalizados, fontes, formatos numéricos e bordas de gráfico arredondadas."
+description: "Aprenda a formatar gráficos no Aspose.Slides para Python via Java e eleve sua apresentação do PowerPoint com eixos personalizados, fontes, formatos numéricos e bordas arredondadas nos gráficos."
 ---
-## **Visão Geral**
+## **Visão geral**
 
 Este artigo explica como formatar gráficos em apresentações do PowerPoint usando Aspose.Slides. Ele mostra como personalizar os principais elementos do gráfico, como eixos, linhas de grade, títulos, legendas, a área de plotagem e preenchimentos de paredes, para melhorar a aparência e a legibilidade dos dados do gráfico.
 
 Ele também demonstra como definir propriedades de fonte para o texto do gráfico, aplicar formatos numéricos predefinidos aos dados do gráfico e habilitar cantos arredondados para a área do gráfico. Juntos, esses exemplos mostram como controlar tanto o estilo visual quanto a apresentação dos dados dos gráficos em uma apresentação.
 
-## **Formatar Entidades de Gráfico**
+Para preenchimentos e contornos separados em intervalos de alta e baixa, veja o [exemplo de gráfico de ações](/slides/pt/python-java/create-chart/#create-stock-charts).
 
-Use [Gráfico](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) para formatar títulos de gráficos, eixos, linhas de grade, legendas e a área de plotagem. Este exemplo cria um gráfico de linhas com marcadores e dados padrão, depois aplica estilos de texto e de linha separados aos seus eixos de valor e de categoria. Tamanhos de fonte e larguras de linha são especificados em pontos; os rótulos de categoria são girados em 45 graus.
+## **Formatar entidades de gráfico**
 
-O eixo de valor usa [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) independentemente das células de origem. Sua escala vai de -2 a 15, com intervalos principais de 2 e intervalos menores de 0,5. O exemplo também combina formatação percentual com [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) definido para milhares, portanto ajuste essas configurações ao significado e magnitude dos seus dados. A legenda permanece fora da área de plotagem porque [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) é chamado com `False`. Os preenchimentos da parede traseira e do piso são configurados através de [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) e [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), mas essas superfícies só são visíveis em gráficos 3D.
+Use [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) para formatar títulos de gráfico, eixos, linhas de grade, legendas e a área de plotagem. Este exemplo cria um gráfico de linha com marcadores e dados padrão, depois aplica estilos de texto e de linha separados aos seus eixos de valor e de categoria. Os tamanhos de fonte e a espessura das linhas são especificados em pontos; os rótulos de categoria são girados em 45 graus.
+
+O eixo de valor usa [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) independentemente das células de origem. Sua escala vai de -2 a 15, com intervalos principais de 2 e intervalos menores de 0,5. O exemplo também combina formatação percentual com [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) definido para milhares, portanto ajuste essas configurações ao significado e à magnitude dos seus dados. A legenda permanece fora da área de plotagem porque [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) é chamado com `False`. Os preenchimentos da parede traseira e do piso são configurados através de [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) e [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), mas essas superfícies são visíveis apenas em gráficos 3D.
 
 ```python
 import jpype
@@ -157,9 +159,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Definir Propriedades de Fonte para um Gráfico**
+## **Definir propriedades de fonte para um gráfico**
 
-Defina o tamanho de fonte padrão para o texto do gráfico através de [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). O exemplo cria um gráfico de colunas agrupadas com fonte de 20 pontos e habilita rótulos de valor para a primeira série através de [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Elementos de texto com suas próprias definições explícitas de fonte podem sobrescrever o padrão do gráfico.
+Defina o tamanho de fonte padrão para o texto do gráfico por meio de [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). O exemplo cria um gráfico de colunas agrupadas com fonte de 20 pontos e habilita rótulos de valor para a primeira série através de [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Elementos de texto com suas próprias definições explícitas de fonte podem sobrescrever o padrão do gráfico.
 
 ```python
 import jpype
@@ -183,16 +185,76 @@ finally:
     presentation.dispose()
 ```
 
-## **Definir o Formato Numérico**
+## **Reutilizar formatação de quadro de texto para a legenda do gráfico**
 
-Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) para aplicar um formato numérico interno às células da planilha do gráfico. Este exemplo cria um gráfico de colunas agrupadas com dados padrão suportados por células e aplica o índice de formato 10 (`0.00%`) a cada célula de valor da série. Isso altera como os valores são exibidos na planilha sem mudar os números subjacentes; por exemplo, 0,25 é exibido como 25,00%. Os formatos dos eixos e dos rótulos de dados podem ser configurados separadamente.
+Para combinar a legenda com o título de um slide, defina a fonte do título por meio de [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) no primeiro parágrafo. Chame [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom) no formato retornado por [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) da legenda. Isso copia as configurações do quadro de texto, a formatação do primeiro parágrafo e as propriedades de fonte padrão desse parágrafo. Formatação aplicada diretamente a porções individuais ou a parágrafos posteriores permanece local à origem.
+
+O exemplo usa um título em Calibri negrito de 26 pontos em azul-marinho como modelo. Após estilizar a legenda, ele chama [copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) para aplicar a mesma formatação a uma legenda separada.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpime.startJVM()
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Na apresentação salva, a legenda e a legenda secundária coincidem com o título em tamanho, peso e cor. A legenda ainda exibe os nomes das séries, e a legenda secundária mantém seu próprio texto. Se uma porção da legenda secundária já possuir um tamanho de fonte explícito, esse tamanho tem precedência sobre o padrão do parágrafo copiado.
+
+| Antes da cópia | Depois da cópia |
+| --- | --- |
+| ![Gráfico de vendas trimestrais com legendas pretas regulares e legenda secundária preta](legend-formatting-before.png) | ![O mesmo gráfico com legendas maiores, negrito, azul-marinho e legenda secundária correspondente](legend-formatting.png) |
+
+## **Definir o formato numérico**
+
+Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) para aplicar um formato numérico interno às células da planilha do gráfico. Este exemplo cria um gráfico de colunas agrupadas com dados padrão baseados em células e aplica o índice de formato 10 (`0.00%`) a cada célula de valor da série. Isso altera a forma como os valores são exibidos na planilha sem mudar os números subjacentes; por exemplo, 0,25 é exibido como 25,00 %. Formatos de eixo e de rótulo de dados podem ser configurados separadamente.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
@@ -212,7 +274,7 @@ finally:
     presentation.dispose()
 ```
 
-A tabela a seguir lista índices de formatos numéricos internos com formatos representativos do Excel para a localidade English (United States). As strings de formato exatas e sua exibição podem variar por aplicação e localidade, particularmente para moeda e datas. Alguns formatos do Excel também diferem dos padrões padrão no padrão OOXML, conforme descrito em [Notas de implementação de formato numérico da Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+A tabela a seguir lista os índices de formatos numéricos internos com formatos representativos do Excel para a localidade English (United States). As cadeias de formato exatas e sua exibição podem variar por aplicativo e localidade, particularmente para moeda e datas. Alguns formatos do Excel também diferem dos padrões padrão do OOXML, conforme descrito nas [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Índice | Formato |
 | --- | --- |
@@ -253,7 +315,7 @@ A tabela a seguir lista índices de formatos numéricos internos com formatos re
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Definir Bordas Arredondadas da Área do Gráfico**
+## **Definir cantos arredondados da área do gráfico**
 
 Chame [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) com `True` para arredondar os cantos da área do gráfico. O exemplo cria um gráfico de colunas agrupadas e usa [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) para dar ao seu contorno uma cor cinza sólida e um estilo de linha única antes de salvar a apresentação.
 
@@ -283,13 +345,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Editar Anotações de Gráfico Existentes**
+## **Editar anotações de gráfico existentes**
 
-Um gráfico pode conter formas personalizadas, como uma anotação de texto explicando o status de um relatório. Acesse essas formas através de [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). A coleção retornada por [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) contém as formas de propriedade do gráfico.
+Um gráfico pode conter formas personalizadas, como uma anotação de texto explicando o status de um relatório. Acesse essas formas por meio de [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). A coleção retornada por [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) contém as formas de propriedade do gráfico.
 
-Uma caixa de texto comum posicionada sobre um gráfico pertence ao slide, mesmo que pareça parte do gráfico. Iterar através de [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) encontra o gráfico e as formas normais do slide, mas não enumera as formas individuais dentro do gráfico. Títulos de gráficos e rótulos de dados são elementos de gráfico separados, não anotações personalizadas nesta coleção.
+Uma caixa de texto comum posicionada sobre um gráfico pertence ao slide, mesmo que pareça parte do gráfico. Percorrer [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) encontra o gráfico e as formas comuns do slide, mas não enumera as formas individuais dentro do gráfico. Títulos de gráfico e rótulos de dados são elementos de gráfico separados, não anotações personalizadas nesta coleção.
 
-Faça download de [chart-annotations.pptx](chart-annotations.pptx) e coloque-o no diretório de trabalho do aplicativo. Seu primeiro slide contém um gráfico com uma anotação não agrupada exibindo "Resultados preliminares", uma linha de propriedade do gráfico e uma caixa de texto comum do slide exibindo "Sobreposição de slide". O exemplo encontra o primeiro gráfico naquele slide e altera a anotação para "Resultados finais" quando o relatório está pronto para ser publicado. Ele verifica se a coleção está vazia e somente edita um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) com um quadro de texto diferente de `None` retornado por [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) e com o texto esperado.
+Baixe [chart-annotations.pptx](chart-annotations.pptx) e coloque-o no diretório de trabalho da aplicação. Seu primeiro slide contém um gráfico com uma anotação desagrupada lendo "Preliminary results", uma linha de propriedade do gráfico e uma caixa de texto comum do slide lendo "Slide overlay". O exemplo encontra o primeiro gráfico naquele slide e altera a anotação para "Final results" quando o relatório estiver pronto para publicação. Ele verifica se a coleção está vazia e edita somente um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) com quadro de texto diferente de `None` retornado por [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) e com o texto esperado.
 
 ```python
 import jpype
@@ -334,13 +396,13 @@ A linha e a caixa de texto do slide permanecem inalteradas. As imagens a seguir 
 
 | Antes da edição | Depois da edição |
 | --- | --- |
-| ![Anotação do gráfico exibindo Resultados preliminares](chart-annotations-before.png) | ![Anotação do gráfico exibindo Resultados finais](chart-annotations-after.png) |
+| ![Anotação do gráfico lendo Preliminary results](chart-annotations-before.png) | ![Anotação do gráfico lendo Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-O exemplo inspeciona apenas as formas de nível superior de propriedade do gráfico. Se uma anotação estiver dentro de um [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), inspecione também a coleção [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) desse grupo. Repita isso recursivamente para grupos aninhados, aplicando as mesmas verificações de texto às suas formas filhas. Um grupo em si é um contêiner; não o trate como uma caixa de texto.
+O exemplo inspeciona apenas as formas de propriedade do gráfico de nível superior. Se uma anotação estiver dentro de um [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), inspecione também a coleção [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) desse grupo. Repita isso recursivamente para grupos aninhados, aplicando as mesmas verificações de texto às suas formas filhas. Um grupo em si é um contêiner; não o trate como uma caixa de texto.
 {{% /alert %}}
 
-## **Perguntas Frequentes**
+## **Perguntas frequentes**
 
 **Posso definir preenchimentos semitransparentes para colunas/áreas mantendo a borda opaca?**
 
@@ -348,8 +410,8 @@ Sim. A transparência do preenchimento e o contorno são configurados separadame
 
 **Como posso lidar com rótulos de dados quando eles se sobrepõem?**
 
-Reduza o tamanho da fonte, desative componentes de rótulo não essenciais (por exemplo, categorias), ajuste a posição do rótulo, exiba rótulos somente para pontos selecionados, se necessário, ou altere o formato para "valor + legenda".
+Reduza o tamanho da fonte, desative componentes de rótulo não essenciais (por exemplo, categorias), ajuste a posição do rótulo, exiba rótulos somente para pontos selecionados se necessário ou troque o formato para "valor + legenda".
 
-**Posso aplicar preenchimentos de gradiente ou padrão às séries?**
+**Posso aplicar preenchimentos degradê ou padrão às séries?**
 
-Sim. As séries suportam preenchimentos sólidos, de gradiente e de padrão. Na prática, use gradientes com moderação e evite combinações que reduzam o contraste com a grade e o texto.
+Sim. As séries suportam preenchimentos sólidos, degradê e padrão. Na prática, use degradês com moderação e evite combinações que reduzam o contraste com a grade e o texto.

@@ -1,35 +1,37 @@
 ---
-title: Format Diagram dalam Presentasi Menggunakan Python
-linktitle: Pemformatan Diagram
+title: Format Grafik dalam Presentasi Menggunakan Python
+linktitle: Pemformatan Grafik
 type: docs
 weight: 60
 url: /id/python-net/chart-formatting/
 keywords:
-- format diagram
-- pemformatan diagram
-- entitas diagram
-- properti diagram
-- pengaturan diagram
-- opsi diagram
+- format grafik
+- pemformatan grafik
+- entitas grafik
+- properti grafik
+- pengaturan grafik
+- opsi grafik
 - properti font
-- bingkai melengkung
+- border melengkung
 - PowerPoint
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari pemformatan diagram di Aspose.Slides untuk Python melalui .NET dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, serta bingkai diagram yang melengkung."
+description: "Pelajari pemformatan grafik di Aspose.Slides untuk Python via .NET dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, serta border grafik yang melengkung."
 ---
 ## **Ikhtisar**
 
-Artikel ini menjelaskan cara memformat diagram dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Ini menunjukkan cara menyesuaikan elemen diagram utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data diagram.
+Artikel ini menjelaskan cara memformat grafik dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen penting grafik seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data grafik.
 
-Ini juga menunjukkan cara mengatur properti font untuk teks diagram, menerapkan format numerik bawaan pada data diagram, dan mengaktifkan sudut membulat untuk area diagram. Bersama‑sa‑ma, contoh‑contoh ini memperlihatkan cara mengendalikan baik gaya visual maupun penyajian data diagram dalam sebuah presentasi.
+Artikel ini juga memperlihatkan cara mengatur properti font untuk teks grafik, menerapkan format angka bawaan pada data grafik, dan mengaktifkan sudut melengkung untuk area grafik. Bersama-sama, contoh‑contoh ini menunjukkan cara mengontrol gaya visual maupun penyajian data grafik dalam sebuah presentasi.
 
-## **Format Entitas Chart**
+Untuk isian dan outline terpisah pada interval naik dan turun, lihat [contoh grafik saham](/slides/id/python-net/create-chart/#create-stock-charts).
 
-Gunakan [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) untuk memformat judul diagram, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat diagram garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan sumbu kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+## **Format Entitas Grafik**
 
-Sumbu nilai menggunakan [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) secara independen dari sel sumber. Skala berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0.5. Contoh ini juga menggabungkan pemformatan persentase dengan [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) yang diatur ke ribuan, jadi sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap berada di luar area plot karena [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) dinonaktifkan. Isian dinding belakang dan lantai dikonfigurasi melalui [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) dan [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), tetapi permukaan ini hanya terlihat pada diagram 3D.
+Gunakan [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) untuk memformat judul grafik, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat grafik garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan sumbu kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+
+Sumbu nilai menggunakan [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) secara independen dari sel sumber. Skala berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan format persentase dengan [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) yang diset ke ribuan, sehingga Anda dapat menyesuaikan pengaturan ini dengan arti dan besaran data Anda. Legenda tetap berada di luar area plot karena [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) dinonaktifkan. Isian back‑wall dan floor dikonfigurasi melalui [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) dan [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), tetapi permukaan ini hanya terlihat pada grafik 3D.
 
 ```python
 import aspose.slides.charts as charts
@@ -145,9 +147,9 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Atur Properti Font untuk Chart**
+## **Atur Properti Font untuk Grafik**
 
-Atur ukuran font default untuk teks diagram melalui [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Contoh ini membuat diagram kolom terkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Elemen teks dengan pengaturan font eksplisitnya sendiri dapat menimpa nilai default diagram.
+Atur ukuran font default untuk teks grafik melalui [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Contoh ini membuat grafik kolom berklaster dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Elemen teks dengan pengaturan font eksplisitnya dapat menimpa nilai default grafik.
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Gunakan Kembali Pemformatan Bingkai Teks untuk Legenda Grafik**
+
+Agar legenda cocok dengan judul slide, atur font melalui [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) pada paragraf pertama judul. Panggil [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) pada [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) legenda. Metode ini menyalin pengaturan bingkai teks, format paragraf pertama, dan properti font default paragraf tersebut. Pemformatan yang diterapkan langsung pada bagian individual atau pada paragraf berikutnya tetap bersifat lokal pada sumbernya.
+
+Contoh menggunakan judul tebal, warna navy, 26 poin Calibri sebagai templat. Setelah menata legenda, contoh menggunakan [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) untuk menerapkan pemformatan yang sama pada keterangan terpisah.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Pada presentasi yang disimpan, legenda dan keterangan cocok dengan judul dalam ukuran, bobot, dan warna. Legenda tetap menampilkan nama seri, dan keterangan mempertahankan teksnya sendiri. Jika suatu bagian dalam keterangan sudah memiliki ukuran font eksplisit, ukuran tersebut akan mengambil prioritas dibandingkan default paragraf yang disalin.
+
+| Sebelum menyalin | Setelah menyalin |
+| --- | --- |
+| ![Grafik penjualan kuartalan dengan label legenda hitam biasa dan keterangan hitam](legend-formatting-before.png) | ![Grafik yang sama dengan label legenda navy tebal lebih besar dan keterangan yang cocok](legend-formatting.png) |
+
 ## **Atur Format Numerik**
 
-Gunakan [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) untuk menerapkan format angka bawaan pada sel buku kerja diagram. Contoh ini membuat diagram kolom terkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di buku kerja tanpa mengubah angka dasar; misalnya, 0.25 ditampilkan sebagai 25.00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
+Gunakan [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) untuk menerapkan format angka bawaan pada sel workbook grafik. Contoh ini membuat grafik kolom berklaster dengan data default yang didukung sel, dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di workbook tanpa mengubah angka dasarnya; misalnya, 0,25 akan ditampilkan sebagai 25,00 %. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
 
 ```python
 import aspose.slides.charts as charts
@@ -183,9 +232,9 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Tabel berikut mencantumkan indeks format angka bawaan dengan format Excel representatif untuk locale Bahasa Inggris (Amerika Serikat). String format tepat dan tampilannya dapat bervariasi per aplikasi dan locale, khususnya untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari nilai baku dalam standar OOXML, seperti dijelaskan dalam [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Tabel berikut menyajikan indeks format angka bawaan beserta contoh format Excel untuk locale English (United States). String format dan tampilan sebenarnya dapat berbeda antar aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default standar OOXML, sebagaimana dijelaskan dalam [catatan implementasi format angka Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| Indeks | Format |
+| Index | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -224,9 +273,9 @@ Tabel berikut mencantumkan indeks format angka bawaan dengan format Excel repres
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Atur Sudut Membulat Area Chart**
+## **Atur Sudut Membulat pada Area Grafik**
 
-Aktifkan [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) untuk membulatkan sudut area diagram. Contoh ini membuat diagram kolom terkelompok dan menggunakan [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) untuk memberi kontur diagram warna abu‑abu solid dan gaya satu garis sebelum menyimpan presentasi.
+Aktifkan [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) untuk membuat sudut area grafik menjadi melengkung. Contoh ini membuat grafik kolom berklaster dan menggunakan [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) untuk memberi outline warna abu‑abu solid dengan gaya satu‑garis sebelum menyimpan presentasi.
 
 ```python
 import aspose.slides.charts as charts
@@ -244,13 +293,13 @@ with slides.Presentation() as presentation:
     presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Edit Anotasi Chart yang Ada**
+## **Edit Anotasi Grafik yang Ada**
 
-Sebuah diagram dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk‑bentuk ini melalui [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Koleksi [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)nya berisi bentuk yang dimiliki diagram.
+Sebuah grafik dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk‑bentuk ini melalui [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Koleksi [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑nya berisi bentuk‑bentuk yang dimiliki grafik.
 
-Kotak teks biasa yang ditempatkan di atas diagram menjadi milik slide, meskipun tampak seperti bagian diagram. Menelusuri [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) menemukan diagram dan bentuk slide biasa, namun tidak mencakup bentuk individu di dalam diagram. Judul diagram dan label data adalah elemen diagram terpisah, bukan anotasi khusus dalam koleksi ini.
+Kotak teks biasa yang ditempatkan di atas grafik merupakan bagian slide, meskipun tampak seperti bagian grafik. Menelusuri [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) menemukan grafik serta bentuk slide biasa, tetapi tidak mengenumerasi bentuk individual di dalam grafik. Judul grafik dan label data adalah elemen grafik terpisah, bukan anotasi khusus dalam koleksi ini.
 
-Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi diagram dengan anotasi tidak dikelompokkan yang berisi teks "Preliminary results", sebuah garis milik diagram, dan kotak teks slide biasa yang berisi teks "Slide overlay". Contoh ini menemukan diagram pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" saat laporan siap dipublikasikan. Ia memeriksa apakah koleksi kosong dan hanya mengedit sebuah [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) dengan [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) yang tidak `None` dan berisi teks yang diharapkan.
+Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi grafik dengan anotasi tidak berkelompok yang berisi teks "Preliminary results", sebuah garis milik grafik, dan kotak teks slide biasa yang berisi "Slide overlay". Contoh menemukan grafik pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Contoh memeriksa apakah koleksi kosong dan hanya mengedit sebuah [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) dengan [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) yang tidak `None` serta berisi teks yang diharapkan.
 
 ```python
 import aspose.slides as slides
@@ -277,26 +326,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menunjukkan input dan hasil yang disimpan serta dibuka kembali:
+Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menampilkan input dan hasil yang disimpan serta dibuka kembali:
 
-| Sebelum mengedit | Setelah mengedit |
+| Sebelum edit | Setelah edit |
 | --- | --- |
-| ![Anotasi diagram membaca Preliminary results](chart-annotations-before.png) | ![Anotasi diagram membaca Final results](chart-annotations-after.png) |
+| ![Anotasi grafik berisi teks Preliminary results](chart-annotations-before.png) | ![Anotasi grafik berisi teks Final results](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-Contoh ini memeriksa hanya bentuk tingkat atas yang dimiliki diagram. Jika sebuah anotasi berada di dalam [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), periksa koleksi [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) grup tersebut juga. Ulangi secara rekursif untuk grup yang bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah kontainer; jangan perlakukan sebagai kotak teks.
+{{% alert color="info" title="Catatan" %}}
+Contoh hanya memeriksa bentuk‑bentuk tingkat atas yang dimiliki grafik. Jika anotasi berada di dalam sebuah [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), periksa koleksi [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) grup tersebut juga. Lakukan proses ini secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anak mereka. Sebuah grup sendiri adalah kontainer; jangan perlakukan sebagai kotak teks.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apakah saya dapat mengatur isian semi‑transparan untuk kolom/area sambil mempertahankan batas tetap tidak transparan?**
+**Apakah saya dapat menetapkan isian semi‑transparan untuk kolom/area sambil menjaga batas tetap opak?**
 
-Ya. Transparansi isian dan kontur dikonfigurasi secara terpisah. Hal ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
+Ya. Transparansi isian dan outline dapat dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
 
-**Bagaimana saya dapat menangani label data ketika mereka tumpang tindih?**
+**Bagaimana cara menangani label data yang saling tumpang tindih?**
 
-Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk titik yang dipilih jika diperlukan, atau ubah format menjadi "value + legend".
+Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk titik terpilih bila perlu, atau ubah format menjadi "nilai + legenda".
 
 **Apakah saya dapat menerapkan isian gradien atau pola pada seri?**
 
-Ya. Seri mendukung isian solid, gradien, dan pola. Dalam praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.
+Ya. Seri mendukung isian solid, gradien, dan pola. Pada praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.

@@ -5,7 +5,7 @@ type: docs
 weight: 60
 url: /fa/python-net/chart-formatting/
 keywords:
-- قالب‌بندی نمودار
+- قالب نمودار
 - قالب‌بندی نمودار
 - موجودیت نمودار
 - ویژگی‌های نمودار
@@ -15,21 +15,17 @@ keywords:
 - حاشیه گرد
 - PowerPoint
 - ارائه
-- پایتون
+- Python
 - Aspose.Slides
-description: "قالب‌بندی نمودارها را در Aspose.Slides برای پایتون از طریق .NET بیاموزید و ارائه PowerPoint خود را با محورها، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد سفارشی بهبود ببخشید."
+description: "در Aspose.Slides برای پایتون از طریق .NET قالب‌بندی نمودارها را بیاموزید و ارائه PowerPoint خود را با محورهای سفارشی، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد نمودار ارتقا دهید."
 ---
 ## **نمای کلی**
 
-این مقاله توضیح می‌دهد چگونه نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کنیم. این مقاله نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، راهنماها، ناحیه نمودار و پر کردن دیوارها را سفارشی کنیم تا ظاهر و قابلیت خواندن داده‌های نمودار بهبود یابد.
-
-همچنین نشان می‌دهد چگونه ویژگی‌های قلم برای متن نمودار را تنظیم کنیم، قالب‌های عددی پیش‌تنظیم‌شده را بر داده‌های نمودار اعمال کنیم و گوشه‌های ناحیه نمودار را گرد کنیم. این مثال‌ها با هم نشان می‌دهند چگونه سبک بصری و ارائه داده‌های نمودار را در یک ارائه کنترل کنیم.
+این مقاله توضیح می‌دهد چگونه با استفاده از Aspose.Slides نمودارها را در ارائه‌های PowerPoint قالب‌بندی کنید. این مقاله نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محور‌ها، خطوط شبکه، عناوین، افسانه‌ها، ناحیه تصویر و پرکن‌های دیوار را سفارشی کنید تا ظاهر و خوانایی داده‌های نمودار بهبود یابد. همچنین نشان می‌دهد چگونه ویژگی‌های قلم برای متن نمودار را تنظیم کنید، قالب‌های عددی پیش‌تنظیم را به داده‌های نمودار اعمال کنید و گوشه‌های گرد برای ناحیه نمودار فعال کنید. این مثال‌ها به‌طور مشترک نشان می‌دهند چگونه سبک بصری و ارائه داده‌های نمودارها را در یک ارائه کنترل کنید. برای پرکن‌ها و خطوط مرزی جداگانه در فواصل صعودی و نزولی، مثال [نمودار سهام](/slides/fa/python-net/create-chart/#create-stock-charts) را ببینید.
 
 ## **قالب‌بندی موجودیت‌های نمودار**
 
-از [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، راهنماها و ناحیه نمودار استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده پیش‌فرض ایجاد می‌کند، سپس سبک‌های متن و خط متفاوتی را برای محور مقدار و محور دسته‌بندی اعمال می‌کند. اندازه‌های قلم و ضخامت خطوط بر حسب پوینت تعیین می‌شود؛ برچسب‌های دسته‌بندی به‌صورت ۴۵ درجه چرخانده می‌شوند.
-
-محور مقدار از [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) به‌صورت مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -۲ تا ۱۵ است، با فواصل اصلی ۲ و فواصل جزئی ۰.۵. این مثال همچنین قالب‌بندی درصد را با [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) که بر روی هزارگان تنظیم شده ترکیب می‌کند، بنابراین این تنظیمات را بر وفق داده معنی و بزرگی داده‌های خود تنظیم کنید. راهنما به‌دلیل غیرفعال بودن [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) در خارج از ناحیه نمودار می‌ماند. پر کردن دیوار پشت و کف از طریق [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) و [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) پیکربندی می‌شود، اما این سطوح تنها در نمودارهای سه‌بعدی قابل مشاهده هستند.
+از [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، افسانه‌ها و ناحیه تصویر استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند، سپس سبک‌های متن و خط جداگانه‌ای را به محور مقدار و محور دسته‌بندی آن اعمال می‌کند. اندازه‌های قلم و عرض خطوط به واحد نقطه مشخص شده‌اند؛ برچسب‌های دسته‌بندی به اندازه 45 درجه چرخیده‌اند. محور مقدار از [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) به‌ طور مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است، با فواصل اصلی 2 و فواصل جزئی 0.5. این مثال همچنین قالب‌بندی درصدی را با [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) تنظیم‌شده بر روی هزارها ترکیب می‌کند، بنابراین این تنظیمات را مطابق معنی و مقیاس داده‌های خود تنظیم کنید. افسانه به دلیل غیرفعال بودن [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) در خارج از ناحیه تصویر می‌ماند. پرکن‌های دیوار پس‌زمینه و کف از طریق [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) و [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) پیکربندی می‌شوند، اما این سطوح فقط در نمودارهای سه‌بعدی قابل مشاهده هستند.
 
 ```python
 import aspose.slides.charts as charts
@@ -147,7 +143,7 @@ with slides.Presentation() as presentation:
 
 ## **تنظیم ویژگی‌های قلم برای یک نمودار**
 
-اندازه قلم پیش‌فرض برای متن نمودار را از طریق [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم ۲۰ پوینت ایجاد می‌کند و برچسب‌های مقدار را برای اولین سری از طریق [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) فعال می‌سازد. المان‌های متنی که تنظیمات قلم صریح خود را دارند می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
+اندازه قلم پیش‌فرض برای متن نمودار را از طریق [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20 پوینت ایجاد می‌کند و برچسب‌های مقدار برای سری اول را از طریق [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) فعال می‌سازد. عناصر متنی که تنظیمات قلم صریح خود را دارند می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +159,54 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **بازاستفاده از قالب‌بندی فریم متن برای افسانه نمودار**
+
+برای هماهنگ کردن افسانه با عنوان اسلاید، قلم را از طریق [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) در پاراگراف اول عنوان تنظیم کنید. بر روی [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) افسانه، متد [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) را فراخوانی کنید. این متد تنظیمات فریم متن، قالب‌بندی پاراگراف اول و ویژگی‌های قلم پیش‌فرض آن پاراگراف را کپی می‌کند. قالب‌بندی که مستقیماً به بخش‌های جداگانه یا پاراگراف‌های بعدی اعمال می‌شود، به منبع محلی می‌ماند. این مثال از عنوانی با قلم بولد، رنگ سرگیجه‌ای، 26 پوینت Calibri به عنوان الگو استفاده می‌کند. پس از استایل‌دهی به افسانه، از [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) برای اعمال همان قالب‌بندی به یک کپشن جداگانه استفاده می‌کند.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+در ارائه ذخیره‌شده، افسانه و کپشن از نظر اندازه، وزن و رنگ با عنوان مطابقت دارند. افسانه هنوز نام‌های سری‌ها را نمایش می‌دهد و کپشن متن خود را حفظ می‌کند. اگر بخشی در کپشن قبلاً اندازه قلم صریح داشته باشد، آن اندازه بر پیش‌فرض پاراگراف کپی‌شده ارجحیت دارد.
+
+| قبل از کپی | بعد از کپی |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **تنظیم قالب عددی**
 
-از [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) برای اعمال قالب عددی داخلی به سلول‌های کتاب کار نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض سلولی ایجاد می‌کند و اندیس قالب ۱۰ (`0.00%`) را به هر سلول مقدار سری اعمال می‌نماید. این کار نحوه نمایش مقادیر را در کتاب کار بدون تغییر عددهای زیرین تغییر می‌دهد؛ برای مثال، ۰٫۲۵ به صورت ۲۵٫۰۰٪ نمایش داده می‌شود. قالب‌های محور و برچسب داده‌ها می‌توانند به‌صورت جداگانه پیکربندی شوند.
+از [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) برای اعمال قالب عددی پیش‌فرض به سلول‌های کتاب کاری نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض و پشتیبانی شده توسط سلول‌ها ایجاد می‌کند و اندیس قالب 10 (`0.00%`) را به هر سلول مقدار سری اعمال می‌نماید. این کار نحوه نمایش مقادیر در کتاب کاری را بدون تغییر اعداد پایه تغییر می‌دهد؛ به‌عنوان مثال، 0.25 به‌صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب‌های داده می‌توانند به‌ طور جداگانه پیکربندی شوند.
 
 ```python
 import aspose.slides.charts as charts
@@ -183,7 +224,7 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-جدول زیر ایندکس‌های قالب عددی داخلی را همراه با قالب‌های نمایشی Excel برای منطقه انگلیسی (ایالات متحده) فهرست می‌کند. رشته‌های قالب دقیق و نمایش آنها می‌تواند بسته به برنامه و منطقه مختلف باشد، به‌ویژه برای ارز و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML متفاوت هستند، همان‌طور که در [یادداشت‌های پیاده‌سازی قالب عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
+جدول زیر ایندکس‌های قالب عددی پیش‌ساخته را همراه با قالب‌های نمونهٔ Excel برای محل‌گذاری انگلیسی (ایالات متحده) فهرست می‌کند. رشته‌های قالب دقیق و نمایش آنها می‌تواند بسته به برنامه و محل‌گذاری متفاوت باشد، به‌ویژه برای ارز و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML متفاوت هستند، همان‌طور که در [یادداشت‌های پیاده‌سازی قالب عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
 
 | شاخص | قالب |
 | --- | --- |
@@ -224,9 +265,9 @@ with slides.Presentation() as presentation:
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **تنظیم کادرهای گرد ناحیه نمودار**
+## **تنظیم مرزهای گرد ناحیه نمودار**
 
-با فعال‌سازی [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) گوشه‌های ناحیه نمودار را گرد کنید. این مثال یک نمودار ستونی خوشه‌ای می‌سازد و از [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) برای دادن رنگ خاکستری ثابت و سبک خط تک به حاشیه آن استفاده می‌کند قبل از ذخیره‌سازی ارائه.
+با فعال‌سازی [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) گوشه‌های ناحیه نمودار را گرد کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) برای دادن یک رنگ خاکستری یکدست و سبک خط تک‌خطی به کادر آن استفاده می‌کند قبل از ذخیرهٔ ارائه.
 
 ```python
 import aspose.slides.charts as charts
@@ -246,11 +287,7 @@ with slides.Presentation() as presentation:
 
 ## **ویرایش حاشیه‌نویسی‌های موجود در نمودار**
 
-یک نمودار می‌تواند شامل اشکال سفارشی باشد، مانند حاشیه‌نویسی متنی که وضعیت یک گزارش را توضیح می‌دهد. این اشکال را از طریق [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/) دسترسی پیدا کنید. مجموعه [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) آن شامل اشکال مالکیت‌دار توسط نمودار است.
-
-یک جعبه متن عادی که بر روی نمودار قرار می‌گیرد متعلق به اسلاید است، حتی اگر شبیه بخشی از نمودار به نظر برسد. پیمایش [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) نمودار و اشکال عادی اسلاید را پیدا می‌کند، اما اشکال فردی داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای از نمودار هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
-
-فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن یک نمودار با حاشیه‌نویسی بدون گروه «Preliminary results»، خطی متعلق به نمودار و جعبه متن اسلایدی «Slide overlay» دارد. مثال اولین نمودار را در آن اسلاید می‌یابد و حاشیه‌نویسی را به «Final results» تغییر می‌دهد هنگامی که گزارش آماده انتشار باشد. ابتدا بررسی می‌کند که مجموعه خالی نیست و فقط یک [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) با [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) که مقدار `None` نیست و متن مورد انتظار را در خود دارد ویرایش می‌کند.
+یک نمودار می‌تواند شامل اشکال سفارشی باشد، مانند یک حاشیه‌نویسی متنی که وضعیت یک گزارش را توضیح می‌دهد. به این اشکال از طریق [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/) دسترسی پیدا کنید. مجموعهٔ [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) آن شامل اشکال متعلق به نمودار است. یک جعبه متن عادی که بر روی نمودار قرار می‌گیرد، متعلق به اسلاید است، حتی اگر شبیه بخشی از نمودار به نظر برسد. پیمایش از طریق [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) نمودار و اشکال عادی اسلاید را می‌یابد، اما اشکال فردی داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای از نمودار هستند و نه حاشیه‌نویسی‌های سفارشی در این مجموعه. فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در دایرکتوری کاری برنامه قرار دهید. اسلاید اول آن شامل یک نمودار با یک حاشیه‌نویسی گروه‌بندی‌نشده با متن «نتایج اولیه»، یک خط متعلق به نمودار و یک جعبه متن عادی اسلاید با متن «پوشش اسلاید» است. این مثال اولین نمودار را در آن اسلاید پیدا می‌کند و حاشیه‌نویسی را به «نتایج نهایی» تغییر می‌دهد هنگامی که گزارش آماده انتشار باشد. این مثال برای مجموعهٔ خالی بررسی می‌کند و فقط یک [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) را که دارای [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) غیر `None` و شامل متن مورد انتظار است، ویرایش می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -277,26 +314,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-خط و جعبه متن اسلاید بدون تغییر می‌مانند. تصاویر زیر ورودی و نتیجه ذخیره‌شده‌ پس از باز کردن مجدد را نشان می‌دهند:
+خط و جعبه متن اسلاید بدون تغییر باقی می‌مانند. تصاویر زیر ورودی و نتیجهٔ ذخیره‌شده و بازگشایی‌شده را نشان می‌دهند:
 
 | قبل از ویرایش | بعد از ویرایش |
 | --- | --- |
 | ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-مثال فقط اشکال سطح بالای متعلق به نمودار را بررسی می‌کند. اگر حاشیه‌نویسی داخل یک [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) باشد، مجموعه [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و همان بررسی‌های متنی را برای اشکال فرزند آنها اعمال کنید. یک گروه خود یک محفظه است؛ آن را به‌عنوان جعبه متن درنظر نگیرید.
+این مثال فقط اشکال سطح بالای متعلق به نمودار را بررسی می‌کند. اگر یک حاشیه‌نویسی داخل یک [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) باشد، مجموعهٔ [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و بررسی‌های متنی یکسان را بر روی اشکال فرزندشان اعمال کنید. یک گروه خود یک مخزن است؛ آن را به‌عنوان جعبهٔ متن در نظر نگیرید.
 {{% /alert %}}
 
 ## **سؤالات متداول**
 
-**آیا می‌توانم پر کردن‌های نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه کاملاً مات باقی بماند؟**
+**آیا می‌توان پرکن‌های نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کرد در حالی که حاشیه‌ها مات باقی می‌مانند؟**
 
-بله. شفافیت پر کردن و حاشیه به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در نمایش‌های پرشلوغ مفید است.
+بله. شفافیت پرکن و خط دور به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در تجسم‌های پرحجم مفید است.
 
-**چگونه می‌توانم با برچسب‌های داده که همپوشانی دارند کنار بیایم؟**
+**چگونه می‌توانم با برچسب‌های داده که همپوشانی دارند مقابله کنم؟**
 
-اندازه قلم را کاهش دهید، مؤلفه‌های غیرضروری برچسب (مثلاً دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت لزوم فقط برای نقاط منتخب برچسب نشان دهید، یا قالب را به «value + legend» تغییر دهید.
+اندازه قلم را کاهش دهید، مؤلفه‌های غیرضروری برچسب (برای مثال، دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت نیاز فقط برای نقاط انتخاب شده برچسب‌ها را نمایش دهید، یا قالب را به «مقدار + افسانه» تغییر دهید.
 
-**آیا می‌توانم پر کردن‌های گرادیان یا طرح را به سری‌ها اعمال کنم؟**
+**آیا می‌توان پرکن‌های گرادیان یا الگو را به سری‌ها اعمال کرد؟**
 
-بله. سری‌ها از پر کردن‌های ثابت، گرادیان و طرح پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌طور محدود استفاده کنید و ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهند، پرهیز کنید.
+بله. سری‌ها از پرکن‌های جامد، گرادیانی و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌طور محدود استفاده کنید و از ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهند، پرهیز کنید.

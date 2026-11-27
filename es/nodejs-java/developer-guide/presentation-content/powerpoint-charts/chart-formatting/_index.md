@@ -1,12 +1,12 @@
 ---
 title: Formatear gráficos de presentación en JavaScript
-linktitle: Formato de gráficos
+linktitle: Formato de gráfico
 type: docs
 weight: 60
 url: /es/nodejs-java/chart-formatting/
 keywords:
+- formatear gráfico
 - formato de gráfico
-- formateo de gráficos
 - entidad de gráfico
 - propiedades del gráfico
 - configuración del gráfico
@@ -18,19 +18,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aprenda el formateo de gráficos en Aspose.Slides para Node.js mediante Java y mejore su presentación de PowerPoint con ejes, fuentes, formatos numéricos y bordes redondeados personalizados."
+description: "Aprenda a dar formato a los gráficos en Aspose.Slides para Node.js mediante Java y mejore su presentación de PowerPoint con ejes, fuentes, formatos numéricos y bordes de gráfico redondeados personalizados."
 ---
-## **Descripción general**
+## **Visión general**
 
-Este artículo explica cómo formatear gráficos en presentaciones de PowerPoint utilizando Aspose.Slides. Muestra cómo personalizar los elementos clave del gráfico, como ejes, líneas de cuadrícula, títulos, leyendas, el área del trazado y los rellenos de paredes, para mejorar la apariencia y la legibilidad de los datos del gráfico.
+Este artículo explica cómo dar formato a los gráficos en presentaciones de PowerPoint usando Aspose.Slides. Muestra cómo personalizar elementos clave del gráfico, como ejes, líneas de cuadrícula, títulos, leyendas, el área de trama y los rellenos de paredes, para mejorar la apariencia y legibilidad de los datos del gráfico.
 
-También muestra cómo establecer propiedades de fuente para el texto del gráfico, aplicar formatos numéricos predefinidos a los datos del gráfico y habilitar esquinas redondeadas para el área del gráfico. En conjunto, estos ejemplos demuestran cómo controlar tanto el estilo visual como la presentación de datos de los gráficos en una presentación.
+También demuestra cómo establecer propiedades de fuente para el texto del gráfico, aplicar formatos numéricos preestablecidos a los datos del gráfico y habilitar esquinas redondeadas para el área del gráfico. En conjunto, estos ejemplos muestran cómo controlar tanto el estilo visual como la presentación de los datos de los gráficos en una presentación.
 
-## **Formatear entidades del gráfico**
+Para rellenos y contornos separados en intervalos ascendentes y descendentes, vea el [ejemplo de gráfico bursátil](/slides/es/nodejs-java/create-chart/#create-stock-charts).
 
-Utilice [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) para formatear los títulos de los gráficos, ejes, líneas de cuadrícula, leyendas y el área del trazado. Este ejemplo crea un gráfico de líneas con marcadores y datos predeterminados, y luego aplica estilos de texto y de línea separados a sus ejes de valores y de categorías. Los tamaños de fuente y los anchos de línea se especifican en puntos; las etiquetas de categorías se rotan 45 grados.
+## **Formato de entidades del gráfico**
 
-El eje de valores utiliza [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) de forma independiente de las celdas de origen. Su escala va de -2 a 15, con intervalos principales de 2 e intervalos menores de 0,5. El ejemplo también combina el formato de porcentaje con [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) configurado a miles, por lo que debe adaptar estos valores al significado y magnitud de sus datos. La leyenda permanece fuera del área del trazado porque [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) se llama con `false`. Los rellenos de la pared trasera y del suelo se configuran mediante [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) y [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), pero estas superficies solo son visibles en gráficos 3D.
+Utilice [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) para dar formato a los títulos del gráfico, ejes, líneas de cuadrícula, leyendas y el área de trama. Este ejemplo crea un gráfico de líneas con marcadores y datos predeterminados, y luego aplica estilos de texto y línea separados a sus ejes de valores y de categorías. Los tamaños de fuente y los anchos de línea se especifican en puntos; las etiquetas de categoría se rotan 45 grados.
+
+El eje de valores utiliza [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) independientemente de las celdas de origen. Su escala va de -2 a 15, con intervalos mayores de 2 y menores de 0,5. El ejemplo también combina el formato de porcentaje con [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) configurado a miles, por lo que debe adaptar estos ajustes al significado y magnitud de sus datos. La leyenda permanece fuera del área de trama porque [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) se llama con `false`. Los rellenos de la pared trasera y del suelo se configuran mediante [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) y [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), pero estas superficies solo son visibles en gráficos 3D.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -150,7 +152,7 @@ try {
 
 ## **Establecer propiedades de fuente para un gráfico**
 
-Establezca el tamaño de fuente predeterminado para el texto del gráfico mediante [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). El ejemplo crea un gráfico de columnas agrupadas con una fuente de 20 puntos y habilita las etiquetas de valores para la primera serie mediante [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Los elementos de texto con sus propias configuraciones de fuente explícitas pueden sobrescribir el valor predeterminado del gráfico.
+Establezca el tamaño de fuente predeterminado para el texto del gráfico a través de [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). El ejemplo crea un gráfico de columnas agrupadas con una fuente de 20 puntos y habilita las etiquetas de valor para la primera serie mediante [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Los elementos de texto con sus propias configuraciones de fuente explícitas pueden sobrescribir el valor predeterminado del gráfico.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **Reutilizar el formato del marco de texto para la leyenda de un gráfico**
+
+Para que una leyenda coincida con el encabezado de una diapositiva, establezca la fuente del encabezado mediante [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) en el primer párrafo. Llame a [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) en el formato devuelto por el [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat) de la leyenda. Copia la configuración del marco de texto, el formato del primer párrafo y las propiedades de fuente predeterminadas de ese párrafo. El formato aplicado directamente a porciones individuales o a párrafos posteriores permanece local al origen.
+
+El ejemplo usa un encabezado en Calibri de 26 puntos, en negrita y color azul marino, como plantilla. Después de dar estilo a la leyenda, llama a [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) para aplicar el mismo formato a una leyenda separada.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+En la presentación guardada, la leyenda y la leyenda secundaria coinciden con el encabezado en tamaño, grosor y color. La leyenda sigue mostrando los nombres de las series, y la leyenda secundaria conserva su propio texto. Si una porción en la leyenda secundaria ya tiene un tamaño de fuente explícito, ese tamaño prevalece sobre el predeterminado del párrafo copiado.
+
+| Antes de copiar | Después de copiar |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **Establecer el formato numérico**
 
-Utilice [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) para aplicar un formato numérico incorporado a las celdas del libro de trabajo del gráfico. Este ejemplo crea un gráfico de columnas agrupadas con datos predeterminados respaldados por celdas y aplica el índice de formato 10 (`0.00%`) a cada celda de valor de serie. Esto cambia la forma en que los valores se muestran en el libro sin modificar los números subyacentes; por ejemplo, 0.25 se muestra como 25,00 %. Los formatos de los ejes y de las etiquetas de datos pueden configurarse por separado.
+Utilice [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) para aplicar un formato numérico incorporado a las celdas del libro del gráfico. Este ejemplo crea un gráfico de columnas agrupadas con datos predeterminados respaldados por celdas y aplica el índice de formato 10 (`0.00%`) a cada celda de valores de la serie. Esto cambia la forma en que los valores se muestran en el libro sin modificar los números subyacentes; por ejemplo, 0.25 se muestra como 25,00 %. Los formatos de eje y de etiquetas de datos pueden configurarse por separado.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -188,7 +244,7 @@ try {
         let chartSeries = series.get_Item(i);
         for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
             let dataPoint = chartSeries.getDataPoints().get_Item(j);
-            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0,00%
         }
     }
 
@@ -198,9 +254,9 @@ try {
 }
 ```
 
-La tabla siguiente enumera los índices de formatos numéricos incorporados con formatos representativos de Excel para la configuración regional en inglés (Estados Unidos). Las cadenas de formato exactas y su visualización pueden variar según la aplicación y la configuración regional, particularmente para moneda y fechas. Algunos formatos de Excel también difieren de los valores predeterminados en el estándar OOXML, como se describe en [Notas de implementación de formatos numéricos de Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+La tabla siguiente enumera los índices de formatos numéricos incorporados con formatos representativos de Excel para la configuración regional en inglés (Estados Unidos). Las cadenas de formato exactas y su visualización pueden variar según la aplicación y la configuración regional, especialmente para moneda y fechas. Algunos formatos de Excel también difieren de los valores predeterminados en el estándar OOXML, como se describe en [Notas de implementación del formato numérico de Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| Índice | Formato |
+| Index | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -241,7 +297,7 @@ La tabla siguiente enumera los índices de formatos numéricos incorporados con 
 
 ## **Establecer bordes redondeados del área del gráfico**
 
-Llame a [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) con `true` para redondear las esquinas del área del gráfico. El ejemplo crea un gráfico de columnas agrupadas y utiliza [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) para dar a su contorno un color gris sólido y un estilo de línea única antes de guardar la presentación.
+Llama a [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) con `true` para redondear las esquinas del área del gráfico. El ejemplo crea un gráfico de columnas agrupadas y utiliza [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) para dar a su contorno un color gris sólido y un estilo de línea única antes de guardar la presentación.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -263,13 +319,13 @@ try {
 }
 ```
 
-## **Editar anotaciones de gráficos existentes**
+## **Editar anotaciones de gráfico existentes**
 
-Un gráfico puede contener formas personalizadas, como una anotación de texto que explique el estado de un informe. Acceda a estas formas mediante [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). La colección devuelta por [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) contiene las formas pertenecientes al gráfico.
+Un gráfico puede contener formas personalizadas, como una anotación de texto que explica el estado de un informe. Acceda a estas formas mediante [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). La colección devuelta por [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) contiene las formas propietarias del gráfico.
 
-Un cuadro de texto ordinario colocado sobre un gráfico pertenece a la diapositiva, aunque parezca parte del gráfico. Iterar a través de [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) encuentra el gráfico y las formas normales de la diapositiva, pero no enumera las formas individuales dentro del gráfico. Los títulos de los gráficos y las etiquetas de datos son elementos de gráfico separados, no anotaciones personalizadas en esta colección.
+Un cuadro de texto ordinario colocado sobre un gráfico pertenece a la diapositiva, aunque parezca parte del gráfico. Recorrer [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) encuentra el gráfico y las formas ordinarias de la diapositiva, pero no enumera las formas individuales dentro del gráfico. Los títulos del gráfico y las etiquetas de datos son elementos de gráfico separados, no anotaciones personalizadas en esta colección.
 
-Descargue [chart-annotations.pptx](chart-annotations.pptx) y colóquelo en el directorio de trabajo de la aplicación. Su primera diapositiva contiene un gráfico con una anotación sin agrupar que dice "Resultados preliminares", una línea perteneciente al gráfico y un cuadro de texto ordinario de la diapositiva que dice "Superposición de diapositiva". El ejemplo encuentra el primer gráfico en esa diapositiva y cambia la anotación a "Resultados finales" cuando el informe está listo para publicarse. Verifica si la colección está vacía y solo edita un [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) con un marco de texto no nulo devuelto por [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) y el texto esperado.
+Descargue [chart-annotations.pptx](chart-annotations.pptx) y colóquelo en el directorio de trabajo de la aplicación. Su primera diapositiva contiene un gráfico con una anotación desagrupada que dice "Preliminary results", una línea propia del gráfico y un cuadro de texto ordinario de diapositiva que dice "Slide overlay". El ejemplo encuentra el primer gráfico en esa diapositiva y cambia la anotación a "Final results" cuando el informe está listo para publicarse. Verifica si la colección está vacía y solo edita un [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) con un marco de texto no nulo devuelto por [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) y el texto esperado.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,14 +371,14 @@ try {
 }
 ```
 
-La línea y el cuadro de texto de la diapositiva permanecen sin cambios. Las siguientes imágenes muestran la entrada y el resultado guardado y vuelto a abrir:
+La línea y el cuadro de texto de la diapositiva permanecen sin cambios. Las imágenes siguientes muestran la entrada y el resultado guardado y reabierto:
 
 | Antes de editar | Después de editar |
 | --- | --- |
-| ![Anotación de gráfico que dice Resultados preliminares](chart-annotations-before.png) | ![Anotación de gráfico que dice Resultados finales](chart-annotations-after.png) |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-El ejemplo inspecciona solo las formas de nivel superior pertenecientes al gráfico. Si una anotación está dentro de un [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), inspeccione también la colección [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) de ese grupo. Repita esto recursivamente para grupos anidados, aplicando las mismas comprobaciones de texto a sus formas hijas. Un grupo en sí es un contenedor; no lo trate como un cuadro de texto.
+El ejemplo inspecciona solo las formas propietarias del gráfico de nivel superior. Si una anotación está dentro de un [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), inspeccione también la colección [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) de ese grupo. Repita esto recursivamente para los grupos anidados, aplicando las mismas comprobaciones de texto a sus formas hijas. Un grupo en sí es un contenedor; no lo trate como un cuadro de texto.
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
@@ -333,8 +389,8 @@ Sí. La transparencia del relleno y el contorno se configuran por separado. Esto
 
 **¿Cómo puedo manejar las etiquetas de datos cuando se superponen?**
 
-Reduzca el tamaño de la fuente, desactive los componentes de etiqueta no esenciales (por ejemplo, las categorías), ajuste la posición de la etiqueta, muestre etiquetas solo para los puntos seleccionados si es necesario, o cambie el formato a "valor + leyenda".
+Reduzca el tamaño de la fuente, desactive componentes de etiqueta no esenciales (por ejemplo, categorías), ajuste la posición de la etiqueta, muestre etiquetas solo para los puntos seleccionados si es necesario, o cambie el formato a "valor + leyenda".
 
-**¿Puedo aplicar rellenos de degradado o patrón a las series?**
+**¿Puedo aplicar rellenos degradados o de patrones a las series?**
 
-Sí. Las series admiten rellenos sólidos, de degradado y de patrón. En la práctica, use degradados con moderación y evite combinaciones que reduzcan el contraste con la cuadrícula y el texto.
+Sí. Las series admiten rellenos sólidos, degradados y de patrones. En la práctica, use degradados con moderación y evite combinaciones que reduzcan el contraste con la cuadrícula y el texto.

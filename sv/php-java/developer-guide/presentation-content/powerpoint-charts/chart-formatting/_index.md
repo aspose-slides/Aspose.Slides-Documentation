@@ -7,29 +7,31 @@ url: /sv/php-java/chart-formatting/
 keywords:
 - formatera diagram
 - diagramformatering
-- diagramelement
+- diagramobjekt
 - diagramegenskaper
 - diagraminställningar
 - diagramalternativ
-- teckenegenskaper
-- rundade kanter
+- teckensnittsegenskaper
+- rundad kant
 - PowerPoint
 - presentation
 - PHP
 - Aspose.Slides
-description: "Lär dig diagramformatering i Aspose.Slides för PHP via Java och förbättra din PowerPoint-presentation med anpassade axlar, teckensnitt, numeriska format och rundade diagramkanter."
+description: "Lär dig diagramformatering i Aspose.Slides för PHP via Java och förbättra din PowerPoint-presentation med anpassade axlar, teckensnitt, talformat och rundade diagramkanter."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du formaterar diagram i PowerPoint‑presentationer med hjälp av Aspose.Slides. Den visar hur du anpassar viktiga diagramkomponenter såsom axlar, rutlinjer, titlar, förklaringar, diagramområdet och väggfyllningar för att förbättra utseendet och läsbarheten av diagramdata.
+Den här artikeln förklarar hur man formaterar diagram i PowerPoint-presentationer med hjälp av Aspose.Slides. Den visar hur man anpassar viktiga diagramelement såsom axlar, rutnätlinjer, titlar, förklaringar, plotområdet och väggfyllningar för att förbättra utseendet och läsbarheten av diagramdata.
 
-Den visar också hur du ställer in teckenegenskaper för diagramtext, tillämpar förinställda numeriska format på diagramdata och aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur du styr både den visuella stilen och datapresentationen av diagram i en presentation.
+Den demonstrerar också hur man anger teckensnittsegenskaper för diagramtext, tillämpar förinställda numeriska format på diagramdata och aktiverar rundade hörn för diagramområdet. Tillsammans visar dessa exempel hur man styr både den visuella stilen och datapresentationen av diagram i en presentation.
+
+För separata fyllningar och konturer på stigande och fallande intervaller, se [exempel på aktiediagram](/slides/sv/php-java/create-chart/#create-stock-charts).
 
 ## **Formatera diagramobjekt**
 
-Använd [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) för att formatera diagramtitlar, axlar, rutlinjer, förklaringar och diagramområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text‑ och linjestilar på dess värde‑ och kategoriaxlar. Teckenstorlekar och linjebredder anges i punkter; kategorietiketter roteras 45 grader.
+Använd [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) för att formatera diagramtitlar, axlar, rutnätlinjer, förklaringar och plotområdet. Detta exempel skapar ett linjediagram med markörer och standarddata, och tillämpar sedan separata text- och linjestilar på dess värde- och kategoriaxlar. Teckenstorlekar och linjebredd anges i punkter; kategorietiketter roteras 45 grader.
 
-Värdeaxeln använder [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) oberoende av källcellerna. Dess skala går från -2 till 15, med huvudintervaller på 2 och mindre intervaller på 0,5. Exemplet kombinerar också procentformatering med [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) inställt på tusental, så anpassa dessa inställningar efter betydelsen och storleken på dina data. Förklaringen placeras utanför diagramområdet eftersom [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) anropas med `false`. Bakväggs‑ och golvutfyllningar konfigureras via [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) och [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), men dessa ytor är endast synliga i 3D‑diagram.
+Värdeaxeln använder [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) oberoende av källcellerna. Dess skala sträcker sig från -2 till 15, med huvudintervall på 2 och mindre intervall på 0,5. Exemplet kombinerar även procentformatering med [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) inställt på tusental, så anpassa dessa inställningar efter betydelse och storlek på dina data. Förklaringen förblir utanför plotområdet eftersom [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) anropas med `false`. Bakväggs- och golvfyllningar konfigureras via [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) och [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor), men dessa ytor är endast synliga i 3D-diagram.
 
 ```php
 use aspose\slides\ChartType;
@@ -155,9 +157,9 @@ try {
 }
 ```
 
-## **Ställ in teckenegenskaper för ett diagram**
+## **Ange teckensnittsegenskaper för ett diagram**
 
-Ställ in standardteckenstorlek för diagramtext via [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). Exemplet skapar ett grupperat stapeldiagram med en 20‑punkts teckensnitt och aktiverar värdetiketter för den första serien via [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Textelement med egna explicita teckeninställningar kan åsidosätta diagrammets standard.
+Ange standardteckensnittsstorlek för diagramtext via [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat). Exemplet skapar ett gruppera stapeldiagram med ett 20-punkts teckensnitt och aktiverar värdeetiketter för den första serien via [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). Textelement med egna explicita teckensnittinställningar kan åsidosätta diagrammets standard.
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
-## **Ställ in numeriskt format**
+## **Återanvänd formatering av textrutor för diagramförklaring**
 
-Använd [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) för att tillämpa ett inbyggt nummerformat på diagrammets arbetsboks‑celler. Detta exempel skapar ett grupperat stapeldiagram med standarddata som är cellbaserad och tillämpar formatindex 10 (`0.00%`) på varje serievärdescell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0,25 som 25,00 %. Axel‑ och dataetikettformat kan konfigureras separat.
+För att matcha en förklaring med en bildrubrik, ange rubrikens teckensnitt via [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) på det första stycket. Anropa [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) på formatet som returneras av förklaringens [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat). Det kopierar textrutuminställningarna, det första styckets formatering och styckets standardteckensnittsegenskaper. Formatering som tillämpas direkt på enskilda delar eller på senare stycken förblir lokal för källan.
+
+Exemplet använder en fet, 26-punkts Calibri-rubrik i marinblått som mall. Efter att ha stylat förklaringen anropar det [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) för att tillämpa samma formatering på en separat figurtext.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+I den sparade presentationen matchar förklaringen och figurtexten rubriken i storlek, vikt och färg. Förklaringen visar fortfarande serienamnen, och figurtexten behåller sin egen text. Om en del i figurtexten redan har en explicit teckensnittsstorlek, får den storleken företräde framför det kopierade standardstycket.
+
+| Före kopiering | Efter kopiering |
+| --- | --- |
+| ![Kvartalsförsäljningsdiagram med vanliga svarta förklaringsetiketter och en svart figurtext](legend-formatting-before.png) | ![Samma diagram med större, fet marinblå förklaringsetiketter och en matchande figurtext](legend-formatting.png) |
+
+## **Ange numeriskt format**
+
+Använd [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) för att tillämpa ett inbyggt talformat på diagrammets arbetsboks-celler. Detta exempel skapar ett grupperat stapeldiagram med standard, cellstödd data och tillämpar formatindex 10 (`0.00%`) på varje serievärdecell. Detta ändrar hur värdena visas i arbetsboken utan att ändra de underliggande siffrorna; till exempel visas 0,25 som 25,00 %. Axel- och datalabelformat kan konfigureras separat.
 
 ```php
 use aspose\slides\ChartType;
@@ -199,7 +262,7 @@ try {
         $dataPoints = $chartSeries->getDataPoints();
         for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
             $dataPoint = $dataPoints->get_Item($j);
-            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0,00%
         }
     }
 
@@ -209,7 +272,7 @@ try {
 }
 ```
 
-Följande tabell listar inbyggda nummerformatindex med representativa Excel‑format för den engelska (USA) lokalen. De exakta formatsträngarna och deras visning kan variera per applikation och lokal, särskilt för valuta och datum. Vissa Excel‑format skiljer sig också från standardvärdena i OOXML‑standarden, som beskrivs i [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Följande tabell listar inbyggda talformatindex med representativa Excel-format för den engelska (USA) lokalen. De exakta formatsträngarna och deras visning kan variera mellan program och språk, särskilt för valuta och datum. Vissa Excel-format skiljer sig också från standardinställningarna i OOXML-standarden, enligt [Microsofts anteckningar om talformatimplementation](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Format |
 | --- | --- |
@@ -250,9 +313,9 @@ Följande tabell listar inbyggda nummerformatindex med representativa Excel‑fo
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Ställ in rundade kanter för diagramområdet**
+## **Ange rundade kanter för diagramområdet**
 
-Anropa [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) med `true` för att runda hörnen på diagramområdet. Exemplet skapar ett grupperat stapeldiagram och använder [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
+Anropa [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) med `true` för att runda hörnen på diagramområdet. Exemplet skapar ett grupperat stapeldiagram och använder [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) för att ge dess kontur en solid grå färg och en enkel linjestil innan presentationen sparas.
 
 ```php
 use aspose\slides\ChartType;
@@ -279,11 +342,11 @@ try {
 
 ## **Redigera befintliga diagramanteckningar**
 
-Ett diagram kan innehålla anpassade former, såsom en textanteckning som förklarar statusen för en rapport. Åtkomst till dessa former sker via [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). Samlingen som returneras av [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) innehåller diagramägda former.
+Ett diagram kan innehålla anpassade former, såsom en textanteckning som förklarar statusen för en rapport. Åtkomst till dessa former sker via [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes). Samlingen som returneras av [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) innehåller diagramägda former.
 
-En vanlig textruta placerad över ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Att iterera genom [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) hittar diagrammet och vanliga bildformer, men räknar inte upp de enskilda formerna i diagrammet. Diagramtitlar och dataetiketter är separata diagramelement, inte anpassade anteckningar i denna samling.
+En vanlig textruta placerad över ett diagram tillhör bilden, även om den ser ut som en del av diagrammet. Genom att iterera över [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) hittas diagrammet och vanliga bildformer, men de enskilda formerna inom diagrammet listas inte. Diagramtitlar och datalabels är separata diagramelement, inte anpassade anteckningar i denna samling.
 
-Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en ogrupperad anteckning som läser "Preliminary results", en diagramägd linje och en vanlig bildtextruta som läser "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är redo att publiceras. Det kontrollerar om samlingen är tom och redigerar endast en [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) med en icke‑null textram som returneras av [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) och den förväntade texten.
+Ladda ner [chart-annotations.pptx](chart-annotations.pptx) och placera den i applikationens arbetskatalog. Dess första bild innehåller ett diagram med en ogrupperad anteckning med texten "Preliminary results", en diagramägd linje och en vanlig bildtextruta med texten "Slide overlay". Exemplet hittar det första diagrammet på den bilden och ändrar anteckningen till "Final results" när rapporten är redo att publiceras. Det kontrollerar om samlingen är tom och redigerar endast en [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) med en icke-null textruta som returneras av [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) och den förväntade texten.
 
 ```php
 use aspose\slides\Presentation;
@@ -337,22 +400,22 @@ Linjen och bildtextrutan förblir oförändrade. Följande bilder visar indata o
 
 | Före redigering | Efter redigering |
 | --- | --- |
-| ![Diagramanteckning med text Preliminary results](chart-annotations-before.png) | ![Diagramanteckning med text Final results](chart-annotations-after.png) |
+| ![Diagramanteckning med texten Preliminära resultat](chart-annotations-before.png) | ![Diagramanteckning med texten Slutresultat](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Exemplet inspekterar endast diagramägd former på top‑nivå. Om en anteckning finns inne i en [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), inspektera även den gruppens [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) samling. Upprepa detta rekursivt för nästlade grupper och tillämpa samma textkontroller på deras underordnade former. En grupp i sig är en behållare; behandla den inte som en textruta.
+Exemplet inspekterar endast de översta diagramägda formerna. Om en anteckning finns inuti en [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), inspektera även den gruppens [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) samling. Upprepa detta rekursivt för nästlade grupper och tillämpa samma textkontroller på deras underordnade former. En grupp i sig är en behållare; behandla den inte som en textruta.
 {{% /alert %}}
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Kan jag ange halvtransparenta fyllningar för kolumner/områden samtidigt som kanten förblir ogenomskinlig?**
+**Kan jag ange halvt genomskinliga fyllningar för kolumner/områden samtidigt som kanten förblir opak?**
 
-Ja. Fyllnadens transparens och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
+Ja. Fyllnadens genomskinlighet och konturen konfigureras separat. Detta är användbart för att förbättra läsbarheten i rutnätet och data i täta visualiseringar.
 
-**Hur kan jag hantera dataetiketter när de överlappar?**
+**Hur kan jag hantera datalabels när de överlappar?**
 
-Minska teckenstorleken, inaktivera icke‑viktiga etikettkomponenter (t.ex. kategorier), justera etikettens position, visa endast etiketter för utvalda punkter om det behövs, eller byt formatet till "värde + förklaring".
+Minska teckenstorleken, inaktivera icke nödvändiga labelkomponenter (till exempel kategorier), justera labelpositionen, visa etiketter endast för utvalda punkter om det behövs, eller byt formatet till "värde + förklaring".
 
 **Kan jag tillämpa gradient‑ eller mönsterfyllningar på serier?**
 
-Ja. Serier stöder solid, gradient‑ och mönsterfyllning. I praktiken bör gradienter användas sparsamt och kombinationer som minskar kontrast mot rutnätet och texten undvikas.
+Ja. Serier stöder solida, gradient‑ och mönsterfyllningar. I praktiken bör gradienter användas sparsamt och undvika kombinationer som minskar kontrasten mot rutnätet och texten.

@@ -1,36 +1,38 @@
 ---
-title: Format Bagan Presentasi dalam JavaScript
-linktitle: Pemformatan Bagan
+title: Format Diagram Presentasi dalam JavaScript
+linktitle: Pemformatan Diagram
 type: docs
 weight: 60
 url: /id/nodejs-java/chart-formatting/
 keywords:
-- format bagan
-- pemformatan bagan
-- entitas bagan
-- properti bagan
-- pengaturan bagan
-- opsi bagan
+- format diagram
+- pemformatan diagram
+- entitas diagram
+- properti diagram
+- pengaturan diagram
+- opsi diagram
 - properti font
-- batas melengkung
+- bingkai melengkung
 - PowerPoint
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Pelajari pemformatan bagan dalam Aspose.Slides untuk Node.js melalui Java dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan batas bagan yang melengkung."
+description: "Pelajari cara memformat diagram di Aspose.Slides untuk Node.js melalui Java dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, serta bingkai diagram yang melengkung."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara memformat bagan dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Ini menunjukkan cara menyesuaikan elemen bagan utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data bagan.
+Artikel ini menjelaskan cara memformat diagram dalam presentasi PowerPoint menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen diagram utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data diagram.
 
-Artikel ini juga memperlihatkan cara mengatur properti font untuk teks bagan, menerapkan format numerik bawaan pada data bagan, dan mengaktifkan sudut melengkung untuk area bagan. Bersama‑sama, contoh‑contoh ini menunjukkan cara mengontrol baik gaya visual maupun penyajian data bagan dalam sebuah presentasi.
+Artikel ini juga mendemonstrasikan cara mengatur properti font untuk teks diagram, menerapkan format numerik preset ke data diagram, dan mengaktifkan sudut membulat untuk area diagram. Bersama-sama, contoh-contoh ini menunjukkan cara mengontrol baik gaya visual maupun penyajian data diagram dalam sebuah presentasi.
 
-## **Format Chart Entities**
+Untuk isian dan garis terpisah pada interval naik dan turun, lihat [contoh diagram saham](/slides/id/nodejs-java/create-chart/#create-stock-charts).
 
-Gunakan [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) untuk memformat judul bagan, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat bagan garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+## **Format Entitas Diagram**
 
-Axis nilai menggunakan [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) secara independen dari sel sumber. Skala‑nya berjalan dari -2 hingga 15, dengan interval mayor 2 dan interval minor 0,5. Contoh juga menggabungkan pemformatan persentase dengan [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) yang diset ke ribuan, jadi sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap di luar area plot karena [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) dipanggil dengan `false`. Isian dinding belakang dan lantai dikonfigurasi melalui [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) dan [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), tetapi permukaan ini hanya terlihat pada bagan 3D.
+Gunakan [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) untuk memformat judul diagram, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat diagram garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+
+Sumbu nilai menggunakan [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) secara independen dari sel sumber. Skala berjalan dari -2 hingga 15, dengan interval mayor 2 dan interval minor 0.5. Contoh ini juga menggabungkan pemformatan persentase dengan [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) yang disetel ke ribuan, jadi sesuaikan pengaturan ini dengan arti dan besaran data Anda. Legenda tetap berada di luar area plot karena [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) dipanggil dengan `false`. Isian dinding belakang dan lantai dikonfigurasi melalui [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) dan [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), namun permukaan ini hanya terlihat pada diagram 3D.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **Set Font Properties for a Chart**
+## **Atur Properti Font untuk Diagram**
 
-Atur ukuran font default untuk teks bagan melalui [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). Contoh ini membuat bagan kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Elemen teks dengan pengaturan font eksplisit mereka sendiri dapat menggantikan default bagan.
+Atur ukuran font default untuk teks diagram melalui [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). Contoh ini membuat diagram kolom terkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Elemen teks dengan pengaturan font eksplisitnya sendiri dapat menimpa nilai default diagram.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
-## **Set the Numeric Format**
+## **Gunakan Kembali Pemformatan Bingkai Teks untuk Legenda Diagram**
 
-Gunakan [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) untuk menerapkan format angka bawaan pada sel buku kerja bagan. Contoh ini membuat bagan kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di buku kerja tanpa mengubah angka dasarnya; misalnya, 0.25 ditampilkan sebagai 25,00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
+Untuk mencocokkan legenda dengan judul slide, atur font judul melalui [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) pada paragraf pertama. Panggil [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) pada format yang dikembalikan oleh [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat) legenda. Ini menyalin pengaturan bingkai teks, pemformatan paragraf pertama, dan properti font default paragraf tersebut. Pemformatan yang diterapkan langsung pada bagian individual atau pada paragraf selanjutnya tetap lokal pada sumber.
+
+Contoh menggunakan judul Calibri tebal 26 poin berwarna nila sebagai templat. Setelah menata legenda, kode memanggil [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) untuk menerapkan pemformatan yang sama pada caption terpisah.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dalam presentasi yang disimpan, legenda dan caption cocok dengan judul dalam ukuran, ketebalan, dan warna. Legenda masih menampilkan nama seri, dan caption mempertahankan teksnya sendiri. Jika sebuah bagian dalam caption sudah memiliki ukuran font eksplisit, ukuran tersebut memiliki prioritas lebih tinggi daripada default paragraf yang disalin.
+
+| Sebelum menyalin | Setelah menyalin |
+| --- | --- |
+| ![Diagram penjualan kuartalan dengan label legenda hitam biasa dan caption hitam](legend-formatting-before.png) | ![Diagram yang sama dengan label legenda biru tua lebih besar, tebal, dan caption yang cocok](legend-formatting.png) |
+
+## **Atur Format Numerik**
+
+Gunakan [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) untuk menerapkan format angka bawaan ke sel buku kerja diagram. Contoh ini membuat diagram kolom terkelompok dengan data default berbasis sel dan menerapkan indeks format 10 (`0.00%`) ke setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di buku kerja tanpa mengubah angka dasar; misalnya, 0.25 ditampilkan sebagai 25.00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,7 +254,7 @@ try {
 }
 ```
 
-Tabel berikut menampilkan indeks format angka bawaan beserta contoh format Excel untuk locale Bahasa Inggris (Amerika Serikat). String format tepat dan tampilan dapat bervariasi menurut aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, sebagaimana dijelaskan dalam [catatan implementasi format angka Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Tabel berikut menampilkan indeks format angka bawaan dengan format Excel representatif untuk locale Bahasa Inggris (Amerika Serikat). String format yang tepat dan tampilannya dapat bervariasi tergantung aplikasi dan locale, khususnya untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, seperti yang dijelaskan di [catatan implementasi format angka Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Indeks | Format |
 | --- | --- |
@@ -239,9 +295,9 @@ Tabel berikut menampilkan indeks format angka bawaan beserta contoh format Excel
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Set Chart Area Rounded Borders**
+## **Atur Sudut Membulat Area Diagram**
 
-Panggil [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) dengan `true` untuk membulatkan sudut area bagan. Contoh ini membuat bagan kolom berkelompok dan menggunakan [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) untuk memberi garis luar berwarna abu‑abu solid dan gaya satu‑garis sebelum menyimpan presentasi.
+Panggil [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) dengan `true` untuk membulatkan sudut area diagram. Contoh ini membuat diagram kolom terkelompok dan menggunakan [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) untuk memberi outline warna abu-abu solid dan gaya satu-garis sebelum menyimpan presentasi.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -263,13 +319,13 @@ try {
 }
 ```
 
-## **Edit Existing Chart Annotations**
+## **Edit Anotasi Diagram yang Ada**
 
-Bagan dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk‑bentuk ini melalui [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). Koleksi yang dikembalikan oleh [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) berisi bentuk yang dimiliki bagan.
+Diagram dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk-bentuk ini melalui [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). Koleksi yang dikembalikan oleh [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) berisi bentuk-bentuk yang dimiliki diagram.
 
-Kotak teks biasa yang ditempatkan di atas bagan termasuk dalam slide, meskipun tampak sebagai bagian bagan. Iterasi melalui [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) menemukan bagan dan bentuk slide biasa, tetapi tidak menguraikan bentuk individual di dalam bagan. Judul bagan dan label data adalah elemen bagan terpisah, bukan anotasi khusus dalam koleksi ini.
+Kotak teks biasa yang ditempatkan di atas diagram menjadi milik slide, meskipun tampak seperti bagian diagram. Iterasi melalui [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) menemukan diagram serta bentuk-bentuk slide biasa, tetapi tidak mengenumerasi bentuk individual di dalam diagram. Judul diagram dan label data merupakan elemen diagram terpisah, bukan anotasi khusus dalam koleksi ini.
 
-Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi bagan dengan anotasi tidak dikelompokkan yang berisi "Preliminary results", sebuah garis milik bagan, dan kotak teks slide biasa yang berisi "Slide overlay". Contoh menemukan bagan pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa koleksi kosong dan hanya menyunting sebuah [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) dengan bingkai teks tidak null yang dikembalikan oleh [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) serta teks yang diharapkan.
+Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi diagram dengan anotasi tidak berkelompok yang berbunyi "Preliminary results", sebuah garis milik diagram, dan kotak teks slide biasa yang berbunyi "Slide overlay". Contoh menemukan diagram pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Kode memeriksa koleksi kosong dan hanya mengedit sebuah [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) dengan bingkai teks tidak null yang dikembalikan oleh [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) serta teks yang diharapkan.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,26 +371,26 @@ try {
 }
 ```
 
-Garisan dan kotak teks slide tetap tidak berubah. Gambar berikut menunjukkan input dan hasil yang disimpan serta dibuka kembali:
+Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menunjukkan input dan hasil yang disimpan serta dibuka kembali:
 
-| Sebelum penyuntingan | Setelah penyuntingan |
+| Sebelum mengedit | Setelah mengedit |
 | --- | --- |
-| ![Anotasi bagan membaca Preliminary results](chart-annotations-before.png) | ![Anotasi bagan membaca Final results](chart-annotations-after.png) |
+| ![Anotasi diagram membaca Hasil Awal](chart-annotations-before.png) | ![Anotasi diagram membaca Hasil Akhir](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Contoh hanya memeriksa bentuk milik bagan pada tingkat atas. Jika anotasi berada di dalam sebuah [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), periksa koleksi [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) grup tersebut juga. Ulangi secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah wadah; jangan perlakukan sebagai kotak teks.
+Contoh hanya memeriksa bentuk-bentuk tingkat atas yang dimiliki diagram. Jika sebuah anotasi berada di dalam [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), periksa juga koleksi [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) milik grup tersebut. Lakukan ini secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah kontainer; jangan perlakukan sebagai kotak teks.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apakah saya dapat mengatur isian semi-transparan untuk kolom/area sambil mempertahankan batas tidak tembus?**
+**Apakah saya dapat mengatur isi semi-transparan untuk kolom/area sambil mempertahankan border tidak tembus pandang?**
 
-Ya. Transparansi isian dan outline dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan grid dan data dalam visualisasi yang padat.
+Ya. Transparansi isi dan outline dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
 
-**Bagaimana saya dapat menangani label data ketika mereka tumpang tindih?**
+**Bagaimana saya menangani label data ketika mereka saling tumpang tindih?**
 
-Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk titik yang dipilih bila perlu, atau ubah format menjadi "nilai + legenda".
+Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk titik terpilih bila perlu, atau ubah format menjadi "nilai + legenda".
 
 **Apakah saya dapat menerapkan isian gradien atau pola pada seri?**
 
-Ya. Seri mendukung isian solid, gradien, dan pola. Pada praktiknya, gunakan gradien dengan hemat dan hindari kombinasi yang mengurangi kontras dengan grid dan teks.
+Ya. Seri mendukung isian padat, gradien, dan pola. Pada praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.

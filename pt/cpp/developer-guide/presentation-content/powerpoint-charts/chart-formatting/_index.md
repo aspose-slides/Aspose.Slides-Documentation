@@ -1,5 +1,5 @@
 ---
-title: Formatar Gráficos de Apresentação em C++
+title: Format​ar Gráficos de Apresentação em C++
 linktitle: Formatação de Gráficos
 type: docs
 weight: 60
@@ -21,15 +21,17 @@ description: "Aprenda a formatar gráficos no Aspose.Slides para C++ e eleve sua
 ---
 ## **Visão geral**
 
-Este artigo explica como formatar gráficos em apresentações do PowerPoint usando Aspose.Slides. Ele demonstra como personalizar elementos principais do gráfico, como eixos, linhas de grade, títulos, legendas, área de plotagem e preenchimentos de parede, para melhorar a aparência e a legibilidade dos dados do gráfico.
+Este artigo explica como formatar gráficos em apresentações do PowerPoint usando Aspose.Slides. Ele mostra como personalizar elementos principais do gráfico, como eixos, linhas de grade, títulos, legendas, a área de plotagem e preenchimentos de paredes, para melhorar a aparência e a legibilidade dos dados do gráfico.
 
-Também demonstra como definir propriedades de fonte para o texto do gráfico, aplicar formatos numéricos predefinidos aos dados do gráfico e habilitar cantos arredondados para a área do gráfico. Juntos, esses exemplos mostram como controlar tanto o estilo visual quanto a apresentação dos dados dos gráficos em uma apresentação.
+Também demonstra como definir propriedades de fonte para texto do gráfico, aplicar formatos numéricos predefinidos aos dados do gráfico e habilitar cantos arredondados para a área do gráfico. Juntos, esses exemplos mostram como controlar tanto o estilo visual quanto a apresentação dos dados dos gráficos em uma apresentação.
+
+Para preenchimentos e contornos separados em intervalos de alta e baixa, consulte o [exemplo de gráfico de ações](/slides/pt/cpp/create-chart/#create-stock-charts).
 
 ## **Formatar entidades do gráfico**
 
-Use [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) para formatar títulos de gráfico, eixos, linhas de grade, legendas e a área de plotagem. Este exemplo cria um gráfico de linhas com marcadores e dados padrão, depois aplica estilos de texto e linha separados aos seus eixos de valor e de categoria. Tamanhos de fonte e larguras de linha são especificados em pontos; os rótulos de categoria são girados em 45 graus.
+Use [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) para formatar títulos de gráficos, eixos, linhas de grade, legendas e a área de plotagem. Este exemplo cria um gráfico de linhas com marcadores e dados padrão, então aplica estilos de texto e linha diferentes aos seus eixos de valores e de categorias. Tamanhos de fonte e larguras de linha são especificados em pontos; os rótulos de categoria são rotacionados em 45 graus.
 
-O eixo de valor usa [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) independentemente das células de origem. Sua escala vai de -2 a 15, com intervalos principais de 2 e intervalos secundários de 0,5. O exemplo também combina formatação percentual com [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) definido como milhares, portanto adapte essas configurações ao significado e à magnitude de seus dados. A legenda permanece fora da área de plotagem porque [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) está desabilitado. Preenchimentos de parede traseira e de piso são configurados através de [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) e [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), mas essas superfícies são visíveis apenas em gráficos 3D.
+O eixo de valores usa [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) independentemente das células de origem. Sua escala vai de -2 a 15, com intervalos principais de 2 e intervalos menores de 0,5. O exemplo também combina formatação percentual com [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) definido para milhares, portanto adapte essas configurações ao significado e à magnitude dos seus dados. A legenda permanece fora da área de plotagem porque [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) está desativado. Os preenchimentos da parede traseira e do piso são configurados através de [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) e [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), mas essas superfícies só são visíveis em gráficos 3D.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -183,7 +185,7 @@ presentation->Save(u"FormattedChart_out.pptx", SaveFormat::Pptx);
 
 ## **Definir propriedades de fonte para um gráfico**
 
-Defina o tamanho de fonte padrão para o texto do gráfico através de [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). O exemplo cria um gráfico de colunas agrupadas com fonte de 20 pontos e habilita rótulos de valor para a primeira série através de [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Elementos de texto com suas próprias configurações explícitas de fonte podem sobrescrever o padrão do gráfico.
+Defina o tamanho padrão da fonte para o texto do gráfico através de [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). O exemplo cria um gráfico de colunas agrupadas com fonte de 20 pontos e habilita rótulos de valor para a primeira série através de [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Elementos de texto com suas próprias configurações explícitas de fonte podem sobrescrever o padrão do gráfico.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -216,9 +218,91 @@ chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataL
 presentation->Save(u"FontPropertiesForChart.pptx", SaveFormat::Pptx);
 ```
 
+## **Reutilizar formatação de quadro de texto para a legenda de um gráfico**
+
+Para combinar a legenda com o cabeçalho de um slide, defina a fonte no formato padrão da primeira porção do parágrafo através de [get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Use [get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformattedtextcontainer/get_textformat/) para acessar o formato de texto da legenda, então chame [CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyfrom/) com o quadro de texto do cabeçalho. Isso copia as configurações do quadro de texto, a formatação do primeiro parágrafo e as propriedades de fonte padrão desse parágrafo. A formatação aplicada diretamente a porções individuais ou a parágrafos posteriores permanece local à fonte.
+
+O exemplo usa um cabeçalho em negrito, Calibri de 26 pontos, na cor azul marinho como modelo. Após estilizar a legenda, ele usa [CopyTo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyto/) para aplicar a mesma formatação a uma legenda separada.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/NullableBool.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/StyleType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto heading = shapes->AddAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+auto sourceTextFrame = heading->AddTextFrame(u"Quarterly sales");
+auto font = sourceTextFrame->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+font->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+font->set_FontHeight(26);
+font->set_FontBold(NullableBool::True);
+font->get_FillFormat()->set_FillType(FillType::Solid);
+font->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(32, 64, 96));
+
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+chart->set_Style(StyleType::Style3);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Retail"));
+workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Online"));
+workbook->GetCell(0, 0, 3, ObjectExt::Box<String>(u"Wholesale"));
+for (auto quarter = 1; quarter <= 4; ++quarter)
+{
+    auto label = String::Format(u"Q{0}", quarter);
+    workbook->GetCell(0, quarter, 0, ObjectExt::Box<String>(label));
+}
+
+chart->set_HasLegend(true);
+auto legend = chart->get_Legend();
+legend->set_Position(LegendPositionType::Bottom);
+auto legendTextFormat = legend->get_TextFormat();
+legendTextFormat->CopyFrom(sourceTextFrame);
+
+auto caption = shapes->AddAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+auto captionTextFrame = caption->AddTextFrame(u"Sales in millions of dollars");
+legendTextFormat->CopyTo(captionTextFrame);
+
+presentation->Save(u"legend-formatting.pptx", SaveFormat::Pptx);
+```
+
+Na apresentação salva, a legenda e a legenda secundária correspondem ao cabeçalho em tamanho, peso e cor. A legenda ainda exibe os nomes das séries, e a legenda secundária mantém seu próprio texto. Se uma porção na legenda secundária já possuir um tamanho de fonte explícito, esse tamanho tem precedência sobre o padrão de parágrafo copiado.
+
+| Antes da cópia | Depois da cópia |
+| --- | --- |
+| ![Gráfico de vendas trimestrais com rótulos de legenda pretos regulares e legenda secundária preta](legend-formatting-before.png) | ![O mesmo gráfico com rótulos de legenda maiores, em negrito, azul marinho e legenda secundária correspondente](legend-formatting.png) |
+
 ## **Definir o formato numérico**
 
-Use [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) para aplicar um formato numérico interno às células da planilha do gráfico. Este exemplo cria um gráfico de colunas agrupadas com dados padrão, baseados em célula, e aplica o índice de formato 10 (`0.00%`) a cada célula de valor da série. Isso altera como os valores são exibidos na planilha sem mudar os números subjacentes; por exemplo, 0,25 é exibido como 25,00%. Os formatos de eixo e de rótulo de dados podem ser configurados separadamente.
+Use [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) para aplicar um formato numérico incorporado às células da planilha do gráfico. Este exemplo cria um gráfico de colunas agrupadas com dados padrão armazenados em células e aplica o índice de formato 10 (`0.00%`) a cada célula de valor da série. Isso altera como os valores são exibidos na planilha sem mudar os números subjacentes; por exemplo, 0,25 é exibido como 25,00%. Os formatos de eixo e de rótulo de dados podem ser configurados separadamente.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -253,14 +337,14 @@ for (auto chartSeries : series)
 {
     for (auto dataPoint : chartSeries->get_DataPoints())
     {
-        dataPoint->get_Value()->get_AsCell()->set_PresetNumberFormat(10); // 0.00%
+        dataPoint->get_Value()->get_AsCell()->set_PresetNumberFormat(10); // 0,00%
     }
 }
 
 presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 ```
 
-A tabela a seguir lista índices de formatos numéricos internos com formatos representativos do Excel para a localidade English (United States). As strings de formato exatas e sua exibição podem variar por aplicação e localidade, particularmente para moeda e datas. Alguns formatos do Excel também diferem dos padrões padrão do OOXML, conforme descrito nas [notas de implementação de formato numérico da Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+A tabela a seguir lista os índices de formatos numéricos incorporados com formatos representativos do Excel para a localidade English (United States). As strings de formato exatas e sua exibição podem variar conforme a aplicação e a localidade, particularmente para moedas e datas. Alguns formatos do Excel também diferem dos padrões padrão do OOXML, conforme descrito nas [notas de implementação de formatos numéricos da Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Índice | Formato |
 | --- | --- |
@@ -301,9 +385,9 @@ A tabela a seguir lista índices de formatos numéricos internos com formatos re
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Definir bordas arredondadas da área do gráfico**
+## **Definir cantos arredondados na área do gráfico**
 
-Habilite [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) para arredondar os cantos da área do gráfico. O exemplo cria um gráfico de colunas agrupadas e usa [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) para dar ao contorno uma cor cinza sólida e um estilo de linha única antes de salvar a apresentação.
+Habilite [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) para arredondar os cantos da área do gráfico. O exemplo cria um gráfico de colunas agrupadas e usa [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) para dar ao seu contorno uma cor cinza sólida e um estilo de linha única antes de salvar a apresentação.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -339,13 +423,13 @@ chart->set_HasRoundedCorners(true);
 presentation->Save(u"out.pptx", SaveFormat::Pptx);
 ```
 
-## **Editar anotações de gráfico existentes**
+## **Editar anotações existentes em gráficos**
 
-Um gráfico pode conter formas personalizadas, como uma anotação de texto explicando o status de um relatório. Acesse essas formas através de [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), também listadas em [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) na Referência da API de Gráfico. Sua coleção [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) contém as formas pertencentes ao gráfico.
+Um gráfico pode conter formas personalizadas, como uma anotação de texto explicando o status de um relatório. Acesse essas formas através de [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), também listadas em [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) na Referência da API de Gráficos. Sua coleção [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) contém as formas pertencentes ao gráfico.
 
-Uma caixa de texto comum posicionada sobre um gráfico pertence ao slide, mesmo que pareça parte do gráfico. Iterar sobre [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) encontra o gráfico e as formas normais do slide, mas não enumera as formas individuais dentro do gráfico. Títulos de gráfico e rótulos de dados são elementos de gráfico separados, não anotações personalizadas nessa coleção.
+Uma caixa de texto comum posicionada sobre um gráfico pertence ao slide, mesmo que pareça parte do gráfico. Iterar por [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) encontra o gráfico e as formas comuns do slide, mas não enumera as formas individuais dentro do gráfico. Títulos de gráficos e rótulos de dados são elementos de gráfico separados, não anotações personalizadas nesta coleção.
 
-Faça o download de [chart-annotations.pptx](chart-annotations.pptx) e coloque-o no diretório de trabalho da aplicação. Seu primeiro slide contém um gráfico com uma anotação desagrupada lendo "Preliminary results", uma linha pertencente ao gráfico e uma caixa de texto normal do slide lendo "Slide overlay". O exemplo encontra o primeiro gráfico naquele slide e altera a anotação para "Final results" quando o relatório estiver pronto para publicação. Ele verifica se a coleção está vazia e só edita um [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) com um [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) não nulo e o texto esperado.
+Faça o download de [chart-annotations.pptx](chart-annotations.pptx) e coloque-o no diretório de trabalho da aplicação. Seu primeiro slide contém um gráfico com uma anotação desagrupada lendo "Preliminary results", uma linha de propriedade do gráfico e uma caixa de texto comum do slide lendo "Slide overlay". O exemplo encontra o primeiro gráfico nesse slide e altera a anotação para "Final results" quando o relatório estiver pronto para publicação. Ele verifica se a coleção está vazia e edita apenas um [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) que tenha um [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) não nulo e o texto esperado.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -411,9 +495,9 @@ A linha e a caixa de texto do slide permanecem inalteradas. As imagens a seguir 
 
 | Antes da edição | Depois da edição |
 | --- | --- |
-| ![Anotação de gráfico lendo Resultados preliminares](chart-annotations-before.png) | ![Anotação de gráfico lendo Resultados finais](chart-annotations-after.png) |
+| ![Anotação de gráfico lendo Preliminary results](chart-annotations-before.png) | ![Anotação de gráfico lendo Final results](chart-annotations-after.png) |
 
-{{% alert color="info" title="Nota" %}}
+{{% alert color="info" title="Note" %}}
 O exemplo inspeciona apenas as formas de nível superior pertencentes ao gráfico. Se uma anotação estiver dentro de um [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), inspecione também a coleção [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) desse grupo. Repita isso recursivamente para grupos aninhados, aplicando as mesmas verificações de texto às suas formas filhas. Um grupo em si é um contêiner; não o trate como uma caixa de texto.
 {{% /alert %}}
 
@@ -421,12 +505,12 @@ O exemplo inspeciona apenas as formas de nível superior pertencentes ao gráfic
 
 **Posso definir preenchimentos semitransparentes para colunas/áreas mantendo a borda opaca?**
 
-Sim. Transparência do preenchimento e o contorno são configurados separadamente. Isso é útil para melhorar a legibilidade da grade e dos dados em visualizações densas.
+Sim. Transparência do preenchimento e contorno são configurados separadamente. Isso é útil para melhorar a legibilidade da grade e dos dados em visualizações densas.
 
 **Como lidar com rótulos de dados quando eles se sobrepõem?**
 
-Reduza o tamanho da fonte, desabilite componentes de rótulo não essenciais (por exemplo, categorias), ajuste a posição do rótulo, mostre rótulos somente para pontos selecionados se necessário, ou altere o formato para "valor + legenda".
+Reduza o tamanho da fonte, desabilite componentes de rótulo não essenciais (por exemplo, categorias), ajuste a posição do rótulo, exiba rótulos apenas para pontos selecionados se necessário, ou altere o formato para "valor + legenda".
 
-**Posso aplicar preenchimentos degradê ou padrão a séries?**
+**Posso aplicar preenchimentos de gradiente ou padrão a séries?**
 
-Sim. As séries suportam preenchimentos sólido, degradê e padrão. Na prática, use degradês com moderação e evite combinações que reduzam o contraste com a grade e o texto.
+Sim. Séries suportam preenchimentos sólido, gradiente e padrão. Na prática, use gradientes com moderação e evite combinações que reduzam o contraste com a grade e o texto.

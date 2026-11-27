@@ -1,13 +1,13 @@
 ---
-title: Форматирование диаграмм презентаций в JavaScript
+title: Форматирование диаграмм презентаций на JavaScript
 linktitle: Форматирование диаграмм
 type: docs
 weight: 60
 url: /ru/nodejs-java/chart-formatting/
 keywords:
-- форматирование диаграммы
 - форматирование диаграмм
-- объект диаграммы
+- форматирование диаграмм
+- элемент диаграммы
 - свойства диаграммы
 - настройки диаграммы
 - опции диаграммы
@@ -18,19 +18,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Изучите форматирование диаграмм в Aspose.Slides для Node.js через Java и улучшите свою презентацию PowerPoint с помощью пользовательских осей, шрифтов, числовых форматов и скруглённой рамки диаграммы."
+description: "Изучите форматирование диаграмм в Aspose.Slides для Node.js через Java и повысите качество своей презентации PowerPoint с помощью пользовательских осей, шрифтов, числовых форматов и скруглённых границ диаграмм."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как форматировать диаграммы в презентациях PowerPoint с помощью Aspose.Slides. Она показывает, как настроить ключевые элементы диаграммы, такие как оси, линии сетки, заголовки, легенды, область построения и заливку стен, чтобы улучшить внешний вид и читаемость данных диаграммы.
+В этой статье объясняется, как форматировать диаграммы в презентациях PowerPoint с помощью Aspose.Slides. Показано, как настраивать ключевые элементы диаграммы, такие как оси, линии сетки, заголовки, легенды, область построения и заполнения стен, чтобы улучшить внешний вид и читаемость данных диаграммы.
 
-Также демонстрируется, как задать свойства шрифта для текста диаграммы, применить предустановленные числовые форматы к данным диаграммы и включить скругление углов области диаграммы. Эти примеры показывают, как контролировать как визуальный стиль, так и представление данных диаграмм в презентации.
+Она также демонстрирует, как задавать свойства шрифта для текста диаграммы, применять предустановленные числовые форматы к данным диаграммы и включать скругленные углы области диаграммы. Вместе эти примеры показывают, как управлять как визуальным стилем, так и представлением данных диаграмм в презентации.
 
-## **Форматирование элементов диаграммы**
+Для раздельных заливок и контуров на растущих и падающих интервалах см. [пример графика акций](/slides/ru/nodejs-java/create-chart/#create-stock-charts).
 
-Используйте [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) для форматирования заголовков диаграмм, осей, линий сетки, легенд и области построения. Этот пример создает линейную диаграмму с маркерами и данными по умолчанию, затем применяет отдельные стили текста и линий к её оси значений и оси категорий. Размеры шрифтов и толщины линий указаны в пунктах; метки категорий повернуты на 45 градусов.
+## **Форматирование объектов диаграммы**
 
-Ось значений использует [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) независимо от исходных ячеек. Её масштаб проходит от -2 до 15 с основными интервалами 2 и вспомогательными интервалами 0.5. Пример также комбинирует форматирование в процентах с [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit), установленным в тысячи, поэтому адаптируйте эти параметры к смыслу и масштабу ваших данных. Легенда располагается вне области построения, потому что [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) вызывается с `false`. Заливка задней стены и пола конфигурируются через [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) и [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), но эти поверхности видимы только в 3D‑диаграммах.
+Используйте [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) для форматирования заголовков диаграмм, осей, линий сетки, легенд и области построения. Этот пример создает линейную диаграмму с маркерами и данными по умолчанию, затем применяет отдельные стили текста и линий к её осям значений и категорий. Размеры шрифтов и толщины линий указаны в пунктах; подписи категорий повёрнуты на 45 градусов.
+
+Ось значений использует [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) независимо от исходных ячеек. Её масштаб от -2 до 15, с основными интервалами 2 и вторичными интервалами 0,5. Пример также сочетает форматирование процентов с [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) установленным в тысячи, поэтому адаптируйте эти настройки к смыслу и масштабу ваших данных. Легенда остаётся вне области построения, потому что [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) вызывается с `false`. Заполнения задней стены и пола настраиваются через [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) и [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), но эти поверхности видны только в 3D‑диаграммах.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -150,7 +152,7 @@ try {
 
 ## **Установка свойств шрифта для диаграммы**
 
-Задайте размер шрифта по умолчанию для текста диаграммы через [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). Пример создает колоннчатую диаграмму с группировкой, используя шрифт 20 пунктов, и включает отображение значений для первой серии через [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Текстовые элементы с собственными явными настройками шрифта могут переопределять значение по умолчанию диаграммы.
+Установите размер шрифта по умолчанию для текста диаграммы через [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). Этот пример создает сгруппированную столбчатую диаграмму с 20‑пунктовым шрифтом и включает подписи значений для первой серии через [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Текстовые элементы с собственными явными настройками шрифта могут переопределять значение по умолчанию диаграммы.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **Повторное использование форматирования текстового фрейма для легенды диаграммы**
+
+Чтобы привести легенду к заголовку слайда, задайте шрифт заголовка через [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) в первом абзаце. Вызовите [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) для формата, возвращённого [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat) легенды. Он копирует настройки текстового фрейма, форматирование первого абзаца и свойства шрифта по умолчанию этого абзаца. Форматирование, применённое напрямую к отдельным частям или к последующим абзацам, остаётся локальным для источника.
+
+В примере в качестве шаблона используется полужирный заголовок Calibri размером 26 пунктов тёмно‑синего цвета. После стилизации легенды вызывается [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) для применения того же форматирования к отдельной подписи.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+В сохранённой презентации легенда и подпись соответствуют заголовку по размеру, толщине и цвету. Легенда по‑прежнему отображает имена серий, а подпись сохраняет собственный текст. Если часть подписи уже имеет явно заданный размер шрифта, этот размер имеет приоритет над скопированным размером по умолчанию абзаца.
+
+| До копирования | После копирования |
+| --- | --- |
+| ![Квартальная диаграмма продаж с обычными чёрными метками легенды и чёрной подписью](legend-formatting-before.png) | ![Тот же график с более крупными жирными тёмно‑синими метками легенды и соответствующей подписью](legend-formatting.png) |
+
 ## **Установка числового формата**
 
-Используйте [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) для применения встроенного числового формата к ячейкам рабочей книги диаграммы. Этот пример создает колоннчатую диаграмму с группировкой, используя данные из ячеек, и применяет индекс формата 10 (`0.00%`) к каждой ячейке значения серии. Это меняет способ отображения значений в рабочей книге без изменения самих чисел; например, 0.25 отображается как 25.00%. Форматы осей и меток данных могут настраиваться отдельно.
+Используйте [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) для применения встроенного числового формата к ячейкам рабочей книги диаграммы. Этот пример создаёт сгруппированную столбчатую диаграмму с данными по умолчанию, поддерживаемыми ячейками, и применяет индекс формата 10 (`0.00%`) к каждой ячейке значений серии. Это меняет способ отображения значений в рабочей книге без изменения самих чисел; например, 0,25 отображается как 25,00 %. Форматы осей и подписей данных можно настраивать отдельно.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -188,7 +244,7 @@ try {
         let chartSeries = series.get_Item(i);
         for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
             let dataPoint = chartSeries.getDataPoints().get_Item(j);
-            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0,00%
         }
     }
 
@@ -198,7 +254,7 @@ try {
 }
 ```
 
-В следующей таблице перечислены встроенные индексы числовых форматов с типичными форматами Excel для локали English (United States). Точные строки форматов и их отображение могут различаться в зависимости от приложения и локали, особенно для валют и дат. Некоторые форматы Excel также отличаются от значений по умолчанию в стандарте OOXML, как описано в [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+В следующей таблице перечислены встроенные индексы числовых форматов с характерными форматами Excel для локали англ. (США). Точные строки форматов и их отображение могут различаться в зависимости от приложения и локали, особенно для валют и дат. Некоторые форматы Excel также отличаются от значений по умолчанию в стандарте OOXML, как описано в [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Индекс | Формат |
 | --- | --- |
@@ -239,9 +295,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Установка скругленных границ области диаграммы**
+## **Установка скруглённых границ области диаграммы**
 
-Вызовите [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) с `true`, чтобы скруглить углы области диаграммы. Пример создает колоннчатую диаграмму и использует [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat), чтобы задать её контуру сплошной серый цвет и стиль одной линии перед сохранением презентации.
+Вызовите [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) с `true`, чтобы скруглить углы области диаграммы. Пример создаёт сгруппированную столбчатую диаграмму и использует [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) для задания контуру сплошного серого цвета и однотонного стиля линии перед сохранением презентации.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -265,11 +321,11 @@ try {
 
 ## **Редактирование существующих аннотаций диаграммы**
 
-Диаграмма может содержать пользовательские формы, например текстовую аннотацию, объясняющую статус отчёта. Доступ к этим формам осуществляется через [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). Коллекция, возвращаемая [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes), содержит формы, принадлежащие диаграмме.
+Диаграмма может содержать пользовательские фигуры, такие как текстовая аннотация, объясняющая статус отчёта. Доступ к этим фигурам осуществляется через [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). Коллекция, возвращаемая [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes), содержит фигуры, принадлежащие диаграмме.
 
-Обычный текстовый блок, размещённый поверх диаграммы, относится к слайду, даже если выглядит как часть диаграммы. Итерация по [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) находит диаграмму и обычные формы слайда, но не перечисляет отдельные формы внутри диаграммы. Заголовки диаграмм и метки данных – отдельные элементы диаграммы, а не пользовательские аннотации в этой коллекции.
+Обычное текстовое поле, размещённое поверх диаграммы, принадлежит слайду, даже если выглядит как часть диаграммы. Перебирая [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes), находятся диаграмма и обычные фигуры слайда, но отдельные фигуры внутри диаграммы не перечисляются. Заголовки диаграмм и подписи данных являются отдельными элементами диаграммы, а не пользовательскими аннотациями в этой коллекции.
 
-Скачайте [chart-annotations.pptx](chart-annotations.pptx) и разместите его в рабочем каталоге приложения. На первом слайде находится диаграмма с разъединённой аннотацией «Preliminary results», линией, принадлежащей диаграмме, и обычным текстовым блоком слайда «Slide overlay». Пример находит первую диаграмму на этом слайде и меняет аннотацию на «Final results», когда отчёт готов к публикации. Он проверяет наличие пустой коллекции и редактирует только [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) с ненулевым текстовым фреймом, возвращённым [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame), и содержащим ожидаемый текст.
+Скачайте [chart-annotations.pptx](chart-annotations.pptx) и поместите его в рабочий каталог приложения. На первом слайде находится диаграмма с разъединенной аннотацией «Предварительные результаты», линией, принадлежащей диаграмме, и обычным текстовым полем слайда с надписью «Наложение слайда». Пример находит первую диаграмму на этом слайде и меняет аннотацию на «Окончательные результаты», когда отчёт готов к публикации. Он проверяет пустоту коллекции и редактирует только [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) с ненулевым текстовым фреймом, возвращаемым [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame), и ожидаемым текстом.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,26 +371,26 @@ try {
 }
 ```
 
-Линия и текстовый блок слайда остаются без изменений. Ниже показаны исходное изображение и сохранённый, повторно открытый результат:
+Линия и текстовое поле слайда остаются без изменений. Ниже показаны изображения входных данных и сохранённого, вновь открытого результата:
 
 | До редактирования | После редактирования |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Аннотация диаграммы с текстом «Предварительные результаты»](chart-annotations-before.png) | ![Аннотация диаграммы с текстом «Окончательные результаты»](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Пример проверяет только верхнеуровневые формы, принадлежащие диаграмме. Если аннотация находится внутри [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), проверьте также её коллекцию [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes). Делайте это рекурсивно для вложенных групп, применяя те же проверки текста к их дочерним формам. Сама группа является контейнером; не рассматривайте её как текстовый блок.
+Пример проверяет только фигуры верхнего уровня, принадлежащие диаграмме. Если аннотация находится внутри [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), проверьте также коллекцию [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) этой группы. Повторяйте процесс рекурсивно для вложенных групп, применяя те же проверки текста к дочерним фигурам. Группа сама по себе является контейнером; не рассматривайте её как текстовое поле.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Могу ли я установить полупрозрачные заливки для столбцов/областей, сохраняя границу непрозрачной?**
+**Могу ли я установить полупрозрачные заливки для столбцов/областей, сохранив границу непрозрачной?**
 
-Да. Прозрачность заливки и контур задаются отдельно. Это помогает улучшить читаемость сетки и данных в плотных визуализациях.
+Да. Прозрачность заливки и контур настраиваются отдельно. Это полезно для повышения читаемости сетки и данных в плотных визуализациях.
 
-**Как справиться с метками данных, когда они перекрываются?**
+**Как справиться с подписями данных, когда они перекрываются?**
 
-Уменьшите размер шрифта, отключите необязательные компоненты меток (например, категории), отрегулируйте положение метки, отображайте метки лишь для выбранных точек при необходимости или переключите формат на «значение + легенда».
+Уменьшите размер шрифта, отключите несущественные компоненты подписи (например, категории), отрегулируйте позицию подписи, при необходимости показывайте подписи только для выбранных точек или переключите формат на «значение + легенда».
 
-**Могу ли я применить градиентные или шаблонные заливки к сериям?**
+**Можно ли применять градиентные или шаблонные заливки к сериям?**
 
-Да. Серии поддерживают сплошные, градиентные и шаблонные заливки. На практике используйте градиенты умеренно и избегайте комбинаций, снижающих контраст с сеткой и текстом.
+Да. Серии поддерживают сплошные, градиентные и шаблонные заливки. На практике используйте градиенты умеренно и избегайте комбинаций, которые снижают контраст с сеткой и текстом.

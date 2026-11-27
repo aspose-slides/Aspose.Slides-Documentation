@@ -17,19 +17,21 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-description: "了解如何在 Aspose.Slides for Python（透過 Java）中進行圖表格式化，並透過自訂坐標軸、字型、數字格式和圓角圖表邊框，提升您的 PowerPoint 簡報品質。"
+description: "透過 Java 在 Aspose.Slides for Python 中學習圖表格式化，並以自訂軸線、字型、數字格式和圓角圖表邊框提升您的 PowerPoint 簡報。"
 ---
 ## **概覽**
 
-本文說明了如何使用 Aspose.Slides 在 PowerPoint 簡報中格式化圖表。它展示了如何自訂坐標軸、格線、標題、圖例、繪圖區域以及牆面填色等關鍵圖表元素，以提升圖表資料的外觀與可讀性。
+本篇說明如何使用 Aspose.Slides 在 PowerPoint 簡報中格式化圖表。它展示了如何自訂軸線、格線、標題、圖例、繪圖區域以及牆面填色，以提升圖表資料的外觀與可讀性。
 
-此外，還示範了如何設定圖表文字的字型屬性、將預設數字格式套用至圖表資料，以及為圖表區域啟用圓角。這些範例共同說明了如何同時控制圖表的視覺樣式與資料呈現方式。
+此外，還示範了如何設定圖表文字的字型屬性、對圖表資料套用預設數字格式，以及為圖表區域啟用圓角。這些範例共同說明了如何同時控制圖表的視覺樣式與資料呈現方式。
+
+若需對漲跌區間設定不同的填色與輪廓，請參考[股票圖表示例](/slides/zh-hant/python-java/create-chart/#create-stock-charts)。
 
 ## **格式化圖表實體**
 
-使用[圖表](https://reference.aspose.com/slides/python-java/aspose.slides/chart/)來格式化圖表標題、坐標軸、格線、圖例與繪圖區域。本範例建立一個帶有標記的折線圖與預設資料，然後對其值軸與類別軸分別套用不同的文字與線條樣式。字型大小與線條寬度以點為單位；類別標籤旋轉 45 度。
+使用 [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) 來格式化圖表標題、軸線、格線、圖例與繪圖區域。此範例建立一個含標記與預設資料的折線圖，然後對其值軸與類別軸分別套用不同的文字與線條樣式。字型大小與線寬以點為單位；類別標籤旋轉 45 度。
 
-值軸使用[setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat)獨立於來源儲存格。其比例範圍為 -2 到 15，主間隔為 2，次間隔為 0.5。範例同時結合百分比格式與[setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit)設定為千位，請依據資料的意義與量級調整這些設定。圖例因呼叫[setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) 並傳入`False` 而位於繪圖區域之外。背牆與底面填色透過[getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) 與[getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) 設定，但這些表面僅在 3D 圖表中可見。
+值軸透過 [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) 獨立於來源儲存格設定。其刻度從 -2 到 15，主間隔為 2，次間隔為 0.5。範例亦結合百分比格式與將 [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) 設為千位，請依據資料的意義與量級調整這些設定。圖例因呼叫 [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) 並傳入 `False` 而保持在繪圖區域之外。背牆與底板的填色透過 [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) 與 [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) 設定，但這些表面僅在 3D 圖表中可見。
 
 ```python
 import jpype
@@ -159,7 +161,7 @@ finally:
 
 ## **設定圖表的字型屬性**
 
-透過[Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat)設定圖表文字的預設字型大小。範例建立一個叢集直條圖，字型大小為 20 點，並透過[setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) 為第一個系列啟用值標籤。具有自行明確字型設定的文字元素可以覆寫圖表的預設設定。
+透過 [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) 設定圖表文字的預設字型大小。此範例建立一個叢集直條圖，字型大小為 20 點，並透過 [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) 為第一個系列啟用值標籤。具備自行字型設定的文字元素會覆寫圖表的預設設定。
 
 ```python
 import jpype
@@ -183,9 +185,69 @@ finally:
     presentation.dispose()
 ```
 
-## **設定數字格式**
+## **重複使用文字框格式於圖表圖例**
 
-使用[ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat)將內建數字格式套用至圖表工作簿儲存格。此範例建立一個叢集直條圖，使用預設的儲存格資料，並將格式索引 10 (`0.00%`) 套用至每個系列值儲存格。這會改變工作簿中數值的顯示方式而不改變實際數字；例如，0.25 會顯示為 25.00%。坐標軸與資料標籤的格式可分別設定。
+若要讓圖例與投影片標題保持一致，先在第一段落上使用 [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) 設定標題的字型。然後對圖例的 [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) 回傳的格式呼叫 [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom)。此動作會複製文字框設定、第一段落的格式以及該段落的預設字型屬性。之後直接套用於個別部分或後續段落的格式皆會保留在來源端。
+
+範例以粗體、26 點、深藍色的 Calibri 標題作為範本。樣式化圖例後，呼叫 [copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) 以將相同格式套用到另一個說明文字。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+在儲存的簡報中，圖例與說明文字在大小、粗細與顏色上皆與標題相符。圖例仍顯示系列名稱，說明文字保有自己的內容。若說明文字中的某段已設定明確的字型大小，則該大小會優先於複製的段落預設值。
+
+| 複製前 | 複製後 |
+| --- | --- |
+| ![季別銷售圖表，圖例標籤為一般黑色，說明文字為黑色](legend-formatting-before.png) | ![相同圖表，圖例標籤為較大、粗體深藍色，且說明文字相匹配](legend-formatting.png) |
+
+## **設定數值格式**
+
+使用 [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) 為圖表工作表儲存格套用內建數字格式。此範例建立一個叢集直條圖，資料由儲存格提供，並將格式索引 10 (`0.00%`) 套用至每個系列的值儲存格。此設定會改變工作表中值的顯示方式，但不會改變底層數字；例如 0.25 會顯示為 25.00%。軸線與資料標籤的格式亦可分別設定。
 
 ```python
 import jpype
@@ -212,9 +274,9 @@ finally:
     presentation.dispose()
 ```
 
-以下表格列出內建數字格式索引，以及對應的英文（美國）Excel 格式範例。實際的格式字串與顯示方式會因應用程式與語系而異，尤其是貨幣與日期格式。有些 Excel 格式亦與 OOXML 標準的預設不同，詳情請參閱[Microsoft 的數字格式實作說明](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)。
+下表列出英語（美國）語系之內建數字格式索引與對應的 Excel 範例。實際格式字串及其呈現方式會依不同應用程式與語系而變，尤其是貨幣與日期格式。有些 Excel 格式亦與 OOXML 標準的預設不同，詳情請參閱[Microsoft 的數字格式實作說明](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)。
 
-| 索引 | 格式 |
+| Index | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -255,7 +317,7 @@ finally:
 
 ## **設定圖表區域圓角邊框**
 
-呼叫[Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) 並傳入 `True` 即可為圖表區域設定圓角。範例建立一個叢集直條圖，使用[getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) 為其輪廓設定實心灰色與單線樣式，然後儲存簡報。
+呼叫 [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) 並傳入 `True`，即可為圖表區域設定圓角。此範例建立一個叢集直條圖，使用 [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) 為其輪廓設定實心灰色與單線樣式，然後儲存簡報。
 
 ```python
 import jpype
@@ -285,11 +347,11 @@ finally:
 
 ## **編輯現有圖表註解**
 
-圖表可以包含自訂圖形，例如說明報告狀態的文字註解。可透過[Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) 取得這些圖形。由[getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) 回傳的集合包含圖表擁有的圖形。
+圖表可以包含自訂形狀，例如說明報告狀態的文字註解。可透過 [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) 取得這些形狀。[getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) 回傳的集合包含圖表擁有的形狀。
 
-放在圖表上方的普通文字方塊屬於投影片，即使看起來像是圖表的一部份。遍歷[Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) 會找到圖表與普通投影片圖形，但不會列舉圖表內部的個別圖形。圖表標題與資料標籤是獨立的圖表元素，並非此集合中的自訂註解。
+放在圖表上的普通文字方塊屬於投影片，即使外觀上似乎是圖表的一部份。遍歷 [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) 會找到圖表與普通投影片形狀，但不會列舉圖表內部的個別形狀。圖表標題與資料標籤是獨立的圖表元素，並不屬於此集合中的自訂註解。
 
-下載[chart-annotations.pptx](chart-annotations.pptx) 並將其放置於應用程式的工作目錄。其第一張投影片包含一個圖表，圖表內有未群組的註解「Preliminary results」、圖表擁有的線條以及普通投影片文字方塊「Slide overlay」。範例在該投影片上找到第一個圖表，並在報告準備發佈時將註解變更為「Final results」。它會檢查集合是否為空，僅編輯由[getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) 回傳且非 `None` 的文字框[AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/)，且文字內容符合預期。
+下載 [chart-annotations.pptx](chart-annotations.pptx) 並放入應用程式的工作目錄。其第一張投影片包含一個圖表，圖表內有未群組的註解「Preliminary results」、圖表擁有的線條，以及投影片上的文字方塊「Slide overlay」。範例在該投影片上找到第一個圖表，並在報告準備發布時將註解改為「Final results」。程式會先檢查集合是否為空，僅編輯由 [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) 回傳且非 `None` 的 [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/)，且文字符合預期。
 
 ```python
 import jpype
@@ -330,26 +392,26 @@ finally:
     presentation.dispose()
 ```
 
-線條與投影片文字方塊保持不變。以下圖片顯示編輯前後的結果：
+線條與投影片文字方塊保持不變。以下圖示顯示編輯前與儲存、重新開啟後的結果：
 
 | 編輯前 | 編輯後 |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![圖表註解顯示「Preliminary results」](chart-annotations-before.png) | ![圖表註解顯示「Final results」](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-範例僅檢查最上層的圖表擁有圖形。如果註解位於[GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) 內，亦須檢查該群組的[getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) 集合。對於巢狀群組，請以相同方式遞迴檢查其子圖形，並對子圖形執行相同的文字檢查。群組本身僅是容器，請勿將其當作文字方塊處理。
+{{% alert color="info" title="注意" %}}
+本範例只檢查最高層級的圖表擁有形狀。若註解位於 [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) 之內，請同時檢查該群組的 [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) 集合。對於巢狀群組，請遞迴執行相同的文字檢查。群組本身僅是容器，請勿將其視為文字方塊。
 {{% /alert %}}
 
-## **常見問題**
+## **FAQ**
 
-**我可以為柱狀圖/面積圖設定半透明填色，同時保持邊框不透明嗎？**
+**可以為柱狀圖/區域設定半透明填色，同時保持邊框不透明嗎？**
 
-可以。填色透明度與輪廓是分開設定的。此方式有助於在密集的視覺化圖表中提升格線與資料的可讀性。
+可以。填色透明度與輪廓分開設定，這對於在密集視覺化中提升格線與資料的可讀性非常有幫助。
 
-**當資料標籤彼此重疊時，我該怎麼處理？**
+**當資料標籤重疊時，該怎麼處理？**
 
-可以縮小字型、停用非必要的標籤元件（例如類別）、調整標籤位置、必要時僅為選取的資料點顯示標籤，或改為「值 + 圖例」的格式。
+減小字型、停用非必要的標籤項目（例如類別）、調整標籤位置，必要時僅顯示選取點的標籤，或改為「值 + 圖例」的格式。
 
-**我可以為系列套用漸層或圖案填色嗎？**
+**可以為系列套用漸層或圖案填色嗎？**
 
-可以。系列支援實心、漸層與圖案填色。實務上建議謹慎使用漸層，並避免使用會降低格線與文字對比度的組合。
+可以。系列支援實心、漸層與圖案填色。實務上請慎用漸層，並避免與格線與文字形成對比度不足的組合。

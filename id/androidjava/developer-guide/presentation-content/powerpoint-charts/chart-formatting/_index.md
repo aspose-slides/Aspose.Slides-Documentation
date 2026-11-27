@@ -12,25 +12,27 @@ keywords:
 - pengaturan bagan
 - opsi bagan
 - properti font
-- batas bulat
+- garis tepi melengkung
 - PowerPoint
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Pelajari pemformatan bagan di Aspose.Slides untuk Android melalui Java dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan batas bagan yang bulat."
+description: "Pelajari pemformatan bagan di Aspose.Slides untuk Android melalui Java dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan garis tepi bagan yang melengkung."
 ---
 ## **Gambaran Umum**
 
 Artikel ini menjelaskan cara memformat bagan dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen bagan utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data bagan.
 
-Artikel ini juga mendemonstrasikan cara mengatur properti font untuk teks bagan, menerapkan format numerik bawaan pada data bagan, dan mengaktifkan sudut bulat untuk area bagan. Bersama-sama, contoh-contoh ini menunjukkan cara mengontrol gaya visual dan penyajian data bagan dalam sebuah presentasi.
+Artikel ini juga mendemonstrasikan cara mengatur properti font untuk teks bagan, menerapkan format numerik bawaan pada data bagan, dan mengaktifkan sudut melengkung untuk area bagan. Bersama-sama, contoh-contoh ini menunjukkan cara mengontrol baik gaya visual maupun penyajian data bagan dalam sebuah presentasi.
+
+Untuk isian terpisah dan garis luar pada interval naik dan turun, lihat [contoh bagan saham](/slides/id/androidjava/create-chart/#create-stock-charts).
 
 ## **Format Entitas Bagan**
 
-Gunakan [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) untuk memformat judul bagan, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat bagan garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+Gunakan [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) untuk memformat judul bagan, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat bagan garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan sumbu kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
 
-Sumbu nilai menggunakan [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) secara independen dari sel sumber. Skala sumbu berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan format persentase dengan [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) yang diatur ke ribuan, sehingga sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap berada di luar area plot karena [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) dipanggil dengan `false`. Isian dinding belakang dan lantai dikonfigurasi melalui [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) dan [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), tetapi permukaan ini hanya terlihat pada bagan 3D.
+Sumbu nilai menggunakan [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) secara terpisah dari sel sumber. Skala nya berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan pemformatan persentase dengan [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) yang diatur ke ribuan, sehingga sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap berada di luar area plot karena [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) dipanggil dengan `false`. Isian dinding belakang dan lantai dikonfigurasi melalui [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) dan [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), namun permukaan ini hanya terlihat pada bagan 3D.
 
 ```java
 import com.aspose.slides.*;
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **Gunakan Ulang Pemformatan Bingkai Teks untuk Legenda Bagan**
+
+Untuk mencocokkan legenda dengan judul slide, atur font judul melalui [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) pada paragraf pertama. Panggil [copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) pada format yang dikembalikan oleh [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) milik legenda. Itu menyalin pengaturan bingkai teks, pemformatan paragraf pertama, dan properti font default paragraf tersebut. Pemformatan yang diterapkan langsung pada bagian individual atau pada paragraf selanjutnya tetap lokal pada sumber.
+
+Contoh ini menggunakan judul Calibri tebal 26 poin berwarna navy sebagai templat. Setelah menata legenda, contoh memanggil [copyTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) untuk menerapkan pemformatan yang sama ke keterangan terpisah.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(Color.rgb(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dalam presentasi yang disimpan, legenda dan keterangan mencocokkan judul dalam ukuran, ketebalan, dan warna. Legenda masih menampilkan nama seri, dan keterangan mempertahankan teksnya sendiri. Jika sebuah bagian dalam keterangan sudah memiliki ukuran font eksplisit, ukuran tersebut memiliki prioritas lebih tinggi daripada paragraf default yang disalin.
+
+| Sebelum menyalin | Setelah menyalin |
+| --- | --- |
+| ![Bagan penjualan kuartalan dengan label legenda hitam biasa dan keterangan hitam](legend-formatting-before.png) | ![Bagan yang sama dengan label legenda navy tebal yang lebih besar dan keterangan yang cocok](legend-formatting.png) |
+
 ## **Atur Format Numerik**
 
-Gunakan [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) untuk menerapkan format angka bawaan pada sel workbook bagan. Contoh ini membuat bagan kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di workbook tanpa mengubah angka dasar; misalnya, 0,25 ditampilkan sebagai 25,00 %. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
+Gunakan [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) untuk menerapkan format nomor bawaan ke sel buku kerja bagan. Contoh ini membuat bagan kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) ke setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di buku kerja tanpa mengubah angka dasarnya; misalnya, 0.25 ditampilkan sebagai 25,00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
 
 ```java
 import com.aspose.slides.*;
@@ -197,7 +253,7 @@ try {
 }
 ```
 
-Tabel berikut mencantumkan indeks format angka bawaan dengan format Excel perwakilan untuk locale Inggris (Amerika Serikat). String format tepat dan tampilannya dapat bervariasi menurut aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, seperti dijelaskan dalam [catatan implementasi format angka Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Tabel berikut mencantumkan indeks format nomor bawaan dengan format Excel representatif untuk lokal Inggris (Amerika Serikat). String format yang tepat dan tampilannya dapat bervariasi menurut aplikasi dan lokal, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari nilai default dalam standar OOXML, seperti dijelaskan dalam [catatan implementasi format nomor Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Indeks | Format |
 | --- | --- |
@@ -240,7 +296,7 @@ Tabel berikut mencantumkan indeks format angka bawaan dengan format Excel perwak
 
 ## **Atur Sudut Bulat Area Bagan**
 
-Panggil [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) dengan `true` untuk membuat sudut area bagan menjadi bulat. Contoh ini membuat bagan kolom berkelompok dan menggunakan [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) untuk memberi outline-nya warna abu‑abu padat dan gaya satu‑garis sebelum menyimpan presentasi.
+Panggil [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) dengan `true` untuk membuat sudut area bagan menjadi bulat. Contoh ini membuat bagan kolom berkelompok dan menggunakan [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) untuk memberikan garis luar berwarna abu-abu solid dan gaya satu-garis sebelum menyimpan presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -264,11 +320,11 @@ try {
 
 ## **Sunting Anotasi Bagan yang Ada**
 
-Sebuah bagan dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk‑bentuk ini melalui [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), yang juga tercantum di bawah [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) dalam Referensi API Chart. Koleksi yang dikembalikan oleh [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) berisi bentuk‑bentuk milik bagan.
+Sebuah bagan dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk-bentuk ini melalui [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), yang juga tercantum di bawah [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) dalam Referensi API Bagan. Koleksi yang dikembalikan oleh [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) berisi bentuk-bentuk milik bagan.
 
-Kotak teks biasa yang ditempatkan di atas bagan sebenarnya menjadi milik slide, meskipun terlihat seperti bagian bagan. Iterasi melalui [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) menemukan bagan serta bentuk slide biasa, tetapi tidak mengenumerasi bentuk individual di dalam bagan. Judul bagan dan label data adalah elemen bagan terpisah, bukan anotasi khusus dalam koleksi ini.
+Kotak teks biasa yang ditempatkan di atas bagan milik slide, bahkan jika tampak seperti bagian dari bagan. Mengiterasi melalui [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) menemukan bagan dan bentuk slide biasa, tetapi tidak mencantumkan bentuk individual di dalam bagan. Judul bagan dan label data adalah elemen bagan terpisah, bukan anotasi khusus dalam koleksi ini.
 
-Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi bagan dengan anotasi tidak berkelompok berisi teks "Preliminary results", sebuah garis milik bagan, dan kotak teks slide biasa berisi teks "Slide overlay". Contoh ini menemukan bagan pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa apakah koleksi kosong dan hanya menyunting sebuah [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) yang memiliki frame teks tidak null yang dikembalikan oleh [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) serta teks yang diharapkan.
+Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi bagan dengan anotasi tidak dikelompokkan berisi "Preliminary results", sebuah garis milik bagan, dan kotak teks slide biasa berisi "Slide overlay". Contoh menemukan bagan pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Contoh memeriksa koleksi kosong dan hanya menyunting sebuah [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) dengan bingkai teks tidak null yang dikembalikan oleh [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) dan teks yang diharapkan.
 
 ```java
 import com.aspose.slides.*;
@@ -312,28 +368,26 @@ try {
 }
 ```
 
-Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menampilkan input serta hasil yang disimpan dan dibuka kembali:
+Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menunjukkan input dan hasil yang disimpan serta dibuka kembali:
 
-| Sebelum disunting | Setelah disunting |
+| Sebelum penyuntingan | Setelah penyuntingan |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Anotasi bagan berisi Preliminary results](chart-annotations-before.png) | ![Anotasi bagan berisi Final results](chart-annotations-after.png) |
 
-{{% alert color="info" title="Catatan" %}}
-
-Contoh ini memeriksa hanya bentuk milik bagan tingkat atas. Jika anotasi berada di dalam sebuah [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), periksa juga koleksi [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) grup tersebut. Ulangi secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah kontainer; jangan perlakukan sebagai kotak teks.
-
+{{% alert color="info" title="Note" %}}
+Contoh ini memeriksa hanya bentuk milik bagan tingkat atas. Jika sebuah anotasi berada di dalam [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), periksa juga koleksi [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) milik grup tersebut. Ulangi secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anak mereka. Sebuah grup sendiri adalah kontainer; jangan perlakukan sebagai kotak teks.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Bisakah saya mengatur isian semi‑transparan untuk kolom/area sambil menjaga border tetap tidak tembus?**
+**Bisakah saya mengatur isian semi-transparan untuk kolom/area sambil menjaga batas tetap tidak tembus?**
 
-Ya. Transparansi isian dan outline diatur secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
+Ya. Transparansi isian dan garis luar dikonfigurasi secara terpisah. Hal ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
 
-**Bagaimana cara menangani label data ketika mereka saling tumpang tindih?**
+**Bagaimana saya mengatasi label data ketika mereka saling tumpang tindih?**
 
-Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk poin terpilih bila diperlukan, atau ubah format menjadi "nilai + legenda".
+Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk titik yang dipilih jika diperlukan, atau ubah format menjadi "value + legend".
 
-**Apakah saya dapat menerapkan isian gradien atau pola pada seri?**
+**Bisakah saya menerapkan isian gradien atau pola pada seri?**
 
-Ya. Seri mendukung isian padat, gradien, dan pola. Pada praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.
+Ya. Seri mendukung isian solid, gradien, dan pola. Dalam praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.

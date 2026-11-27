@@ -1,36 +1,38 @@
 ---
-title: Formatar gráficos de apresentação em .NET
-linktitle: Formatação de Gráficos
+title: "Formatar Gráficos de Apresentação em .NET"
+linktitle: "Formatação de Gráficos"
 type: docs
 weight: 60
 url: /pt/net/chart-formatting/
 keywords:
-- formatar gráfico
-- formatação de gráfico
-- entidade de gráfico
-- propriedades de gráfico
-- configurações de gráfico
-- opções de gráfico
-- propriedades de fonte
-- borda arredondada
-- PowerPoint
-- apresentação
-- .NET
-- C#
-- Aspose.Slides
+- "formatar gráfico"
+- "formatação de gráfico"
+- "entidade de gráfico"
+- "propriedades do gráfico"
+- "configurações do gráfico"
+- "opções de gráfico"
+- "propriedades de fonte"
+- "borda arredondada"
+- "PowerPoint"
+- "apresentação"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
 description: "Aprenda a formatar gráficos no Aspose.Slides para .NET e eleve sua apresentação PowerPoint com eixos personalizados, fontes, formatos numéricos e bordas arredondadas nos gráficos."
 ---
 ## **Visão geral**
 
-Este artigo explica como formatar gráficos em apresentações do PowerPoint usando Aspose.Slides. Ele mostra como personalizar elementos principais do gráfico, como eixos, linhas de grade, títulos, legendas, área de plotagem e preenchimentos de parede, para melhorar a aparência e a legibilidade dos dados do gráfico.
+Este artigo explica como formatar gráficos em apresentações do PowerPoint usando Aspose.Slides. Ele mostra como personalizar elementos‑chave do gráfico, como eixos, linhas de grade, títulos, legendas, a área de plotagem e preenchimentos de parede, para melhorar a aparência e a legibilidade dos dados do gráfico.
 
 Também demonstra como definir propriedades de fonte para o texto do gráfico, aplicar formatos numéricos predefinidos aos dados do gráfico e habilitar cantos arredondados para a área do gráfico. Juntos, esses exemplos mostram como controlar tanto o estilo visual quanto a apresentação dos dados dos gráficos em uma apresentação.
 
-## **Formatar entidades do gráfico**
+Para preenchimentos e contornos separados em intervalos de alta e baixa, consulte o [exemplo de gráfico de ações](/slides/pt/net/create-chart/#create-stock-charts).
 
-Use [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) para formatar títulos de gráficos, eixos, linhas de grade, legendas e a área de plotagem. Este exemplo cria um gráfico de linhas com marcadores e dados padrão, depois aplica estilos de texto e linha separados aos seus eixos de valor e de categoria. Tamanhos de fonte e larguras de linha são especificados em pontos; os rótulos de categoria são girados em 45 graus.
+## **Formatar Entidades de Gráfico**
 
-O eixo de valor usa [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) independentemente das células de origem. Sua escala vai de -2 a 15, com intervalos principais de 2 e intervalos menores de 0,5. O exemplo também combina formatação de porcentagem com [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) definido para milhares, portanto ajuste essas configurações ao significado e magnitude dos seus dados. A legenda permanece fora da área de plotagem porque [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) está desativado. Preenchimentos de parede traseira e piso são configurados através de [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) e [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), mas essas superfícies são visíveis apenas em gráficos 3D.
+Use [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) para formatar títulos de gráfico, eixos, linhas de grade, legendas e a área de plotagem. Este exemplo cria um gráfico de linhas com marcadores e dados padrão, então aplica estilos de texto e linha separados aos seus eixos de valores e de categorias. Tamanhos de fonte e larguras de linha são especificados em pontos; os rótulos de categoria são girados em 45 graus.
+
+O eixo de valores usa [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) independentemente das células de origem. Sua escala varia de -2 a 15, com intervalos principais de 2 e intervalos secundários de 0,5. O exemplo também combina formatação percentual com [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) definido para milhares, portanto ajuste essas configurações ao significado e magnitude dos seus dados. A legenda permanece fora da área de plotagem porque [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) está desativado. Os preenchimentos de parede traseira e piso são configurados através de [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) e [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), mas essas superfícies são visíveis apenas em gráficos 3D.
 
 ```csharp
 using System.Drawing;
@@ -148,7 +150,7 @@ presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 
 ## **Definir propriedades de fonte para um gráfico**
 
-Defina o tamanho de fonte padrão para o texto do gráfico através de [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). O exemplo cria um gráfico de colunas agrupadas com fonte de 20 pontos e habilita rótulos de valor para a primeira série através de [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Elementos de texto com suas próprias configurações explícitas de fonte podem substituir o padrão do gráfico.
+Defina o tamanho de fonte padrão para o texto do gráfico através de [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). O exemplo cria um gráfico de colunas agrupadas com fonte de 20 pontos e habilita rótulos de valor para a primeira série através de [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Elementos de texto com suas próprias configurações explícitas de fonte podem sobrescrever o padrão do gráfico.
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **Reutilizar formatação de quadro de texto para a legenda do gráfico**
+
+Para combinar uma legenda com o título de um slide, defina a fonte no [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) do primeiro parágrafo. Chame [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) no [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) da legenda. Ele lê as configurações do quadro de texto, a formatação do primeiro parágrafo e as propriedades de fonte padrão desse parágrafo. A formatação aplicada diretamente a porções individuais ou a parágrafos posteriores permanece local à fonte.
+
+O exemplo usa um título em Calibri negrito de 26 pontos em azul marinho como modelo. Após estilizar a legenda, ele usa [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) para aplicar a mesma formatação a uma legenda separada.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+Na apresentação salva, a legenda e a legenda (caption) correspondem ao título em tamanho, peso e cor. A legenda ainda exibe os nomes das séries, e a legenda (caption) mantém seu próprio texto. Se uma porção na legenda já tiver um tamanho de fonte explícito, esse tamanho tem precedência sobre o padrão do parágrafo copiado.
+
+| Antes de copiar | Depois de copiar |
+| --- | --- |
+| ![Gráfico de vendas trimestrais com rótulos de legenda pretos regulares e uma legenda preta](legend-formatting-before.png) | ![O mesmo gráfico com rótulos de legenda maiores, em negrito e azul marinho, e uma legenda correspondente](legend-formatting.png) |
+
 ## **Definir o formato numérico**
 
-Use [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) para aplicar um formato numérico interno às células da pasta de trabalho do gráfico. Este exemplo cria um gráfico de colunas agrupadas com dados padrão baseados em célula e aplica o índice de formato 10 (`0.00%`) a cada célula de valor da série. Isso altera como os valores são exibidos na pasta de trabalho sem mudar os números subjacentes; por exemplo, 0,25 é exibido como 25,00 %. Formatos de eixo e de rótulos de dados podem ser configurados separadamente.
+Use [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) para aplicar um formato numérico embutido às células da planilha do gráfico. Este exemplo cria um gráfico de colunas agrupadas com dados padrão baseados em células e aplica o índice de formato 10 (`0.00%`) a cada célula de valor da série. Isso altera a forma como os valores são exibidos na planilha sem mudar os números subjacentes; por exemplo, 0,25 é exibido como 25,00%. Os formatos de eixo e de rótulo de dados podem ser configurados separadamente.
 
 ```csharp
 using Aspose.Slides;
@@ -191,7 +243,7 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-A tabela a seguir lista os índices de formatos numéricos internos com formatos representativos do Excel para a localidade English (United States). As strings de formato exatas e sua exibição podem variar conforme a aplicação e a localidade, particularmente para moedas e datas. Alguns formatos do Excel também diferem dos padrões da OOXML, conforme descrito nas [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+A tabela a seguir lista os índices de formatos numéricos incorporados com formatos representativos do Excel para o locale Inglês (Estados Unidos). As strings de formato exatas e sua exibição podem variar por aplicativo e locale, particularmente para moeda e datas. Alguns formatos do Excel também diferem dos padrões no padrão OOXML, conforme descrito nas [observações de implementação de formato numérico da Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Índice | Formato |
 | --- | --- |
@@ -232,9 +284,9 @@ A tabela a seguir lista os índices de formatos numéricos internos com formatos
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Definir cantos arredondados da área do gráfico**
+## **Definir bordas arredondadas da área do gráfico**
 
-Habilite [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) para arredondar os cantos da área do gráfico. O exemplo cria um gráfico de colunas agrupadas e usa [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) para dar ao contorno uma cor cinza sólida e um estilo de linha única antes de salvar a apresentação.
+Habilite [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) para arredondar os cantos da área do gráfico. O exemplo cria um gráfico de colunas agrupadas e usa [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) para dar ao seu contorno uma cor cinza sólida e um estilo de linha única antes de salvar a apresentação.
 
 ```csharp
 using System.Drawing;
@@ -254,13 +306,13 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **Editar anotações de gráfico existentes**
+## **Editar Anotações de Gráfico Existentes**
 
-Um gráfico pode conter formas personalizadas, como uma anotação de texto explicando o status de um relatório. Acesse essas formas através de [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), também listadas em [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) na Referência da API de Gráficos. Sua coleção [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) contém as formas pertencentes ao gráfico.
+Um gráfico pode conter formas personalizadas, como uma anotação de texto explicando o status de um relatório. Acesse essas formas através de [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), também listadas em [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) na referência da API de Gráficos. Sua coleção [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) contém as formas pertencentes ao gráfico.
 
-Uma caixa de texto comum colocada sobre um gráfico pertence ao slide, mesmo que pareça parte do gráfico. Percorrendo [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) são encontradas o gráfico e as formas comuns do slide, mas não são enumeradas as formas individuais dentro do gráfico. Títulos de gráfico e rótulos de dados são elementos de gráfico separados, não anotações personalizadas nesta coleção.
+Uma caixa de texto comum posicionada sobre um gráfico pertence ao slide, mesmo que pareça parte do gráfico. Iterar através de [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) encontra o gráfico e as formas comuns do slide, mas não enumera as formas individuais dentro do gráfico. Títulos de gráfico e rótulos de dados são elementos de gráfico separados, não anotações personalizadas nesta coleção.
 
-Baixe [chart-annotations.pptx](chart-annotations.pptx) e coloque-o no diretório de trabalho da aplicação. Seu primeiro slide contém um gráfico com uma anotação não agrupada exibindo “Preliminary results”, uma linha pertencente ao gráfico e uma caixa de texto comum do slide exibindo “Slide overlay”. O exemplo localiza o primeiro gráfico naquele slide e altera a anotação para “Final results” quando o relatório estiver pronto para publicação. Ele verifica se a coleção está vazia e edita apenas um [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) com um [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) não nulo e o texto esperado.
+Faça o download de [chart-annotations.pptx](chart-annotations.pptx) e coloque‑o no diretório de trabalho do aplicativo. Seu primeiro slide contém um gráfico com uma anotação desagrupada exibindo "Resultados preliminares", uma linha pertencente ao gráfico e uma caixa de texto comum do slide exibindo "Sobreposição de slide". O exemplo encontra o primeiro gráfico nesse slide e altera a anotação para "Resultados finais" quando o relatório estiver pronto para publicação. Ele verifica se a coleção está vazia e edita apenas um [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) com um [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) não nulo e o texto esperado.
 
 ```csharp
 using System;
@@ -305,24 +357,24 @@ else
 
 A linha e a caixa de texto do slide permanecem inalteradas. As imagens a seguir mostram a entrada e o resultado salvo e reaberto:
 
-| Antes da edição | Depois da edição |
+| Antes de editar | Depois de editar |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Anotação do gráfico exibindo Resultados preliminares](chart-annotations-before.png) | ![Anotação do gráfico exibindo Resultados finais](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
 O exemplo inspeciona apenas as formas de nível superior pertencentes ao gráfico. Se uma anotação estiver dentro de um [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), inspecione também a coleção [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) desse grupo. Repita isso recursivamente para grupos aninhados, aplicando as mesmas verificações de texto às suas formas filhas. Um grupo em si é um contêiner; não o trate como uma caixa de texto.
 {{% /alert %}}
 
-## **FAQ**
+## **Perguntas frequentes**
 
 **Posso definir preenchimentos semitransparentes para colunas/áreas mantendo a borda opaca?**
 
 Sim. A transparência do preenchimento e o contorno são configurados separadamente. Isso é útil para melhorar a legibilidade da grade e dos dados em visualizações densas.
 
-**Como lidar com rótulos de dados quando eles se sobrepõem?**
+**Como posso lidar com rótulos de dados quando eles se sobrepõem?**
 
-Reduza o tamanho da fonte, desative componentes de rótulo não essenciais (por exemplo, categorias), ajuste a posição do rótulo, mostre rótulos apenas para pontos selecionados, se necessário, ou altere o formato para “valor + legenda”.
+Reduza o tamanho da fonte, desative componentes de rótulo não essenciais (por exemplo, categorias), ajuste a posição do rótulo, exiba rótulos apenas para pontos selecionados, se necessário, ou altere o formato para "valor + legenda".
 
-**Posso aplicar preenchimentos gradientes ou de padrão às séries?**
+**Posso aplicar preenchimentos de gradiente ou padrão às séries?**
 
-Sim. As séries suportam preenchimentos sólidos, gradientes e de padrão. Na prática, use gradientes com moderação e evite combinações que reduzam o contraste com a grade e o texto.
+Sim. As séries suportam preenchimentos sólidos, gradientes e padrões. Na prática, use gradientes com moderação e evite combinações que reduzam o contraste com a grade e o texto.

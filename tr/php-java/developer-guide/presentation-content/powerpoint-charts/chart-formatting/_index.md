@@ -5,8 +5,8 @@ type: docs
 weight: 60
 url: /tr/php-java/chart-formatting/
 keywords:
-- grafik formatı
 - grafik biçimlendirme
+- grafik formatlama
 - grafik varlığı
 - grafik özellikleri
 - grafik ayarları
@@ -17,19 +17,21 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP'de Java aracılığıyla grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı biçimleri ve yuvarlatılmış grafik kenarlarıyla PowerPoint sunumunuzu yükseltin."
+description: "Java aracılığıyla PHP için Aspose.Slides'te grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı biçimleri ve yuvarlatılmış grafik kenarlarıyla PowerPoint sunumunuzu yükseltin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarında grafikleri nasıl biçimlendireceğinizi açıklar. Eksenler, ızgara çizgileri, başlıklar, lejandlar, çizim alanı ve duvar dolguları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafikleri nasıl biçimlendireceğinizi açıklar. Eksenler, ızgara çizgileri, başlıklar, açıklamalar, çizim alanı ve duvar doldurmaları gibi ana grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
 
-Ayrıca, grafik metni için yazı tipi özelliklerini ayarlamayı, grafik verilerine önceden tanımlı sayısal formatları uygulamayı ve grafik alanının köşelerini yuvarlamayı da gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edebileceğinizi gösterir.
+Ayrıca grafik metni için yazı tipi özelliklerini nasıl ayarlayacağınızı, grafik verilerine önceden tanımlı sayı biçimlerini nasıl uygulayacağınızı ve grafik alanı için yuvarlatılmış köşeleri nasıl etkinleştireceğinizi gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edeceğinizi gösterir.
 
-## **Grafik Varlıklarını Biçimlendirme**
+For separate fills and outlines on rising and falling intervals, see the [stok grafik örneği](/slides/tr/php-java/create-chart/#create-stock-charts).
 
-Use [Grafik](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
+## **Grafik Öğelerini Biçimlendir**
 
-The value axis uses [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) and [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), but these surfaces are only visible in 3D charts.
+Grafik başlıklarını, eksenleri, ızgara çizgilerini, açıklamaları ve çizim alanını biçimlendirmek için [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) kullanın. Bu örnek, işaretleyiciler ve varsayılan verilerle bir çizgi grafik oluşturur ve ardından değer ve kategori eksenlerine ayrı metin ve çizgi stilleri uygular. Yazı tipi boyutları ve çizgi kalınlıkları puan cinsinden belirtilir; kategori etiketleri 45 derece döndürülür.
+
+Değer ekseni, kaynak hücrelerden bağımsız olarak [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) kullanır. Ölçeği -2 ile 15 arasında olup, büyük aralıklar 2 ve küçük aralıklar 0,5 olarak ayarlanmıştır. Örnek ayrıca yüzde biçimlendirmesini binler biriminde gösterim için [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) ile birleştirir; bu ayarları verinizin anlamına ve büyüklüğüne göre uyarlayın. Açıklama, [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) `false` ile çağrıldığı için çizim alanının dışında kalır. Arka duvar ve zemin doldurmaları, [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) ve [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor) aracılığıyla yapılandırılır, ancak bu yüzeyler yalnızca 3B grafiklerde görülür.
 
 ```php
 use aspose\slides\ChartType;
@@ -155,9 +157,9 @@ try {
 }
 ```
 
-## **Grafik İçin Yazı Tipi Özelliklerini Ayarlama**
+## **Grafik İçin Yazı Tipi Özelliklerini Ayarla**
 
-Set the default font size for chart text through [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Text elements with their own explicit font settings can override the chart default.
+Grafik metni için varsayılan yazı tipi boyutunu [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat) aracılığıyla ayarlayın. Örnek, 20 puanlık bir yazı tipiyle bir gruplanmış sütun grafik oluşturur ve [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) ile ilk seri için değer etiketlerini etkinleştirir. Kendi belirgin yazı tipi ayarlarına sahip metin öğeleri, grafik varsayılanını geçersiz kılabilir.
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
-## **Sayısal Formatı Ayarlama**
+## **Grafik Açıklaması İçin Metin Çerçevesi Biçimlendirmesini Yeniden Kullan**
 
-Use [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
+Bir açıklamayı slayt başlığıyla eşleştirmek için, ilk paragrafta başlığın yazı tipini [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) aracılığıyla ayarlayın. Açıklamanın [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) tarafından döndürülen format üzerinde [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) metodunu çağırın. Bu, metin çerçevesi ayarlarını, ilk paragrafın biçimlendirmesini ve o paragrafın varsayılan yazı tipi özelliklerini kopyalar. Bireysel bölümlere veya sonraki paragraflara doğrudan uygulanan biçimlendirme, kaynağa özgü kalır.
+
+Örnek, koyu renkli, 26 puan Calibri başlığını lacivert olarak şablon kullanır. Açıklamayı biçimlendirdikten sonra, aynı biçimlendirmeyi ayrı bir alt başlığa uygulamak için [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) metodunu çağırır.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kayıtlı sunumda, açıklama ve alt başlık boyut, kalınlık ve renk açısından başlıkla eşleşir. Açıklama hâlâ seri adlarını gösterir ve alt başlık kendi metnini korur. Alt başlıktaki bir bölümün zaten belirgin bir yazı tipi boyutu varsa, bu boyut kopyalanan paragraf varsayılanının üzerine yazılır.
+
+| Kopyalamadan Önce | Kopyalamadan Sonra |
+| --- | --- |
+| ![Üç aylık satış grafiği, düzenli siyah açıklama etiketleri ve siyah alt başlıkla](legend-formatting-before.png) | ![Aynı grafik, daha büyük, koyu lacivert açıklama etiketleri ve eşleşen bir alt başlıkla](legend-formatting.png) |
+
+## **Sayısal Biçimi Ayarla**
+
+[ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) kullanarak grafik çalışma kitabı hücrelerine yerleşik bir sayı biçimi uygulayın. Bu örnek, varsayılan hücre tabanlı verilerle bir gruplanmış sütun grafik oluşturur ve her seri değer hücresine biçim indeksi 10 (`0.00%`) uygular. Bu, temel sayıları değiştirmeden değerlerin çalışma kitabında nasıl göründüğünü değiştirir; örneğin 0,25 değeri %25,00 olarak gösterilir. Eksen ve veri etiketi biçimleri ayrı ayrı yapılandırılabilir.
 
 ```php
 use aspose\slides\ChartType;
@@ -209,7 +272,7 @@ try {
 }
 ```
 
-Aşağıdaki tablo, İngiliz (ABD) yerel ayarı için temsil edici Excel formatlarıyla birlikte yerleşik sayı biçimi indekslerini listeler. Tam format dizesi ve görüntüsü, özellikle para birimi ve tarihler için uygulama ve yerel ayara göre değişebilir. Bazı Excel formatları, [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklanan OOXML standart varsayılanlarından da farklıdır.
+Aşağıdaki tablo, İngilizce (ABD) yereli için temsili Excel biçimleriyle birlikte yerleşik sayı biçimi indekslerini listeler. Tam biçim dizgeleri ve gösterimleri uygulama ve yerel ayara göre değişebilir, özellikle para birimi ve tarih formatları için. Bazı Excel biçimleri, [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklandığı gibi OOXML standardındaki varsayılanlardan da farklılık gösterebilir.
 
 | İndeks | Biçim |
 | --- | --- |
@@ -250,9 +313,9 @@ Aşağıdaki tablo, İngiliz (ABD) yerel ayarı için temsil edici Excel formatl
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Grafik Alanı Yuvarlatılmış Kenarlıklarını Ayarla**
+## **Grafik Alanı Yuvarlak Kenarlıkları Ayarla**
 
-Call [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) to give its outline a solid gray color and a single-line style before saving the presentation.
+[Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) metodunu `true` ile çağırarak grafik alanının köşelerini yuvarlatın. Örnek, bir gruplanmış sütun grafik oluşturur ve sunumu kaydetmeden önce kenarlığına katı gri bir renk ve tek çizgi stili vermek için [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) kullanır.
 
 ```php
 use aspose\slides\ChartType;
@@ -279,11 +342,11 @@ try {
 
 ## **Mevcut Grafik Açıklamalarını Düzenle**
 
-A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). The collection returned by [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) contains the chart-owned shapes.
+Bir grafik, rapor durumunu açıklayan bir metin açıklaması gibi özel şekiller içerebilir. Bu şekillere [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes) aracılığıyla erişin. [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) tarafından döndürülen koleksiyon, grafik tarafından sahip olunan şekilleri içerir.
 
-An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+Grafiğin üzerine yerleştirilen sıradan bir metin kutusu, grafik parçası gibi görünse de slayta aittir. [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) üzerinden dolaşmak grafik ve sıradan slayt şekillerini bulur, ancak grafiğin içindeki ayrı şekilleri listelemez. Grafik başlıkları ve veri etiketleri ayrı grafik öğeleridir, bu koleksiyondaki özel açıklamalar değildir.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) and the expected text.
+[chart-annotations.pptx](chart-annotations.pptx) dosyasını indirin ve uygulamanın çalışma dizinine yerleştirin. İlk slaytı, "Preliminary results" (Ön Çıktılar) metnini içeren gruplanmamış bir açıklama, grafik sahipliğinde bir çizgi ve "Slide overlay" (Slayt üzerine) metnini içeren sıradan bir slayt metin kutusu bulunan bir grafik içerir. Örnek, bu slayttaki ilk grafik bulur ve rapor yayımlamaya hazır olduğunda açıklamayı "Final results" (Sonuçlar) olarak değiştirir. Boş bir koleksiyon olup olmadığını kontrol eder ve yalnızca [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) içinde, [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) tarafından döndürülen null olmayan bir metin çerçevesi ve beklenen metin bulunanı düzenler.
 
 ```php
 use aspose\slides\Presentation;
@@ -333,28 +396,26 @@ try {
 }
 ```
 
-The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+Çizgi ve slayt metin kutusu aynı kalır. Aşağıdaki görseller giriş ve kaydedilip tekrar açılmış sonucu gösterir:
 
-| Düzenlemeden Önce | Düzenlendikten Sonra |
+| Düzenlemeden Önce | Düzenlemeden Sonra |
 | --- | --- |
-| ![Ön sonuçları okuyan grafik açıklaması](chart-annotations-before.png) | ![Sonuçları okuyan grafik açıklaması](chart-annotations-after.png) |
+| ![Grafik açıklaması, Preliminary results metnini gösteriyor](chart-annotations-before.png) | ![Grafik açıklaması, Final results metnini gösteriyor](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-
-The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
-
+Örnek yalnızca üst düzey grafik sahipliğindeki şekilleri inceler. Bir açıklama bir [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) içinde ise, o grubun [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) koleksiyonunu da inceleyin. İç içe gruplar için bunu yineleyin ve aynı metin kontrollerini alt şekillere uygulayın. Bir grup kendisi bir kapsayıcıdır; onu bir metin kutusu olarak ele almayın.
 {{% /alert %}}
 
-## **SSS**
+## **FAQ**
 
-**Sütunlar/alanlar için kenarı opak tutarken yarı saydam dolgular ayarlayabilir miyim?**
+**Sütunlar/alanlar için yarı saydam doldurmalar ayarlayabilirken kenarlığı opak tutabilir miyim?**
 
-Evet. Dolgu saydamlığı ve kenarlık ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve veri okunabilirliğini artırmak için yararlıdır.
+Evet. Doldurma şeffaflığı ve kenarlık ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verilerin okunabilirliğini artırmak için faydalıdır.
 
-**Üst üste binen veri etiketleriyle nasıl başa çıkabilirim?**
+**Veri etiketleri çakıştığında nasıl başa çıkabilirim?**
 
-Yazı tipi boyutunu azaltın, gereksiz etiket bileşenlerini (örneğin, kategorileri) devre dışı bırakın, etiket konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiket gösterin veya formatı “değer + lejand” olarak değiştirin.
+Yazı tipi boyutunu küçültün, gerekli olmayan etiket bileşenlerini devre dışı bırakın (örneğin, kategorileri), etiket konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiket gösterin veya biçimi "değer + açıklama" olarak değiştirin.
 
-**Serilere degrade veya desen dolgular uygulayabilir miyim?**
+**Serilere degrade veya desen doldurmaları uygulayabilir miyim?**
 
-Evet. Seriler katı, degrade ve desen dolgularını destekler. Uygulamada, degradeleri ölçülü kullanın ve ızgara ve metinle kontrastı azaltan kombinasyonlardan kaçının.
+Evet. Seriler katı, degrade ve desen doldurmalarını destekler. Pratikte, degradeleri ölçülü kullanın ve ızgara ve metinle kontrastı azaltan kombinasyonlardan kaçının.

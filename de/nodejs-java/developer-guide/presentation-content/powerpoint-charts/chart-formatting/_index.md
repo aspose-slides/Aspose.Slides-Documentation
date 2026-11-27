@@ -7,30 +7,32 @@ url: /de/nodejs-java/chart-formatting/
 keywords:
 - Diagramm formatieren
 - Diagrammformatierung
-- Diagramm-Entität
-- Diagramm-Eigenschaften
-- Diagramm-Einstellungen
-- Diagramm-Optionen
-- Schriftarteigenschaften
-- Abgerundeter Rahmen
+- Diagramm Entität
+- Diagrammeigenschaften
+- Diagrammeinstellungen
+- Diagrammoptionen
+- Schrifteigenschaften
+- abgerundete Rahmen
 - PowerPoint
 - Präsentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammformatierung in Aspose.Slides für Node.js über Java erlernen und Ihre PowerPoint-Präsentation mit benutzerdefinierten Achsen, Schriftarten, Zahlenformaten und abgerundeten Diagrammrändern verbessern."
+description: "Erfahren Sie, wie Sie Diagramme in Aspose.Slides für Node.js über Java formatieren und Ihre PowerPoint‑Präsentation mit benutzerdefinierten Achsen, Schriften, Zahlenformaten und abgerundeten Diagrammrahmen verbessern."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie Diagramme in PowerPoint‑Präsentationen mithilfe von Aspose.Slides formatiert werden. Er zeigt, wie wichtige Diagrammelemente wie Achsen, Rasterlinien, Titel, Legenden, das Diagrammbereich und Wandfüllungen angepasst werden können, um das Aussehen und die Lesbarkeit von Diagrammdaten zu verbessern.
+Dieser Artikel erklärt, wie Diagramme in PowerPoint‑Präsentationen mit Aspose.Slides formatiert werden. Er zeigt, wie wichtige Diagrammelemente wie Achsen, Gitternetzlinien, Titel, Legenden, der Plot‑Bereich und Wandfüllungen angepasst werden können, um das Aussehen und die Lesbarkeit der Diagrammdaten zu verbessern.
 
-Er demonstriert außerdem, wie Schriftarteigenschaften für Diagrammtext festgelegt, voreingestellte Zahlenformate auf Diagrammdaten angewendet und abgerundete Ecken für den Diagrammbereich aktiviert werden. Zusammen zeigen diese Beispiele, wie sowohl der visuelle Stil als auch die Datenpräsentation von Diagrammen in einer Präsentation gesteuert werden können.
+Er demonstriert außerdem, wie Schriftarteneigenschaften für Diagrammtext festgelegt, vordefinierte Zahlenformate auf Diagrammdaten angewendet und abgerundete Ecken für den Diagrammbereich aktiviert werden. Zusammen zeigen diese Beispiele, wie sowohl der visuelle Stil als auch die Datenpräsentation von Diagrammen in einer Präsentation gesteuert werden können.
 
-## **Diagramm‑Entitäten formatieren**
+Für separate Füllungen und Konturen bei steigenden und fallenden Intervallen siehe das [Beispiel für Aktiencharts](/slides/de/nodejs-java/create-chart/#create-stock-charts).
 
-Verwenden Sie [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/), um Diagrammtitel, Achsen, Rasterlinien, Legenden und den Diagrammbereich zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Markern und Standarddaten und wendet dann separate Text‑ und Linienstile auf seine Werte‑ und Kategorienachsen an. Schriftgrößen und Linienbreiten werden in Punkten angegeben; Kategorienbeschriftungen werden um 45 Grad gedreht.
+## **Diagramm-Entitäten formatieren**
 
-Die Werteachse verwendet [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) unabhängig von den Quellzellen. Ihre Skalierung reicht von -2 bis 15, mit Hauptintervallen von 2 und Nebenintervallen von 0,5. Das Beispiel kombiniert außerdem Prozentformatierung mit [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit), das auf Tausend gesetzt ist; passen Sie diese Einstellungen an die Bedeutung und Größe Ihrer Daten an. Die Legende bleibt außerhalb des Diagrammbereichs, weil [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) mit `false` aufgerufen wird. Hintergrundwand‑ und Bodenfüllungen werden über [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) bzw. [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) konfiguriert, aber diese Flächen sind nur in 3D‑Diagrammen sichtbar.
+Verwenden Sie [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/), um Diagrammtitel, Achsen, Gitternetzlinien, Legenden und den Plot‑Bereich zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Markern und Standarddaten und wendet dann separate Text‑ und Linienstile auf seine Werte‑ und Kategorienachsen an. Schriftgrößen und Linienstärken werden in Punkt angegeben; Kategorienbeschriftungen werden um 45 Grad gedreht.
+
+Die Werteachse verwendet [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) unabhängig von den Quellzellen. Ihr Wertebereich reicht von -2 bis 15, mit Hauptintervallen von 2 und Nebenintervallen von 0,5. Das Beispiel kombiniert außerdem die Prozentformatierung mit [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit), das auf Tausend gesetzt ist; passen Sie diese Einstellungen an die Bedeutung und Größenordnung Ihrer Daten an. Die Legende bleibt außerhalb des Plot‑Bereichs, weil [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) mit `false` aufgerufen wird. Rückwand- und Bodenfüllungen werden über [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) bzw. [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) konfiguriert, diese Flächen sind jedoch nur in 3D‑Diagrammen sichtbar.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **Schriftarteigenschaften für ein Diagramm festlegen**
+## **Schriftarteneigenschaften für ein Diagramm festlegen**
 
-Legen Sie die Standardschriftgröße für Diagrammtext über [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) fest. Das Beispiel erstellt ein gruppiertes Säulendiagramm mit einer 20‑Punkt‑Schrift und aktiviert Wertbeschriftungen für die erste Serie über [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Textelemente mit eigenen expliziten Schrifteinstellungen können die Diagramm‑Standardeinstellung überschreiben.
+Legen Sie die Standard‑Schriftgröße für Diagrammtext über [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) fest. Das Beispiel erstellt ein gruppiertes Säulendiagramm mit einer 20‑Punkt‑Schrift und aktiviert Wertbeschriftungen für die erste Serie über [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Textelemente mit eigenen expliziten Schrifteinstellungen können die Diagramm‑Standardeinstellung überschreiben.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **Formatierung des Textfelds für eine Diagrammlegende wiederverwenden**
+
+Um die Legende an eine Folien‑Überschrift anzupassen, setzen Sie die Schrift der Überschrift über [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) im ersten Absatz. Rufen Sie [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) auf dem Format auf, das von der Legende über [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat) zurückgegeben wird. Es kopiert die Textrahmen‑Einstellungen, die Formatierung des ersten Absatzes und die Standard‑Schrifteigenschaften dieses Absatzes. Auf einzelne Textabschnitte oder spätere Absätze direkt angewandte Formatierungen bleiben lokal auf die Quelle beschränkt.
+
+Das Beispiel verwendet eine fette, 26‑Punkt‑Calibri‑Überschrift in Marineblau als Vorlage. Nach dem Stylen der Legende wird [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) aufgerufen, um dieselbe Formatierung auf eine separate Beschriftung anzuwenden.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In der gespeicherten Präsentation stimmen Legende und Beschriftung in Größe, Gewicht und Farbe mit der Überschrift überein. Die Legende zeigt weiterhin die Seriennamen an, und die Beschriftung behält ihren eigenen Text. Hat ein Abschnitt in der Beschriftung bereits eine explizite Schriftgröße, so hat diese Vorrang vor dem kopierten Standard‑Absatz.
+
+| Vor dem Kopieren | Nach dem Kopieren |
+| --- | --- |
+| ![Quartalsverkaufsdiagramm mit normalen schwarzen Legendenbeschriftungen und einer schwarzen Beschriftung](legend-formatting-before.png) | ![Das gleiche Diagramm mit größeren, fetten, marineblauen Legendenbeschriftungen und einer passenden Beschriftung](legend-formatting.png) |
+
 ## **Numerisches Format festlegen**
 
-Verwenden Sie [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat), um ein integriertes Zahlenformat auf Diagramm‑Arbeitsmappen‑Zellen anzuwenden. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit Standard‑ und zellbasierten Daten und wendet Formatindex 10 (`0.00%`) auf jede Serienwertzelle an. Dadurch wird die Anzeige der Werte in der Arbeitsmappe geändert, ohne die zugrunde liegenden Zahlen zu verändern; zum Beispiel wird 0,25 als 25,00 % angezeigt. Achsen‑ und Datenbeschriftungsformate können separat konfiguriert werden.
+Verwenden Sie [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat), um ein integriertes Zahlenformat auf Diagramm‑Arbeitsblattzellen anzuwenden. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit Standard‑, zellbasierten Daten und wendet Formatindex 10 (`0.00%`) auf jede Serienwertzelle an. Dadurch ändert sich die Anzeige der Werte im Arbeitsblatt, ohne die zugrunde liegenden Zahlen zu ändern; zum Beispiel wird 0,25 als 25,00 % angezeigt. Achsen‑ und Datenbeschriftungsformen können separat konfiguriert werden.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,7 +254,7 @@ try {
 }
 ```
 
-Die folgende Tabelle listet integrierte Zahlenformat‑Indizes mit repräsentativen Excel‑Formaten für das englische (Vereinigte Staaten) Gebietsschema auf. Die genauen Formatzeichenfolgen und ihre Darstellung können je nach Anwendung und Gebietsschema variieren, insbesondere bei Währungen und Datumsangaben. Einige Excel‑Formate unterscheiden sich zudem von den Vorgaben im OOXML‑Standard, wie in den [Microsoft‑Hinweisen zur Implementierung von Zahlenformaten](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) beschrieben.
+Die folgende Tabelle listet integrierte Zahlenformat‑Indizes mit repräsentativen Excel‑Formaten für das englische (USA‑) Gebietsschema auf. Die genauen Formatzeichenketten und deren Darstellung können je nach Anwendung und Gebietsschema variieren, insbesondere bei Währungen und Datumsangaben. Einige Excel‑Formate unterscheiden sich zudem von den Vorgaben im OOXML‑Standard, wie in den [Hinweisen zur Implementierung von Zahlenformaten von Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) beschrieben.
 
 | Index | Format |
 | --- | --- |
@@ -241,7 +297,7 @@ Die folgende Tabelle listet integrierte Zahlenformat‑Indizes mit repräsentati
 
 ## **Abgerundete Ränder des Diagrammbereichs festlegen**
 
-Rufen Sie [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) mit `true` auf, um die Ecken des Diagrammbereichs abzurunden. Das Beispiel erstellt ein gruppiertes Säulendiagramm und verwendet [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat), um seiner Kontur eine einheitliche graue Farbe und einen einfachen Linienstil zu geben, bevor die Präsentation gespeichert wird.
+Rufen Sie [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) mit `true` auf, um die Ecken des Diagrammbereichs abzurunden. Das Beispiel erstellt ein gruppiertes Säulendiagramm und verwendet [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat), um dessen Kontur eine einheitliche graue Farbe und einen einlinigen Stil zu geben, bevor die Präsentation gespeichert wird.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -265,11 +321,11 @@ try {
 
 ## **Vorhandene Diagramm‑Anmerkungen bearbeiten**
 
-Ein Diagramm kann benutzerdefinierte Formen enthalten, z. B. eine Textanmerkung, die den Status eines Berichts erklärt. Greifen Sie über [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) auf diese Formen zu. Die von [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) zurückgegebene Sammlung enthält die dem Diagramm zugehörigen Formen.
+Ein Diagramm kann benutzerdefinierte Formen enthalten, z. B. eine Textanmerkung, die den Status eines Berichts erklärt. Greifen Sie über [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) auf diese Formen zu. Die von [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) zurückgegebene Sammlung enthält die diagrammeigenen Formen.
 
-Ein gewöhnliches Textfeld, das über einem Diagramm platziert ist, gehört zur Folie, auch wenn es wie ein Teil des Diagramms aussieht. Das Durchlaufen von [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) findet das Diagramm und die normalen Folienformen, enumeriert jedoch nicht die einzelnen Formen innerhalb des Diagramms. Diagrammtitel und Datenbeschriftungen sind separate Diagrammelemente, keine benutzerdefinierten Anmerkungen in dieser Sammlung.
+Ein gewöhnliches Textfeld, das über einem Diagramm platziert wird, gehört zur Folie, auch wenn es wie ein Teil des Diagramms aussieht. Das Durchlaufen von [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) findet das Diagramm und die normalen Folienformen, enumeriert jedoch nicht die einzelnen Formen innerhalb des Diagramms. Diagrammtitel und Datenbeschriftungen sind separate Diagrammelemente, keine benutzerdefinierten Anmerkungen in dieser Sammlung.
 
-Laden Sie [chart-annotations.pptx](chart-annotations.pptx) herunter und legen Sie sie im Arbeitsverzeichnis der Anwendung ab. Die erste Folie enthält ein Diagramm mit einer nicht gruppierten Anmerkung „Preliminary results“, einer diagrammeigenen Linie und einem normalen Folientextfeld mit der Aufschrift „Slide overlay“. Das Beispiel findet das erste Diagramm auf dieser Folie und ändert die Anmerkung zu „Final results“, wenn der Bericht zur Veröffentlichung bereit ist. Es prüft, ob die Sammlung leer ist, und bearbeitet nur ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) mit einem nicht‑null‑Textfeld, das von [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) zurückgegeben wird, und den erwarteten Text.
+Laden Sie [chart-annotations.pptx](chart-annotations.pptx) herunter und platzieren Sie es im Arbeitsverzeichnis der Anwendung. Die erste Folie enthält ein Diagramm mit einer nicht gruppierten Anmerkung mit dem Text „Preliminary results“, einer diagrammeigenen Linie und einem gewöhnlichen Folientextfeld mit dem Text „Slide overlay“. Das Beispiel findet das erste Diagramm auf dieser Folie und ändert die Anmerkung zu „Final results“, wenn der Bericht zur Veröffentlichung bereit ist. Es prüft, ob die Sammlung leer ist, und bearbeitet nur ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) mit einem nicht‑null‑Textfeld, das von [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) zurückgegeben wird, und den erwarteten Text.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,26 +371,26 @@ try {
 }
 ```
 
-Die Linie und das Folientextfeld bleiben unverändert. Die folgenden Bilder zeigen die Eingabe und das gespeicherte, erneut geöffnete Ergebnis:
+Die Linie und das Folientextfeld bleiben unverändert. Die folgenden Bilder zeigen die Eingabe und das gespeicherte, wiedergeöffnete Ergebnis:
 
-| Before editing | After editing |
+| Vor der Bearbeitung | Nach der Bearbeitung |
 | --- | --- |
-| ![Diagrammanmerkung mit dem Text Vorläufige Ergebnisse](chart-annotations-before.png) | ![Diagrammanmerkung mit dem Text Endgültige Ergebnisse](chart-annotations-after.png) |
+| ![Diagrammanmerkung mit dem Text „Preliminary results“](chart-annotations-before.png) | ![Diagrammanmerkung mit dem Text „Final results“](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Das Beispiel prüft nur die diagrammeigenen Formen der obersten Ebene. Befindet sich eine Anmerkung innerhalb einer [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), prüfen Sie die [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes)-Sammlung dieser Gruppe ebenfalls. Wiederholen Sie dies rekursiv für verschachtelte Gruppen und wenden Sie dieselben Textprüfungen auf die untergeordneten Formen an. Eine Gruppe selbst ist ein Container; behandeln Sie sie nicht als Textfeld.
+Das Beispiel untersucht nur die diagrammeigenen Formen der obersten Ebene. Befindet sich eine Anmerkung innerhalb eines [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), prüfen Sie auch die [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes)-Sammlung dieser Gruppe. Wiederholen Sie dies rekursiv für verschachtelte Gruppen und wenden Sie dieselben Textprüfungen auf deren Kindformen an. Eine Gruppe selbst ist ein Container; behandeln Sie sie nicht als Textfeld.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kann ich halbtransparente Füllungen für Säulen/Bereiche setzen und dabei die Kontur undurchsichtig lassen?**
+**Kann ich halbtransparente Füllungen für Spalten/Bereiche festlegen, während die Kontur undurchsichtig bleibt?**
 
-Ja. Die Fülltransparenz und die Kontur werden separat konfiguriert. Das ist nützlich, um die Lesbarkeit des Rasters und der Daten in dichten Visualisierungen zu verbessern.
+Ja. Fülltransparenz und Kontur werden separat konfiguriert. Dies ist nützlich, um die Lesbarkeit des Gitternetzes und der Daten in dicht befüllten Visualisierungen zu verbessern.
 
-**Wie kann ich mit überlappenden Datenbeschriftungen umgehen?**
+**Wie kann ich mit Datenbeschriftungen umgehen, wenn sie überlappen?**
 
-Verkleinern Sie die Schriftgröße, deaktivieren Sie nicht wesentliche Beschriftungskomponenten (z. B. Kategorien), passen Sie die Beschriftungsposition an, zeigen Sie Beschriftungen nur für ausgewählte Punkte an, falls nötig, oder wechseln Sie das Format zu „Wert + Legende“.
+Reduzieren Sie die Schriftgröße, deaktivieren Sie nicht notwendige Beschriftungskomponenten (z. B. Kategorien), passen Sie die Position der Beschriftung an, zeigen Sie Beschriftungen nur für ausgewählte Punkte an, falls nötig, oder wechseln Sie das Format zu „Wert + Legende“.
 
-**Kann ich Farbverläufe oder Musterfüllungen auf Serien anwenden?**
+**Kann ich Verlauf‑ oder Mustefüllungen auf Serien anwenden?**
 
-Ja. Serien unterstützen einfarbige, Verlauf‑ und Musterfüllungen. Verwenden Sie Verläufe in der Praxis sparsam und vermeiden Sie Kombinationen, die den Kontrast zum Raster und zum Text verringern.
+Ja. Serien unterstützen einheitliche, Verlauf‑ und Musterfüllungen. In der Praxis sollten Verläufe sparsam eingesetzt und Kombinationen vermieden werden, die den Kontrast zum Gitternetz und zum Text verringern.

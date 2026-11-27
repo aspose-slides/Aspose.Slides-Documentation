@@ -1,5 +1,5 @@
 ---
-title: จัดรูปแบบแผนภูมิการนำเสนอใน Python
+title: จัดรูปแบบแผนภูมินำเสนอใน Python
 linktitle: การจัดรูปแบบแผนภูมิ
 type: docs
 weight: 60
@@ -7,29 +7,31 @@ url: /th/python-java/chart-formatting/
 keywords:
 - จัดรูปแบบแผนภูมิ
 - การจัดรูปแบบแผนภูมิ
-- องค์ประกอบแผนภูมิ
+- เอนทิตี้แผนภูมิ
 - คุณสมบัติของแผนภูมิ
 - การตั้งค่าแผนภูมิ
 - ตัวเลือกแผนภูมิ
 - คุณสมบัติฟอนต์
-- ขอบมน
+- ขอบโค้ง
 - PowerPoint
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Python ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิที่มีมุมโค้ง"
+description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Python ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิแบบโค้ง."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides แสดงวิธีการปรับแต่งองค์ประกอบสำคัญของแผนภูมิเช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อต และการเติมสีผนัง เพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ
+บทความนี้อธิบายวิธีการจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides โดยแสดงวิธีการปรับแต่งองค์ประกอบสำคัญของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่กราฟ, และการเติมสีผนัง เพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ
 
-ยังแสดงวิธีการตั้งค่าคุณสมบัติของฟอนต์สำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขสำเร็จรูปกับข้อมูลแผนภูมิ, และเปิดใช้งานมุมมนสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้ร่วมกันแสดงวิธีการควบคุมทั้งสไตล์การแสดงผลและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
+นอกจากนี้ยังแสดงวิธีตั้งค่าคุณสมบัติของฟอนต์สำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขที่ตั้งล่วงหน้ากับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้ร่วมกันแสดงวิธีควบคุมสไตล์ภาพและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
 
-## **จัดรูปแบบองค์ประกอบแผนภูมิ**
+สำหรับการเติมสีและขอบที่แยกกันในช่วงที่ค่าเพิ่มและลดลง, ดูที่ [ตัวอย่างแผนภูมิหุ้น](/slides/th/python-java/create-chart/#create-stock-charts).
 
-ใช้ [แผนภูมิ](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นที่มีเครื่องหมายและข้อมูลเริ่มต้น จากนั้นจึงใส่รูปแบบข้อความและเส้นแยกต่างหากให้กับแกนค่าและแกนหมวดหมู่ ขนาดฟอนต์และความกว้างของเส้นกำหนดเป็นหน่วยพอยต์; ป้ายชื่อหมวดหมู่วางเป็นแนวเอียง 45 องศา
+## **จัดรูปแบบเอนทิตี้ของแผนภูมิ**
 
-แกนค่าจะใช้ [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) อย่างอิสระจากเซลล์ต้นทาง ช่วงค่าของแกนเริ่มตั้งแต่ -2 ถึง 15, โดยมีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5 ตัวอย่างนี้ยังรวมการจัดรูปแบบเป็นเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) ตั้งเป็นหน่วยพัน ดังนั้นคุณควรปรับค่าต่าง ๆ ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายอยู่ด้านนอกพื้นที่พล็อตเนื่องจากมีการเรียก [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) ด้วยค่า `False` การเติมสีผนังด้านหลังและพื้นดินกำหนดผ่าน [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) และ [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) แต่พื้นผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
+ใช้ [แผนภูมิ](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่กราฟ ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมเครื่องหมายและข้อมูลเริ่มต้น, แล้วใช้สไตล์ข้อความและเส้นที่แยกกันกับแกนค่ามากและแกนหมวดหมู่ ขนาดฟอนต์และความกว้างของเส้นระบุเป็นจุด; ป้ายชื่อหมวดหมู่อาจหมุน 45 องศา
+
+แกนค่าจะใช้ [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) โดยอิสระจากเซลล์ต้นทาง ช่วงสเกลตั้งแต่ -2 ถึง 15, โดยมีช่วงหลักเป็น 2 และช่วงรองเป็น 0.5 ตัวอย่างยังรวมการจัดรูปแบบเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) ที่ตั้งเป็นพัน, ดังนั้นปรับค่าตั้งเหล่านี้ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายยังคงอยู่นอกพื้นที่กราฟเนื่องจาก [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) ถูกเรียกด้วย `False` การเติมสีผนังด้านหลังและพื้นถูกกำหนดผ่าน [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) และ [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) แต่พื้นผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
 
 ```python
 import jpype
@@ -159,7 +161,7 @@ finally:
 
 ## **ตั้งค่าคุณสมบัติฟอนต์สำหรับแผนภูมิ**
 
-ตั้งขนาดฟอนต์เริ่มต้นสำหรับข้อความในแผนภูมิผ่าน [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยฟอนต์ขนาด 20 จุดและเปิดใช้งานการแสดงค่าป้ายข้อมูลสำหรับชุดแรกผ่าน [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) ส่วนประกอบข้อความที่กำหนดฟอนต์อย่างชัดเจนสามารถครอบคลุมค่าเริ่มต้นของแผนภูมิได้
+ตั้งค่าขนาดฟอนต์เริ่มต้นสำหรับข้อความแผนภูมิผ่าน [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มโดยใช้ฟอนต์ 20 จุดและเปิดใช้งานป้ายค่าในซีรีส์แรกผ่าน [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) องค์ประกอบข้อความที่มีการตั้งค่าฟอนต์แบบชัดเจนของตนเองสามารถเขียนทับค่าเริ่มต้นของแผนภูมิได้
 
 ```python
 import jpype
@@ -183,9 +185,69 @@ finally:
     presentation.dispose()
 ```
 
+## **นำการจัดรูปแบบ Text Frame ไปใช้ซ้ำสำหรับ Legend ของแผนภูมิ**
+
+เพื่อให้คำอธิบายตรงกับหัวข้อสไลด์, ตั้งค่าฟอนต์ของหัวข้อโดยใช้ [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) บนย่อหน้าที่แรก เรียก [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom) บนรูปแบบที่ได้จาก [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) ของ legend วิธีนี้จะคัดลอกการตั้งค่า Text Frame, การจัดรูปแบบของย่อหน้าแรก, และคุณสมบัติฟอนต์เริ่มต้นของย่อคนั้น การจัดรูปแบบที่กำหนดโดยตรงให้กับส่วนย่อยหรือย่อหน้าต่อ ๆ ไปจะคงอยู่เฉพาะที่ต้นฉบับ
+
+ตัวอย่างใช้หัวข้อแบบ Calibri ตัวหนา 26 จุดสีกรมท่าเป็นแม่แบบ หลังจากจัดรูปแบบ legend แล้วจะเรียก [copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) เพื่อใช้การจัดรูปแบบเดียวกันกับคำบรรยายแยกต่างหาก
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+ในงานนำเสนอที่บันทึก, legend และ caption จะตรงกับหัวข้อในด้านขนาด, น้ำหนัก, และสี legend ยังแสดงชื่อซีรีส์, ส่วน caption จะรักษาข้อความของตนเอง หากส่วนใดใน caption มีขนาดฟอนต์ที่กำหนดไว้แล้ว ขนาดนั้นจะมีลำดับความสำคัญเหนือค่าฟอนต์เริ่มต้นของย่อหน้าที่คัดลอก
+
+| ก่อนทำการคัดลอก | หลังทำการคัดลอก |
+| --- | --- |
+| ![แผนภูมิการขายรายไตรมาสพร้อมป้ายคำอธิบายสีดำปกติและคำบรรยายสีดำ](legend-formatting-before.png) | ![แผนภูมิเดียวกันพร้อมป้ายคำอธิบายสีกรมท่าแบบหนาและใหญ่กว่าและคำบรรยายที่สอดคล้องกัน](legend-formatting.png) |
+
 ## **ตั้งค่ารูปแบบตัวเลข**
 
-ใช้ [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) เพื่อใช้รูปแบบตัวเลขที่สร้างไว้ล่วงหน้ากับเซลล์ในชุดข้อมูลของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยข้อมูลที่กำหนดโดยเซลล์และใช้ดัชนีรูปแบบ 10 (`0.00%`) กับเซลล์ค่าของแต่ละชุด การทำเช่นนี้จะเปลี่ยนวิธีการแสดงค่าในเวิร์กบุ๊กโดยไม่กระทบต่อค่าตัวเลขจริง ตัวอย่างเช่น 0.25 จะแสดงเป็น 25.00% รูปแบบของแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
+ใช้ [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) เพื่อใช้รูปแบบตัวเลขที่มีมาให้กับเซลล์ในเวิร์กบุ๊กของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มโดยใช้ข้อมูลที่สนับสนุนโดยเซลล์เริ่มต้นและใช้ดัชนีรูปแบบ 10 (`0.00%`) กับเซลล์ค่าของแต่ละซีรีส์ วิธีนี้จะเปลี่ยนการแสดงค่าที่เวิร์กบุ๊กโดยไม่ต้องเปลี่ยนตัวเลขดิบ ตัวอย่างเช่น 0.25 จะแสดงเป็น 25.00% รูปแบบแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
 
 ```python
 import jpype
@@ -212,7 +274,7 @@ finally:
     presentation.dispose()
 ```
 
-ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีให้พร้อมรูปแบบ Excel ตัวอย่างสำหรับภาษาภูมิภาคอังกฤษ (สหรัฐอเมริกา) สตริงรูปแบบที่แน่นอนและการแสดงผลอาจแตกต่างกันตามแอปพลิเคชันและภูมิภาค โดยเฉพาะสำหรับสกุลเงินและวันที่ บางรูปแบบของ Excel ยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายไว้ใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
+ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีมาให้พร้อมตัวอย่างรูปแบบ Excel สำหรับภาษาจากสหรัฐอเมริกา สตริงรูปแบบที่แท้จริงและการแสดงผลอาจแตกต่างกันตามแอปพลิเคชันและภาษาท้องถิ่น โดยเฉพาะอย่างยิ่งสำหรับสกุลเงินและวันที่ บางรูปแบบ Excel ยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายใน [บันทึกการดำเนินการรูปแบบตัวเลขของ Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
 
 | ดัชนี | รูปแบบ |
 | --- | --- |
@@ -253,9 +315,9 @@ finally:
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **ตั้งค่าขอบมนของพื้นที่แผนภูมิเป็นมุมโค้ง**
+## **ตั้งค่าขอบโค้งของพื้นที่แผนภูมิ**
 
-เรียก [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) ด้วยค่า `True` เพื่อทำให้มุมของพื้นที่แผนภูมิโค้ง ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) เพื่อให้เส้นขอบของแผนภูมิมีสีเทาแน่นและสไตล์เส้นเดียวก่อนบันทึกงานนำเสนอ
+เรียก [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) ด้วย `True` เพื่อทำให้มุมของพื้นที่แผนภูมิเป็นโค้ง ตัวอย่างสร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) เพื่อกำหนดเส้นขอบให้เป็นสีเทาเข้มและสไตล์เส้นเดียวก่อนบันทึกงานนำเสนอ
 
 ```python
 import jpype
@@ -285,11 +347,11 @@ finally:
 
 ## **แก้ไขคำอธิบายแผนภูมิที่มีอยู่**
 
-แผนภูมิสามารถมีรูปร่างแบบกำหนดเอง เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปร่างเหล่านี้ผ่าน [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) คำสั่งที่คืนค่าจาก [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) จะรวมถึงรูปร่างที่เป็นของแผนภูมิ
+แผนภูมิสามารถมีรูปทรงแบบกำหนดเองได้ เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปทรงเหล่านี้ผ่าน [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) คอลเลกชันที่ส่งกลับโดย [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) จะประกอบด้วยรูปทรงที่เป็นของแผนภูมิ
 
-กล่องข้อความธรรมดาที่วางเหนือแผนภูมิจะเป็นของสไลด์ แม้ว่าจะดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ กรณีการวนลูปผ่าน [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) จะพบแผนภูมิและรูปร่างสไลด์ทั่วไป แต่จะไม่แสดงรายการรูปร่างย่อยภายในแผนภูมิ ชื่อเรื่องของแผนภูมิและป้ายข้อมูลถือเป็นส่วนแยกจากแผนภูมิ ไม่ใช่คำอธิบายแบบกำหนดเองในคอลเลกชันนี้
+กล่องข้อความธรรมดาที่วางไว้เหนือแผนภูมิจะเป็นของสไลด์ แม้ว่าจะดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ การวนลูปผ่าน [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) จะพบแผนภูมิและรูปทรงสไลด์ทั่วไป แต่จะไม่แสดงรายการรูปทรงแต่ละรายการภายในแผนภูมิ ชื่อเรื่องแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกจากกัน ไม่ใช่คำอธิบายแบบกำหนดเองในคอลเลกชันนี้
 
-ดาวน์โหลดไฟล์ [chart-annotations.pptx](chart-annotations.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกของไฟล์มีแผนภูมิพร้อมคำอธิบายที่ไม่ได้จัดกลุ่มข้อความ "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ทั่วไปที่มีข้อความ "Slide overlay" ตัวอย่างจะค้นหาแผนภูมิลำดับแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ จะตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ที่มีกรอบข้อความไม่เท่ากับ `None` ที่คืนค่าจาก [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) และข้อความที่คาดหวัง
+ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกของไฟล์นี้มีแผนภูมิพร้อมคำอธิบายที่ไม่ได้จัดกลุ่มโดยอ่านว่า "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาที่อ่านว่า "Slide overlay" ตัวอย่างจะค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ จะตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ที่มี Text Frame ไม่เป็น `None` ที่ส่งกลับจาก [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) พร้อมข้อความที่คาดหวัง
 
 ```python
 import jpype
@@ -330,26 +392,26 @@ finally:
     presentation.dispose()
 ```
 
-เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง รูปภาพต่อไปนี้แสดงภาพก่อนและผลลัพธ์ที่บันทึกและเปิดใหม่อีกครั้ง:
+เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง ภาพต่อไปนี้แสดงอินพุตและผลลัพธ์ที่บันทึกและเปิดใหม่อีกครั้ง:
 
 | ก่อนแก้ไข | หลังแก้ไข |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![คำอธิบายแผนภูมิที่เขียนว่า Preliminary results](chart-annotations-before.png) | ![คำอธิบายแผนภูมิที่เขียนว่า Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-ตัวอย่างตรวจสอบเฉพาะรูปร่างระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) ให้ตรวจสอบคอลเลกชัน [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) ของกลุ่มนั้นด้วย ทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มที่ซ้อนกัน โดยใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูกของพวกมัน กลุ่มเองเป็นคอนเทนเนอร์; อย่าพิจารณาว่าเป็นกล่องข้อความ
+ตัวอย่างตรวจสอบเฉพาะรูปทรงระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), ตรวจสอบคอลเลกชัน [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) ของกลุ่มนั้นด้วย ทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มที่ซ้อนกันและใช้การตรวจสอบข้อความเดียวกันกับรูปทรงลูกของพวกมัน กลุ่มเองเป็นคอนเทนเนอร์; อย่าถือว่ามันเป็นกล่องข้อความ
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถตั้งค่าการเติมสีกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่โดยยังคงให้เส้นขอบไม่โปร่งใสได้หรือไม่?**
+**Can I set semi-transparent fills for columns/areas while keeping the border opaque?**
 
-ได้ การตั้งค่าความโปร่งแสงของการเติมสีและเส้นขอบทำแยกกัน นี่เป็นประโยชน์สำหรับการเพิ่มความอ่านง่ายของกริดและข้อมูลในภาพที่มีความหนาแน่นสูง
+Yes. Fill transparency and the outline are configured separately. This is useful for improving the readability of the grid and data in dense visualizations.
 
-**ฉันจะจัดการกับป้ายข้อมูลที่ทับซ้อนกันอย่างไร?**
+**How can I deal with data labels when they overlap?**
 
-ลดขนาดฟอนต์, ปิดใช้งานส่วนประกอบของป้ายที่ไม่สำคัญ (เช่น หมวดหมู่), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะจุดที่เลือกหากจำเป็น, หรือเปลี่ยนรูปแบบเป็น "ค่าบวกคำอธิบาย"
+Reduce the font size, disable nonessential label components (for example, categories), adjust the label position, show labels only for selected points if necessary, or switch the format to "value + legend".
 
-**ฉันสามารถใช้การเติมสีแบบไล่เฉดหรือแบบลายเส้นกับชุดข้อมูลได้หรือไม่?**
+**Can I apply gradient or pattern fills to series?**
 
-ได้ ชุดข้อมูลรองรับการเติมสีทึบ, ไล่เฉด, และลายเส้น ในการใช้งานจริง ควรใช้ไล่เฉดอย่างประหยัดและหลีกเลี่ยงการผสมที่ทำให้ความคมชัดของกริดและข้อความลดลง
+Yes. Series support solid, gradient, and pattern fills. In practice, use gradients sparingly and avoid combinations that reduce contrast with the grid and text.

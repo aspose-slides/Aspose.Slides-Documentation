@@ -5,7 +5,7 @@ type: docs
 weight: 60
 url: /hi/python-java/chart-formatting/
 keywords:
-- फ़ॉर्मेट चार्ट
+- चार्ट फ़ॉर्मेट
 - चार्ट फ़ॉर्मेटिंग
 - चार्ट इकाई
 - चार्ट गुण
@@ -17,19 +17,21 @@ keywords:
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python (Java के माध्यम से) में चार्ट फ़ॉर्मेटिंग सीखें और अपने PowerPoint प्रस्तुति को कस्टम अक्ष, फ़ॉन्ट, संख्या फ़ॉर्मेट और गोल चार्ट किनारों के साथ उन्नत बनाएं।"
+description: "Aspose.Slides के लिए Python (Java के माध्यम से) में चार्ट फ़ॉर्मेटिंग सीखें और अपने PowerPoint प्रस्तुति को कस्टम अक्ष, फ़ॉन्ट, संख्यात्मक फ़ॉर्मेट और गोल चार्ट किनारों के साथ उन्नत बनाएँ।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फ़ॉर्मेट करने के तरीके को समझाता है। यह अक्ष, ग्रिड रेखाएँ, शीर्षक, लेजेंड, प्लॉट क्षेत्र और दीवार फ़िल्स जैसी मुख्य चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता में सुधार कैसे किया जा सकता है, दर्शाता है।
+यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फ़ॉर्मेट करने के तरीके को समझाता है। यह अक्ष, ग्रिड लाइनें, शीर्षक, लेजेंड, प्लॉट एरिया और वॉल फ़िल्स जैसे प्रमुख चार्ट तत्वों को अनुकूलित करने की प्रक्रिया दिखाता है ताकि चार्ट डेटा की उपस्थिति और पढ़ने की क्षमता में सुधार हो सके।
 
-यह चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण सेट करने, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक फ़ॉर्मेट लागू करने, और चार्ट क्षेत्र के लिए गोल कोनों को सक्षम करने का भी प्रदर्शन करता है। साथ मिलकर, ये उदाहरण प्रदर्शित करते हैं कि प्रस्तुति में चार्टों की दृश्य शैली और डेटा प्रस्तुति दोनों को कैसे नियंत्रित किया जा सकता है।
+यह फ़ॉन्ट गुणों को चार्ट टेक्स्ट पर सेट करने, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक फ़ॉर्मेट लागू करने और चार्ट एरिया के लिए गोल किनारे सक्षम करने का भी प्रदर्शन करता है। ये सभी उदाहरण दिखाते हैं कि प्रस्तुति में चार्ट की दृश्य शैली और डेटा प्रस्तुति दोनों को कैसे नियंत्रित किया जाए।
 
-## **चार्ट इकाइयों को फ़ॉर्मेट करें**
+उछाल और गिरावट अंतराल पर अलग-अलग फ़िल्स और रूपरेखाओं के लिए, देखें [स्टॉक चार्ट उदाहरण](/slides/hi/python-java/create-chart/#create-stock-charts).
 
-चार्ट शीर्षक, अक्ष, ग्रिड रेखाओं, लेजेंड और प्लॉट क्षेत्र को फ़ॉर्मेट करने के लिए [चार्ट](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) का उपयोग करें। यह उदाहरण मार्कर और डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, फिर इसके वैल्यू और कैटेगरी अक्षों पर अलग-अलग टेक्स्ट और लाइन शैलियों को लागू करता है। फ़ॉन्ट आकार और लाइन चौड़ाई पॉइंट्स में निर्दिष्ट की गई हैं; कैटेगरी लेबल 45 डिग्री घुमाए गए हैं।
+## **चार्ट इकाइयों का स्वरूपण**
 
-वैल्यु अक्ष स्रोत कोशिकाओं से स्वतंत्र रूप से [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) का उपयोग करता है। इसका स्केल -2 से 15 तक है, प्रमुख अंतराल 2 और गौण अंतराल 0.5 है। यह उदाहरण प्रतिशत फ़ॉर्मेटिंग को [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) को हजारों पर सेट करने के साथ भी जोड़ता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार अनुकूलित करें। लेजेंड प्लॉट क्षेत्र के बाहर रहता है क्योंकि [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) को `False` के साथ बुलाया जाता है। बैक-वॉल और फ़्लोर फ़िल्स को [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) और [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) के माध्यम से कॉन्फ़िगर किया जाता है, लेकिन ये सतहें केवल 3D चार्ट में दिखाई देती हैं।
+Use [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
+
+The value axis uses [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) is called with `False`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) and [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), but these surfaces are only visible in 3D charts.
 
 ```python
 import jpype
@@ -157,9 +159,9 @@ finally:
     presentation.dispose()
 ```
 
-## **चार्ट के लिए फ़ॉन्ट गुण सेट करें**
+## **एक चार्ट के लिए फ़ॉन्ट गुण सेट करें**
 
-[Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) के माध्यम से चार्ट टेक्स्ट के लिए डिफ़ॉल्ट फ़ॉन्ट आकार सेट करें। यह उदाहरण 20 पॉइंट फ़ॉन्ट के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) के माध्यम से पहली सीरीज़ के लिए वैल्यू लेबल सक्षम करता है। अपने स्वयं के स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट तत्व चार्ट की डिफ़ॉल्ट सेटिंग को ओवरराइड कर सकते हैं।
+Set the default font size for chart text through [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Text elements with their own explicit font settings can override the chart default.
 
 ```python
 import jpype
@@ -183,9 +185,69 @@ finally:
     presentation.dispose()
 ```
 
-## **संख्यात्मक फ़ॉर्मेट सेट करें**
+## **चार्ट लेजेंड के लिए टेक्स्ट फ्रेम फ़ॉर्मेटिंग का पुनः उपयोग करें**
 
-[ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) का उपयोग करके चार्ट वर्कबुक कोशिकाओं पर एक बिल्ट-इन नंबर फ़ॉर्मेट लागू करें। यह उदाहरण डिफ़ॉल्ट, सेल-आधारित डेटा के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रत्येक सीरीज़ वैल्यू सेल पर फ़ॉर्मेट इंडेक्स 10 (`0.00%`) लागू करता है। इससे वर्कबुक में मानों का प्रदर्शन बदलता है बिना मूल संख्याओं को बदले; उदाहरण के लिए, 0.25 को 25.00% के रूप में दिखाया जाता है। अक्ष और डेटा-लेबल फ़ॉर्मेट को अलग-अलग कॉन्फ़िगर किया जा सकता है।
+To match a legend to a slide heading, set the heading's font through [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) on the first paragraph. Call [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom) on the format returned by the legend's [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat). This copies the text frame settings, the first paragraph's formatting, and that paragraph's default font properties. Formatting applied directly to individual portions or to later paragraphs stays local to the source.
+
+The example uses a bold, 26-point Calibri heading in navy as the template. After styling the legend, it calls [copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) to apply the same formatting to a separate caption.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+In the saved presentation, the legend and caption match the heading in size, weight, and color. The legend still displays the series names, and the caption keeps its own text. If a portion in the caption already has an explicit font size, that size takes precedence over the copied paragraph default.
+
+| कॉपी करने से पहले | कॉपी करने के बाद |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
+## **संख्यात्मक प्रारूप सेट करें**
+
+Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
 
 ```python
 import jpype
@@ -212,9 +274,9 @@ finally:
     presentation.dispose()
 ```
 
-निम्न तालिका में अंग्रेजी (संयुक्त राज्य) लोकैल के लिए प्रतिनिधि Excel फ़ॉर्मेट के साथ बिल्ट-इन संख्या फ़ॉर्मेट इंडेक्स सूचीबद्ध हैं। सटीक फ़ॉर्मेट स्ट्रिंग्स और उनका प्रदर्शन एप्लिकेशन और लोकैल के अनुसार बदल सकता है, विशेषकर मुद्रा और तिथियों के लिए। कुछ Excel फ़ॉर्मेट OOXML मानक के डिफ़ॉल्ट से भी भिन्न होते हैं, जैसा कि [Microsoft का संख्या फ़ॉर्मेट कार्यान्वयन नोट्स](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
+The following table lists built-in number format indices with representative Excel formats for the English (United States) locale. The exact format strings and their display can vary by application and locale, particularly for currency and dates. Some Excel formats also differ from the defaults in the OOXML standard, as described in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| इंडेक्स | फ़ॉर्मेट |
+| Index | फ़ॉर्मेट |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -253,9 +315,9 @@ finally:
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **चार्ट क्षेत्र के गोल किनारों को सेट करें**
+## **चार्ट एरिया के गोल किनारे सेट करें**
 
-[Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) को `True` के साथ कॉल करके चार्ट क्षेत्र के कोनों को गोल करें। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रस्तुति सहेजने से पहले उसकी रूपरेखा को ठोस ग्रे रंग और सिंगल-लाइन शैली देने के लिए [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) का उपयोग करता है।
+Call [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) with `True` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) to give its outline a solid gray color and a single-line style before saving the presentation.
 
 ```python
 import jpype
@@ -283,13 +345,13 @@ finally:
     presentation.dispose()
 ```
 
-## **मौजूदा चार्ट एनोटेशन को संपादित करें**
+## **मौजूदा चार्ट एनोटेशन संपादित करें**
 
-एक चार्ट में कस्टम शेप हो सकते हैं, जैसे रिपोर्ट की स्थिति समझाने वाला टेक्स्ट एनोटेशन। इन शेप्स तक पहुंचने के लिए आप [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) का उपयोग कर सकते हैं। [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) द्वारा लौटाई गई कलेक्शन में चार्ट-स्वामित्व वाली शेप्स शामिल होती हैं।
+A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). The collection returned by [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) contains the chart-owned shapes.
 
-चार्ट के ऊपर रखा एक सामान्य टेक्स्ट बॉक्स स्लाइड का हिस्सा होता है, भले ही वह चार्ट का हिस्सा जैसा दिखे। [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) के माध्यम से इटररेट करने पर चार्ट और सामान्य स्लाइड शेप्स मिलते हैं, लेकिन चार्ट के भीतर के व्यक्तिगत शेप्स की सूची नहीं बनती। चार्ट शीर्षक और डेटा लेबल अलग-अलग चार्ट तत्व होते हैं, इस कलेक्शन में कस्टम एनोटेशन नहीं होते।
+An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
 
-[chart-annotations.pptx](chart-annotations.pptx) को डाउनलोड करें और इसे एप्लिकेशन की कार्य निर्देशिका में रखें। इसकी पहली स्लाइड में एक चार्ट है जिसमें एक अनग्रुप्ड एनोटेशन "Preliminary results", एक चार्ट-स्वामित्व वाली लाइन, और एक सामान्य स्लाइड टेक्स्ट बॉक्स "Slide overlay" है। यह उदाहरण उस स्लाइड पर पहला चार्ट खोजता है और रिपोर्ट प्रकाशित करने के तैयार होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली कलेक्शन की जाँच करता है और केवल एक [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) को संपादित करता है जिसकी टेक्स्ट फ्रेम `None` नहीं है, जो [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) द्वारा लौटाई गई है और अपेक्षित टेक्स्ट से मेल खाती है।
+Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) with a text frame other than `None` returned by [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) and the expected text.
 
 ```python
 import jpype
@@ -330,26 +392,26 @@ finally:
     presentation.dispose()
 ```
 
-लाइन और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहता है। निम्न छवियां इनपुट और सहेजी गई, फिर खोली गई परिणाम को दिखाती हैं:
+The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
 
 | संपादन से पहले | संपादन के बाद |
 | --- | --- |
-| ![प्रारंभिक परिणाम पढ़ता चार्ट एनोटेशन](chart-annotations-before.png) | ![अंतिम परिणाम पढ़ता चार्ट एनोटेशन](chart-annotations-after.png) |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-उदाहरण केवल शीर्ष-स्तर के चार्ट-स्वामित्व वाले शेप्स की जाँच करता है। यदि कोई एनोटेशन [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) के अंदर है, तो उस समूह की [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) कलेक्शन को भी जांचें। नेस्टेड समूहों के लिए इसे पुनरावर्ती रूप से दोहराएँ, उनके चाइल्ड शेप्स पर समान टेक्स्ट जांच लागू करें। एक समूह स्वयं एक कंटेनर है; इसे टेक्स्ट बॉक्स के रूप में न समझें।
+The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
 {{% /alert %}}
 
 ## **FAQ**
 
-**क्या मैं कॉलम/क्षेत्रों के लिए अर्ध-पारदर्शी फिल्स सेट कर सकता हूँ जबकि बॉर्डर को अपारदर्शी रखूँ?**
+**क्या मैं कॉलम/एरिया के लिए अर्ध-पारदर्शी फ़िल्स सेट कर सकता हूँ जबकि किनारा अपारदर्शी रहे?**
 
-हां। फ़िल ट्रांसपरेंसी और आउटलाइन को अलग-अलग कॉन्फ़िगर किया जाता है। यह घने विज़ुअलाइज़ेशन में ग्रिड और डेटा की पठनीयता सुधारने के लिए उपयोगी है।
+Yes. Fill transparency and the outline are configured separately. This is useful for improving the readability of the grid and data in dense visualizations.
 
 **डेटा लेबल ओवरलैप होने पर मैं कैसे निपटूँ?**
 
-फ़ॉन्ट आकार कम करें, गैर-आवश्यक लेबल घटकों को निष्क्रिय करें (उदाहरण के लिए, श्रेणियाँ), लेबल की स्थिति समायोजित करें, आवश्यकता पड़ने पर केवल चयनित पॉइंट्स के लिए लेबल दिखाएं, या फ़ॉर्मेट को "value + legend" में बदलें।
+Reduce the font size, disable nonessential label components (for example, categories), adjust the label position, show labels only for selected points if necessary, or switch the format to "value + legend".
 
 **क्या मैं सीरीज़ पर ग्रेडिएंट या पैटर्न फ़िल्स लागू कर सकता हूँ?**
 
-हां। सीरीज़ ठोस, ग्रेडिएंट और पैटर्न फ़िल्स का समर्थन करती हैं। व्यवहार में, ग्रेडिएंट को कम प्रयोग करें और ऐसी संयोजन से बचें जो ग्रिड और टेक्स्ट के साथ कंट्रास्ट को कम कर दें।
+Yes. Series support solid, gradient, and pattern fills. In practice, use gradients sparingly and avoid combinations that reduce contrast with the grid and text.

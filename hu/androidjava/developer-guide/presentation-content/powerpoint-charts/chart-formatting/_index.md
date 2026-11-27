@@ -1,5 +1,5 @@
 ---
-title: Formázza a prezentációs diagramokat Androidon
+title: Prezentáció diagramjainak formázása Androidon
 linktitle: Diagram formázása
 type: docs
 weight: 60
@@ -18,19 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg a diagram formázását az Aspose.Slides Android verziójában Java nyelven, és emelje fel PowerPoint prezentációját egyedi tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
+description: "Ismerje meg a diagramok formázását az Androidra szánt Aspose.Slides-ben Java segítségével, és emelje a PowerPoint prezentációját egyedi tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan formázhatók a diagramok PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan testreszabhatók a diagram fő elemei, például a tengelyek, rácsvonalak, címek, jelmagyarázatok, a diagramterület és a fal kitöltései, a diagram adatainak megjelenésének és olvashatóságának javítása érdekében.
+Ez a cikk bemutatja, hogyan formázhatók diagramok PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan testreszabhatók a diagram fontos elemei, például a tengelyek, rácsvonalak, címek, jelmagyarázatok, a grafikon területe és a falak kitöltései a diagram adatok megjelenésének és olvashatóságának javítása érdekében.
 
-Emellett bemutatja, hogyan állíthatók be a betűtípus‑tulajdonságok a diagram szövegeihez, hogyan alkalmazhatók előre definiált numerikus formátumok a diagram adataihoz, valamint hogyan engedélyezhetők a lekerekített sarkok a diagram területén. Ezek a példák egyaránt a diagram vizuális stílusát és az adatok megjelenítését szabályozzák egy prezentációban.
+Az is bemutatja, hogyan állíthatók be a betűtípus tulajdonságai a diagram szövegéhez, hogyan alkalmazhatók előre beállított numerikus formátumok a diagram adatokra, és hogyan engedélyezhetők a lekerekített sarkok a diagram területén. Ezek a példák együtt azt mutatják, hogyan szabályozható a diagramok vizuális stílusa és adatmegjelenítése egy prezentációban.
 
-## **Diagramelemek formázása**
+A növekvő és csökkenő intervallumok külön kitöltései és körvonalaival kapcsolatban lásd a [részvénydiagram példa](/slides/hu/androidjava/create-chart/#create-stock-charts).
 
-Használja a [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) felületet diagramcímek, tengelyek, rácsvonalak, jelmagyarázatok és diagramterület formázásához. Ez a példa egy jelölőkkel ellátott vonaldiagramot hoz létre alapértelmezett adatokkal, majd külön szöveg‑ és vonalstílusokat alkalmaz az érték‑ és kategóriatengelyeken. A betűméretek és vonalszélességek pontban vannak megadva; a kategória‑címkék 45 fokra vannak elforgatva.
+## **Formázza a diagram elemeit**
 
-Az értéktengely a [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) metódust használja a forráscelláktól függetlenül. Skálája -2‑től 15‑ig terjed, fő intervalluma 2, másodlagos intervalluma 0,5. A példa a százalékos formázást a [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) „ezer” beállításával kombinálja, ezért a beállításokat a saját adatainak jelentéséhez és nagyságrendjéhez igazítsa. A jelmagyarázat a diagramterület kívül marad, mivel a [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) `false` értékkel van meghívva. A hátfal és az alap kitöltései a [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) és a [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) segítségével állíthatók be, ezek a felületek azonban csak 3D diagramokban láthatók.
+Használja az [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) interfészt a diagram címek, tengelyek, rácsvonalak, jelmagyarázatok és a grafikon területének formázásához. Ez a példa egy jelölőkkel ellátott vonaldiagramot hoz létre alapértelmezett adatokkal, majd külön szöveg‑ és vonalstílusokat alkalmaz az értéktengelyre és a kategóriatengelyre. A betűméreteket és vonalszélességeket pontban adjuk meg; a kategóriacímkék 45 fokban vannak elforgatva.
+
+Az értéktengely a [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) metódust használja a forráscelláktól függetlenül. Skálája -2-től 15-ig terjed, nagyobb intervallumok 2‑esek, kisebb intervallumok 0,5‑esek. A példa a százalékos formázást kombinálja a [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) ezresekre beállításával, ezért ezeket a beállításokat igazítsa adatai jelentéséhez és nagyságához. A jelmagyarázat a grafikon területe kívül marad, mivel a [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) `false` értékkel van meghívva. A hátfal és a padló kitöltései a [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) és a [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--) segítségével állíthatók be, de ezek a felületek csak 3D diagramokban láthatók.
 
 ```java
 import com.aspose.slides.*;
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **Betűtípus‑tulajdonságok beállítása diagramhoz**
+## **Állítsa be a betűtípus tulajdonságait egy diagramhoz**
 
-Állítsa be a diagram szövegeinek alapértelmezett betűméretét a [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--) metódus segítségével. A példa egy csoportosított oszlopdiagramot hoz létre 20 pontos betűmérettel, és az első sorozat értékcímkéit a [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) `true` értékkel engedélyezi. A saját, kifejezetten megadott betűtípus beállításokkal rendelkező szövegelemek felülírhatják a diagram alapértelmezését.
+Állítsa be a diagram szövegének alapértelmezett betűméretét a [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--) segítségével. A példa egy csoportosított oszlopdiagramot hoz létre 20 pontos betűmérettel, és az első sorozathoz értékcímkéket engedélyez a [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) metódussal. A saját explicit betűtípus-beállításokkal rendelkező szövegelemek felülbírálhatják a diagram alapértelmezését.
 
 ```java
 import com.aspose.slides.*;
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **Szövegkeret formázás újrahasználata egy diagram jelmagyarázatához**
+
+A jelmagyarázat és a dia fejlécének egyeztetéséhez állítsa be a fejléc betűtípusát az első bekezdésen a [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) segítségével. Hívja meg a [copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) metódust a jelmagyarázat által visszaadott [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) formátumra. Ez átmásolja a szövegkeret beállításait, az első bekezdés formázását, valamint a bekezdés alapértelmezett betűtípus‑tulajdonságait. Az egyes részekre vagy későbbi bekezdésekre közvetlenül alkalmazott formázás a forráshoz lokálisan marad.
+
+A példa egy félkövér, 26 pontos Calibri fejlécre sötétkék színben használ sablonként. A jelmagyarázat stílusozása után a [copyTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) hívásával alkalmazza ugyanazt a formázást egy külön feliratra.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(Color.rgb(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A mentett prezentációban a jelmagyarázat és a felirat megegyezik a fejléccel méretben, súlyban és színben. A jelmagyarázat továbbra is a sorozatneveket jeleníti meg, és a felirat megőrzi saját szövegét. Ha a felirat egy része már rendelkezik explicit betűmérettel, az a méret precedálja a másolt bekezdés alapértelmezését.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Negyedéves értékesítési diagram szabályos fekete jelmagyarázat címkékkel és fekete felirattal](legend-formatting-before.png) | ![Ugyanaz a diagram nagyobb, félkövér sötétkék jelmagyarázat címkékkel és illeszkedő felirattal](legend-formatting.png) |
+
 ## **Numerikus formátum beállítása**
 
-Használja az [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) metódust beépített számformátum alkalmazásához a diagram munkafüzetcelláira. Ez a példa egy csoportosított oszlopdiagramot hoz létre alapértelmezett, cella‑alapú adatokkal, és a 10‑es formátumindexet (`0.00%`) alkalmazza minden sorozat értékcellájára. Ez a megjelenést módosítja a munkafüzetben anélkül, hogy a tényleges számok változnának; például a 0,25 érték 25,00 %-ként jelenik meg. A tengely‑ és adatcímke‑formátumok külön konfigurálhatók.
+Használja az [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) metódust a beépített számformátum diagram munkafüzetcellákra való alkalmazásához. Ez a példa egy alapértelmezett, cella‑alapú adatokkal rendelkező csoportosított oszlopdiagramot hoz létre, és a 10. formátumindexet (`0.00%`) alkalmazza minden sorozat értékcellájára. Ez módosítja, hogyan jelennek meg az értékek a munkafüzetben anélkül, hogy a mögöttes számok változnának; például a 0,25 25,00%-ként jelenik meg. A tengely- és adatcímke formátumok külön is konfigurálhatók.
 
 ```java
 import com.aspose.slides.*;
@@ -197,9 +253,9 @@ try {
 }
 ```
 
-Az alábbi táblázat a beépített számformátum‑indexeket sorolja fel a angol (Egyesült Államok) területi beállításokhoz tartozó jellemző Excel‑formátumokkal. A pontos formátumkarakterláncok és megjelenítésük alkalmazásonként és területenként eltérhet, különösen a pénznemek és dátumok esetében. Néhány Excel‑formátum eltér az OOXML szabvány alapértelmezéseitől, ahogy azt a [Microsoft számformátum‑implementációs megjegyzéseiben](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) leírják.
+Az alábbi táblázat felsorolja a beépített számformátum indexeket, reprezentatív Excel formátumokkal az angol (Egyesült Államok) helyi beállításhoz. A pontos formátumsztringek és megjelenítésük alkalmazásonként és helyi beállításonként változhat, különösen pénznem és dátum esetén. Néhány Excel formátum eltér az OOXML szabvány alapértelmezéseitől, amint azt a [Microsoft számformátum-implementációs megjegyzéseiben](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) leírják.
 
-| Index | Formátum |
+| Index | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -238,9 +294,9 @@ Az alábbi táblázat a beépített számformátum‑indexeket sorolja fel a ang
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Lekerekített szegélyek beállítása a diagramterületen**
+## **A diagram területének lekerekített szegélyeinek beállítása**
 
-Hívja meg az [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) metódust `true` értékkel a diagramterület sarkainak lekerekítéséhez. A példa egy csoportosított oszlopdiagramot hoz létre, és a [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) segítségével szilárd szürke színt és egyvonalas stílust ad a körvonalnak, mielőtt elmentené a prezentációt.
+Hívja meg az [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) metódust `true` értékkel a diagram területének sarkainak lekerekítéséhez. A példa egy csoportosított oszlopdiagramot hoz létre, és a [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) segítségével szilárd szürke színt és egysoros stílust ad a körvonalnak, mielőtt mentené a prezentációt.
 
 ```java
 import com.aspose.slides.*;
@@ -262,13 +318,13 @@ try {
 }
 ```
 
-## **Meglévő diagramjegyzetek szerkesztése**
+## **Meglévő diagram annotációk szerkesztése**
 
-Egy diagram tartalmazhat egyedi alakzatokat, például olyan szöveges megjegyzést, amely a jelentés állapotát magyarázza. Ezeket az alakzatokat a [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--) vagy a [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) API‑kön keresztül érheti el. A [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) által visszaadott gyűjtemény a diagramhoz tartozó alakzatokat tartalmazza.
+Egy diagram tartalmazhat egyedi alakzatokat, például egy szöveges annotációt, amely a jelentés állapotát magyarázza. Ezeket az alakzatokat a [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--) segítségével érheti el, amely szintén a [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) alatt szerepel a Diagram API referencia részében. A [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) által visszaadott gyűjtemény a diagramhoz tartozó alakzatokat tartalmazza.
 
-Egy diagram fölé helyezett egyszerű szövegdoboz a diára tartozik, még ha úgy néz is ki, mintha a diagram része lenne. A [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) iterálásával megtalálja a diagramot és a diagramon kívüli diaképeket, de a diagramon belüli egyedi alakzatokat nem sorolja fel. A diagramcímek és adatcímkék külön diagramelemek, nem egyedi megjegyzések ebben a gyűjteményben.
+Egy szokásos szövegdoboz, amely a diagram fölött van elhelyezve, a diára tartozik, még ha úgy is tűnik, mintha a diagram része lenne. A [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) bejárása megtalálja a diagramot és a szokásos diaalakzatokat, de nem listázza a diagramon belüli egyedi alakzatokat. A diagramcímek és adatcímkék külön diagramelemek, nem egyedi annotációk ebben a gyűjteményben.
 
-Töltse le a [chart-annotations.pptx](chart-annotations.pptx) fájlt, és helyezze el az alkalmazás munkakönyvtárában. Az első dián egy diagram látható, amely egy csoportosítatlan megjegyzést („Preliminary results”), egy diagramhoz tartozó vonalat és egy egyszerű diaszövegdobozt („Slide overlay”) tartalmaz. A példa megtalálja az első diagramot azon a dián, és módosítja a megjegyzést „Final results” szövegre, amikor a jelentés közzétételre készül. Ellenőrzi, hogy a gyűjtemény nem üres, és csak akkor szerkeszt egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet, ha annak nem üres a [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) által visszaadott szövegkerete, és a várt szöveget tartalmazza.
+Töltse le a [chart-annotations.pptx](chart-annotations.pptx) fájlt, és helyezze el az alkalmazás munkakönyvtárában. Az első diája egy diagramot tartalmaz egy csoportosítatlan annotációval, amely "Preliminary results" szöveget jelenít meg, egy diagramhoz tartozó vonallal és egy szokásos dia szövegdobozzal, amely "Slide overlay" szöveget tartalmaz. A példa megtalálja az első diagramot azon a dián, és a jelentés közzétételére készen állva megváltoztatja az annotációt "Final results"-re. Ellenőrzi, hogy a gyűjtemény nem üres, és csak egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) elemet szerkeszt, amelynek nemnulla a szövegkerete a [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) által visszaadott, és a várt szöveget tartalmazza.
 
 ```java
 import com.aspose.slides.*;
@@ -312,28 +368,26 @@ try {
 }
 ```
 
-A vonal és a diaszövegdoboz változatlan marad. Az alábbi képek a bemeneti és a mentett, újra megnyitott eredményt mutatják:
+A vonal és a dia szövegdoboz változatlan marad. Az alábbi képek a bemeneti és a mentett, újra megnyitott eredményt mutatják:
 
-| Szerkesztés előtt | Szerkesztés után |
+| Before editing | After editing |
 | --- | --- |
-| ![Diagramjegyzet – Preliminary results](chart-annotations-before.png) | ![Diagramjegyzet – Final results](chart-annotations-after.png) |
+| ![Diagram annotáció, amely "Preliminary results" szöveget tartalmaz](chart-annotations-before.png) | ![Diagram annotáció, amely "Final results" szöveget tartalmaz](chart-annotations-after.png) |
 
-{{% alert color="info" title="Megjegyzés" %}}
-
-A példa csak a legfelső szintű, diagramhoz tartozó alakzatokat vizsgálja. Ha egy megjegyzés egy [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) belsejében van, vizsgálja meg annak [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) gyűjteményét is. Ezt rekurzívan ismételje a beágyazott csoportokra, ugyanazokat a szövegellenőrzéseket alkalmazva a gyermekalakzatokra. A csoport önmagában egy tároló; ne kezelje szövegdobozként.
-
+{{% alert color="info" title="Note" %}}
+A példa csak a legfelső szintű diagramhoz tartozó alakzatokat vizsgálja. Ha egy annotáció egy [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) belsejében van, akkor ellenőrizze annak csoportjának a [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) gyűjteményét is. Ismételje meg rekurzívan a beágyazott csoportok esetén, ugyanazokat a szövegellenőrzéseket alkalmazva a gyermek alakzatokra. Egy csoport önmagában egy tároló; ne kezelje szövegdobozként.
 {{% /alert %}}
 
-## **GYIK**
+## **FAQ**
 
-**Beállíthatok-e félig átlátszó kitöltést az oszlopok/területek számára, miközben a szegély opak marad?**
+**Beállíthatok félig átlátszó kitöltéseket oszlopoknak/területeknek, miközben a keret átlátszatlan marad?**
 
-Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez különösen hasznos a rács és az adatok olvashatóságának javításához sűrű vizualizációkban.
+Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez hasznos a rács és az adatok olvashatóságának javításához sűrű vizualizációk esetén.
 
-**Hogyan kezeljem a címkéket, ha átfedik egymást?**
+**Hogyan kezeljem az adatcímkéket, ha átfedik egymást?**
 
-Csökkentse a betűméretet, tiltsa le a nem lényeges címkeösszetevőket (például a kategóriákat), állítsa át a címkehelyzetet, szükség esetén csak a kiválasztott pontok címkéit jelenítse meg, vagy váltsa “érték + jelmagyarázat” formátumra.
+Csökkentse a betűméretet, tiltsa le a nem szükséges címkeelemeket (például a kategóriákat), állítsa be a címke pozícióját, ha szükséges, csak a kiválasztott pontokhoz jelenítse meg a címkéket, vagy váltson a "value + legend" formátumra.
 
-**Alkalmazhatok‑e fokozat vagy minta kitöltést sorozatokra?**
+**Alkalmazhatok színátmenetes vagy mintás kitöltéseket a sorozatokra?**
 
-Igen. A sorozatok támogatják a szilárd, fokozatos és minta kitöltéseket. Gyakorlatban használjon fokozatot mértékkel, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.
+Igen. A sorozatok támogatják a szilárd, színátmenetes és mintás kitöltéseket. Gyakorlatban használjon színátmeneteket takarékosan, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rácshoz és a szöveghez.

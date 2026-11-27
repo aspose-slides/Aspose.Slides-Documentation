@@ -1,36 +1,38 @@
 ---
-title: JavaScript'te Sunum Grafiklerini Biçimlendir
+title: JavaScript'te Sunum Grafiklerini Biçimlendirme
 linktitle: Grafik Biçimlendirme
 type: docs
 weight: 60
 url: /tr/nodejs-java/chart-formatting/
 keywords:
 - grafik biçimlendirme
-- grafik formatı
+- grafik biçimlendirme
 - grafik varlığı
 - grafik özellikleri
 - grafik ayarları
 - grafik seçenekleri
 - yazı tipi özellikleri
-- yuvarlatılmış kenar
+- yuvarlak kenar
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js ile JavaScript'te grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı biçimleri ve yuvarlatılmış grafik kenarlarıyla PowerPoint sunumunuzu geliştirin."
+description: "Aspose.Slides for Node.js'te Java üzerinden grafik biçimlendirmeyi öğrenin ve özelleştirilmiş eksenler, yazı tipleri, sayı biçimleri ve yuvarlak grafik kenarlarıyla PowerPoint sunumunuzu yükseltin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafiklerin nasıl biçimlendirileceğini açıklar. Eksenler, ızgara çizgileri, başlıklar, lejandlar, grafik alanı ve duvar doldurulmaları gibi önemli grafik öğelerinin nasıl özelleştirileceğini göstererek grafik verilerinin görünümünü ve okunabilirliğini artırır.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafikleri nasıl biçimlendireceğinizi açıklar. Ekseni, ızgara çizgileri, başlıklar, açıklamalar, çizim alanı ve duvar doldurmaları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
 
-Ayrıca grafik metni için yazı tipi özelliklerinin nasıl ayarlandığını, grafik verilerine önceden tanımlı sayısal biçimlerin nasıl uygulandığını ve grafik alanının köşe yuvarlamalarının nasıl etkinleştirileceğini gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edebileceğinizi gösterir.
+Ayrıca, grafik metni için yazı tipi özelliklerinin nasıl ayarlanacağını, grafik verilerine önceden tanımlı sayısal biçimlerin nasıl uygulanacağını ve grafik alanı için yuvarlak köşelerin nasıl etkinleştirileceğini gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edileceğini gösterir.
 
-## **Grafik Öğelerini Biçimlendir**
+Yükselen ve düşen aralıklar için ayrı doldurmalar ve kenarlıklar hakkında, [hisse senedi grafik örneği](/slides/tr/nodejs-java/create-chart/#create-stock-charts) bölümüne bakın.
 
-Use [Grafik](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
+## **Grafik Öğelerini Biçimlendirme**
 
-The value axis uses [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) and [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), but these surfaces are only visible in 3D charts.
+Grafik başlıklarını, eksenleri, ızgara çizgilerini, açıklamaları ve çizim alanını biçimlendirmek için [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) kullanın. Bu örnek, işaretçileri ve varsayılan verileri içeren bir çizgi grafiği oluşturur ve ardından değer ve kategori eksenlerine ayrı metin ve çizgi stilleri uygular. Yazı tipi boyutları ve çizgi kalınlıkları puan cinsinden belirtilir; kategori etiketleri 45 derece döndürülür.
+
+Değer ekseni, kaynak hücrelerden bağımsız olarak [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) kullanır. Ölçeği -2 ile 15 arasında olup, ana aralıkları 2 ve yan aralıkları 0,5 şeklindedir. Örnek ayrıca yüzde biçimlendirmesini binlik birim olarak ayarlanan [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) ile birleştirir; bu ayarları verinizin anlamı ve büyüklüğüne göre uyarlayın. Açıklama, [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) `false` olarak çağrıldığı için çizim alanının dışında kalır. Arkafon duvarı ve zemin doldurmaları, [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) ve [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) aracılığıyla yapılandırılır, ancak bu yüzeyler yalnızca 3B grafiklerde görülür.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **Bir Grafik İçin Yazı Tipi Özelliklerini Ayarla**
+## **Grafik için Yazı Tipi Özelliklerini Ayarlama**
 
-Set the default font size for chart text through [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Text elements with their own explicit font settings can override the chart default.
+Grafik metni için varsayılan yazı tipi boyutunu [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) aracılığıyla ayarlayın. Örnek, 20 puanlık bir yazı tipiyle kümelenmiş bir sütun grafik oluşturur ve ilk seri için değer etiketlerini [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) ile etkinleştirir. Kendi açık yazı tipi ayarlarına sahip metin öğeleri, grafiğin varsayılanını geçersiz kılabilir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
-## **Sayısal Biçimi Ayarla**
+## **Grafik Açıklaması için Metin Çerçevesi Biçimlendirmesini Yeniden Kullanma**
 
-Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
+Bir açıklamayı slayt başlığıyla eşleştirmek için, ilk paragrafta başlığın yazı tipini [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ile ayarlayın. Açıklamanın [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat) tarafından döndürülen biçim üzerinde [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) metodunu çağırın. Bu, metin çerçevesi ayarlarını, ilk paragrafın biçimini ve o paragrafın varsayılan yazı tipi özelliklerini kopyalar. Bireysel bölümlere veya sonraki paragraflara doğrudan uygulanan biçimlendirme, kaynağa özgü kalır.
+
+Örnek, lacivert renkte kalın, 26 puanlık Calibri başlığı şablon olarak kullanır. Açıklamayı biçimlendirdikten sonra, aynı biçimi ayrı bir başlığa uygulamak için [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) metodunu çağırır.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kaydedilen sunumda, açıklama ve başlık boyut, kalınlık ve renkte başlıkla eşleşir. Açıklama hâlâ seri adlarını gösterir ve başlık kendi metnini korur. Başlıktaki bir bölümde zaten açık bir yazı tipi boyutu varsa, bu boyut kopyalanan paragraf varsayılanının üzerinedir.
+
+| Kopyalamadan önce | Kopyalamadan sonra |
+| --- | --- |
+| ![Düzenli siyah açıklama etiketleri ve siyah başlık içeren çeyrek dönem satış grafiği](legend-formatting-before.png) | ![Aynı grafik, daha büyük, kalın lacivert açıklama etiketleri ve eşleşen bir başlık](legend-formatting.png) |
+
+## **Sayısal Biçimi Ayarlama**
+
+[ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) kullanarak grafik çalışma kitabı hücrelerine yerleşik bir sayı biçimi uygulayın. Bu örnek, varsayılan hücre tabanlı verilerle kümelenmiş bir sütun grafik oluşturur ve her seri değer hücresine format indeksi 10 (`0.00%`) uygular. Bu, temel sayıları değiştirmeden değerlerin çalışma kitabında nasıl görüneceğini değiştirir; örneğin 0.25, %25.00 olarak gösterilir. Eksen ve veri etiketi biçimleri ayrı ayrı yapılandırılabilir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -188,7 +244,7 @@ try {
         let chartSeries = series.get_Item(i);
         for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
             let dataPoint = chartSeries.getDataPoints().get_Item(j);
-            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0,00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0.00%
         }
     }
 
@@ -198,7 +254,7 @@ try {
 }
 ```
 
-Aşağıdaki tablo, İngiliz (Amerika Birleşik Devletleri) yerel ayarı için temsilci Excel biçimleriyle birlikte yerleşik sayı biçimi indekslerini listeler. Tam biçim dize ve görüntüleri uygulamaya ve yerel ayara göre değişebilir, özellikle para birimi ve tarih formatları için. Bazı Excel biçimleri, OOXML standardındaki varsayılanlardan farklıdır; bunlar [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklanmıştır.
+Aşağıdaki tablo, İngiliz (Amerika Birleşik Devletleri) yerel ayarı için temsilci Excel biçimleriyle yerleşik sayı formatı indekslerini listeler. Tam biçim dizesi ve görüntüsü, özellikle para birimi ve tarih için, uygulama ve bölgeye göre değişebilir. Bazı Excel biçimleri, [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklandığı gibi OOXML standardındaki varsayılanlardan da farklıdır.
 
 | İndeks | Biçim |
 | --- | --- |
@@ -239,9 +295,9 @@ Aşağıdaki tablo, İngiliz (Amerika Birleşik Devletleri) yerel ayarı için t
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Grafik Alanının Yuvarlatılmış Kenarlarını Ayarla**
+## **Grafik Alanı Yuvarlak Kenarlar Ayarlama**
 
-Call [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) to give its outline a solid gray color and a single-line style before saving the presentation.
+[Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) metodunu `true` ile çağırarak grafik alanının köşelerini yuvarlatın. Örnek, kümelenmiş bir sütun grafik oluşturur ve sunumu kaydetmeden önce kenarlığına katı gri bir renk ve tek çizgi stili vermek için [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) metodunu kullanır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -263,13 +319,13 @@ try {
 }
 ```
 
-## **Mevcut Grafik Açıklamalarını Düzenle**
+## **Mevcut Grafik Açıklamalarını Düzenleme**
 
-A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). The collection returned by [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) contains the chart-owned shapes.
+Bir grafik, rapor durumunu açıklayan bir metin açıklaması gibi özel şekiller içerebilir. Bu şekillere [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) aracılığıyla erişin. [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) tarafından döndürülen koleksiyon, grafik tarafından sahip olunan şekilleri içerir.
 
-An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+Bir grafiğin üzerine yerleştirilen normal bir metin kutusu, grafiğin bir parçası gibi görünse bile slayta aittir. [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) üzerinden yineleme, grafiği ve normal slayt şekillerini bulur, ancak grafiğin içindeki bireysel şekilleri saymaz. Grafik başlıkları ve veri etiketleri ayrı grafik öğeleridir, bu koleksiyondaki özel açıklamalar değildir.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) and the expected text.
+[chart-annotations.pptx](chart-annotations.pptx) dosyasını indirin ve uygulamanın çalışma dizinine koyun. İlk slaytı, "Preliminary results" (Ön sonuçlar) yazan ayrı bir açıklama, grafik tarafından sahip olunan bir çizgi ve "Slide overlay" (Slayt kaplaması) yazan normal bir slayt metin kutusu içeren bir grafik içerir. Örnek, o slayttaki ilk grafiği bulur ve rapor yayınlanmaya hazır olduğunda açıklamayı "Final results" (Sonuçlar) olarak değiştirir. Boş bir koleksiyon olup olmadığını kontrol eder ve yalnızca [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) içinde [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) tarafından döndürülen null olmayan bir metin çerçevesi ve beklenen metin bulunan şekli düzenler.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,26 +371,26 @@ try {
 }
 ```
 
-The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+Çizgi ve slayt metin kutusu değişmeden kalır. Aşağıdaki görseller girişi ve kaydedilip yeniden açılan sonucu gösterir:
 
-| Düzenlemeden Önce | Düzenledikten Sonra |
+| Düzenlemeden önce | Düzenlemeden sonra |
 | --- | --- |
-| ![Grafik açıklaması Preliminary results](chart-annotations-before.png) | ![Grafik açıklaması Final results](chart-annotations-after.png) |
+| ![Ön sonuçlar yazan grafik açıklaması](chart-annotations-before.png) | ![Sonuçlar yazan grafik açıklaması](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
+Örnek yalnızca üst düzey grafik‑sahibi şekilleri inceler. Bir açıklama bir [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) içinde ise, o grubun [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) koleksiyonunu da inceleyin. İç içe gruplar için bu işlemi yineleyin ve aynı metin kontrollerini alt şekillere uygulayın. Bir grup kendisi bir kapsayıcıdır; onu bir metin kutusu gibi işlemeyin.
 {{% /alert %}}
 
 ## **SSS**
 
 **Sütunlar/alanlar için yarı şeffaf doldurmayı, kenarlığı opak tutarak ayarlayabilir miyim?**
 
-Evet. Doldurmanın şeffaflığı ve kontur ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve veri okunabilirliğini artırmak için yararlıdır.
+Evet. Doldurma şeffaflığı ve kenarlık ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verilerin okunabilirliğini artırmak için faydalıdır.
 
-**Etiketler çakıştığında nasıl bir çözüm uygulamalıyım?**
+**Veri etiketleri üst üste geldiğinde nasıl başa çıkabilirim?**
 
-Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini kapatın (örneğin kategorileri), etiket konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiket gösterin veya formatı “değer + lejand” olarak değiştirin.
+Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini (örneğin, kategorileri) devre dışı bırakın, etiket konumunu ayarlayın, gerekirse yalnızca seçilen noktalar için etiketleri gösterin veya biçimi "değer + açıklama" olarak değiştirin.
 
-**Serilere degrade veya desen dolguları uygulayabilir miyim?**
+**Serilere degrade veya desen doldurması uygulayabilir miyim?**
 
-Evet. Seriler katı, degrade ve desen dolgularını destekler. Pratikte, degradeleri sınırlı kullanın ve ızgara ile metin arasındaki kontrastı azaltan kombinasyonlardan kaçının.
+Evet. Seriler katı, degrade ve desen doldurmaları destekler. Uygulamada, degradeleri ölçülü kullanın ve ızgara ve metinle kontrastı azaltan kombinasyonlardan kaçının.

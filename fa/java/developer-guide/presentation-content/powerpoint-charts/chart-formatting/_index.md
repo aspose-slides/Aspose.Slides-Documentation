@@ -12,24 +12,26 @@ keywords:
 - تنظیمات نمودار
 - گزینه‌های نمودار
 - ویژگی‌های قلم
-- مرزهای گرد
+- حاشیه گرد
 - PowerPoint
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-description: "قالب‌بندی نمودارها را در Aspose.Slides برای جاوا بیاموزید و ارائهٔ PowerPoint خود را با محورها، قلم‌ها، فرمت‌های عددی و مرزهای گرد سفارشی ارتقا دهید."
+description: "چگونگی قالب‌بندی نمودارها را در Aspose.Slides برای جاوا بیاموزید و ارائه PowerPoint خود را با محورها، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد سفارشی‌سازی شده ارتقا دهید."
 ---
-## **مروری**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه با استفاده از Aspose.Slides نمودارها را در ارائه‌های PowerPoint قالب‌بندی کنیم. نحوهٔ سفارشی‌سازی عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، افسانه‌ها، ناحیهٔ ترسیم و پرکنندگی‌های دیوارها را نشان می‌دهد تا ظاهر و قابلیت خواندن داده‌های نمودار بهبود یابد.
+این مقاله توضیح می‌دهد که چگونه با استفاده از Aspose.Slides نمودارها را در ارائه‌های PowerPoint قالب‌بندی کنید. این مقاله نشان می‌دهد که چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، افسانه‌ها، ناحیه نمودار و پرکردن دیوارها را سفارشی کنید تا ظاهر و قابلیت خواندن داده‌های نمودار بهبود یابد.
 
-همچنین نشان می‌دهد چگونه ویژگی‌های قلم برای متن نمودار تنظیم شود، فرمت‌های عددی از پیش تعریف‌شده به داده‌های نمودار اعمال گردد و گوشه‌های مدور برای ناحیهٔ نمودار فعال شود. این مثال‌ها به‌صورت ترکیبی کنترل سبک بصری و ارائهٔ داده‌های نمودار در یک ارائه را نشان می‌دهند.
+همچنین نشان می‌دهد چگونه خصوصیات قلم برای متن نمودار تنظیم شود، قالب‌های عددی پیش‌فرض بر داده‌های نمودار اعمال شود و گوشه‌های گرد برای ناحیه نمودار فعال شود. این مثال‌ها نشان می‌دهند چگونه سبک بصری و ارائه داده‌های نمودارها در یک ارائه را کنترل کنید.
 
-## **قالب‌گذاری موجودیت‌های نمودار**
+برای پرکردن‌ها و خطوط مرزی جداگانه در فواصل صعودی و نزولی، مثال [مثال نمودار سهام](/slides/fa/java/create-chart/#create-stock-charts) را ببینید.
 
-از [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) برای قالب‌گذاری عناوین، محورها، خطوط شبکه، افسانه‌ها و ناحیهٔ ترسیم استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند، سپس سبک‌های متن و خط را به‌صورت جداگانه برای محور مقدار و محور دسته‌بندی اعمال می‌کند. اندازهٔ قلم‌ها و عرض خطوط برحسب پوینت تعیین می‌شود؛ برچسب‌های دسته‌بندی به‌صورت 45 درجه چرخانده می‌شوند.
+## **قالب‌بندی موجودیت‌های نمودار**
 
-محور مقدار از متد [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است و فواصل اصلی 2 و فواصل جزئی 0.5 هستند. این مثال همچنین قالب‌بندی درصدی را همراه با تنظیم [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) به هزارها ترکیب می‌کند، بنابراین این تنظیمات را بر حسب معنای داده‌ها و مقیاس آن تنظیم کنید. افسانه به‌دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) با مقدار `false` در خارج از ناحیهٔ ترسیم می‌ماند. پرکنندگی‌های دیوار پشت و کف از طریق [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) و [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--) پیکربندی می‌شوند، اما این سطوح تنها در نمودارهای سه‌بعدی قابل مشاهده هستند.
+از [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، افسانه‌ها و ناحیه نمودار استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند و سپس سبک‌های متن و خط جداگانه‌ای را برای محور مقدار و محور دسته‌بندی اعمال می‌کند. اندازه قلم و ضخامت خطوط به پوینت مشخص شده‌اند؛ برچسب‌های دسته‌بندی با 45 درجه چرخانده می‌شوند.
+
+محور مقدار از [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از ‑2 تا 15 است، با فواصل اصلی 2 و فواصل فرعی 0.5. این مثال همچنین قالب‌گذاری درصدی را با [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) تنظیم شده بر هزارها ترکیب می‌کند، بنابراین این تنظیمات را به معنا و مقیاس داده‌های خود وفق دهید. افسانه به‌دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) با `false` خارج از ناحیه نمودار می‌ماند. پرکردن‌های پشت‌دیوار و کف از طریق [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) و [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--) پیکربندی می‌شوند، اما این سطوح فقط در نمودارهای سه‌بعدی قابل مشاهده‌اند.
 
 ```java
 import com.aspose.slides.*;
@@ -147,9 +149,9 @@ try {
 }
 ```
 
-## **تنظیم ویژگی‌های قلم برای یک نمودار**
+## **تنظیم خصوصیات قلم برای یک نمودار**
 
-اندازهٔ قلم پیش‌فرض برای متن نمودار از طریق [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--) تنظیم می‌شود. این مثال یک نمودار ستونی خوشه‌ای با قلم 20‑پوینت ایجاد می‌کند و برچسب‌های مقدار را برای اولین سری از طریق [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) فعال می‌سازد. عناصر متنی که تنظیمات قلم صریح خود را دارند می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
+اندازه قلم پیش‌فرض برای متن نمودار را از طریق [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20 پوینت ایجاد می‌کند و برچسب‌های مقدار را برای سری اول از طریق [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) فعال می‌سازد. عناصر متنی با تنظیمات قلم صریح خود می‌توانند پیش‌فرض نمودار را نادیده بگیرند.
 
 ```java
 import com.aspose.slides.*;
@@ -168,9 +170,63 @@ try {
 }
 ```
 
+## **بازاستفاده از قالب‌بندی قاب متن برای افسانه نمودار**
+
+برای مطابقت افسانه با عنوان اسلاید، قلم عنوان را از طریق [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) در اولین پاراگراف تنظیم کنید. سپس [copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) را بر روی قالب بازگردانده شده از [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) افسانه فراخوانی کنید. این کار تنظیمات قاب متن، قالب‌بندی اولین پاراگراف و خصوصیات قلم پیش‌فرض آن پاراگراف را کپی می‌کند. قالب‌بندی اعمال‌شده مستقیم به بخش‌های فردی یا به پاراگراف‌های بعدی فقط به منبع محلی می‌ماند.
+
+مثال از یک عنوان بولد، 26 پوینت Calibri با رنگ سرمئی به‌عنوان قالب استفاده می‌کند. پس از استایل‌دهی به افسانه، [copyTo](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) را فراخوانی می‌کنیم تا همان قالب به یک زیرنویس جداگانه اعمال شود.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(new Color(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+در ارائه ذخیره‌شده، افسانه و زیرنویس از نظر اندازه، وزن و رنگ با عنوان مطابقت دارند. افسانه هنوز نام‌های سری‌ها را نشان می‌دهد و زیرنویس متن خود را حفظ می‌کند. اگر بخشی در زیرنویس قبلاً اندازه قلم صریح داشته باشد، آن اندازه بر پیش‌فرض پاراگراف کپی‌شده اولویت دارد.
+
+| قبل از کپی | بعد از کپی |
+| --- | --- |
+| ![نمودار فروش فصلی با برچسب‌های افسانه سیاه عادی و زیرنویس سیاه](legend-formatting-before.png) | ![نمودار مشابه با برچسب‌های افسانه بزرگتر، توپر نیرویی و زیرنویس منطبق](legend-formatting.png) |
+
 ## **تنظیم قالب عددی**
 
-از [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) برای اعمال یک قالب عددی از پیش تعریف‌شده به سلول‌های کاربرگ نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض، پشتیبانی‌شده توسط سلول‌ها ایجاد می‌کند و اندیس قالب 10 (`0.00%`) را به هر سلول مقدار سری اعمال می‌دارد. این کار نحوهٔ نمایش مقادیر را در کاربرگ تغییر می‌دهد بدون اینکه عددهای پایه تغییر کنند؛ به‌عنوان مثال، 0.25 به‌صورت 25.00% نمایش داده می‌شود. قالب محور و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
+از [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) برای اعمال قالب عددی پیش‌ساخته به سلول‌های کتاب‌عمل نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض و پشتیبانی سلولی ایجاد می‌کند و ایندکس قالب 10 (`0.00%`) را به هر سلول مقدار سری اعمال می‌نماید. این کار نحوه نمایش مقادیر را در کتاب‌کار بدون تغییر اعداد پایه تغییر می‌دهد؛ برای مثال 0.25 به صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب‌های داده می‌توانند جداگانه پیکربندی شوند.
 
 ```java
 import com.aspose.slides.*;
@@ -196,9 +252,9 @@ try {
 }
 ```
 
-جدول زیر فهرستی از اندیس‌های قالب عددی از پیش تعریف‌شده به همراه قالب‌های نمایشی Excel برای محلّی «English (United States)» را نشان می‌دهد. رشته‌های قالب دقیق و نمایش آن‌ها می‌تواند بسته به برنامه و محلّی متفاوت باشد، به‌ویژه برای ارز و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML متفاوت هستند، همان‌طور که در [یادداشت‌های پیاده‌سازی فرمت عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توصیف شده است.
+جدول زیر فهرست ایندکس‌های قالب عددی پیش‌ساخته را با قالب‌های نمایشی Excel برای تنظیمات محلی انگلیسی (ایالات متحده) نشان می‌دهد. رشته‌های قالب دقیق و نمایش آن می‌تواند بسته به برنامه و تنظیمات محلی متفاوت باشد، به‌ویژه برای ارزها و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML متفاوت هستند، همان‌طور که در [یادداشت‌های پیاده‌سازی قالب عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
 
-| شاخص | قالب |
+| شناسه | قالب |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -237,9 +293,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **گوشه‌های گرد ناحیهٔ نمودار**
+## **تنظیم گوشه‌های گرد ناحیه نمودار**
 
-با فراخوانی [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) مقدار `true`، گوشه‌های ناحیهٔ نمودار گرد می‌شوند. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و با استفاده از [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) به مرز آن رنگ خاکستری جامد و سبک خط تک‌خطی می‌دهد پیش از ذخیرهٔ ارائه.
+با فراخوانی [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) با مقدار `true`، گوشه‌های ناحیه نمودار را گرد کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) برای رنگ خاکستری ثابت و سبک خط تک استفاده می‌کند قبل از ذخیره‌سازی ارائه.
 
 ```java
 import com.aspose.slides.*;
@@ -261,13 +317,13 @@ try {
 }
 ```
 
-## **ویرایش حاشیه‌نویسی‌های موجود در نمودار**
+## **ویرایش حواشی موجود نمودار**
 
-یک نمودار می‌تواند اشکال سفارشی مانند حاشیه‌نویسی متنی که وضعیت یک گزارش را توضیح می‌دهد، داشته باشد. به این اشکال می‌توانید از طریق [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--) که همچنین در [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) در مرجع API نمودار فهرست شده است، دسترسی پیدا کنید. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) برگردانده می‌شود، شامل اشکال متعلق به نمودار است.
+یک نمودار می‌تواند اشکال سفارشی مانند حاشیه متنی که وضعیت گزارش را توضیح می‌دهد، داشته باشد. به این اشکال از طریق [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--) که همچنین تحت [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) در مرجع API نمودار آمده است، دسترسی پیدا کنید. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) برگردانده می‌شود، اشکال متعلق به نمودار را شامل می‌شود.
 
-یک جعبه متن معمولی که بر روی نمودار قرار می‌گیرد، متعلق به اسلاید است، حتی اگر شبیه بخشی از نمودار به نظر برسد. پیمایش از طریق [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) نمودار و اشکال معمولی اسلاید را می‌یابد، اما اشکال فردی داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
+یک کادر متن عادی که بر روی نمودار قرار می‌گیرد، به اسلاید تعلق دارد، حتی اگر شبیه بخشی از نمودار به‌نظر برسد. پیمایش [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) نمودار و اشکال عادی اسلاید را پیدا می‌کند اما اشکال فردی داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده المان‌های جداگانه‌ای هستند، نه حاشیه‌های سفارشی در این مجموعه.
 
-فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشهٔ کاری برنامه قرار دهید. اسلاید اول آن حاوی یک نمودار با حاشیه‌نویسی جداشدهٔ «Preliminary results»، یک خط متعلق به نمودار و یک جعبه متن اسلایدی «Slide overlay» است. مثال اولین نمودار در آن اسلاید را پیدا می‌کند و حاشیه‌نویسی را به «Final results» تغییر می‌دهد وقتی گزارش آماده انتشار است. ابتدا بررسی می‌کند که مجموعه خالی نیست و تنها یک [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) با قاب متن غیر‑خالی که توسط [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) برگردانده می‌شود و متن مورد انتظار دارد را ویرایش می‌کند.
+فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن حاوی نموداری با حاشیه‌ی غیرگروه‌شده‌ای به متن «Preliminary results»، خط متعلق به نمودار و کادر متن عادی اسلاید با متن «Slide overlay» است. مثال اولین نمودار موجود در آن اسلاید را پیدا می‌کند و حاشیه را به «Final results» تغییر می‌دهد وقتی گزارش آماده انتشار باشد. ابتدا بررسی می‌شود که مجموعه خالی نیست و سپس فقط یک [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) با فریم متنی غیر خالی که توسط [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) بازگردانده می‌شود و متن مورد انتظار دارد، ویرایش می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -311,26 +367,26 @@ try {
 }
 ```
 
-خط و جعبه متن اسلاید بدون تغییر می‌مانند. تصاویر زیر ورودی و نتیجهٔ ذخیره‌شده و بازگشایی‌شده را نمایش می‌دهند:
+خط و کادر متن اسلاید بدون تغییر می‌مانند. تصاویر زیر ورودی و نتیجه‌ی ذخیره‑شده را نشان می‌دهند:
 
 | قبل از ویرایش | بعد از ویرایش |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![حاشیه نمودار با متن Preliminary results](chart-annotations-before.png) | ![حاشیه نمودار با متن Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-مثال فقط اشکال سطح‑بالای متعلق به نمودار را بررسی می‌کند. اگر حاشیه‌نویسی داخل یک [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/) باشد، مجموعهٔ [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) آن گروه را نیز مورد بررسی قرار دهید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو انجام دهید و همان بررسی‌های متنی را برای اشکال فرزند اعمال کنید. خود گروه یک контейнер است؛ آن را به‌عنوان جعبه متن در نظر نگیرید.
+مثال فقط به اشکال سطح بالای متعلق به نمودار نگاه می‌کند. اگر حاشیه‌ای داخل یک [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/) باشد، مجموعه‌ی [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و همان بررسی‌های متن را بر روی اشکال فرزندشان اعمال کنید. یک گروه خودش یک محفظه است؛ آن را به‌عنوان کادر متن در نظر نگیرید.
 {{% /alert %}}
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم پرکنندگی‌های نیمه‑شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که مرزها مات نمانند؟**
+**آیا می‌توانم پرکردن نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که لبه آن مات باقی بماند؟**
 
-بله. شفافیت پرکنندگی و خطوط مرز به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در نمایش‌های متراکم مفید است.
+بله. شفافیت پرکردن و خط مرزی به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در تجسم‌های دشفت مفید است.
 
-**چگونه می‌توانم با برچسب‌های داده‌ای که روی هم می‌افتند سروکار داشته باشم؟**
+**چگونه می‌توانم با برچسب‌های داده که همپوشانی دارند، مقابله کنم؟**
 
-اندازهٔ قلم را کاهش دهید، اجزای غیرضروری برچسب (مثلاً دسته‌بندی‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت لزوم فقط برای نقاط انتخاب‌شده برچسب نشان دهید، یا قالب را به «مقدار + افسانه» تغییر دهید.
+اندازه قلم را کاهش دهید، اجزای غیرضروری برچسب (مانند دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت لزوم فقط برای نقاط منتخب برچسب‌ها را نشان دهید، یا قالب را به «مقدار + افسانه» تغییر دهید.
 
-**آیا می‌توانم پرکنندگی‌های گرادیان یا الگو را به سری‌ها اعمال کنم؟**
+**آیا می‌توانم پرکردن‌های گرادیان یا الگو را بر سری‌ها اعمال کنم؟**
 
-بله. سری‌ها از پرکنندگی‌های ثابت، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌طور معقول استفاده کنید و ترکیب‌هایی که تضاد را با شبکه و متن کاهش می‌دهند، پرهیز کنید.
+بله. سری‌ها از پرکردن‌های ثابت، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌صورت مقتصد استفاده کنید و ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهند، اجتناب کنید.

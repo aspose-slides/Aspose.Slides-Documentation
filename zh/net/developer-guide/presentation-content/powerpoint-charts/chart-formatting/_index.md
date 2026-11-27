@@ -18,19 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "学习 Aspose.Slides for .NET 中的图表格式化，通过自定义坐标轴、字体、数字格式和圆角图表边框，提升您的 PowerPoint 演示文稿。"
+description: "了解在 Aspose.Slides for .NET 中的图表格式化，并通过自定义坐标轴、字体、数字格式和圆角图表边框提升 PowerPoint 演示文稿的效果。"
 ---
 ## **概述**
 
-本文说明如何使用 Aspose.Slides 在 PowerPoint 演示文稿中格式化图表。它展示了如何自定义关键图表元素，例如坐标轴、网格线、标题、图例、绘图区和墙面填充，以改善图表数据的外观和可读性。
+本文说明如何使用 Aspose.Slides 在 PowerPoint 演示文稿中格式化图表。它展示了如何自定义关键图表元素，如坐标轴、网格线、标题、图例、绘图区域和墙面填充，以提升图表数据的外观和可读性。
 
-它还演示了如何为图表文本设置字体属性、对图表数据应用预设数值格式，以及为图表区域启用圆角。这些示例共同展示了如何控制演示文稿中图表的视觉样式和数据呈现。
+它还演示了如何为图表文本设置字体属性、对图表数据应用预设数值格式，以及为图表区域启用圆角。通过这些示例，您可以控制演示文稿中图表的视觉样式和数据呈现方式。
+
+有关上升和下降区间的独立填充和轮廓，请参阅[stock chart example](/slides/zh/net/create-chart/#create-stock-charts)。
 
 ## **格式化图表实体**
 
-使用[IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/)来格式化图表标题、坐标轴、网格线、图例和绘图区。此示例创建一个带有标记和默认数据的折线图，然后对其数值轴和类别轴分别应用文本和线条样式。字体大小和线宽以磅为单位指定；类别标签旋转45度。
+使用[IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/)来格式化图表标题、坐标轴、网格线、图例和绘图区域。此示例创建了一个带标记和默认数据的折线图，然后对其值坐标轴和类别坐标轴分别应用文本和线条样式。字体大小和线宽以磅为单位；类别标签旋转 45 度。
 
-数值轴使用[NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/)，独立于源单元格。其刻度范围为 -2 到 15，主刻度间隔为 2，次刻度间隔为 0.5。示例还将百分比格式与设置为千位的[DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/)相结合，请根据数据的含义和规模调整这些设置。由于[Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/)被禁用，图例位于绘图区之外。背墙和地板填充通过[BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/)和[Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/)进行配置，但这些表面仅在3D图表中可见。
+值坐标轴使用[NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/)，独立于源单元格。其刻度范围为 -2 到 15，主间隔为 2，次间隔为 0.5。示例还将百分比格式与[DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/)（设置为千位）结合使用，请根据数据的含义和数量级调整这些设置。由于[Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/)被禁用，图例位于绘图区域之外。背墙和地板填充通过[BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/)和[Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/)配置，但这些表面仅在 3D 图表中可见。
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **设置图表的字体属性**
+## **为图表设置字体属性**
 
-通过[Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/)为图表文本设置默认字体大小。示例创建一个聚簇柱形图，使用 20 磅字体，并通过[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/)为第一系列启用数值标签。具有自己显式字体设置的文本元素可覆盖图表默认设置。
+通过[Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/)设置图表文本的默认字体大小。示例创建了一个簇状柱形图，使用 20 磅字体，并通过[ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/)为第一系列启用值标签。带有显式字体设置的文本元素可以覆盖图表默认设置。
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **复用文本框格式以设置图例**
+
+要使图例匹配幻灯片标题，请在第一段落的[DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/)中设置字体。对图例的[TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/)调用[CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/)，它会读取文本框设置、第一段落的格式以及该段落的默认字体属性。直接应用于各个部分或后续段落的格式仍保持局部。
+
+示例使用了粗体、26 磅、海军蓝的 Calibri 标题作为模板。对图例进行样式设置后，使用[CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/)将相同的格式应用到独立的说明文字上。
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+在保存的演示文稿中，图例和说明文字在大小、粗细和颜色上与标题保持一致。图例仍显示系列名称，说明文字保留其自身文本。如果说明文字中的某个部分已经设置了显式字体大小，则该大小优先于复制的段落默认值。
+
+| 复制前 | 复制后 |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **设置数值格式**
 
-使用[IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/)将内置数值格式应用于图表工作簿单元格。此示例创建一个默认单元格数据的聚簇柱形图，并对每个系列的数值单元格应用索引为 10（`0.00%`）的格式。这会更改工作簿中数值的显示方式，而不更改其底层数值；例如，0.25 将显示为 25.00%。坐标轴和数据标签格式可以分别配置。
+使用[IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/)将内置数值格式应用于图表工作簿单元格。此示例创建了一个默认、基于单元格的数据的簇状柱形图，并对每个系列值单元格应用格式索引 10（`0.00%`）。这会改变工作簿中值的显示方式，而不更改底层数字；例如，0.25 将显示为 25.00%。坐标轴和数据标签的格式可以单独配置。
 
 ```csharp
 using Aspose.Slides;
@@ -191,7 +243,7 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-下表列出了内置数值格式索引及其对应的英文（美国）地区的 Excel 示例格式。确切的格式字符串及其显示可能因应用程序和地区而异，尤其是货币和日期。一些 Excel 格式也与 OOXML 标准的默认值不同，详见[Microsoft 的数字格式实现说明](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)。
+下表列出了内置数值格式索引及其在英语（美国）地区的代表性 Excel 格式。确切的格式字符串及其显示方式可能因应用程序和地区而异，尤其是货币和日期格式。一些 Excel 格式也与 OOXML 标准的默认值不同，详见[Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)。
 
 | 索引 | 格式 |
 | --- | --- |
@@ -232,9 +284,9 @@ presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **设置图表区域圆角边框**
+## **为图表区域设置圆角边框**
 
-启用[IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/)可为图表区域的角进行圆角处理。示例创建一个聚簇柱形图，并使用[LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/)在保存演示文稿前为其轮廓设置实心灰色和单线样式。
+启用[IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/)可为图表区域的角落添加圆角。示例创建了一个簇状柱形图，并使用[LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/)将其轮廓设置为实心灰色且为单线样式，然后保存演示文稿。
 
 ```csharp
 using System.Drawing;
@@ -256,11 +308,11 @@ presentation.Save("out.pptx", SaveFormat.Pptx);
 
 ## **编辑现有图表批注**
 
-图表可以包含自定义形状，例如说明报告状态的文本批注。可通过[IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/)访问这些形状，该属性也在图表 API 参考中的[Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/)下列出。其[Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)集合包含图表拥有的形状。
+图表可以包含自定义形状，例如解释报告状态的文本批注。通过[IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/)访问这些形状，在 Chart API Reference 中也列为[Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/)。其[Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)集合包含图表拥有的形状。
 
-放置在图表上方的普通文本框属于幻灯片，即使它看起来像图表的一部分。遍历[Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/)可以找到图表及普通幻灯片形状，但不会枚举图表内部的各个形状。图表标题和数据标签是独立的图表元素，而非此集合中的自定义批注。
+放置在图表上的普通文本框属于幻灯片，即使看起来像图表的一部分。遍历[Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/)会找到图表以及普通幻灯片形状，但不会枚举图表内部的各个形状。图表标题和数据标签是独立的图表元素，而不是此集合中的自定义批注。
 
-下载[chart-annotations.pptx](chart-annotations.pptx)并放置在应用程序的工作目录中。其第一页包含一个图表，该图表带有未分组的批注“Preliminary results”、图表拥有的线条，以及普通幻灯片文本框“Slide overlay”。示例在该幻灯片上查找第一个图表，并在报告准备发布时将批注更改为“Final results”。它会检查集合是否为空，仅编辑具有非空[TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/)且文本符合预期的[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+下载[chart-annotations.pptx](chart-annotations.pptx)并将其放在应用程序的工作目录中。它的第一页包含一个带有未分组批注“Preliminary results”、图表拥有的线条以及普通幻灯片文本框“Slide overlay”的图表。示例在该页上找到第一个图表，并在报告准备发布时将批注改为“Final results”。它会检查集合是否为空，仅编辑具有非空[TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/)且文本符合预期的[IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
 
 ```csharp
 using System;
@@ -303,26 +355,26 @@ else
 }
 ```
 
-线条和幻灯片文本框保持不变。以下图像显示了输入以及保存后重新打开的结果：
+该线条和幻灯片文本框保持不变。以下图像展示了输入和保存后重新打开的结果：
 
 | 编辑前 | 编辑后 |
 | --- | --- |
-| ![图表批注显示 Preliminary results](chart-annotations-before.png) | ![图表批注显示 Final results](chart-annotations-after.png) |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-示例仅检查最高层级的图表拥有的形状。如果批注位于[IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/)内部，请同样检查该组的[Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)集合。对嵌套组递归重复此操作，对其子形状应用相同的文本检查。组本身是一个容器；不要将其视为文本框。
+示例仅检查顶层的图表拥有形状。如果批注位于[IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/)内部，请同样检查该组的[Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)集合。对嵌套组递归执行相同的检查，将相同的文本条件应用于其子形状。组本身是一个容器；不要将其视为文本框。
 {{% /alert %}}
 
 ## **常见问题**
 
-**我可以为柱形/区域设置半透明填充，同时保持边框不透明吗？**
+**我可以为柱形/面积设置半透明填充，同时保持边框不透明吗？**
 
-可以。填充透明度和轮廓是分别配置的。这对于提升密集可视化中网格和数据的可读性非常有用。
+可以。填充透明度和轮廓是分开配置的。这有助于在密集可视化中提升网格和数据的可读性。
 
-**当数据标签重叠时，我该如何处理？**
+**当数据标签重叠时该如何处理？**
 
-降低字体大小，禁用非必要的标签组件（例如类别），调整标签位置，如有必要仅为选定的数据点显示标签，或将格式切换为“数值 + 图例”。
+可以减小字体大小，禁用非必要的标签组件（例如类别），调整标签位置，必要时仅为选定点显示标签，或切换为“值 + 图例”格式。
 
-**我可以对系列应用渐变或图案填充吗？**
+**我可以为系列应用渐变或图案填充吗？**
 
-可以。系列支持实色、渐变和图案填充。实际使用时应适量使用渐变，并避免使用会降低网格和文本对比度的组合。
+可以。系列支持实色、渐变和图案填充。实际使用时请适度使用渐变，并避免与网格和文本的对比度降低的组合。

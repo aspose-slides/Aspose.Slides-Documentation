@@ -1,35 +1,37 @@
 ---
-title: "Prezentációs diagramok formázása PHP-ben"
-linktitle: "Diagram formázása"
+title: Prezentációs diagramok formázása PHP-ben
+linktitle: Diagramformázás
 type: docs
 weight: 60
 url: /hu/php-java/chart-formatting/
 keywords:
-- "diagram formázása"
-- "diagram formázás"
-- "diagram elem"
-- "diagram tulajdonságok"
-- "diagram beállítások"
-- "diagram opciók"
-- "betűtípus tulajdonságok"
-- "lekerekített szegély"
-- "PowerPoint"
-- "prezentáció"
-- "PHP"
-- "Aspose.Slides"
-description: "Ismerje meg a diagramok formázását az Aspose.Slides PHP számára Java-n keresztül, és emelje prezentációját a PowerPoint-ban egyedi tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
+- diagram formázása
+- diagramformázás
+- diagram elem
+- diagram tulajdonságok
+- diagram beállítások
+- diagram opciók
+- betűtípus tulajdonságok
+- lekerekített szegély
+- PowerPoint
+- prezentáció
+- PHP
+- Aspose.Slides
+description: "Ismerje meg a diagramformázást az Aspose.Slides PHP-hoz Java használatával, és emelje fel PowerPoint prezentációját egyedi tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet formázni a diagramokat a PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan lehet testreszabni a diagram kulcsfontosságú elemeit, mint például a tengelyek, rácsvonalak, címek, jelmagyarázatok, a diagramterület és a falak kitöltései a diagramadatok megjelenésének és olvashatóságának javítása érdekében.
+Ez a cikk bemutatja, hogyan lehet formázni diagramokat PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan lehet testre szabni a diagram kulcsfontosságú elemeit, mint például a tengelyek, rácsvonalak, címek, jelmagyarázatok, a rajzterület és a falak kitöltései, hogy javítsuk a diagram adatok megjelenését és olvashatóságát.
 
-Az is bemutatja, hogyan lehet beállítani a betűtípus‑tulajdonságokat a diagram szövegéhez, előre definiált számformátumokat alkalmazni a diagram adataihoz, és lekerekített sarkokat engedélyezni a diagramterületen. Ezek a példák együtt azt mutatják, hogyan lehet irányítani a diagramok vizuális stílusát és adatmegjelenítését egy prezentációban.
+Az is bemutatja, hogyan lehet beállítani a betűtípus tulajdonságait a diagram szövegéhez, előre definiált numerikus formátumokat alkalmazni a diagram adatokra, és lekerekített sarkokat engedélyezni a diagram területén. Ezek a példák együtt mutatják, hogyan lehet irányítani a diagramok vizuális stílusát és adatmegjelenítését egy prezentációban.
 
-## **Diagramelemek formázása**
+A növekvő és csökkenő intervallumok külön kitöltései és körvonalai tekintetében lásd a [részvénydiagram példát](/slides/hu/php-java/create-chart/#create-stock-charts).
 
-Használja a [Diagram](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) elemet a diagramcímek, tengelyek, rácsvonalak, jelmagyarázatok és a diagramterület formázásához. Ez a példa egy jelölőkkel rendelkező vonaldiagramot hoz létre alapértelmezett adatokkal, majd külön szöveg‑ és vonalstílusokat alkalmaz az értéktengelyre és a kategóriatengelyre. A betűméreteket és vonalvastagságokat pontban adja meg; a kategóriacímkék 45 fokkal vannak elforgatva.
+## **Diagram Elemeinek Formázása**
 
-Az értéktengely a [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) metódust használja a forráscelláktól függetlenül. Skálája -2‑től 15‑ig terjed, főintervallummal 2 és alintervallummal 0,5. A példa százalékformátumot kombinál a [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) ezer egységre állításával, ezért ezeket a beállításokat az adatok jelentéséhez és nagyságrendjéhez igazítsa. A jelmagyarázat a diagramterület kívül marad, mert a [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) `false` értékre van állítva. A hátfal és a padló kitöltései a [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) és a [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) metódusokkal vannak beállítva, de ezek a felületek csak 3D diagramokban láthatók.
+Használja a [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) elemet a diagram címek, tengelyek, rácsvonalak, jelmagyarázatok és a rajzterület formázásához. Ez a példa egy jelölőkkel ellátott vonaldiagramot hoz létre alapértelmezett adatokkal, majd külön szöveg- és vonalstílusokat alkalmaz az értéktengelyen és a kategóriatengelyen. A betűméreteket és a vonalszélességeket pontban adjuk meg; a kategóriacímkék 45 fokban vannak elforgatva.
+
+Az értéktengely a [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) metódust használja a forráscelláktól függetlenül. Skálája -2‑től 15‑ig terjed, a fő intervallumok 2‑esek, a kisebb intervallumok 0,5‑ösök. A példa a százalékformázást is összekapcsolja a [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) ezresek beállításával, ezért ezeket a beállításokat a saját adatai jelentéséhez és nagyságához igazítsa. A jelmagyarázat a rajzterület kívül marad, mivel a [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) `false` értékkel kerül meghívásra. A háttérfal és a padló kitöltései a [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) és a [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor) segítségével állíthatók be, de ezek a felületek csak 3D diagramokban láthatók.
 
 ```php
 use aspose\slides\ChartType;
@@ -155,9 +157,9 @@ try {
 }
 ```
 
-## **Diagram betűtípus‑tulajdonságainak beállítása**
+## **Diagramon Belüli Betűtípus Tulajdonságok Beállítása**
 
-Állítsa be a diagram szövegének alapértelmezett betűméretét a [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/) metóduson keresztül. A példa egy csoportosított oszlopdiagramot hoz létre 20 pontos betűmérettel, és a [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) segítségével engedélyezi az értékcímkéket az első sorozatra. A saját kifejezett betűtípus‑beállításokkal rendelkező szövegelemek felülírhatják a diagram alapértelmezését.
+Állítsa be a diagram szövegének alapértelmezett betűméretét a [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat) segítségével. A példa egy csoportosított oszlopdiagramot hoz létre 20 pontos betűmérettel, és az első sorozatra a [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) használatával engedélyezi az értékcímkéket. Az egyedi betűtípusbeállításokkal rendelkező szövegelemek felülbírálhatják a diagram alapértelmezett beállításait.
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
-## **Numerikus formátum beállítása**
+## **Szövegkeret Formázásának Újrahasználása a Diagram Jelmagyarázatban**
 
-Használja a [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) metódust, hogy beépített számformátumot alkalmazzon a diagram munkafüzet celláira. Ez a példa egy alapértelmezett, cellára épülő adatokkal rendelkező csoportosított oszlopdiagramot hoz létre, és a 10‑es formátumindexet (`0.00%`) minden sorozat értékcellájára alkalmazza. Ez megváltoztatja, hogy a számok hogyan jelennek meg a munkafüzetben, anélkül hogy az alapértékek módosulnának; például a 0,25 25,00%-ként jelenik meg. A tengely‑ és adatcímke‑formátumok külön is beállíthatók.
+A jelmagyarázatot a diacímhez igazítva, állítsa be a cím betűtípusát az első bekezdésen a [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) segítségével. Hívja meg a [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) metódust a jelmagyarázat [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) által visszaadott formátumon. Ez a szövegkeret beállításait, az első bekezdés formázását és annak alapértelmezett betűtípus tulajdonságait másolja. Az egyes részekre vagy későbbi bekezdésekre közvetlenül alkalmazott formázás a forrásra korlátozódik.
+
+A példa egy félkövér, 26 pontos Calibri címet használ sötétkék színben sablonként. A jelmagyarázat stílusozása után a [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) metódust hívja, hogy ugyanazt a formázást alkalmazza egy külön feliratra.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A mentett prezentációban a jelmagyarázat és a felirat méretben, vastagságban és színben megegyezik a címmel. A jelmagyarázat továbbra is a sorozatneveket jeleníti meg, a felirat pedig megőrzi saját szövegét. Ha a felirat egy részének már van kifejezett betűmérete, az felülbírálja a másolt bekezdés alapértelmezett méretét.
+
+| Másolás előtt | Másolás után |
+| --- | --- |
+| ![Negyedéves értékesítési diagram szabályos fekete jelmagyarázat címkékkel és fekete felirattal](legend-formatting-before.png) | ![Ugyanez a diagram nagyobb, félkövér sötétkék jelmagyarázat címkékkel és illeszkedő felirattal](legend-formatting.png) |
+
+## **Numerikus Formátum Beállítása**
+
+Használja a [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) metódust, hogy beépített számformátumot alkalmazzon a diagram munkafüzet celláira. Ez a példa egy alapértelmezett, cella‑alapú adatokkal rendelkező csoportosított oszlopdiagramot hoz létre, és a 10‑es formátumindexet (`0.00%`) alkalmazza minden sorozat értékcellájára. Ez megváltoztatja, hogyan jelennek meg az értékek a munkafüzetben a mögöttes számok módosítása nélkül; például a 0,25 25,00%-ként jelenik meg. A tengely és az adatcímke formátumok külön is konfigurálhatók.
 
 ```php
 use aspose\slides\ChartType;
@@ -199,7 +262,7 @@ try {
         $dataPoints = $chartSeries->getDataPoints();
         for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
             $dataPoint = $dataPoints->get_Item($j);
-            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0,00%
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
         }
     }
 
@@ -209,7 +272,7 @@ try {
 }
 ```
 
-Az alábbi táblázat felsorolja a beépített számformátum-indexeket tipikus Excel‑formátumokkal az angol (Egyesült Államok) területi beállítás számára. A pontos formátumsztringek és megjelenítésük alkalmazásonként és területenként változhat, különösen a pénznemek és dátumok esetében. Néhány Excel‑formátum eltér az OOXML szabvány alapértelmezett beállításaitól, ahogyan az [Microsoft számformátum-implementációs megjegyzéseiben](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) le van írva.
+Az alábbi táblázat felsorolja a beépített számformátum indexeket a megfelelő Excel formátumokkal az angol (Egyesült Államok) nyelvi beállításhoz. A pontos formátumkarakterláncok és megjelenítésük alkalmazásonként és nyelvi beállításonként eltérhet, különösen a pénznemek és dátumok esetében. Néhány Excel formátum eltér az OOXML szabvány alapértelmezettjeitől, ahogyan azt a [Microsoft számformátum implementációs jegyzetében](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) ismertetik.
 
 | Index | Formátum |
 | --- | --- |
@@ -250,9 +313,9 @@ Az alábbi táblázat felsorolja a beépített számformátum-indexeket tipikus 
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Diagramterület lekerekített szegélyei**
+## **A Diagram Területének Lekerekített Szélei**
 
-Hívja a [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) metódust `true` értékkel a diagramterület sarokainak lekerekítéséhez. A példa egy csoportosított oszlopdiagramot hoz létre, és a [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) segítségével szilárd szürke színt és egysoros vonalstílust ad a keretnek, mielőtt mentené a prezentációt.
+Hívja a [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) metódust `true` értékkel a diagram területének sarkainak lekerekítéséhez. A példa egy csoportosított oszlopdiagramot hoz létre, és a [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) segítségével szilárd szürke színt és egyvonali stílust ad a körvonalnak, mielőtt mentené a prezentációt.
 
 ```php
 use aspose\slides\ChartType;
@@ -277,13 +340,13 @@ try {
 }
 ```
 
-## **Meglévő diagram megjegyzések szerkesztése**
+## **Meglévő Diagram Megjegyzések Szerkesztése**
 
-Egy diagram tartalmazhat egyedi alakzatokat, például egy szöveges megjegyzést, amely a jelentés állapotát magyarázza. Ezeket az alakzatokat a [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/) segítségével érheti el. A [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) által visszaadott gyűjtemény a diagramhoz tartozó alakzatokat tartalmazza.
+Egy diagram tartalmazhat egyedi alakzatokat, például egy szöveges megjegyzést, amely a jelentés állapotát magyarázza. Ezeket az alakzatokat a [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes) segítségével érheti el. A [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) által visszaadott gyűjtemény a diagramhoz tartozó alakzatokat tartalmazza, de ezek a felületek csak 3D diagramokban láthatók.
 
-Egy diagram fölé elhelyezett szokásos szövegdoboz a diára tartozik, még akkor is, ha úgy néz ki, mintha a diagram része lenne. A [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) bejárása megtalálja a diagramot és a szokásos diakelementeket, de nem sorolja fel a diagramon belüli egyedi alakzatokat. A diagramcímek és adatcímkék külön diagramelemek, nem egyedi megjegyzések ebben a gyűjteményben.
+A diagram felett elhelyezett egyszerű szövegdoboz a diára tartozik, még ha úgy is néz ki, mintha a diagram része lenne. A [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) bejárásával megtalálja a diagramot és a szokásos diaelemeket, de nem sorolja fel a diagramon belüli egyedi alakzatokat. A diagramcímek és adatcímkék különálló diagram elemek, nem egyedi megjegyzések ebben a gyűjteményben.
 
-Töltse le a [chart-annotations.pptx](chart-annotations.pptx) fájlt, és helyezze el az alkalmazás munkakönyvtárában. Az első diája egy diagramot tartalmaz egy csoportosítatlan „Preliminary results” megjegyzéssel, egy diagramhoz tartozó vonallal és egy szokásos diaszövegdobozzal, amely „Slide overlay” feliratot tartalmaz. A példa megtalálja az első diagramot azon a dián, és a jelentés közzétételére kész állapotban a megjegyzést „Final results”‑re változtatja. Ellenőrzi, hogy a gyűjtemény nem üres, és csak egy [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) elemet szerkeszt, amelynek nemnulla szövegkerete van, a [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) által visszaadott, és a várt szöveget tartalmazza.
+Töltse le a [chart-annotations.pptx](chart-annotations.pptx) fájlt, és helyezze az alkalmazás munkakönyvtárába. Az első diája egy diagramot tartalmaz, amely egy csoportosítatlan megjegyzést ("Preliminary results"), egy diagramhoz tartozó vonalat és egy egyszerű diára helyezett szövegdobozt ("Slide overlay") tartalmaz. A példa megtalálja az első diagramot azon a dián, és a jelentés közzétételre kész állapotában a megjegyzést "Final results"-re módosítja. Ellenőrzi, hogy a gyűjtemény üres‑e, és csak egy [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) elemet szerkeszt, amelynek a [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) nem null szövegkerete és a várt szövege van.
 
 ```php
 use aspose\slides\Presentation;
@@ -333,23 +396,23 @@ try {
 }
 ```
 
-A vonal és a diaszövegdoboz változatlan marad. Az alábbi képek mutatják a bemenetet és a mentett, újra megnyitott eredményt:
+A vonal és a dia szövegdoboz változatlan marad. Az alábbi képek mutatják a bemeneti és a mentett, újra megnyitott eredményt:
 
 | Szerkesztés előtt | Szerkesztés után |
 | --- | --- |
-| ![Diagram megjegyzés, amely 'Preliminary results' szöveget tartalmaz](chart-annotations-before.png) | ![Diagram megjegyzés, amely 'Final results' szöveget tartalmaz](chart-annotations-after.png) |
+| ![Diagram megjegyzés, amely a “Preliminary results” szöveget tartalmazza](chart-annotations-before.png) | ![Diagram megjegyzés, amely a “Final results” szöveget tartalmazza](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-A példa csak a legfelső szintű, diagramhoz tartozó alakzatokat vizsgálja. Ha egy megjegyzés egy [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) belsejében van, akkor vizsgálja meg a csoport [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) gyűjteményét is. Ismételje meg ezt rekurzívan a beágyazott csoportoknál, ugyanazokat a szövegellenőrzéseket alkalmazva azok gyerek alakzataira. A csoport maga egy tároló; ne kezelje szövegdobozként.
+{{% alert color="info" title="Megjegyzés" %}}
+Az a példa csak a legfelső szintű diagramhoz tartozó alakzatokat vizsgálja. Ha egy megjegyzés egy [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) belsejében van, akkor ellenőrizze az adott csoport [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) gyűjteményét is. Ismételje meg rekurzívan a beágyazott csoportoknál, ugyanazokat a szövegellenőrzéseket alkalmazva a gyermekalakzatokra. Egy csoport önmagában egy tároló; ne tekintse szövegdoboznak.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Beállíthatok félig átlátszó kitöltéseket oszlopokhoz/területekhez, miközben a szegély átlátszatlan marad?**  
-Igen. A kitöltés átlátszósága és a keret külön-külön konfigurálható. Ez hasznos a rács és az adatok olvashatóságának javításához sűrű megjelenítések esetén.
+**Beállíthatok félig átlátszó kitöltéseket oszlopoknak/területeknek, miközben a szegély átlátszatlan marad?**  
+Igen. A kitöltés átlátszósága és a körvonal külön konfigurálható. Ez a sűrű vizualizációkban a rács és az adatok olvashatóságának javításában hasznos.
 
 **Hogyan kezeljem az adatcímkéket, ha átfedik egymást?**  
-Csökkentse a betűméretet, tiltsa le a nem lényeges címkeelemeket (például a kategóriákat), állítsa be a címke pozícióját, szükség esetén csak a kiválasztott pontoknál mutassa a címkéket, vagy váltson a "érték + jelmagyarázat" formátumra.
+Csökkentse a betűméretet, tiltsa le a nem lényeges címke komponenseket (például a kategóriákat), állítsa be a címke pozícióját, szükség esetén csak a kiválasztott pontokhoz jelenítsen meg címkéket, vagy változtassa a formátumot "érték + jelmagyarázat"-ra.
 
-**Alkalmazhatok színátmenet vagy minta kitöltést a sorozatokra?**  
-Igen. A sorozatok támogatják a szilárd, színátmenetes és mintás kitöltéseket. Gyakorlatban használjon színátmeneteket mértékkel, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.
+**Alkalmazhatok fokozatos vagy mintázott kitöltéseket sorozatokra?**  
+Igen. A sorozatok támogatják az egyszínű, fokozatos és mintázott kitöltéseket. Gyakorlati tanács: a fokozatokat mértékkel használja, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.

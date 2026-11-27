@@ -1,35 +1,37 @@
 ---
-title: Java'da Sunum Grafiklerini Biçimlendir
+title: Java’da Sunum Grafiklerini Biçimlendirme
 linktitle: Grafik Biçimlendirme
 type: docs
 weight: 60
 url: /tr/java/chart-formatting/
 keywords:
-- grafik formatı
 - grafik biçimlendirme
-- grafik nesnesi
+- grafik formatlama
+- grafik varlığı
 - grafik özellikleri
 - grafik ayarları
 - grafik seçenekleri
 - yazı tipi özellikleri
-- yuvarlak kenar
+- yuvarlak kenarlık
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı biçimleri ve yuvarlak grafik kenarlarıyla PowerPoint sunumunuzu yükseltin."
+description: "Aspose.Slides for Java'da grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı formatları ve yuvarlak grafik kenarlıklarıyla PowerPoint sunumunuzu geliştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafiklerin nasıl biçimlendirileceğini açıklar. Ekseler, ızgara çizgileri, başlıklar, açıklama kutuları, çizim alanı ve duvar doldurmaları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarında grafikleri nasıl biçimlendireceğinizi açıklar. Eksenler, ızgara çizgileri, başlıklar, açıklamalar, çizi alanı ve duvar doldurmaları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
 
-Ayrıca grafik metni için yazı tipi özelliklerini nasıl ayarlayacağınızı, grafik verilerine önceden tanımlı sayısal biçimler nasıl uygulayacağınızı ve grafik alanının köşelerini nasıl yuvarlaklaştıracağınızı gösterir. Bu örnekler, bir sunumdaki grafiklerin görsel stilini ve veri sunumunu nasıl kontrol edebileceğinizi bir arada sunar.
+Ayrıca grafik metni için yazı tipi özelliklerini nasıl ayarlayacağınızı, grafik verilerine önceden tanımlı sayısal biçimleri nasıl uygulayacağınızı ve grafik alanı için yuvarlak köşeleri nasıl etkinleştireceğinizi gösterir. Bu örnekler bir arada, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edeceğinizi gösterir.
 
-## **Grafik Öğelerini Biçimlendir**
+Yükselen ve düşen aralıklar için ayrı doldurmalar ve kenarlıklar hakkında, bakınız [hisse senedi grafik örneği](/slides/tr/java/create-chart/#create-stock-charts).
 
-Use [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
+## **Grafik Varlıklarını Biçimlendirme**
 
-The value axis uses [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) and [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), but these surfaces are only visible in 3D charts.
+Grafik başlıklarını, eksenleri, ızgara çizgilerini, açıklamaları ve çizim alanını biçimlendirmek için [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) kullanın. Bu örnek, işaretçili ve varsayılan verilerle bir çizgi grafik oluşturur, ardından değer ve kategori eksenlerine ayrı metin ve çizgi stilleri uygular. Yazı tipi boyutları ve çizgi kalınlıkları puan cinsinden belirtilir; kategori etiketleri 45 derece döndürülür.
+
+Değer ekseni, kaynak hücrelerden bağımsız olarak [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) kullanır. Ölçeği -2 ile 15 arasında, ana aralıkları 2 ve yan aralıkları 0,5 olarak belirlenir. Örnek, yüzde biçimlendirmesini binler için ayarlanmış [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) ile birleştirir; bu ayarları verinizin anlamına ve büyüklüğüne göre uyarlayın. Açıklama, [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) `false` ile çağrıldığı için çizim alanının dışında kalır. Arka duvar ve zemin doldurmaları [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) ve [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--) aracılığıyla yapılandırılır, ancak bu yüzeyler yalnızca 3B grafiklerde görünür.
 
 ```java
 import com.aspose.slides.*;
@@ -147,9 +149,9 @@ try {
 }
 ```
 
-## **Grafik İçin Yazı Tipi Özelliklerini Ayarla**
+## **Grafik için Yazı Tipi Özelliklerini Ayarlama**
 
-Set the default font size for chart text through [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Text elements with their own explicit font settings can override the chart default.
+Grafik metni için varsayılan yazı tipi boyutunu [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--) aracılığıyla ayarlayın. Örnek, 20 puanlık bir yazı tipiyle bir küme sütun grafiği oluşturur ve ilk seri için değer etiketlerini [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) ile etkinleştirir. Kendi açık yazı tipi ayarlarına sahip metin öğeleri, grafiğin varsayılanını geçersiz kılabilir.
 
 ```java
 import com.aspose.slides.*;
@@ -168,9 +170,63 @@ try {
 }
 ```
 
-## **Sayısal Biçimi Ayarla**
+## **Grafik Açıklaması İçin Metin Çerçevesi Biçimlendirmesini Yeniden Kullanma**
 
-Use [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
+Bir açıklamayı slayt başlığıyla eşleştirmek için, başlığın yazı tipini ilk paragrafta [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) ile ayarlayın. Açıklamanın [getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iformattedtextcontainer/#getTextFormat--) tarafından döndürülen format üzerinde [copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) çağrısı yapın. Bu, metin çerçevesi ayarlarını, ilk paragrafın biçimlendirmesini ve o paragrafın varsayılan yazı tipi özelliklerini kopyalar. Doğrudan bireysel bölümlere ya da sonraki paragraflara uygulanan biçimlendirme kaynağa yerel kalır.
+
+Örnek, koyu, 26 puanlık Calibri başlığını lacivert renkli bir şablon olarak kullanır. Açıklamayı biçimlendirdikten sonra, aynı biçimlendirmeyi ayrı bir başlığa uygulamak için [copyTo](https://reference.aspose.com/slides/java/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) çağrısı yapar.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(new Color(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kaydedilen sunumda, açıklama ve başlık boyut, kalınlık ve renk bakımından başlıkla eşleşir. Açıklama hâlâ seri adlarını gösterir ve başlık kendi metnini korur. Başlıktaki bir bölüm zaten açık bir yazı tipi boyutuna sahipse, bu boyut kopyalanan paragraf varsayılanının önüne geçer.
+
+| Kopyalamadan önce | Kopyaladıktan sonra |
+| --- | --- |
+| ![Dönemsel satış grafiği, normal siyah açıklama etiketleri ve siyah başlık](legend-formatting-before.png) | ![Aynı grafik, daha büyük, koyu lacivert açıklama etiketleri ve eşleşen bir başlık ile](legend-formatting.png) |
+
+## **Sayısal Biçimi Ayarlama**
+
+[IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) kullanarak grafiğin çalışma kitabı hücrelerine yerleşik bir sayı biçimi uygulayın. Bu örnek, varsayılan hücre tabanlı verilerle bir küme sütun grafiği oluşturur ve her seri değer hücresine format dizini 10 (`0.00%`) uygular. Bu, temel sayıları değiştirmeden değerlerin çalışma kitabında nasıl gösterildiğini değiştirir; örneğin, 0.25 değeri 25,00% olarak gösterilir. Eksen ve veri etiketi biçimleri ayrı ayrı yapılandırılabilir.
 
 ```java
 import com.aspose.slides.*;
@@ -196,7 +252,7 @@ try {
 }
 ```
 
-The following table lists built-in number format indices with representative Excel formats for the English (United States) locale. The exact format strings and their display can vary by application and locale, particularly for currency and dates. Some Excel formats also differ from the defaults in the OOXML standard, as described in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Aşağıdaki tablo, İngiliz (Amerika Birleşik Devletleri) yereline ait temsilci Excel biçimleriyle yerleşik sayı biçimi dizinlerini listeler. Tam biçim dizgileri ve gösterimleri uygulamaya ve yerel ayara göre değişebilir, özellikle para birimi ve tarih formatları için. Bazı Excel biçimleri, OOXML standardındaki varsayılanlardan da farklıdır; bu, [Microsoft'un sayı biçimi uygulama notlarında](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) açıklanmıştır.
 
 | Dizin | Biçim |
 | --- | --- |
@@ -237,9 +293,9 @@ The following table lists built-in number format indices with representative Exc
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Grafik Alanı Yuvarlak Kenarlar**
+## **Grafik Alanı Yuvarlak Kenarlıklarını Ayarlama**
 
-Call [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) to give its outline a solid gray color and a single-line style before saving the presentation.
+[IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) yöntemini `true` olarak çağırarak grafik alanının köşelerini yuvarlatın. Örnek, bir küme sütun grafiği oluşturur ve sunumu kaydetmeden önce çevresine katı gri renkli ve tek satır stilinde bir kontur vermek için [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) kullanır.
 
 ```java
 import com.aspose.slides.*;
@@ -261,13 +317,13 @@ try {
 }
 ```
 
-## **Mevcut Grafik Açıklamalarını Düzenle**
+## **Mevcut Grafik Açıklamalarını Düzenleme**
 
-A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), also listed under [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) in the Chart API Reference. The collection returned by [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) contains the chart-owned shapes.
+Bir grafik, bir raporun durumunu açıklayan metin açıklaması gibi özel şekiller içerebilir. Bu şekillere [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--) aracılığıyla erişilir; bu aynı zamanda Chart API Referansında [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) altında listelenir. [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) tarafından döndürülen koleksiyon, grafik tarafından sahip olunan şekilleri içerir.
 
-An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+Bir grafiğin üzerine yerleştirilen sıradan bir metin kutusu, grafik parçası gibi görünse de slayta aittir. [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) üzerinde döngü yapıldığında grafik ve sıradan slayt şekilleri bulunur, ancak grafiğin içinde yer alan bireysel şekiller listelenmez. Grafik başlıkları ve veri etiketleri ayrı grafik öğeleridir, bu koleksiyonda özel açıklama olarak yer almaz.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) and the expected text.
+[chart-annotations.pptx](chart-annotations.pptx) dosyasını indirin ve uygulamanın çalışma dizinine yerleştirin. İlk slaytı, gruplandırılmamış “İlkel sonuçlar” metni içeren bir açıklama, grafiğe ait bir çizgi ve “Slayt üzerine” metni içeren sıradan bir slayt metin kutusu bulunan bir grafik içerir. Örnek, bu slayttaki ilk grafiği bulur ve rapor yayınlanmaya hazır olduğunda açıklamayı “Sonuçlar” olarak değiştirir. Boş bir koleksiyon olup olmadığını kontrol eder ve sadece [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) üzerindeki [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) ile dönen null olmayan bir metin çerçevesi ve beklenen metni içeren şekli düzenler.
 
 ```java
 import com.aspose.slides.*;
@@ -311,26 +367,26 @@ try {
 }
 ```
 
-The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+Çizgi ve slayt metin kutusu değişmeden kalır. Aşağıdaki görseller giriş ve kaydedilip yeniden açılan sonucu gösterir:
 
-| Düzenleme öncesi | Düzenleme sonrası |
+| Düzenlemeden önce | Düzenledikten sonra |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Grafik açıklaması 'İlkel sonuçlar'](chart-annotations-before.png) | ![Grafik açıklaması 'Sonuçlar'](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Örnek yalnızca en üst düzeydeki grafik‑sahibi şekilleri inceler. Bir açıklama bir [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/) içinde ise, o grubun [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) koleksiyonunu da inceleyin. İç içe gruplar için aynı işlemi yineleyin ve alt şekillerde aynı metin kontrollerini uygulayın. Bir grup kendisi bir kapsayıcıdır; onu bir metin kutusu olarak değerlendirmeyin.
+Örnek yalnızca üst düzey grafik‑sahibi şekilleri inceler. Bir açıklama bir [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/) içinde ise, o grubun [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) koleksiyonunu da inceleyin. İç içe gruplar için bu işlemi özyinelemeli olarak tekrarlayın ve aynı metin kontrollerini alt şekillere uygulayın. Bir grup kendisi bir kapsayıcıdır; onu bir metin kutusu olarak değerlendirmeyin.
 {{% /alert %}}
 
 ## **SSS**
 
-**Sütunlar/alanlar için kenarı opak tutarak yarı saydam doldurmalar ayarlayabilir miyim?**
+**Sütunlar/alanlar için yarı şeffaf doldurmalar ayarlayıp kenarlığı opak tutabilir miyim?**
 
-Evet. Dolgu şeffaflığı ve kenar ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve veri okunabilirliğini artırmak için faydalıdır.
+Evet. Dolgu şeffaflığı ve kontur ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verilerin okunabilirliğini artırmak için faydalıdır.
 
-**Etiketler çakıştığında ne yapmalıyım?**
+**Veri etiketleri üst üste geldiğinde nasıl başa çıkabilirim?**
 
-Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini (örneğin kategorileri) devre dışı bırakın, etiket konumunu ayarlayın, gerekirse sadece seçili noktalara etiket gösterin veya biçimi “değer + açıklama” olarak değiştirin.
+Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini devre dışı bırakın (örneğin, kategorileri), etiket konumunu ayarlayın, gerekirse yalnızca seçili noktalar için etiketleri gösterin veya biçimi "değer + açıklama" olarak değiştirin.
 
-**Serilere degrade veya desen doldurması uygulayabilir miyim?**
+**Serilere degrade veya desen dolgu uygulayabilir miyim?**
 
-Evet. Seriler katı, degrade ve desen doldurmaları destekler. Pratikte, degradeleri ölçülü kullanın ve ızgara ile metin arasındaki kontrastı azaltan kombinasyonlardan kaçının.
+Evet. Seriler katı, degrade ve desen dolgularını destekler. Pratikte, degradeleri az kullanın ve ızgara ve metinle arasındaki kontrastı azaltan kombinasyonlardan kaçının.

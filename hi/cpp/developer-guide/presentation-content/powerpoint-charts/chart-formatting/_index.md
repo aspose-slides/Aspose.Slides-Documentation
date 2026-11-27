@@ -1,35 +1,37 @@
 ---
-title: "C++ में प्रस्तुति चार्ट फ़ॉर्मेट करें"
-linktitle: "चार्ट फ़ॉर्मेटिंग"
+title: C++ में प्रस्तुति चार्ट को फ़ॉर्मेट करें
+linktitle: चार्ट फ़ॉर्मेटिंग
 type: docs
 weight: 60
 url: /hi/cpp/chart-formatting/
 keywords:
-- "चार्ट फॉर्मेट"
-- "चार्ट फ़ॉर्मेटिंग"
-- "चार्ट इकाई"
-- "चार्ट गुण"
-- "चार्ट सेटिंग्स"
-- "चार्ट विकल्प"
-- "फ़ॉन्ट गुण"
-- "गोल किनारा"
+- चार्ट फ़ॉर्मेट
+- चार्ट फ़ॉर्मेटिंग
+- चार्ट इकाई
+- चार्ट गुण
+- चार्ट सेटिंग्स
+- चार्ट विकल्प
+- फ़ॉन्ट गुण
+- गोल किनारा
 - PowerPoint
-- "प्रस्तुति"
+- प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides के लिए C++ में चार्ट फ़ॉर्मेटिंग सीखें और कस्टम अक्ष, फ़ॉन्ट, संख्या फ़ॉर्मेट और गोल चार्ट किनारों के साथ अपनी PowerPoint प्रस्तुति को उन्नत बनाएं।"
+description: "Aspose.Slides के लिए C++ में चार्ट फ़ॉर्मेटिंग सीखें और कस्टम अक्ष, फ़ॉन्ट, संख्या फ़ॉर्मेट और गोल चार्ट बॉर्डर्स के साथ अपने PowerPoint प्रस्तुति को बेहतर बनाएं।"
 ---
 ## **परिचय**
 
-यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फ़ॉर्मेट करने के तरीकों को समझाता है। यह अक्ष, ग्रिड लाइन्स, शीर्षक, लेजेंड, प्लॉट एरिया और वॉल फ़िल्स जैसे प्रमुख चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता को सुधारने का तरीका दर्शाता है।
+यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फ़ॉर्मेट करने के तरीके को समझाता है। यह अक्षों, ग्रिड लाइनों, शीर्षकों, लेजेंड, प्लॉट क्षेत्र और वॉल फ़िल्स जैसे प्रमुख चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता को बेहतर बनाने का प्रदर्शन करता है।
 
-यह भी दर्शाता है कि चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण कैसे सेट करें, चार्ट डेटा पर प्रीसेट संख्यात्मक फ़ॉर्मेट कैसे लागू करें, और चार्ट एरिया के कोने कैसे गोल करें। ये उदाहरण मिलकर दिखाते हैं कि प्रस्तुति में चार्ट के दृश्य शैली और डेटा प्रस्तुति दोनों को कैसे नियंत्रित किया जा सकता है।
+यह चार्ट टेक्स्ट के फ़ॉन्ट गुण सेट करने, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक स्वरूप लागू करने, और चार्ट क्षेत्र के कोनों को गोल करने का भी प्रदर्शन करता है। साथ मिलकर, ये उदाहरण प्रस्तुतियों में चार्ट के दृश्य शैली और डेटा प्रस्तुति दोनों को नियंत्रित करने का तरीका दिखाते हैं।
+
+रising और falling अंतरालों पर अलग-अलग फ़िल और रूपरेखा के लिए, देखें [स्टॉक चार्ट उदाहरण](/slides/hi/cpp/create-chart/#create-stock-charts)।
 
 ## **चार्ट इकाइयों को फ़ॉर्मेट करें**
 
-चार्ट शीर्षक, अक्ष, ग्रिड लाइन्स, लेजेंड और प्लॉट एरिया को फ़ॉर्मेट करने के लिए [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) का उपयोग करें। यह उदाहरण मार्कर के साथ एक लाइन चार्ट बनाता है और उसके वैल्यू तथा कैटेगोरी अक्षों पर अलग-अलग टेक्स्ट और लाइन स्टाइल लागू करता है। फ़ॉन्ट आकार और लाइन चौड़ाई पॉइंट्स में निर्दिष्ट की गई है; कैटेगोरी लेबल 45 डिग्री घुमाए गए हैं।
+Use [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
 
-वैल्यू अक्ष स्रोत कोशिकाओं से स्वतंत्र रूप से [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) का उपयोग करता है। इसका स्केल -2 से 15 तक है, प्रमुख अंतराल 2 और गौण अंतराल 0.5 है। यह उदाहरण प्रतिशत फ़ॉर्मेट को [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) के साथ हजारों पर सेट करके संयोजित करता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार समायोजित करें। लेजेंड प्लॉट एरिया के बाहर रहता है क्योंकि [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) निष्क्रिय है। बैक-वाल और फ़्लोर फ़िल्स [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) और [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) के माध्यम से कॉन्फ़िगर किए गए हैं, लेकिन ये सतहें केवल 3D चार्ट में दिखती हैं।
+The value axis uses [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) is disabled. Back-wall and floor fills are configured through [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) and [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/), but these surfaces are only visible in 3D charts.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -181,9 +183,9 @@ chart->get_PlotArea()->get_Format()->get_Fill()->get_SolidFillColor()->set_Color
 presentation->Save(u"FormattedChart_out.pptx", SaveFormat::Pptx);
 ```
 
-## **चार्ट के लिए फ़ॉन्ट गुण सेट करें**
+## **एक चार्ट के लिए फ़ॉन्ट गुण सेट करें**
 
-[Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/) के द्वारा चार्ट टेक्स्ट के डिफ़ॉल्ट फ़ॉन्ट आकार को सेट करें। यह उदाहरण 20‑पॉइंट फ़ॉन्ट के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और पहली सीरीज़ के लिए [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) के माध्यम से वैल्यू लेबल सक्षम करता है। अपने स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट एलिमेंट्स चार्ट की डिफ़ॉल्ट को ओवरराइड कर सकते हैं।
+Set the default font size for chart text through [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/). Text elements with their own explicit font settings can override the chart default.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -216,9 +218,91 @@ chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataL
 presentation->Save(u"FontPropertiesForChart.pptx", SaveFormat::Pptx);
 ```
 
-## **संख्यात्मक फ़ॉर्मेट सेट करें**
+## **एक चार्ट लेजेंड के लिए टेक्स्ट फ़्रेम फ़ॉर्मेटिंग का पुन: उपयोग करें**
 
-चार्ट वर्कबुक कोशिकाओं पर बिल्ट‑इन नंबर फ़ॉर्मेट लागू करने के लिए [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) का प्रयोग करें। यह उदाहरण डिफ़ॉल्ट, सेल‑बैक्ड डेटा के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रत्येक सीरीज़ वैल्यू सेल पर फ़ॉर्मेट इंडेक्स 10 (`0.00%`) लागू करता है। यह वर्कबुक में मानों को बदले बिना उनके प्रदर्शन को बदल देता है; उदाहरण के लिए, 0.25 को 25.00% दिखाया जाता है। अक्ष और डेटा‑लेबल फ़ॉर्मेट को अलग‑अलग कॉन्फ़िगर किया जा सकता है।
+To match a legend to a slide heading, set the font in the first paragraph's default portion format through [get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Use [get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformattedtextcontainer/get_textformat/) to access the legend's text format, then call [CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyfrom/) with the heading's text frame. This copies the text frame settings, the first paragraph's formatting, and that paragraph's default font properties. Formatting applied directly to individual portions or to later paragraphs stays local to the source.
+
+The example uses a bold, 26-point Calibri heading in navy as the template. After styling the legend, it uses [CopyTo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyto/) to apply the same formatting to a separate caption.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/NullableBool.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/StyleType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto heading = shapes->AddAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+auto sourceTextFrame = heading->AddTextFrame(u"Quarterly sales");
+auto font = sourceTextFrame->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+font->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+font->set_FontHeight(26);
+font->set_FontBold(NullableBool::True);
+font->get_FillFormat()->set_FillType(FillType::Solid);
+font->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(32, 64, 96));
+
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+chart->set_Style(StyleType::Style3);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Retail"));
+workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Online"));
+workbook->GetCell(0, 0, 3, ObjectExt::Box<String>(u"Wholesale"));
+for (auto quarter = 1; quarter <= 4; ++quarter)
+{
+    auto label = String::Format(u"Q{0}", quarter);
+    workbook->GetCell(0, quarter, 0, ObjectExt::Box<String>(label));
+}
+
+chart->set_HasLegend(true);
+auto legend = chart->get_Legend();
+legend->set_Position(LegendPositionType::Bottom);
+auto legendTextFormat = legend->get_TextFormat();
+legendTextFormat->CopyFrom(sourceTextFrame);
+
+auto caption = shapes->AddAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+auto captionTextFrame = caption->AddTextFrame(u"Sales in millions of dollars");
+legendTextFormat->CopyTo(captionTextFrame);
+
+presentation->Save(u"legend-formatting.pptx", SaveFormat::Pptx);
+```
+
+In the saved presentation, the legend and caption match the heading in size, weight, and color. The legend still displays the series names, and the caption keeps its own text. If a portion in the caption already has an explicit font size, that size takes precedence over the copied paragraph default.
+
+| कॉपी करने से पहले | कॉपी करने के बाद |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
+## **संख्यात्मक स्वरूप सेट करें**
+
+Use [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -260,9 +344,9 @@ for (auto chartSeries : series)
 presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 ```
 
-निम्न तालिका इंग्लिश (United States) लोकेल के लिए प्रतिनिधि Excel फ़ॉर्मेट्स के साथ बिल्ट‑इन नंबर फ़ॉर्मेट इंडेसेस को सूचीबद्ध करती है। वास्तविक फ़ॉर्मेट स्ट्रिंग्स और उनका प्रदर्शन एप्लिकेशन और लोकेल के अनुसार बदल सकता है, विशेषकर मुद्रा और तिथियों के लिए। कुछ Excel फ़ॉर्मेट्स OOXML मानक की डिफ़ॉल्ट्स से भी अलग होते हैं, जैसा कि [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
+The following table lists built-in number format indices with representative Excel formats for the English (United States) locale. The exact format strings and their display can vary by application and locale, particularly for currency and dates. Some Excel formats also differ from the defaults in the OOXML standard, as described in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| सूचकांक | प्रारूप |
+| सूचकांक | स्वरूप |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -301,9 +385,9 @@ presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **चार्ट एरिया के गोल किनारे सेट करें**
+## **चार्ट क्षेत्र पर गोल किनारे सक्षम करें**
 
-[ IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) को सक्रिय करके चार्ट एरिया के कोनों को गोल करें। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और उसके अनुकूल को [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) का उपयोग करके ठोस ग्रे रंग तथा सिंगल‑लाइन स्टाइल देता है, फिर प्रस्तुति को सहेजता है।
+Enable [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) to round the corners of the chart area. The example creates a clustered column chart and uses [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) to give its outline a solid gray color and a single-line style before saving the presentation.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -341,11 +425,11 @@ presentation->Save(u"out.pptx", SaveFormat::Pptx);
 
 ## **मौजूदा चार्ट एनोटेशन संपादित करें**
 
-एक चार्ट में कस्टम शैप्स हो सकते हैं, जैसे कि रिपोर्ट की स्थिति बताने वाला टेक्स्ट एनोटेशन। इन शैप्स को [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/) के माध्यम से एक्सेस किया जा सकता है, जो [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) के अंतर्गत भी सूचीबद्ध है। इसका [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) संग्रह चार्ट‑स्वामित्व वाले शैप्स को रखता है।
+A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/), also listed under [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) in the Chart API Reference. Its [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) collection contains the chart-owned shapes.
 
-एक साधारण टेक्स्ट बॉक्स जो चार्ट के ऊपर रखा गया है, वह स्लाइड का हिस्सा होता है, भले ही वह चार्ट का हिस्सा लग रहा हो। [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) के माध्यम से इटरेट करने पर चार्ट और सामान्य स्लाइड शैप्स मिलते हैं, परंतु चार्ट के भीतर के व्यक्तिगत शैप्स की सूची नहीं मिलती। चार्ट शीर्षक और डेटा लेबल अलग‑अलग चार्ट एलिमेंट होते हैं, न कि इस संग्रह में कस्टम एनोटेशन।
+An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
 
-[chart-annotations.pptx](chart-annotations.pptx) को डाउनलोड करके एप्लिकेशन की कार्य निर्देशिका में रखें। उसकी पहली स्लाइड में एक चार्ट है जिसमें "Preliminary results" लिखा अनग्रुप्ड एनोटेशन, एक चार्ट‑स्वामित्व वाली लाइन, और "Slide overlay" लिखा साधारण स्लाइड टेक्स्ट बॉक्स है। यह उदाहरण उस स्लाइड पर पहला चार्ट ढूँढता है और रिपोर्ट प्रकाशित होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली संग्रह की जाँच करता है और केवल उस [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) को संपादित करता है जिसके पास नॉन‑नल [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) और अपेक्षित टेक्स्ट है।
+Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) with a non-null [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) and the expected text.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -407,26 +491,28 @@ else
 }
 ```
 
-लाइन और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहते हैं। नीचे की तस्वीरें इनपुट और सहेजे गए, फिर से खोले गए परिणाम को दिखाती हैं:
+The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
 
 | संपादन से पहले | संपादन के बाद |
 | --- | --- |
 | ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-उदाहरण केवल शीर्ष‑स्तर के चार्ट‑स्वामित्व वाले शैप्स को ही जांचता है। यदि कोई एनोटेशन एक [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/) के भीतर है, तो उस समूह की [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) संग्रह को भी जांचें। नेस्टेड समूहों के लिए इसे पुनरावर्ती रूप से दोहराएँ, और उनके चाइल्ड शैप्स पर समान टेक्स्ट जाँच लागू करें। एक समूह स्वयं एक कंटेनर है; इसे टेक्स्ट बॉक्स के रूप में नहीं मानें।
+
+The example inspects only the top-level chart-owned shapes. If an annotation is inside an [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/), inspect that group's [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
+
 {{% /alert %}}
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं कॉलम/एरिया के लिए अर्ध‑पारदर्शी फ़िल्स सेट कर सकता हूँ जबकि बॉर्डर अपारदर्शी रहे?**
+**क्या मैं कॉलम/एरिया के लिए अर्ध-पारदर्शी फ़िल सेट कर सकता हूँ जबकि बॉर्डर अपारदर्शी रहे?**
 
-हां। फ़िल ट्रांसपरेंसी और आउटलाइन को अलग‑अलग कॉन्फ़िगर किया जाता है। यह ग्रिड और डेटा की पठनीयता को सुधारने में मददगार है।
+हाँ। फ़िल पारदर्शिता और रूपरेखा को अलग‑अलग कॉन्फ़िगर किया जाता है। यह ग्रिड और डेटा की पठनीयता सुधारने में उपयोगी है।
 
-**डेटा लेबल्स ओवरलैप होने पर मैं क्या करूँ?**
+**डेटा लेबल ओवरलैप होने पर मैं क्या करूँ?**
 
-फ़ॉन्ट आकार कम करें, गैर‑आवश्यक लेबल घटकों (जैसे कैटेगरीज) को निष्क्रिय करें, लेबल की स्थिति समायोजित करें, आवश्यक होने पर केवल चयनित पॉइंट्स के लिए लेबल दिखाएँ, या फ़ॉर्मेट को "value + legend" में बदलें।
+फ़ॉन्ट आकार घटाएँ, अनावश्यक लेबल घटकों को निष्क्रिय करें (जैसे श्रेणियाँ), लेबल की स्थिति समायोजित करें, आवश्यक होने पर केवल चयनित बिंदुओं के लिए लेबल दिखाएँ, या फ़ॉर्मेट को “value + legend” में बदलें।
 
-**क्या मैं सीरीज़ पर ग्रेडिएंट या पैटर्न फ़िल्स लागू कर सकता हूँ?**
+**क्या मैं श्रृंखला पर ग्रेडिएंट या पैटर्न फ़िल लागू कर सकता हूँ?**
 
-हां। सीरीज़ सॉलिड, ग्रेडिएंट और पैटर्न फ़िल्स को सपोर्ट करती हैं। व्यावहारिक रूप से, ग्रेडिएंट का सीमित प्रयोग करें और ऐसी संयोजन से बचें जो ग्रिड और टेक्स्ट के कंट्रास्ट को कम कर दें।
+हाँ। श्रृंखलाएँ ठोस, ग्रेडिएंट और पैटर्न फ़िल का समर्थन करती हैं। व्यवहार में, ग्रेडिएंट का सीमित उपयोग करें और ऐसी संयोजनों से बचें जो ग्रिड और टेक्स्ट के साथ कंट्रास्ट कम कर दें।

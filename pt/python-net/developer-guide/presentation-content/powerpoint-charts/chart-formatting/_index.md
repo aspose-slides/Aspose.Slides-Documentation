@@ -21,15 +21,17 @@ description: "Aprenda a formatação de gráficos no Aspose.Slides para Python v
 ---
 ## **Visão geral**
 
-Este artigo explica como formatar gráficos em apresentações do PowerPoint usando Aspose.Slides. Ele mostra como personalizar elementos principais do gráfico, como eixos, linhas de grade, títulos, legendas, área de plotagem e preenchimentos de parede, a fim de melhorar a aparência e a legibilidade dos dados do gráfico.
+Este artigo explica como formatar gráficos em apresentações do PowerPoint usando o Aspose.Slides. Ele mostra como personalizar elementos essenciais do gráfico, como eixos, linhas de grade, títulos, legendas, a área de plotagem e preenchimentos de parede, para melhorar a aparência e a legibilidade dos dados do gráfico.
 
 Também demonstra como definir propriedades de fonte para o texto do gráfico, aplicar formatos numéricos predefinidos aos dados do gráfico e habilitar cantos arredondados para a área do gráfico. Juntos, esses exemplos mostram como controlar tanto o estilo visual quanto a apresentação dos dados dos gráficos em uma apresentação.
 
-## **Formatar entidades do gráfico**
+Para preenchimentos e contornos separados em intervalos de alta e baixa, veja o [exemplo de gráfico de ações](/slides/pt/python-net/create-chart/#create-stock-charts).
 
-Use [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) para formatar títulos de gráficos, eixos, linhas de grade, legendas e a área de plotagem. Este exemplo cria um gráfico de linhas com marcadores e dados padrão, depois aplica estilos de texto e linha separados aos seus eixos de valor e de categoria. Os tamanhos de fonte e as larguras de linha são especificados em pontos; os rótulos de categoria são girados em 45 graus.
+## **Formatar Entidades do Gráfico**
 
-O eixo de valor usa [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) independentemente das células de origem. Sua escala varia de -2 a 15, com intervalos principais de 2 e intervalos menores de 0,5. O exemplo também combina formatação percentual com [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) definido para milhares, portanto adapte essas configurações ao significado e à magnitude dos seus dados. A legenda fica fora da área de plotagem porque [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) está desabilitado. Preenchimentos de parede traseira e piso são configurados através de [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) e [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), mas essas superfícies são visíveis apenas em gráficos 3D.
+Use [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) para formatar títulos de gráficos, eixos, linhas de grade, legendas e a área de plotagem. Este exemplo cria um gráfico de linhas com marcadores e dados padrão, em seguida aplica estilos de texto e linha separados aos seus eixos de valor e de categoria. Os tamanhos de fonte e as larguras de linha são especificados em pontos; os rótulos de categoria são girados em 45 graus.
+
+O eixo de valores usa [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) independentemente das células de origem. Sua escala vai de -2 a 15, com intervalos principais de 2 e intervalos menores de 0,5. O exemplo também combina formatação de porcentagem com [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) definido para milhares, portanto adapte essas configurações ao significado e à magnitude dos seus dados. A legenda permanece fora da área de plotagem porque [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) está desativado. Preenchimentos de parede traseira e de piso são configurados através de [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) e [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), mas essas superfícies só são visíveis em gráficos 3D.
 
 ```python
 import aspose.slides.charts as charts
@@ -145,9 +147,9 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Definir propriedades de fonte para um gráfico**
+## **Definir Propriedades de Fonte para um Gráfico**
 
-Defina o tamanho de fonte padrão para o texto do gráfico por meio de [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). O exemplo cria um gráfico de colunas agrupadas com fonte de 20 pontos e habilita rótulos de valor para a primeira série através de [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Elementos de texto com suas próprias configurações explícitas de fonte podem sobrescrever o padrão do gráfico.
+Defina o tamanho de fonte padrão para o texto do gráfico através de [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). O exemplo cria um gráfico de colunas agrupadas com fonte de 20 pontos e habilita rótulos de valor para a primeira série através de [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Elementos de texto com suas próprias configurações explícitas de fonte podem sobrescrever o padrão do gráfico.
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Definir o formato numérico**
+## **Reutilizar Formatação de Quadro de Texto para a Legenda do Gráfico**
 
-Use [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) para aplicar um formato numérico interno às células da pasta de trabalho do gráfico. Este exemplo cria um gráfico de colunas agrupadas com dados padrão baseados em células e aplica o índice de formato 10 (`0.00%`) a cada célula de valor da série. Isso altera como os valores são exibidos na pasta de trabalho sem mudar os números subjacentes; por exemplo, 0,25 é exibido como 25,00%. Os formatos de eixo e de rótulo de dados podem ser configurados separadamente.
+Para combinar uma legenda com o título de um slide, defina a fonte através de [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) no primeiro parágrafo do título. Chame [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) na [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) da legenda. Ele copia as configurações do quadro de texto, a formatação do primeiro parágrafo e as propriedades de fonte padrão desse parágrafo. A formatação aplicada diretamente a porções individuais ou a parágrafos posteriores permanece local à fonte.
+
+O exemplo usa um título em negrito, azul-marinho, Calibri de 26 pontos como modelo. Após estilizar a legenda, usa [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) para aplicar a mesma formatação a uma legenda separada.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Na apresentação salva, a legenda e a legenda separada correspondem ao título em tamanho, peso e cor. A legenda ainda exibe os nomes das séries, e a legenda separada mantém seu próprio texto. Se uma porção na legenda separada já possuir um tamanho de fonte explícito, esse tamanho tem precedência sobre o padrão do parágrafo copiado.
+
+| Antes da cópia | Depois da cópia |
+| --- | --- |
+| ![Gráfico de vendas trimestral com rótulos de legenda pretos normais e legenda preta](legend-formatting-before.png) | ![O mesmo gráfico com rótulos de legenda maiores, em negrito e azul-marinho, e uma legenda correspondente](legend-formatting.png) |
+
+## **Definir o Formato Numérico**
+
+Use [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) para aplicar um formato numérico interno às células de planilha do gráfico. Este exemplo cria um gráfico de colunas agrupadas com dados padrão baseados em célula e aplica o índice de formato 10 (`0.00%`) a cada célula de valor da série. Isso altera a forma como os valores são exibidos na planilha sem mudar os números subjacentes; por exemplo, 0,25 é exibido como 25,00%. Formatos de eixo e de rótulo de dados podem ser configurados separadamente.
 
 ```python
 import aspose.slides.charts as charts
@@ -183,7 +232,7 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A tabela a seguir lista os índices de formatos numéricos internos com formatos representativos do Excel para a localidade English (United States). As cadeias de formato exatas e sua exibição podem variar por aplicativo e localidade, particularmente para moedas e datas. Alguns formatos do Excel também diferem dos padrões padrão do OOXML, conforme descrito nas [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+A tabela a seguir lista os índices de formatos numéricos internos com formatos representativos do Excel para a localidade English (United States). As strings de formato exatas e sua exibição podem variar por aplicação e localidade, especialmente para moeda e datas. Alguns formatos do Excel também diferem dos padrões padrão no OOXML, conforme descrito nas [notas de implementação de formato numérico da Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Índice | Formato |
 | --- | --- |
@@ -224,9 +273,9 @@ A tabela a seguir lista os índices de formatos numéricos internos com formatos
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Definir bordas arredondadas da área do gráfico**
+## **Definir Bordas Arredondadas da Área do Gráfico**
 
-Habilite [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) para arredondar os cantos da área do gráfico. O exemplo cria um gráfico de colunas agrupadas e usa [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) para dar ao seu contorno uma cor cinza sólida e um estilo de linha única antes de salvar a apresentação.
+Habilite [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) para arredondar os cantos da área do gráfico. O exemplo cria um gráfico de colunas agrupadas e usa [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) para dar ao contorno uma cor cinza sólida e um estilo de linha única antes de salvar a apresentação.
 
 ```python
 import aspose.slides.charts as charts
@@ -244,13 +293,13 @@ with slides.Presentation() as presentation:
     presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Editar anotações de gráfico existentes**
+## **Editar Anotações de Gráficos Existentes**
 
-Um gráfico pode conter formas personalizadas, como uma anotação de texto explicando o status de um relatório. Acesse essas formas por meio de [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Sua coleção [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) contém as formas de propriedade do gráfico.
+Um gráfico pode conter formas personalizadas, como uma anotação de texto explicando o status de um relatório. Acesse essas formas através de [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Sua coleção [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) contém as formas pertencentes ao gráfico.
 
-Uma caixa de texto comum posicionada sobre um gráfico pertence ao slide, mesmo que pareça parte do gráfico. Percorrer [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) encontra o gráfico e as formas de slide comuns, mas não enumera as formas individuais dentro do gráfico. Títulos de gráfico e rótulos de dados são elementos de gráfico separados, não anotações personalizadas nesta coleção.
+Uma caixa de texto comum posicionada sobre um gráfico pertence ao slide, mesmo que pareça parte do gráfico. Percorrer [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) encontra o gráfico e as formas comuns do slide, mas não enumera as formas individuais dentro do gráfico. Títulos de gráfico e rótulos de dados são elementos de gráfico separados, não anotações personalizadas nesta coleção.
 
-Baixe [chart-annotations.pptx](chart-annotations.pptx) e coloque-o no diretório de trabalho da aplicação. Seu primeiro slide contém um gráfico com uma anotação desagrupada lendo "Preliminary results", uma linha de propriedade do gráfico e uma caixa de texto de slide comum lendo "Slide overlay". O exemplo encontra o primeiro gráfico naquele slide e altera a anotação para "Final results" quando o relatório estiver pronto para publicação. Ele verifica se a coleção está vazia e edita somente um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) com um [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) que não seja `None` e contenha o texto esperado.
+Faça download de [chart-annotations.pptx](chart-annotations.pptx) e coloque-o no diretório de trabalho da aplicação. Seu primeiro slide contém um gráfico com uma anotação não agrupada lendo “Preliminary results”, uma linha pertencente ao gráfico e uma caixa de texto comum do slide lendo “Slide overlay”. O exemplo encontra o primeiro gráfico naquele slide e altera a anotação para “Final results” quando o relatório está pronto para publicação. Ele verifica se a coleção está vazia e só edita um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) com um [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) que não é `None` e contém o texto esperado.
 
 ```python
 import aspose.slides as slides
@@ -281,22 +330,22 @@ A linha e a caixa de texto do slide permanecem inalteradas. As imagens a seguir 
 
 | Antes da edição | Depois da edição |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Anotação do gráfico lendo Resultados preliminares](chart-annotations-before.png) | ![Anotação do gráfico lendo Resultados finais](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-O exemplo inspeciona apenas as formas de propriedade do gráfico de nível superior. Se uma anotação estiver dentro de um [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), inspecione também a coleção [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) desse grupo. Repita isso recursivamente para grupos aninhados, aplicando as mesmas verificações de texto às suas formas filhas. Um grupo em si é um contêiner; não o trate como uma caixa de texto.
+O exemplo inspeciona apenas as formas de nível superior pertencentes ao gráfico. Se uma anotação estiver dentro de um [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), inspecione também a coleção [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) desse grupo. Repita isso recursivamente para grupos aninhados, aplicando as mesmas verificações de texto às formas filhas. Um grupo em si é um contêiner; não o trate como uma caixa de texto.
 {{% /alert %}}
 
-## **FAQ**
+## **Perguntas frequentes**
 
 **Posso definir preenchimentos semitransparentes para colunas/áreas mantendo a borda opaca?**
 
 Sim. A transparência do preenchimento e o contorno são configurados separadamente. Isso é útil para melhorar a legibilidade da grade e dos dados em visualizações densas.
 
-**Como lidar com rótulos de dados quando eles se sobrepõem?**
+**Como posso lidar com rótulos de dados quando eles se sobrepõem?**
 
-Reduza o tamanho da fonte, desabilite componentes de rótulo não essenciais (por exemplo, categorias), ajuste a posição do rótulo, mostre rótulos somente para pontos selecionados se necessário, ou altere o formato para "valor + legenda".
+Reduza o tamanho da fonte, desative componentes de rótulo não essenciais (por exemplo, categorias), ajuste a posição do rótulo, mostre rótulos apenas para pontos selecionados se necessário, ou altere o formato para “valor + legenda”.
 
 **Posso aplicar preenchimentos de gradiente ou padrão às séries?**
 
-Sim. As séries suportam preenchimentos sólidos, gradientes e padrões. Na prática, use gradientes com moderação e evite combinações que reduzam o contraste com a grade e o texto.
+Sim. As séries suportam preenchimentos sólido, gradiente e padrão. Na prática, use gradientes com moderação e evite combinações que reduzam o contraste com a grade e o texto.

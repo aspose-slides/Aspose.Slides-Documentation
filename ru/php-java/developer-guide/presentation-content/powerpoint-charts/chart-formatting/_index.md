@@ -1,5 +1,5 @@
 ---
-title: Форматирование диаграмм презентации на PHP
+title: Форматирование диаграмм презентаций в PHP
 linktitle: Форматирование диаграмм
 type: docs
 weight: 60
@@ -17,17 +17,21 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Изучите форматирование диаграмм в Aspose.Slides для PHP через Java и улучшите свою презентацию PowerPoint с помощью пользовательских осей, шрифтов, числовых форматов и скруглённых границ диаграмм."
+description: "Изучите форматирование диаграмм в Aspose.Slides для PHP через Java и улучшите вашу презентацию PowerPoint с помощью пользовательских осей, шрифтов, числовых форматов и скруглённых границ диаграмм."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как форматировать диаграммы в презентациях PowerPoint с использованием Aspose.Slides. Она показывает, как настраивать ключевые элементы диаграммы, такие как оси, линии сетки, заголовки, легенды, область построения и заливки стен, чтобы улучшить внешний вид и читаемость данных диаграммы. Она также демонстрирует, как установить свойства шрифта для текста диаграммы, применить предустановленные числовые форматы к данным диаграммы и включить скругление углов области диаграммы. Вместе эти примеры показывают, как управлять как визуальным стилем, так и представлением данных диаграмм в презентации.
+Эта статья объясняет, как форматировать диаграммы в презентациях PowerPoint с помощью Aspose.Slides. Она показывает, как настраивать ключевые элементы диаграммы, такие как оси, линии сетки, заголовки, легенды, область построения и заливки стен, чтобы улучшить внешний вид и читаемость данных диаграммы.
+
+Также демонстрируется, как задавать свойства шрифта для текста диаграммы, применять предустановленные числовые форматы к данным диаграммы и включать скруглённые углы области диаграммы. Вместе эти примеры показывают, как контролировать как визуальный стиль, так и представление данных диаграмм в презентации.
+
+Для отдельного заполнения и контуров восходящих и нисходящих интервалов см. [пример диаграммы акций](/slides/ru/php-java/create-chart/#create-stock-charts).
 
 ## **Форматирование элементов диаграммы**
 
-Используйте [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) для форматирования заголовков диаграммы, осей, линий сетки, легенд и области построения. Этот пример создает линейную диаграмму с маркерами и данными по умолчанию, затем применяет отдельные стили текста и линий к осям значений и категорий. Размеры шрифтов и толщины линий указаны в пунктах; метки категорий повернуты на 45 градусов.
+Используйте [Диаграмма](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) чтобы форматировать заголовки диаграмм, оси, линии сетки, легенды и область построения. Этот пример создаёт линейную диаграмму с маркерами и данными по умолчанию, затем применяет отдельные стили текста и линии к её оси значений и оси категорий. Размеры шрифтов и ширина линий указаны в пунктах; подписи категорий повернуты на 45 градусов.
 
-Ось значений использует [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) независимо от исходных ячеек. Ее масштаб идет от -2 до 15, с основными интервалами 2 и вторичными интервалами 0,5. Пример также сочетает процентное форматирование с [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) установленным в тысячи, поэтому адаптируйте эти настройки к смыслу и масштабу ваших данных. Легенда остается вне области построения, поскольку [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) вызывается с `false`. Заливки задней стены и пола настраиваются через [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) и [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), но эти поверхности видимы только в 3D‑диаграммах.
+Ось значений использует [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) независимо от исходных ячеек. Её масштаб идёт от -2 до 15, с основными интервалами 2 и второстепенными интервалами 0,5. Пример также сочетает форматирование процентов с [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) установленным в тысячи, поэтому адаптируйте эти настройки к смыслу и масштабу ваших данных. Легенда остаётся за пределами области построения, потому что [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) вызывается с `false`. Заливки задней стенки и пола настраиваются через [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) и [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor), но эти поверхности видимы только в 3‑D диаграммах.
 
 ```php
 use aspose\slides\ChartType;
@@ -153,9 +157,9 @@ try {
 }
 ```
 
-## **Установка свойств шрифта для диаграммы**
+## **Установить свойства шрифта для диаграммы**
 
-Установите размер шрифта по умолчанию для текста диаграммы через [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). В примере создается групповая столбчатая диаграмма с шрифтом 20 пунктов и включаются подписи значений для первой серии через [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Текстовые элементы со своими явными настройками шрифта могут переопределять значение по умолчанию диаграммы.
+Задайте размер шрифта по умолчанию для текста диаграммы через [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat). Пример создаёт сгруппированную столбчатую диаграмму с шрифтом 20 пунктов и включает подписи значений для первой серии через [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). Текстовые элементы со своими явными настройками шрифта могут переопределять значение по умолчанию диаграммы.
 
 ```php
 use aspose\slides\ChartType;
@@ -176,9 +180,70 @@ try {
 }
 ```
 
-## **Установка числового формата**
+## **Повторное использование форматирования текстового фрейма для легенды диаграммы**
 
-Используйте [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) для применения встроенного числового формата к ячейкам рабочей книги диаграммы. В этом примере создается групповая столбчатая диаграмма с данными по умолчанию, привязанными к ячейкам, и применяется индекс формата 10 (`0.00%`) к каждой ячейке значений серии. Это изменяет способ отображения значений в рабочей книге без изменения самих чисел; например, 0,25 отображается как 25,00 %. Форматы осей и подписей данных можно настраивать отдельно.
+Чтобы сопоставить легенду с заголовком слайда, задайте шрифт заголовка через [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) в первом абзаце. Вызовите [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) для формата, возвращённого [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) легенды. Это копирует настройки текстового фрейма, форматирование первого абзаца и его свойства шрифта по умолчанию. Форматирование, применённое непосредственно к отдельным частям или к последующим абзацам, остаётся локальным для источника.
+
+В примере используется жирный заголовок Calibri размером 26 пунктов тёмно‑синего цвета в качестве шаблона. После стилизации легенды вызывается [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) чтобы применить то же форматирование к отдельной подписи.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+В сохранённой презентации легенда и подпись соответствуют заголовку по размеру, толщине и цвету. Легенда по‑прежнему показывает имена серий, а подпись сохраняет свой собственный текст. Если часть подписи уже имеет явный размер шрифта, этот размер имеет приоритет над скопированным значением по умолчанию абзаца.
+
+| До копирования | После копирования |
+| --- | --- |
+| ![Квартальная диаграмма продаж с обычными черными метками легенды и черной подписью](legend-formatting-before.png) | ![Та же диаграмма с более крупными жирными тёмно‑синими метками легенды и соответствующей подписью](legend-formatting.png) |
+
+## **Установить числовой формат**
+
+Используйте [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) чтобы применить встроенный числовой формат к ячейкам рабочей книги диаграммы. Этот пример создаёт сгруппированную столбчатую диаграмму с данными по умолчанию, поддерживаемыми ячейками, и применяет индекс формата 10 (`0.00%`) к каждой ячейке значений серии. Это изменяет способ отображения значений в рабочей книге без изменения исходных чисел; например, 0,25 отображается как 25,00 %. Форматы осей и подписей данных могут настраиваться отдельно.
 
 ```php
 use aspose\slides\ChartType;
@@ -207,7 +272,7 @@ try {
 }
 ```
 
-В следующей таблице перечислены индексы встроенных числовых форматов с типичными форматами Excel для локали English (United States). Точные строки форматов и их отображение могут различаться в зависимости от приложения и локали, особенно для валют и дат. Некоторые форматы Excel также отличаются от значений по умолчанию в стандарте OOXML, как описано в [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+В следующей таблице перечислены встроенные индексы числовых форматов с типичными форматами Excel для локали English (United States). Точные строки форматов и их отображение могут различаться в зависимости от приложения и локали, особенно для валют и дат. Некоторые форматы Excel также отличаются от значений по умолчанию в стандарте OOXML, как описано в [заметках Microsoft по реализации числовых форматов](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Индекс | Формат |
 | --- | --- |
@@ -248,9 +313,9 @@ try {
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Установка скругленных границ области диаграммы**
+## **Установить скруглённые границы области диаграммы**
 
-Вызовите [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) с `true`, чтобы скруглить углы области диаграммы. Пример создает групповую столбчатую диаграмму и использует [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) для задания ее контуру сплошным серым цветом и однолинейным стилем перед сохранением презентации.
+Вызовите [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) с `true`, чтобы скруглить углы области диаграммы. Пример создаёт сгруппированную столбчатую диаграмму и использует [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat), чтобы задать её контуру сплошной серый цвет и однолитейный стиль перед сохранением презентации.
 
 ```php
 use aspose\slides\ChartType;
@@ -275,13 +340,13 @@ try {
 }
 ```
 
-## **Редактирование существующих аннотаций диаграммы**
+## **Редактировать существующие аннотации диаграммы**
 
-Диаграмма может содержать пользовательские фигуры, такие как текстовая аннотация, объясняющая статус отчета. Доступ к этим фигурам осуществляется через [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). Коллекция, возвращаемая [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/), содержит фигуры, принадлежащие диаграмме.
+Диаграмма может содержать пользовательские фигуры, такие как текстовая аннотация, объясняющая статус отчёта. Доступ к этим фигурам осуществляется через [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes). Коллекция, возвращаемая [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes), содержит фигуры, принадлежащие диаграмме.
 
-Обычный текстовый блок, размещенный поверх диаграммы, принадлежит слайду, даже если выглядит как часть диаграммы. Перебор через [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) находит диаграмму и обычные фигуры слайда, но не перечисляет отдельные фигуры внутри диаграммы. Заголовки диаграмм и подписи данных являются отдельными элементами диаграммы, а не пользовательскими аннотациями в этой коллекции.
+Обычный текстовый блок, размещённый поверх диаграммы, принадлежит слайду, даже если выглядит как часть диаграммы. Перебор через [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) находит диаграмму и обычные элементы слайда, но не перечисляет отдельные фигуры внутри диаграммы. Заголовки диаграмм и подписи данных являются отдельными элементами диаграммы, а не пользовательскими аннотациями в этой коллекции.
 
-Скачайте [chart-annotations.pptx](chart-annotations.pptx) и поместите его в рабочий каталог приложения. На его первом слайде находится диаграмма с не сгруппированной аннотацией «Preliminary results», линией, принадлежащей диаграмме, и обычным текстовым блоком слайда «Slide overlay». Пример находит первую диаграмму на этом слайде и меняет аннотацию на «Final results», когда отчет готов к публикации. Он проверяет, что коллекция не пуста, и редактирует только [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) с ненулевым текстовым фреймом, возвращаемым [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/), и с ожидаемым текстом.
+Скачайте [chart-annotations.pptx](chart-annotations.pptx) и поместите его в рабочий каталог приложения. На первом слайде находится диаграмма с не сгруппированной аннотацией «Preliminary results», линией, принадлежащей диаграмме, и обычным текстовым блоком слайда «Slide overlay». Пример находит первую диаграмму на этом слайде и изменяет аннотацию на «Final results», когда отчёт готов к публикации. Он проверяет, пуст ли набор, и редактирует только [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) с непустым текстовым фреймом, возвращенным [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame), и соответствующим текстом.
 
 ```php
 use aspose\slides\Presentation;
@@ -331,26 +396,26 @@ try {
 }
 ```
 
-Линия и текстовый блок слайда остаются без изменений. Ниже приведены изображения входных данных и сохранённого, повторно открытого результата:
+Линия и текстовый блок слайда остаются без изменений. На следующих изображениях показаны исходный и сохранённый, открытый заново результат:
 
 | До редактирования | После редактирования |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Аннотация диаграммы с надписью Preliminary results](chart-annotations-before.png) | ![Аннотация диаграммы с надписью Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Пример проверяет только фигуры верхнего уровня, принадлежащие диаграмме. Если аннотация находится внутри [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), также проверьте коллекцию [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) этой группы. Повторяйте это рекурсивно для вложенных групп, применяя те же проверки текста к их дочерним фигурам. Сама группа является контейнером; не рассматривайте её как текстовый блок.
+Пример проверяет только фигуры верхнего уровня, принадлежащие диаграмме. Если аннотация находится внутри [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), проверьте также коллекцию [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) этой группы. Повторяйте это рекурсивно для вложенных групп, применяя те же проверки текста к их дочерним фигурам. Сама группа является контейнером; не рассматривайте её как текстовый блок.
 {{% /alert %}}
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
 **Могу ли я задать полупрозрачные заливки для столбцов/областей, оставив границу непрозрачной?**
 
-Да. Прозрачность заливки и контур настраиваются отдельно. Это полезно для повышения читаемости сетки и данных в плотных визуализациях.
+Да. Прозрачность заливки и контур задаются отдельно. Это полезно для повышения читаемости сетки и данных в плотных визуализациях.
 
 **Как справиться с наложением подписей данных?**
 
-Уменьшите размер шрифта, отключите несущественные компоненты подписи (например, категории), скорректируйте положение подписи, при необходимости показывайте подписи только для выбранных точек или переключите формат на «значение + легенда».
+Уменьшите размер шрифта, отключите несущностные компоненты подписи (например, категории), измените положение подписи, при необходимости показывайте подписи только для выбранных точек или переключите формат на «значение + легенда».
 
-**Могу ли я применять градиентные или шаблонные заливки к сериям?**
+**Могу ли я применить градиентные или узорчатые заливки к сериям?**
 
-Да. Серии поддерживают сплошные, градиентные и шаблонные заливки. На практике используйте градиенты умеренно и избегайте сочетаний, снижающих контраст с сеткой и текстом.
+Да. Серии поддерживают сплошные, градиентные и узорчатые заливки. На практике используйте градиенты умеренно и избегайте комбинаций, уменьшающих контраст с сеткой и текстом.

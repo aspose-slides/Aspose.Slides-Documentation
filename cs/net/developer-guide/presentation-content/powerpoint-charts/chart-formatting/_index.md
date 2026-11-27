@@ -7,10 +7,10 @@ url: /cs/net/chart-formatting/
 keywords:
 - formát grafu
 - formátování grafu
-- prvek grafu
+- entita grafu
 - vlastnosti grafu
 - nastavení grafu
-- možnosti grafu
+- volby grafu
 - vlastnosti písma
 - zaoblený okraj
 - PowerPoint
@@ -22,14 +22,17 @@ description: "Naučte se formátovat grafy v Aspose.Slides pro .NET a vylepšete
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak formátovat grafy v prezentacích PowerPoint pomocí Aspose.Slides. Ukazuje, jak přizpůsobit klíčové prvky grafu, jako jsou osy, mřížkové čáry, názvy, legendy, oblast vykreslení a výplně stěn, aby se zlepšil vzhled a čitelnost dat v grafu.  
-Také ukazuje, jak nastavit vlastnosti písma pro text v grafu, použít předdefinované číselné formáty na data v grafu a povolit zaoblené rohy oblasti grafu. Společně tyto příklady ukazují, jak ovládat jak vizuální styl, tak prezentaci dat v grafech v prezentaci.
+Tento článek vysvětluje, jak pomocí Aspose.Slides formátovat grafy v prezentacích PowerPoint. Ukazuje, jak přizpůsobit hlavní prvky grafu, jako jsou osy, mřížkové čáry, nadpisy, legendy, oblast grafu a výplně stěn, aby se zlepšil vzhled a čitelnost dat v grafu.
 
-## **Formátování prvků grafu**
+Také ukazuje, jak nastavit vlastnosti písma pro text v grafu, použít předdefinované číselné formáty na data v grafu a povolit zaoblené rohy oblasti grafu. Tyto příklady společně ukazují, jak řídit jak vizuální styl, tak prezentaci dat grafu v prezentaci.
 
-Použijte [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) k formátování názvů grafu, os, mřížkových čar, legend a oblasti vykreslení. Tento příklad vytvoří čárový graf s značkami a výchozími daty, poté aplikuje samostatné styly textu a čáry na osy hodnot a kategorií. Velikosti písma a šířky čar jsou zadány v bodech; popisky kategorií jsou otočeny o 45 stupňů.  
+Pro samostatné výplně a obrysy při rostoucích a klesajících intervalech viz [ukázku akciového grafu](/slides/cs/net/create-chart/#create-stock-charts).
 
-Osa hodnot používá [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) nezávisle na zdrojových buňkách. Její měřítko jde od -2 do 15, s hlavními intervaly 2 a vedlejšími intervaly 0,5. Příklad také kombinuje procentuální formátování s [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) nastaveným na tisíce, takže přizpůsobte tato nastavení významu a velikosti vašich dat. Legenda zůstává mimo oblast vykreslení, protože [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) je zakázáno. Výplně zadní stěny a podlahy jsou konfigurovány pomocí [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) a [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), ale tyto povrchy jsou viditelné pouze u 3D grafů.
+## **Formátování entit grafu**
+
+K formátování nadpisů grafu, os, mřížkových čar, legend a oblasti grafu použijte [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/). Tento příklad vytvoří čárový graf s značkami a výchozími daty a poté aplikuje samostatné styly textu a čar na jeho hodnotovou a kategoriální osu. Velikosti písma a šířky čar jsou zadány v bodech; štítky kategorií jsou otočeny o 45 stupňů.
+
+Hodnotová osa používá [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) nezávisle na zdrojových buňkách. Její měřítko běží od -2 do 15, s hlavními intervaly 2 a vedlejšími intervaly 0,5. Příklad také kombinuje formátování procent s [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) nastaveným na tisíce, takže přizpůsobte tato nastavení významu a velikosti vašich dat. Legenda zůstává mimo oblast grafu, protože [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) je zakázáno. Výplně zadního stěnu a podlahy jsou konfigurovány přes [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) a [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), avšak tyto povrchy jsou viditelné jen ve 3D grafech.
 
 ```csharp
 using System.Drawing;
@@ -147,7 +150,7 @@ presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 
 ## **Nastavení vlastností písma pro graf**
 
-Nastavte výchozí velikost písma pro text v grafu pomocí [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Tento příklad vytvoří seskupený sloupcový graf s písmem o velikosti 20 bodů a povolí popisky hodnot pro první sérii pomocí [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Textové prvky s vlastními explicitními nastaveními písma mohou přebít výchozí nastavení grafu.
+Výchozí velikost písma pro text v grafu nastavte pomocí [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Příklad vytvoří sloupcový graf se shluky s 20bodovým písmem a povolí hodnotové popisky pro první sérii pomocí [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Textové prvky s vlastními explicitními nastaveními písma mohou přepsat výchozí nastavení grafu.
 
 ```csharp
 using Aspose.Slides;
@@ -164,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **Opětovné použití formátování textového rámce pro legendu grafu**
+
+Pro sladění legendy s nadpisem snímku nastavte písmo v [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) prvního odstavce. Zavolejte [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) na [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) legendy. Přečte nastavení textového rámce, formátování prvního odstavce a výchozí vlastnosti písma tohoto odstavce. Formátování aplikované přímo na jednotlivé úseky nebo na pozdější odstavce zůstává místní k zdroji.
+
+Příklad používá tučný nadpis Calibri 26 bodů v tmavě modré barvě jako šablonu. Po naformátování legendy použije [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) k aplikaci stejného formátování na samostatný popisek.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+V uložené prezentaci se legenda a popisek shodují s nadpisem co do velikosti, tučnosti a barvy. Legenda i nadále zobrazuje názvy sérií a popisek si zachovává svůj vlastní text. Pokud má úsek v popisku již explicitně nastavenou velikost písma, tato velikost má přednost před zkopírovaným výchozím nastavením odstavce.
+
+| Před kopírováním | Po kopírování |
+| --- | --- |
+| ![Čtvrtletní prodejní graf s běžnými černými štítky legendy a černým popiskem](legend-formatting-before.png) | ![Stejný graf s většími, tučnými tmavě modrými štítky legendy a odpovídajícím popiskem](legend-formatting.png) |
+
 ## **Nastavení číselného formátu**
 
-Použijte [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) k aplikaci vestavěného číselného formátu na buňky grafu v sešitu. Tento příklad vytvoří seskupený sloupcový graf s výchozími, buněčně podpořenými daty a aplikuje formátový index 10 (`0.00%`) na buňku hodnot každé série. Tím se změní způsob zobrazení hodnot v sešitu, aniž by se změnily podkladové čísla; například 0,25 se zobrazí jako 25,00 %. Formáty os a popisků dat lze konfigurovat samostatně.
+Pro použití vestavěného číselného formátu na buňky sešitu grafu použijte [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/). Tento příklad vytvoří sloupcový graf se výchozími, buňkami podkládajícími data a použije formátový index 10 (`0.00%`) na každou buňku s hodnotou série. Tím se změní způsob, jakým jsou hodnoty v sešitu zobrazeny, aniž by se změnila podkladová čísla; například 0,25 se zobrazí jako 25,00 %. Formáty os a popisků dat lze konfigurovat samostatně.
 
 ```csharp
 using Aspose.Slides;
@@ -183,14 +236,14 @@ foreach (var chartSeries in series)
 {
     foreach (var dataPoint in chartSeries.DataPoints)
     {
-        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0,00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Následující tabulka uvádí vestavěné indexy číselných formátů s reprezentativními formáty Excelu pro anglické (United States) prostředí. Přesné řetězce formátů a jejich zobrazení se mohou lišit podle aplikace a locale, zejména pro měny a datumy. Některé formáty Excelu také liší od výchozích v standardu OOXML, jak je popsáno v [Poznámky k implementaci číselných formátů Microsoftu](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Následující tabulka uvádí vestavěné indexy číselných formátů s reprezentativními formáty Excelu pro anglické (Spojené státy) prostředí. Přesné řetězce formátů a jejich zobrazení se mohou lišit podle aplikace a lokality, zejména u měn a dat. Některé formáty Excelu se také liší od výchozích v standardu OOXML, jak je popsáno v [poznámkách k implementaci číselných formátů společnosti Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Index | Formát |
 | --- | --- |
@@ -231,9 +284,9 @@ Následující tabulka uvádí vestavěné indexy číselných formátů s repre
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Nastavení zaoblených okrajů oblasti grafu**
+## **Nastavení zaoblených hran oblasti grafu**
 
-Povolte [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) k zaoblení rohů oblasti grafu. Příklad vytvoří seskupený sloupcový graf a použije [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) k nastavení obrysu na plnou šedou barvu a jednotný styl čáry před uložením prezentace.
+Povolte [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/), aby se zaoblily rohy oblasti grafu. Příklad vytvoří sloupcový graf se shluky a použije [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/), aby jeho obrys získal jednotnou šedou barvu a styl jedné čáry před uložením prezentace.
 
 ```csharp
 using System.Drawing;
@@ -253,13 +306,13 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **Úprava existujících anotací grafu**
+## **Úprava existujících anotací v grafu**
 
-Graf může obsahovat vlastní tvary, například textovou anotaci vysvětlující stav zprávy. Přístup k těmto tvarům získáte přes [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), také uvedené pod [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) v referenci API grafu. Jeho kolekce [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) obsahuje tvary vlastněné grafem.  
+Graf může obsahovat vlastní tvary, například textovou anotaci vysvětlující stav zprávy. Přístup k těmto tvarům získáte přes [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), který je také uveden pod [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) v referenci API grafu. Jeho kolekce [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) obsahuje tvary patřící grafu.
 
-Obyčejné textové pole umístěné nad grafem patří ke snímku, i když vypadá jako součást grafu. Procházení [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) najde graf a obyčejné tvary snímku, ale nevyjmenuje jednotlivé tvary uvnitř grafu. Názvy grafů a popisky dat jsou samostatné prvky grafu, ne vlastní anotace v této kolekci.  
+Běžná textová pole umístěná nad grafem patří ke snímku, i když vypadají jako součást grafu. Procházení [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) najde graf a běžné tvary snímku, ale nevyjmenuje jednotlivé tvary uvnitř grafu. Tituly grafu a popisky dat jsou samostatné prvky grafu, nikoli vlastní anotace v této kolekci.
 
-Stáhněte [chart-annotations.pptx](chart-annotations.pptx) a umístěte jej do pracovního adresáře aplikace. Jeho první snímek obsahuje graf s neoznačenou anotací s textem „Preliminary results“, linií vlastněnou grafem a obyčejným textovým polem snímku s textem „Slide overlay“. Příklad najde první graf na tomto snímku a změní anotaci na „Final results“, když je zpráva připravena k publikaci. Zkontroluje, zda je kolekce prázdná, a upraví pouze [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) s nenulovým [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) a očekávaným textem.
+Stáhněte [chart-annotations.pptx](chart-annotations.pptx) a umístěte jej do pracovního adresáře aplikace. Jeho první snímek obsahuje graf s nezkupenou anotací „Preliminary results“, linií patřící grafu a běžným textovým polem snímku s popiskem „Slide overlay“. Příklad najde první graf na tomto snímku a změní anotaci na „Final results“, když je zpráva připravena k publikaci. Kontroluje, zda je kolekce prázdná, a upravuje pouze [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) s nenulovým [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) a očekávaným textem.
 
 ```csharp
 using System;
@@ -302,23 +355,26 @@ else
 }
 ```
 
-Linie a textové pole snímku zůstávají nezměněny. Následující obrázky ukazují vstup a uložený, znovu otevřený výsledek:
+Čára a textové pole snímku zůstávají nezměněny. Následující obrázky ukazují vstup a uložený, znovu otevřený výsledek:
 
 | Před úpravou | Po úpravě |
 | --- | --- |
 | ![Anotace grafu s textem Preliminary results](chart-annotations-before.png) | ![Anotace grafu s textem Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Příklad kontroluje pouze tvary na nejvyšší úrovni, které vlastní graf. Pokud je anotace uvnitř [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), prozkoumejte i kolekci [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) této skupiny. Opakujte to rekurzivně pro vnořené skupiny a použijte stejné kontrolní texty na jejich podřízené tvary. Skupina samotná je kontejner; nepracujte s ní jako s textovým polem.
+Příklad kontroluje pouze tvary nejvyšší úrovně, které patří grafu. Pokud je anotace uvnitř [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), prozkoumejte také kolekci [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) této skupiny. Opakujte to rekurzivně pro vnořené skupiny a použijte stejné kontroly textu na jejich podřízené tvary. Skupina samotná je kontejner; neinterpretuje se jako textové pole.
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Mohu nastavit poloprůhledné výplně pro sloupce/oblasti a zároveň zachovat okraje neprůhledné?**  
+**Mohu nastavit poloprůhledné výplně pro sloupce/oblasti při zachování neprůhledného okraje?**
+
 Ano. Průhlednost výplně a obrys jsou konfigurovány samostatně. To je užitečné pro zlepšení čitelnosti mřížky a dat v hustých vizualizacích.
 
-**Jak mohu zacházet s popisky dat, když se překrývají?**  
-Zmenšete velikost písma, zakažte nesprávné komponenty popisku (například kategorie), upravte polohu popisku, zobrazte popisky jen pro vybrané body, pokud je to nutné, nebo přepněte formát na „hodnota + legenda“.
+**Jak mohu řešit překrývající se popisky dat?**
 
-**Mohu aplikovat gradientní nebo vzorové výplně na řady?**  
+Zmenšte velikost písma, deaktivujte nepodstatné komponenty popisků (například kategorie), upravte umístění popisku, zobrazte popisky jen pro vybrané body, pokud je to nutné, nebo přepněte formát na „hodnota + legenda“.
+
+**Mohu na sérii aplikovat gradientní nebo vzorové výplně?**
+
 Ano. Série podporují plné, gradientní a vzorové výplně. V praxi používejte gradienty střídmě a vyhněte se kombinacím, které snižují kontrast s mřížkou a textem.

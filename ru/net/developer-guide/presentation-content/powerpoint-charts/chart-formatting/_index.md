@@ -1,16 +1,16 @@
 ---
-title: Форматирование графиков презентаций в .NET
-linktitle: Форматирование графиков
+title: Форматирование диаграмм презентаций в .NET
+linktitle: Форматирование диаграмм
 type: docs
 weight: 60
 url: /ru/net/chart-formatting/
 keywords:
-- формат графика
-- форматирование графика
-- сущность графика
-- свойства графика
-- настройки графика
-- опции графика
+- формат диаграммы
+- форматирование диаграмм
+- элемент диаграммы
+- свойства диаграммы
+- настройки диаграммы
+- параметры диаграммы
 - свойства шрифта
 - скруглённая граница
 - PowerPoint
@@ -18,19 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Изучите форматирование графиков в Aspose.Slides для .NET и улучшите свою презентацию PowerPoint с помощью пользовательских осей, шрифтов, числовых форматов и скруглённых границ графика."
+description: "Изучите форматирование диаграмм в Aspose.Slides для .NET и улучшите свою презентацию PowerPoint с помощью настраиваемых осей, шрифтов, числовых форматов и скруглённых границ диаграмм."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как форматировать графики в презентациях PowerPoint с помощью Aspose.Slides. Показано, как настраивать ключевые элементы графика, такие как оси, линии сетки, заголовки, легенды, область построения и заливки стен, чтобы улучшить внешний вид и читаемость данных графика.  
+Эта статья объясняет, как форматировать диаграммы в презентациях PowerPoint с помощью Aspose.Slides. Показано, как настраивать ключевые элементы диаграммы, такие как оси, линии сетки, заголовки, легенды, область построения и заливки стен, чтобы улучшить внешний вид и читаемость данных диаграммы.
 
-Также демонстрируется, как задавать свойства шрифта для текста графика, применять предустановленные числовые форматы к данным графика и включать скругленные углы области графика. В совокупности эти примеры показывают, как управлять как визуальным стилем, так и представлением данных графиков в презентации.
+Также демонстрируется, как задавать свойства шрифта для текста диаграммы, применять предустановленные числовые форматы к данным диаграммы и включать скруглённые углы для области диаграммы. Эти примеры показывают, как управлять как визуальным стилем, так и представлением данных диаграмм в презентации.
 
-## **Форматирование сущностей графика**
+Для отдельных заливок и обводок на восходящих и нисходящих интервалах см. [пример диаграммы акций](/slides/ru/net/create-chart/#create-stock-charts).
 
-Используйте [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) для форматирования заголовков графика, осей, линий сетки, легенд и области построения. Этот пример создает линейный график с маркерами и данными по умолчанию, затем применяет отдельные стили текста и линий к его оси значений и оси категорий. Размеры шрифтов и толщины линий указаны в пунктах; подписи категорий повёрнуты на 45 градусов.  
+## **Форматирование элементов диаграммы**
 
-Ось значений использует [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) независимо от исходных ячеек. Ее масштаб идет от -2 до 15, с основными интервалами 2 и второстепенными интервалами 0,5. Пример также сочетает форматирование в процентах с [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) , установленным в тысячи, поэтому адаптируйте эти настройки к смыслу и масштабу ваших данных. Легенда находится вне области построения, поскольку [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) отключен. Заполнения задней стенки и пола настраиваются через [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) и [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), но эти поверхности видны только в 3D‑графиках.
+Используйте [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) для форматирования заголовков диаграмм, осей, линий сетки, легенд и области построения. Этот пример создаёт линейную диаграмму с маркерами и данными по умолчанию, затем применяет отдельные стили текста и линий к её оси значений и оси категорий. Размеры шрифтов и толщины линий указываются в пунктах; подписи категорий повёрнуты на 45 градусов.
+
+Ось значений использует [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) независимо от ячеек‑источников. Её диапазон от ‑2 до 15, основные интервалы — 2, вторичные — 0,5. Пример также сочетает процентное форматирование с [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) — тысячами, поэтому адаптируйте эти настройки к смыслу и масштабу ваших данных. Легенда остаётся за пределами области построения, потому что [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) отключён. Заливки задней стенки и пола настраиваются через [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) и [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), но эти поверхности видны только в 3‑D диаграммах.
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Установка свойств шрифта для графика**
+## **Установить свойства шрифта для диаграммы**
 
-Установите размер шрифта по умолчанию для текста графика через [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Пример создает сгруппированный столбчатый график с шрифтом 20 пунктов и включает подписи значений для первой серии через [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Текстовые элементы с собственными явными настройками шрифта могут переопределять значение по умолчанию графика.
+Задайте размер шрифта по умолчанию для текста диаграммы через [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Пример создаёт сгруппированную столбчатую диаграмму с шрифтом 20 пт и включает подписи значений для первой серии через [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Текстовые элементы с собственными явными настройками шрифта могут переопределять значение по умолчанию диаграммы.
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
-## **Установка числового формата**
+## **Повторное использование форматирования текстового фрейма для легенды диаграммы**
 
-Используйте [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) для применения встроенного числового формата к ячейкам книги графика. Этот пример создает сгруппированный столбчатый график с данными по умолчанию, поддерживаемыми ячейками, и применяет индекс формата 10 (`0.00%`) к ячейке значения каждой серии. Это меняет способ отображения значений в книге без изменения самих чисел; например, 0,25 отображается как 25,00 %. Форматы осей и подписей данных могут быть настроены отдельно.
+Чтобы сопоставить легенду с заголовком слайда, задайте шрифт в [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) первого абзаца. Вызовите [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) у [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) легенды. Он считывает настройки текстового фрейма, форматирование первого абзаца и свойства шрифта по умолчанию этого абзаца. Форматирование, применённое напрямую к отдельным частям или к последующим абзацам, остаётся локальным для источника.
+
+В примере используется жирный заголовок Calibri 26 пт тёмно‑синего цвета в качестве шаблона. После стилизации легенды применяется [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) для применения того же форматирования к отдельной подписи.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+В сохранённой презентации легенда и подпись соответствуют заголовку по размеру, толщине и цвету. Легенда по‑прежнему отображает имена серий, а подпись сохраняет собственный текст. Если часть подписи уже имеет явный размер шрифта, этот размер имеет приоритет над скопированным значением по умолчанию абзаца.
+
+| До копирования | После копирования |
+| --- | --- |
+| ![Квартальная диаграмма продаж с обычными чёрными метками легенды и чёрной подписью](legend-formatting-before.png) | ![Та же диаграмма с более крупными, жирными тёмно‑синими метками легенды и соответствующей подписью](legend-formatting.png) |
+
+## **Установить числовой формат**
+
+Используйте [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) для применения встроенного числового формата к ячейкам рабочей книги диаграммы. Этот пример создаёт сгруппированную столбчатую диаграмму с данными, поддерживаемыми ячейками, и применяет индекс формата 10 (`0.00%`) к каждой ячейке значения серии. Это меняет отображение значений в рабочей книге без изменения самих чисел; например, 0,25 будет отображаться как 25,00 %. Форматы осей и меток данных можно настраивать отдельно.
 
 ```csharp
 using Aspose.Slides;
@@ -191,7 +243,7 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-В следующей таблице перечислены встроенные индексы числовых форматов с типичными форматами Excel для локали English (United States). Точные строковые форматы и их отображение могут различаться в зависимости от приложения и локали, особенно для валют и дат. Некоторые форматы Excel также отличаются от значений по умолчанию в стандарте OOXML, как описано в [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+В следующей таблице перечислены встроенные индексы числовых форматов с типичными форматами Excel для локали English (United States). Точные строковые форматы и их отображение могут различаться в зависимости от приложения и локали, особенно для валют и дат. Некоторые форматы Excel также отличаются от значений по умолчанию в стандарте OOXML, как описано в [примечаниях к реализации числового формата Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Индекс | Формат |
 | --- | --- |
@@ -232,9 +284,9 @@ presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Установка скруглённых границ области графика**
+## **Установить скругленные границы области диаграммы**
 
-Включите [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) для скругления углов области графика. Пример создает сгруппированный столбчатый график и использует [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) для задания его контуру сплошного серого цвета и однослойного стиля перед сохранением презентации.
+Включите [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) для скругления углов области диаграммы. Пример создаёт сгруппированную столбчатую диаграмму и использует [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) для задания её контуру сплошного серого цвета и одно‑линейного стиля перед сохранением презентации.
 
 ```csharp
 using System.Drawing;
@@ -254,13 +306,13 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **Редактирование существующих аннотаций графика**
+## **Редактировать существующие аннотации диаграммы**
 
-График может содержать пользовательские фигуры, такие как текстовая аннотация, объясняющая статус отчёта. Доступ к этим фигурам осуществляется через [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), также перечисленные в [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) в справочнике API графика. Его коллекция [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) содержит фигуры, принадлежащие графику.  
+Диаграмма может содержать пользовательские фигуры, например текстовую аннотацию, объясняющую статус отчёта. Доступ к этим фигурам осуществляется через [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), также перечисленные в [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) в справочнике API диаграмм. Её коллекция [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) содержит фигуры, принадлежащие диаграмме.
 
-Обычный текстовый блок, размещённый поверх графика, принадлежит слайду, даже если выглядит как часть графика. Перебор через [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) находит график и обычные фигуры слайда, но не перечисляет отдельные фигуры внутри графика. Заголовки графиков и подписи данных являются отдельными элементами графика, а не пользовательскими аннотациями в этой коллекции.  
+Обычный текстовый блок, размещённый над диаграммой, принадлежит слайду, даже если выглядит как часть диаграммы. Перебор [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) находит диаграмму и обычные фигуры слайда, но не перечисляет отдельные фигуры внутри диаграммы. Заголовки диаграмм и подписи данных — отдельные элементы диаграммы, а не пользовательские аннотации в этой коллекции.
 
-Скачайте [chart-annotations.pptx](chart-annotations.pptx) и поместите его в рабочий каталог приложения. Его первый слайд содержит график с разгруппированной аннотацией «Preliminary results», линией, принадлежащей графику, и обычным текстовым блоком слайда «Slide overlay». Пример находит первый график на этом слайде и меняет аннотацию на «Final results», когда отчёт готов к публикации. Он проверяет, не пуста ли коллекция, и редактирует только [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) с ненулевым [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) и ожидаемым текстом.
+Скачайте [chart-annotations.pptx](chart-annotations.pptx) и разместите его в рабочем каталоге приложения. На первом слайде находится диаграмма с разъединённой аннотацией «Preliminary results», принадлежащей диаграмме линией и обычным текстовым блоком слайда «Slide overlay». Пример находит первую диаграмму на этом слайде и меняет аннотацию на «Final results», когда отчёт готов к публикации. Он проверяет, что коллекция не пуста, и редактирует только [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) с ненулевым [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) и ожидаемым текстом.
 
 ```csharp
 using System;
@@ -303,23 +355,26 @@ else
 }
 ```
 
-Линия и текстовый блок слайда остаются без изменений. Ниже показаны изображения исходного состояния и сохранённого, повторно открытого результата:
+Линия и текстовый блок слайда остаются без изменений. На следующих изображениях показаны исходный и сохранённый, повторно открытый результат:
 
-| Перед редактированием | После редактирования |
+| До редактирования | После редактирования |
 | --- | --- |
-| ![Аннотация графика: Preliminary results](chart-annotations-before.png) | ![Аннотация графика: Final results](chart-annotations-after.png) |
+| ![Аннотация диаграммы «Preliminary results»](chart-annotations-before.png) | ![Аннотация диаграммы «Final results»](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Пример проверяет только фигуры верхнего уровня, принадлежащие графику. Если аннотация находится внутри [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), проверьте также коллекцию [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) этой группы. Повторяйте это рекурсивно для вложенных групп, применяя те же проверки текста к их дочерним фигурам. Сама группа является контейнером; не рассматривайте её как текстовый блок.
+Пример проверяет только фигурные объекты верхнего уровня, принадлежащие диаграмме. Если аннотация находится внутри [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), также проверьте коллекцию [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) этой группы. Делайте это рекурсивно для вложенных групп, применяя те же проверки текста к их дочерним фигурам. Группа сама по себе является контейнером; не рассматривайте её как текстовый блок.
 {{% /alert %}}
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Могу ли я задать полупрозрачные заливки для столбцов/областей, сохранив границу непрозрачной?**  
-Да. Прозрачность заливки и контур настраиваются отдельно. Это полезно для повышения читаемости сетки и данных в плотных визуализациях.
+**Можно ли установить полупрозрачные заливки для столбцов/областей, сохранив границу непрозрачной?**
 
-**Как бороться с наложением подписей данных?**  
-Уменьшите размер шрифта, отключите необязательные компоненты подписи (например, категории), отрегулируйте положение подписи, при необходимости показывайте подписи только для выбранных точек или переключите формат на «значение + легенда».
+Да. Прозрачность заливки и обводка настраиваются отдельно. Это полезно для повышения читаемости сетки и данных в плотных визуализациях.
 
-**Могу ли я применять градиентные или узорчатые заливки к сериям?**  
+**Как справиться с подписью данных, когда они перекрываются?**
+
+Уменьшите размер шрифта, отключите необязательные компоненты подписи (например, категории), измените позицию подписи, показывайте подписи только для выбранных точек при необходимости или переключите формат на «значение + легенда».
+
+**Можно ли применить градиентные или узорчатые заливки к сериям?**
+
 Да. Серии поддерживают сплошные, градиентные и узорчатые заливки. На практике используйте градиенты умеренно и избегайте комбинаций, снижающих контраст с сеткой и текстом.

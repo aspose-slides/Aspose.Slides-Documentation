@@ -1,35 +1,37 @@
 ---
-title: Format Diagram Presentasi di PHP
-linktitle: Pemformatan Diagram
+title: Format Bagan Presentasi di PHP
+linktitle: Pemformatan Bagan
 type: docs
 weight: 60
 url: /id/php-java/chart-formatting/
 keywords:
-- format diagram
-- pemformatan diagram
-- entitas diagram
-- properti diagram
-- pengaturan diagram
-- opsi diagram
+- format bagan
+- pemformatan bagan
+- entitas bagan
+- properti bagan
+- pengaturan bagan
+- opsi bagan
 - properti font
-- border bulat
+- border melengkung
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari pemformatan diagram di Aspose.Slides untuk PHP melalui Java dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan batas diagram yang bulat."
+description: "Pelajari pemformatan bagan di Aspose.Slides untuk PHP melalui Java dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan border bagan yang melengkung."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara memformat diagram dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen diagram utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isi dinding untuk meningkatkan tampilan dan keterbacaan data diagram.
+Artikel ini menjelaskan cara memformat bagan dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen bagan utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isi dinding untuk meningkatkan tampilan dan keterbacaan data bagan.
 
-Artikel ini juga mendemonstrasikan cara mengatur properti font untuk teks diagram, menerapkan format numerik bawaan pada data diagram, dan mengaktifkan sudut bulat untuk area diagram. Bersama-sama, contoh-contoh ini menunjukkan cara mengontrol baik gaya visual maupun penyajian data diagram dalam sebuah presentasi.
+Artikel ini juga mendemonstrasikan cara mengatur properti font untuk teks bagan, menerapkan format numerik bawaan ke data bagan, dan mengaktifkan sudut melengkung untuk area bagan. Bersama-sama, contoh‑contoh ini memperlihatkan cara mengendalikan gaya visual dan penyajian data bagan dalam sebuah presentasi.
 
-## **Format Entitas Diagram**
+Untuk isian dan kontur terpisah pada interval naik dan turun, lihat [contoh grafik saham](/slides/id/php-java/create-chart/#create-stock-charts).
 
-Gunakan [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) untuk memformat judul diagram, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat diagram garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis terpisah pada sumbu nilai dan kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+## **Memformat Entitas Bagan**
 
-Sumbu nilai menggunakan [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) secara independen dari sel sumber. Skala sumbu berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan pemformatan persentase dengan [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) yang diatur ke ribuan, jadi sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap berada di luar area plot karena [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) dipanggil dengan `false`. Pengisian dinding belakang dan lantai dikonfigurasi melalui [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) dan [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), namun permukaan ini hanya terlihat pada diagram 3D.
+Gunakan [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) untuk memformat judul bagan, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat bagan garis dengan penanda dan data default, kemudian menerapkan gaya teks dan garis yang terpisah pada sumbu nilai dan sumbu kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
+
+Sumbu nilai menggunakan [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) secara independen dari sel sumber. Skala berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0.5. Contoh ini juga menggabungkan pemformatan persentase dengan [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) yang diatur ke ribuan, jadi sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda tetap berada di luar area plot karena [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) dipanggil dengan `false`. Isian dinding belakang dan lantai dikonfigurasi melalui [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) dan [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor), namun permukaan ini hanya terlihat pada bagan 3D.
 
 ```php
 use aspose\slides\ChartType;
@@ -155,9 +157,9 @@ try {
 }
 ```
 
-## **Atur Properti Font untuk Diagram**
+## **Mengatur Properti Font untuk Bagan**
 
-Atur ukuran font default untuk teks diagram melalui [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). Contoh ini membuat diagram kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Elemen teks dengan pengaturan font eksplisitnya sendiri dapat menimpa nilai default diagram.
+Atur ukuran font default untuk teks bagan melalui [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat). Contoh ini membuat bagan kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). Elemen teks dengan pengaturan font eksplisit mereka sendiri dapat menimpa nilai default bagan.
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
-## **Atur Format Numerik**
+## **Menggunakan Kembali Pemformatan Bingkai Teks untuk Legenda Bagan**
 
-Gunakan [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) untuk menerapkan format angka bawaan pada sel workbook diagram. Contoh ini membuat diagram kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan dalam workbook tanpa mengubah angka dasarnya; misalnya, 0,25 ditampilkan sebagai 25,00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
+Untuk menyamakan legenda dengan judul slide, atur font judul melalui [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) pada paragraf pertama. Panggil [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) pada format yang dikembalikan oleh [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) milik legenda. Metode ini menyalin pengaturan bingkai teks, pemformatan paragraf pertama, dan properti font default paragraf tersebut. Pemformatan yang diterapkan langsung pada bagian individual atau pada paragraf selanjutnya tetap lokal pada sumbernya.
+
+Contoh ini menggunakan judul tebal, 26 poin Calibri berwarna navy sebagai templat. Setelah menata legenda, ia memanggil [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) untuk menerapkan pemformatan yang sama pada keterangan terpisah.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Dalam presentasi yang disimpan, legenda dan keterangan cocok dengan judul dalam ukuran, bobot, dan warna. Legenda tetap menampilkan nama seri, dan keterangan mempertahankan teksnya sendiri. Jika suatu bagian dalam keterangan sudah memiliki ukuran font eksplisit, ukuran tersebut akan menjadi prioritas atas paragraf default yang disalin.
+
+| Sebelum menyalin | Setelah menyalin |
+| --- | --- |
+| ![Diagram penjualan kuartalan dengan label legenda hitam biasa dan keterangan hitam](legend-formatting-before.png) | ![Diagram yang sama dengan label legenda navy tebal lebih besar dan keterangan yang cocok](legend-formatting.png) |
+
+## **Mengatur Format Numerik**
+
+Gunakan [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) untuk menerapkan format angka bawaan pada sel workbook bagan. Contoh ini membuat bagan kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di workbook tanpa mengubah angka dasar; misalnya, 0.25 ditampilkan sebagai 25.00%. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
 
 ```php
 use aspose\slides\ChartType;
@@ -209,9 +272,9 @@ try {
 }
 ```
 
-Tabel berikut mencantumkan indeks format angka bawaan dengan format Excel representatif untuk locale Inggris (Amerika Serikat). String format tepat dan tampilannya dapat bervariasi menurut aplikasi dan locale, khususnya untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, seperti dijelaskan dalam [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Tabel berikut mencantumkan indeks format angka bawaan beserta contoh format Excel untuk locale English (United States). String format tepat dan tampilannya dapat bervariasi menurut aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, seperti yang dijelaskan dalam [catatan implementasi format angka Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| Indeks | Format |
+| Index | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -250,9 +313,9 @@ Tabel berikut mencantumkan indeks format angka bawaan dengan format Excel repres
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Atur Sudut Bulat Area Diagram**
+## **Mengatur Sudut Membulat pada Area Bagan**
 
-Panggil [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) dengan `true` untuk membuat sudut area diagram menjadi bulat. Contoh ini membuat diagram kolom berkelompok dan menggunakan [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) untuk memberi garis luar warna abu-abu solid dan gaya garis tunggal sebelum menyimpan presentasi.
+Panggil [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) dengan `true` untuk membulatkan sudut area bagan. Contoh ini membuat bagan kolom berkelompok dan menggunakan [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) untuk memberi kontur warna abu‑abu solid dan gaya satu‑garis sebelum menyimpan presentasi.
 
 ```php
 use aspose\slides\ChartType;
@@ -277,13 +340,13 @@ try {
 }
 ```
 
-## **Sunting Anotasi Diagram yang Ada**
+## **Mengedit Anotasi Bagan yang Ada**
 
-Diagram dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk-bentuk ini melalui [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). Koleksi yang dikembalikan oleh [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) berisi bentuk-bentuk yang dimiliki diagram.
+Sebuah bagan dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk‑bentuk ini melalui [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes). Kumpulan yang dikembalikan oleh [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) berisi bentuk‑bentuk yang dimiliki bagan.
 
-Kotak teks biasa yang ditempatkan di atas diagram merupakan milik slide, meskipun tampak seperti bagian diagram. Iterasi melalui [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) menemukan diagram dan bentuk slide biasa, tetapi tidak mencantumkan bentuk individual di dalam diagram. Judul diagram dan label data adalah elemen diagram terpisah, bukan anotasi khusus dalam koleksi ini.
+Kotak teks biasa yang ditempatkan di atas bagan merupakan milik slide, meskipun tampak seperti bagian bagan. Iterasi melalui [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) menemukan bagan serta bentuk slide biasa, tetapi tidak mengenumerasi bentuk individual di dalam bagan. Judul bagan dan label data adalah elemen bagan terpisah, bukan anotasi khusus dalam kumpulan ini.
 
-Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi diagram dengan anotasi tidak berkelompok yang berisi "Preliminary results", sebuah garis yang dimiliki diagram, dan kotak teks slide biasa yang berisi "Slide overlay". Contoh ini menemukan diagram pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa apakah koleksi kosong dan hanya menyunting sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) dengan bingkai teks tidak null yang dikembalikan oleh [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) dan teks yang diharapkan.
+Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertama berisi bagan dengan anotasi tidak dikelompokkan berisi teks "Preliminary results", sebuah garis milik bagan, dan kotak teks slide biasa berisi teks "Slide overlay". Contoh menemukan bagan pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa koleksi kosong dan hanya mengedit sebuah [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) dengan bingkai teks tidak null yang dikembalikan oleh [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) serta teks yang diharapkan.
 
 ```php
 use aspose\slides\Presentation;
@@ -335,26 +398,24 @@ try {
 
 Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menunjukkan input dan hasil yang disimpan serta dibuka kembali:
 
-| Sebelum penyuntingan | Setelah penyuntingan |
+| Sebelum mengedit | Setelah mengedit |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Anotasi bagan berisi teks Preliminary results](chart-annotations-before.png) | ![Anotasi bagan berisi teks Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-
-Contoh ini memeriksa hanya bentuk-bentuk tingkat atas yang dimiliki diagram. Jika sebuah anotasi berada di dalam [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), periksa koleksi [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) grup tersebut juga. Ulangi secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah wadah; jangan perlakukan sebagai kotak teks.
-
+Contoh ini hanya memeriksa bentuk‑bentuk milik bagan pada tingkat atas. Jika anotasi berada di dalam sebuah [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), periksa koleksi [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) grup tersebut juga. Lakukan ini secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anaknya. Sebuah grup sendiri adalah kontainer; jangan memperlakukannya sebagai kotak teks.
 {{% /alert %}}
 
-## **Tanya Jawab**
+## **FAQ**
 
-**Apakah saya dapat mengatur isian semi-transparan untuk kolom/area sambil mempertahankan batas tetap tidak transparan?**
+**Apakah saya dapat mengatur isian semi‑transparent untuk kolom/area sambil mempertahankan batas tetap opak?**
 
-Ya. Transparansi isian dan garis luar dikonfigurasi secara terpisah. Hal ini berguna untuk meningkatkan keterbacaan kisi dan data dalam visualisasi yang padat.
+Ya. Transparansi isian dan kontur dikonfigurasi secara terpisah. Hal ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
 
-**Bagaimana saya dapat menangani label data ketika mereka saling tumpang tindih?**
+**Bagaimana cara menangani label data yang saling tumpang‑tindih?**
 
-Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk titik yang dipilih bila perlu, atau ubah format menjadi "nilai + legenda".
+Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), sesuaikan posisi label, tampilkan label hanya untuk poin terpilih bila perlu, atau ubah format menjadi "nilai + legenda".
 
-**Apakah saya dapat menerapkan isian gradasi atau pola pada seri?**
+**Apakah saya dapat menerapkan isian gradien atau pola pada seri?**
 
-Ya. Seri mendukung isian padat, gradasi, dan pola. Dalam praktiknya, gunakan gradasi secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.
+Ya. Seri mendukung isian padat, gradien, dan pola. Pada praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.

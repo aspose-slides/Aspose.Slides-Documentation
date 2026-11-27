@@ -1,35 +1,37 @@
 ---
-title: Diagrammen opmaken in presentaties met Python
-linktitle: Diagramopmaak
+title: Grafieken opmaken in presentaties met Python
+linktitle: Grafiekopmaak
 type: docs
 weight: 60
 url: /nl/python-net/chart-formatting/
 keywords:
-- diagram opmaken
-- diagramopmaak
-- diagramonderdeel
-- diagrameigenschappen
-- diagraminstellingen
-- diagramopties
+- grafiek opmaken
+- grafiekopmaak
+- grafiekelement
+- grafiekeigenschappen
+- grafiekinstellingen
+- grafiekopties
 - lettertype-eigenschappen
 - afgeronde rand
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer diagramopmaak in Aspose.Slides voor Python via .NET en verbeter uw PowerPoint-presentatie met aangepaste assen, lettertypen, getalformaten en afgeronde diagramranden."
+description: "Leer grafiekopmaak in Aspose.Slides voor Python via .NET en verbeter uw PowerPoint-presentatie met aangepaste assen, lettertypen, getalformaten en afgeronde grafiekranden."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je diagrammen in PowerPoint‑presentaties kunt opmaken met Aspose.Slides. Het toont hoe je belangrijke diagramonderdelen zoals assen, rasterlijnen, titels, legenden, het plotgebied en wand‑vullingen kunt aanpassen om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
+Dit artikel legt uit hoe je grafieken in PowerPoint‑presentaties kunt opmaken met Aspose.Slides. Het laat zien hoe je belangrijke grafiekelementen zoals assen, rasterlijnen, titels, legenda's, het plotgebied en wandvullingen kunt aanpassen om het uiterlijk en de leesbaarheid van grafiekinformatie te verbeteren.
 
-Het laat ook zien hoe je lettertype‑eigenschappen voor diagramtekst kunt instellen, vooraf ingestelde numerieke opmaak kunt toepassen op diagramgegevens, en afgeronde hoeken kunt inschakelen voor het diagramgebied. Samen laten deze voorbeelden zien hoe je zowel de visuele stijl als de gegevenspresentatie van diagrammen in een presentatie kunt beheersen.
+Het toont ook hoe je lettertype‑eigenschappen voor grafiekttekst kunt instellen, vooringestelde numerieke opmaak op grafiekgegevens kunt toepassen en afgeronde hoeken voor het grafiekgebied kunt inschakelen. Samen laten deze voorbeelden zien hoe je zowel de visuele stijl als de gegevensweergave van grafieken in een presentatie kunt beheersen.
 
-## **Diagramonderdelen opmaken**
+Voor afzonderlijke vullingen en omtreklijnen op stijgende en dalende intervallen, zie het [voorbeeld van een aandelengrafiek](/slides/nl/python-net/create-chart/#create-stock-charts).
 
-Gebruik [Grafiek](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) om diagramtitels, assen, rasterlijnen, legenden en het plotgebied op te maken. Dit voorbeeld maakt een lijndiagram met markeringen en standaardgegevens, en past vervolgens afzonderlijke tekst‑ en lijneigenschappen toe op de waarde‑ en categorisatie‑assen. Lettergrootte en lijndikte worden opgegeven in punten; categorielabels worden 45 graden gedraaid.
+## **Grafiekelementen opmaken**
 
-De waarde‑as gebruikt [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) onafhankelijk van de broncellen. De schaal loopt van –2 tot 15, met hoofd‑intervallen van 2 en sub‑intervallen van 0,5. Het voorbeeld combineert ook procent‑opmaak met [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) ingesteld op duizendtallen, dus pas deze instellingen aan op de betekenis en grootte van jouw gegevens. De legende blijft buiten het plotgebied omdat [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) gedeactiveerd is. Achter‑wand‑ en vloervullingen worden geconfigureerd via [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) en [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), maar deze oppervlakken zijn alleen zichtbaar in 3D‑diagrammen.
+Gebruik [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) om grafiektitels, assen, rasterlijnen, legenda's en het plotgebied op te maken. Dit voorbeeld maakt een lijngrafiek met markeringen en standaardgegevens, en past vervolgens verschillende tekst‑ en lijnastijlen toe op de waardenas en categoriebenen. Lettergrootte en lijndikte worden opgegeven in punten; categorielabels worden 45 graden gedraaid.
+
+De waardenas gebruikt [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met hoofd‑intervallen van 2 en sub‑intervallen van 0,5. Het voorbeeld combineert ook procentopmaak met [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) ingesteld op duizenden, dus pas deze instellingen aan op de betekenis en magnitude van je gegevens. De legenda blijft buiten het plotgebied omdat [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) is uitgeschakeld. Achter‑wand‑ en vloer‑vullingen worden geconfigureerd via [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) en [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), maar deze oppervlakken zijn alleen zichtbaar in 3D‑grafieken.
 
 ```python
 import aspose.slides.charts as charts
@@ -145,9 +147,9 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Lettertype‑eigenschappen voor een diagram instellen**
+## **Lettertype‑eigenschappen instellen voor een grafiek**
 
-Stel de standaardlettergrootte voor diagramtekst in via [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Het voorbeeld maakt een gegroepeerde kolomgrafiek met een lettertype van 20 punten en schakelt waardelabels in voor de eerste reeks via [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van het diagram overschrijven.
+Stel de standaardlettergrootte voor grafiekttekst in via [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Het voorbeeld maakt een gegroepeerde kolomgrafiek met een lettertype van 20 punten en schakelt waardelabels in voor de eerste serie via [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van de grafiek overschrijven.
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Numerieke opmaak instellen**
+## **Tekstframe‑opmaak hergebruiken voor een grafieklegenda**
 
-Gebruik [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) om een ingebouwde getal‑opmaak toe te passen op werkbladcellen van het diagram. Dit voorbeeld maakt een gegroepeerde kolomgrafiek met standaard, cel‑ondersteunde gegevens en past opmaakindex 10 (`0.00%`) toe op elke reekswaarde‑cel. Dit verandert hoe de waarden in het werkboek worden weergegeven zonder de onderliggende cijfers te wijzigen; bijvoorbeeld, 0,25 wordt weergegeven als 25,00 %. As‑ en gegevens‑label‑opmaak kunnen apart worden geconfigureerd.
+Om een legenda te laten overeenkomen met een dia‑kop, stel je het lettertype in via [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) op de eerste alinea van de kop. Roep [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) aan op de legenda’s [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/). Het kopieert de tekstframe‑instellingen, de opmaak van de eerste alinea en de standaardlettertype‑eigenschappen van die alinea. Opmaak die direct op individuele delen of op latere alinea’s wordt toegepast, blijft lokaal voor de bron.
+
+Het voorbeeld gebruikt een kop in vet, marineblauw, 26‑punt Calibri als sjabloon. Na het stijlen van de legenda wordt [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) gebruikt om dezelfde opmaak toe te passen op een afzonderlijke bijschrift.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+In de opgeslagen presentatie komen de legenda en het bijschrift overeen met de kop in grootte, gewicht en kleur. De legenda toont nog steeds de serienamen, en het bijschrift behoudt zijn eigen tekst. Als een deel in het bijschrift al een expliciete lettergrootte heeft, heeft die grootte voorrang op de gekopieerde alinea‑standaard.
+
+| Voor kopiëren | Na kopiëren |
+| --- | --- |
+| ![Kwartaalverkoopgrafiek met reguliere zwarte legendarlabels en een zwarte bijschrift](legend-formatting-before.png) | ![Dezelfde grafiek met grotere, vette marineblauwe legendarlabels en een passend bijschrift](legend-formatting.png) |
+
+## **Numeriek formaat instellen**
+
+Gebruik [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) om een ingebouwd getalformaat toe te passen op werkboekcellen van de grafiek. Dit voorbeeld maakt een gegroepeerde kolomgrafiek met standaard, cel‑gebaseerde gegevens en past formatindex 10 (`0.00%`) toe op elke waardecel van de serie. Hierdoor wordt de weergave van de waarden in het werkboek aangepast zonder de onderliggende getallen te wijzigen; bijvoorbeeld, 0,25 wordt weergegeven als 25,00 %. As‑ en datalabel‑formaten kunnen afzonderlijk worden geconfigureerd.
 
 ```python
 import aspose.slides.charts as charts
@@ -183,9 +232,9 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De volgende tabel geeft ingebouwde getal‑opmaakindices weer met representatieve Excel‑opmaken voor de Engelse (Verenigde Staten) locale. De exacte opmaak‑strings en weergave kunnen per toepassing en locale verschillen, met name voor valuta en datums. Sommige Excel‑opmaken wijken ook af van de standaardinstellingen in de OOXML‑norm, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+De volgende tabel somt ingebouwde getalformaat‑indices op met representatieve Excel‑formaten voor de Engelse (Verenigde Staten) locale. De exacte opmaaktekenreeksen en hun weergave kunnen variëren per applicatie en locale, vooral voor valuta en datums. Sommige Excel‑formaten wijken ook af van de standaardinstellingen in de OOXML‑standaard, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| Index | Opmaak |
+| Index | Formaat |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -224,9 +273,9 @@ De volgende tabel geeft ingebouwde getal‑opmaakindices weer met representatiev
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Afgeronde randen voor diagramgebied inschakelen**
+## **Afgeronde randen van grafiekgebied instellen**
 
-Schakel [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) in om de hoeken van het diagramgebied af te ronden. Het voorbeeld maakt een gegroepeerde kolomgrafiek en gebruikt [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) om de omtrek een effen grijze kleur en een enkel‑lijn‑stijl te geven voordat de presentatie wordt opgeslagen.
+Schakel [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) in om de hoeken van het grafiekgebied af te ronden. Het voorbeeld maakt een gegroepeerde kolomgrafiek en gebruikt [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) om de omtrek een solide grijze kleur en een enkel‑lijnstijl te geven vóór het opslaan van de presentatie.
 
 ```python
 import aspose.slides.charts as charts
@@ -244,13 +293,13 @@ with slides.Presentation() as presentation:
     presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bestaande diagram‑annotaties bewerken**
+## **Bestaande grafiekaanmerkingen bewerken**
 
-Een diagram kan aangepaste vormen bevatten, zoals een tekstantwoord die de status van een rapport uitlegt. Toegang tot deze vormen krijg je via [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). De [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑collectie bevat de vormen die bij het diagram horen.
+Een grafiek kan aangepaste vormen bevatten, zoals een tekst‑annotatie die de status van een rapport uitlegt. Toegang tot deze vormen krijg je via [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). De [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑collectie bevat de grafiek‑eigen vormen.
 
-Een gewone tekst‑vak die over een diagram is geplaatst, behoort tot de dia, zelfs als het eruitziet als een onderdeel van het diagram. Het doorlopen van [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) vindt het diagram en de gewone dia‑vormen, maar telt de individuele vormen binnen het diagram niet op. Diagramtitels en gegevens‑labels zijn afzonderlijke diagramonderdelen, geen aangepaste annotaties in deze collectie.
+Een gewone tekst‑vak geplaatst boven een grafiek behoort tot de dia, zelfs als het eruitziet als onderdeel van de grafiek. Doorlopen van [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) vindt de grafiek en de gewone dia‑vormen, maar enumerateert niet de individuele vormen binnen de grafiek. Grafiektitels en datalabels zijn afzonderlijke grafiekelementen, geen aangepaste annotaties in deze collectie.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) en plaats deze in de werkmap van de toepassing. De eerste dia bevat een diagram met een niet‑gegroepeerde annotatie “Preliminary results”, een diagram‑eigene lijn, en een gewoon dia‑tekstvak met “Slide overlay”. Het voorbeeld vindt het eerste diagram op die dia en wijzigt de annotatie naar “Final results” zodra het rapport klaar is om te publiceren. Het controleert of de collectie leeg is en bewerkt alleen een [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) met een [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) dat niet `None` is en de verwachte tekst bevat.
+Download [chart-annotations.pptx](chart-annotations.pptx) en plaats deze in de werkmap van de applicatie. De eerste dia bevat een grafiek met een niet‑gegroepeerde annotatie met de tekst “Voorlopige resultaten”, een grafiek‑eigen lijn, en een gewoon dia‑tekstvak met de tekst “Dia‑overlay”. Het voorbeeld vindt de eerste grafiek op die dia en wijzigt de annotatie naar “Eindresultaten” wanneer het rapport klaar is om te publiceren. Het controleert op een lege collectie en bewerkt alleen een [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) met een [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) dat niet `None` is en de verwachte tekst bevat.
 
 ```python
 import aspose.slides as slides
@@ -277,28 +326,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-De lijn en het dia‑tekstvak blijven ongewijzigd. De volgende afbeeldingen tonen het invoer‑ en het opgeslagen, heropende resultaat:
+De lijn en het dia‑tekstvak blijven ongewijzigd. De volgende afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
 
-| Voor bewerking | Na bewerking |
+| Voor bewerken | Na bewerken |
 | --- | --- |
-| ![Diagramannotatie met tekst Preliminary results](chart-annotations-before.png) | ![Diagramannotatie met tekst Final results](chart-annotations-after.png) |
+| ![Grafiekannotatie met tekst Voorlopige resultaten](chart-annotations-before.png) | ![Grafiekannotatie met tekst Eindresultaten](chart-annotations-after.png) |
 
-{{% alert color="info" title="Opmerking" %}}
-
-Het voorbeeld kijkt alleen naar de boven‑niveau diagram‑eigene vormen. Als een annotatie zich binnen een [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) bevindt, inspecteer dan ook de [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/)‑collectie van die groep. Herhaal dit recursief voor geneste groepen, waarbij je dezelfde tekstcontroles toepast op hun onderliggende vormen. Een groep zelf is een container; behandel deze niet als een tekstvak.
-
+{{% alert color="info" title="Note" %}}
+Het voorbeeld inspecteert alleen de top‑level grafiek‑eigen vormen. Als een annotatie zich binnen een [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) bevindt, inspecteer dan ook die groeps [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) collectie. Herhaal dit recursief voor geneste groepen, met dezelfde tekstantwoorden voor hun kind‑vormen. Een groep zelf is een container; behandel deze niet als een tekstvak.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kan ik halfdoorzichtige vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
+**Kan ik halfdoorzichtige vullingen instellen voor kolommen/gebieden terwijl de rand ondoorzichtig blijft?**
 
-Ja. Vullingstransparantie en de omtrek worden apart geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
+Ja. Vullings‑transparantie en de omtrek worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
 
-**Hoe ga ik om met gegevens‑labels die overlappen?**
+**Hoe kan ik omgaan met datalabels wanneer ze overlappen?**
 
-Verklein de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), pas de labelpositie aan, geef alleen labels weer voor geselecteerde punten indien nodig, of wissel het formaat naar “waarde + legende”.
+Verminder de lettergrootte, schakel niet‑essentiële labelcomponenten uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon labels alleen voor geselecteerde punten indien nodig, of schakel over naar het formaat “waarde + legenda”.
 
-**Kan ik verloop‑ of patroon‑vullingen toepassen op reeksen?**
+**Kan ik verlopen of patroonvullingen toepassen op series?**
 
-Ja. Reeksen ondersteunen massieve, verloop‑ en patroon‑vullingen. Gebruik verloopspatronen spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.
+Ja. Series ondersteunen solide, verlopen en patroonvullingen. Gebruik verlopen spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.

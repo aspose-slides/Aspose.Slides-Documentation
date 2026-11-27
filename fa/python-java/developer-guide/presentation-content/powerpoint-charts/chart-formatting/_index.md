@@ -17,19 +17,21 @@ keywords:
 - ارائه
 - Python
 - Aspose.Slides
-description: "یاد بگیرید چگونه در Aspose.Slides برای پایتون از طریق جاوا نمودارها را قالب‌بندی کنید و ارائه PowerPoint خود را با محورهای سفارشی، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد نمودار ارتقا دهید."
+description: "قالب‌بندی نمودارها را در Aspose.Slides برای پایتون از طریق جاوا بیاموزید و ارائه PowerPoint خود را با محورها، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد سفارشی پیشرفت دهید."
 ---
-## **نگاه کلی**
+## **نمای کلی**
 
-این مقاله توضیح می‌دهد چگونه نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کنیم. این مقاله نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محور‌ها، خطوط شبکه، عناوین، افسانه‌ها، ناحیه ترسیم و پر کردن دیواره‌ها را سفارشی کنیم تا ظاهر و قابلیت خواندن داده‌های نمودار بهبود یابد.
+این مقاله توضیح می‌دهد که چگونه نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کنید. این نشان می‌دهد که چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، راهنماها، ناحیه‌نقشه و پرکننده‌های دیوار را برای بهبود ظاهر و قابلیت خواندن داده‌های نمودار سفارشی کنید.
 
-همچنین نشان می‌دهد چگونه ویژگی‌های قلم برای متن نمودار تنظیم شود، قالب‌های عددی پیش‌تنظیم‌شده بر داده‌های نمودار اعمال شود، و گوشه‌های گرد برای ناحیه نمودار فعال شود. این مثال‌ها به‌طور مشترک نشان می‌دهند چگونه هم سبک بصری و هم ارائه داده‌های نمودارها در یک ارائه کنترل شوند.
+همچنین نشان می‌دهد که چگونه ویژگی‌های قلم برای متن نمودار تنظیم شود، قالب‌های عددی پیش‌فرض بر روی داده‌های نمودار اعمال شود و گوشه‌های گرد برای ناحیه نمودار فعال شود. این مثال‌ها نشان می‌دهند که چگونه هم سبک بصری و هم ارائه داده‌های نمودارها را در یک ارائه کنترل کنید.
+
+For separate fills and outlines on rising and falling intervals, see the [مثال نمودار سهام](/slides/fa/python-java/create-chart/#create-stock-charts).
 
 ## **قالب‌بندی موجودیت‌های نمودار**
 
-از [نمودار](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) برای قالب‌بندی عناوین نمودار، محور‌ها، خطوط شبکه، افسانه‌ها و ناحیه ترسیم استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند، سپس سبک‌های متن و خط جداگانه‌ای برای محور مقدار و محور دسته‌بندی اعمال می‌کند. اندازه‌های قلم و عرض خطوط بر حسب نقطه مشخص می‌شوند؛ برچسب‌های دسته‌بندی به اندازه ۴۵ درجه چرخانده می‌شوند.
+از [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، راهنماها و ناحیه‌نقشه استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند، سپس سبک‌های متن و خط جداگانه‌ای را بر محوری مقدار و محوری دسته‌بندی اعمال می‌کند. اندازه‌های قلم و ضخامت خطوط بر حسب نقطه مشخص می‌شوند؛ برچسب‌های دسته‌بندی به میزان 45 درجه چرخانده می‌شوند.
 
-محور مقدار از [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) به‌صورت مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است، با بازه‌های اصلی 2 و بازه‌های فرعی 0.5. این مثال همچنین قالب‌بندی درصدی را با [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) که به هزارها تنظیم شده ترکیب می‌کند، بنابراین این تنظیمات را مطابق معنای داده‌ها و مقیاس آنها تنظیم کنید. افسانه به دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) با `False` در خارج ناحیه ترسیم می‌ماند. پرکننده‌های دیوار پشت و کف از طریق [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) و [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) پیکربندی می‌شوند، اما این سطوح فقط در نمودارهای سه‌بعدی قابل مشاهده هستند.
+محور مقدار از [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) به‌صورت مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است، با فاصله‌های بزرگ به‌مقدار 2 و فاصله‌های جزئی به‌مقدار 0.5. این مثال همچنین قالب‌بندی درصد را با [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) که بر روی هزارها تنظیم شده ترکیب می‌کند، بنابراین این تنظیمات را مطابق با معنی و مقیاس داده‌های خود تطبیق دهید. راهنما به‌دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) با مقدار `False` خارج از ناحیه‌نقشه می‌ماند. پرکننده‌های دیوار پشت و کف از طریق [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) و [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) پیکربندی می‌شوند، اما این سطوح فقط در نمودارهای سه‌بعدی قابل مشاهده هستند.
 
 ```python
 import jpype
@@ -159,7 +161,7 @@ finally:
 
 ## **تنظیم ویژگی‌های قلم برای یک نمودار**
 
-اندازه قلم پیش‌فرض برای متن نمودار را از طریق [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20 نقطه‌ای ایجاد می‌کند و برچسب‌های مقدار برای سری اول را از طریق [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) فعال می‌سازد. عناصر متنی با تنظیمات قلم صریح خود می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
+اندازه پیش‌فرض قلم برای متن نمودار را از طریق [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20 نقطه‌ای ایجاد می‌کند و برچسب‌های مقدار را برای اولین سری از طریق [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) فعال می‌سازد. عناصر متنی که تنظیمات قلم صریح خود را دارند می‌توانند پیش‌فرض نمودار را نادیده بگیرند.
 
 ```python
 import jpype
@@ -183,9 +185,69 @@ finally:
     presentation.dispose()
 ```
 
+## **استفاده مجدد از قالب‌بندی قاب متن برای راهنمای نمودار**
+
+برای هم‌خوانی راهنما با عنوان اسلاید، قلم عنوان را از طریق [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) در اولین پاراگراف تنظیم کنید. بر روی قالبی که توسط [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat) راهنما بازگردانده می‌شود، [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom) را فراخوانی کنید. این کار تنظیمات قاب متن، قالب‌بندی اولین پاراگراف و ویژگی‌های قلم پیش‌فرض آن پاراگراف را کپی می‌کند. قالب‌بندی که مستقیماً به بخش‌های فردی یا پاراگراف‌های بعدی اعمال شود، به‌صورت محلی در منبع باقی می‌ماند.
+
+این مثال از یک عنوان Calibri به‌صورت توپر، 26 نقطه‌ای و به رنگ سرمه‌ای به‌عنوان الگو استفاده می‌کند. پس از استایل دادن به راهنما، با فراخوانی [copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) همان قالب‌بندی را بر یک زیرنویس جداگانه اعمال می‌کند.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+در ارائه ذخیره‌شده، راهنما و زیرنویس از نظر اندازه، وزن و رنگ با عنوان مطابقت دارند. راهنما همچنان نام‌های سری‌ها را نشان می‌دهد و زیرنویس متن خود را حفظ می‌کند. اگر بخشی از زیرنویس قبلاً اندازه قلم صریح داشته باشد، آن اندازه نسبت به پیش‌فرض پاراگراف کپی‌شده اولویت دارد.
+
+| قبل از کپی | بعد از کپی |
+| --- | --- |
+| ![نمودار فروش فصلی با برچسب‌های راهنمایی سیاه معمولی و زیرنویس سیاه](legend-formatting-before.png) | ![نمودار مشابه با برچسب‌های راهنمایی بزرگتر، توپر، به رنگ سرمه‌ای و زیرنویس مطابق](legend-formatting.png) |
+
 ## **تنظیم قالب عددی**
 
-از [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) برای اعمال یک قالب عددی پیش‌ساخته به سلول‌های کتاب کار نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض و پشتیبانی‌شده توسط سلول‌ها ایجاد می‌کند و شاخص قالب 10 (`0.00%`) را بر هر سلول مقدار سری اعمال می‌نماید. این کار نحوه نمایش مقادیر در کتاب کار را بدون تغییر اعداد پایه تغییر می‌دهد؛ به عنوان مثال، 0.25 به صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
+از [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) برای اعمال یک قالب عددی داخلی به سلول‌های کتاب کاری نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض و پشتیبانی‌شده توسط سلول‌ها ایجاد می‌کند و شاخص قالب 10 (`0.00%`) را به هر سلول مقدار سری اعمال می‌کند. این کار نحوه نمایش مقادیر را در کتاب کار بدون تغییر اعداد پایه تغییر می‌دهد؛ به عنوان مثال، 0.25 به صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
 
 ```python
 import jpype
@@ -212,9 +274,9 @@ finally:
     presentation.dispose()
 ```
 
-جدول زیر فهرست‌ای از شاخص‌های قالب عددی پیش‌ساخته را همراه با قالب‌های نمایشی Excel برای زبان انگلیسی (ایالات متحده) ارائه می‌دهد. رشته‌های قالب دقیق و نمایش آن‌ها می‌تواند بر حسب برنامه و محل متفاوت باشد، به‌ویژه برای واحد پول و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML متفاوت هستند، همان‌طور که در [یادداشت‌های پیاده‌سازی قالب عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توصیف شده است.
+جدول زیر فهرست ایندکس‌های قالب عددی داخلی همراه با قالب‌های نمایشی اکسل برای محلی English (United States) را نشان می‌دهد. رشته‌های قالب دقیق و نمایش آنها می‌تواند با توجه به برنامه و locale متفاوت باشد، به‌ویژه برای ارز و تاریخ‌ها. برخی قالب‌های اکسل نیز با پیش‌فرض‌های استاندارد OOXML متفاوت هستند، همان‌طور که در [یادداشت‌های مایکروسافت در مورد پیاده‌سازی قالب عددی](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
 
-| نمایه | قالب |
+| اندیس | قالب |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -255,7 +317,7 @@ finally:
 
 ## **تنظیم گوشه‌های گرد ناحیه نمودار**
 
-با فراخوانی [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) با `True` گوشه‌های ناحیه نمودار را گرد کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) برای دادن رنگ خاکستری ثابت و سبک خطی تک به حاشیه آن استفاده می‌کند، سپس ارائه را ذخیره می‌کند.
+با فراخوانی [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) با مقدار `True` گوشه‌های ناحیه نمودار را گرد می‌کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) برای دادن یک رنگ خاکستری جامد و سبک خط تک‌خطی به پیرامون آن پیش از ذخیرهٔ ارائه استفاده می‌کند.
 
 ```python
 import jpype
@@ -283,13 +345,13 @@ finally:
     presentation.dispose()
 ```
 
-## **ویرایش حاشیه‌نویس‌های موجود در نمودار**
+## **ویرایش حاشیه‌نویسی‌های موجود در نمودار**
 
-یک نمودار می‌تواند اشکال سفارشی شامل حاشیه‌نویسی متنی که وضعیت گزارشی را توضیح می‌دهد، داشته باشد. به این اشکال از طریق [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) دسترسی پیدا کنید. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) برگردانده می‌شود، شامل اشکال متعلق به نمودار است.
+یک نمودار می‌تواند شامل اشکال سفارشی، مانند یک حاشیه‌نویسی متنی که وضعیت گزارش را توضیح می‌دهد، باشد. به این اشکال از طریق [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) دسترسی پیدا کنید. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) برگردانده می‌شود، شامل اشکال متعلق به نمودار است.
 
-یک کادر متن معمولی که روی نمودار قرار می‌گیرد، متعلق به اسلاید است، حتی اگر به‌نظر برسد بخشی از نمودار است. پیمایش از طریق [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) نمودار و اشکال عادی اسلاید را پیدا می‌کند، اما اشکال جداگانه داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای از نمودار هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
+یک کادر متن معمولی که بر روی نمودار قرار می‌گیرد، به اسلاید تعلق دارد، حتی اگر شبیه بخشی از نمودار به نظر برسد. عبور از طریق [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) نمودار و اشکال معمولی اسلاید را پیدا می‌کند، اما اشکال فردی داخل نمودار را لیست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای از نمودار هستند و حاشیه‌نویسی‌های سفارشی در این مجموعه نیستند.
 
-فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن شامل یک نمودار با حاشیه‌نویسی جدا نشده "نتایج اولیه"، خطی متعلق به نمودار و یک کادر متن اسلایدی معمولی با متن "Slide overlay" است. مثال اولین نمودار را در آن اسلاید پیدا می‌کند و حاشیه‌نویس را به "نتایج نهایی" تغییر می‌دهد هنگامی که گزارش آماده انتشار باشد. این موارد برای مجموعه خالی بررسی می‌شود و فقط یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) با فریم متن غیر `None` برگردانده شده توسط [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) و متن مورد انتظار ویرایش می‌کند.
+فایل [chart-annotations.pptx](chart-annotations.pptx) را بارگیری کنید و در پوشه کاری برنامه قرار دهید. اولین اسلاید آن شامل یک نمودار با حاشیه‌نویسی تجمیع‌نشده‌ای با متن «Preliminary results»، یک خط متعلق به نمودار و یک کادر متن معمولی اسلایدی با متن «Slide overlay» است. این مثال اولین نمودار در آن اسلاید را پیدا می‌کند و هنگام آماده‌سازی گزارش برای انتشار، حاشیه‌نویسی را به «Final results» تغییر می‌دهد. ابتدا بررسی می‌کند که مجموعه خالی نیست و فقط یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) با قاب متن غیر `None` که توسط [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) برگردانده شده و متن مورد انتظار دارد را ویرایش می‌کند.
 
 ```python
 import jpype
@@ -330,26 +392,26 @@ finally:
     presentation.dispose()
 ```
 
-خط و کادر متن اسلاید بدون تغییر می‌مانند. تصاویر زیر ورودی و نتیجه ذخیره‌شده و بازگشای‌شده را نشان می‌دهند:
+خط و کادر متن اسلاید بدون تغییر باقی می‌مانند. تصاویر زیر ورودی و نتیجه ذخیره‌شده و بازگشایی شده را نشان می‌دهند:
 
 | قبل از ویرایش | بعد از ویرایش |
 | --- | --- |
-| ![حاشیه‌نویس نمودار با متن نتایج اولیه](chart-annotations-before.png) | ![حاشیه‌نویس نمودار با متن نتایج نهایی](chart-annotations-after.png) |
+| ![حاشیه‌نویسی نمودار با متن Preliminary results](chart-annotations-before.png) | ![حاشیه‌نویسی نمودار با متن Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-مثال فقط اشکال سطح بالای متعلق به نمودار را بررسی می‌کند. اگر حاشیه‌نویسی داخل یک [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) باشد، مجموعه‌ی [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و همان بررسی‌های متنی را برای اشکال فرزندشان اعمال کنید. یک گروه خود یک محفظه است؛ آن را به‌عنوان کادر متن در نظر نگیرید.
+این مثال فقط اشکال سطح بالای متعلق به نمودار را بررسی می‌کند. اگر حاشیه‌نویسی داخل یک [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) باشد، مجموعهٔ [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و همان بررسی‌های متنی را برای اشکال فرزندشان اعمال کنید. یک گروه خود یک مخزن است؛ آن را به‌ عنوان کادر متن در نظر نگیرید.
 {{% /alert %}}
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا می‌توانم پرکننده‌های نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه آن‌ها مات (opaque) بماند؟**
+**آیا می‌توانم پرکننده‌های نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه را مات نگه می‌دارم؟**
 
-بله. شفافیت پرکننده و حاشیه به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود قابلیت خواندن شبکه و داده‌ها در تجسم‌های پرتراکم مفید است.
+Yes. Fill transparency and the outline are configured separately. This is useful for improving the readability of the grid and data in dense visualizations.
 
-**چگونه می‌توانم با برچسب‌های داده که هم‌پوشانی دارند، برخورد کنم؟**
+**چگونه می‌توانم با برچسب‌های داده که همپوشانی دارند برخورد کنم؟**
 
-اندازۀ قلم را کاهش دهید، اجزای غیرضروری برچسب‌ها (مثلاً دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت نیاز تنها برچسب‌های نقاط انتخابی را نشان دهید، یا قالب را به «مقدار + افسانه» تغییر دهید.
+Reduce the font size, disable nonessential label components (for example, categories), adjust the label position, show labels only for selected points if necessary, or switch the format to "value + legend".
 
-**آیا می‌توانم پرکننده‌های گرادیان یا الگو را بر سری‌ها اعمال کنم؟**
+**آیا می‌توانم پرکننده‌های گرادیان یا الگو را به سری‌ها اعمال کنم؟**
 
-بله. سری‌ها از پرکننده‌های یکدست، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌صورت مقتصدانه استفاده کنید و از ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهند، خودداری کنید.
+Yes. Series support solid, gradient, and pattern fills. In practice, use gradients sparingly and avoid combinations that reduce contrast with the grid and text.

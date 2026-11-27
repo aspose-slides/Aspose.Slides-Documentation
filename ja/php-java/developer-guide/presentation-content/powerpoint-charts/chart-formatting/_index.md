@@ -1,5 +1,5 @@
 ---
-title: PHPでプレゼンテーション用チャートをフォーマットする
+title: PHP でプレゼンテーションのチャートをフォーマットする
 linktitle: チャートの書式設定
 type: docs
 weight: 60
@@ -8,28 +8,30 @@ keywords:
 - チャートのフォーマット
 - チャートの書式設定
 - チャートエンティティ
-- チャート プロパティ
+- チャートプロパティ
 - チャート設定
 - チャートオプション
-- フォント プロパティ
-- 角丸境界線
+- フォントプロパティ
+- 角丸境界
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java 経由で PHP 用 Aspose.Slides のチャート書式設定を学び、カスタム軸、フォント、数値形式、角丸チャート境界線で PowerPoint プレゼンテーションを向上させましょう。"
+description: "Aspose.Slides for PHP（Java 経由）でチャートの書式設定を学び、カスタム軸、フォント、数値書式、角丸チャート境界を使用して PowerPoint プレゼンテーションを向上させましょう。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションのチャートを書式設定する方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなどの主要なチャート要素をカスタマイズし、チャート データの外観と可読性を向上させる方法を示します。
+このドキュメントでは、Aspose.Slides を使用して PowerPoint プレゼンテーション内のチャートの書式設定方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなど、チャートの重要な要素をカスタマイズして、データの外観と可読性を向上させる方法を示します。
 
-また、チャート テキストのフォント プロパティの設定、チャート データへの事前設定数値形式の適用、チャート領域の角丸の有効化方法も示します。これらの例により、プレゼンテーション内のチャートのビジュアル スタイルとデータ表示の両方を制御する方法がわかります。
+また、チャートのテキストに対してフォントプロパティを設定したり、チャートデータにプリセットの数値形式を適用したり、チャート領域の角を丸める方法も示しています。これらの例を組み合わせることで、プレゼンテーション内のチャートの視覚的スタイルとデータの提示を両方制御できます。
+
+上昇・下降区間の塗りつぶしとアウトラインを個別に設定する方法については、[株価チャートの例](/slides/ja/php-java/create-chart/#create-stock-charts)をご覧ください。
 
 ## **チャートエンティティの書式設定**
 
-Use [チャート](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
+[チャート](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) を使用して、チャートのタイトル、軸、グリッド線、凡例、プロット領域の書式設定を行います。この例では、マーカー付きのラインチャートをデフォルトデータで作成し、値軸とカテゴリ軸にそれぞれ別々のテキストと線のスタイルを適用します。フォントサイズと線幅はポイント単位で指定され、カテゴリ ラベルは 45 度回転します。
 
-The value axis uses [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) and [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), but these surfaces are only visible in 3D charts.
+値軸は [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) をソースセルとは独立して使用します。スケールは -2 から 15 までで、主要間隔は 2、補助間隔は 0.5 です。例では、パーセンテージ書式と [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) を千単位に設定することを組み合わせているので、データの意味と規模に合わせて設定を調整してください。凡例は [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) を `false` で呼び出すためプロット領域の外側に配置されます。背面壁と床の塗りつぶしは [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) と [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor) で構成されますが、これらの表面は 3D チャートでのみ表示されます。
 
 ```php
 use aspose\slides\ChartType;
@@ -155,9 +157,9 @@ try {
 }
 ```
 
-## **チャートのフォント プロパティの設定**
+## **チャートのフォントプロパティの設定**
 
-Set the default font size for chart text through [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Text elements with their own explicit font settings can override the chart default.
+チャートのテキストのデフォルトフォントサイズは、[Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat) を使用して設定します。この例では、20 ポイントのフォントを持つクラスター化された縦棒グラフを作成し、[setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) を使用して最初の系列の値ラベルを有効にします。個別に明示的なフォント設定があるテキスト要素は、チャートのデフォルトを上書きできます。
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
+## **チャート凡例にテキストフレーム書式を再利用する**
+
+凡例をスライドの見出しに合わせるには、最初の段落で [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) を使用して見出しのフォントを設定します。凡例の [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat) が返す書式に対して [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) を呼び出します。これにより、テキストフレームの設定、最初の段落の書式、およびその段落のデフォルトフォントプロパティがコピーされます。個別の部分や後続の段落に直接適用された書式は、ソースに対してローカルに残ります。
+
+例では、濃紺の太字 26 ポイント Calibri 見出しをテンプレートとして使用します。凡例のスタイル設定後、[copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) を呼び出して同じ書式を別のキャプションに適用します。
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+保存されたプレゼンテーションでは、凡例とキャプションが見出しとサイズ、太さ、色で一致しています。凡例は依然として系列名を表示し、キャプションは独自のテキストを保持します。キャプション内の部分に明示的なフォントサイズがすでに設定されている場合、そのサイズがコピーされた段落のデフォルトより優先されます。
+
+| コピー前 | コピー後 |
+| --- | --- |
+| ![定期的な黒い凡例ラベルと黒いキャプションを持つ四半期売上チャート](legend-formatting-before.png) | ![同じチャートで、より大きく太字のネイビー凡例ラベルと一致するキャプション](legend-formatting.png) |
+
 ## **数値形式の設定**
 
-Use [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
+[ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) を使用して、チャートのブックセルに組み込みの数値形式を適用します。この例では、デフォルトのセル対応データでクラスター化された縦棒グラフを作成し、各系列の値セルに書式インデックス 10（`0.00%`）を適用します。これにより、基になる数値は変更せずにブックでの表示が変わります（例: 0.25 は 25.00% と表示されます）。軸とデータラベルの書式は別々に構成できます。
 
 ```php
 use aspose\slides\ChartType;
@@ -209,9 +272,9 @@ try {
 }
 ```
 
-The following table lists built-in number format indices with representative Excel formats for the English (United States) locale. The exact format strings and their display can vary by application and locale, particularly for currency and dates. Some Excel formats also differ from the defaults in the OOXML standard, as described in [Microsoft の数値形式実装ノート](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+以下の表は、英語（米国）ロケール向けの代表的な Excel 書式とともに、組み込み数値形式インデックスを一覧にしたものです。正確な書式文字列とその表示は、アプリケーションやロケールにより異なる場合があります。特に通貨や日付は、[Microsoft の数値形式実装ノート](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) で説明されているように、OOXML 標準のデフォルトと異なる場合があります。
 
-| Index | Format |
+| インデックス | 形式 |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -250,9 +313,9 @@ The following table lists built-in number format indices with representative Exc
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **チャート領域の角丸境界線の設定**
+## **チャート領域の角丸境界の設定**
 
-Call [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) to give its outline a solid gray color and a single-line style before saving the presentation.
+`true` を指定して [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) を呼び出すと、チャート領域の角が丸くなります。例では、クラスター化された縦棒グラフを作成し、[getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) を使用してアウトラインに単色のグレーと単一線スタイルを設定してからプレゼンテーションを保存します。
 
 ```php
 use aspose\slides\ChartType;
@@ -279,11 +342,11 @@ try {
 
 ## **既存のチャート注釈の編集**
 
-A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). The collection returned by [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) contains the chart-owned shapes.
+チャートは、レポートの状態を説明するテキスト注釈などのカスタムシェイプを含めることができます。これらのシェイプは [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes) を介して取得できます。[getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) が返すコレクションには、チャートが所有するシェイプが含まれます。
 
-An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+チャート上に配置された普通のテキスト ボックスはスライドに属し、たとえチャートの一部のように見えても同様です。[Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) を反復処理すると、チャートと普通のスライドシェイプが見つかりますが、チャート内部の個別シェイプは列挙されません。チャートタイトルやデータラベルは別個のチャート要素であり、このコレクションのカスタム注釈ではありません。
 
-Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) and the expected text.
+[chart-annotations.pptx](chart-annotations.pptx) をダウンロードしてアプリケーションの作業ディレクトリに配置してください。最初のスライドには、"Preliminary results" と読む非グループ化された注釈、チャート所有の線、および "Slide overlay" と読む普通のスライドテキスト ボックスが含まれています。例では、そのスライド上の最初のチャートを見つけ、レポートが公開準備できたときに注釈を "Final results" に変更します。空のコレクションをチェックし、[getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) が非 null のテキストフレームを返す [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) のみを編集対象とし、期待されるテキストがあるか確認します。
 
 ```php
 use aspose\slides\Presentation;
@@ -333,26 +396,26 @@ try {
 }
 ```
 
-The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+線とスライドのテキスト ボックスは変更されません。以下の画像は、入力と保存後に再度開いた結果を示しています。
 
-| Before editing | After editing |
+| 編集前 | 編集後 |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![「Preliminary results」と読むチャート注釈](chart-annotations-before.png) | ![「Final results」と読むチャート注釈](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
+例はトップレベルのチャート所有シェイプのみを検査します。注釈が [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) 内にある場合は、そのグループの [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) コレクションも検査してください。入れ子になったグループについては同様に再帰的に処理し、子シェイプに対して同じテキストチェックを適用します。グループ自体はコンテナであり、テキスト ボックスとして扱わないでください。
 {{% /alert %}}
 
 ## **FAQ**
 
-**列/エリアの塗りつぶしを半透明にし、枠線を不透明のままにできますか？**
+**列やエリアに半透明の塗りつぶしを設定し、枠線を不透明のままにできますか？**
 
-はい。塗りつぶしの透明度と輪郭は別々に設定できます。これにより、グリッドやデータが密集した可視化での可読性を向上させることができます。
+はい。塗りつぶしの透明度とアウトラインは別々に構成できます。これは、密集した可視化においてグリッドとデータの可読性を向上させるのに役立ちます。
 
-**ラベルが重なったときの対処法は？**
+**データラベルが重なる場合、どう対処すればよいですか？**
 
-フォントサイズを小さくする、不要なラベル要素（例: カテゴリ）を非表示にする、ラベル位置を調整する、必要に応じて選択したポイントだけラベルを表示する、または「値 + 凡例」形式に切り替えるなどの方法があります。
+フォントサイズを小さくする、不要なラベル要素（例: カテゴリ）を無効にする、ラベル位置を調整する、必要に応じて選択されたポイントのみラベルを表示する、またはフォーマットを「値 + 凡例」に切り替えることができます。
 
-**系列にグラデーションやパターンの塗りつぶしを適用できますか？**
+**シリーズにグラデーションやパターン塗りつぶしを適用できますか？**
 
-はい。系列は単色、グラデーション、パターンの塗りつぶしをサポートします。実務ではグラデーションは控えめに使用し、グリッドやテキストとのコントラストを減らす組み合わせは避けてください。
+はい。シリーズは単色、グラデーション、パターン塗りつぶしをサポートします。実務ではグラデーションの使用は控えめにし、グリッドやテキストとのコントラストを低下させる組み合わせは避けてください。

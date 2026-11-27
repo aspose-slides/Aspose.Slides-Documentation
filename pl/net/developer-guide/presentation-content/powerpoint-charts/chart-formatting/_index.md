@@ -1,5 +1,5 @@
 ---
-title: Formatowanie wykresów w prezentacjach .NET
+title: Formatowanie wykresów prezentacji w .NET
 linktitle: Formatowanie wykresu
 type: docs
 weight: 60
@@ -12,13 +12,13 @@ keywords:
 - ustawienia wykresu
 - opcje wykresu
 - właściwości czcionki
-- zaokrąglone krawędzie
+- zaokrąglone obramowanie
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Poznaj formatowanie wykresów w Aspose.Slides dla .NET i podnieś swoją prezentację PowerPoint dzięki niestandardowym osiom, czcionkom, formatom liczb oraz zaokrąglonym krawędziom wykresu."
+description: "Poznaj formatowanie wykresów w Aspose.Slides dla .NET i podnieś swoją prezentację PowerPoint dzięki niestandardowym osią, czcionkom, formatom liczb oraz zaokrąglonym obramowaniom wykresu."
 ---
 ## **Przegląd**
 
@@ -26,11 +26,13 @@ Ten artykuł wyjaśnia, jak formatować wykresy w prezentacjach PowerPoint przy 
 
 Pokazuje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wstępnie zdefiniowane formaty liczbowe do danych wykresu oraz włączyć zaokrąglone rogi obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
 
+Aby uzyskać oddzielne wypełnienia i obramowania na przedziałach rosnących i malejących, zobacz [przykład wykresu giełdowego](/slides/pl/net/create-chart/#create-stock-charts).
+
 ## **Formatuj elementy wykresu**
 
-Użyj [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) do formatowania tytułów wykresu, osi, linii siatki, legend i obszaru wykresu. Ten przykład tworzy wykres liniowy z znacznikami i danymi domyślnymi, a następnie stosuje osobne style tekstu i linii do osi wartości i osi kategorii. Rozmiary czcionek i grubości linii są określane w punktach; etykiety kategorii są obrócone o 45 stopni.
+Użyj [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) do formatowania tytułów wykresu, osi, linii siatki, legend oraz obszaru wykresu. Ten przykład tworzy wykres liniowy z markerami i domyślnymi danymi, a następnie stosuje oddzielne style tekstu i linii do osi wartości i osi kategorii. Rozmiary czcionek i szerokości linii podane są w punktach; etykiety kategorii są obrócone o 45 stopni.
 
-Oś wartości używa [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) niezależnie od komórek źródłowych. Jej skala rozciąga się od -2 do 15, z głównymi przedziałami co 2 i mniejszymi co 0,5. Przykład łączy formatowanie procentowe z [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ustawionym na tysiące, więc dostosuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) jest wyłączony. Wypełnienia tylnej ściany i podłogi są konfigurowane za pomocą [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) i [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), ale te powierzchnie są widoczne tylko w wykresach 3D.
+Oś wartości używa [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) niezależnie od komórek źródłowych. Jej skala przebiega od -2 do 15, z głównymi przedziałami co 2 i mniejszymi przedziałami co 0,5. Przykład łączy również formatowanie procentowe z [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ustawionym na tysiące, więc dostosuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) jest wyłączony. Wypełnienia tylnej ściany i podłogi są konfigurowane za pomocą [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) i [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), ale te powierzchnie są widoczne tylko w wykresach 3D.
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Ustaw właściwości czcionki wykresu**
+## **Ustaw właściwości czcionki dla wykresu**
 
-Ustaw domyślny rozmiar czcionki dla tekstu wykresu za pomocą [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Przykład tworzy skumulowany wykres słupkowy z czcionką 20 punktów i włącza etykiety wartości dla pierwszej serii za pomocą [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Elementy tekstowe z własnymi, wyraźnymi ustawieniami czcionki mogą nadpisać domyślne ustawienia wykresu.
+Ustaw domyślny rozmiar czcionki dla tekstu wykresu za pomocą [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Przykład tworzy grupowy wykres słupkowy z czcionką 20 punktów i włącza etykiety wartości dla pierwszej serii przy użyciu [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Elementy tekstowe z własnymi explicite ustawionymi czcionkami mogą nadpisać domyślne ustawienia wykresu.
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **Ponowne użycie formatowania ramki tekstu dla legendy wykresu**
+
+Aby dopasować legendę do nagłówka slajdu, ustaw czcionkę w [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) pierwszego akapitu. Wywołaj [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) na [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) legendy. Odczytuje on ustawienia ramki tekstowej, formatowanie pierwszego akapitu oraz domyślne właściwości czcionki tego akapitu. Formatowanie zastosowane bezpośrednio do pojedynczych fragmentów lub do późniejszych akapitów pozostaje lokalne dla źródła.
+
+Przykład używa pogrubionego, 26‑punktowego nagłówka w czcionce Calibri w kolorze granatowym jako szablonu. Po sformatowaniu legendy, używa [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/), aby zastosować to samo formatowanie do osobnego podpisu.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+W zapisanej prezentacji legenda i podpis odpowiadają nagłówkowi pod względem rozmiaru, grubości i koloru. Legenda nadal wyświetla nazwy serii, a podpis zachowuje własny tekst. Jeśli fragment w podpisie ma już explicite ustawiony rozmiar czcionki, ten rozmiar ma pierwszeństwo przed skopiowanym domyślnym rozmiarem akapitu.
+
+| Przed kopiowaniem | Po skopiowaniu |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **Ustaw format liczbowy**
 
-Użyj [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) , aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Ten przykład tworzy skumulowany wykres słupkowy z domyślnymi, opartymi na komórkach danymi i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmiany liczb podstawowych; na przykład 0,25 jest wyświetlane jako 25,00%. Format osi i etykiet danych może być konfigurowany osobno.
+Użyj [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/), aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Ten przykład tworzy grupowy wykres słupkowy z domyślnymi danymi opartymi na komórkach i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmiany podstawowych liczb; na przykład 0,25 jest wyświetlane jako 25,00%. Formatowanie osi i etykiet danych można konfigurować osobno.
 
 ```csharp
 using Aspose.Slides;
@@ -191,7 +243,7 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Poniższa tabela zawiera wbudowane indeksy formatów liczbowych wraz z reprezentatywnymi formatami Excel dla ustawień języka angielskiego (Stany Zjednoczone). Dokładne ciągi formatów i ich wyświetlanie mogą się różnić w zależności od aplikacji i lokalizacji, szczególnie w przypadku walut i dat. Niektóre formaty Excel różnią się również od domyślnych w standardzie OOXML, jak opisano w [Notatki implementacji formatów liczbowych Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Poniższa tabela zawiera wbudowane indeksy formatów liczbowych wraz z reprezentatywnymi formatami Excel dla ustawień regionalnych angielskich (Stany Zjednoczone). Dokładne ciągi formatów i ich wyświetlanie mogą się różnić w zależności od aplikacji i ustawień regionalnych, szczególnie w przypadku walut i dat. Niektóre formaty Excel różnią się również od domyślnych w standardzie OOXML, co opisano w [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
 | Indeks | Format |
 | --- | --- |
@@ -234,7 +286,7 @@ Poniższa tabela zawiera wbudowane indeksy formatów liczbowych wraz z reprezent
 
 ## **Ustaw zaokrąglone krawędzie obszaru wykresu**
 
-Włącz [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) , aby zaokrąglić rogi obszaru wykresu. Przykład tworzy skumulowany wykres słupkowy i używa [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) , aby nadać jego obramowaniu jednolite szare wypełnienie i styl jednej linii przed zapisaniem prezentacji.
+Włącz [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/), aby zaokrąglić rogi obszaru wykresu. Przykład tworzy grupowy wykres słupkowy i używa [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/), aby nadać jego obramowaniu jednolity szary kolor i styl jednej linii przed zapisaniem prezentacji.
 
 ```csharp
 using System.Drawing;
@@ -256,11 +308,11 @@ presentation.Save("out.pptx", SaveFormat.Pptx);
 
 ## **Edytuj istniejące adnotacje wykresu**
 
-Wykres może zawierać własne kształty, takie jak adnotacja tekstowa wyjaśniająca status raportu. Dostęp do tych kształtów uzyskuje się przez [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), wymienione również pod [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) w dokumentacji API wykresu. Jego kolekcja [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) zawiera kształty należące do wykresu.
+Wykres może zawierać niestandardowe kształty, takie jak adnotacja tekstowa wyjaśniająca status raportu. Dostęp do tych kształtów uzyskuje się przez [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), wymienione również pod [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) w dokumentacji API wykresu. Jego kolekcja [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) zawiera kształty należące do wykresu.
 
-Zwykłe pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda jak część wykresu. Iteracja przez [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) znajduje wykres i zwykłe kształty slajdu, ale nie wylicza pojedynczych kształtów wewnątrz wykresu. Tytuły wykresu i etykiety danych są odrębnymi elementami wykresu, a nie własnymi adnotacjami w tej kolekcji.
+Zwykłe pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda jak część wykresu. Iterowanie przez [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) znajduje wykres i zwykłe kształty slajdu, ale nie wymienia poszczególnych kształtów wewnątrz wykresu. Tytuły wykresów i etykiety danych są oddzielnymi elementami wykresu, a nie niestandardowymi adnotacjami w tej kolekcji.
 
-Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Jego pierwszy slajd zawiera wykres z niezgłoskowaną adnotacją o treści „Wstępne wyniki”, linią należącą do wykresu oraz zwykłym polem tekstowym slajdu o treści „Nakładka slajdu”. Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na „Końcowe wyniki”, gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja nie jest pusta i edytuje tylko [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) z niepustym [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) i oczekiwaną treścią.
+Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera wykres z niegrupowaną adnotacją o treści „Preliminary results”, linią należącą do wykresu oraz zwykłym polem tekstowym slajdu o treści „Slide overlay”. Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na „Final results”, gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja nie jest pusta i edytuje jedynie [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) posiadający nie‑nullowy [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) i oczekiwany tekst.
 
 ```csharp
 using System;
@@ -307,22 +359,22 @@ Linia i pole tekstowe slajdu pozostają niezmienione. Poniższe obrazy przedstaw
 
 | Przed edycją | Po edycji |
 | --- | --- |
-| ![Adnotacja wykresu z treścią Wstępne wyniki](chart-annotations-before.png) | ![Adnotacja wykresu z treścią Końcowe wyniki](chart-annotations-after.png) |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Przykład inspekcjonuje tylko kształty należące do wykresu na najwyższym poziomie. Jeśli adnotacja znajduje się wewnątrz [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), sprawdź również kolekcję [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) tej grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich kształtów potomnych. Grupa sama w sobie jest kontenerem; nie traktuj jej jako pola tekstowego.
+Przykład sprawdza tylko kształty na najwyższym poziomie należące do wykresu. Jeśli adnotacja znajduje się wewnątrz [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), należy również przejrzeć kolekcję [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) tej grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich podrzędnych kształtów. Grupa sama w sobie jest kontenerem; nie traktuj jej jak pola tekstowego.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, zachowując nieprzezroczyste krawędzie?**
+**Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, zachowując nieprzezroczyste obramowanie?**
 
-Tak. Przezroczystość wypełnienia i kontur są konfigurowane oddzielnie. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
+Tak. Przezroczystość wypełnienia i obramowanie są konfigurowane osobno. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
 
-**Jak radzić sobie z etykietami danych, gdy nachodzą na siebie?**
+**Jak mogę poradzić sobie z etykietami danych, gdy nakładają się na siebie?**
 
-Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (na przykład kategorie), dostosuj pozycję etykiety, wyświetlaj etykiety tylko dla wybranych punktów, jeśli to konieczne, lub zmień format na „wartość + legenda”.
+Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (np. kategorie), dostosuj pozycję etykiety, wyświetlaj etykiety tylko dla wybranych punktów w razie potrzeby lub zmień format na „wartość + legenda”.
 
-**Czy mogę zastosować wypełnienia gradientowe lub wzorzec do serii?**
+**Czy mogę zastosować wypełnienia gradientowe lub wzorcowe do serii?**
 
-Tak. Serie obsługują wypełnienia stałe, gradientowe i wzorcowe. W praktyce używaj gradientów oszczędnie i unikaj kombinacji, które zmniejszają kontrast z siatką i tekstem.
+Tak. Serie obsługują wypełnienia jednolite, gradientowe i wzorcowe. W praktyce stosuj gradienty oszczędnie i unikaj kombinacji, które zmniejszają kontrast z siatką i tekstem.

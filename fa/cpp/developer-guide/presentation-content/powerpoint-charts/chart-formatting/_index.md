@@ -5,31 +5,33 @@ type: docs
 weight: 60
 url: /fa/cpp/chart-formatting/
 keywords:
-- قالب‌بندی نمودار
+- قالب نمودار
 - قالب‌بندی نمودار
 - موجودیت نمودار
 - ویژگی‌های نمودار
 - تنظیمات نمودار
 - گزینه‌های نمودار
 - ویژگی‌های قلم
-- مرز گرد
+- لبه گرد
 - PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "یادگیری قالب‌بندی نمودارها در Aspose.Slides برای C++ و ارتقاء ارائه PowerPoint خود با محورها، قلم‌ها، قالب‌های عددی سفارشی و مرزهای گرد نمودار."
+description: "یادگیری قالب‌بندی نمودار در Aspose.Slides برای C++ و ارتقای ارائه PowerPoint شما با محورهای سفارشی، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد نمودار."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-این مقاله توضیح می‌دهد چگونه نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کنیم. این مقاله نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، افسانه‌ها، ناحیه ترسیم و پرکردن دیوارها را برای بهبود ظاهر و خوانایی داده‌های نمودار سفارشی‌سازی کنیم.
+این مقاله نحوه فرمت‌بندی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، علائم‌نگاری، ناحیه‌نمودار و پرکننده‌های دیوار را برای بهبود ظاهر و قابلیت خواندن داده‌های نمودار سفارشی‌سازی کنیم.
 
-همچنین نحوه تنظیم ویژگی‌های قلم برای متن نمودار، اعمال قالب‌های عددی پیش‌تنظیم‌شده به داده‌های نمودار و فعال‌سازی گوشه‌های گرد برای ناحیه نمودار را نشان می‌دهد. این مثال‌ها به‌طور ترکیبی نشان می‌دهند چگونه می‌توان سبک بصری و ارائه داده‌های نمودارها را در یک ارائه کنترل کرد.
+همچنین نحوه تنظیم ویژگی‌های قلم برای متن نمودار، اعمال قالب‌های عددی پیش‌فرض به داده‌های نمودار و فعال‌سازی گوشه‌های گرد برای ناحیه نمودار را نشان می‌دهد. این مثال‌ها همراه با هم نحوه کنترل سبک بصری و ارائه داده‌های نمودار در یک ارائه را نشان می‌دهند.
 
-## **قالب‌بندی موجودیت‌های نمودار**
+برای پرکننده‌ها و خطوط حاشیه‌ای جداگانه برای بازه‌های صعودی و نزولی، به [مثال نمودار سهام](/slides/fa/cpp/create-chart/#create-stock-charts) مراجعه کنید.
 
-از [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، افسانه‌ها و ناحیه ترسیم استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند و سپس سبک‌های متن و خطی جداگانه‌ای را به محورهاى مقدار و دسته‌بندی آن اعمال می‌سازد. اندازه‌های قلم و عرض خطوط بر حسب پوینت مشخص می‌شوند؛ برچسب‌های دسته‌بندی به‌صورت 45 درجه چرخانده می‌شوند.
+## **فرمت‌بندی موجودیت‌های نمودار**
 
-محور مقدار از [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است، با فواصل بزرگ 2 و فواصل کوچک 0.5. این مثال همچنین قالب‌بندی درصدی را با [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) تنظیم‌شده بر روی هزارها ترکیب می‌کند، بنابراین این تنظیمات را بر حسب معنا و اندازه داده‌های خود تنظیم کنید. افسانه به‌دلیل غیرفعال بودن [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) در خارج از ناحیه ترسیم می‌ماند. پرکردن دیوار پس‌زمینه و کف از طریق [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) و [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) پیکربندی می‌شود، اما این سطوح تنها در نمودارهای سه‌بعدی قابل مشاهده‌اند.
+از [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) برای فرمت‌بندی عناوین نمودار، محورها، خطوط شبکه، علائم‌نگاری و ناحیهٔ نمودار استفاده کنید. این مثال یک نمودار خطی با مارکرها و داده‌های پیش‌فرض ایجاد می‌کند، سپس سبک‌های متنی و خطی جداگانه را برای محور مقدار و محور دسته‌بندی اعمال می‌کند. اندازه‌های قلم و عرض خطوط بر حسب پوینت مشخص شده‌اند؛ برچسب‌های دسته‌بندی به‌صورت 45 درجه چرخانده می‌شوند.
+
+محور مقدار از [get_NumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_numberformat/) مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است، با بازه‌های اصلی 2 و بازه‌های فرعی 0.5. این مثال همچنین قالب‌بندی درصدی را با [get_DisplayUnit](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_displayunit/) تنظیم شده بر هزارها ترکیب می‌کند، بنابراین می‌توانید این تنظیمات را بر مبنای مفهوم و مقیاس داده‌های خود تنظیم کنید. علائم‌نگاری خارج از ناحیهٔ نمودار می‌ماند چون [get_Overlay](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ilegend/get_overlay/) غیرفعال است. پرکننده‌های دیوار پشت و کف از طریق [get_BackWall](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_backwall/) و [get_Floor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_floor/) پیکربندی می‌شوند، اما این سطوح تنها در نمودارهای سه‌بعدی قابل مشاهده‌اند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -183,7 +185,7 @@ presentation->Save(u"FormattedChart_out.pptx", SaveFormat::Pptx);
 
 ## **تنظیم ویژگی‌های قلم برای یک نمودار**
 
-اندازه قلم پیش‌فرض برای متن نمودار را از طریق [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20 پوینت ایجاد می‌کند و برچسب‌های مقدار را برای سری اول از طریق [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) فعال می‌سازد. عناصر متنی با تنظیمات قلم صریح خود می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
+اندازه قلم پیش‌فرض برای متن نمودار را از طریق [Chart::get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_textformat/) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20 پوینت ایجاد می‌کند و برچسب‌های مقدار را برای اولین سری از طریق [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) فعال می‌سازد. عناصر متنی با تنظیمات قلم صریح خود می‌توانند پیش‌فرض‌های نمودار را بازنویسی کنند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -216,9 +218,91 @@ chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataL
 presentation->Save(u"FontPropertiesForChart.pptx", SaveFormat::Pptx);
 ```
 
+## **بازاستفاده از قالب‌بندی فریم متنی برای علائم‌نگاری نمودار**
+
+برای هم‌خوانی علائم‌نگاری با عنوان اسلاید، قلم را در قالب پیش‌فرض بخش اول از طریق [get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) تنظیم کنید. از [get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformattedtextcontainer/get_textformat/) برای دسترسی به قالب متن علائم‌نگاری استفاده کنید، سپس با [CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyfrom/) قالب فریم متنی عنوان را کپی کنید. این کار تنظیمات فریم متنی، قالب‌بندی پاراگراف اول و ویژگی‌های قلم پیش‌فرض آن پاراگراف را کپی می‌کند. قالب‌بندی که مستقیماً به قسمت‌های جداگانه یا پاراگراف‌های بعدی اعمال شده است، به منبع باقی می‌ماند.
+
+این مثال از عنوان بولد، 26 پوینت Calibri به رنگ سرمه‌ای به‌عنوان قالب استفاده می‌کند. پس از استایل‌دهی به علائم‌نگاری، از [CopyTo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyto/) برای اعمال قالب‌گذاری مشابه به یک برچسب جداگانه استفاده می‌شود.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/NullableBool.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/StyleType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto heading = shapes->AddAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+auto sourceTextFrame = heading->AddTextFrame(u"Quarterly sales");
+auto font = sourceTextFrame->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+font->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+font->set_FontHeight(26);
+font->set_FontBold(NullableBool::True);
+font->get_FillFormat()->set_FillType(FillType::Solid);
+font->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(32, 64, 96));
+
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+chart->set_Style(StyleType::Style3);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Retail"));
+workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Online"));
+workbook->GetCell(0, 0, 3, ObjectExt::Box<String>(u"Wholesale"));
+for (auto quarter = 1; quarter <= 4; ++quarter)
+{
+    auto label = String::Format(u"Q{0}", quarter);
+    workbook->GetCell(0, quarter, 0, ObjectExt::Box<String>(label));
+}
+
+chart->set_HasLegend(true);
+auto legend = chart->get_Legend();
+legend->set_Position(LegendPositionType::Bottom);
+auto legendTextFormat = legend->get_TextFormat();
+legendTextFormat->CopyFrom(sourceTextFrame);
+
+auto caption = shapes->AddAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+auto captionTextFrame = caption->AddTextFrame(u"Sales in millions of dollars");
+legendTextFormat->CopyTo(captionTextFrame);
+
+presentation->Save(u"legend-formatting.pptx", SaveFormat::Pptx);
+```
+
+در ارائهٔ ذخیره‌شده، علائم‌نگاری و برچسب با عنوان از نظر اندازه، وزن و رنگ هماهنگ هستند. علائم‌نگاری همچنان نام‌های سری‌ها را نمایش می‌دهد و برچسب متن خود را حفظ می‌کند. اگر بخشی در برچسب پیش از این دارای اندازه قلم صریح باشد، آن اندازه بر پیش‌فرض پاراگراف کپی‌شده ارجحیت دارد.
+
+| قبل از کپی | بعد از کپی |
+| --- | --- |
+| ![نمودار فروش فصلی با برچسب‌های علائم‌نگاری مشکی معمولی و یک برچسب مشکی](legend-formatting-before.png) | ![نمودار همان با برچسب‌های علائم‌نگاری مشکی بزرگتر، بولد، سرمه‌ای و برچسب منطبق](legend-formatting.png) |
+
 ## **تنظیم قالب عددی**
 
-از [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) برای اعمال یک قالب عددی داخلی به سلول‌های کارپرت نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض، بر پایه سلول، ایجاد می‌کند و اندیس قالب 10 (`0.00%`) را به هر سلول مقدار سری اعمال می‌نماید. این کار نحوه نمایش مقادیر را در کارپرت بدون تغییر عددهای پایه تغییر می‌دهد؛ به‌عنوان مثال 0.25 به‌صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
+از [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) برای اعمال قالب عددی پیش‌ساخته به سلول‌های کتاب‌کار نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض پشتیبانی‌شده توسط سلول‌ها ایجاد می‌کند و ایندکس قالب 10 (`0.00%`) را به هر سلول مقدار سری اعمال می‌نماید. این کار نحوه نمایش مقادیر را در کتاب‌کار بدون تغییر اعداد اصلی تغییر می‌دهد؛ به‌عنوان مثال، 0.25 به‌صورت 25.00% نمایش داده می‌شود. قالب محور و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -260,9 +344,9 @@ for (auto chartSeries : series)
 presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 ```
 
-جدول زیر فهرست اندیس‌های قالب عددی داخلی به همراه قالب‌های متعارف Excel برای محل‌گذاری انگلیسی (ایالات متحده) را نشان می‌دهد. رشته‌های قالب دقیق و نحوه نمایش آنها می‌تواند بسته به برنامه و محل‌گذاری متفاوت باشد، به‌ویژه برای ارز و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML متفاوت هستند، همان‌طور که در [یادداشت‌های پیاده‌سازی قالب عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
+جدول زیر فهرست ایندکس‌های قالب عددی پیش‌ساخته را با قالب‌های نمونهٔ Excel برای مکان Locale انگلیسی (ایالات متحده) ارائه می‌دهد. رشته‌های قالب دقیق و نمایش آن‌ها می‌تواند بسته به برنامه و Locale متفاوت باشد، به‌ویژه برای واحد پول و تاریخ. برخی قالب‌های Excel نیز متفاوت از پیش‌فرض‌های استاندارد OOXML هستند، همان‌طور که در [یادداشت‌های پیاده‌سازی قالب عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
 
-| شاخص | قالب |
+| شماره | قالب |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -303,7 +387,7 @@ presentation->Save(u"PresetNumberFormat_out.pptx", SaveFormat::Pptx);
 
 ## **تنظیم مرزهای گرد ناحیه نمودار**
 
-از [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) برای گرد کردن گوشه‌های ناحیه نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) برای دادن یک رنگ خاکستری ثابت و سبک خط تک به حاشیه آن استفاده می‌کند قبل از ذخیره ارائه.
+از [IChart::set_HasRoundedCorners](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_hasroundedcorners/) برای گرد کردن گوشه‌های ناحیه نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و با استفاده از [get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) برای حاشیه آن یک رنگ خاکستری ثابت و سبک خط تک‌خطی تنظیم می‌کند، سپس ارائه را ذخیره می‌نماید.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -341,11 +425,11 @@ presentation->Save(u"out.pptx", SaveFormat::Pptx);
 
 ## **ویرایش حاشیه‌نویسی‌های موجود در نمودار**
 
-یک نمودار می‌تواند اشکال سفارشی، مانند یک حاشیه‌نویسی متنی که وضعیت یک گزارش را توضیح می‌دهد، داشته باشد. به این اشکال از طریق [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/) دسترسی پیدا کنید، که همچنین تحت [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) در مرجع API نمودار فهرست شده است. مجموعه [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) آن شامل اشکال متعلق به نمودار می‌شود.
+یک نمودار می‌تواند شامل اشکال سفارشی باشد، مانند یک حاشیه‌نویسی متنی که وضعیت گزارش را توضیح می‌دهد. به این اشکال از طریق [IChart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_usershapes/) دسترسی داشته باشید، که در [Chart::get_UserShapes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/get_usershapes/) نیز فهرست شده است. مجموعهٔ [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) شامل اشکال متعلق به نمودار می‌باشد.
 
-یک جعبه متن عادی که روی نمودار قرار می‌گیرد به اسلاید تعلق دارد، حتی اگر به‌نظر برسد بخشی از نمودار است. مرور [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) نمودار و اشکال عادی اسلاید را پیدا می‌کند، اما اشکال فردی داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
+یک جعبه متن معمولی که روی نمودار قرار می‌گیرد، به اسلاید تعلق دارد، حتی اگر به‌نظر برسد بخشی از نمودار است. پیمایش از طریق [Slide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) نمودار و اشکال عادی اسلاید را پیدا می‌کند، اما اشکال فردی داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانهٔ نمودار هستند، نه حاشیه‌نویسی سفارشی در این مجموعه.
 
-بارگیری [chart-annotations.pptx](chart-annotations.pptx) و آن را در پوشه کاری برنامه قرار دهید. اسلاید اول آن شامل یک نمودار با حاشیه‌نویسی بدون گروه «نتایج مقدماتی»، یک خط متعلق به نمودار و یک جعبه متن اسلاید عادی «پوشش اسلاید» است. مثال اولین نمودار در آن اسلاید را پیدا می‌کند و حاشیه‌نویسی را به «نتایج نهایی» تغییر می‌دهد وقتی گزارش آماده انتشار باشد. این مثال بررسی می‌کند که آیا مجموعه خالی است یا نه و فقط یک [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) با [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) غیر‌تهی و متن مورد انتظار را ویرایش می‌کند.
+فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشهٔ کاری برنامه قرار دهید. اسلاید اول آن شامل یک نمودار با حاشیه‌نویسی غیرگروه‌بندی شده با متن «Preliminary results»، یک خط متعلق به نمودار و یک جعبه متن اسلایدی عادی با متن «Slide overlay» است. مثال اولین نمودار در آن اسلاید را پیدا می‌کند و زمانی که گزارش آماده انتشار شد، حاشیه‌نویسی را به «Final results» تغییر می‌دهد. این کد وجود مجموعهٔ خالی را بررسی کرده و فقط یک [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) که دارای [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) غیر‑null و متن مورد انتظار است را ویرایش می‌کند.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -407,26 +491,28 @@ else
 }
 ```
 
-خط و جعبه متن اسلاید بدون تغییر می‌مانند. تصاویر زیر ورودی و نتیجه ذخیره‌شده و باز شده را نشان می‌دهند:
+خط و جعبه متن اسلاید بدون تغییر می‌مانند. تصاویر زیر ورودی و نتیجهٔ ذخیره‑شده و بازگشایی‌شده را نشان می‌دهند:
 
 | قبل از ویرایش | بعد از ویرایش |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![حاشیه‌نویسی نمودار با متن Preliminary results](chart-annotations-before.png) | ![حاشیه‌نویسی نمودار با متن Final results](chart-annotations-after.png) |
 
-{{% alert color="info" title="Note" %}}
-مثال فقط به اشکال سطح‑بالای متعلق به نمودار نگاه می‌کند. اگر یک حاشیه‌نویسی داخل یک [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/) باشد، مجموعه [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و همان بررسی‌های متنی را روی اشکال فرزند اعمال کنید. یک گروه خود یک مخزن است؛ آن را به‌عنوان جعبه متن در نظر نگیرید.
+{{% alert color="info" title="نکته" %}}
+
+مثال فقط به اشکال سطح‌بالای متعلق به نمودار نگاهی می‌اندازد. اگر حاشیه‌نویسی داخل یک [IGroupShape](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/) باشد، مجموعهٔ [get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/igroupshape/get_shapes/) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و همان بررسی‌های متنی را بر روی اشکال فرزند اعمال کنید. یک گروه خود یک مخزن است؛ آن را به‌عنوان جعبهٔ متن درنظر نگیرید.
+
 {{% /alert %}}
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا می‌توانم پرکردن‌های نیمه‌شفاف برای ستون‌ها/نااحیه‌ها تنظیم کنم در حالی که حاشیه را اپاک من نگه دارم؟**
+**آیا می‌توانم پرکننده‌های نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه را ثابت‌پراکنی نگه دارم؟**
 
-بله. شفافیت پرکردن و خط حاشیه به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در نمایش‌های پرجزئی مفید است.
+بله. شفافیت پرکننده و حاشیه به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود قابلیت خواندن شبکه و داده‌ها در تجسم‌های شلوغ مفید است.
 
-**چگونه می‌توانم با برچسب‌های داده که هم‌پوشانی دارند مقابله کنم؟**
+**چگونه می‌توانید با برچسب‌های داده که هم‌پوشانی دارند مقابله کنم؟**
 
-اندازه قلم را کاهش دهید، اجزای غیرضروری برچسب (مانند دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت لزوم فقط برای نقاط انتخابی برچسب نمایش دهید، یا قالب را به «مقدار + افسانه» تغییر دهید.
+اندازه قلم را کاهش دهید، اجزای غیرضروری برچسب (مثلاً دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت ضرورت فقط برای نقاط انتخابی برچسب نمایش دهید، یا قالب را به «مقدار + علائم‌نگاری» تغییر دهید.
 
-**آیا می‌توانم پرکردن‌های گرادیان یا الگو را به سری‌ها اعمال کنم؟**
+**آیا می‌توانم پرکننده‌های گرادیان یا الگو را به سری‌ها اعمال کنم؟**
 
-بله. سری‌ها از پرکردن‌های صیقلی، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌صورت متعادل استفاده کنید و ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهند، پرهیز کنید.
+بله. سری‌ها از پرکننده‌های ثابت، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌طور متعادل استفاده کنید و از ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهد، پرهیز کنید.

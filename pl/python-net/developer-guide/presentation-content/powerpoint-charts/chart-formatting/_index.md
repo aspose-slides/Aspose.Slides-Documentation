@@ -12,24 +12,26 @@ keywords:
 - ustawienia wykresu
 - opcje wykresu
 - właściwości czcionki
-- zaokrąglona ramka
+- zaokrąglone obramowanie
 - PowerPoint
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Poznaj formatowanie wykresów w Aspose.Slides dla Pythona przy użyciu .NET i podnieś swoją prezentację PowerPoint dzięki niestandardowym osiom, czcionkom, formatom liczbowym oraz zaokrąglonym obramowaniom wykresu."
+description: "Poznaj formatowanie wykresów w Aspose.Slides dla Pythona poprzez .NET i podnieś swoją prezentację PowerPoint dzięki niestandardowym osiom, czcionkom, formatom liczbowym i zaokrąglonym obramowaniom wykresu."
 ---
 ## **Przegląd**
 
 Ten artykuł wyjaśnia, jak formatować wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides. Pokazuje, jak dostosować kluczowe elementy wykresu, takie jak osie, linie siatki, tytuły, legendy, obszar wykresu i wypełnienia ścian, aby poprawić wygląd i czytelność danych wykresu.
 
-Pokazuje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować predefiniowane formaty liczbowe do danych wykresu oraz włączyć zaokrąglone rogi obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
+Pokazuje także, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wstępnie zdefiniowane formaty numeryczne do danych wykresu oraz włączyć zaokrąglone rogi obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresów w prezentacji.
 
-## **Formatuj elementy wykresu**
+Dla oddzielnych wypełnień i konturów w rosnących i spadających przedziałach, zobacz [przykład wykresu giełdowego](/slides/pl/python-net/create-chart/#create-stock-charts).
 
-Użyj [Wykres](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) do formatowania tytułów wykresu, osi, linii siatki, legend i obszaru wykresu. Ten przykład tworzy wykres liniowy z znacznikami i domyślnymi danymi, a następnie stosuje osobne style tekstu i linii do jego osi wartości i osi kategorii. Rozmiary czcionek i grubości linii podawane są w punktach; etykiety kategorii są obrócone o 45 stopni.
+## **Formatowanie elementów wykresu**
 
-Oś wartości używa [format_liczbowy](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) niezależnie od komórek źródłowych. Jej skala przebiega od -2 do 15, z głównymi interwałami co 2 i mniejszymi interwałami 0,5. Przykład łączy także formatowanie procentowe z [jednostka_wyświetlania](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) ustawioną na tysiące, więc dopasuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [nakładka](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) jest wyłączona. Wypełnienia tylnych ścian i podłogi konfigurowane są przez [ściana_tylna](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) i [podłoga](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), ale te powierzchnie są widoczne tylko w wykresach 3D.
+Użyj [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), aby sformatować tytuły wykresu, osie, linie siatki, legendy i obszar wykresu. Ten przykład tworzy wykres liniowy z markerami i domyślnymi danymi, a następnie stosuje oddzielne style tekstu i linii do osi wartości i osi kategorii. Rozmiary czcionek i szerokości linii podawane są w punktach; etykiety kategorii są obrócone o 45 stopni.
+
+Oś wartości używa [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) niezależnie od komórek źródłowych. Jej skala rozciąga się od -2 do 15, z głównymi przedziałami co 2 i mniejszymi przedziałami co 0,5. Przykład łączy także formatowanie procentowe z [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) ustawionym na tysiące, więc dostosuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) jest wyłączone. Wypełnienia tylnej ściany i podłogi konfigurowane są za pomocą [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) oraz [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), ale te powierzchnie są widoczne tylko w wykresach 3D.
 
 ```python
 import aspose.slides.charts as charts
@@ -147,7 +149,7 @@ with slides.Presentation() as presentation:
 
 ## **Ustaw właściwości czcionki dla wykresu**
 
-Ustaw domyślny rozmiar czcionki dla tekstu wykresu za pomocą [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Przykład tworzy skumulowany wykres kolumnowy z czcionką 20 punktów i włącza etykiety wartości dla pierwszej serii poprzez [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Elementy tekstowe z własnymi explicite ustawieniami czcionki mogą nadpisać domyślne ustawienia wykresu.
+Ustaw domyślny rozmiar czcionki dla tekstu wykresu za pomocą [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Przykład tworzy skumulowany wykres słupkowy z czcionką 20 punktów i włącza etykiety wartości dla pierwszej serii przy użyciu [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Elementy tekstowe z własnymi wyraźnymi ustawieniami czcionki mogą nadpisać domyślne ustawienia wykresu.
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ustaw format numeryczny**
+## **Ponowne użycie formatowania ramki tekstowej dla legendy wykresu**
 
-Użyj [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Ten przykład tworzy skumulowany wykres kolumnowy z domyślnymi, opartymi na komórkach danymi i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmiany leżących pod nimi liczb; na przykład 0,25 jest wyświetlane jako 25,00%. Formaty osi i etykiet danych można konfigurować osobno.
+Aby dopasować legendę do nagłówka slajdu, ustaw czcionkę poprzez [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) w pierwszym paragrafie nagłówka. Wywołaj [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) na [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) legendy. Kopiuje to ustawienia ramki tekstowej, formatowanie pierwszego paragrafu oraz domyślne właściwości czcionki tego paragrafu. Formatowanie zastosowane bezpośrednio do pojedynczych fragmentów lub późniejszych paragrafów pozostaje lokalne dla źródła.
+
+Przykład używa nagłówka wytłuszczonego, granatowego, 26‑punktowego Calibri jako szablonu. Po sformatowaniu legendy, używa [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/), aby zastosować to samo formatowanie do oddzielnego podpisu.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+W zapisanej prezentacji legenda i podpis odpowiadają nagłówkowi pod względem rozmiaru, grubości i koloru. Legenda nadal wyświetla nazwy serii, a podpis zachowuje własny tekst. Jeśli fragment w podpisie ma już wyraźnie ustawiony rozmiar czcionki, ten rozmiar ma pierwszeństwo przed skopiowanym domyślnym rozmiarem paragrafu.
+
+| Przed kopiowaniem | Po kopiowaniu |
+| --- | --- |
+| ![Wykres kwartalnej sprzedaży z zwykłymi czarnymi etykietami legendy i czarnym podpisem](legend-formatting-before.png) | ![Ten sam wykres z większymi, pogrubionymi, granatowymi etykietami legendy i pasującym podpisem](legend-formatting.png) |
+
+## **Ustaw format liczbowy**
+
+Użyj [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/), aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Ten przykład tworzy skumulowany wykres słupkowy z domyślnymi danymi opartymi na komórkach i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmiany podstawowych liczb; na przykład 0,25 wyświetlane jest jako 25,00%. Formaty osi i etykiet danych mogą być konfigurowane osobno.
 
 ```python
 import aspose.slides.charts as charts
@@ -178,14 +227,14 @@ with slides.Presentation() as presentation:
 
     for series in chart.chart_data.series:
         for data_point in series.data_points:
-            data_point.value.as_cell.preset_number_format = 10  # 0,00%
+            data_point.value.as_cell.preset_number_format = 10  # 0.00%
 
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ta tabela wymienia wbudowane indeksy formatów liczbowych wraz z reprezentatywnymi formatami Excel dla ustawień regionalnych angielskiego (Stany Zjednoczone). Dokładne ciągi formatu i ich wyświetlanie mogą się różnić w zależności od aplikacji i ustawień regionalnych, szczególnie dla walut i dat. Niektóre formaty Excel różnią się także od domyślnych w standardzie OOXML, jak opisano w [notatki implementacyjne formatu liczbowego Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+Poniższa tabela wymienia wbudowane indeksy formatów liczbowych wraz z przykładowymi formatami Excel dla regionalnego ustawienia angielskiego (Stany Zjednoczone). Dokładne ciągi formatów i ich wyświetlanie mogą się różnić w zależności od aplikacji i ustawień regionalnych, szczególnie dla walut i dat. Niektóre formaty Excel różnią się także od domyślnych w standardzie OOXML, co opisano w [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| Index | Format |
+| Indeks | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -226,7 +275,7 @@ Ta tabela wymienia wbudowane indeksy formatów liczbowych wraz z reprezentatywny
 
 ## **Ustaw zaokrąglone krawędzie obszaru wykresu**
 
-Włącz [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/), aby zaokrąglić rogi obszaru wykresu. Przykład tworzy skumulowany wykres kolumnowy i używa [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) aby nadać jego konturowi jednolity szary kolor oraz styl jednej linii przed zapisaniem prezentacji.
+Włącz [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/), aby zaokrąglić rogi obszaru wykresu. Przykład tworzy skumulowany wykres słupkowy i używa [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/), aby nadać jego obramowaniu jednolity szary kolor i styl jednej linii przed zapisaniem prezentacji.
 
 ```python
 import aspose.slides.charts as charts
@@ -246,11 +295,11 @@ with slides.Presentation() as presentation:
 
 ## **Edytuj istniejące adnotacje wykresu**
 
-Wykres może zawierać niestandardowe kształty, takie jak adnotacja tekstowa wyjaśniająca status raportu. Uzyskaj dostęp do tych kształtów przez [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Jego kolekcja [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) zawiera kształty należące do wykresu.
+Wykres może zawierać niestandardowe kształty, takie jak adnotacja tekstowa wyjaśniająca status raportu. Dostęp do tych kształtów uzyskuje się przez [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Jego kolekcja [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) zawiera kształty należące do wykresu.
 
-Zwykłe pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda jak część wykresu. Iteracja przez [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) znajduje wykres oraz zwykłe kształty slajdu, ale nie wylicza poszczególnych kształtów wewnątrz wykresu. Tytuły wykresów i etykiety danych są oddzielnymi elementami wykresu, a nie niestandardowymi adnotacjami w tej kolekcji.
+Zwykłe pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda na część wykresu. Iteracja przez [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) znajduje wykres oraz zwykłe kształty slajdu, ale nie wylicza poszczególnych kształtów wewnątrz wykresu. Tytuły wykresów i etykiety danych są oddzielnymi elementami wykresu, a nie niestandardowymi adnotacjami w tej kolekcji.
 
-Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Jej pierwszy slajd zawiera wykres z niezgrupowaną adnotacją o treści „Preliminary results”, linią należącą do wykresu oraz zwykłym polem tekstowym slajdu o treści „Slide overlay”. Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na „Final results”, gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja nie jest pusta i edytuje jedynie [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) z [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/), który nie jest `None` i zawiera oczekiwany tekst.
+Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Jego pierwszy slajd zawiera wykres z niezwiniętą adnotacją o treści "Preliminary results", linią należącą do wykresu oraz zwykłym polem tekstowym slajdu o treści "Slide overlay". Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na "Final results", gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja nie jest pusta i edytuje jedynie [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) z [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/), które nie jest `None` i zawiera oczekiwany tekst.
 
 ```python
 import aspose.slides as slides
@@ -277,25 +326,25 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-Linia i pole tekstowe slajdu pozostają niezmienione. Poniższe obrazy pokazują wejście oraz zapisany, ponownie otwarty wynik:
+Linia i pole tekstowe slajdu pozostają niezmienione. Poniższe obrazy pokazują wejściowy oraz zapisany, ponownie otwarty wynik:
 
-| Before editing | After editing |
+| Przed edycją | Po edycji |
 | --- | --- |
-| ![Adnotacja wykresu – Preliminary results](chart-annotations-before.png) | ![Adnotacja wykresu – Final results](chart-annotations-after.png) |
+| ![Adnotacja wykresu z napisem "Preliminary results"](chart-annotations-before.png) | ![Adnotacja wykresu z napisem "Final results"](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Przykład sprawdza tylko kształty najwyższego poziomu należące do wykresu. Jeśli adnotacja znajduje się wewnątrz [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), sprawdź również kolekcję [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) tej grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich podrzędnych kształtów. Grupa sama w sobie jest kontenerem; nie traktuj jej jako pola tekstowego.
+Przykład sprawdza tylko kształty należące do wykresu na najwyższym poziomie. Jeśli adnotacja znajduje się wewnątrz [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), sprawdź również kolekcję [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) tej grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich kształtów podrzędnych. Grupa sama w sobie jest kontenerem; nie traktuj jej jako pola tekstowego.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, zachowując nieprzezroczyste obramowanie?**
+**Czy mogę ustawić półprzezroczyste wypełnienia dla słupków/obszarów, zachowując nieprzezroczyste obramowanie?**
 
-Tak. Przezroczystość wypełnienia i obramowanie konfigurowane są osobno. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
+Tak. Przezroczystość wypełnienia i obramowanie są konfigurowane oddzielnie. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
 
-**Jak mogę radzić sobie z etykietami danych, gdy nachodzą na siebie?**
+**Jak mogę radzić sobie z etykietami danych, gdy nakładają się na siebie?**
 
-Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (np. kategorie), dostosuj położenie etykiety, pokaż etykiety tylko dla wybranych punktów w razie potrzeby lub przełącz format na „wartość + legenda”.
+Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (na przykład kategorie), dostosuj położenie etykiety, wyświetlaj etykiety tylko dla wybranych punktów, jeśli to konieczne, lub przełącz format na „wartość + legenda”.
 
 **Czy mogę zastosować wypełnienia gradientowe lub wzorcowe do serii?**
 

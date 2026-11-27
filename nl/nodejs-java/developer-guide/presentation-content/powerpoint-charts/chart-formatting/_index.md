@@ -1,36 +1,38 @@
 ---
-title: Grafiekopmaak voor presentaties in JavaScript
-linktitle: Grafiekopmaak
+title: Diagrammen in presentaties opmaken in JavaScript
+linktitle: Diagramopmaak
 type: docs
 weight: 60
 url: /nl/nodejs-java/chart-formatting/
 keywords:
-- grafiek opmaken
-- grafiekopmaak
-- grafiekelement
-- grafiekeigenschappen
-- grafiekinstellingen
-- grafiekopties
-- lettertype‑eigenschappen
+- diagram opmaken
+- diagramopmaak
+- diagramonderdeel
+- diagrameigenschappen
+- diagraminstellingen
+- diagramopties
+- lettertype-eigenschappen
 - afgeronde rand
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Leer grafiekopmaak in Aspose.Slides voor Node.js via Java en til uw PowerPoint‑presentatie naar een hoger niveau met aangepaste assen, lettertypen, getalformaten en afgeronde grafiekranden."
+description: "Leer diagramopmaak in Aspose.Slides voor Node.js via Java en verbeter uw PowerPoint‑presentatie met aangepaste assen, lettertypen, getalformaten en afgeronde diagramranden."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je grafieken in PowerPoint‑presentaties kunt opmaken met behulp van Aspose.Slides. Het laat zien hoe je belangrijke grafiekelementen zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wandvullingen kunt aanpassen om het uiterlijk en de leesbaarheid van grafiekgegevens te verbeteren.
+Dit artikel legt uit hoe diagrammen in PowerPoint‑presentaties opgemaakt kunnen worden met Aspose.Slides. Het laat zien hoe belangrijke diagramonderdelen zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wandvullingen aangepast kunnen worden om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
 
-Het laat ook zien hoe je lettertype‑eigenschappen voor grafiekttekst kunt instellen, een voorgedefinieerd numeriek formaat op grafiekgegevens kunt toepassen en afgeronde hoeken voor het grafiekgebied kunt inschakelen. Samen tonen deze voorbeelden hoe je zowel de visuele stijl als de gegevenspresentatie van grafieken in een presentatie kunt beheersen.
+Het laat ook zien hoe je lettertype‑eigenschappen voor diagramtekst instelt, vooraf ingestelde numerieke notaties op diagramgegevens toepast en afgeronde hoeken voor het diagramgebied inschakelt. Samen laten deze voorbeelden zien hoe zowel de visuele stijl als de gegevenspresentatie van diagrammen in een presentatie beheerst kan worden.
 
-## **Grafiekelementen opmaken**
+Voor voorbeeld van aandelen‑diagram zie de [voorbeeld van aandelen‑diagram](/slides/nl/nodejs-java/create-chart/#create-stock-charts).
 
-Gebruik [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) om grafiektitels, assen, rasterlijnen, legenda’s en het plotgebied op te maken. Dit voorbeeld maakt een lijngrafiek met markeringen en standaardgegevens, en past vervolgens aparte tekst‑ en lijstopmaak toe op respectievelijk de waarde‑ en categorie‑as. Lettergroottes en lijndiktes worden gespecificeerd in punten; categorielabels worden 45 graden gedraaid.
+## **Diagramonderdelen opmaken**
 
-De waarde‑as gebruikt [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) onafhankelijk van de broncellen. Het bereik loopt van –2 tot 15, met hoofdinterval‑stappen van 2 en subinterval‑stappen van 0,5. Het voorbeeld combineert bovendien procent‑opmaak met [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) ingesteld op duizenden, dus pas deze instellingen aan op de betekenis en de omvang van je data. De legenda blijft buiten het plotgebied omdat [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) wordt aangeroepen met `false`. Achterwand‑ en vloervullingen worden geconfigureerd via [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) en [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), maar deze oppervlakken zijn alleen zichtbaar in 3D‑grafieken.
+Gebruik [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) om diagramtitels, assen, rasterlijnen, legenda’s en het plotgebied op te maken. Dit voorbeeld maakt een lijndiagram met markeringen en standaardgegevens, en past vervolgens afzonderlijke tekst‑ en lijnstijlen toe op de waarden‑ en categorie‑assen. Lettergrootten en lijndiktes worden gespecificeerd in punten; categorielabels worden 45 graden geroteerd.
+
+De waardenas gebruikt [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met hoofdintervallen van 2 en subintervallen van 0,5. Het voorbeeld combineert ook procentnotatie met [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) ingesteld op duizenden, dus pas deze instellingen aan de betekenis en omvang van je gegevens aan. De legenda blijft buiten het plotgebied omdat [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) wordt aangeroepen met `false`. Achter‑wand‑ en vloer‑vullingen worden geconfigureerd via [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) en [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), maar deze oppervlakken zijn alleen zichtbaar in 3D‑diagrammen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **Lettertype‑eigenschappen voor een grafiek instellen**
+## **Lettertype‑eigenschappen voor een diagram instellen**
 
-Stel de standaardlettergrootte voor grafiekttekst in via [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). Het voorbeeld maakt een gegroepeerde kolomgrafiek met een lettergrootte van 20 punten en schakelt waardelabels in voor de eerste serie via [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van de grafiek overschrijven.
+Stel de standaardlettergrootte voor diagramtekst in via [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). Het voorbeeld maakt een gegroepeerd kolomdiagram met een lettergrootte van 20 punten en schakelt waarde‑labels in voor de eerste serie via [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van het diagram overschrijven.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
-## **Numeriek formaat instellen**
+## **Tekstkader‑opmaak hergebruiken voor een diagramlegenda**
 
-Gebruik [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) om een ingebouwd getalformaat toe te passen op de werkboekcellen van de grafiek. Dit voorbeeld maakt een gegroepeerde kolomgrafiek met standaard‑, cel‑ondersteunde data en past formaat‑index 10 (`0.00%`) toe op elke seriewaardecel. Dit verandert de weergave van de waarden in het werkboek zonder de onderliggende cijfers te wijzigen; bijvoorbeeld 0,25 wordt weergegeven als 25,00 %. As‑ en datalabel‑formaten kunnen afzonderlijk worden geconfigureerd.
+Om een legenda af te stemmen op een slide‑kop, stel je het lettertype van de kop in via [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) op de eerste alinea. Roep [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) aan op het format dat wordt geretourneerd door de legenda‑[getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat). Het kopieert de instellingen van het tekstkader, de opmaak van de eerste alinea, en de standaardlettertype‑eigenschappen van die alinea. Opmaak die rechtstreeks op individuele delen of op latere alinea’s wordt toegepast, blijft lokaal voor de bron.
+
+Het voorbeeld gebruikt een vette Calibri‑kop van 26 punten in marineblauw als sjabloon. Na het stijlen van de legenda roept het [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) aan om dezelfde opmaak toe te passen op een afzonderlijke bijschrift.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In de opgeslagen presentatie komen de legenda en het bijschrift overeen met de kop qua grootte, gewicht en kleur. De legenda toont nog steeds de serienaam‑sen, en het bijschrift behoudt zijn eigen tekst. Als een deel in het bijschrift al een expliciete lettergrootte heeft, heeft die grootte voorrang boven het gekopieerde alinea‑standaard.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Kwartaal‑verkoopdiagram met gewone zwarte legendalabels en een zwart bijschrift](legend-formatting-before.png) | ![Hetzelfde diagram met grotere, vette marineblauwe legendalabels en een bijpassend bijschrift](legend-formatting.png) |
+
+## **Het numerieke formaat instellen**
+
+Gebruik [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) om een ingebouwd getalformaat toe te passen op werkbladcellen van het diagram. Dit voorbeeld maakt een gegroepeerd kolomdiagram met standaard, cel‑gebaseerde gegevens en past formaatindex 10 (`0.00%`) toe op elke seriewaarde‑cel. Hierdoor wordt de weergave van de waarden in het werkblad aangepast zonder de onderliggende getallen te wijzigen; bijvoorbeeld wordt 0,25 weergegeven als 25,00 %. As‑ en data‑label‑formaten kunnen afzonderlijk worden geconfigureerd.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,9 +254,9 @@ try {
 }
 ```
 
-De volgende tabel geeft de ingebouwde getalformaat‑indices weer met representatieve Excel‑formaten voor de Engelse (Verenigde Staten) locale. De exacte opmaak‑strings en hun weergave kunnen per toepassing en locale verschillen, met name voor valuta en datums. Sommige Excel‑formaten wijken ook af van de standaardinstellingen van OOXML, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+De onderstaande tabel geeft ingebouwde getalformaat‑indices weer met representatieve Excel‑formaten voor de Engelse (Verenigde Staten) lokalisatie. De exacte opmaak‑strings en weergave kunnen per toepassing en lokalisatie verschillen, met name voor valuta en datums. Sommige Excel‑formaten wijken ook af van de standaardwaarden in de OOXML‑norm, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| Index | Format |
+| Index | Opmaak |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -239,9 +295,9 @@ De volgende tabel geeft de ingebouwde getalformaat‑indices weer met representa
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Afgeronde randen van het grafiekgebied instellen**
+## **Afgeronde randen voor diagramgebied instellen**
 
-Roep [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) aan met `true` om de hoeken van het grafiekgebied af te ronden. Het voorbeeld maakt een gegroepeerde kolomgrafiek en gebruikt [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) om de omtrek een egale grijze kleur en een enkele lijnstijl te geven voordat de presentatie wordt opgeslagen.
+Roep [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) aan met `true` om de hoeken van het diagramgebied af te ronden. Het voorbeeld maakt een gegroepeerd kolomdiagram en gebruikt [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) om de omtrek een effen grijze kleur en een één‑lijn stijl te geven voordat de presentatie wordt opgeslagen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -263,13 +319,13 @@ try {
 }
 ```
 
-## **Bestaande grafiekannotaties bewerken**
+## **Bestaande diagramannotaties bewerken**
 
-Een grafiek kan aangepaste vormen bevatten, bijvoorbeeld een tekst‑annotatie die de status van een rapport verklaart. Toegang tot deze vormen krijg je via [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). De collectie die wordt geretourneerd door [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) bevat de door de grafiek beheerde vormen.
+Een diagram kan aangepaste vormen bevatten, zoals een tekstannotatie die de status van een rapport uitlegt. Toegang tot deze vormen krijg je via [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). De collectie die wordt geretourneerd door [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) bevat de diagram‑eigendom vormen.
 
-Een gewone tekstvak die over een grafiek ligt, behoort tot de dia, zelfs als het eruitziet als onderdeel van de grafiek. Door te itereren over [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) vind je zowel de grafiek als de gewone dia‑vormen, maar worden de individuele vormen binnen de grafiek niet opgesomd. Grafiektitels en datalabels zijn afzonderlijke grafiekelementen, geen aangepaste annotaties in deze collectie.
+Een gewone tekstvak dat over een diagram wordt geplaatst, behoort tot de slide, zelfs als het eruitziet als onderdeel van het diagram. Door te itereren met [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) worden het diagram en gewone slide‑vormen gevonden, maar worden de individuele vormen binnen het diagram niet opgesomd. Diagramtitels en datalabels zijn afzonderlijke diagramonderdelen, geen aangepaste annotaties in deze collectie.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de applicatie. De eerste dia bevat een grafiek met een niet‑gegroepeerde annotatie met de tekst “Preliminary results”, een grafiek‑eigen lijn, en een gewoon tekstvak op de dia met de tekst “Slide overlay”. Het voorbeeld zoekt de eerste grafiek op die dia en wijzigt de annotatie naar “Final results” wanneer het rapport klaar is om te publiceren. Het controleert op een lege collectie en bewerkt alleen een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) met een niet‑null tekst‑frame dat wordt geretourneerd door [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) en de verwachte tekst.
+Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de applicatie. De eerste slide bevat een diagram met een niet‑gegroepeerde annotatie met de tekst "Preliminary results", een diagram‑eigen lijn, en een gewoon slide‑tekstvak met de tekst "Slide overlay". Het voorbeeld vindt het eerste diagram op die slide en wijzigt de annotatie naar "Final results" wanneer het rapport klaar is om gepubliceerd te worden. Het controleert op een lege collectie en bewerkt alleen een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) met een niet‑null tekstkader dat wordt geretourneerd door [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) en de verwachte tekst.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,26 +371,26 @@ try {
 }
 ```
 
-De lijn en het dia‑tekstvak blijven ongewijzigd. De volgende afbeeldingen tonen de invoer en het opgeslagen, heropende resultaat:
+De lijn en het slide‑tekstvak blijven onveranderd. De onderstaande afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
 
-| Voor bewerking | Na bewerking |
+| Before editing | After editing |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![Diagramannotatie met tekst Voorlopige resultaten](chart-annotations-before.png) | ![Diagramannotatie met tekst Definitieve resultaten](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Het voorbeeld inspecteert alleen de boven‑niveau, door de grafiek beheerde vormen. Als een annotatie zich binnen een [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) bevindt, inspecteer dan ook de [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes)‑collectie van die groep. Herhaal dit recursief voor geneste groepen, en pas dezelfde tekstcontroles toe op hun onderliggende vormen. Een groep zelf is een container; behandel deze niet als een tekstvak.
+Het voorbeeld inspecteert alleen de diagram‑eigendom vormen op het hoogste niveau. Als een annotatie zich binnen een [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) bevindt, inspecteer dan ook de [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes)‑collectie van die groep. Herhaal dit recursief voor geneste groepen, waarbij dezelfde tekstcontroles op hun onderliggende vormen worden toegepast. Een groep zelf is een container; behandel het niet als een tekstvak.
 {{% /alert %}}
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik halftransparante vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
+**Kan ik halfdoorzichtige vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
 
-Ja. Vulling‑transparantie en de omtrek worden afzonderlijk geconfigureerd. Dit is handig om de leesbaarheid van het raster en de data in drukke visualisaties te verbeteren.
+Ja. Vullingsdoorzichtigheid en de omtrek worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
 
-**Hoe ga ik om met datalabels die overlappen?**
+**Hoe kan ik omgaan met datalabels wanneer ze overlappen?**
 
-Verklein de lettergrootte, schakel niet‑essentiële labelcomponenten uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon alleen labels voor geselecteerde punten indien nodig, of wijzig het formaat naar “waarde + legenda”.
+Verminder de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon alleen labels voor geselecteerde punten indien nodig, of wijzig het formaat naar "waarde + legenda".
 
-**Kan ik verloop‑ of patroonvullingen toepassen op series?**
+**Kan ik verlopen of patroonvullingen toepassen op series?**
 
-Ja. Series ondersteunen egale, verloop‑ en patroonvullingen. Gebruik verloop echter spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.
+Ja. Series ondersteunen vaste, verloop‑ en patroonvullingen. In de praktijk moet je verlopen spaarzaam gebruiken en combinaties vermijden die het contrast met het raster en de tekst verminderen.

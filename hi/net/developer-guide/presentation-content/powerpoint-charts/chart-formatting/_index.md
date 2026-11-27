@@ -1,12 +1,12 @@
 ---
-title: .NET में प्रस्तुति चार्ट को फ़ॉर्मेट करें
-linktitle: चार्ट फ़ॉर्मेटिंग
+title: .NET में प्रस्तुति चार्ट स्वरूपित करें
+linktitle: चार्ट स्वरूपण
 type: docs
 weight: 60
 url: /hi/net/chart-formatting/
 keywords:
-- चार्ट फ़ॉर्मेट
-- चार्ट फ़ॉर्मेटिंग
+- चार्ट स्वरूप
+- चार्ट स्वरूपण
 - चार्ट इकाई
 - चार्ट गुण
 - चार्ट सेटिंग्स
@@ -18,19 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET में चार्ट फ़ॉर्मेटिंग सीखें और कस्टम अक्षों, फ़ॉन्ट्स, संख्या फ़ॉर्मेट्स और गोल चार्ट किनारों के साथ अपनी PowerPoint प्रस्तुति को उन्नत बनाएं।"
+description: "Aspose.Slides for .NET में चार्ट स्वरूपण सीखें और कस्टम अक्ष, फ़ॉन्ट, संख्यात्मक फ़ॉर्मेट और गोल चार्ट किनारों के साथ अपनी PowerPoint प्रस्तुति को उन्नत बनाएं।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फ़ॉर्मेट करने के तरीके को समझाता है। यह अक्ष, ग्रिड लाइनों, शीर्षक, लीजेंड, प्लॉट एरिया, और वॉल फ़िल्स जैसे मुख्य चार्ट तत्वों को अनुकूलित करके चार्ट डेटा की उपस्थिति और पठनीयता को सुधारने का प्रदर्शन करता है।
+यह लेख Aspose.Slides का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट को फ़ॉर्मेट करने की विधि समझाता है। यह दिखाता है कि अक्ष, ग्रिड रेखाएँ, शीर्षक, लीजेंड, प्लॉट एरिया और दीवार भराव जैसे प्रमुख चार्ट तत्वों को कैसे अनुकूलित किया जाए ताकि चार्ट डेटा की उपस्थिति और पठनीयता में सुधार हो सके।
 
-यह साथ ही चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण सेट करने, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक फ़ॉर्मेट लागू करने, और चार्ट एरिया के कोनों को गोल करने का भी उदाहरण दिखाता है। ये सभी उदाहरण प्रस्तुतिकरण में चार्ट की दृश्य शैली और डेटा प्रस्तुति दोनों को नियंत्रित करने में मदद करते हैं।
+यह यह भी दर्शाता है कि चार्ट टेक्स्ट के लिए फ़ॉन्ट गुण कैसे सेट करें, चार्ट डेटा पर पूर्वनिर्धारित संख्यात्मक फ़ॉर्मेट लागू करें, और चार्ट एरिया के लिए गोल कोने सक्षम करें। इन उदाहरणों के माध्यम से आप प्रस्तुति में चार्ट की दृश्य शैली और डेटा प्रस्तुति दोनों को नियंत्रित कर सकते हैं।
+
+ऊँची और गिरती अंतरालों पर अलग-अलग भराव और रूपरेखा के लिए देखें [stock chart example](/slides/hi/net/create-chart/#create-stock-charts)।
 
 ## **चार्ट इकाइयों को फ़ॉर्मेट करें**
 
-[IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) का उपयोग करके चार्ट शीर्षक, अक्ष, ग्रिड लाइनों, लीजेंड और प्लॉट एरिया को फ़ॉर्मेट करें। यह उदाहरण मार्कर वाला एक लाइन चार्ट बनाता है और उसके मान और वर्गीकरण अक्षों पर अलग‑अलग टेक्स्ट और लाइन शैलियाँ लागू करता है। फ़ॉन्ट आकार और लाइन चौड़ाई पॉइंट्स में निर्दिष्ट की गई हैं; वर्गीकरण लेबल 45 डिग्री से घुमाए गए हैं।
+चार्ट शीर्षक, अक्ष, ग्रिड रेखाएँ, लीजेंड और प्लॉट एरिया को फ़ॉर्मेट करने के लिए [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) का उपयोग करें। यह उदाहरण एक लाइन चार्ट को मार्कर और डिफ़ॉल्ट डेटा के साथ बनाता है, फिर इसके मान और श्रेणी अक्षों पर अलग-अलग टेक्स्ट और रेखा शैलियों को लागू करता है। फ़ॉन्ट आकार और रेखा चौड़ाई पॉइंट में निर्दिष्ट हैं; श्रेणी लेबल 45 डिग्री घुमाए गए हैं।
 
-मान अक्ष [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) का उपयोग करता है, चाहे स्रोत सेल्स कुछ भी हों। इसका स्केल -2 से 15 तक है, मुख्य अंतराल 2 और गौण अंतराल 0.5 है। यह उदाहरण प्रतिशत फ़ॉर्मेट को [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) के साथ हजारों पर सेट करने को भी दिखाता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार समायोजित करें। लीजेंड प्लॉट एरिया के बाहर रहता है क्योंकि [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) निष्क्रिय है। बैक‑वाल और फ़्लोर फ़िल्स को [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) और [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) के माध्यम से कॉन्फ़िगर किया जाता है, लेकिन ये सतहें केवल 3D चार्ट में दिखाई देती हैं।
+मान अक्ष [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) को स्रोत कोशिकाओं से स्वतंत्र रूप से उपयोग करता है। इसका स्केल -2 से 15 तक है, प्रमुख अंतराल 2 और मौलिक अंतराल 0.5 है। यह उदाहरण प्रतिशत फ़ॉर्मेट को [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) के हजार सेट के साथ संयोजित करता है, इसलिए इन सेटिंग्स को अपने डेटा के अर्थ और परिमाण के अनुसार अनुकूलित करें। लीजेंड प्लॉट एरिया के बाहर रहता है क्योंकि [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) निष्क्रिय है। बैक‑वॉल और फ़्लोर भराव को [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) और [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) के माध्यम से कॉन्फ़िगर किया गया है, लेकिन ये सतहें केवल 3D चार्ट में ही दिखाई देती हैं।
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **एक चार्ट के लिए फ़ॉन्ट गुण सेट करें**
+## **चार्ट के लिए फ़ॉन्ट गुण सेट करें**
 
-[Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) के माध्यम से चार्ट टेक्स्ट के लिए डिफॉल्ट फ़ॉन्ट आकार सेट करें। यह उदाहरण 20‑पॉइंट फ़ॉन्ट के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रथम सीरीज़ के लिए [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) के जरिए मान लेबल सक्षम करता है। अपने स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट तत्व चार्ट के डिफॉल्ट को ओवरराइड कर सकते हैं।
+चार्ट टेक्स्ट के लिए डिफ़ॉल्ट फ़ॉन्ट आकार को [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) के माध्यम से सेट करें। यह उदाहरण 20‑पॉइंट फ़ॉन्ट के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और पहले श्रृंखला के लिए [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) के माध्यम से मान लेबल सक्षम करता है। अपने स्वयं के स्पष्ट फ़ॉन्ट सेटिंग वाले टेक्स्ट तत्व चार्ट डिफ़ॉल्ट को ओवरराइड कर सकते हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **चार्ट लीजेंड के लिए टेक्स्ट फ्रेम फ़ॉर्मेटिंग को पुन: प्रयुक्त करें**
+
+लीजेंड को स्लाइड शीर्षक से मिलाने के लिए पहले पैराग्राफ के [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) में फ़ॉन्ट सेट करें। लीजेंड के [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) पर [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/) कॉल करें। यह टेक्स्ट फ्रेम सेटिंग्स, पहले पैराग्राफ का फ़ॉर्मेट, और उस पैराग्राफ के डिफ़ॉल्ट फ़ॉन्ट गुण पढ़ता है। व्यक्तिगत भागों या बाद के पैराग्राफों पर सीधे लागू फ़ॉर्मेटिंग स्रोत तक ही सीमित रहती है।
+
+उदाहरण में नेवी रंग में 26‑पॉइंट कैलिब्री बोल्ड शीर्षक को टेम्पलेट के रूप में उपयोग किया गया है। लीजेंड को स्टाइल करने के बाद, वही फ़ॉर्मेटिंग एक अलग कैप्शन पर लागू करने के लिए [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) का उपयोग किया जाता है।
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+सहेजे गए प्रस्तुतीकरण में, लीजेंड और कैप्शन आकार, भार और रंग में शीर्षक से मेल खाते हैं। लीजेंड अभी भी श्रृंखला नाम दिखाता है, और कैप्शन अपना स्वयं का टेक्स्ट रखता है। यदि कैप्शन में किसी भाग का स्पष्ट फ़ॉन्ट आकार पहले से निर्धारित है, तो वह आकार कॉपी किए गए पैराग्राफ डिफ़ॉल्ट पर प्राथमिकता रखता है।
+
+| कॉपी करने से पहले | कॉपी करने के बाद |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **संख्यात्मक फ़ॉर्मेट सेट करें**
 
-[IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) का उपयोग करके चार्ट वर्कबुक सेल्स पर निर्मित संख्या फ़ॉर्मेट लागू करें। यह उदाहरण डिफॉल्ट, सेल‑बैक्ड डेटा वाला एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रत्येक सीरीज़ मान सेल पर फ़ॉर्मेट इंडेक्स 10 (`0.00%`) लागू करता है। यह वर्कबुक में मानों को बदले बिना उनके प्रदर्शन को बदलता है; उदाहरण के लिए, 0.25 को 25.00% दिखाया जाता है। अक्ष और डेटा‑लेबल फ़ॉर्मेट को अलग‑अलग कॉन्फ़िगर किया जा सकता है।
+चार्ट वर्कबुक कोशिकाओं पर निर्मित संख्या फ़ॉर्मेट लागू करने के लिए [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट, सेल‑बैक्ड डेटा के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है और प्रत्येक श्रृंखला मान कोशिका पर फ़ॉर्मेट इंडेक्स 10 (`0.00%`) लागू करता है। इससे वर्कबुक में मानों का प्रदर्शन बदलता है बिना मूल संख्याओं को बदले; उदाहरण के लिए, 0.25 को 25.00% दिखाया जाता है। अक्ष और डेटा‑लेबल फ़ॉर्मेट को अलग‑अलग कॉन्फ़िगर किया जा सकता है।
 
 ```csharp
 using Aspose.Slides;
@@ -191,9 +243,9 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-निम्न तालिका में इंग्लिश (United States) लोकैल के लिए प्रतिनिधि Excel फ़ॉर्मेट्स के साथ अंतर्निहित संख्या फ़ॉर्मेट इंडेक्स दर्शाए गए हैं। वास्तविक फ़ॉर्मेट स्ट्रिंग्स और उनका प्रदर्शन आवेदन और लोकैल के अनुसार बदल सकता है, विशेष रूप से मुद्रा और तिथियों के लिए। कुछ Excel फ़ॉर्मेट्स OOXML मानक के डिफॉल्ट से भी भिन्न होते हैं, जैसा कि [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
+निम्न तालिका में इंग्लिश (United States) लोक्यल के लिए प्रतिनिधि Excel फ़ॉर्मेट के साथ निर्मित संख्या फ़ॉर्मेट इंडेक्स सूचीबद्ध हैं। सटीक फ़ॉर्मेट स्ट्रिंग और उनका प्रदर्शन एप्लिकेशन और लोक्यल के अनुसार बदल सकता है, विशेष रूप से मुद्रा और तिथियों के लिए। कुछ Excel फ़ॉर्मेट OOXML मानक के डिफ़ॉल्ट से भी भिन्न होते हैं, जैसा कि [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) में वर्णित है।
 
-| सूचकांक | फ़ॉर्मेट |
+| Index | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -232,9 +284,9 @@ presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **चार्ट क्षेत्र में गोल किनारे सेट करें**
+## **चार्ट एरिया के गोल कोने सेट करें**
 
-[IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) को सक्षम करके चार्ट क्षेत्र के कोनों को गोल बनाएं। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) का उपयोग करके उसकी रूपरेखा को ठोस ग्रे रंग और एकल‑लाइन शैली देता है, फिर प्रस्तुतिकरण को सहेजता है।
+[ IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) को सक्षम करके चार्ट एरिया के कोनों को गोल किया जा सकता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) का उपयोग करके उसकी रूपरेखा को ठोस ग्रे रंग और सिंगल‑लाइन शैली देता है, फिर प्रस्तुति सहेजी जाती है।
 
 ```csharp
 using System.Drawing;
@@ -256,11 +308,11 @@ presentation.Save("out.pptx", SaveFormat.Pptx);
 
 ## **मौजूदा चार्ट एनोटेशन संपादित करें**
 
-एक चार्ट में कस्टम श Shapes जैसे टेक्स्ट एनोटेशन हो सकते हैं, जो रिपोर्ट की स्थिति समझाते हैं। इन्हें आप [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) के माध्यम से प्राप्त कर सकते हैं, जो [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) में भी सूचीबद्ध है। इसका [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) संग्रह चार्ट‑स्वामित्व वाले Shapes को रखता है।
+एक चार्ट में कस्टम आकार हो सकते हैं, जैसे कि रिपोर्ट की स्थिति समझाने वाला टेक्स्ट एनोटेशन। इन आकारों तक पहुंचने के लिए [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) का प्रयोग करें, जिसे चार्ट API रेफ़रेंस में [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) के अंतर्गत भी सूचीबद्ध किया गया है। इसका [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) संग्रह चार्ट‑स्वामित्व वाले आकारों को रखता है।
 
-एक सामान्य टेक्स्ट बॉक्स जो चार्ट के ऊपर रखा हो, वह स्लाइड का हिस्सा होता है, भले ही वह चार्ट का हिस्सा दिखे। [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) के माध्यम से इटरेट करने पर चार्ट और सामान्य स्लाइड श Shapes मिलते हैं, लेकिन चार्ट के भीतर की व्यक्तिगत श Shapes नहीं मिलतीं। चार्ट शीर्षक और डेटा लेबल अलग‑अलग चार्ट तत्व होते हैं, न कि इस संग्रह में कस्टम एनोटेशन।
+एक साधारण टेक्स्ट बॉक्स जो चार्ट के ऊपर रखा गया है, स्लाइड का हिस्सा होता है, भले ही वह चार्ट जैसा दिखे। [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) के माध्यम से इटरिंग करके चार्ट और सामान्य स्लाइड आकारों को पाया जाता है, लेकिन चार्ट के भीतर व्यक्तिगत आकारों को नहीं enumerated किया जाता। चार्ट शीर्षक और डेटा लेबल अलग‑अलग चार्ट तत्व होते हैं, न कि इस संग्रह में कस्टम एनोटेशन।
 
-डाउनलोड [chart-annotations.pptx](chart-annotations.pptx) और इसे एप्लिकेशन की कार्य निर्देशिका में रखें। इसकी पहली स्लाइड में एक चार्ट है जिसमें "Preliminary results" लिखा अनग्रुप्ड एनोटेशन, चार्ट‑स्वामित्व वाली एक लाइन, और "Slide overlay" लिखा सामान्य स्लाइड टेक्स्ट बॉक्स है। उदाहरण पहले चार्ट को खोजता है और रिपोर्ट तैयार होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली संग्रह की जांच करता है और केवल उस [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) को संपादित करता है जिसके पास गैर‑null [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) और अपेक्षित टेक्स्ट हो।
+[chart-annotations.pptx](chart-annotations.pptx) डाउनलोड करके इसे एप्लिकेशन की कार्यशील डायरेक्ट्री में रखें। इसकी पहली स्लाइड में एक चार्ट है जिसमें अनग्रुप्ड एनोटेशन "Preliminary results", चार्ट‑स्वामित्व वाली रेखा, और एक सामान्य स्लाइड टेक्स्ट बॉक्स "Slide overlay" है। उदाहरण उस स्लाइड पर पहला चार्ट खोजता है और रिपोर्ट तैयार होने पर एनोटेशन को "Final results" में बदल देता है। यह खाली संग्रह की जांच करता है और केवल उन [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) को संपादित करता है जिनका [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) non‑null है और अपेक्षित टेक्स्ट है।
 
 ```csharp
 using System;
@@ -303,26 +355,28 @@ else
 }
 ```
 
-लाइन और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहते हैं। नीचे इनपुट और सहेजे हुए पुनःเปิดे गये परिणाम की छवियाँ दी गई हैं:
+रेखा और स्लाइड टेक्स्ट बॉक्स अपरिवर्तित रहते हैं। निम्न छवियों में इनपुट और सहेजे गए, फिर से खोलने के परिणाम दिखाए गए हैं:
 
 | संपादन से पहले | संपादन के बाद |
 | --- | --- |
 | ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-उदाहरण केवल शीर्ष‑स्तर के चार्ट‑स्वामित्व वाले Shapes की जाँच करता है। यदि कोई एनोटेशन [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) के भीतर है, तो उस समूह की [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) संग्रह को भी निरीक्षित करें। नेस्टेड समूहों के लिये इसे पुनरावृत्त रूप से करें, और उनके चाइल्ड श Shapes पर समान टेक्स्ट जाँच लागू करें। एक समूह स्वयं एक कंटेनर है; इसे टेक्स्ट बॉक्स के रूप में न मानें।
+
+उदाहरण केवल शीर्ष‑स्तर के चार्ट‑स्वामित्व आकारों की जाँच करता है। यदि कोई एनोटेशन [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) के अंदर है, तो उस समूह की [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) संग्रह की भी जाँच करें। नेस्टेड समूहों के लिए इस प्रक्रिया को पुनरावर्ती रूप से दोहराएँ, उनके चाइल्ड आकारों पर समान टेक्स्ट जांच लागू करें। एक समूह स्वयं एक कंटेनर है; इसे टेक्स्ट बॉक्स के रूप में न मानें।
+
 {{% /alert %}}
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं कॉलम/एरिया के लिए अर्ध‑पारदर्शी फ़िल्स सेट कर सकता हूँ जबकि बॉर्डर अपरदर्शी बना रहे?**
+**क्या मैं कॉलम/एरिया के लिए अर्ध‑पारदर्शी भराव सेट कर सकता हूँ जबकि बॉर्डर अपारदर्शी रहे?**
 
-हाँ। फ़िल ट्रांसपेरेंसी और आउटलाइन को अलग‑अलग कॉन्फ़िगर किया जाता है। यह ग्रिड और डेटा की पठनीयता को बढ़ाने में उपयोगी है।
+हाँ। भराव की पारदर्शिता और रूपरेखा को अलग‑अलग कॉन्फ़िगर किया जाता है। यह घनी दृश्यांकन में ग्रिड और डेटा की पठनीयता बेहतर बनाने में उपयोगी है।
 
-**डेटा लेबल्स ओवरलैप होने पर मैं क्या करूँ?**
+**डेटा लेबल ओवरलैप होने पर मैं कैसे निपटूँ?**
 
-फ़ॉन्ट आकार कम करें, गैर‑आवश्यक लेबल घटकों को अक्षम करें (जैसे श्रेणियाँ), लेबल की स्थिति समायोजित करें, आवश्यक होने पर केवल चयनित बिंदुओं के लिए लेबल दिखाएँ, या फ़ॉर्मेट को “value + legend” में बदलें।
+फ़ॉन्ट आकार घटाएँ, गैर‑आवश्यक लेबल घटकों (जैसे श्रेणियाँ) को निष्क्रिय करें, लेबल स्थिति समायोजित करें, आवश्यकता पड़ने पर केवल चयनित बिंदुओं के लिए लेबल दिखाएँ, या फ़ॉर्मेट को "value + legend" में बदलें।
 
-**क्या मैं सीरीज़ पर ग्रेडिएंट या पैटर्न फ़िल्स लागू कर सकता हूँ?**
+**क्या मैं सीरीज़ पर ग्रेडिएंट या पैटर्न भराव लागू कर सकता हूँ?**
 
-हाँ। सीरीज़ ठोस, ग्रेडिएंट और पैटर्न फ़िल्स को सपोर्ट करती हैं। व्यावहारिक रूप से ग्रेडिएंट का प्रयोग कम करें और उन संयोजनों से बचें जो ग्रिड और टेक्स्ट के बीच कंट्रास्ट घटाते हैं।
+हाँ। सीरीज़ ठोस, ग्रेडिएंट और पैटर्न भराव का समर्थन करती है। व्यवहार में, ग्रेडिएंट का उपयोग सावधानी से करें और ऐसे संयोजनों से बचें जो ग्रिड और टेक्स्ट के बीच कंट्रास्ट कम कर दें।

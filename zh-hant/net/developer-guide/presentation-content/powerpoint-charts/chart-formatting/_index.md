@@ -18,19 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解在 Aspose.Slides for .NET 中的圖表格式化，並透過自訂座標軸、字型、數字格式和圓角圖表邊框，提升您的 PowerPoint 簡報。"
+description: "了解 Aspose.Slides 在 .NET 中的圖表格式化，並透過自訂座標軸、字型、數值格式與圓角圖表邊框，提升您的 PowerPoint 簡報。"
 ---
-## **概觀**
+## **概覽**
 
-本文說明如何使用 Aspose.Slides 在 PowerPoint 簡報中格式化圖表。它展示了如何自訂圖表的關鍵元素，如座標軸、格線、標題、圖例、繪圖區域以及牆壁填色，以提升圖表資料的外觀與可讀性。
+本文說明如何使用 Aspose.Slides 在 PowerPoint 簡報中格式化圖表。它展示了如何自訂圖表的關鍵元素，如座標軸、格線、標題、圖例、繪圖區域以及牆面填色，以提升圖表資料的外觀與可讀性。
 
-它同時示範了如何設定圖表文字的字型屬性、將預設數字格式套用到圖表資料，並啟用圖表區域的圓角。這些範例一併說明了如何同時控制簡報中圖表的視覺樣式與資料呈現。
+它還示範了如何設定圖表文字的字型屬性、對圖表資料套用預設數值格式，以及啟用圖表區域的圓角。結合這些範例，可展示如何同時控制簡報中圖表的視覺樣式與資料呈現。
+
+For separate fills and outlines on rising and falling intervals, see the [股票圖表示例](/slides/zh-hant/net/create-chart/#create-stock-charts).
 
 ## **格式化圖表實體**
 
-使用 [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) 來格式化圖表標題、座標軸、格線、圖例與繪圖區域。此範例建立一個帶標記的折線圖與預設資料，然後對其值軸與類別軸分別套用文字與線條樣式。字型大小與線寬以點為單位；類別標籤旋轉 45 度。
+使用 [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) 來格式化圖表標題、座標軸、格線、圖例和繪圖區域。此範例建立一個帶有標記與預設資料的折線圖，然後對其數值軸與類別軸分別套用文字和線條樣式。字型大小與線寬以點為單位指定；類別標籤旋轉 45 度。
 
-值軸使用 [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/)，與來源儲存格無關。其刻度從 -2 到 15，主要間隔為 2，次要間隔為 0.5。範例也將百分比格式與 [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) 設為千位結合使用，請依據資料的意義與數值大小調整這些設定。圖例因為已停用 [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/)，所以位於繪圖區域之外。背牆與地板填色透過 [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) 與 [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) 設定，但這些表面僅在 3D 圖表中可見。
+數值軸使用 [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) 獨立於來源儲存格。其刻度範圍從 -2 到 15，主要間隔為 2，次要間隔為 0.5。此範例亦將百分比格式與設定為千位的 [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) 結合，請根據資料的意義與規模調整這些設定。圖例因為已停用 [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/)，所以保持在繪圖區域之外。背牆與底面的填充透過 [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) 與 [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) 進行設定，但這些表面僅在 3D 圖表中可見。
 
 ```csharp
 using System.Drawing;
@@ -146,9 +148,9 @@ chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **設定圖表字型屬性**
+## **設定圖表的字型屬性**
 
-透過 [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) 設定圖表文字的預設字型大小。此範例建立一個叢集柱狀圖，字型大小為 20 點，並透過 [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 為第一個系列啟用值標籤。具有自行明確字型設定的文字元素會覆寫圖表的預設值。
+透過 [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) 設定圖表文字的預設字型大小。此範例建立一個叢集柱狀圖，使用 20 點字型，並透過 [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) 為第一個系列啟用數值標籤。具有自行明確字型設定的文字元素可以覆寫圖表的預設值。
 
 ```csharp
 using Aspose.Slides;
@@ -165,9 +167,59 @@ chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
-## **設定數字格式**
+## **重新使用文字框格式於圖表圖例**
 
-使用 [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) 為圖表工作表儲存格套用內建數字格式。此範例建立一個叢集柱狀圖，使用預設的、以儲存格為基礎的資料，並將格式索引 10 (`0.00%`) 套用到每個系列的值儲存格。這會改變工作表中值的顯示方式，但不改變底層數字；例如，0.25 會顯示為 25.00%。座標軸與資料標籤的格式也可以分別設定。
+為了讓圖例與投影片標題相匹配，請設定第一段落的 [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/) 中的字型。對圖例的 [TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformattedtextcontainer/textformat/) 呼叫 [CopyFrom](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyfrom/)。它會讀取文字框設定、第一段落的格式以及該段落的預設字型屬性。直接套用於個別部分或後續段落的格式會保留在來源本身。
+
+此範例使用粗體、26 點的 Calibri 藍色標題作為範本。對圖例完成樣式設定後，利用 [CopyTo](https://reference.aspose.com/slides/net/aspose.slides.charts/icharttextformat/copyto/) 將相同格式套用到另一個說明文字。
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var shapes = presentation.Slides[0].Shapes;
+
+var heading = shapes.AddAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+var sourceTextFrame = heading.AddTextFrame("Quarterly sales");
+var font = sourceTextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+font.LatinFont = new FontData("Calibri");
+font.FontHeight = 26;
+font.FontBold = NullableBool.True;
+font.FillFormat.FillType = FillType.Solid;
+font.FillFormat.SolidFillColor.Color = Color.FromArgb(32, 64, 96);
+
+var chart = shapes.AddChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+chart.Style = StyleType.Style3;
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.GetCell(0, 0, 1).Value = "Retail";
+workbook.GetCell(0, 0, 2).Value = "Online";
+workbook.GetCell(0, 0, 3).Value = "Wholesale";
+for (var quarter = 1; quarter <= 4; quarter++)
+    workbook.GetCell(0, quarter, 0).Value = $"Q{quarter}";
+
+chart.HasLegend = true;
+chart.Legend.Position = LegendPositionType.Bottom;
+chart.Legend.TextFormat.CopyFrom(sourceTextFrame);
+
+var caption = shapes.AddAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+var captionTextFrame = caption.AddTextFrame("Sales in millions of dollars");
+chart.Legend.TextFormat.CopyTo(captionTextFrame);
+
+presentation.Save("legend-formatting.pptx", SaveFormat.Pptx);
+```
+
+在儲存的簡報中，圖例與說明文字在大小、粗細與顏色上都與標題相匹配。圖例仍顯示系列名稱，說明文字保留其自身文字。若說明文字中的某個部分已設定明確的字型大小，該大小會優先於複製的段落預設值。
+
+| 複製前 | 複製後 |
+| --- | --- |
+| ![季度銷售圖表，圖例標籤為普通黑色，說明文字為黑色](legend-formatting-before.png) | ![相同圖表，圖例標籤較大、粗體藍色，說明文字相匹配](legend-formatting.png) |
+
+## **設定數值格式**
+
+使用 [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) 為圖表工作表儲存格套用內建的數字格式。此範例建立一個使用預設儲存格資料的叢集柱狀圖，並將格式索引 10 (`0.00%`) 套用至每個系列的值儲存格。這會改變工作表中值的顯示方式，卻不改變其實際數值；例如 0.25 會顯示為 25.00%。座標軸與資料標籤的格式可分別設定。
 
 ```csharp
 using Aspose.Slides;
@@ -191,9 +243,9 @@ foreach (var chartSeries in series)
 presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-以下表格列出內建數字格式索引及其在英文（美國）語系下的代表性 Excel 格式。實際的格式字串與顯示方式可能因應用程式與語系而異，特別是貨幣與日期。某些 Excel 格式也與 OOXML 標準的預設不同，如同在 [Microsoft 的數字格式實作說明](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) 中所述。
+以下表格列出內建的數字格式索引，並提供英語（美國）語系的典型 Excel 格式。實際的格式字串與顯示方式可能因應用程式與語系而異，特別是貨幣與日期。某些 Excel 格式亦與 OOXML 標準的預設值不同，詳情請參閱 [Microsoft 的數字格式實作說明](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)。
 
-| 索引 | 格式 |
+| Index | Format |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -234,7 +286,7 @@ presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 
 ## **設定圖表區域圓角邊框**
 
-啟用 [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) 以讓圖表區域的角落變圓。此範例建立一個叢集柱狀圖，並使用 [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) 為其外框設定實心灰色與單線樣式，最後儲存簡報。
+啟用 [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) 以使圖表區域的角落呈圓角。此範例建立一個叢集柱狀圖，並使用 [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) 在儲存簡報前將其輪廓設定為實心灰色且為單線樣式。
 
 ```csharp
 using System.Drawing;
@@ -254,13 +306,13 @@ chart.HasRoundedCorners = true;
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **編輯現有圖表註釋**
+## **編輯現有圖表註解**
 
-圖表可以包含自訂圖形，例如說明報告狀態的文字註釋。可透過 [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) 取得這些圖形，該屬性同樣在 [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) 中列出於 Chart API 參考。它的 [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) 集合包含圖表所擁有的圖形。
+圖表可以包含自訂形狀，例如說明報告狀態的文字註解。可透過 [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) 取得這些形狀，亦在 Chart API 參考文件的 [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) 中列出。其 [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) 集合包含圖表擁有的形狀。
 
-放在圖表上方的普通文字方塊屬於投影片，即使看起來像是圖表的一部份。遍歷 [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) 會找到圖表與普通投影片圖形，但不會列舉圖表內部的個別圖形。圖表標題與資料標籤是獨立的圖表元素，並非此集合中的自訂註釋。
+放置於圖表之上的普通文字方塊屬於投影片，即使看起來像是圖表的一部分。遍歷 [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) 可找到圖表與普通投影片形狀，但不會列舉圖表內部的個別形狀。圖表標題與資料標籤是獨立的圖表元素，並非此集合中的自訂註解。
 
-下載 [chart-annotations.pptx](chart-annotations.pptx) 並放置於應用程式的工作目錄。其第一張投影片包含一個未分組的註釋「Preliminary results」、一條圖表擁有的線條，以及一個普通投影片文字方塊「Slide overlay」。範例會在該投影片上找到第一個圖表，並在報告準備發布時將註釋改為「Final results」。它會檢查集合是否為空，僅編輯具有非 null [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) 且文字符合預期的 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
+下載 [chart-annotations.pptx](chart-annotations.pptx) 並將其放置於應用程式的工作目錄中。其第一張投影片包含一個圖表，圖表上有未群組的註解文字「Preliminary results」、圖表擁有的線條，以及普通投影片文字方塊文字「Slide overlay」。範例在該投影片上找到第一個圖表，並在報告準備發布時將註解改為「Final results」。它會檢查集合是否為空，僅編輯具有非空 [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) 且文字符合預期的 [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/)。
 
 ```csharp
 using System;
@@ -303,26 +355,26 @@ else
 }
 ```
 
-線條與投影片文字方塊保持不變。以下影像顯示編輯前後的結果：
+線條和投影片文字方塊保持不變。以下圖片顯示輸入前後、儲存後重新開啟的結果：
 
 | 編輯前 | 編輯後 |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![圖表註解文字為「初步結果」](chart-annotations-before.png) | ![圖表註解文字為「最終結果」](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-此範例僅檢查圖表擁有的頂層圖形。如果註釋位於 [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) 內，亦需檢查該群組的 [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) 集合。對於巢狀群組，請遞迴執行相同的文字檢查於其子圖形。群組本身僅是容器；不要將其當作文字方塊處理。
+此範例僅檢查頂層的圖表擁有形狀。若註解位於 [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) 內，亦應檢查該群組的 [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) 集合。對於巢狀群組，請遞迴執行相同的檢查，將相同的文字驗證套用到子形狀。群組本身是容器；請勿將其視為文字方塊。
 {{% /alert %}}
 
 ## **常見問題**
 
-**我可以在保持邊框不透明的同時，為柱形/區域設定半透明填色嗎？**
+**我可以為柱狀/區域設定半透明填充，同時保持邊框不透明嗎？**
 
-可以。填色透明度與外框分別設定。這在提升密集視覺化中格線與資料的可讀性時相當有用。
+是的。填充透明度與輪廓是分別設定的。這在提升密集可視化中格線與資料的可讀性時非常有用。
 
 **當資料標籤重疊時，我該如何處理？**
 
-縮小字型、停用非必要的標籤元件（例如類別）、調整標籤位置，必要時僅顯示選取點的標籤，或改為「值 + 圖例」的格式。
+減小字型尺寸、停用非必要的標籤元件（例如類別）、調整標籤位置，必要時僅顯示選取點的標籤，或將格式切換為「值 + 圖例」。
 
-**我可以對系列套用漸層或圖案填色嗎？**
+**我可以對系列套用漸層或圖案填充嗎？**
 
-可以。系列支援實心、漸層與圖案填色。實務上，請節制使用漸層，並避免與格線與文字對比度降低的組合。
+可以。系列支援實色、漸層與圖案填充。實務上，應節制使用漸層，並避免與格線和文字的對比度降低的組合。

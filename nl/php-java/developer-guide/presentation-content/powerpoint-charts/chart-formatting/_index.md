@@ -1,5 +1,5 @@
 ---
-title: Diagrammen in presentaties formatteren in PHP
+title: Diagrammen in presentaties opmaken in PHP
 linktitle: Diagramopmaak
 type: docs
 weight: 60
@@ -8,7 +8,7 @@ keywords:
 - diagram opmaken
 - diagramopmaak
 - diagramonderdeel
-- diagrameigenschappen
+- diagram-eigenschappen
 - diagraminstellingen
 - diagramopties
 - lettertype-eigenschappen
@@ -17,19 +17,21 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer diagramopmaak in Aspose.Slides voor PHP via Java en verbeter uw PowerPoint-presentatie met aangepaste assen, lettertypen, getalopmaak en afgeronde diagramranden."
+description: "Leer diagramopmaak in Aspose.Slides voor PHP via Java en verbeter uw PowerPoint-presentatie met aangepaste assen, lettertypen, getalformaten en afgeronde diagramranden."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je diagrammen in PowerPoint‑presentaties kunt opmaken met behulp van Aspose.Slides. Het laat zien hoe je belangrijke diagramonderdelen zoals assen, rasterlijnen, titels, legenda's, het plotgebied en vulvullingen van de wanden kunt aanpassen om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
+Dit artikel legt uit hoe diagrammen in PowerPoint‑presentaties op te maken met Aspose.Slides. Het laat zien hoe belangrijke diagramonderdelen, zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wandvullingen, kunnen worden aangepast om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
 
-Het toont ook hoe je lettertype‑eigenschappen voor diagramtekst kunt instellen, vooraf gedefinieerde numerieke opmaak op diagramgegevens kunt toepassen en afgeronde hoeken voor het diagramgebied kunt inschakelen. Samen laten deze voorbeelden zien hoe je zowel de visuele stijl als de weergave van gegevens van diagrammen in een presentatie kunt beheersen.
+Het toont ook hoe de lettertype‑eigenschappen voor diagramtekst in te stellen, vooringestelde numerieke opmaak toe te passen op diagramgegevens, en afgeronde hoeken voor het diagramgebied in te schakelen. Samen laten deze voorbeelden zien hoe zowel de visuele stijl als de gegevenspresentatie van diagrammen in een presentatie te beheersen.
+
+Voor afzonderlijke vullingen en omtreklijnen op stijgende en dalende intervallen, zie het [voorbeeld van een aandelengrafiek](/slides/nl/php-java/create-chart/#create-stock-charts).
 
 ## **Diagramonderdelen opmaken**
 
-Gebruik [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) om diagramtitels, assen, rasterlijnen, legenda's en het plotgebied op te maken. Deze voorbeeld maakt een lijndiagram met markers en standaardgegevens, en past vervolgens aparte tekst‑ en lijntstijlen toe op de waarden‑ en categorie‑assen. Lettergroottes en lijndiktes worden gespecificeerd in punten; categorie‑labels worden 45 graden gedraaid.
+Gebruik [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) om diagramtitels, assen, rasterlijnen, legenda’s en het plotgebied op te maken. Dit voorbeeld maakt een lijndiagram met markeringen en standaardgegevens, en past vervolgens afzonderlijke tekst‑ en lijnstijlen toe op de waardenas en de categorienas. Lettergrootten en lijndiktes worden opgegeven in punten; categorielabels worden gedraaid met 45 graden.
 
-De waardenas gebruikt [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met hoofdintervallen van 2 en onderintervallen van 0,5. Het voorbeeld combineert ook procentopmaak met [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) ingesteld op duizenden, pas deze instellingen dus aan op de betekenis en omvang van je gegevens. De legenda blijft buiten het plotgebied omdat [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) wordt aangeroepen met `false`. Achter‑wand‑ en vloer‑vullingen worden geconfigureerd via [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) en [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), maar deze oppervlakken zijn alleen zichtbaar in 3D‑diagrammen.
+De waardenas gebruikt [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setNumberFormat) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met hoofdintervallen van 2 en subintervallen van 0,5. Het voorbeeld combineert ook procentopmaak met [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/#setDisplayUnit) ingesteld op duizenden, pas deze instellingen dus aan de betekenis en omvang van uw gegevens aan. De legenda blijft buiten het plotgebied omdat [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#setOverlay) wordt aangeroepen met `false`. Achterwand‑ en vloer‑vullingen worden geconfigureerd via [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getBackWall) en [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getFloor), maar deze oppervlakken zijn alleen zichtbaar in 3D‑diagrammen.
 
 ```php
 use aspose\slides\ChartType;
@@ -155,9 +157,9 @@ try {
 }
 ```
 
-## **Lettertype‑eigenschappen voor een diagram instellen**
+## **Lettertype‑eigenschappen instellen voor een diagram**
 
-Stel de standaardlettergrootte voor diagramtekst in via [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). Het voorbeeld maakt een gegroepeerd kolomdiagram met een 20‑punt lettertype en schakelt waarden‑labels in voor de eerste reeks via [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van het diagram overschrijven.
+Stel de standaardlettergrootte voor diagramtekst in via [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getTextFormat). Het voorbeeld maakt een gegroepeerd kolomdiagram met een lettertype van 20 punten en schakelt waardelabels in voor de eerste reeks via [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van het diagram overschrijven.
 
 ```php
 use aspose\slides\ChartType;
@@ -178,9 +180,70 @@ try {
 }
 ```
 
+## **Tekstkaderopmaak hergebruiken voor een diagramlegenda**
+
+Om een legenda overeen te laten komen met een dia‑kop, stel het lettertype van de kop in via [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) op de eerste alinea. Roep [copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyFrom) aan op het formaat dat wordt geretourneerd door de legenda’s [getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/legend/#getTextFormat). Het kopieert de instellingen van het tekstkader, de opmaak van de eerste alinea en de standaardlettertype‑eigenschappen van die alinea. Opmaak die rechtstreeks op individuele delen of op latere alinea’s wordt toegepast, blijft lokaal voor de bron.
+
+Het voorbeeld gebruikt een vet, 26‑punt Calibri‑kop in marineblauw als sjabloon. Na het opmaken van de legenda, roept het [copyTo](https://reference.aspose.com/slides/php-java/aspose.slides/charttextformat/#copyTo) aan om dezelfde opmaak toe te passen op een aparte bijschrift.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LegendPositionType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\StyleType;
+
+$presentation = new Presentation();
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $heading = $shapes->addAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+    $sourceTextFrame = $heading->addTextFrame("Quarterly sales");
+    $font = $sourceTextFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+    $font->setLatinFont(new FontData("Calibri"));
+    $font->setFontHeight(26);
+    $font->setFontBold(NullableBool::True);
+    $font->getFillFormat()->setFillType(FillType::Solid);
+    $font->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 32, 64, 96));
+
+    $chart = $shapes->addChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+    $chart->setStyle(StyleType::Style3);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->getCell(0, 0, 1)->setValue("Retail");
+    $workbook->getCell(0, 0, 2)->setValue("Online");
+    $workbook->getCell(0, 0, 3)->setValue("Wholesale");
+    for ($quarter = 1; $quarter <= 4; $quarter++) {
+        $workbook->getCell(0, $quarter, 0)->setValue("Q" . $quarter);
+    }
+
+    $chart->setLegend(true);
+    $chart->getLegend()->setPosition(LegendPositionType::Bottom);
+    $legendFormat = $chart->getLegend()->getTextFormat();
+    $legendFormat->copyFrom($sourceTextFrame);
+
+    $caption = $shapes->addAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+    $captionTextFrame = $caption->addTextFrame("Sales in millions of dollars");
+    $legendFormat->copyTo($captionTextFrame);
+
+    $presentation->save("legend-formatting.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+In de opgeslagen presentatie komen de legenda en het bijschrift overeen met de kop qua grootte, dikte en kleur. De legenda toont nog steeds de reeksnamen, en het bijschrift behoudt zijn eigen tekst. Als een deel in het bijschrift al een expliciete lettergrootte heeft, heeft die grootte voorrang op de gekopieerde alinea‑standaard.
+
+| Voor het kopiëren | Na het kopiëren |
+| --- | --- |
+| ![Kwartaalverkoopgrafiek met gewone zwarte legenda‑labels en een zwart bijschrift](legend-formatting-before.png) | ![Dezelfde grafiek met grotere, vet marineblauwe legenda‑labels en een passend bijschrift](legend-formatting.png) |
+
 ## **Numeriek formaat instellen**
 
-Gebruik [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) om een ingebouwde getalopmaak toe te passen op de werkboekcellen van het diagram. Dit voorbeeld maakt een gegroepeerd kolomdiagram met standaard, cel‑ondersteunde gegevens en past op elke reeks‑waarde‑cel formaat‑index 10 (`0.00%`) toe. Hierdoor verandert de weergave van de waarden in het werkboek zonder de onderliggende getallen te wijzigen; bijvoorbeeld, 0,25 wordt weergegeven als 25,00 %. Assen‑ en datalabel‑opmaak kunnen afzonderlijk worden geconfigureerd.
+Gebruik [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setPresetNumberFormat) om een ingebouwd getalformaat toe te passen op werkmapcellen van het diagram. Dit voorbeeld maakt een gegroepeerd kolomdiagram met standaard, cel‑ondersteunde gegevens en past formaatindex 10 (`0.00%`) toe op elke reeks‑waardecel. Dit verandert de weergave van de waarden in de werkmap zonder de onderliggende getallen te wijzigen; bijvoorbeeld wordt 0,25 weergegeven als 25,00 %. As‑ en gegevens‑label‑formaten kunnen afzonderlijk worden geconfigureerd.
 
 ```php
 use aspose\slides\ChartType;
@@ -209,9 +272,9 @@ try {
 }
 ```
 
-De volgende tabel geeft de ingebouwde getalopmaak‑indices weer met representatieve Excel‑indelingen voor de Engelse (Verenigde Staten) locale. De exacte opmaaktekenreeksen en hun weergave kunnen variëren per toepassing en locale, vooral voor valuta en datums. Sommige Excel‑indelingen wijken ook af van de standaardinstellingen in de OOXML‑norm, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+De onderstaande tabel geeft ingebouwde getalformaat‑indices weer met representatieve Excel‑formaten voor de Engelse (Verenigde Staten) locale. De exacte opmaak‑strings en hun weergave kunnen per applicatie en locale verschillen, met name voor valuta en datums. Sommige Excel‑formaten wijken ook af van de standaardwaarden in de OOXML‑norm, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-| Index | Format |
+| Index | Formaat |
 | --- | --- |
 | 0 | `General` |
 | 1 | `0` |
@@ -250,9 +313,9 @@ De volgende tabel geeft de ingebouwde getalopmaak‑indices weer met representat
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **Afgeronde randen voor diagramgebied instellen**
+## **Afgeronde randen van diagramgebied instellen**
 
-Roep [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) aan met `true` om de hoeken van het diagramgebied af te ronden. Het voorbeeld maakt een gegroepeerd kolomdiagram en gebruikt [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) om de contour een effen grijze kleur en een enkel‑lijn‑stijl te geven voordat de presentatie wordt opgeslagen.
+Roep [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setRoundedCorners) aan met `true` om de hoeken van het diagramgebied af te ronden. Het voorbeeld maakt een gegroepeerd kolomdiagram en gebruikt [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) om de omtrek een effen grijze kleur en een enkellijn‑stijl te geven vóór het opslaan van de presentatie.
 
 ```php
 use aspose\slides\ChartType;
@@ -279,11 +342,11 @@ try {
 
 ## **Bestaande diagramannotaties bewerken**
 
-Een diagram kan aangepaste vormen bevatten, zoals een tekstanotatie die de status van een rapport uitlegt. Toegang tot deze vormen krijg je via [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). De collectie die wordt teruggegeven door [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) bevat de diagram‑eigene vormen.
+Een diagram kan aangepaste vormen bevatten, zoals een tekstaanduiding die de status van een verslag uitlegt. Toegang tot deze vormen is via [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#getUserShapes). De collectie die door [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes) wordt geretourneerd, bevat de diagram‑eigen vormen.
 
-Een gewone tekstvak dat over een diagram staat, behoort tot de dia, zelfs als het eruitziet als een deel van het diagram. Door te itereren met [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) vind je het diagram en de gewone dia‑vormen, maar het wordt niet de individuele vormen binnen het diagram opgesomd. Diagramtitels en datalabels zijn afzonderlijke diagramonderdelen, geen aangepaste annotaties in deze collectie.
+Een gewone tekstvak die boven een diagram wordt geplaatst, behoort tot de dia, zelfs als het lijkt op een onderdeel van het diagram. Door te itereren over [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) worden het diagram en gewone dia‑vormen gevonden, maar worden de afzonderlijke vormen binnen het diagram niet opgesomd. Diagramtitels en gegevens‑labels zijn afzonderlijke diagramonderdelen, geen aangepaste annotaties in deze collectie.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de applicatie. De eerste dia bevat een diagram met een ongegroepeerde annotatie met de tekst "Preliminary results", een diagram‑eigen lijn, en een gewoon tekstvak op de dia met de tekst "Slide overlay". Het voorbeeld vindt het eerste diagram op die dia en wijzigt de annotatie naar "Final results" wanneer het rapport klaar is om gepubliceerd te worden. Het controleert op een lege collectie en bewerkt alleen een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) met een niet‑null tekstframe dat wordt geretourneerd door [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) en de verwachte tekst.
+Download [chart-annotations.pptx](chart-annotations.pptx) en plaats deze in de werkmap van de applicatie. De eerste dia bevat een diagram met een niet‑gegroepeerde annotatie met de tekst “Preliminary results”, een diagram‑eigen lijn, en een gewoon dia‑tekstvak met de tekst “Slide overlay”. Het voorbeeld vindt het eerste diagram op die dia en verandert de annotatie in “Final results” wanneer het verslag klaar is om te publiceren. Het controleert op een lege collectie en bewerkt alleen een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) met een niet‑null tekstkader dat wordt geretourneerd door [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) en de verwachte tekst.
 
 ```php
 use aspose\slides\Presentation;
@@ -333,26 +396,26 @@ try {
 }
 ```
 
-De lijn en het tekstvak op de dia blijven ongewijzigd. De volgende afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
+De lijn en het dia‑tekstvak blijven ongewijzigd. De volgende afbeeldingen tonen de invoer en het opgeslagen, heropende resultaat:
 
-| Before editing | After editing |
+| Voor het bewerken | Na het bewerken |
 | --- | --- |
-| ![Diagramannotatie met tekst Preliminary results](chart-annotations-before.png) | ![Diagramannotatie met tekst Final results](chart-annotations-after.png) |
+| ![Diagramannotatie met de tekst Preliminary results](chart-annotations-before.png) | ![Diagramannotatie met de tekst Final results](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-Het voorbeeld inspecteert alleen de diagram‑eigene vormen op het hoogste niveau. Als een annotatie zich binnen een [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) bevindt, inspecteer dan ook de [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/)‑collectie van die groep. Herhaal dit recursief voor geneste groepen, waarbij dezelfde tekstantwoorden op de onderliggende vormen worden toegepast. Een groep op zich is een container; behandel deze niet als een tekstvak.
+Het voorbeeld inspecteert alleen de diagram‑eigen vormen op het hoogste niveau. Als een annotatie zich binnen een [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) bevindt, inspecteer dan ook de [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/#getShapes)‑collectie van die groep. Herhaal dit recursief voor geneste groepen, en pas dezelfde tekstcontroles toe op hun onderliggende vormen. Een groep zelf is een container; behandel deze niet als een tekstvak.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kan ik halfdoorzichtige vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
+**Kan ik halftransparante vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
 
-Ja. Vullingsdoorzichtigheid en de omtrek worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
+Ja. Vullings‑transparantie en de omtreklijn worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
 
-**Hoe kan ik omgaan met datalabels wanneer ze overlappen?**
+**Hoe kan ik omgaan met gegevens‑labels wanneer ze overlappen?**
 
-Verklein de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon labels alleen voor geselecteerde punten indien nodig, of wijzig het formaat naar "waarde + legenda".
+Verminder de lettergrootte, schakel niet‑essentiële labelcomponenten uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon labels alleen voor geselecteerde punten indien nodig, of wissel het formaat naar "waarde + legenda".
 
 **Kan ik verloop‑ of patroonvullingen op reeksen toepassen?**
 
-Ja. Reeksen ondersteunen solide, verloop‑ en patroonvullingen. Gebruik in de praktijk verloopspiegels spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.
+Ja. Reeksen ondersteunen effen, verloop‑ en patroonvullingen. Gebruik in de praktijk verlopen spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.

@@ -1,35 +1,37 @@
 ---
-title: プレゼンテーションで Python を使用したチャートの書式設定
-linktitle: チャート書式設定
+title: Python を使用したプレゼンテーションでのチャートの書式設定
+linktitle: チャートの書式設定
 type: docs
 weight: 60
 url: /ja/python-net/chart-formatting/
 keywords:
 - チャートの書式設定
 - チャート書式設定
-- チャート エンティティ
-- チャート プロパティ
-- チャート 設定
-- チャート オプション
-- フォント プロパティ
+- チャートエンティティ
+- チャートプロパティ
+- チャート設定
+- チャートオプション
+- フォントプロパティ
 - 角丸境界線
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET でのチャート書式設定を学び、カスタム軸、フォント、数値書式、角丸チャート境界線で PowerPoint プレゼンテーションを向上させましょう。"
+description: "Aspose.Slides for Python（.NET 経由）でのチャート書式設定を学び、カスタム軸、フォント、数値書式、角丸チャート境界線を使用して PowerPoint プレゼンテーションを向上させましょう。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーション内のチャートの書式設定方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなど、重要なチャート要素をカスタマイズして、チャート データの外観と可読性を向上させる方法を示します。
+この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションのチャートを書式設定する方法を説明しています。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなどの主要なチャート要素をカスタマイズし、チャートデータの外観と可読性を向上させる方法を示します。
 
-また、チャート テキストのフォント プロパティの設定、チャート データへの事前定義数値書式の適用、チャート領域の角を丸める有効化方法も実演します。これらの例を通じて、プレゼンテーション内のチャートの視覚スタイルとデータ表示の両方を制御する方法が分かります。
+また、チャートテキストのフォントプロパティの設定、チャートデータへのプリセット数値書式の適用、チャート領域の角丸の有効化方法も示します。これらの例は、プレゼンテーション内のチャートの視覚的スタイルとデータの提示の両方を制御する方法を示しています。
 
-## **チャート エンティティの書式設定**
+上昇および下降間隔で個別の塗りと枠線を設定する場合は、[株価チャートの例](/slides/ja/python-net/create-chart/#create-stock-charts)をご覧ください。
 
-[Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) を使用して、チャート タイトル、軸、グリッド線、凡例、プロット領域の書式を設定します。この例では、マーカー付きの折れ線グラフをデフォルト データで作成し、値軸とカテゴリ軸にそれぞれ別々のテキストと線のスタイルを適用します。フォント サイズと線幅はポイント単位で指定され、カテゴリ ラベルは 45 度回転します。
+## **チャートエンティティの書式設定**
 
-値軸はソース セルとは独立して [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) を使用します。スケールは -2 から 15 までで、主要間隔は 2、次要間隔は 0.5 です。この例では、パーセンテージ書式と [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) を千単位に設定した組み合わせも示していますので、データの意味と規模に合わせて調整してください。凡例は [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) が無効になっているため、プロット領域の外側に配置されます。背面壁と床の塗りつぶしは [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) と [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) で構成されますが、これらの表面は 3D チャートでのみ表示されます。
+チャートのタイトル、軸、グリッド線、凡例、プロット領域をフォーマットするには、[Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) を使用します。この例では、マーカー付きの折れ線グラフをデフォルトデータで作成し、値軸とカテゴリ軸にそれぞれ別々のテキストと線のスタイルを適用します。フォントサイズと線幅はポイントで指定され、カテゴリラベルは 45 度回転します。
+
+値軸は、ソースセルとは独立して [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) を使用します。スケールは -2 から 15 までで、主要間隔が 2、副間隔が 0.5 です。この例では、パーセンテージ書式と [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) を千単位に設定した組み合わせも示していますので、データの意味と大きさに合わせて設定を調整してください。凡例は [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) が無効になっているため、プロット領域の外側に配置されます。背面壁と床の塗りは、[back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) と [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/) で設定されますが、これらの面は 3D チャートでのみ表示されます。
 
 ```python
 import aspose.slides.charts as charts
@@ -145,9 +147,9 @@ with slides.Presentation() as presentation:
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **チャートのフォント プロパティの設定**
+## **チャートのフォントプロパティを設定する**
 
-[Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/) を使用して、チャート テキストのデフォルト フォント サイズを設定します。この例では、20 ポイント フォントの集合棒グラフを作成し、[show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) を使用して最初の系列の値ラベルを有効にしています。個別に明示的なフォント設定を持つテキスト要素は、チャートのデフォルト設定を上書きできます。
+[Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/) を使用してチャートテキストのデフォルトフォントサイズを設定します。この例では、20 ポイントのフォントでクラスター化された縦棒グラフを作成し、[show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) によって最初の系列の値ラベルを有効にしています。個別に明示されたフォント設定を持つテキスト要素は、チャートのデフォルトを上書きできます。
 
 ```python
 import aspose.slides.charts as charts
@@ -163,9 +165,56 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **数値書式の設定**
+## **チャート凡例にテキストフレームの書式設定を再利用する**
 
-[ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) を使用して、チャート ワークブック セルに組み込みの数値書式を適用します。この例では、デフォルトのセルベース データを持つ集合棒グラフを作成し、各系列の値セルに書式インデックス 10（`0.00%`）を適用しています。これにより、基になる数値は変更せずにワークブックでの表示が変わります。たとえば、0.25 は 25.00% と表示されます。軸とデータ ラベルの書式は個別に設定できます。
+凡例をスライドの見出しに合わせるには、見出しの最初の段落の [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) でフォントを設定します。凡例の [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/) に対して [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) を呼び出します。これにより、テキストフレームの設定、最初の段落の書式、およびその段落のデフォルトフォントプロパティがコピーされます。個々の部分や後続の段落に直接適用された書式は、元のソースにローカルなままです。
+
+この例では、太字でネイビーブルー、26 ポイントの Calibri の見出しをテンプレートとして使用します。凡例のスタイリング後、[copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) を使用して同じ書式を別のキャプションに適用します。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+保存されたプレゼンテーションでは、凡例とキャプションはサイズ、太さ、色が見出しと一致します。凡例は依然として系列名を表示し、キャプションは独自のテキストを保持します。キャプション内の部分に明示的なフォントサイズが既に設定されている場合、そのサイズがコピーされた段落のデフォルトよりも優先されます。
+
+| コピー前 | コピー後 |
+| --- | --- |
+| ![四半期売上チャート（標準の黒い凡例ラベルと黒いキャプション）](legend-formatting-before.png) | ![同じチャート（大きく太字のネイビー凡例ラベルと一致するキャプション）](legend-formatting.png) |
+
+## **数値書式を設定する**
+
+[ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) を使用して、チャートのワークブックセルに組み込みの数値書式を適用します。この例では、デフォルトのセルベースデータでクラスター化された縦棒グラフを作成し、各系列の値セルに書式インデックス 10（`0.00%`）を適用しています。これにより、基になる数値は変更せずにワークブック上での表示が変わります。たとえば、0.25 は 25.00% と表示されます。軸とデータラベルの書式は個別に設定できます。
 
 ```python
 import aspose.slides.charts as charts
@@ -183,7 +232,7 @@ with slides.Presentation() as presentation:
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-以下の表は、英語（米国）ロケール向けの代表的な Excel 書式を示す組み込み数値書式インデックスです。正確な書式文字列と表示はアプリケーションやロケールによって異なる場合があり、特に通貨や日付では差異があります。一部の Excel 書式は OOXML 標準のデフォルトとは異なることがあります（詳細は [Microsoft の数値書式実装ノート](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) を参照）。
+以下の表は、英語（米国）ロケール向けの代表的な Excel 書式とともに、組み込みの数値書式インデックスを一覧にしています。正確な書式文字列と表示は、アプリケーションやロケールによって変わる場合があり、特に通貨や日付で顕著です。一部の Excel 書式は、[Microsoft の数値書式実装ノート](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) に記載されているように、OOXML 標準のデフォルトとは異なることがあります。
 
 | インデックス | 書式 |
 | --- | --- |
@@ -224,9 +273,9 @@ with slides.Presentation() as presentation:
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **チャート領域の角を丸める設定**
+## **チャート領域の角丸境界線を設定する**
 
-[Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) を有効にして、チャート領域の角を丸めます。この例では、集合棒グラフを作成し、[line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) を使用してアウトラインに単色のグレーと単一線スタイルを設定した後、プレゼンテーションを保存します。
+[Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) を有効にして、チャート領域の角を丸めます。この例では、クラスター化された縦棒グラフを作成し、[line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) を使用してアウトラインに単色のグレーとシングルラインスタイルを設定し、プレゼンテーションを保存します。
 
 ```python
 import aspose.slides.charts as charts
@@ -244,13 +293,13 @@ with slides.Presentation() as presentation:
     presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **既存のチャート注釈の編集**
+## **既存のチャート注釈を編集する**
 
-チャートには、レポートのステータスを説明するテキスト注釈などのカスタム図形を含めることができます。これらの図形は [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/) で取得します。その [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) コレクションには、チャートが所有する図形が含まれます。
+チャートには、レポートのステータスを説明するテキスト注釈などのカスタム シェイプを含めることができます。これらのシェイプは、[Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/) を介して取得します。その [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) コレクションには、チャートが所有するシェイプが含まれます。
 
-チャート上に配置された普通のテキスト ボックスはスライドに属し、たとえチャートの一部のように見えても同様です。[Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) を反復処理すると、チャートと普通のスライド図形が見つかりますが、チャート内部の個々の図形は列挙されません。チャート タイトルやデータ ラベルは別個のチャート要素であり、このコレクションのカスタム注釈ではありません。
+チャート上に配置された通常のテキスト ボックスは、見た目がチャートの一部であってもスライドに属します。[Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) を反復処理すると、チャートと通常のスライドシェイプが見つかりますが、チャート内の個々のシェイプは列挙されません。チャートのタイトルとデータ ラベルは、別個のチャート要素であり、このコレクション内のカスタム注釈ではありません。
 
-[chart-annotations.pptx](chart-annotations.pptx) をダウンロードしてアプリケーションの作業ディレクトリに配置してください。最初のスライドには、"Preliminary results" という非グループ化注釈、チャートが所有する線、"Slide overlay" という普通のスライド テキスト ボックスが含まれています。この例では、そのスライド上の最初のチャートを見つけ、レポートが公開準備完了になったときに注釈を "Final results" に変更します。コレクションが空でないことを確認し、`None` でなく期待するテキストを含む [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) と [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) をのみ編集します。
+[chart-annotations.pptx](chart-annotations.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置します。最初のスライドには、"Preliminary results"（暫定結果）というグループ化されていない注釈と、チャートが所有する線、そして "Slide overlay"（スライドオーバーレイ）というテキスト ボックスが含まれるチャートがあります。この例では、そのスライド上の最初のチャートを見つけ、レポートの公開準備ができたときに注釈を "Final results"（最終結果）に変更します。空のコレクションを確認し、`None` でなく期待されるテキストを含む [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) を持つ [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) のみを編集します。
 
 ```python
 import aspose.slides as slides
@@ -277,26 +326,26 @@ with slides.Presentation("chart-annotations.pptx") as presentation:
             print("No matching text annotation found.")
 ```
 
-線とスライド テキスト ボックスは変更されません。以下の画像は、入力と保存後に再度開いた結果を示しています。
+線とスライドのテキスト ボックスは変更されません。以下の画像は、入力と保存後に再度開いた結果を示しています。
 
 | 編集前 | 編集後 |
 | --- | --- |
-| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+| ![「Preliminary results」と記載されたチャート注釈](chart-annotations-before.png) | ![「Final results」と記載されたチャート注釈](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-この例はトップレベルのチャート所有図形のみを検査します。注釈が [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) 内にある場合は、そのグループの [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) コレクションも検査してください。入れ子になったグループについては同様に再帰的に処理し、子図形のテキストチェックを適用します。グループ自体はコンテナであり、テキスト ボックスとして扱わないでください。
+この例では、最上位レベルのチャート所有シェイプのみを検査します。注釈が [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) 内にある場合、そのグループの [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) コレクションも検査してください。入れ子になったグループについては再帰的に繰り返し、子シェイプに対して同じテキストチェックを適用します。グループ自体はコンテナであり、テキスト ボックスとして扱わないでください。
 {{% /alert %}}
 
 ## **FAQ**
 
-**列/エリアの塗りつぶしを半透明にし、境界線は不透明のままにできますか？**
+**列/領域の塗りつぶしを半透明に設定し、枠線は不透明のままにできますか？**
 
-はい。塗りつぶしの透明度とアウトラインは別々に設定できます。これにより、密集したビジュアル化においてグリッドとデータの可読性を向上させることができます。
+はい。塗りつぶしの透明度と枠線は別々に設定できます。これは、密集した可視化においてグリッドとデータの可読性を向上させるのに役立ちます。
 
-**データラベルが重なった場合、どう対処すればよいですか？**
+**データ ラベルが重なる場合、どう対処すればよいですか？**
 
-フォント サイズを小さくする、必須でないラベル要素（たとえばカテゴリ）を無効化する、ラベル位置を調整する、必要に応じて選択ポイントのみにラベルを表示する、または "value + legend" 形式に切り替えるなどの方法があります。
+フォントサイズを小さくする、重要でないラベル要素（例：カテゴリ）を無効にする、ラベル位置を調整する、必要に応じて選択したポイントのラベルのみ表示する、または書式を「値 + 凡例」に切り替えるなどの方法があります。
 
-**系列にグラデーションやパターン塗りを適用できますか？**
+**系列にグラデーションやパターンの塗りつぶしを適用できますか？**
 
-はい。系列は単色、グラデーション、パターン塗りをサポートしています。実務ではグラデーションは控えめに使用し、グリッドやテキストとのコントラストが低下する組み合わせは避けてください。
+はい。系列は単色、グラデーション、パターンの塗りつぶしをサポートします。実際には、グラデーションは必要最小限に使用し、グリッドやテキストとのコントラストを低下させる組み合わせは避けてください。

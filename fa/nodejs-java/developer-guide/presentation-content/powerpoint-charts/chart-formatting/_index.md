@@ -7,30 +7,32 @@ url: /fa/nodejs-java/chart-formatting/
 keywords:
 - قالب‌بندی نمودار
 - قالب‌بندی نمودار
-- عنصر نمودار
+- موجودیت نمودار
 - خصوصیات نمودار
 - تنظیمات نمودار
 - گزینه‌های نمودار
 - خصوصیات قلم
-- حاشیه گرد
+- حاشیهٔ گرد
 - PowerPoint
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "قالب‌بندی نمودارها را در Aspose.Slides برای Node.js از طریق Java بیاموزید و ارائه PowerPoint خود را با محورهای سفارشی، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد نمودار ارتقا دهید."
+description: "یادگیری قالب‌بندی نمودار در Aspose.Slides برای Node.js از طریق Java و ارتقاء ارائه PowerPoint شما با محورهای سفارشی، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد نمودار."
 ---
 ## **بررسی کلی**
 
-این مقاله نحوه قالب‌بندی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، افسانه‌ها، ناحیه نمودار و پر کردن دیوارها را سفارشی کنیم تا ظاهر و قابلیت خواندن داده‌های نمودار بهبود یابد.
+این مقاله توضیح می‌دهد چگونه می‌توان نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کرد. همچنین نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، راهنمایی‌ها، ناحیهٔ ترسیم و پر کردن دیوارها را سفارشی کنیم تا ظاهر و قابلیت خواندن داده‌های نمودار بهبود یابد.
 
-همچنین نحوه تنظیم ویژگی‌های قلم برای متن نمودار، اعمال قالب‌های عددی پیش‌تنظیم شده به داده‌های نمودار، و فعال‌سازی گوشه‌های گرد برای ناحیه نمودار را نشان می‌دهد. این مثال‌ها نشان می‌دهند چگونه می‌توان سبک بصری و ارائه داده‌های نمودارها را در یک ارائه کنترل کرد.
+همچنین نحوهٔ تنظیم خصوصیات قلم برای متن نمودار، اعمال قالب‌های عددی پیش‌تنظیم‌شده بر داده‌های نمودار و فعال‌سازی گوشه‌های گرد برای ناحیهٔ نمودار نشان داده می‌شود. این مثال‌ها به شما امکان می‌دهند هم سبک بصری و هم ارائهٔ داده‌های نمودار را در یک ارائه کنترل کنید.
 
-## **قالب‌بندی اجزای نمودار**
+برای پرکردن و خطوط جداگانه در بازه‌های صعودی و نزولی، به [مثال نمودار سهام](/slides/fa/nodejs-java/create-chart/#create-stock-charts) مراجعه کنید.
 
-Use [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
+## **قالب‌بندی موجودیت‌های نمودار**
 
-The value axis uses [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) and [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor), but these surfaces are only visible in 3D charts.
+از [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، راهنمایی‌ها و ناحیهٔ ترسیم استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند، سپس سبک‌های متن و خط را به طور جداگانه برای محور مقادیر و محور دسته‌ها اعمال می‌نماید. اندازهٔ قلم و عرض خطوط بر حسب نقطه مشخص شده‌اند؛ برچسب‌های دسته با زاویهٔ 45 درجه چرخانده می‌شوند.
+
+محور مقادیر به صورت مستقل از سلول‌های منبع از [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) استفاده می‌کند. مقیاس آن از -2 تا 15 است، با فواصل اصلی 2 و فواصل فرعی 0.5. این مثال همچنین قالب‌بندی درصدی را با [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) که به هزارها تنظیم شده ترکیب می‌کند، بنابراین این تنظیمات را بر حسب معنی و مقیاس داده‌های خود تنظیم کنید. راهنمایی به دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) با مقدار `false` در خارج از ناحیهٔ ترسیم می‌ماند. پرکردن پشت‌دیوار و کف از طریق [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) و [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) پیکربندی می‌شود، اما این سطوح تنها در نمودارهای سه‌بعدی قابل مشاهده هستند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -148,9 +150,9 @@ try {
 }
 ```
 
-## **تنظیم ویژگی‌های قلم برای یک نمودار**
+## **تنظیم خصوصیات قلم برای یک نمودار**
 
-Set the default font size for chart text through [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). Text elements with their own explicit font settings can override the chart default.
+اندازهٔ پیش‌فرض قلم برای متن نمودار را از طریق [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20 نقطه‌ای ایجاد می‌کند و برچسب‌های مقدار را برای اولین سری با استفاده از [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) فعال می‌سازد. عناصر متنی با تنظیمات قلم صریح خود می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -169,9 +171,63 @@ try {
 }
 ```
 
+## **استفاده مجدد از قالب‌بندی قاب متن برای راهنمایی نمودار**
+
+برای تطبیق راهنمایی با عنوان اسلاید، قلم عنوان را از طریق [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) در اولین پاراگراف تنظیم کنید. بر روی قالبی که توسط [getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#getTextFormat) راهنمایی بازگردانده می‌شود، متد [copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyFrom) را فراخوانی کنید. این متد تنظیمات قاب متن، قالب‌بندی اولین پاراگراف و خصوصیات پیش‌فرض قلم آن پاراگراف را کپی می‌کند. قالب‌بندی اعمال‌شده مستقیم به بخش‌های جداگانه یا به پاراگراف‌های بعدی فقط به منبع مربوط می‌شود.
+
+مثال از یک عنوان بولد، 26 نقطه‌ای Calibri به رنگ سرمه‌ای به‌عنوان الگو استفاده می‌کند. پس از استایل‌دهی به راهنمایی، متد [copyTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttextformat/#copyTo) فراخوانی می‌شود تا همان قالب‌بندی به یک کپشن جداگانه اعمال شود.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const heading = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 20, 640, 40, false);
+    const sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    const font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new aspose.slides.FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    font.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    font.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 32, 64, 96));
+
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(java.newByte(aspose.slides.StyleType.Style3));
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (let quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(java.newByte(aspose.slides.LegendPositionType.Bottom));
+    const legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    const caption = shapes.addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 460, 640, 40, false);
+    const captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+در ارائهٔ ذخیره‌شده، راهنمایی و کپشن از نظر اندازه، وزن و رنگ با عنوان مطابقت دارند. راهنمایی همچنان نام‌های سری‌ها را نمایش می‌دهد و کپشن متن خود را حفظ می‌کند. اگر بخشی در کپشن قبلاً دارای اندازهٔ قلم صریح باشد، آن اندازه بر پیش‌فرض پاراگراف کپی‌شده اولویت دارد.
+
+| قبل از کپی | بعد از کپی |
+| --- | --- |
+| ![نمودار فروش فصلی با برچسب‌های راهنمایی سیاه معمولی و یک کپشن سیاه](legend-formatting-before.png) | ![نمودار مشابه با برچسب‌های راهنمایی نیرویی بزرگ‌تر، بولد و کپشن متطابق](legend-formatting.png) |
+
 ## **تنظیم قالب عددی**
 
-Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
+از [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) برای اعمال یک قالب عددی پیش‌تنظیم‌شده به سلول‌های کتاب‌کار نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض، پشتیبانی‌شده توسط سلول‌ها ایجاد می‌کند و ایندکس قالب 10 (`0.00%`) را به هر سلول مقدار سری اعمال می‌سازد. این کار نحوهٔ نمایش مقادیر را در کتاب‌کار بدون تغییر عددهای پایه تغییر می‌دهد؛ برای مثال، مقدار 0.25 به صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب داده‌ها می‌توانند به‌صورت جداگانه پیکربندی شوند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,7 +254,7 @@ try {
 }
 ```
 
-The following table lists built-in number format indices with representative Excel formats for the English (United States) locale. The exact format strings and their display can vary by application and locale, particularly for currency and dates. Some Excel formats also differ from the defaults in the OOXML standard, as described in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
+جدول زیر فهرست ایندکس‌های قالب عددی پیش‌ساخته همراه با قالب‌های نمونهٔ Excel برای پایگاه محلی انگلیسی (ایالات متحده) را نشان می‌دهد. رشته‌های قالب دقیق و نمایش آن‌ها می‌تواند بسته به برنامه و محل متفاوت باشد، به‌ویژه برای ارزها و تاریخ‌ها. برخی قالب‌های Excel همچنین با پیش‌فرض‌های استاندارد OOXML متفاوت هستند، همان‌طور که در [یادداشت‌های پیاده‌سازی قالب عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توضیح داده شده است.
 
 | شاخص | قالب |
 | --- | --- |
@@ -239,9 +295,9 @@ The following table lists built-in number format indices with representative Exc
 | 48 | `##0.0E+0` |
 | 49 | `@` |
 
-## **تنظیم حاشیه‌های گرد ناحیه نمودار**
+## **تنظیم گوشه‌های گرد ناحیه نمودار**
 
-Call [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) to give its outline a solid gray color and a single-line style before saving the presentation.
+متد [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) را با مقدار `true` فراخوانی کنید تا گوشه‌های ناحیهٔ نمودار گرد شوند. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) برای تنظیم خط پیرامون آن با رنگ خاکستری ثابت و سبک خطوط تک‌خطی استفاده می‌کند قبل از ذخیرهٔ ارائه.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -263,13 +319,13 @@ try {
 }
 ```
 
-## **ویرایش حاشیه‌نویسی‌های موجود بر روی نمودار**
+## **ویرایش حاشیه‌نویسی‌های موجود در نمودار**
 
-A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). The collection returned by [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) contains the chart-owned shapes.
+یک نمودار می‌تواند اشکال سفارشی، مانند حاشیه‌نویسی متنی که وضعیت یک گزارش را توضیح می‌دهد، داشته باشد. این اشکال را از طریق [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) دسترسی پیدا کنید. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) بازگردانده می‌شود شامل اشکال متعلق به نمودار است.
 
-An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+یک جعبه متن عادی که روی نمودار قرار می‌گیرد متعلق به اسلاید است، حتی اگر شبیه بخشی از نمودار به نظر برسد. با پیمایش [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) می‌توانید نمودار و اشکال عادی اسلاید را پیدا کنید، اما اشکال جداگانه داخل نمودار فهرست نمی‌شوند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
 
-Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) and the expected text.
+فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشهٔ کاری برنامه قرار دهید. اسلاید اول آن شامل یک نمودار با حاشیه‌نویسی غیرگروه‌بندی شده «نتایج اولیه»، یک خط متعلق به نمودار و یک جعبه متن عادی اسلایدی با متن «پوشش اسلاید» است. مثال اولین نمودار را در آن اسلاید پیدا می‌کند و حاشیه‌نویسی را به «نتایج نهایی» تغییر می‌دهد هنگامی که گزارش آمادهٔ انتشار شود. ابتدا بررسی می‌کند که مجموعهٔ خالی نباشد و فقط یک [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) با قاب متن غیر‌خالی که توسط [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) بازگردانده شده و متن مورد انتظار دارد، ویرایش می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -315,28 +371,26 @@ try {
 }
 ```
 
-The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+خط و جعبه متن اسلاید بدون تغییر باقی می‌مانند. تصاویر زیر ورودی و نتیجهٔ ذخیره‌سازی‑بازگشایی شده را نشان می‌دهند:
 
-| قبل ویرایش | بعد از ویرایش |
+| قبل از ویرایش | بعد از ویرایش |
 | --- | --- |
-| ![حاشیه‌نویسی نمودار با متن Preliminary results](chart-annotations-before.png) | ![حاشیه‌نویسی نمودار با متن Final results](chart-annotations-after.png) |
+| ![حاشیه‌نویسی نمودار با متن «نتایج اولیه»](chart-annotations-before.png) | ![حاشیه‌نویسی نمودار با متن «نتایج نهایی»](chart-annotations-after.png) |
 
 {{% alert color="info" title="Note" %}}
-
-The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
-
+مثال فقط اشکال سطح‑بالای متعلق به نمودار را بررسی می‌کند. اگر حاشیه‌نویسی درون یک [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) باشد، مجموعهٔ [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و همان بررسی‌های متنی را روی اشکال فرزندشان اعمال کنید. یک گروه خودش یک ظرف است؛ آن را به عنوان جعبهٔ متن در نظر نگیرید.
 {{% /alert %}}
 
-## **سؤال‌های متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم پر کردن‌های نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه را مات حفظ می‌کنم؟**
+**آیا می‌توانم پرکردن نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه را مات نگه دارم؟**
 
-بله. شفافیت پر کردن و خطوط مرزی به‌صورت جداگانه تنظیم می‌شوند. این ویژگی برای بهبود قابلیت خواندن شبکه و داده‌ها در تجسم‌های چگال مفید است.
+بله. شفافیت پرکردن و خط مرزی به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در نمایش‌های پرجزئی مفید است.
 
-**چگونه می‌توانم با برچسب‌های داده که هم‌پوشانی دارند مقابله کنم؟**
+**چگونه می‌توانم با برچسب‌های داده‌ای که با هم تداخل دارند برخورد کنم؟**
 
-اندازه قلم را کاهش دهید، اجزای غیرضروری برچسب (مانند دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت لزوم فقط برای نقاط انتخابی برچسب نشان دهید، یا قالب را به "مقدار + افسانه" تغییر دهید.
+اندازهٔ قلم را کاهش دهید، اجزاء غیرضروری برچسب‌ها (مثلاً دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت نیاز فقط برای نقاط منتخب برچسب نمایش دهید، یا قالب را به «مقدار + راهنما» تغییر دهید.
 
-**آیا می‌توانم پر کردن‌های گرادیانی یا الگوئی را روی سری‌ها اعمال کنم؟**
+**آیا می‌توانم پرکردن گرادیان یا الگو را به سری‌ها اعمال کنم؟**
 
-بله. سری‌ها از پر کردن‌های یکدست، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌صرفه استفاده کنید و ترکیب‌هایی که کنتراست را با شبکه و متن کاهش می‌دهند، اجتناب کنید.
+بله. سری‌ها از پرکردن‌های ثابت، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌طور مقتصدانه استفاده کنید و از ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهند خودداری کنید.
