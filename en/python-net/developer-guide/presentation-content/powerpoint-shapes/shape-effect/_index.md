@@ -58,6 +58,46 @@ with slides.Presentation() as presentation:
 
 ![Shadow effect](shadow_effect.png)
 
+#### **Control the Shadow Direction When a Shape Rotates**
+
+By default, [OuterShadow.rotate_shadow_with_shape](https://reference.aspose.com/slides/python-net/aspose.slides.effects/outershadow/rotate_shadow_with_shape/) is `True`, so the shadow turns with the shape. To make shapes with different rotations appear lit from the same direction, set this property to `False` and give their shadows the same [direction](https://reference.aspose.com/slides/python-net/aspose.slides.effects/outershadow/direction/).
+
+The example creates two arrows with gray shadows offset 42 points to the right (`direction = 0`). It then duplicates the slide and rotates both arrows 90° clockwise.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    before = presentation.slides[0]
+
+    left = before.shapes.add_auto_shape(slides.ShapeType.RIGHT_ARROW, 55, 130, 110, 60)
+    left.fill_format.fill_type = slides.FillType.SOLID
+    left.fill_format.solid_fill_color.color = slides.Color.steel_blue
+    left.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    left.effect_format.enable_outer_shadow_effect()
+    shadow = left.effect_format.outer_shadow_effect
+    shadow.shadow_color.color = slides.Color.gray
+    shadow.direction = 0
+    shadow.distance = 42
+    shadow.blur_radius = 0
+    shadow.rotate_shadow_with_shape = True
+
+    right = before.shapes.add_clone(left)
+    right.x = 395
+    right.effect_format.outer_shadow_effect.rotate_shadow_with_shape = False
+
+    after = presentation.slides.add_clone(before)
+    for arrow in after.shapes:
+        arrow.rotation = 90
+
+    presentation.save("arrow_shadows.pptx", slides.export.SaveFormat.PPTX)
+```
+
+On the second slide, the left arrow casts its shadow downward, while the right arrow still casts its shadow to the right. The configured direction remains 0° for both shadows.
+
+![PowerPoint rendering before and after a 90° rotation. Both shadows start on the right. After rotation, the shadow moves below the left arrow and stays to the right of the right arrow.](arrow-shadow-rotation.png)
+
 ### **Apply an Inner Shadow**
 
 When reproducing a template's visual styling, use an inner shadow to give a card or panel a recessed appearance. An outer shadow extends outside the shape and makes it appear raised, while an inner shadow shades the inside of its edges.

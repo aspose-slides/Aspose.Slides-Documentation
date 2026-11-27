@@ -62,6 +62,52 @@ try {
 
 ![Shadow effect](shadow_effect.png)
 
+#### **Control the Shadow Direction When a Shape Rotates**
+
+By default, the outer shadow rotates with the shape. To make shapes with different rotations appear lit from the same direction, call [setRotateShadowWithShape](https://reference.aspose.com/slides/java/com.aspose.slides/ioutershadow/#setRotateShadowWithShape-boolean-) with `false` and use [setDirection](https://reference.aspose.com/slides/java/com.aspose.slides/ioutershadow/#setDirection-float-) to give their shadows the same direction.
+
+The example creates two blue arrows with gray shadows offset 42 points to the right (0°). It then duplicates the slide and rotates both arrows 90° clockwise.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide before = presentation.getSlides().get_Item(0);
+
+    IAutoShape left = before.getShapes().addAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(FillType.Solid);
+    left.getFillFormat().getSolidFillColor().setColor(new Color(70, 130, 180));
+    left.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    IOuterShadow shadow = left.getEffectFormat().getOuterShadowEffect();
+    shadow.getShadowColor().setColor(Color.GRAY);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    IShape right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    ISlide after = presentation.getSlides().addClone(before);
+    for (IShape arrow : after.getShapes()) {
+        arrow.setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+On the second slide, the left arrow casts its shadow downward, while the right arrow still casts its shadow to the right. The configured direction remains 0° for both shadows.
+
+![PowerPoint rendering before and after a 90° rotation. Both shadows start on the right. After rotation, the shadow moves below the left arrow and stays to the right of the right arrow.](arrow-shadow-rotation.png)
+
 ### **Apply an Inner Shadow**
 
 When reproducing a template's visual styling, use an inner shadow to give a card or panel a recessed appearance. An outer shadow extends outside the shape and makes it appear raised, while an inner shadow shades the inside of its edges.
