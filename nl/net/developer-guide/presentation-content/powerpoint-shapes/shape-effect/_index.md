@@ -1,5 +1,5 @@
 ---
-title: Toepassen van vormeffecten in presentaties in .NET
+title: Vormeffecten toepassen in presentaties in .NET
 linktitle: Vormeffect
 type: docs
 weight: 30
@@ -9,36 +9,37 @@ keywords:
 - schaduweffect
 - reflectie-effect
 - gloeieffect
-- zacht-rand-effect
+- zachte randen effect
 - effectformaat
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Transformeer uw PPT- en PPTX-bestanden met geavanceerde vormeffecten met Aspose.Slides voor .NET — maak in enkele seconden indrukwekkende, professionele dia's."
+description: "Transformeer uw PPT- en PPTX-bestanden met geavanceerde vormeffecten met behulp van Aspose.Slides voor .NET - maak verbluffende, professionele dia's in enkele seconden."
 ---
-## **Inleiding**
+## **Introductie**
 
 Hoewel effecten in PowerPoint kunnen worden gebruikt om een vorm te laten opvallen, verschillen ze van [opvullingen](/slides/nl/net/shape-formatting/#gradient-fill) of contouren. Met PowerPoint‑effecten kun je overtuigende reflecties op een vorm creëren, de gloed van een vorm verspreiden, enz.
 
 ![Vormeffect](shape-effect.png)
 
-PowerPoint biedt zes effecten die op vormen kunnen worden toegepast. Je kunt één of meer effecten op een vorm toepassen.
+PowerPoint biedt zes effecten die op vormen kunnen worden toegepast. Je kunt één of meerdere effecten op een vorm toepassen.
 
-Enkele combinaties van effecten zien er beter uit dan andere. Daarom heeft PowerPoint opties onder **Preset**. De preset‑opties vormen in feite een bekende, goed uitziende combinatie van twee of meer effecten. Op deze manier hoef je door het selecteren van een preset geen tijd te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
+Sommige combinaties van effecten zien er beter uit dan andere. Daarom heeft PowerPoint opties onder **Preset**. De Preset‑opties zijn in wezen een bekend goed uitziende combinatie van twee of meer effecten. Op deze manier hoef je bij het selecteren van een preset geen tijd te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
 
-Aspose.Slides biedt eigenschappen en methoden onder de klasse [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) die het mogelijk maken dezelfde effecten op vormen in PowerPoint‑presentaties toe te passen.
+Aspose.Slides biedt eigenschappen en methoden onder de klasse [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) die je in staat stellen dezelfde effecten toe te passen op vormen in PowerPoint‑presentaties.
 
 ## **Een schaduweffect toepassen**
 
-Aspose.Slides voor .NET ondersteunt buiten‑ en binnen‑schaduwen voor vormen. Je kunt hun kleur, richting, afstand en vervagingsstraal aanpassen om overeen te komen met het ontwerp van je presentatie.
+Aspose.Slides voor .NET ondersteunt buiten‑ en binnenschaduwen voor vormen. Je kunt hun kleur, richting, afstand en vervagingsradius aanpassen om aan te sluiten bij het ontwerp van je presentatie.
 
-### **Een buiten‑schaduw toepassen**
+### **Een buitenste schaduw toepassen**
 
-Gebruik een buiten‑schaduw om een kaart of paneel te laten opvallen tegen de achtergrond van de dia. De schaduw strekt zich uit voorbij de randen van de vorm, waardoor het lijkt alsof de vorm boven de dia zweeft. Pas de kleur, richting, afstand en vervagingsstraal aan om overeen te komen met de verlichting en stijl van je sjabloon.
+Gebruik een buitenste schaduw om een kaart of paneel te laten opvallen tegen de dia‑achtergrond. De schaduw strekt zich uit buiten de randen van de vorm, waardoor de indruk ontstaat dat de vorm boven de dia zweeft. Pas de kleur, richting, afstand en vervagingsradius aan om overeen te komen met de verlichting en stijl van je sjabloon.
 
-Deze C#‑code toont hoe je het [buitenschaduweffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) op een rechthoek toepast:
+Deze C#‑code toont hoe je het [buitenste schaduweffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) op een rechthoek toepast:
+
 ```c#
 using System.Drawing;
 using Aspose.Slides;
@@ -58,13 +59,56 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 
 ![Schaduweffect](shadow_effect.png)
 
-### **Een binnen‑schaduw toepassen**
+#### **De schaduwrichting beheren wanneer een vorm roteert**
 
-Bij het reproduceren van de visuele stijl van een sjabloon gebruik je een binnen‑schaduw om een kaart of paneel een verzonken uiterlijk te geven. Een buiten‑schaduw strekt zich buiten de vorm uit en laat deze lijken te zweven, terwijl een binnen‑schaduw de binnenkant van de randen verduistert.
+Standaard is [RotateShadowWithShape](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/rotateshadowwithshape/) `true`, waardoor de schaduw meedraait met de vorm. Om vormen met verschillende rotaties vanaf dezelfde richting verlicht te laten lijken, stel je deze eigenschap in op `false` en geef je hun schaduwen dezelfde [Direction](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/direction/).
 
-Roep [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) aan, en configureer vervolgens [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). Hogere waarden geven zachtere randen.
+Het voorbeeld maakt twee pijlen met grijze schaduwen die naar rechts zijn verschoven (`Direction = 0`). Vervolgens dupliceert het de dia en roteert beide pijlen 90° met de klok mee.
 
-Dit C#‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnen‑schaduw en slaat deze op als een PPTX‑bestand:
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var before = presentation.Slides[0];
+
+var left = before.Shapes.AddAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+left.FillFormat.FillType = FillType.Solid;
+left.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+left.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+left.EffectFormat.EnableOuterShadowEffect();
+var shadow = left.EffectFormat.OuterShadowEffect;
+shadow.ShadowColor.Color = Color.Gray;
+shadow.Direction = 0;
+shadow.Distance = 42;
+shadow.BlurRadius = 0;
+shadow.RotateShadowWithShape = true;
+
+var right = before.Shapes.AddClone(left);
+right.X = 395;
+right.EffectFormat.OuterShadowEffect.RotateShadowWithShape = false;
+
+var after = presentation.Slides.AddClone(before);
+foreach (var arrow in after.Shapes)
+    arrow.Rotation = 90;
+
+presentation.Save("arrow_shadows.pptx", SaveFormat.Pptx);
+```
+
+Op de tweede dia werpt de linker pijl zijn schaduw naar beneden, terwijl de rechter pijl nog steeds zijn schaduw naar rechts werpt. De ingestelde richting blijft 0° voor beide schaduwen.
+
+![PowerPoint‑weergave vóór en na een rotatie van 90°. Beide schaduwen beginnen rechts. Na rotatie verplaatst de schaduw zich onder de linker pijl en blijft rechts van de rechter pijl.](arrow-shadow-rotation.png)
+
+### **Een binnenschaduw toepassen**
+
+Bij het reproduceren van de visuele stijl van een sjabloon gebruik je een binnenschaduw om een kaart of paneel een verzonken uitstraling te geven. Een buitenste schaduw strekt zich buiten de vorm uit en maakt deze zichtbaar verhoogd, terwijl een binnenschaduw de binnenkant van de randen verduistert.
+
+Roep [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) op en configureer vervolgens [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). Grotere waarden geven zachtere randen.
+
+Dit C#‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnenschaduw en slaat deze op als PPTX‑bestand:
+
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -88,15 +132,16 @@ shadow.BlurRadius = 6;
 presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Lichtblauwe rechthoek met een binnen‑schaduw](inner_shadow_effect.png)
+![Lichtblauwe rechthoek met een binnenschaduw](inner_shadow_effect.png)
 
-Om de binnen‑schaduw te verwijderen, roep je [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) aan op het effectformaat van de vorm.
+Om de binnenschaduw te verwijderen, roep je [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) aan op het effectformaat van de vorm.
 
-### **Een preset‑schaduw toepassen, wijzigen en verwijderen**
+### **Een vooringestelde schaduw toepassen, wijzigen en verwijderen**
 
 Roep [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) aan en stel [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) in op een benoemd [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/). Om stijlen te wisselen, wijzig je de preset op dezelfde vorm. Roep [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) aan om de schaduw te verwijderen terwijl de opvulling en contour behouden blijven.
 
-Dit voorbeeld houdt een kopie van de rechthoek bij elke stap bij. Beide schaduwen zijn met 10 punten verschoven. Een richting van 225° plaatst de eerste schaduw boven en links van de rechthoek, en 45° plaatst de tweede eronder en rechts.
+Dit voorbeeld behoudt een kopie van de rechthoek in elke fase. Beide schaduwen zijn met 10 punten verschoven. Een richting van 225° plaatst de eerste schaduw boven en links van de rechthoek, en 45° plaatst de tweede onder en rechts.
+
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -139,13 +184,14 @@ presentation.Save("preset_shadows.pptx", SaveFormat.Pptx);
 
 | Origineel | Eerste preset | Tweede preset | Na verwijdering |
 | :---: | :---: | :---: | :---: |
-| ![Geen schaduw](preset_shadow_original.png) | ![BovenLinksDropShadow](preset_shadow_top_left.png) | ![OnderRechtsDropShadow](preset_shadow_bottom_right.png) | ![Geen schaduw na verwijdering](preset_shadow_removed.png) |
+| ![Geen schaduw](preset_shadow_original.png) | ![BovenLinkseDropShadow](preset_shadow_top_left.png) | ![OnderRechtseDropShadow](preset_shadow_bottom_right.png) | ![Geen schaduw na verwijdering](preset_shadow_removed.png) |
 
 ## **Een reflectie‑effect toepassen**
 
-Om een reflectie‑effect toe te passen in Aspose.Slides voor .NET, kun je een spiegel‑achtige reflectie aan vormen toevoegen, waarbij je parameters zoals afstand, transparantie en grootte aanpast. Dit effect verbetert de esthetiek van je presentaties door vormen een meer gepolijste en verfijnde uitstraling te geven. Het is eenvoudig te implementeren met eenvoudige code, waardoor snelle toepass­ing over meerdere elementen voor een consistent ontwerp mogelijk is.
+Om een reflectie‑effect toe te passen in Aspose.Slides voor .NET, kun je een spiegelende reflectie aan vormen toevoegen en parameters zoals afstand, transparantie en grootte aanpassen. Dit effect verbetert de esthetiek van je presentaties door vormen een meer gepolijste en verfijnde uitstraling te geven. Het is eenvoudig te implementeren met simpele code, waardoor snelle toepassing over meerdere elementen mogelijk is voor een consistent ontwerp.
 
 Deze C#‑code toont hoe je het [reflectie‑effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) op een vorm toepast:
+
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -165,11 +211,12 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 
 ![Reflectie‑effect](reflection_effect.png)
 
-## **Een gloed‑effect toepassen**
+## **Een gloeieffect toepassen**
 
-Om een gloed‑effect op een vorm toe te passen in Aspose.Slides voor .NET, kun je een zachte, lichtgevende aura rond vormen toevoegen, waarbij je eigenschappen zoals kleur en grootte aanpast. Dit effect helpt vormen op te laten vallen en voegt een aantrekkelijk, opvallend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor het algemene uiterlijk van je dia's wordt verbeterd.
+Om een gloeieffect toe te passen op een vorm in Aspose.Slides voor .NET, kun je een zachte, lumineuze aura rond vormen toevoegen en eigenschappen zoals kleur en grootte aanpassen. Dit effect helpt vormen op te laten vallen en voegt een aantrekkelijk, opvallend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor het algehele uiterlijk van je dia's wordt verbeterd.
 
-Deze C#‑code toont hoe je het [gloed‑effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) op een vorm toepast:
+Deze C#‑code toont hoe je het [gloeieffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) op een vorm toepast:
+
 ```c#
 using System.Drawing;
 using Aspose.Slides;
@@ -186,13 +233,14 @@ shape.EffectFormat.GlowEffect.Radius = 15;
 presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Gloed‑effect](glow_effect.png)
+![Gloeieffect](glow_effect.png)
 
-## **Een zacht‑rand‑effect toepassen**
+## **Een zacht‑randen‑effect toepassen**
 
-Om een zacht‑rand‑effect toe te passen in Aspose.Slides voor .NET, kun je een soepele, vervaagde overgang rond de randen van een vorm creëren. Dit effect voegt een subtielere en verfijndere uitstraling toe, perfect voor ontwerpen die een zachte, subtiele look nodig hebben. Je kunt eenvoudig parameters zoals straal aanpassen om het gewenste effect te bereiken voor verschillende vormen in je presentatie.
+Om een zacht‑randen‑effect toe te passen in Aspose.Slides voor .NET, kun je een soepele, vervaagde overgang rond de randen van een vorm creëren. Dit effect geeft een subtielere en verfijndere uitstraling, perfect voor ontwerpen die een zachte, zachtere look nodig hebben. Je kunt eenvoudig parameters zoals radius aanpassen om het gewenste effect op diverse vormen in je presentatie te bereiken.
 
 Deze C#‑code toont hoe je de [zachte randen](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) op een vorm toepast:
+
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -207,19 +255,20 @@ shape.EffectFormat.SoftEdgeEffect.Radius = 8;
 presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Zachte rand‑effect](soft_edges_effect.png)
+![Zacht‑rand‑effect](soft_edges_effect.png)
 
-## **Een vervagings‑effect toepassen**
+## **Een vervaging‑effect toepassen**
 
-Gebruik vormvervaging om de opvulling en contour van een vorm zachter te maken, terwijl de vorm bewerkbaar blijft. Roep [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) aan op het effectformaat van de vorm. De straal wordt gemeten in punten (1/72 inch): gebruik een niet‑negatieve waarde, waarbij grotere waarden een sterkere vervaging geven. Een straal van nul laat het uiterlijk ongewijzigd.
+Gebruik vormvervaging om de opvulling en contour van een vorm te verzachten terwijl de vorm bewerkbaar blijft. Roep [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) aan op het effectformaat van de vorm. De radius wordt gemeten in punten (1/72 inch): gebruik een niet‑negatieve waarde, waarbij grotere waarden een sterkere vervaging opleveren. Een radius van nul laat het uiterlijk ongewijzigd.
 
-De instelling [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) bepaalt de zichtbare grenzen van het effect. Met `false` wordt de vervaging afgeknipt tot de oorspronkelijke geschilderde grenzen, inclusief de contour. Met `true` kan de vervaging zich uitbreiden buiten die grenzen. Geen van beide instellingen verandert de positie of afmetingen van de vorm.
+De [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/)‑instelling bepaalt de zichtbare grenzen van het effect. Met `false` wordt de vervaging begrensd tot de oorspronkelijke geschilderde grenzen, inclusief de contour. Met `true` kan de vervaging buiten die grenzen uitbreiden. Geen van beide instellingen wijzigt de positie of afmetingen van de vorm.
 
-De onderstaande vergelijking gebruikt dezelfde opvulling, contour en vormafmetingen gedurende het geheel. De bovenste rij gebruikt `grow = false`; de onderste rij gebruikt `grow = true`.
+De vergelijking hieronder gebruikt dezelfde opvulling, contour en vormafmetingen door het hele voorbeeld heen. De bovenste rij gebruikt `grow = false`; de onderste rij gebruikt `grow = true`.
 
-![Originele rechthoek vergeleken met vervagingsstraal van 5 en 15 punten, met grow uitgeschakeld en ingeschakeld](shape_blur_comparison.png)
+![Originele rechthoek vergeleken met vervagingsradii van 5 en 15 punten, met grow uitgeschakeld en ingeschakeld](shape_blur_comparison.png)
 
-Dit C#‑voorbeeld maakt een oranje rechthoek met een donkerblauwe contour, past een vervaging van 5 punten toe, en werkt deze vervolgens bij naar een vervaging van 15 punten door opnieuw [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) aan te roepen. Het slaat beide vervaagde toestanden op, roept daarna [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) aan en slaat de vorm op zonder vervaging.
+Dit C#‑voorbeeld maakt een oranje rechthoek met een donkerblauwe contour, past een vervaging van 5 punten toe en werkt vervolgens bij naar een vervaging van 15 punten door opnieuw [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) aan te roepen. Het slaat beide vervaagde toestanden op, roept daarna [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) aan en slaat de vorm zonder vervaging op.
+
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -245,18 +294,18 @@ shape.EffectFormat.DisableBlurEffect();
 presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
 ```
 
-Vormvervaging beïnvloedt de opvulling en contour samen. Een zacht‑rand‑effect vervaagt de randen van de vorm, terwijl schaduwwerking alleen de schaduw verzacht. Beeldtransformatie‑effecten werken op de afbeeldingsinhoud; dit voorbeeld past vervaging direct toe op het effectformaat van de vorm zonder de vorm om te zetten naar een afbeelding.
+Vormvervaging beïnvloedt zowel de opvulling als de contour. Een zacht‑randen‑effect vervaagt de randen van de vorm, terwijl schaduwvervaging alleen de schaduw verzacht. Beeldtransformatie‑effecten werken op de afbeeldingsinhoud; dit voorbeeld past vervaging rechtstreeks toe op het effectformaat van de vorm zonder de vorm naar een afbeelding te converteren.
 
 ## **FAQ**
 
 **Kan ik meerdere effecten op dezelfde vorm toepassen?**
 
-Ja, je kunt verschillende effecten, zoals schaduw, reflectie en gloed, combineren op één enkele vorm om een dynamischere uitstraling te creëren.
+Ja, je kunt verschillende effecten, zoals schaduw, reflectie en gloed, combineren op één vorm om een dynamischere uitstraling te creëren.
 
 **Op welke vormen kan ik effecten toepassen?**
 
-Je kunt effecten toepassen op diverse vormen, waaronder autoshapes, diagrammen, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
+Je kunt effecten toepassen op diverse vormen, waaronder autovormen, grafieken, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
 
 **Kan ik effecten toepassen op gegroepeerde vormen?**
 
-Ja, je kunt effecten toepassen op gegroepeerde vormen. Het effect wordt op de hele groep toegepast.
+Ja, je kunt effecten toepassen op gegroepeerde vormen. Het effect wordt toegepast op de gehele groep.

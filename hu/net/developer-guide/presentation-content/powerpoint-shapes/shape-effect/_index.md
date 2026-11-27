@@ -1,5 +1,5 @@
 ---
-title: Alakzathatások alkalmazása prezentációkban .NET-ben
+title: Alakzat-hatások alkalmazása prezentációkban .NET-ben
 linktitle: Alakzat hatás
 type: docs
 weight: 30
@@ -7,38 +7,38 @@ url: /hu/net/shape-effect/
 keywords:
 - alakzat hatás
 - árnyék hatás
-- tükröződés hatás
-- sugárzás hatás
-- puhitott szélek hatás
+- reflexiós hatás
+- ragyogás hatás
+- lágy szélek hatás
 - hatás formátum
 - PowerPoint
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Alakítsa át PPT és PPTX fájljait fejlett alakzathatásokkal az Aspose.Slides for .NET segítségével—hozzon létre lenyűgöző, professzionális diákat másodpercek alatt."
+description: "Átalakítsa PPT és PPTX fájljait fejlett alakzat-hatásokkal az Aspose.Slides for .NET segítségével—hozzon létre lenyűgöző, professzionális diákat másodpercek alatt."
 ---
 ## **Bevezetés**
 
-Miközben a PowerPoint‑hatásokat a alakzat kiemelésére lehet használni, különböznek a [kitöltésektől](/slides/hu/net/shape-formatting/#gradient-fill) vagy a körvonalaktól. A PowerPoint‑hatások segítségével meggyőző tükröződéseket hozhat létre egy alakzaton, terjesztheti az alakzat sugárzását stb.
+Míg a PowerPoint‑ban a hatásokat arra használhatjuk, hogy egy alakzat kiemelkedjen, különböznek a [kitöltésektől](/slides/hu/net/shape-formatting/#gradient-fill) vagy a kontúroktól. A PowerPoint‑hatásokkal meggyőző tükröződéseket hozhatunk létre egy alakzaton, szórhatjuk a glow‑t, stb.
 
-![Alakzati hatás](shape-effect.png)
+![Alakzat hatás](shape-effect.png)
 
-A PowerPoint hat hatást kínál, amelyeket alakzatokra lehet alkalmazni. Egy vagy több hatást is alkalmazhat egy alakzatra.
+A PowerPoint hat hatást biztosít, amelyeket alakzatokra lehet alkalmazni. Egy vagy több hatást is alkalmazhat egy alakzatra.
 
-Egyes hatáskombinációk jobban néznek ki, mint mások. Emiatt a PowerPoint a **Előbeállítás** alatt kínál opciókat. Az előbeállítások lényegében egy ismert, jól kinéző kombinációja két vagy több hatásnak. Így egy előre beállítást kiválasztva nem kell időt pazarolnia a különböző hatások tesztelésével vagy kombinálásával, hogy megfelelő kombinációt találjon.
+Néhány hatáskombináció jobban néz ki, mint mások. Ezért a PowerPoint **Előbeállított** lehetőségeket kínál. Az előre beállított lehetőségek lényegében egy jól kinéző két vagy több hatás kombinációja. Így egy előre beállítást kiválasztva nem kell időt vesztegetni a különböző hatások tesztelésével vagy kombinálásával.
 
-Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) osztályon keresztül biztosít tulajdonságokat és metódusokat, amelyek lehetővé teszik ugyanazon hatások alkalmazását PowerPoint‑prezentációk alakzataira.
+Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) osztályban olyan tulajdonságokat és metódusokat biztosít, amelyekkel ugyanazzal a hatással láthatja el a PowerPoint‑prezentációk alakzatait.
 
-## **Árnyékhatás alkalmazása**
+## **Árnyékhatás Alkalmazása**
 
-Az Aspose.Slides for .NET külső és belső árnyékokat támogat alakzatokhoz. Testreszabhatja a színüket, irányukat, távolságukat és elmosódási sugarukat, hogy illeszkedjenek a bemutatója tervezéséhez.
+Az Aspose.Slides for .NET támogatja a külső és belső árnyékokat az alakzatoknál. Testreszabhatja színüket, irányukat, távolságukat és elmosódási sugárukat, hogy illeszkedjenek a prezentáció tervezéséhez.
 
-### **Külső árnyék alkalmazása**
+### **Külső Árnyék Alkalmazása**
 
-Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a dia háttér előtt. Az árnyék az alakzat szélei túlra nyúlik, így a benyomás alakul ki, hogy az alakzat a dia fölött felemelkedett. Állítsa be a színét, irányát, távolságát és elmosódási sugarát, hogy megfeleljen a sablon világításának és stílusának.
+Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a dia háttérrel szemben. Az árnyék túlmutat az alakzat szélén, ezáltal azt a benyomást keltve, hogy az alakzat a dia fölött van. Állítsa be a színét, irányát, távolságát és elmosódási sugarát, hogy illeszkedjen a sablon világításához és stílusához.
 
-Ez a C# kód bemutatja, hogyan alkalmazhatja a [külső árnyék hatást](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) egy téglalapra:
+Ez a C# kód azt mutatja, hogyan alkalmazzon [outer shadow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) egy téglalapra:
 
 ```c#
 using System.Drawing;
@@ -57,13 +57,55 @@ shape.EffectFormat.OuterShadowEffect.Direction = 45;
 presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Árnyékhatás](shadow_effect.png)
+![Árnyék hatás](shadow_effect.png)
 
-### **Belső árnyék alkalmazása**
+#### **Az Árnyék Irányának Szabályozása, Amikor Egy Alakzat Forgat**
 
-Amikor egy sablon vizuális stílusát reprodukálja, használjon belső árnyékot, hogy a kártya vagy panel recesszív megjelenést kapjon. A külső árnyék a alakzat kívülére nyúlik, és felemelkedettnek tűnik, míg a belső árnyék az élek belsejét árnyékolja.
+Alapértelmezés szerint a [RotateShadowWithShape](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/rotateshadowwithshape/) `true`, így az árnyék a formával együtt forog. Ahhoz, hogy a különböző forgatású alakzatok ugyanabból az irányból legyenek megvilágítva, állítsa ezt a tulajdonságot `false`‑ra, és adja meg az árnyékoknak ugyanazt a [Direction](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/direction/) értéket.
 
-Hívja meg a [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) metódust, majd konfigurálja a [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/) beállítást. A nagyobb értékek lágyabb széleket eredményeznek.
+A példa két nyilat hoz létre szürke árnyékokkal, amelyek jobbra vannak eltolva (`Direction = 0`). Ezután megkettőzi a diát, és mindkét nyilat 90°‑kal óramutató járásával megegyező irányba forgatja.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var before = presentation.Slides[0];
+
+var left = before.Shapes.AddAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+left.FillFormat.FillType = FillType.Solid;
+left.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+left.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+left.EffectFormat.EnableOuterShadowEffect();
+var shadow = left.EffectFormat.OuterShadowEffect;
+shadow.ShadowColor.Color = Color.Gray;
+shadow.Direction = 0;
+shadow.Distance = 42;
+shadow.BlurRadius = 0;
+shadow.RotateShadowWithShape = true;
+
+var right = before.Shapes.AddClone(left);
+right.X = 395;
+right.EffectFormat.OuterShadowEffect.RotateShadowWithShape = false;
+
+var after = presentation.Slides.AddClone(before);
+foreach (var arrow in after.Shapes)
+    arrow.Rotation = 90;
+
+presentation.Save("arrow_shadows.pptx", SaveFormat.Pptx);
+```
+
+A második dián a bal nyíl árnyéka lefelé esik, míg a jobb nyíl árnyéka továbbra is jobbra mutat. A beállított irány mindkét árnyék esetén 0° marad.
+
+![PowerPoint megjelenítés 90°-os forgatás előtt és után. Mindkét árnyék jobbra kezdődik. A forgatás után az árnyék a bal nyíl alatt helyezkedik el, a jobb nyíl mellett marad jobbra.](arrow-shadow-rotation.png)
+
+### **Belső Árnyék Alkalmazása**
+
+Egy sablon vizuális stílusának reprodukálásakor használjon belső árnyékot, hogy a kártya vagy panel benyomott megjelenést kapjon. A külső árnyék az alakzat kívülre nyúlik, és azt feltünteti, hogy kiemelkedik, míg a belső árnyék az élén belül árnyékol.
+
+Hívja meg a [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) metódust, majd konfigurálja a [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/) objektumot. A nagyobb értékek lágyabb éleket eredményeznek.
 
 Ez a C# példa egy világoskék kártyát hoz létre sötétszürke belső árnyékkal, és PPTX fájlként menti:
 
@@ -92,13 +134,13 @@ presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 
 ![Világoskék téglalap belső árnyékkal](inner_shadow_effect.png)
 
-A belső árnyék eltávolításához hívja meg a [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) metódust az alakzat effektusformátumán.
+A belső árnyék eltávolításához hívja meg a [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) metódust az alakzat effect formátumán.
 
-### **Előre beállított árnyék alkalmazása, módosítása és eltávolítása**
+### **Előbeállított Árnyék Alkalmazása, Módosítása és Eltávolítása**
 
-Hívja meg a [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) metódust, és állítsa be a [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) értékét egy névvel ellátott [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/) típusra. A stílusok váltásához változtassa meg az előbeállítást ugyanazon az alakzaton. Hívja meg a [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) metódust az árnyék eltávolításához, miközben a kitöltést és a körvonalat megőrzi.
+Hívja meg az [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) metódust, és állítsa be a [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) értékét egy neves [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/) típusra. A stílus váltásához módosítsa az előre beállítást ugyanazon alakzaton. Az [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) meghívásával eltávolíthatja az árnyékot, miközben megőrzi a kitöltést és a körvonalat.
 
-Ez a példa minden lépésnél megőriz egy másolatot a téglalapról. Mindkét árnyék 10 ponttal el van tolva. A 225° irány az első árnyékot a téglalap fölé és balra helyezi, míg a 45° a másodikat alulra és jobbra helyezi.
+Ez a példa minden lépésnél egy másolatot tart meg a téglalapról. Mindkét árnyék 10 ponttal van eltolva. A 225°‑os irány az első árnyékot a téglalap bal felé és feljebb helyezi, a 45°‑os irány a másodikat alulra és jobbra.
 
 ```csharp
 using System.Drawing;
@@ -142,13 +184,13 @@ presentation.Save("preset_shadows.pptx", SaveFormat.Pptx);
 
 | Eredeti | Első előbeállítás | Második előbeállítás | Eltávolítás után |
 | :---: | :---: | :---: | :---: |
-| ![Nincs árnyék](preset_shadow_original.png) | ![Bal‑felső árnyék](preset_shadow_top_left.png) | ![Jobb‑alsó árnyék](preset_shadow_bottom_right.png) | ![Nincs árnyék az eltávolítás után](preset_shadow_removed.png) |
+| ![Nincs árnyék](preset_shadow_original.png) | ![Felső bal csapott árnyék](preset_shadow_top_left.png) | ![Alsó jobb csapott árnyék](preset_shadow_bottom_right.png) | ![Nincs árnyék eltávolítás után](preset_shadow_removed.png) |
 
-## **Tükröződés hatás alkalmazása**
+## **Reflexiós Hatás Alkalmazása**
 
-Az Aspose.Slides for .NET-ben a tükröződés hatás alkalmazásához tükörszerű tükröződést adhat a alakzatokhoz, beállítva olyan paramétereket, mint a távolság, átlátszóság és méret. Ez a hatás javítja a bemutatók esztétikáját azzal, hogy az alakzatoknak kifinomultabb és letisztultabb megjelenést kölcsönöz. Egyszerű kóddal könnyen megvalósítható, lehetővé téve a gyors alkalmazást több elemre, egységes dizájn érdekében.
+A reflexiós hatás Aspose.Slides for .NET‑ben való alkalmazásához hozzáadhat egy tükörszerű tükröződést az alakzatokhoz, és beállíthatja a távolságot, átlátszóságot és méretet. Ez a hatás javítja a prezentációk esztétikáját, egy letisztultabb és kifinomultabb megjelenést kölcsönözve az alakzatoknak. Könnyen megvalósítható egyszerű kóddal, gyorsan alkalmazható több elemre a konzisztens tervezés érdekében.
 
-Ez a C# kód bemutatja, hogyan alkalmazhatja a [tükröződés hatást](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) egy alakzatra:
+Ez a C# kód azt mutatja, hogyan alkalmazzon [reflection effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) egy alakzatra:
 
 ```c#
 using Aspose.Slides;
@@ -167,13 +209,13 @@ shape.EffectFormat.ReflectionEffect.BlurRadius = 2;
 presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Tükröződés hatás](reflection_effect.png)
+![Tükrözési hatás](reflection_effect.png)
 
-## **Sugárzás hatás alkalmazása**
+## **Glow Hatás Alkalmazása**
 
-Az Aspose.Slides for .NET-ben a sugárzás hatás alkalmazásához egy lágy, fényes aurát adhat a alakzatok köré, beállítva például a színt és a méretet. Ez a hatás segít kiemelni az alakzatokat, és vonzó, figyelemfelkeltő vizuális elemet ad a bemutatóhoz. Minimális kóddal könnyen megvalósítható, javítva a diák összképét.
+A glow hatás alkalmazásához az Aspose.Slides for .NET‑ben hozzáadhat egy puha, fénylő aurát az alakzatok köré, és beállíthatja a színt és méretet. Ez a hatás segít kiemelni az alakzatokat, és vonzó, szemfelkeltő vizuális elemet ad a prezentációnak. Könnyen megvalósítható minimális kóddal, javítva a diák általános megjelenését.
 
-Ez a C# kód bemutatja, hogyan alkalmazhatja a [sugárzás hatást](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) egy alakzatra:
+Ez a C# kód azt mutatja, hogyan alkalmazzon [glow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) egy alakzatra:
 
 ```c#
 using System.Drawing;
@@ -191,13 +233,13 @@ shape.EffectFormat.GlowEffect.Radius = 15;
 presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Sugárzás hatás](glow_effect.png)
+![Ragyogás hatás](glow_effect.png)
 
-## **Puhított szélek hatás alkalmazása**
+## **Lágy Szélek Hatás Alkalmazása**
 
-Az Aspose.Slides for .NET-ben a puhitott szélek hatás alkalmazásához létrehozhat egy sima, elmosódott átmenetet az alakzat szélein. Ez a hatás finomabb és kifinomultabb megjelenést ad, ami tökéletes olyan tervekhez, amelyeknek enyhe, lágyabb megjelenésre van szükségük. Könnyen beállíthatja a paramétereket, például a sugarat, hogy a kívánt hatást elérje a bemutató különböző alakzatai között.
+A lágy szélek hatás alkalmazásához az Aspose.Slides for .NET‑ben létrehozhat egy sima, elmosódott átmenetet az alakzat szélei körül. Ez a hatás finomabb és kifinomultabb megjelenést kölcsönöz, tökéletes a puhább megjelenést igénylő tervekhez. Könnyen beállíthatja a sugár paramétert a kívánt hatás eléréséhez különböző alakzatok esetében.
 
-Ez a C# kód bemutatja, hogyan alkalmazhatja a [puhított széleket](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) egy alakzatra:
+Ez a C# kód azt mutatja, hogyan alkalmazzon [soft edges](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) egy alakzatra:
 
 ```c#
 using Aspose.Slides;
@@ -213,19 +255,19 @@ shape.EffectFormat.SoftEdgeEffect.Radius = 8;
 presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Puhított szélek hatás](soft_edges_effect.png)
+![Lágy szélek hatás](soft_edges_effect.png)
 
-## **Elmosódás hatás alkalmazása**
+## **Elmosódás Hatás Alkalmazása**
 
-Használja az alakzat elmosódás funkciót a kitöltés és a körvonal lágyításához, miközben az alakzat szerkeszthető marad. Hívja meg a [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) metódust az alakzat effektusformátumán. A sugarat pontokban (1/72 hüvelyk) mérik: használjon nem negatív értéket, a nagyobb értékek erősebb elmosódást eredményeznek. A nulla sugarú beállítás változatlanul hagyja a megjelenést.
+Használja a shape blur‑t a kitöltés és a körvonal elmosásához, miközben az alakzat szerkeszthető marad. Hívja meg a [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) metódust az alakzat effect formátumán. A sugár pontban (1/72 hüvelyk) van megadva: használjon nem negatív értéket, a nagyobb értékek erősebb elmosódást eredményeznek. A nulla sugár esetén a megjelenés változatlan marad.
 
-A [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) beállítás szabályozza a hatás látható határait. `false` esetén az elmosódás az eredeti festett határokra, beleértve a körvonalat, van vágva. `true` esetén az elmosódás túlnyúlhat ezeken a határokon. Egyik beállítás sem változtatja meg az alakzat helyét vagy méreteit.
+A [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) beállítás szabályozza a hatás látható határait. `false` esetén az elmosódás az eredeti festett határokra, beleértve a körvonalat, van vágva. `true` esetén az elmosódás túlnyúlhat ezekre a határokra. Egyik beállítás sem változtatja meg az alakzat pozícióját vagy méretét.
 
-Az alábbi összehasonlításban minden esetben ugyanazt a kitöltést, körvonalat és alakzati méreteket használjuk. A felső sor `grow = false` értéket, az alsó sor `grow = true` értéket használ.
+Az alábbi összehasonlítás ugyanazt a kitöltést, körvonalat és alakzateméretet használja. A felső sor a `grow = false` esetet, az alsó sor a `grow = true` esetet mutatja.
 
-![Eredeti téglalap 5 és 15 pontos elmosódással, grow ki‑ és bekapcsolva](shape_blur_comparison.png)
+![Eredeti téglalap összehasonlítva 5‑ és 15‑pontos elmosódási sugárral, a növekedés letiltott és engedélyezett állapottal](shape_blur_comparison.png)
 
-Ez a C# példa egy narancssárga téglalapot hoz létre sötétkék körvonallal, 5‑pontos elmosódást alkalmaz, majd egy újabb [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) hívással 15‑pontos elmosódásra frissíti. Mindkét elmosódott állapotot elmenti, majd a [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) metódussal eltávolítja az elmosódást, és menti az alakzatot elmosódás nélkül.
+Ez a C# példa egy narancssárga téglalapot hoz létre sötétkék körvonallal, 5‑pontos elmosódást alkalmaz, majd 15‑pontos elmosódásra frissíti a [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) újbóli meghívásával. Mindkét elmosódott állapotot menti, majd a [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) meghívásával menti az árnyék nélküli alakzatot.
 
 ```csharp
 using System.Drawing;
@@ -252,18 +294,18 @@ shape.EffectFormat.DisableBlurEffect();
 presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
 ```
 
-Az alakzat elmosódás a kitöltést és a körvonalat együtt érinti. A puhitott szélek hatás az alakzat széleit halványítja, míg az árnyék elmosódás csak az árnyékot lágyítja. A képtranszformációs hatások a képtartalmon működnek; ez a példa közvetlenül az alakzat effektusformátumára alkalmaz elmosódást anélkül, hogy alakzatot képpé konvertálná.
+A shape blur eg simultaneously a kitöltést és a körvonalat érinti. A lágy szélek hatás elhalványítja az alakzat szélét, míg az árnyék elmosódása csak az árnyékot lágyítja. A képarány‑átalakító hatások a kép tartalmára vonatkoznak; ez a példa közvetlenül az alakzat effect formátumára alkalmaz elmosódást, anélkül hogy az alakzatot képpé alakítaná.
 
 ## **GYIK**
 
 **Alkalmazhatok több hatást ugyanarra az alakzatra?**
 
-Igen, több különböző hatást, például árnyékot, tükröződést és sugárzást kombinálhat egyetlen alakzaton, hogy dinamikusabb megjelenést érjen el.
+Igen, különböző hatásokat – például árnyékot, reflexiót és glow‑t – kombinálhat egyetlen alakzaton, hogy dinamikusabb megjelenést érjen el.
 
 **Milyen alakzatokra alkalmazhatok hatásokat?**
 
-Különféle alakzatokra alkalmazhat hatásokat, beleértve az automatikus alakzatokat, diagramokat, táblázatokat, képeket, SmartArt objektumokat, OLE objektumokat és másokat.
+Különféle alakzatokra alkalmazhat hatásokat, többek között autoshape‑okra, diagramokra, táblázatokra, képekre, SmartArt‑objektumokra, OLE‑objektumokra és egyebekre.
 
 **Alkalmazhatok hatásokat csoportosított alakzatokra?**
 
-Igen, csoportosított alakzatokra is alkalmazhat hatásokat. A hatás az egész csoportra vonatkozik.
+Igen, hatásokat alkalmazhat csoportosított alakzatokra is. A hatás a teljes csoportra lesz alkalmazva.

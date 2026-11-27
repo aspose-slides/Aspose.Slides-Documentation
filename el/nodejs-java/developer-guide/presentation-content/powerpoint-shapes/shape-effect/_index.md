@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή Εφέ Σχημάτων σε Παρουσιάσεις με JavaScript
+title: Εφαρμογή Εφέ Σχημάτων σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
 linktitle: Εφέ Σχήματος
 type: docs
 weight: 30
@@ -7,38 +7,38 @@ url: /el/nodejs-java/shape-effect/
 keywords:
 - εφέ σχήματος
 - εφέ σκιάς
-- εφέ αντανάκλασης
-- εφέ λάμψης
+- εφέ αντανακλασμάτων
+- εφέ λάμπας
 - εφέ μαλακών άκρων
-- μορφοποίηση εφέ
+- μορφή εφέ
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προχωρημένα εφέ σχήματος χρησιμοποιώντας JavaScript και Aspose.Slides για Node.js—δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
+description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προηγμένα εφέ σχημάτων χρησιμοποιώντας JavaScript και Aspose.Slides για Node.js—δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
 ---
 ## **Εισαγωγή**
 
-Ενώ τα εφέ στο PowerPoint μπορούν να χρησιμοποιηθούν για να κάνετε ένα σχήμα να ξεχωρίζει, διαφέρουν από τις [συμπλήρωση](/slides/el/nodejs-java/shape-formatting/#gradient-fill) ή τα περίγραμμα. Χρησιμοποιώντας τα εφέ του PowerPoint, μπορείτε να δημιουργήσετε πειστικές αντανακλάσεις σε ένα σχήμα, να διαθάσετε το λάμψη του σχήματος κ.λπ.
+Ενώ τα εφέ στο PowerPoint μπορούν να χρησιμοποιηθούν για να κάνουν ένα σχήμα να ξεχωρίζει, διαφέρουν από [συμπλήρωση](/slides/el/nodejs-java/shape-formatting/#gradient-fill) ή περιγράμματα. Με τη χρήση εφέ του PowerPoint, μπορείτε να δημιουργήσετε πειστικές αντανακλάσεις σε ένα σχήμα, να διασπείρετε το φως του σχήματος κ.λπ.
 
 ![Εφέ σχήματος](shape-effect.png)
 
 Το PowerPoint παρέχει έξι εφέ που μπορούν να εφαρμοστούν σε σχήματα. Μπορείτε να εφαρμόσετε ένα ή περισσότερα εφέ σε ένα σχήμα.
 
-Ορισμένοι συνδυασμοί εφέ φαίνονται καλύτεροι από άλλους. Για αυτόν τον λόγο, το PowerPoint παρέχει επιλογές υπό **Preset**. Οι επιλογές Preset είναι συνδυασμοί δύο ή περισσότερων εφέ που είναι γνωστό ότι φαίνονται καλά. Με αυτόν τον τρόπο, επιλέγοντας ένα preset, δεν θα χρειαστεί να χάνετε χρόνο δοκιμάζοντας ή συνδυάζοντας διαφορετικά εφέ για να βρείτε έναν καλό συνδυασμό.
+Ορισμένοι συνδυασμοί εφέ φαίνονται καλύτεροι από άλλους. Για το λόγο αυτό, το PowerPoint παρέχει επιλογές στο **Preset**. Οι επιλογές Preset είναι συνδυασμοί δύο ή περισσότερων εφέ που είναι γνωστό ότι φαίνονται καλοί. Έτσι, επιλέγοντας ένα preset, δεν χρειάζεται να χάνετε χρόνο δοκιμάζοντας ή συνδυάζοντας διαφορετικά εφέ για να βρείτε έναν καλό συνδυασμό.
 
-Το Aspose.Slides παρέχει ιδιότητες και μεθόδους υπό την κλάση [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) που επιτρέπουν την εφαρμογή των ίδιων εφέ σε σχήματα σε παρουσιάσεις PowerPoint.
+Το Aspose.Slides παρέχει ιδιότητες και μεθόδους στην κλάση [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) που επιτρέπουν την εφαρμογή των ίδιων εφέ σε σχήματα σε παρουσιάσεις PowerPoint.
 
-## **Εφαρμογή Σκιάς**
+## **Εφαρμογή Εφέ Σκιάς**
 
-Το Aspose.Slides για Node.js μέσω Java υποστηρίζει εξωτερικές και εσωτερικές σκιές για σχήματα. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θόλωσης ώστε να ταιριάζει με το σχεδιασμό της παρουσίασής σας.
+Το Aspose.Slides for Node.js via Java υποστηρίζει εξωτερικές και εσωτερικές σκιές για σχήματα. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζει στο σχεδιασμό της παρουσίασής σας.
 
 ### **Εφαρμογή Εξωτερικής Σκιάς**
 
-Χρησιμοποιήστε μια εξωτερική σκιά για να κάνετε μια κάρτα ή πίνακα να ξεχωρίζει από το φόντο της διαφάνειας. Η σκιά εκτείνεται πέρα από τις άκρες του σχήματος, δημιουργώντας την εντύπωση ότι το σχήμα ανυψώνεται πάνω από τη διαφάνεια. Προσαρμόστε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θόλωσης ώστε να ταιριάζει με τον φωτισμό και το στυλ του προτύπου σας.
+Χρησιμοποιήστε μια εξωτερική σκιά για να κάνετε μια κάρτα ή πίνακα να ξεχωρίζει από το φόντο της διαφάνειας. Η σκιά εκτείνεται πέρα από τις άκρες του σχήματος, δημιουργώντας την εντύπωση ότι το σχήμα είναι ανυψωμένο πάνω από τη διαφάνεια. Ρυθμίστε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζει με τον φωτισμό και το στυλ του προτύπου σας.
 
-Αυτό το JavaScript code δείχνει πώς να εφαρμόσετε το [εξωτερικό εφέ σκιάς](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) σε ένα ορθογώνιο:
+Αυτός ο κώδικας JavaScript δείχνει πώς να εφαρμόσετε το [outer shadow effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) σε ένα ορθογώνιο:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -63,13 +63,62 @@ try {
 
 ![Εφέ σκιάς](shadow_effect.png)
 
+#### **Έλεγχος Κατεύθυνσης Σκιάς Όταν ένα Σχήμα Περιστρέφεται**
+
+Με προεπιλογή, η εξωτερική σκιά περιστρέφεται μαζί με το σχήμα. Για να φαίνεται το φως να προέρχεται από την ίδια κατεύθυνση σε σχήματα με διαφορετικές περιστροφές, καλέστε [setRotateShadowWithShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setRotateShadowWithShape) με `false` και χρησιμοποιήστε [setDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setDirection) ώστε οι σκιές να έχουν την ίδια κατεύθυνση.
+
+Το παράδειγμα δημιουργεί δύο μπλε βέλη με γκρι σκιές μετατοπισμένες 42 σημεία προς τα δεξιά (0°). Στη συνέχεια αντιγράφει τη διαφάνεια και περιστρέφει και τα δύο βέλη κατά 90° δεξιόστροφα.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const before = presentation.getSlides().get_Item(0);
+    
+    const left = before.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    left.getFillFormat().getSolidFillColor().setColor(fillColor);
+    left.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    const shadow = left.getEffectFormat().getOuterShadowEffect();
+    const shadowColor = java.getStaticFieldValue("java.awt.Color", "GRAY");
+    shadow.getShadowColor().setColor(shadowColor);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    const right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    const after = presentation.getSlides().addClone(before);
+    const arrows = after.getShapes();
+    for (let i = 0; i < arrows.size(); i++) {
+        arrows.get_Item(i).setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Στη δεύτερη διαφάνεια, το αριστερό βέλος ρίχνει τη σκιά του προς τα κάτω, ενώ το δεξιό βέλος εξακολουθεί να ρίχνει τη σκιά του προς τα δεξιά. Η ρυθμισμένη κατεύθυνση παραμένει 0° και για τις δύο σκιές.
+
+![Απόδοση PowerPoint πριν και μετά μια περιστροφή 90°. Και οι δύο σκιές ξεκινούν στα δεξιά. Μετά την περιστροφή, η σκιά κινείται κάτω από το αριστερό βέλος και παραμένει δεξιά του δεξιού βέλους.](arrow-shadow-rotation.png)
+
 ### **Εφαρμογή Εσωτερικής Σκιάς**
 
-Κατά την αναπαραγωγή του οπτικού στυλ ενός προτύπου, χρησιμοποιήστε μια εσωτερική σκιά για να δώσετε σε μια κάρτα ή πίνακα εμφάνιση εσοχής. Μια εξωτερική σκιά επεκτείνεται έξω από το σχήμα και το κάνει να φαίνεται ανυψωμένο, ενώ μια εσωτρική σκιά σκουραίνει το εσωτερικό των άκρων του.
+Κατά την αναδημιουργία του οπτικού στυλ ενός προτύπου, χρησιμοποιήστε μια εσωτερική σκιά για να δώσετε σε μια κάρτα ή πίνακα μια εσοχή. Μια εξωτερική σκιά εκτείνεται έξω από το σχήμα και το κάνει να φαίνεται ανυψωμένο, ενώ μια εσωτερική σκιά σκιάζει το εσωτερικό των άκρων του.
 
-Καλέστε [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect), έπειτα ρυθμίστε τη σκιά που επιστρέφεται από το [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Οι μεγαλύτερες τιμές ακτίνας θόλωσης παράγουν πιο μαλακές άκρες.
+Καλέστε [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect), στη συνέχεια ρυθμίστε τη σκιά που επιστρέφεται από το [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Μεγαλύτερες τιμές ακτίνας θολώματος παράγουν πιο απαλή άκρη.
 
-Αυτό το παράδειγμα JavaScript δημιουργεί μια ανοιχτό μπλε κάρτα με σκούρο γκρι εσωτερική σκιά και το αποθηκεύει ως αρχείο PPTX. Η κατεύθυνση της σκιάς είναι 225 μοίρες, η απόστασή της είναι 7 σημεία και η ακτίνα θόλωσης είναι 6 σημεία:
+Αυτό το παράδειγμα JavaScript δημιουργεί μια ανοιχτό-μπλε κάρτα με σκούρα γκρι εσωτερική σκιά και την αποθηκεύει ως αρχείο PPTX. Η κατεύθυνση της σκιάς είναι 225 μοίρες, η απόσταση 7 σημεία και η ακτίνα θολώματος 6 σημεία:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,15 +148,15 @@ try {
 }
 ```
 
-![Ορθογώνιο ανοιχτό μπλε με εσωτερική σκιά](inner_shadow_effect.png)
+![Ανοιχτό μπλε ορθογώνιο με εσωτερική σκιά](inner_shadow_effect.png)
 
-Για να αφαιρέσετε την εσωτερική σκιά, καλέστε [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) στο format εφέ του σχήματος.
+Για να αφαιρέσετε την εσωτερική σκιά, καλέστε [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) στη μορφή εφέ του σχήματος.
 
-### **Εφαρμογή, Αλλαγή και Αφαίρεση Προκαθορισμένης Σκιάς**
+### **Εφαρμογή, Αλλαγή και Αφαίρεση Προεπιλεγμένης Σκιάς**
 
-Καλέστε [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) και χρησιμοποιήστε το [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) για να επιλέξετε ένα [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Για να αλλάξετε στυλ, αλλάξτε το preset στο ίδιο σχήμα. Καλέστε [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) για να αφαιρέσετε τη σκιά ενώ διατηρείτε τη συμπλήρωση και το περίγραμμα.
+Καλέστε [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) και χρησιμοποιήστε [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) για να επιλέξετε έναν [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Για να αλλάξετε στυλ, αλλάξτε το preset στο ίδιο σχήμα. Καλέστε [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) για να αφαιρέσετε τη σκιά διατηρώντας το γέμισμα και το περίγραμμα.
 
-Αυτό το παράδειγμα δείχνει τέσσερα στάδια δίπλα-δίπλα σε μία διαφάνεια. Και οι δύο σκιές είναι μετατοπισμένες κατά 10 σημεία. Μία κατεύθυνση 225° τοποθετεί την πρώτη σκιά πάνω και αριστερά του ορθογωνίου, ενώ 45° τοποθετεί τη δεύτερη κάτω και δεξιά.
+Αυτό το παράδειγμα δείχνει τέσσερα στάδια δίπλα-δίπλα σε μία διαφάνεια. Και οι δύο σκιές είναι μετατοπισμένες κατά 10 σημεία. Μία κατεύθυνση 225° τοποθετεί τη πρώτη σκιά πάνω και αριστερά του ορθογωνίου, ενώ 45° τοποθετεί τη δεύτερη κάτω και δεξιά.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -154,15 +203,15 @@ try {
 }
 ```
 
-| Αρχικό | Πρώτο preset | Δεύτερο preset | Μετά την αφαίρεση |
+| Αρχικό | Πρώτο προεπιλεγμένο | Δεύτερο προεπιλεγμένο | Μετά την αφαίρεση |
 | :---: | :---: | :---: | :---: |
 | ![Χωρίς σκιά](preset_shadow_original.png) | ![Σκιά Πάνω Αριστερά](preset_shadow_top_left.png) | ![Σκιά Κάτω Δεξιά](preset_shadow_bottom_right.png) | ![Χωρίς σκιά μετά την αφαίρεση](preset_shadow_removed.png) |
 
-## **Εφαρμογή Εφέ Αντανάκλασης**
+## **Εφαρμογή Εφέ Αντανακλασίων**
 
-Για να εφαρμόσετε ένα εφέ αντανάκλασης στο Aspose.Slides για Node.js μέσω Java, μπορείτε να προσθέσετε μια καθρέφτη παρόμοια αντανάκλαση στα σχήματα, ρυθμίζοντας παραμέτρους όπως η απόσταση, η διαφάνεια και το μέγεθος. Αυτό το εφέ βελτιώνει την αισθητική των παρουσιάσεών σας δίνοντας στα σχήματα μια πιο γυαλιστερή και εξεζητημένη εμφάνιση. Είναι εύκολο στην υλοποίηση με απλό κώδικα, επιτρέποντας γρήγορη εφαρμογή σε πολλά στοιχεία για ένα συνεπές σχέδιο.
+Για να εφαρμόσετε ένα εφέ αντανακλασίων στο Aspose.Slides for Node.js via Java, μπορείτε να προσθέσετε μια καθρέφτική αντίθεση σε σχήματα, ρυθμίζοντας παραμέτρους όπως απόσταση, διαφάνεια και μέγεθος. Αυτό το εφέ ενισχύει την αισθητική των παρουσιάσεών σας δίνοντας στα σχήματα μια πιο εκλεπτυσμένη εμφάνιση. Είναι εύκολο στην υλοποίηση με απλό κώδικα, επιτρέποντας γρήγορη εφαρμογή σε πολλά στοιχεία για ομοιόμορφο σχεδιασμό.
 
-Αυτό το JavaScript code δείχνει πώς να εφαρμόσετε το [εφέ αντανάκλασης](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) σε ένα σχήμα:
+Αυτός ο κώδικας JavaScript δείχνει πώς να εφαρμόσετε το [reflection effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) σε ένα σχήμα:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,13 +234,13 @@ try {
 }
 ```
 
-![Εφέ αντανάκλασης](reflection_effect.png)
+![Εφέ αντανακλασίων](reflection_effect.png)
 
-## **Εφαρμογή Εφέ Λάμψης**
+## **Εφαρμογή Εφέ Λαμπάδας**
 
-Για να εφαρμόσετε ένα εφέ λάμψης σε ένα σχήμα στο Aspose.Slides για Node.js μέσω Java, μπορείτε να προσθέσετε μια απαλό, λαμπερό αύρα γύρω από τα σχήματα, ρυθμίζοντας ιδιότητες όπως το χρώμα και το μέγεθος. Αυτό το εφέ βοηθάει να ξεχωρίζουν τα σχήματα και προσθέτει ένα ελκυστικό, εντυπωσιακό οπτικό στοιχείο στην παρουσίασή σας. Είναι εύκολο στην υλοποίηση με ελάχιστο κώδικα, βελτιώνοντας τη συνολική εμφάνιση των διαφανειών σας.
+Για να εφαρμόσετε ένα εφέ λάμπας σε σχήμα στο Aspose.Slides for Node.js via Java, μπορείτε να προσθέσετε μια ήπια, φωτεινή αύρα γύρω από τα σχήματα, ρυθμίζοντας ιδιότητες όπως το χρώμα και το μέγεθος. Αυτό το εφέ βοηθά τα σχήματα να ξεχωρίζουν και προσθέτει ένα ελκυστικό, εντυπωσιακό οπτικό στοιχείο στην παρουσίασή σας. Είναι εύκολο στην εφαρμογή με ελάχιστο κώδικα, βελτιώνοντας τη συνολική εμφάνιση των διαφανειών.
 
-Αυτό το JavaScript code δείχνει πώς να εφαρμόσετε το [εφέ λάμψης](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) σε ένα σχήμα:
+Αυτός ο κώδικας JavaScript δείχνει πώς να εφαρμόσετε το [glow effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) σε ένα σχήμα:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -213,13 +262,13 @@ try {
 }
 ```
 
-![Εφέ λάμψης](glow_effect.png)
+![Εφέ λάμπας](glow_effect.png)
 
 ## **Εφαρμογή Εφέ Μαλακών Άκρων**
 
-Για να εφαρμόσετε ένα εφέ μαλακών άκρων στο Aspose.Slides για Node.js μέσω Java, μπορείτε να δημιουργήσετε μια ομαλή, θολή μετάβαση γύρω από τις άκρες ενός σχήματος. Αυτό το εφέ προσθέτει μια πιο διακριτική και εκλεπτυσμένη εμφάνιση, ιδανική για σχέδια που χρειάζονται μια ήπια, πιο απαλή όψη. Μπορείτε εύκολα να ρυθμίσετε παραμέτρους όπως η ακτίνα για να επιτύχετε το επιθυμητό εφέ σε διάφορα σχήματα στην παρουσίασή σας.
+Για να εφαρμόσετε ένα εφέ μαλακών άκρων στο Aspose.Slides for Node.js via Java, μπορείτε να δημιουργήσετε μια ομαλή, θολή μετάβαση γύρω από τις άκρες ενός σχήματος. Αυτό το εφέ προσθέτει μια πιο απαλή και εκλεπτυσμένη εμφάνιση, ιδανική για σχέδια που χρειάζονται μια ήπια, πιο απαλή παρουσία. Μπορείτε εύκολα να ρυθμίσετε παραμέτρους όπως η ακτίνα για να πετύχετε το επιθυμητό αποτέλεσμα σε διάφορα σχήματα στην παρουσίασή σας.
 
-Αυτό το JavaScript code δείχνει πώς να εφαρμόσετε το [εφέ μαλακών άκρων](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) σε ένα σχήμα:
+Αυτός ο κώδικας JavaScript δείχνει πώς να εφαρμόσετε το [soft edges effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) σε ένα σχήμα:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -242,15 +291,15 @@ try {
 
 ## **Εφαρμογή Εφέ Θολώματος**
 
-Χρησιμοποιήστε το θόλωμα σχήματος για να μαλακώσετε τη συμπλήρωση και το περίγραμμα ενός σχήματος ενώ το διατηρείτε επεξεργάσιμο. Καλέστε [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) στο format εφέ του σχήματος. Η ακτίνα μετριέται σε σημεία (1/72 ίντσα): χρησιμοποιήστε μια μη αρνητική τιμή, με μεγαλύτερες τιμές να παράγουν ισχυρότερο θόλωμα. Μια ακτίνα μηδέν δεν αλλάζει την εμφάνιση.
+Χρησιμοποιήστε το θόλωση σχήματος για να μαλακώσετε το γέμισμα και το περίγραμμα ενός σχήματος διατηρώντας το σχήμα επεξεργάσιμο. Καλέστε [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) στη μορφή εφέ του σχήματος. Η ακτίνα μετριέται σε σημεία (1/72 ίντσα): χρησιμοποιήστε μια μη αρνητική τιμή· με μεγαλύτερες τιμές το θόλωμα γίνεται πιο έντονο. Μια ακτίνα μηδέν αφήνει την εμφάνιση αμετάβλητη.
 
-Η ρύθμιση [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) ελέγχει τα ορατά όρια του εφέ. Με `false`, το θόλωμα περιορίζεται στα αρχικά ζωγραφισμένα όρια, συμπεριλαμβανομένου του περιγράμματος. Με `true`, το θόλωμα μπορεί να εκτείνεται πέρα από αυτά τα όρια. Καμία από τις ρυθμίσεις δεν αλλάζει τη θέση ή τις διαστάσεις του σχήματος.
+Η ρύθμιση [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) ελέγχει τα ορατά όρια του εφέ. Με `false`, το θόλωση περιορίζεται στα αρχικά βαμμένα όρια, συμπεριλαμβανομένου του περιγράμματος. Με `true`, το θόλωση μπορεί να επεκταθεί πέρα από αυτά τα όρια. Καμία από τις ρυθμίσεις δεν αλλάζει τη θέση ή τις διαστάσεις του σχήματος.
 
-Η σύγκριση παρακάτω χρησιμοποιεί την ίδια συμπλήρωση, περίγραμμα και διαστάσεις σχήματος σε όλη τη διάρκεια. Η πάνω σειρά χρησιμοποιεί `grow = false`; η κάτω σειρά χρησιμοποιεί `grow = true`.
+Η σύγκριση παρακάτω χρησιμοποιεί το ίδιο γέμισμα, περίγραμμα και διαστάσεις σχήματος σε όλη τη διάρκεια. Η πρώτη σειρά χρησιμοποιεί `grow = false`; η δεύτερη σειρά χρησιμοποιεί `grow = true`.
 
-![Αρχικό ορθογώνιο συγκρινόμενο με ακτίνες θολώματος 5 και 15 σημείων, με grow απενεργοποιημένο και ενεργοποιημένο](shape_blur_comparison.png)
+![Αρχικό ορθογώνιο συγκριτικά με ακτίνες θολώματος 5 και 15 σημείων, με το grow ανενεργό και ενεργό](shape_blur_comparison.png)
 
-Αυτό το παράδειγμα JavaScript δημιουργεί ένα πορτοκαλί ορθογώνιο με σκούρο μπλε περίγραμμα, εφαρμόζει θόλωμα 5 σημείων, και στη συνέχεια το ενημερώνει σε θόλωμα 15 σημείων καλώντας ξανά το [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect). Αποθηκεύει και τις δύο καταστάσεις με θόλωμα, μετά καλεί το [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) και αποθηκεύει το σχήμα χωρίς θόλωμα.
+Αυτό το παράδειγμα JavaScript δημιουργεί ένα πορτοκαλί ορθογώνιο με σκούρο μπλε περίγραμμα, εφαρμόζει θόλωση 5 σημείων και στη συνέχεια το ενημερώνει σε θόλωση 15 σημείων καλώντας ξανά το [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect). Αποθηκεύει και τις δύο καταστάσεις με θόλωση, στη συνέχεια καλεί [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) και αποθηκεύει το σχήμα χωρίς θόλωση.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,17 +331,17 @@ try {
 }
 ```
 
-Το θόλωμα σχήματος επηρεάζει τη συμπλήρωση και το περίγραμμα μαζί. Ένα εφέ μαλακών άκρων θολώνει τις άκρες του σχήματος, ενώ το θόλωμα σκιάς μαλακώνει μόνο τη σκιά. Τα εφέ μετασχηματισμού εικόνας λειτουργούν πάνω στο περιεχόμενο της εικόνας· αυτό το παράδειγμα εφαρμόζει θόλωμα απευθείας στο format εφέ του σχήματος χωρίς να μετατρέπει το σχήμα σε εικόνα.
+Το θόλωση σχήματος επηρεάζει ταυτόχρονα το γέμισμα και το περίγραμμα. Ένα εφέ μαλακών άκρων εξασθενίζει τις άκρες του σχήματος, ενώ το θόλωση σκιάς μαλακώνει μόνο τη σκιά. Τα εφέ μετασχηματισμού εικόνας λειτουργούν στο περιεχόμενο της εικόνας· αυτό το παράδειγμα εφαρμόζει θόλωση απευθείας στη μορφή εφέ του σχήματος χωρίς μετατροπή του σχήματος σε εικόνα.
 
-## **Συχνές Ερώτήσεις**
+## **Συχνές ερωτήσεις**
 
 **Μπορώ να εφαρμόσω πολλαπλά εφέ στο ίδιο σχήμα;**
 
-Ναι, μπορείτε να συνδυάσετε διαφορετικά εφέ, όπως σκιά, αντανάκλαση και λάμψη, σε ένα μόνο σχήμα για να δημιουργήσετε μια πιο δυναμική εμφάνιση.
+Ναι, μπορείτε να συνδυάσετε διαφορετικά εφέ, όπως σκιά, αντανακλάσεις και λάμπα, σε ένα μόνο σχήμα για να δημιουργήσετε μια πιο δυναμική εμφάνιση.
 
 **Σε ποια σχήματα μπορώ να εφαρμόσω εφέ;**
 
-Μπορείτε να εφαρμόσετε εφέ σε διάφορα σχήματα, συμπεριλαμβανομένων των αυτόματων σχημάτων, των διαγραμμάτων, των πινάκων, των εικόνων, των αντικειμένων SmartArt, των αντικειμένων OLE κ.λπ.
+Μπορείτε να εφαρμόσετε εφέ σε διάφορα σχήματα, συμπεριλαμβανομένων των αυτόματων σχημάτων, διαγραμμάτων, πινάκων, εικόνων, αντικειμένων SmartArt, αντικειμένων OLE και άλλα.
 
 **Μπορώ να εφαρμόσω εφέ σε ομαδοποιημένα σχήματα;**
 

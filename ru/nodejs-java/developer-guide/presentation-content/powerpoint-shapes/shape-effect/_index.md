@@ -1,11 +1,11 @@
 ---
-title: Применение эффектов форм в презентациях с помощью JavaScript
-linktitle: Эффект формы
+title: Применение эффектов фигур в презентациях с помощью JavaScript
+linktitle: Эффект фигуры
 type: docs
 weight: 30
 url: /ru/nodejs-java/shape-effect/
 keywords:
-- эффект формы
+- эффект фигуры
 - эффект тени
 - эффект отражения
 - эффект свечения
@@ -16,29 +16,29 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Преобразуйте ваши файлы PPT и PPTX с помощью продвинутых эффектов форм, используя JavaScript и Aspose.Slides для Node.js — создавайте яркие, профессиональные слайды за секунды."
+description: "Преобразуйте свои файлы PPT и PPTX с помощью продвинутых эффектов фигур, используя JavaScript и Aspose.Slides для Node.js — создавайте впечатляющие, профессиональные слайды за секунды."
 ---
 ## **Введение**
 
-В то время как эффекты в PowerPoint можно использовать, чтобы выделить форму, они отличаются от [заливок](/slides/ru/nodejs-java/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint вы можете создавать убедительные отражения на форме, распространять её сияние и т.д.
+В то время как эффекты в PowerPoint можно использовать, чтобы выделить объект, они отличаются от [заполнений](/slides/ru/nodejs-java/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint вы можете создавать правдоподобные отражения на объекте, распространять сияние объекта и т.п.
 
 ![Эффект формы](shape-effect.png)
 
-PowerPoint предоставляет шесть эффектов, которые можно применять к формам. Вы можете применить один или несколько эффектов к форме.
+PowerPoint предоставляет шесть эффектов, которые можно применять к объектам. Вы можете применить один или несколько эффектов к объекту.
 
-Некоторые комбинации эффектов выглядят лучше, чем другие. По этой причине PowerPoint предоставляет варианты в разделе **Preset**. Параметры Preset представляют собой комбинации двух или более эффектов, которые, как известно, выглядят хорошо. Таким образом, выбрав предустановку, вам не придётся тратить время на тестирование или комбинирование различных эффектов в поиске удачной комбинации.
+Некоторые комбинации эффектов выглядят лучше, чем другие. По этой причине PowerPoint предлагает параметры в разделе **Preset**. Параметры Preset представляют собой комбинации двух и более эффектов, которые известны как подходящие. Таким образом, выбирая предустановку, вам не придётся тратить время на тестирование или комбинирование разных эффектов в поисках хорошей комбинации.
 
-Aspose.Slides предоставляет свойства и методы в классе [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/), которые позволяют применять те же эффекты к формам в презентациях PowerPoint.
+Aspose.Slides предлагает свойства и методы в классе [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/), позволяющие применять те же эффекты к объектам в презентациях PowerPoint.
 
-## **Применение эффекта тени**
+## **Применить эффект тени**
 
-Aspose.Slides for Node.js via Java поддерживает внешние и внутренние тени для форм. Вы можете настроить их цвет, направление, расстояние и радиус размытия, чтобы они соответствовали дизайну вашей презентации.
+Aspose.Slides for Node.js via Java поддерживает внешние и внутренние тени для объектов. Вы можете настраивать их цвет, направление, расстояние и радиус размытия, чтобы они соответствовали дизайну вашей презентации.
 
-### **Применение внешней тени**
+### **Применить внешнюю тень**
 
-Используйте внешнюю тень, чтобы выделить карточку или панель на фоне слайда. Тень выходит за пределы краёв формы, создавая впечатление, что форма поднята над слайдом. Настройте её цвет, направление, расстояние и радиус размытия, чтобы они соответствовали освещению и стилю вашего шаблона.
+Используйте внешнюю тень, чтобы карточка или панель выделялись на фоне слайда. Тень выходит за границы объекта, создавая ощущение, что объект приподнят над слайдом. Настройте её цвет, направление, расстояние и радиус размытия в соответствии со светом и стилем вашего шаблона.
 
-Этот JavaScript‑код показывает, как применить [внешний эффект тени](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) к прямоугольнику:
+Этот JavaScript‑код демонстрирует, как применить [внешний эффект тени](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) к прямоугольнику:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -63,13 +63,62 @@ try {
 
 ![Эффект тени](shadow_effect.png)
 
-### **Применение внутренней тени**
+#### **Управление направлением тени при повороте объекта**
 
-При воспроизведении визуального стиля шаблона используйте внутреннюю тень, чтобы придать карточке или панели врезной вид. Внешняя тень выходит за пределы формы и делает её выглядящей поднятой, тогда как внутренняя тень затемняет внутреннюю сторону её краёв.
+По умолчанию внешняя тень вращается вместе с объектом. Чтобы объекты с разными поворотами выглядели освещёнными из одного направления, вызовите [setRotateShadowWithShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setRotateShadowWithShape) со значением `false` и используйте [setDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setDirection), чтобы задать одинаковое направление теням.
 
-Вызовите [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect), затем настройте тень, возвращённую [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Большие значения радиуса размытия дают более мягкие края.
+В примере создаются две синие стрелки с серыми тенями, смещёнными на 42 пункта вправо (0°). Затем дублируется слайд, и обе стрелки поворачиваются на 90° по часовой стрелке.
 
-Этот JavaScript‑пример создаёт светло‑голубую карточку с темно‑серой внутренней тенью и сохраняет её как файл PPTX. Направление тени — 225 °, её расстояние — 7 пунктов, радиус размытия — 6 пунктов:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const before = presentation.getSlides().get_Item(0);
+    
+    const left = before.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    left.getFillFormat().getSolidFillColor().setColor(fillColor);
+    left.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    const shadow = left.getEffectFormat().getOuterShadowEffect();
+    const shadowColor = java.getStaticFieldValue("java.awt.Color", "GRAY");
+    shadow.getShadowColor().setColor(shadowColor);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    const right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    const after = presentation.getSlides().addClone(before);
+    const arrows = after.getShapes();
+    for (let i = 0; i < arrows.size(); i++) {
+        arrows.get_Item(i).setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+На втором слайде левая стрелка отбрасывает тень вниз, тогда как правая стрелка по‑прежнему отбрасывает тень направо. Настроенное направление остаётся 0° для обеих теней.
+
+![Отображение PowerPoint до и после поворота на 90°. Обе тени начинаются справа. После поворота тень перемещается под левую стрелку и остаётся справа от правой стрелки.](arrow-shadow-rotation.png)
+
+### **Применить внутреннюю тень**
+
+При воспроизведении визуального стиля шаблона используйте внутреннюю тень, чтобы придать карточке или панели врезанные границы. Внешняя тень выходит за пределы объекта и создаёт эффект поднятости, тогда как внутренняя тень затемняет внутренние границы.
+
+Вызовите [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect), затем настройте теневые параметры, полученные через [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Большие значения радиуса размытия дают более мягкие края.
+
+Этот JavaScript‑пример создаёт светло‑голубую карточку с тёмно‑серой внутренней тенью и сохраняет её как файл PPTX. Направление тени — 225°, расстояние — 7 пунктов, радиус размытия — 6 пунктов:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,15 +148,15 @@ try {
 }
 ```
 
-![Прямоугольник светло-голубой с внутренней тенью](inner_shadow_effect.png)
+![Светло‑голубой прямоугольник с внутренней тенью](inner_shadow_effect.png)
 
-Чтобы удалить внутреннюю тень, вызовите [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) у формата эффектов формы.
+Чтобы удалить внутреннюю тень, вызовите [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) у формата эффектов объекта.
 
-### **Применение, изменение и удаление предустановленной тени**
+### **Применить, изменить и удалить предустановленную тень**
 
-Вызовите [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) и используйте [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) для выбора [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Чтобы переключить стили, измените предустановку у той же формы. Вызовите [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect), чтобы удалить тень, сохранив заливку и контур.
+Вызовите [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) и используйте [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) для выбора [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Чтобы переключить стили, измените предустановку у того же объекта. Вызовите [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect), чтобы удалить тень, сохранив заполнение и контур.
 
-Этот пример демонстрирует четыре стадии рядом на одном слайде. Обе тени смещены на 10 пунктов. Направление 225° размещает первую тень выше и слева от прямоугольника, а 45° — вторую ниже и справа.
+В примере показаны четыре стадии рядом на одном слайде. Обе тени смещены на 10 пунктов. Направление 225° размещает первую тень сверху слева от прямоугольника, а 45° размещает вторую тень снизу справа.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -154,15 +203,15 @@ try {
 }
 ```
 
-| Оригинал | Первый предустановленный | Второй предустановленный | После удаления |
+| Оригинал | Первая предустановка | Вторая предустановка | После удаления |
 | :---: | :---: | :---: | :---: |
-| ![Без тени](preset_shadow_original.png) | ![Тень сверху слева](preset_shadow_top_left.png) | ![Тень снизу справа](preset_shadow_bottom_right.png) | ![Без тени после удаления](preset_shadow_removed.png) |
+| ![Без тени](preset_shadow_original.png) | ![ТеньСверхуСлева](preset_shadow_top_left.png) | ![ТеньСнизуСправа](preset_shadow_bottom_right.png) | ![Без тени после удаления](preset_shadow_removed.png) |
 
-## **Применение эффекта отражения**
+## **Применить эффект отражения**
 
-Чтобы применить эффект отражения в Aspose.Slides for Node.js via Java, можно добавить зеркальное отражение к формам, задав такие параметры, как расстояние, прозрачность и размер. Этот эффект улучшает эстетическую привлекательность ваших презентаций, придавая форму более отполированный и изысканный вид. Реализовать его легко с помощью простого кода, что позволяет быстро применять эффект к нескольким элементам для единообразного дизайна.
+Для применения эффекта отражения в Aspose.Slides for Node.js via Java можно добавить зеркальное отражение к объектам, регулируя такие параметры, как расстояние, прозрачность и размер. Этот эффект улучшает эстетический вид ваших презентаций, придавая объектам более полированный и изысканный вид. Реализовать его легко с помощью простого кода, что позволяет быстро применять эффект к нескольким элементам для единообразного дизайна.
 
-Этот JavaScript‑код показывает, как применить [эффект отражения](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) к форме:
+Этот JavaScript‑код демонстрирует, как применить [эффект отражения](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) к объекту:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -187,11 +236,11 @@ try {
 
 ![Эффект отражения](reflection_effect.png)
 
-## **Применение эффекта свечения**
+## **Применить эффект сияния**
 
-Чтобы применить эффект свечения к форме в Aspose.Slides for Node.js via Java, можно добавить мягкое светящееся сияние вокруг формы, настроив свойства, такие как цвет и размер. Этот эффект помогает выделить форму и добавляет привлекательный, бросающийся в глаза визуальный элемент в вашу презентацию. Реализовать его просто с минимальным объёмом кода, улучшая общий внешний вид слайдов.
+Чтобы применить эффект сияния к объекту в Aspose.Slides for Node.js via Java, можно добавить мягкую, светящую ауру вокруг объектов, регулируя свойства, такие как цвет и размер. Этот эффект помогает объектам выделяться и добавляет привлекательный, привлекающий внимание визуальный элемент вашей презентации. Реализовать его легко с минимальным объёмом кода, улучшая общий внешний вид слайдов.
 
-Этот JavaScript‑код показывает, как применить [эффект свечения](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) к форме:
+Этот JavaScript‑код демонстрирует, как применить [эффект сияния](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) к объекту:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -213,13 +262,13 @@ try {
 }
 ```
 
-![Эффект свечения](glow_effect.png)
+![Эффект сияния](glow_effect.png)
 
-## **Применение эффекта мягких краёв**
+## **Применить эффект мягких краёв**
 
-Чтобы применить эффект мягких краёв в Aspose.Slides for Node.js via Java, можно создать плавный размытый переход вокруг краёв формы. Этот эффект добавляет более тонкий и изысканный вид, идеально подходящий для дизайнов, требующих нежного, мягкого появления. Параметры, такие как радиус, легко настраиваются для достижения желаемого результата на различных формах вашей презентации.
+Чтобы применить эффект мягких краёв в Aspose.Slides for Node.js via Java, можно создать плавный, размытый переход вокруг границ объекта. Этот эффект придаёт более тонкий и изысканный вид, подходящий для дизайнов, требующих нежного, более мягкого отображения. Вы легко можете регулировать параметры, такие как радиус, чтобы достичь желаемого эффекта для различных объектов в презентации.
 
-Этот JavaScript‑код показывает, как применить [эффект мягких краёв](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) к форме:
+Этот JavaScript‑код демонстрирует, как применить [эффект мягких краёв](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) к объекту:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -240,17 +289,17 @@ try {
 
 ![Эффект мягких краёв](soft_edges_effect.png)
 
-## **Применение эффекта размытия**
+## **Применить эффект размытия**
 
-Используйте размытие формы, чтобы смягчить заливку и контур формы, оставляя форму редактируемой. Вызовите [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) у формата эффектов формы. Радиус измеряется в пунктах (1/72 дюйма): используйте неотрицательное значение, более большие значения дают более сильное размытие. Радиус 0 оставляет внешний вид без изменений.
+Используйте размытие объектов, чтобы смягчить заполнение и контур объекта, оставляя его редактируемым. Вызовите [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) у формата эффектов объекта. Радиус измеряется в пунктах (1/72 дюйма): используйте неотрицательное значение, при этом более большие значения дают более сильное размытие. Радиус 0 оставляет внешний вид без изменений.
 
-Параметр [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) управляет видимыми границами эффекта. При `false` размытие обрезается границами оригинального рисования, включая контур. При `true` размытие может выходить за эти границы. Ни один из параметров не меняет положение или размеры формы.
+Параметр [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) управляет видимыми границами эффекта. При `false` размытие обрезается оригинальными границами рисования, включая контур. При `true` размытие может выходить за эти границы. Ни один из вариантов не меняет позицию или размеры объекта.
 
-Сравнение ниже использует одинаковые заливку, контур и размеры формы. Верхняя строка использует `grow = false`; нижняя — `grow = true`.
+Сравнение ниже использует одинаковые заполнение, контур и размеры объекта. Верхняя строка — `grow = false`; нижняя строка — `grow = true`.
 
-![Оригинальный прямоугольник сравнивается с радиусами размытия 5 и 15 пунктов, с отключённым и включённым ростом](shape_blur_comparison.png)
+![Исходный прямоугольник сравнивается с радиусами размытия 5 и 15 пунктов, при отключённом и включённом росте](shape_blur_comparison.png)
 
-Этот JavaScript‑пример создаёт оранжевый прямоугольник с тёмно‑синим контуром, применяет размытие с радиусом 5 пунктов, затем обновляет его до размытия 15 пунктов, снова вызвав [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect). Он сохраняет оба размазанных состояния, затем вызывает [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) и сохраняет форму без размытия.
+Этот JavaScript‑пример создаёт оранжевый прямоугольник с тёмно‑синим контуром, применяет размытие в 5 пунктов, затем обновляет его до 15 пунктов, вновь вызывая [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect). Оба состояния сохраняются, после чего вызывается [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) и сохраняется объект без размытия.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,18 +331,18 @@ try {
 }
 ```
 
-Размытие формы воздействует одновременно на заливку и контур. Эффект мягких краёв размывает края формы, тогда как размытие тени смягчает только тень. Эффекты преобразования изображения работают с содержимым изображения; данный пример применяет размытие непосредственно к формату эффектов формы без преобразования её в изображение.
+Размытие объекта влияет одновременно на заполнение и контур. Эффект мягких краёв затемняет края объекта, тогда как размытие тени смягчает только тень. Эффекты преобразования изображений работают с содержимым изображения; в этом примере размытие применяется непосредственно к формату эффектов объекта без преобразования его в изображение.
 
 ## **FAQ**
 
-**Можно ли применить несколько эффектов к одной и той же форме?**
+**Можно ли применить несколько эффектов к одному объекту?**
 
-Да, вы можете комбинировать разные эффекты, такие как тень, отражение и свечение, на одной форме, чтобы создать более динамичный вид.
+Да, вы можете комбинировать разные эффекты, такие как тень, отражение и сияние, на одном объекте для создания более динамичного внешнего вида.
 
-**К каким формам можно применять эффекты?**
+**К каким объектам можно применять эффекты?**
 
-Эффекты можно применять к различным формам, включая автофигуры, диаграммы, таблицы, картинки, объекты SmartArt, OLE‑объекты и другие.
+Эффекты можно применять к различным объектам, включая автофигуры, диаграммы, таблицы, изображения, объекты SmartArt, OLE‑объекты и многое другое.
 
-**Можно ли применять эффекты к сгруппированным формам?**
+**Можно ли применять эффекты к сгруппированным объектам?**
 
-Да, эффекты можно применять к сгруппированным формам. Эффект будет применён ко всей группе.
+Да, эффекты можно применять к сгруппированным объектам. Эффект будет применён ко всей группе.

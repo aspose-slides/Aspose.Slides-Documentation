@@ -1,5 +1,5 @@
 ---
-title: اعمال افکت‌های شکل در ارائه‌ها با استفاده از JavaScript
+title: اعمال افکت‌های شکل در ارائه‌ها با استفاده از جاوااسکریپت
 linktitle: افکت شکل
 type: docs
 weight: 30
@@ -7,8 +7,8 @@ url: /fa/nodejs-java/shape-effect/
 keywords:
 - افکت شکل
 - افکت سایه
-- افکت بازتاب
-- افکت درخشندگی
+- افکت انعکاس
+- افکت نوردهی
 - افکت لبه‌های نرم
 - قالب افکت
 - PowerPoint
@@ -16,29 +16,29 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "فایل‌های PPT و PPTX خود را با استفاده از افکت‌های پیشرفته شکل، JavaScript و Aspose.Slides برای Node.js تبدیل کنید—در عرض چند ثانیه اسلایدهای چشم‌گیر و حرفه‌ای ایجاد کنید."
+description: "فایل‌های PPT و PPTX خود را با استفاده از جاوااسکریپت و Aspose.Slides برای Node.js و افکت‌های پیشرفته شکل تبدیل کنید - در عرض چند ثانیه اسلایدهای حرفه‌ای و چشم‌نوازی ایجاد کنید."
 ---
-## **مقدمه**
+## **معرفی**
 
-در حالی که افکت‌ها در PowerPoint می‌توانند برای برجسته‌کردن یک شکل استفاده شوند، آن‌ها با [پرکننده‌ها](/slides/fa/nodejs-java/shape-formatting/#gradient-fill) یا خطوط حاشیه متفاوت هستند. با استفاده از افکت‌های PowerPoint، می‌توانید بازتاب‌های واقعی بر روی یک شکل ایجاد کنید، درخشندگی شکل را گسترش دهید و غیره.
+در حالی که افکت‌ها در PowerPoint می‌توانند برای برجسته کردن یک شکل استفاده شوند، آن‌ها با [پرکننده‌ها](/slides/fa/nodejs-java/shape-formatting/#gradient-fill) یا خطوط مرزی متفاوت هستند. با استفاده از افکت‌های PowerPoint می‌توانید بازتاب‌های قانع‌کننده‌ای بر روی یک شکل ایجاد کنید، نور درخشانی شکل را گسترش دهید، و غیره.
 
-![Shape effect](shape-effect.png)
+![اثر شکل](shape-effect.png)
 
-PowerPoint شش افکت را فراهم می‌کند که می‌توانند بر روی اشکال اعمال شوند. می‌توانید یک یا چند افکت را بر روی یک شکل اعمال کنید.
+PowerPoint شش افکت را در اختیار می‌گذارد که می‌توانند بر روی شکل‌ها اعمال شوند. می‌توانید یک یا چند افکت را بر روی یک شکل اعمال کنید.
 
-برخی ترکیب‌های افکت بهتر از دیگران به نظر می‌رسند. به همین دلیل، PowerPoint گزینه‌هایی تحت **Preset** ارائه می‌دهد. گزینه‌های Preset ترکیبی از دو یا چند افکت هستند که شناخته شده‌اند که خوب به نظر می‌رسند. به این ترتیب، با انتخاب یک پیش‌تنظیم، نیازی به صرف زمان برای آزمایش یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب نخواهید داشت.
+برخی ترکیبات افکت‌ها بهتر از دیگران به نظر می‌رسند. به همین دلیل، PowerPoint گزینه‌هایی تحت **پیش تنظیم** ارائه می‌دهد. گزینه‌های پیش تنظیم ترکیبی از دو یا چند افکت هستند که شناخته شده‌اند که خوش‌ظاهر باشند. به این ترتیب، با انتخاب یک پیش تنظیم، نیازی به صرف زمان برای تست یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب نخواهید داشت.
 
-Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) فراهم می‌کند که به شما امکان می‌دهد همان افکت‌ها را بر روی اشکال در ارائه‌های PowerPoint اعمال کنید.
+Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) ارائه می‌دهد که به شما امکان می‌دهد همان افکت‌ها را بر روی شکل‌ها در ارائه‌های PowerPoint اعمال کنید.
 
 ## **اعمال افکت سایه**
 
-Aspose.Slides برای Node.js از طریق Java از سایه‌های خارجی و داخلی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع تاری آن‌ها را برای هماهنگی با طراحی ارائه خود تنظیم کنید.
+Aspose.Slides برای Node.js از طریق Java از سایه‌های خارجی و داخلی برای شکل‌ها پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع محو شدن آنها را برای مطابقت با طراحی ارائه خود سفارشی کنید.
 
-### **اعلام سایه خارجی**
+### **اعمال سایه خارجی**
 
-از یک سایه خارجی استفاده کنید تا یک کارت یا پنل در مقابل پس‌زمینه اسلاید برجسته شود. سایه فراتر از لبه‌های شکل امتداد می‌یابد و حس این را می‌دهد که شکل از اسلاید بالا آمده است. رنگ، جهت، فاصله و شعاع تاری آن را طوری تنظیم کنید که با نورپردازی و سبک قالب شما مطابقت داشته باشد.
+از سایه خارجی استفاده کنید تا یک کارت یا پنل نسبت به پس‌زمینه اسلاید برجسته شود. سایه خارج از لبه‌های شکل گسترش می یابد و حس اینکه شکل بر روی اسلاید بالا کشیده شده است را ایجاد می‌کند. رنگ، جهت، فاصله و شعاع محو آن را برای مطابقت با نورپردازی و سبک قالب خود تنظیم کنید.
 
-این کد JavaScript نشان می‌دهد که چگونه [افکت سایه خارجی](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) را به یک مستطیل اعمال کنید:
+این کد JavaScript نشان می‌دهد چگونه افکت [سایه خارجی](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) را بر روی یک مستطیل اعمال کنید:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -61,15 +61,64 @@ try {
 }
 ```
 
-![Shadow effect](shadow_effect.png)
+![اثر سایه](shadow_effect.png)
+
+#### **کنترل جهت سایه هنگام چرخش شکل**
+
+به طور پیش‌فرض، سایه خارجی همراه با شکل می‌چرخد. برای اینکه شکل‌های با چرخش‌های مختلف از همان جهت نورانی به نظر برسند، متد [setRotateShadowWithShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setRotateShadowWithShape) را با مقدار `false` صدا بزنید و از [setDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setDirection) برای دادن جهت یکسان به سایه‌های آنها استفاده کنید.
+
+این مثال دو پیکان آبی با سایه‌های خاکستری که ۴۲ پوینت به سمت راست جابجا شده‌اند (0°) ایجاد می‌کند. سپس اسلاید را کپی می‌کند و هر دو پیکان را ۹۰° به صورت ساعت‌گرد می‌چرخاند.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const before = presentation.getSlides().get_Item(0);
+    
+    const left = before.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    left.getFillFormat().getSolidFillColor().setColor(fillColor);
+    left.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    const shadow = left.getEffectFormat().getOuterShadowEffect();
+    const shadowColor = java.getStaticFieldValue("java.awt.Color", "GRAY");
+    shadow.getShadowColor().setColor(shadowColor);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    const right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    const after = presentation.getSlides().addClone(before);
+    const arrows = after.getShapes();
+    for (let i = 0; i < arrows.size(); i++) {
+        arrows.get_Item(i).setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+در اسلاید دوم، پیکان سمت چپ سایه‌اش را به سمت پایین می‌اندازد، در حالی که پیکان سمت راست همچنان سایه‌اش را به سمت راست می‌اندازد. جهت تنظیم‌شده برای هر دو سایه ۰° باقی می‌ماند.
+
+![رندر PowerPoint قبل و بعد از چرخش 90°. هر دو سایه از سمت راست شروع می‌شوند. پس از چرخش، سایه به زیر پیکان چپ منتقل می‌شود و در سمت راست پیکان راست می‌ماند.](arrow-shadow-rotation.png)
 
 ### **اعمال سایه داخلی**
 
-زمانی که می‌خواهید سبک بصری یک قالب را بازآفرینی کنید، از یک سایه داخلی استفاده کنید تا به یک کارت یا پنل ظاهر فرورفتگی بدهید. یک سایه خارجی بیرون از شکل گسترش می‌یابد و باعث می‌شود شکل بالا آمده به نظر برسد، در حالی که یک سایه داخلی لبه‌های داخلی را روشن می‌کند.
+هنگام بازتولید سبک بصری قالب، از سایه داخلی استفاده کنید تا به یک کارت یا پنل ظاهری فرورفته بدهید. سایه خارجی خارج از شکل گسترش می‌یابد و باعث می‌شود شکل بالا کشیده به نظر برسد، در حالی که سایه داخلی داخل لبه‌های آن را سایه می‌اندازد.
 
-متد [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect) را فراخوانی کنید، سپس سایه برگردانده‌شده توسط [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect) را تنظیم کنید. مقادیر بزرگتر شعاع تاری لبه‌های نرم‌تری تولید می‌کنند.
+متد [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect) را صدا بزنید، سپس سایه‌ای که توسط [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect) برگردانده می‌شود را پیکربندی کنید. مقادیر بزرگ‌تر شعاع محو، لبه‌های نرم‌تری تولید می‌کنند.
 
-این مثال JavaScript یک کارت آبی روشن با یک سایه داخلی خاکستری تیره ایجاد می‌کند و به‌صورت فایل PPTX ذخیره می‌گردد. جهت سایه ۲۲۵ درجه، فاصله آن ۷ پوینت و شعاع تاری آن ۶ پوینت است:
+این مثال JavaScript یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و به صورت فایل PPTX ذخیره می‌شود. جهت سایه ۲۲۵ درجه است، فاصله آن ۷ پوینت و شعاع محو ۶ پوینت می‌باشد:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,15 +148,15 @@ try {
 }
 ```
 
-![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+![مستطیل آبی روشن با سایه داخلی](inner_shadow_effect.png)
 
-برای حذف سایه داخلی، متد [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) را روی فرمت افکت شکل فراخوانی کنید.
+برای حذف سایه داخلی، متد [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) را بر روی فرمت افکت شکل صدا بزنید.
 
-### **اعمال، تغییر و حذف سایه پیش‌تنظیم‌شده**
+### **اعمال، تغییر و حذف سایه پیش تنظیم**
 
-متد [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) را فراخوانی کنید و از [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) برای انتخاب یک [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/) استفاده کنید. برای تغییر سبک‌ها، پیش‌تنظیم را بر روی همان شکل تغییر دهید. برای حذف سایه در حالی که پرکننده و خط‌چین حفظ می‌شوند، متد [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) را فراخوانی کنید.
+متد [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) را صدا بزنید و از [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) برای انتخاب یک [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/) استفاده کنید. برای تغییر سبک، پیش تنظیم را بر روی همان شکل تغییر دهید. برای حذف سایه در حالی که پرکننده و خط مرزی حفظ می‌شود، متد [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) را صدا بزنید.
 
-این مثال چهار مرحله را به‌صورت کنار هم در یک اسلاید نشان می‌دهد. هر دو سایه ۱۰ پوینت جابجا شده‌اند. جهت ۲۲۵° سایه اول را بالای سمت چپ مستطیل قرار می‌دهد و ۴۵° سایه دوم را زیر و سمت راست.
+این مثال چهار مرحله را به صورت در کنار هم در یک اسلاید نشان می‌دهد. هر دو سایه ۱۰ پوینت جابجا شده‌اند. جهت ۲۲۵° سایه اول را بالای مستطیل و سمت چپ قرار می‌دهد، در حالی که ۴۵° سایه دوم را زیر و سمت راست قرار می‌دهد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -154,15 +203,15 @@ try {
 }
 ```
 
-| اصلی | پیش‌تنظیم اول | پیش‌تنظیم دوم | پس از حذف |
+| اصل | پیش تنظیم اولین | پیش تنظیم دوم | پس از حذف |
 | :---: | :---: | :---: | :---: |
-| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
+| ![بدون سایه](preset_shadow_original.png) | ![سایه بالا چپ](preset_shadow_top_left.png) | ![سایه پایین راست](preset_shadow_bottom_right.png) | ![بدون سایه پس از حذف](preset_shadow_removed.png) |
 
-## **اعمال افکت بازتاب**
+## **اعمال افکت انعکاس**
 
-برای اعمال افکت بازتاب در Aspose.Slides برای Node.js از طریق Java، می‌توانید بازتابی شبیه آینه به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این افکت زیبایی ارائه‌های شما را با دادن ظاهری صیقلی و پیشرفته به اشکال ارتقاء می‌دهد. پیاده‌سازی آن با کد ساده آسان است و امکان استفاده سریع در چندین عنصر برای یک طراحی یکدست را فراهم می‌کند.
+برای اعمال افکت انعکاس در Aspose.Slides برای Node.js از طریق Java، می‌توانید یک انعکاس شبیه آینه به شکل‌ها اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این افکت زیبایی ارائه‌های شما را با دادن ظاهری صیقلی و پیشرفته به شکل‌ها ارتقا می‌دهد. با کد ساده به راحتی قابل پیاده‌سازی است و امکان اعمال سریع بر روی عناصر متعدد برای طراحی یکسان را فراهم می‌کند.
 
-این کد JavaScript نشان می‌دهد که چگونه [افکت بازتاب](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) را به یک شکل اعمال کنید:
+این کد JavaScript نشان می‌دهد چگونه افکت [انعکاس](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) را بر روی یک شکل اعمال کنید:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,13 +234,13 @@ try {
 }
 ```
 
-![Reflection effect](reflection_effect.png)
+![اثر انعکاس](reflection_effect.png)
 
-## **اعمال افکت درخشندگی**
+## **اعمال افکت نوردهی**
 
-برای اعمال افکت درخشندگی به یک شکل در Aspose.Slides برای Node.js از طریق Java، می‌توانید هاله‌ای نرم و نورانی دور اشکال اضافه کنید و ویژگی‌هایی مانند رنگ و اندازه را تنظیم کنید. این افکت به برجسته شدن اشکال کمک می‌کند و عنصر بصری جذابی به ارائه شما می‌افزاید. پیاده‌سازی آن با حداقل کد آسان است و ظاهر کلی اسلایدهای شما را بهبود می‌بخشد.
+برای اعمال افکت نوردهی به یک شکل در Aspose.Slides برای Node.js از طریق Java، می‌توانید هاله‌ای نرم و درخشان اطراف شکل‌ها اضافه کنید و ویژگی‌هایی مانند رنگ و اندازه را تنظیم کنید. این افکت به برجسته شدن شکل‌ها کمک می‌کند و عنصر بصری جذاب و چشم‌نوازی به ارائه شما می‌افزاید. با کد کم به راحتی قابل پیاده‌سازی است و ظاهر کلی اسلایدهای شما را بهبود می‌بخشد.
 
-این کد JavaScript نشان می‌دهد که چگونه [افکت درخشندگی](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) را به یک شکل اعمال کنید:
+این کد JavaScript نشان می‌دهد چگونه افکت [نوردهی](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) را بر روی یک شکل اعمال کنید:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -213,13 +262,13 @@ try {
 }
 ```
 
-![Glow effect](glow_effect.png)
+![اثر نوردهی](glow_effect.png)
 
 ## **اعمال افکت لبه‌های نرم**
 
-برای اعمال افکت لبه‌های نرم در Aspose.Slides برای Node.js از طریق Java، می‌توانید یک انتقال صاف و مبهم اطراف لبه‌های یک شکل ایجاد کنید. این افکت ظاهر ملایم‌تر و ظریف‌تری می‌دهد که برای طرح‌هایی که به ظاهری ملایم و نرم نیاز دارند مناسب است. می‌توانید به‌راحتی پارامترهایی مانند شعاع را تنظیم کنید تا افکت دلخواه را بر روی اشکال مختلف در ارائه خود به‌دست آورید.
+برای اعمال افکت لبه‌های نرم در Aspose.Slides برای Node.js از طریق Java، می‌توانید یک انتقال صاف و محو در اطراف لبه‌های یک شکل ایجاد کنید. این افکت ظاهری دقیق‌تر و ملایم‌تر اضافه می‌کند که برای طرح‌هایی که نیاز به ظاهر ملایم و نرم دارند، ایده‌آل است. می‌توانید به راحتی پارامترهایی مانند شعاع را تنظیم کنید تا افکت مورد نظر را بر روی شکل‌های مختلف در ارائه خود به دست آورید.
 
-این کد JavaScript نشان می‌دهد که چگونه [افکت لبه‌های نرم](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) را به یک شکل اعمال کنید:
+این کد JavaScript نشان می‌دهد چگونه افکت [لبه‌های نرم](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) را بر روی یک شکل اعمال کنید:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -238,19 +287,19 @@ try {
 }
 ```
 
-![Soft edges effect](soft_edges_effect.png)
+![اثر لبه‌های نرم](soft_edges_effect.png)
 
-## **اعمال افکت تاری**
+## **اعمال افکت به‌محو کردن**
 
-از تاری شکل استفاده کنید تا پرکننده و خط‌چین یک شکل را نرم کنید در حالی که شکل قابل ویرایش باقی می‌ماند. متد [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) را روی فرمت افکت شکل فراخوانی کنید. شعاع بر حسب پوینت (1/72 اینچ) اندازه‌گیری می‌شود: از مقدار غیرمنفی استفاده کنید؛ مقادیر بزرگتر تاری قوی‌تری ایجاد می‌کنند. شعاع صفر ظاهر را تغییری نمی‌دهد.
+از به‌محو کردن شکل استفاده کنید تا پرکننده و خط مرزی شکل را نرم کنید در حالی که شکل قابل ویرایش می‌ماند. متد [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) را بر روی فرمت افکت شکل صدا بزنید. شعاع بر حسب پوینت (۱/۷۲ اینچ) اندازه‌گیری می‌شود: از مقدار غیرمنفی استفاده کنید؛ مقادیر بزرگ‌تر محو قوی‌تری ایجاد می‌کنند. شعاع صفر ظاهر را تغییر نمی‌دهد.
 
-تنظیم [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) مرزهای قابل مشاهده افکت را کنترل می‌کند. با `false`، تاری به مرزهای نقاشی اصلی (از جمله خط‌چین) محدود می‌شود. با `true`، تاری می‌تواند فراتر از آن مرزها گسترش یابد. هیچ‌یک از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهند.
+تنظیم [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) مرزهای قابل مشاهده افکت را کنترل می‌کند. با مقدار `false`، محو شدن به مرزهای اولیه نقاشی شده، شامل خط مرزی، محدود می‌شود. با مقدار `true`، محو می‌تواند فراتر از آن مرزها گسترش یابد. هیچ‌کدام از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهند.
 
-مقایسه زیر از همان پرکننده، خط‌چین و ابعاد شکل در تمام حالت‌ها استفاده می‌کند. ردیف بالایی `grow = false` است؛ ردیف پایین `grow = true`.
+مقایسه زیر از همان پرکننده، خط مرزی و ابعاد شکل در کل استفاده می‌کند. ردیف بالا `grow = false` را به کار می‌برد؛ ردیف پایین `grow = true` را به کار می‌برد.
 
-![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+![مستطیل اصلی مقایسه‌شده با شعاع‌های محو 5 و 15 پوینت، با grow غیرفعال و فعال](shape_blur_comparison.png)
 
-این مثال JavaScript یک مستطیل نارنجی با خط‌چین آبی تیره ایجاد می‌کند، تاری ۵ پوینتی اعمال می‌کند و سپس با فراخوانی مجدد [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) به تاری ۱۵ پوینت تغییر می‌دهد. هر دو حالت تار شده را ذخیره می‌کند، سپس با فراخوانی [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) شکل را بدون تاری ذخیره می‌کند.
+این مثال JavaScript یک مستطیل نارنجی با خط مرزی آبی تیره ایجاد می‌کند، یک محو ۵ پوینت اعمال می‌کند و سپس با صدا زدن مجدد [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) آن را به محو ۱۵ پوینت به‌روز می‌کند. هر دو حالت محو را ذخیره می‌کند، سپس متد [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) را فراخوانی کرده و شکل را بدون محو ذخیره می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,18 +331,18 @@ try {
 }
 ```
 
-تاری شکل هم پرکننده و هم خط‌چین را تحت تأثیر قرار می‌دهد. افکت لبه‌های نرم لبه‌های شکل را محو می‌کند، در حالی که تاری سایه فقط سایه را نرم می‌کند. افکت‌های تبدیل تصویر روی محتوای تصویر اعمال می‌شوند؛ این مثال تاری را مستقیماً روی فرمت افکت شکل بدون تبدیل به تصویر اعمال می‌کند.
+به‌محو کردن شکل همزمان بر روی پرکننده و خط مرزی اثر می‌گذارد. افکت لبه‌های نرم لبه‌های شکل را محو می‌کند، در حالی که محو سایه فقط سایه را نرم می‌کند. افکت‌های تبدیل تصویر بر محتوای تصویر عمل می‌کنند؛ این مثال محو را به طور مستقیم بر روی فرمت افکت شکل اعمال می‌کند بدون اینکه شکل به تصویر تبدیل شود.
 
-## **FAQ**
+## **پرسش‌های متداول**
 
 **آیا می‌توانم چندین افکت را بر روی همان شکل اعمال کنم؟**
 
-بله، می‌توانید افکت‌های مختلفی مانند سایه، بازتاب و درخشندگی را بر روی یک شکل ترکیب کنید تا ظاهر پویاتری ایجاد شود.
+بله، می‌توانید افکت‌های مختلفی مانند سایه، انعکاس و نوردهی را بر روی یک شکل ترکیب کنید تا ظاهر پویاتری ایجاد شود.
 
-**کدام اشکال می‌توانم به آن‌ها افکت اعمال کنم؟**
+**به چه شکل‌هایی می‌توانم افکت اعمال کنم؟**
 
-می‌توانید افکت‌ها را بر روی انواع اشکال از جمله اشکال خودکاری، نمودارها، جدول‌ها، تصاویر، اشیای SmartArt، اشیای OLE و موارد دیگر اعمال کنید.
+می‌توانید افکت‌ها را بر روی انواع شکل‌ها اعمال کنید، از جمله اشکال خودکار، نمودارها، جدول‌ها، تصاویر، اشیاء SmartArt، اشیاء OLE و غیره.
 
 **آیا می‌توانم افکت‌ها را بر روی شکل‌های گروهی اعمال کنم؟**
 
-بله، می‌توانید افکت‌ها را بر روی شکل‌های گروهی اعمال کنید. افکت به کل گروه اعمال خواهد شد.
+بله، می‌توانید افکت‌ها را بر روی شکل‌های گروهی اعمال کنید. افکت بر کل گروه اعمال خواهد شد.

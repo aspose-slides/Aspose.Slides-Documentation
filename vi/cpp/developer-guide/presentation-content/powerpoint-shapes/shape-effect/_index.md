@@ -1,43 +1,43 @@
 ---
-title: "Áp dụng hiệu ứng hình dạng trong bài thuyết trình bằng C++"
-linktitle: "Hiệu ứng hình dạng"
+title: Áp dụng hiệu ứng hình dạng trong bản trình chiếu sử dụng C++
+linktitle: Hiệu ứng Hình dạng
 type: docs
 weight: 30
 url: /vi/cpp/shape-effect/
 keywords:
-- "hiệu ứng hình dạng"
-- "hiệu ứng bóng"
-- "hiệu ứng phản chiếu"
-- "hiệu ứng hào quang"
-- "hiệu ứng viền mềm"
-- "định dạng hiệu ứng"
+- hiệu ứng hình dạng
+- hiệu ứng bóng
+- hiệu ứng phản chiếu
+- hiệu ứng phát sáng
+- hiệu ứng viền mềm
+- định dạng hiệu ứng
 - PowerPoint
-- "bài thuyết trình"
+- bản trình chiếu
 - C++
 - Aspose.Slides
-description: "Biến đổi tệp PPT và PPTX của bạn với các hiệu ứng hình dạng nâng cao bằng Aspose.Slides cho C++ — tạo các slide ấn tượng, chuyên nghiệp trong vài giây."
+description: "Chuyển đổi các tệp PPT và PPTX của bạn với các hiệu ứng hình dạng nâng cao bằng Aspose.Slides cho C++ — tạo các slide ấn tượng, chuyên nghiệp chỉ trong vài giây."
 ---
 ## **Giới thiệu**
 
-Trong PowerPoint, các hiệu ứng có thể được sử dụng để làm nổi bật một hình dạng, nhưng chúng khác với [đổ màu](/slides/vi/cpp/shape-formatting/#gradient-fill) hoặc viền. Bằng cách sử dụng các hiệu ứng PowerPoint, bạn có thể tạo ra các phản chiếu thuyết phục trên một hình dạng, lan tỏa ánh hào quang của hình dạng, v.v.
+Trong khi các hiệu ứng trong PowerPoint có thể được sử dụng để làm nổi bật một hình dạng, chúng khác với [đổ màu](/slides/vi/cpp/shape-formatting/#gradient-fill) hoặc viền. Bằng cách sử dụng các hiệu ứng PowerPoint, bạn có thể tạo ra những phản chiếu thuyết phục trên một hình dạng, lan tỏa ánh sáng phát sáng của hình dạng, v.v.
 
-![Shape effect](shape-effect.png)
+![Hiệu ứng hình dạng](shape-effect.png)
 
 PowerPoint cung cấp sáu hiệu ứng có thể được áp dụng cho các hình dạng. Bạn có thể áp dụng một hoặc nhiều hiệu ứng cho một hình dạng.
 
-Một số kết hợp hiệu ứng trông tốt hơn các kết hợp khác. Vì lý do này, PowerPoint có các tùy chọn trong **Preset**. Các tùy chọn Preset thực chất là sự kết hợp của hai hoặc nhiều hiệu ứng đã được biết là hòa hợp với nhau. Nhờ đó, khi chọn một preset, bạn không phải tốn thời gian thử nghiệm hoặc kết hợp các hiệu ứng khác nhau để tìm một sự kết hợp phù hợp.
+Một số sự kết hợp của các hiệu ứng trông tốt hơn những sự kết hợp khác. Vì lý do này, PowerPoint có các tùy chọn dưới **Preset**. Các tùy chọn Preset về cơ bản là sự kết hợp của hai hoặc nhiều hiệu ứng đã được biết là phối hợp tốt với nhau. Bằng cách này, khi chọn một preset, bạn sẽ không phải tốn thời gian thử nghiệm hoặc kết hợp các hiệu ứng khác nhau để tìm ra một sự kết hợp đẹp.
 
-Aspose.Slides cung cấp các thuộc tính và phương thức trong lớp [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) cho phép bạn áp dụng các hiệu ứng tương tự cho các hình dạng trong bản trình bày PowerPoint.
+Aspose.Slides cung cấp các thuộc tính và phương thức dưới lớp [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) cho phép bạn áp dụng các hiệu ứng tương tự cho các hình dạng trong bài thuyết trình PowerPoint.
 
 ## **Áp dụng hiệu ứng bóng**
 
-Aspose.Slides cho C++ hỗ trợ bóng ngoài và bóng trong cho các hình dạng. Bạn có thể tùy chỉnh màu sắc, hướng, khoảng cách và bán kính làm mờ để phù hợp với thiết kế bản trình bày của mình.
+Aspose.Slides for C++ hỗ trợ bóng ngoài và bóng trong cho các hình dạng. Bạn có thể tùy chỉnh màu, hướng, khoảng cách và bán kính mờ để phù hợp với thiết kế của bài thuyết trình.
 
 ### **Áp dụng bóng ngoài**
 
-Sử dụng bóng ngoài để làm cho một thẻ hoặc bảng nổi bật so với nền slide. Bóng mở rộng ra ngoài các cạnh của hình dạng, tạo ấn tượng rằng hình dạng được nâng lên trên slide. Điều chỉnh màu sắc, hướng, khoảng cách và bán kính làm mờ để phù hợp với ánh sáng và phong cách của mẫu của bạn.
+Sử dụng bóng ngoài để làm cho một thẻ hoặc bảng nổi bật so với nền slide. Bóng mở rộng ra bên ngoài các cạnh của hình dạng, tạo cảm giác hình dạng được nâng lên so với slide. Điều chỉnh màu, hướng, khoảng cách và bán kính mờ để phù hợp với ánh sáng và phong cách của mẫu.
 
-This C++ code shows how to apply the [hiệu ứng bóng ngoài](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) to a rectangle:
+Đoạn mã C++ này cho thấy cách áp dụng [hiệu ứng bóng ngoài](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) cho một hình chữ nhật:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -69,15 +69,74 @@ outerShadowEffect->set_Direction(45.0f);
 presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Shadow effect](shadow_effect.png)
+![Hiệu ứng bóng](shadow_effect.png)
+
+#### **Kiểm soát hướng bóng khi hình dạng quay**
+
+Mặc định, bóng ngoài quay cùng với hình dạng của nó. Để các hình dạng có các góc quay khác nhau nhìn được chiếu sáng từ cùng một hướng, gọi [set_RotateShadowWithShape](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_rotateshadowwithshape/) với `false` và sử dụng [set_Direction](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_direction/) để đặt góc cho bóng của chúng giống nhau.
+
+Ví dụ tạo hai mũi tên với bóng màu xám lệch sang phải (0°). Sau đó sao chép slide và xoay cả hai mũi tên 90° theo chiều kim đồng hồ.
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto before = presentation->get_Slide(0);
+
+auto left = before->get_Shapes()->AddAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+left->get_FillFormat()->set_FillType(FillType::Solid);
+left->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+left->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+left->get_EffectFormat()->EnableOuterShadowEffect();
+auto shadow = left->get_EffectFormat()->get_OuterShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_Gray());
+shadow->set_Direction(0);
+shadow->set_Distance(42);
+shadow->set_BlurRadius(0);
+shadow->set_RotateShadowWithShape(true);
+
+auto right = before->get_Shapes()->AddClone(left);
+right->set_X(395);
+right->get_EffectFormat()->get_OuterShadowEffect()->set_RotateShadowWithShape(false);
+
+auto after = presentation->get_Slides()->AddClone(before);
+for (auto i = 0; i < after->get_Shapes()->get_Count(); ++i)
+{
+    after->get_Shape(i)->set_Rotation(90);
+}
+
+presentation->Save(u"arrow_shadows.pptx", SaveFormat::Pptx);
+```
+
+Trên slide thứ hai, mũi tên bên trái bỏ bóng xuống phía dưới, trong khi mũi tên bên phải vẫn bỏ bóng sang phải. Hướng đã cấu hình vẫn là 0° cho cả hai bóng.
+
+![Kết xuất PowerPoint trước và sau khi xoay 90°. Cả hai bóng bắt đầu ở bên phải. Sau khi xoay, bóng di chuyển xuống dưới mũi tên trái và vẫn ở bên phải mũi tên phải.](arrow-shadow-rotation.png)
 
 ### **Áp dụng bóng trong**
 
-Khi tái hiện kiểu dáng hình ảnh của một mẫu, sử dụng bóng trong để tạo cho thẻ hoặc bảng một vẻ ngoài lõm vào. Bóng ngoài mở rộng ra ngoài hình dạng và làm cho nó trông như được nâng lên, trong khi bóng trong tạo bóng cho bên trong các cạnh của nó.
+Khi tái tạo phong cách trực quan của một mẫu, sử dụng bóng trong để tạo cho thẻ hoặc bảng một diện mạo lồi vào. Bóng ngoài mở rộng ra bên ngoài hình dạng và làm cho nó trông như được nâng lên, trong khi bóng trong làm tối bên trong các cạnh của nó.
 
-Gọi [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), sau đó cấu hình [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Giá trị bán kính làm mờ lớn hơn tạo ra các cạnh mềm hơn.
+Gọi [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), sau đó cấu hình [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Giá trị bán kính mờ lớn hơn tạo ra các cạnh mềm hơn.
 
-Ví dụ C++ này tạo một thẻ màu xanh nhạt với bóng trong màu xám đậm và lưu nó dưới dạng tệp PPTX:
+Đoạn mã C++ này tạo một thẻ màu xanh nhạt với bóng trong màu xám đậm và lưu dưới dạng tệp PPTX:
 
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
@@ -116,15 +175,15 @@ shadow->set_BlurRadius(6);
 presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+![Hình chữ nhật màu xanh nhạt với bóng trong](inner_shadow_effect.png)
 
 Để loại bỏ bóng trong, gọi [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) trên định dạng hiệu ứng của hình dạng.
 
-### **Áp dụng, thay đổi và xóa bóng Preset**
+### **Áp dụng, thay đổi và loại bỏ bóng Preset**
 
-Gọi [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) và sử dụng [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) để chọn một [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). Để chuyển đổi kiểu, thay đổi preset trên cùng một hình dạng. Gọi [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) để xóa bóng trong khi vẫn giữ nguyên phần đổ màu và viền.
+Gọi [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) và sử dụng [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) để chọn một [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). Để chuyển đổi kiểu, thay đổi preset trên cùng một hình dạng. Gọi [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) để loại bỏ bóng trong khi vẫn giữ nguyên đổ màu và viền.
 
-Ví dụ này giữ một bản sao của hình chữ nhật ở mỗi giai đoạn. Cả hai bóng đều được dịch chuyển 10 điểm. Hướng 225° đặt bóng đầu tiên phía trên và bên trái của hình chữ nhật, và 45° đặt bóng thứ hai phía dưới và bên phải.
+Ví dụ này giữ một bản sao của hình chữ nhật ở mỗi giai đoạn. Cả hai bóng đều lệch 10 điểm. Hướng 225° đặt bóng đầu tiên ở phía trên và bên trái của hình chữ nhật, và 45° đặt bóng thứ hai ở phía dưới và bên phải.
 
 ```cpp
 #include <DOM/Effects/IPresetShadow.h>
@@ -191,15 +250,15 @@ textFrame->set_Text(u"No shadow");
 presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
 ```
 
-| Gốc | Preset đầu tiên | Preset thứ hai | Sau khi xóa |
+| Gốc | Preset đầu tiên | Preset thứ hai | Sau khi loại bỏ |
 | :---: | :---: | :---: | :---: |
-| ![Không có bóng](preset_shadow_original.png) | ![Bóng rơi trên trái](preset_shadow_top_left.png) | ![Bóng rơi dưới phải](preset_shadow_bottom_right.png) | ![Không có bóng sau khi xóa](preset_shadow_removed.png) |
+| ![Không có bóng](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![Không có bóng sau khi loại bỏ](preset_shadow_removed.png) |
 
 ## **Áp dụng hiệu ứng phản chiếu**
 
-Để áp dụng hiệu ứng phản chiếu trong Aspose.Slides cho C++, bạn có thể thêm một phản chiếu giống gương vào các hình dạng, điều chỉnh các tham số như khoảng cách, độ trong suốt và kích thước. Hiệu ứng này nâng cao thẩm mỹ của bản trình bày bằng cách mang lại cho các hình dạng vẻ ngoài mịn màng và tinh tế hơn. Nó dễ thực hiện với mã đơn giản, cho phép áp dụng nhanh chóng trên nhiều yếu tố để đạt thiết kế thống nhất.
+Để áp dụng hiệu ứng phản chiếu trong Aspose.Slides for C++, bạn có thể thêm một phản chiếu giống gương cho các hình dạng, điều chỉnh các tham số như khoảng cách, độ trong suốt và kích thước. Hiệu ứng này nâng cao tính thẩm mỹ của bài thuyết trình bằng cách tạo cho các hình dạng một diện mạo bóng bẩy và tinh tế hơn. Việc triển khai rất dễ dàng với mã đơn giản, cho phép áp dụng nhanh chóng trên nhiều yếu tố để đạt thiết kế đồng nhất.
 
-This C++ code shows how to apply the [hiệu ứng phản chiếu](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) to a shape:
+Đoạn mã C++ này cho thấy cách áp dụng [hiệu ứng phản chiếu](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) cho một hình dạng:
 
 ```cpp
 #include <DOM/Effects/IReflection.h>
@@ -232,11 +291,11 @@ presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 
 ![Hiệu ứng phản chiếu](reflection_effect.png)
 
-## **Áp dụng hiệu ứng hào quang**
+## **Áp dụng hiệu ứng phát sáng**
 
-Để áp dụng hiệu ứng hào quang cho một hình dạng trong Aspose.Slides cho C++, bạn có thể thêm một hào quang mềm mại, rực rỡ xung quanh các hình dạng, điều chỉnh các thuộc tính như màu sắc và kích thước. Hiệu ứng này giúp làm nổi bật các hình dạng và thêm yếu tố hình ảnh thu hút, bắt mắt cho bản trình bày của bạn. Nó dễ thực hiện với mã tối thiểu, nâng cao tổng thể giao diện các slide.
+Để áp dụng hiệu ứng phát sáng cho một hình dạng trong Aspose.Slides for C++, bạn có thể thêm một hào quang mềm mại quanh các hình dạng, điều chỉnh các thuộc tính như màu và kích thước. Hiệu ứng này giúp các hình dạng nổi bật và thêm một yếu tố trực quan hấp dẫn cho bài thuyết trình. Việc thực hiện rất đơn giản với ít mã, nâng cao vẻ ngoài tổng thể của các slide.
 
-This C++ code shows how to apply the [hiệu ứng hào quang](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) to a shape:
+Đoạn mã C++ này cho thấy cách áp dụng [hiệu ứng phát sáng](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) cho một hình dạng:
 
 ```cpp
 #include <DOM/Effects/IGlow.h>
@@ -267,13 +326,13 @@ glowEffect->set_Radius(15);
 presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Hiệu ứng hào quang](glow_effect.png)
+![Hiệu ứng phát sáng](glow_effect.png)
 
 ## **Áp dụng hiệu ứng viền mềm**
 
-Để áp dụng hiệu ứng viền mềm trong Aspose.Slides cho C++, bạn có thể tạo một chuyển đổi mượt mà, mờ quanh các cạnh của một hình dạng. Hiệu ứng này mang lại vẻ ngoài tinh tế và nhẹ nhàng hơn, phù hợp cho các thiết kế cần phong cách nhẹ nhàng, mềm mại. Bạn có thể dễ dàng điều chỉnh các tham số như bán kính để đạt được hiệu ứng mong muốn trên nhiều hình dạng trong bản trình bày.
+Để áp dụng hiệu ứng viền mềm trong Aspose.Slides for C++, bạn có thể tạo một chuyển tiếp mờ và mượt xung quanh các cạnh của hình dạng. Hiệu ứng này mang lại vẻ ngoài tinh tế và nhẹ nhàng, phù hợp cho các thiết kế cần một diện mạo mềm mại hơn. Bạn có thể dễ dàng điều chỉnh các tham số như bán kính để đạt được hiệu quả mong muốn trên các hình dạng khác nhau trong bài thuyết trình.
 
-This C++ code shows how to apply the [viền mềm](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) to a shape:
+Đoạn mã C++ này cho thấy cách áp dụng [viền mềm](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) cho một hình dạng:
 
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
@@ -304,15 +363,15 @@ presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 
 ## **Áp dụng hiệu ứng làm mờ**
 
-Sử dụng làm mờ hình dạng để làm mềm phần đổ màu và viền của hình mà vẫn giữ khả năng chỉnh sửa. Gọi [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) trên định dạng hiệu ứng của hình. Bán kính được đo bằng điểm (1/72 inch): sử dụng giá trị không âm, giá trị lớn hơn tạo độ mờ mạnh hơn. Bán kính bằng không giữ nguyên diện mạo.
+Sử dụng làm mờ hình dạng để làm mềm đổ màu và viền của hình dạng trong khi vẫn giữ được khả năng chỉnh sửa. Gọi [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) trên định dạng hiệu ứng của hình dạng. Bán kính được đo bằng điểm (1/72 inch): sử dụng giá trị không âm, giá trị lớn hơn tạo ra hiệu ứng mờ mạnh hơn. Bán kính bằng không giữ nguyên ngoại hình ban đầu.
 
-Cài đặt [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) kiểm soát giới hạn hiển thị của hiệu ứng. Khi `false`, hiệu ứng làm mờ bị cắt trong giới hạn đã vẽ ban đầu, bao gồm viền. Khi `true`, hiệu ứng có thể mở rộng ra ngoài các giới hạn đó. Cả hai cài đặt đều không thay đổi vị trí hoặc kích thước của hình.
+Cài đặt [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) kiểm soát giới hạn hiển thị của hiệu ứng. Khi `false`, hiệu ứng mờ bị cắt trong giới hạn đã vẽ gốc, bao gồm cả viền. Khi `true`, hiệu ứng mờ có thể mở rộng ra bên ngoài giới hạn đó. Cả hai cài đặt đều không thay đổi vị trí hoặc kích thước của hình dạng.
 
-Bảng so sánh dưới đây sử dụng cùng màu đổ, viền và kích thước hình suốt quá trình. Hàng trên sử dụng `grow = false`; hàng dưới sử dụng `grow = true`.
+Bảng so sánh dưới đây sử dụng cùng một đổ màu, viền và kích thước hình dạng trong suốt quá trình. Hàng trên dùng `grow = false`; hàng dưới dùng `grow = true`.
 
-![Hình chữ nhật gốc so sánh với bán kính làm mờ 5 và 15 điểm, với grow tắt và bật](shape_blur_comparison.png)
+![Hình chữ nhật gốc so sánh với bán kính mờ 5 và 15 điểm, với grow tắt và bật](shape_blur_comparison.png)
 
-Ví dụ C++ này tạo một hình chữ nhật màu cam với viền xanh đậm, áp dụng làm mờ 5 điểm, rồi cập nhật lên làm mờ 15 điểm bằng cách gọi lại [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) . Nó lưu cả hai trạng thái đã làm mờ, sau đó gọi [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) và lưu hình mà không có hiệu ứng làm mờ.
+Đoạn mã C++ này tạo một hình chữ nhật màu cam với viền màu xanh đậm, áp dụng hiệu ứng mờ 5 điểm, sau đó cập nhật lên 15 điểm bằng cách gọi lại [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/). Nó lưu cả hai trạng thái đã mờ, sau đó gọi [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) và lưu hình dạng không có mờ.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -352,18 +411,18 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-Làm mờ hình ảnh ảnh hưởng đến phần đổ màu và viền cùng lúc. Hiệu ứng viền mềm làm mờ các cạnh của hình, trong khi làm mờ bóng chỉ làm mềm bóng. Các hiệu ứng biến đổi hình ảnh hoạt động trên nội dung hình ảnh; ví dụ này áp dụng làm mờ trực tiếp vào định dạng hiệu ứng của hình mà không chuyển hình thành hình ảnh.
+Làm mờ hình dạng ảnh hưởng đến cả đổ màu và viền đồng thời. Hiệu ứng viền mềm làm mờ các cạnh của hình dạng, trong khi làm mờ bóng chỉ làm mềm bóng. Các hiệu ứng biến đổi hình ảnh hoạt động trên nội dung hình ảnh; ví dụ này áp dụng làm mờ trực tiếp trên định dạng hiệu ứng của hình dạng mà không chuyển đổi hình dạng thành hình ảnh.
 
 ## **Câu hỏi thường gặp**
 
-**Có thể áp dụng nhiều hiệu ứng cho cùng một hình dạng không?**
+**Tôi có thể áp dụng nhiều hiệu ứng cho cùng một hình dạng không?**
 
-Có, bạn có thể kết hợp các hiệu ứng khác nhau, như bóng, phản chiếu và hào quang, trên một hình dạng duy nhất để tạo ra diện mạo năng động hơn.
+Có, bạn có thể kết hợp các hiệu ứng khác nhau, chẳng hạn bóng, phản chiếu và phát sáng, trên một hình dạng duy nhất để tạo ra ngoại hình động hơn.
 
-**Những hình dạng nào tôi có thể áp dụng hiệu ứng?**
+**Tôi có thể áp dụng hiệu ứng cho những loại hình dạng nào?**
 
-Bạn có thể áp dụng hiệu ứng cho nhiều loại hình dạng, bao gồm autoshapes, biểu đồ, bảng, hình ảnh, đối tượng SmartArt, đối tượng OLE và nhiều hơn nữa.
+Bạn có thể áp dụng hiệu ứng cho nhiều loại hình dạng, bao gồm các hình tự động, biểu đồ, bảng, hình ảnh, đối tượng SmartArt, đối tượng OLE và nhiều hơn nữa.
 
-**Có thể áp dụng hiệu ứng cho các hình dạng đã nhóm không?**
+**Tôi có thể áp dụng hiệu ứng cho các nhóm hình dạng không?**
 
-Có, bạn có thể áp dụng hiệu ứng cho các hình dạng đã nhóm. Hiệu ứng sẽ được áp dụng cho toàn bộ nhóm.
+Có, bạn có thể áp dụng hiệu ứng cho các nhóm hình dạng. Hiệu ứng sẽ được áp dụng cho toàn bộ nhóm.

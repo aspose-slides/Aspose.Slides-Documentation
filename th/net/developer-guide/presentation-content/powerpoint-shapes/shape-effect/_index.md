@@ -1,44 +1,44 @@
 ---
-title: ใช้เอฟเฟกต์รูปร่างในงานนำเสนอด้วย .NET
-linktitle: เอฟเฟกต์รูปร่าง
+title: ใช้เอฟเฟกต์รูปทรงในงานนำเสนอด้วย .NET
+linktitle: เอฟเฟกต์รูปทรง
 type: docs
 weight: 30
 url: /th/net/shape-effect/
 keywords:
-- เอฟเฟกต์รูปร่าง
+- เอฟเฟกต์รูปทรง
 - เอฟเฟกต์เงา
 - เอฟเฟกต์การสะท้อน
 - เอฟเฟกต์เรืองแสง
 - เอฟเฟกต์ขอบนุ่ม
 - รูปแบบเอฟเฟกต์
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟกต์รูปร่างขั้นสูงโดยใช้ Aspose.Slides สำหรับ .NET—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในไม่กี่วินาที."
+description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟกต์รูปทรงขั้นสูงโดยใช้ Aspose.Slides สำหรับ .NET—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในเวลาไม่กี่วินาที."
 ---
 ## **บทนำ**
 
-แม้ว่าเอฟเฟกต์ใน PowerPoint จะสามารถใช้ทำให้รูปร่างโดดเด่นได้ แต่พวกมันจะแตกต่างจาก [การเติม](/slides/th/net/shape-formatting/#gradient-fill) หรือโครงร่าง การใช้เอฟเฟกต์ของ PowerPoint คุณสามารถสร้างเงาสะท้อนที่น่าเชื่อถือบนรูปร่าง กระจายแสงเรืองรอบของรูปร่าง ฯลฯ
+ในขณะที่เอฟเฟกต์ใน PowerPoint สามารถใช้เพื่อทำให้รูปทรงโดดเด่นขึ้น แต่เอฟเฟกต์จะแตกต่างจาก [การเติม](/slides/th/net/shape-formatting/#gradient-fill) หรือเค้าโครงเส้นขอบ การใช้เอฟเฟกต์ PowerPoint คุณสามารถสร้างการสะท้อนที่น่าเชื่อถือบนรูปทรง กระจายแสงรอบรูปทรง ฯลฯ
 
-![เอฟเฟกต์รูปร่าง](shape-effect.png)
+![เอฟเฟกต์รูปทรง](shape-effect.png)
 
-PowerPoint มีเอฟเฟกต์ทั้งหมดหกแบบที่สามารถใช้กับรูปร่างได้ คุณสามารถใช้หนึ่งหรือหลายเอฟเฟกต์กับรูปร่างหนึ่งรูปได้
+PowerPoint มีเอฟเฟกต์ทั้งหมดหกแบบที่สามารถนำไปใช้กับรูปทรงได้ คุณสามารถนำเอฟเฟกต์หนึ่งหรือหลายแบบไปใช้กับรูปทรงได้
 
-บางการผสมของเอฟเฟกต์ดูดีกว่าการผสมอื่น ๆ ด้วยเหตุนี้ PowerPoint มีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset นั้นโดยพื้นฐานคือการผสมที่ดูดีและเป็นที่รู้จักของสองหรือมากกว่าเอฟเฟกต์ ด้วยวิธีนี้ การเลือก Preset จะทำให้คุณไม่ต้องเสียเวลาทดสอบหรือผสมเอฟเฟกต์ต่าง ๆ เพื่อหาแบบผสมที่ดี
+บางการผสมผสานของเอฟเฟกต์ดูดีกว่าอื่น ๆ ด้วยเหตุนี้ PowerPoint จึงมีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset เป็นการผสมผสานที่ดูดีของเอฟเฟกต์สองแบบหรือมากกว่าที่ทราบกันดี ด้วยวิธีนี้โดยการเลือก Preset คุณจะไม่ต้องเสียเวลาในการทดสอบหรือผสมเอฟเฟกต์ต่าง ๆ เพื่อหาการผสมที่น่าพอใจ
 
-Aspose.Slides ให้คุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) ที่ช่วยให้คุณใช้เอฟเฟกต์เดียวกันกับรูปร่างในงานนำเสนอ PowerPoint
+Aspose.Slides มีคุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) ที่ให้คุณนำเอฟเฟกต์เดียวกันไปใช้กับรูปทรงในงานนำเสนอ PowerPoint
 
 ## **ใช้เอฟเฟกต์เงา**
 
-Aspose.Slides for .NET รองรับเงานอกและเงาภายในสำหรับรูปทร่าง คุณสามารถกำหนดสี ทิศทาง ระยะทาง และรัศมีเบลอร์เพื่อให้สอดคล้องกับการออกแบบงานนำเสนอของคุณ
+Aspose.Slides for .NET รองรับเงานอกและเงาภายในสำหรับรูปทรง คุณสามารถปรับสี, ทิศทาง, ระยะห่างและรัศมีเบลอร์ให้ตรงกับการออกแบบงานนำเสนอของคุณ
 
 ### **ใช้เงานอก**
 
-ใช้เงานอกเพื่อทำให้การ์ดหรือแผงเด่นขึ้นเมื่อเทียบกับพื้นหลังสไลด์ เงาจะขยายออกไปไกลกว่าสมบัติของรูปร่าง สร้างความรู้สึกว่ารูปร่างลอยอยู่เหนือสไลด์ ปรับสี ทิศทาง ระยะทาง และรัศมีเบลอร์ให้ตรงกับแสงและสไตล์ของเทมเพลต
+ใช้เงานอกเพื่อทำให้การ์ดหรือแผงเด่นขึ้นบนพื้นหลังสไลด์ เงาจะขยายออกนอกขอบของรูปทรง ทำให้รูปทรงดูเหมือนลอยเหนือสไลด์ ปรับสี, ทิศทาง, ระยะห่างและรัศมีเบลอร์ให้ตรงกับแสงและสไตล์ของเทมเพลตของคุณ
 
-โค้ด C# นี้แสดงวิธีใช้ [เอฟเฟกต์เงานอก](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) กับสี่เหลี่ยมผืนผ้า:
+โค้ด C# นี้แสดงวิธีการใช้ [outer shadow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) กับสี่เหลี่ยมผืนผ้า:
 
 ```c#
 using System.Drawing;
@@ -59,13 +59,55 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 
 ![เอฟเฟกต์เงา](shadow_effect.png)
 
+#### **ควบคุมทิศทางเงาเมื่อรูปร่างหมุน**
+
+โดยค่าเริ่มต้น [RotateShadowWithShape](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/rotateshadowwithshape/) มีค่าเป็น `true` ทำให้เงาหมุนพร้อมกับรูปทรง เพื่อให้รูปทรงที่มีการหมุนต่างกันดูเหมือนได้รับแสงจากทิศเดียวกัน ให้ตั้งค่าคุณสมบัตินี้เป็น `false` แล้วกำหนด [Direction](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/direction/) ให้เงาเหมือนกัน
+
+ตัวอย่างสร้างลูกศรสองลูกโดยมีเงาสีเทาเลื่อนไปทางขวา (`Direction = 0`) จากนั้นทำสำเนาสไลด์และหมุนลูกศรทั้งสอง 90° ตามเข็มนาฬิกา
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var before = presentation.Slides[0];
+
+var left = before.Shapes.AddAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+left.FillFormat.FillType = FillType.Solid;
+left.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+left.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+left.EffectFormat.EnableOuterShadowEffect();
+var shadow = left.EffectFormat.OuterShadowEffect;
+shadow.ShadowColor.Color = Color.Gray;
+shadow.Direction = 0;
+shadow.Distance = 42;
+shadow.BlurRadius = 0;
+shadow.RotateShadowWithShape = true;
+
+var right = before.Shapes.AddClone(left);
+right.X = 395;
+right.EffectFormat.OuterShadowEffect.RotateShadowWithShape = false;
+
+var after = presentation.Slides.AddClone(before);
+foreach (var arrow in after.Shapes)
+    arrow.Rotation = 90;
+
+presentation.Save("arrow_shadows.pptx", SaveFormat.Pptx);
+```
+
+ในสไลด์ที่สอง ลูกศรซ้ายทำเงาตกลงด้านล่าง ส่วนลูกศรขวายังคงทำเงาไปทางขวา ทิศทางที่ตั้งค่าไว้ยังคงเป็น 0° สำหรับเงาทั้งสอง
+
+![การแสดงผล PowerPoint ก่อนและหลังการหมุน 90°. เงาทั้งสองเริ่มจากขวา หลังการหมุน เงาจะย้ายไปด้านล่างของลูกศรซ้ายและคงอยู่ทางขวาของลูกศรขวา.](arrow-shadow-rotation.png)
+
 ### **ใช้เงาภายใน**
 
-เมื่อทำสำเนาโครงร่างของเทมเพลต ใช้เงาภายในเพื่อให้การ์ดหรือแผงดูเป็นร่องลึก เงานอกขยายออกนอกรูปร่างทำให้ดูลอยขึ้น ส่วนเงาภายในทำให้ขอบภายในเงา
+เมื่อทำซ้ำสไตล์ภาพของเทมเพลต ให้ใช้เงาภายในเพื่อให้การ์ดหรือแผงดูมีลักษณะกดลงภายใน เงานอกจะขยายออกนอกรูปทรงทำให้ดูยกขึ้น ส่วนเงาภายในจะทำให้ขอบภายในรูปทรงมีเงา
 
-เรียก [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) แล้วกำหนดค่า [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/) ค่ามากกว่าจะทำให้ขอบนุ่มขึ้น
+เรียกใช้ [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) แล้วกำหนดค่า [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/) ค่าที่ใหญ่ขึ้นจะทำให้ขอบนุ่มขึ้น
 
-โค้ด C# ตัวอย่างนี้สร้างการ์ดสีฟ้าอ่อนที่มีเงาภายในสีเทาเข้มและบันทึกเป็นไฟล์ PPTX:
+ตัวอย่าง C# นี้สร้างการ์ดสีน้ำเงินอ่อนพร้อมเงาภายในสีเทาเข้มและบันทึกเป็นไฟล์ PPTX:
 
 ```csharp
 using System.Drawing;
@@ -90,15 +132,15 @@ shadow.BlurRadius = 6;
 presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![สี่เหลี่ยมสีน้ำเงินอ่อนที่มีเงาภายใน](inner_shadow_effect.png)
+![สี่เหลี่ยมสีน้ำเงินอ่อนพร้อมเงาภายใน](inner_shadow_effect.png)
 
-หากต้องการลบเงาภายใน ให้เรียก [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) บนรูปแบบเอฟเฟกต์ของรูปร่าง
+หากต้องการลบเงาภายใน ให้เรียกใช้ [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) บนรูปทรงที่มีรูปแบบเอฟเฟกต์
 
-### **ใช้ เปลี่ยน และลบเงา Preset**
+### **ใช้, เปลี่ยนและลบ Preset Shadow**
 
-เรียก [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) แล้วตั้งค่า [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) ให้เป็น [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/) ที่กำหนดไว้ เพื่อสลับสไตล์ ให้เปลี่ยน Preset บนรูปร่างเดียวกัน เรียก [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) เพื่อลบเงาโดยคงการเติมและโครงร่างไว้
+เรียกใช้ [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) แล้วตั้งค่า [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) เป็น [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/) ที่มีชื่อ เพื่อสลับสไตล์ให้เปลี่ยน Preset บนรูปทรงเดียวกัน เรียกใช้ [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) เพื่อเอาเงาออกในขณะที่ยังคงรักษาการเติมและเค้าโครงเส้นขอบไว้
 
-ตัวอย่างนี้เก็บสำเนาของสี่เหลี่ยมในแต่ละขั้นตอน ทั้งสองเงาออฟเซ็ต 10 จุด ทิศทาง 225° จะวางเงาแรกเหนือและทางด้านซ้ายของสี่เหลี่ยม และ 45° จะวางเงาที่สองด้านล่างและทางขวา
+ตัวอย่างนี้เก็บสำเนาของสี่เหลี่ยมในแต่ละขั้นตอน เงาทั้งสองมีการเลื่อน 10 จุด ทิศทาง 225° ทำให้เงาแรกอยู่ด้านบนซ้ายของสี่เหลี่ยม และ 45° ทำให้เงาที่สองอยู่ด้านล่างขวา
 
 ```csharp
 using System.Drawing;
@@ -140,15 +182,15 @@ shape.TextFrame.Text = "No shadow";
 presentation.Save("preset_shadows.pptx", SaveFormat.Pptx);
 ```
 
-| ดั้งเดิม | Preset แรก | Preset ที่สอง | หลังการลบ |
+| ดั้งเดิม | พรีเซ็ตแรก | พรีเซ็ตที่สอง | หลังการลบ |
 | :---: | :---: | :---: | :---: |
-| ![ไม่มีเงา](preset_shadow_original.png) | ![เงาตกซ้ายบน](preset_shadow_top_left.png) | ![เงาตกขวาล่าง](preset_shadow_bottom_right.png) | ![ไม่มีเงาหลังการลบ](preset_shadow_removed.png) |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
 ## **ใช้เอฟเฟกต์การสะท้อน**
 
-เพื่อใช้เอฟเฟกต์การสะท้อนใน Aspose.Slides for .NET คุณสามารถเพิ่มการสะท้อนแบบกระจกเงาให้กับรูปร่างโดยปรับพารามิเตอร์เช่น ระยะ, ความโปร่งแสง, และขนาด เอฟเฟกต์นี้ทำให้การนำเสนอของคุณดูเป็นมืออาชีพและหรูหรามากขึ้น ใช้ง่ายด้วยโค้ดง่าย ๆ ที่ทำให้คุณสามารถประยุกต์ใช้บนหลายองค์ประกอบได้อย่างสม่ำเสมอ
+เพื่อใช้เอฟเฟกต์การสะท้อนใน Aspose.Slides for .NET คุณสามารถเพิ่มการสะท้อนเหมือนกระจกให้กับรูปทรงโดยปรับพารามิเตอร์เช่น ระยะห่าง, ความโปร่งใสและขนาด เอฟเฟกต์นี้ช่วยเพิ่มความสวยงามให้กับงานนำเสนอของคุณโดยทำให้รูปทรงดูเป็นมืออาชีพและหรูหรา สามารถนำไปใช้ได้ง่ายด้วยโค้ดที่เรียบง่าย ทำให้การนำไปใช้กับหลาย ๆ อิลิเมนต์เพื่อการออกแบบที่สม่ำเสมอเป็นเรื่องเร็ว
 
-โค้ด C# นี้แสดงวิธีใช้ [เอฟเฟกต์การสะท้อน](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) กับรูปร่าง:
+โค้ด C# นี้แสดงวิธีการใช้ [reflection effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) กับรูปทรง:
 
 ```c#
 using Aspose.Slides;
@@ -169,11 +211,11 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 
 ![เอฟเฟกต์การสะท้อน](reflection_effect.png)
 
-## **ใช้เอฟเฟกต์เรืองแสง**
+## **ใช้เอฟเฟ็กต์เรืองแสง**
 
-เพื่อใช้เอฟเฟกต์เรืองแสงกับรูปร่างใน Aspose.Slides for .NET คุณสามารถเพิ่มออร่านุ่ม ๆ รอบรูปร่างโดยปรับคุณสมบัติเช่น สีและขนาด เอฟเฟกต์นี้ช่วยให้รูปร่างเด่นขึ้นและเพิ่มความน่าสนใจให้การนำเสนอของคุณ ใช้ง่ายด้วยโค้ดเพียงเล็กน้อยที่ทำให้สไลด์ของคุณดูดีขึ้นอย่างมาก
+เพื่อใช้เอฟเฟ็กต์เรืองแสงกับรูปทรงใน Aspose.Slides for .NET คุณสามารถเพิ่มแสงสว่างอ่อน ๆ รอบ ๆ รูปทรงโดยปรับคุณสมบัติเช่น สีและขนาด เอฟเฟ็กต์นี้ช่วยให้รูปทรงโดดเด่นและเพิ่มองค์ประกอบ視覺ที่ดึงดูดให้กับงานนำเสนอของคุณ ใช้งานได้ง่ายด้วยโค้ดที่สั้น ๆ ทำให้การปรับปรุงรูปลักษณ์ของสไลด์ทั้งหมดเป็นเรื่องง่าย
 
-โค้ด C# นี้แสดงวิธีใช้ [เอฟเฟกต์เรืองแสง](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) กับรูปร่าง:
+โค้ด C# นี้แสดงวิธีการใช้ [glow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) กับรูปทรง:
 
 ```c#
 using System.Drawing;
@@ -191,13 +233,13 @@ shape.EffectFormat.GlowEffect.Radius = 15;
 presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![เอฟเฟกต์เรืองแสง](glow_effect.png)
+![เอฟเฟ็กต์เรืองแสง](glow_effect.png)
 
-## **ใช้เอฟเฟกต์ขอบนุ่ม**
+## **ใช้เอฟเฟ็กต์ขอบนุ่ม**
 
-เพื่อใช้เอฟเฟกต์ขอบนุ่มใน Aspose.Slides for .NET คุณสามารถสร้างการเปลี่ยนแปลงที่นุ่มนวลและเบลอร์รอบขอบของรูปร่าง เอฟเฟกต์นี้ให้ลุคที่ละเอียดอ่อนและกลมกลืน เหมาะสำหรับการออกแบบที่ต้องการลุคอ่อนโยน คุณสามารถปรับพารามิเตอร์เช่น รัศมีได้อย่างง่ายดายเพื่อให้ได้ผลลัพธ์ที่ต้องการในรูปร่างต่าง ๆ ของงานนำเสนอของคุณ
+เพื่อใช้เอฟเฟ็กต์ขอบนุ่มใน Aspose.Slides for .NET คุณสามารถสร้างการเปลี่ยนแปลงที่เรียบและเบลอรอบขอบของรูปทรง เอฟเฟ็กต์นี้เพิ่มลุคที่อ่อนโยนและละเอียดอ่อน เหมาะกับการออกแบบที่ต้องการลุคอ่อนนุ่ม คุณสามารถปรับพารามิเตอร์เช่น รัศมีเพื่อให้ได้เอฟเฟ็กต์ที่ต้องการบนรูปทรงต่าง ๆ ในงานนำเสนอของคุณได้อย่างง่ายดาย
 
-โค้ด C# นี้แสดงวิธีใช้ [ขอบนุ่ม](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) กับรูปร่าง:
+โค้ด C# นี้แสดงวิธีการใช้ [soft edges](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) กับรูปทรง:
 
 ```c#
 using Aspose.Slides;
@@ -213,19 +255,19 @@ shape.EffectFormat.SoftEdgeEffect.Radius = 8;
 presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 ```
 
-![เอฟเฟกต์ขอบนุ่ม](soft_edges_effect.png)
+![เอฟเฟ็กต์ขอบนุ่ม](soft_edges_effect.png)
 
-## **ใช้เอฟเฟกต์เบลอ**
+## **ใช้เอฟเฟ็กต์เบลอ**
 
-ใช้เบลอบนรูปร่างเพื่อทำให้การเติมและโครงร่างของรูปร่างนุ่มขึ้นในขณะที่ยังคงให้รูปทรงสามารถแก้ไขได้ เรียก [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) บนรูปแบบเอฟเฟกต์ของรูปร่าง รัศมีวัดเป็นจุด (1/72 นิ้ว): ใช้ค่าไม่เป็นลบ ค่าใหญ่กว่าจะทำให้เบลอแรงขึ้น รัศมีศูนย์จะไม่เปลี่ยนลุค
+ใช้การเบลอรูปทรงเพื่อทำให้การเติมและเค้าโครงเส้นขอบของรูปทรงนุ่มขึ้นในขณะที่ยังคงให้รูปทรงแก้ไขได้ เรียกใช้ [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) บนรูปแบบเอฟเฟกต์ของรูปทรง รัศมีวัดเป็นจุด (1/72 นิ้ว): ใช้ค่าเป็นจำนวนไม่ลบ โดยค่ายิ่งใหญ่จะทำให้เบลอแรงขึ้น รัศมีศูนย์จะทำให้ลุคไม่เปลี่ยนแปลง
 
-การตั้งค่า [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) ควบคุมขอบแสดงผลของเอฟเฟกต์ เมื่อ `false` เบลอจะถูกตัดให้อยู่ในขอบที่ทาด้วยเดิมรวมถึงโครงร่าง เมื่อ `true` เบลอสามารถขยายเกินขอบนั้นได้ ทั้งสองการตั้งค่าไม่ทำให้ตำแหน่งหรือขนาดของรูปร่างเปลี่ยน
+การตั้งค่า [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) ควบคุมขอบเขตที่มองเห็นของเอฟเฟกต์ ด้วยค่า `false` การเบลอจะถูกตัดให้อยู่ภายในขอบเขตที่วาดไว้รวมถึงเค้าโครงเส้นขอบ ด้วยค่า `true` การเบลอสามารถขยายเกินขอบเขตนั้นได้ การตั้งค่าใด ๆ ก็ไม่เปลี่ยนตำแหน่งหรือขนาดของรูปทรง
 
-การเปรียบเทียบด้านล่างใช้การเติม โครงร่าง และขนาดรูปร่างเดียวกัน ตารางบนใช้ `grow = false`; ตารางล่างใช้ `grow = true`
+การเปรียบเทียบด้านล่างใช้การเติม, เค้าโครงเส้นขอบและขนาดรูปทรงเดียวกันทั่วทั้งตัวอย่าง แถวบนใช้ `grow = false`; แถวล่างใช้ `grow = true`
 
-![สี่เหลี่ยมต้นฉบับที่เปรียบเทียบกับรัศมีเบลอ 5 และ 15 จุด โดยมีการเปิดและปิดการขยาย (grow)](shape_blur_comparison.png)
+![สี่เหลี่ยมดั้งเดิมเปรียบเทียบกับรัศมีการเบลอ 5 และ 15 จุด พร้อม Grow ปิดและเปิด](shape_blur_comparison.png)
 
-โค้ด C# ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มที่มีโครงร่างสีน้ำเงินเข้ม ใช้เบลอ 5 จุด แล้วอัปเดตเป็นเบลอ 15 จุดโดยเรียก [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) อีกครั้ง บันทึกสถานะเบลอทั้งสอง จากนั้นเรียก [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) แล้วบันทึกรูปร่างโดยไม่มีเบลอ
+ตัวอย่าง C# นี้สร้างสี่เหลี่ยมสีส้มพร้อมเค้าโครงเส้นขอบสีน้ำเงินเข้ม ใช้การเบลอ 5 จุด แล้วอัปเดตเป็นการเบลอ 15 จุดโดยเรียกใช้ [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) อีกครั้ง บันทึกทั้งสองสภาวะที่เบลอ แล้วเรียกใช้ [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) และบันทึกรูปทรงที่ไม่มีการเบลอ
 
 ```csharp
 using System.Drawing;
@@ -252,18 +294,18 @@ shape.EffectFormat.DisableBlurEffect();
 presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
 ```
 
-เบลอบนรูปร่างจะทำให้การเติมและโครงร่างคล้ากัน เอฟเฟกต์ขอบนุ่มจะทำให้ขอบรูปร่างจางหาย ในขณะที่เบลอเงาจะทำให้เงานุ่มขึ้นเท่านั้น เอฟเฟกต์การแปลงภาพทำงานบนเนื้อหาภาพ; ตัวอย่างนี้ใช้เบลอโดยตรงบนรูปแบบเอฟเฟกต์ของรูปร่างโดยไม่ต้องแปลงรูปร่างเป็นภาพ
+การเบลอรูปทรงทำให้การเติมและเค้าโครงเส้นขอบเปลี่ยนแปลงพร้อมกัน เอฟเฟ็กต์ขอบนุ่มทำให้ขอบรูปทรงจางหายไป ในขณะที่การเบลอเงาจะทำให้เงาเท่านั้นเบลอ เอฟเฟ็กต์การแปลงภาพทำงานบนเนื้อหาภาพ; ตัวอย่างนี้ใช้การเบลอโดยตรงบนรูปแบบเอฟเฟกต์ของรูปทรงโดยไม่ต้องแปลงรูปทรงเป็นภาพ
 
 ## **FAQ**
 
-**ฉันสามารถใช้เอฟเฟกต์หลายอย่างกับรูปร่างเดียวกันได้ไหม?**
+**ฉันสามารถใช้หลายเอฟเฟกต์กับรูปทรงเดียวกันได้หรือไม่?**
 
-ใช่ คุณสามารถผสมเอฟเฟกต์ต่าง ๆ เช่น เงา การสะท้อน และเรืองแสงบนรูปร่างเดียวเพื่อสร้างลุคที่ไดนามิกมากขึ้น
+ใช่ คุณสามารถรวมเอฟเฟกต์ต่าง ๆ เช่น เงา, การสะท้อนและเรืองแสงไว้บนรูปทรงเดียวเพื่อสร้างลุคที่มีความเคลื่อนไหวมากขึ้น
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปร่างใดได้บ้าง?**
+**ฉันสามารถใช้เอฟเฟกต์กับรูปทรงประเภทใดได้บ้าง?**
 
-คุณสามารถใช้เอฟเฟกต์กับรูปร่างหลายประเภท รวมถึงออโต้ชิป, แผนภูมิ, ตาราง, รูปภาพ, วัตถุ SmartArt, วัตถุ OLE และอื่น ๆ
+คุณสามารถใช้เอฟเฟกต์กับรูปทรงหลากหลายประเภท รวมถึงรูปอัตโนมัติ, แผนภูมิ, ตาราง, รูปภาพ, วัตถุ SmartArt, วัตถุ OLE และอื่น ๆ
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปร่างที่จัดกลุ่มได้ไหม?**
+**ฉันสามารถใช้เอฟเฟกต์กับรูปทรงที่จัดกลุ่มไว้ได้หรือไม่?**
 
-ได้ คุณสามารถใช้เอฟเฟกต์กับรูปร่างที่จัดกลุ่มได้ เอฟเฟกต์จะถูกนำไปใช้กับกลุ่มทั้งหมด
+ได้ คุณสามารถใช้เอฟเฟกต์กับรูปทรงที่จัดกลุ่มไว้ได้ เอฟเฟกต์จะถูกนำไปใช้กับกลุ่มทั้งหมด.

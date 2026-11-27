@@ -8,37 +8,38 @@ keywords:
 - シェイプ効果
 - 影効果
 - 反射効果
-- グロー効果
+- 光彩効果
 - ソフトエッジ効果
-- 効果フォーマット
+- エフェクト フォーマット
 - PowerPoint
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java を使用して高度なシェイプ効果で PPT および PPTX ファイルを変換し、数秒で印象的でプロフェッショナルなスライドを作成します。"
+description: "Aspose.Slides for Android via Java を使用して、PPT と PPTX ファイルに高度なシェイプ効果を適用し、数秒で印象的でプロフェッショナルなスライドを作成します。"
 ---
-## **紹介**
+## **イントロダクション**
 
-PowerPoint の効果は図形を際立たせるために使用できますが、[塗りつぶし](/slides/ja/androidjava/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPoint の効果を使用すると、図形に説得力のある反射を作成したり、図形のグローを広げたりすることができます。
+PowerPoint のエフェクトは図形を目立たせるために使用できますが、[塗りつぶし](/slides/ja/androidjava/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPoint のエフェクトを使用すると、図形にリアルな反射を付けたり、図形の光彩を広げたりすることができます。
 
-![影効果](shape-effect.png)
+![形状エフェクト](shape-effect.png)
 
-PowerPoint には図形に適用できる 6 つの効果が用意されています。1 つまたは複数の効果を図形に適用できます。
+PowerPoint には図形に適用できる 6 種類のエフェクトが用意されています。1 つまたは複数のエフェクトを図形に適用できます。
 
-効果の組み合わせの中には、他よりも見栄えが良いものがあります。そのため、PowerPoint は **Preset** の下にオプションを提供しています。Preset オプションは、見栄えが良いと分かっている 2 つ以上の効果の組み合わせです。このように、プリセットを選択すれば、異なる効果を試したり組み合わせたりして良い組み合わせを見つける時間を無駄にする必要がありません。
+エフェクトの組み合わせによって見栄えが異なります。そのため、PowerPoint では **プリセット** オプションが用意されています。プリセットは、見栄えが良いと判明している 2 つ以上のエフェクトの組み合わせです。プリセットを選択すれば、さまざまなエフェクトを試したり組み合わせたりして最適な組み合わせを探す手間が省けます。
 
-Aspose.Slides は、PowerPoint プレゼンテーションの図形に同じ効果を適用できるように、[EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) クラスのプロパティとメソッドを提供しています。
+Aspose.Slides は、[EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) クラスのプロパティとメソッドを提供しており、PowerPoint プレゼンテーションの図形に同じエフェクトを適用できます。
 
-## **影効果の適用**
+## **影エフェクトの適用**
 
-Aspose.Slides for Android via Java は、図形に対して外側と内側の影をサポートしています。影の色、方向、距離、ぼかし半径をカスタマイズして、プレゼンテーションのデザインに合わせることができます。
+Aspose.Slides for Android via Java は、図形に対して外側影と内側影の両方をサポートします。色、方向、距離、ぼかし半径をカスタマイズして、プレゼンテーションのデザインに合わせることができます。
 
-### **外側の影の適用**
+### **外側影の適用**
 
-外側の影を使用して、カードやパネルをスライドの背景から際立たせます。影は図形のエッジの外側に広がり、図形がスライド上に持ち上げられたように見せます。色、方向、距離、ぼかし半径を調整して、テンプレートの照明やスタイルに合わせます。
+外側影を使用すると、カードやパネルがスライドの背景から際立ちます。影は図形の端の外側に広がり、図形がスライド上に浮き上がっているように見せます。色、方向、距離、ぼかし半径を調整して、テンプレートの照明やスタイルに合わせてください。
 
-この Java コードは、長方形に [外側影効果](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) を適用する方法を示しています：
+この Java コードは、矩形に[外側の影エフェクト](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) を適用する方法を示しています。
+
 ```java
 import com.aspose.slides.*;
 import android.graphics.Color;
@@ -59,15 +60,62 @@ try {
 }
 ```
 
-![影効果](shadow_effect.png)
+![影エフェクト](shadow_effect.png)
 
-### **内側の影の適用**
+#### **図形の回転時に影の方向を制御する**
 
-テンプレートのビジュアルスタイルを再現する際は、カードやパネルに凹んだ外観を与えるために内側の影を使用します。外側の影は図形の外側に広がり、持ち上げられたように見せますが、内側の影はエッジの内部を陰影付けします。
+既定では、外側影は図形とともに回転します。異なる回転角度の図形でも同じ方向から光が当たっているように見せたい場合は、`false` を指定して [setRotateShadowWithShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioutershadow/#setRotateShadowWithShape-boolean-) を呼び出し、[setDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioutershadow/#setDirection-float-) で同一方向を設定します。
 
-[enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--) を呼び出し、次に [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--) が返す影を設定します。ぼかし半径の値が大きいほど、エッジが柔らかくなります。
+この例では、左に 42 ポイントオフセットした灰色の影を持つ青い矢印を 2 本作成します (0°)。次にスライドを複製し、両方の矢印を時計回りに 90° 回転させます。
 
-この Java の例は、明るい青色のカードに濃い灰色の内側の影を付け、PPTX ファイルとして保存します。影の方向は 225 度、距離は 7 ポイント、ぼかし半径は 6 ポイントです：
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide before = presentation.getSlides().get_Item(0);
+
+    IAutoShape left = before.getShapes().addAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(FillType.Solid);
+    left.getFillFormat().getSolidFillColor().setColor(Color.rgb(70, 130, 180));
+    left.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    IOuterShadow shadow = left.getEffectFormat().getOuterShadowEffect();
+    shadow.getShadowColor().setColor(Color.rgb(128, 128, 128));
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    IShape right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    ISlide after = presentation.getSlides().addClone(before);
+    for (IShape arrow : after.getShapes()) {
+        arrow.setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+2 番目のスライドでは、左側の矢印の影は下向きに、右側の矢印の影は右向きのままです。設定された方向は両方の影で 0° のままです。
+
+![PowerPoint の 90° 回転前後のレンダリング。両方の影は右側から開始し、回転後は左矢印の下に、右矢印の右側に残ります。](arrow-shadow-rotation.png)
+
+### **内側影の適用**
+
+テンプレートのビジュアルスタイルを再現する場合は、内側影を使用してカードやパネルに凹んだ外観を付けます。外側影は図形の外側に広がり浮き上がって見えるのに対し、内側影は図形のエッジ内部をシェーディングします。
+
+[enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--) を呼び出し、[getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--) が返す影を設定します。ぼかし半径の値が大きいほど、エッジは柔らかくなります。
+
+この Java の例は、淡い青色のカードに濃い灰色の内側影を付け、PPTX ファイルとして保存します。影の方向は 225 度、距離は 7 ポイント、ぼかし半径は 6 ポイントです。
+
 ```java
 import com.aspose.slides.*;
 import android.graphics.Color;
@@ -94,15 +142,16 @@ try {
 }
 ```
 
-![内側の影付きライトブルー長方形](inner_shadow_effect.png)
+![内側影付きの淡い青色矩形](inner_shadow_effect.png)
 
-内側の影を削除するには、図形の effect format で [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) を呼び出します。
+内側影を削除するには、図形のエフェクト フォーマットで [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) を呼び出します。
 
-### **プリセット影の適用、変更、削除**
+### **プリセット影の適用・変更・削除**
 
-[enablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) を呼び出し、[setPreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresetshadow/#setPreset-int-) を使用して [PresetShadowType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presetshadowtype/) を選択します。同じ図形でスタイルを切り替えるには、プリセットを変更します。[disablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) を呼び出すと、塗りつぶしとアウトラインを保持したまま影を削除できます。
+[enablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) を呼び出し、[setPreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresetshadow/#setPreset-int-) で [PresetShadowType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presetshadowtype/) を選択します。同じ図形上でスタイルを切り替えるには、プリセットを変更します。影を削除して塗りつぶしとアウトラインは保持したい場合は、[disablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) を呼び出します。
 
-この例は、1 つのスライド上に 4 つの段階を横に並べて示しています。両方の影は 10 ポイントオフセットされています。方向が 225° の場合、最初の影は長方形の上部左側に配置され、45° の場合、2 番目の影は下部右側に配置されます。
+この例は、1 枚のスライド上で 4 段階を横並びで示しています。両方の影は 10 ポイントオフセットされています。方向 225° は最初の影を矩形の左上に配置し、45° は 2 番目の影を右下に配置します。
+
 ```java
 import com.aspose.slides.*;
 import android.graphics.Color;
@@ -146,15 +195,16 @@ try {
 }
 ```
 
-| オリジナル | 最初のプリセット | 2 番目のプリセット | 削除後 |
+| オリジナル | 最初のプリセット | 2番目のプリセット | 削除後 |
 | :---: | :---: | :---: | :---: |
-| ![影なし](preset_shadow_original.png) | ![左上ドロップシャドウ](preset_shadow_top_left.png) | ![右下ドロップシャドウ](preset_shadow_bottom_right.png) | ![削除後の影なし](preset_shadow_removed.png) |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
-## **反射効果の適用**
+## **反射エフェクトの適用**
 
-Aspose.Slides for Android via Java で反射効果を適用するには、図形に鏡のような反射を追加し、距離、透明度、サイズなどのパラメータを調整できます。この効果は、図形により洗練された外観を与えることでプレゼンテーションの美観を向上させます。シンプルなコードで簡単に実装でき、複数の要素に素早く適用してデザインの一貫性を保てます。
+Aspose.Slides for Android via Java で反射エフェクトを適用するには、図形に鏡面のような反射を加え、距離、透明度、サイズなどのパラメーターを調整します。このエフェクトは、図形に洗練された外観を与え、プレゼンテーションの美しさを向上させます。シンプルなコードで簡単に実装でき、複数の要素に一貫したデザインをすばやく適用できます。
 
-この Java コードは、図形に [反射効果](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) を適用する方法を示しています：
+この Java コードは、図形に[反射エフェクト](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) を適用する方法を示しています。
+
 ```java
 import com.aspose.slides.*;
 
@@ -175,13 +225,14 @@ try {
 }
 ```
 
-![反射効果](reflection_effect.png)
+![反射エフェクト](reflection_effect.png)
 
-## **グロー効果の適用**
+## **光彩エフェクトの適用**
 
-Aspose.Slides for Android via Java で図形にグロー効果を適用するには、色やサイズなどのプロパティを調整しながら、図形の周囲に柔らかく光るオーラを追加できます。この効果は図形を際立たせ、プレゼンテーションに魅力的で目を引くビジュアル要素を加えます。最小限のコードで簡単に実装でき、スライド全体の外観を向上させます。
+Aspose.Slides for Android via Java で光彩エフェクトを適用するには、図形の周囲に柔らかな光のオーラを加え、色やサイズなどのプロパティを調整します。このエフェクトは図形を際立たせ、プレゼンテーションに目を引くビジュアル要素を追加します。最小限のコードで実装でき、スライド全体の外観を向上させます。
 
-この Java コードは、図形に [グロー効果](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) を適用する方法を示しています：
+この Java コードは、図形に[光彩エフェクト](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) を適用する方法を示しています。
+
 ```java
 import com.aspose.slides.*;
 import android.graphics.Color;
@@ -201,13 +252,14 @@ try {
 }
 ```
 
-![グロー効果](glow_effect.png)
+![光彩エフェクト](glow_effect.png)
 
-## **ソフトエッジ効果の適用**
+## **ソフトエッジエフェクトの適用**
 
-Aspose.Slides for Android via Java でソフトエッジ効果を適用すると、図形のエッジ周辺に滑らかでぼやけた遷移を作成できます。この効果は、より繊細で洗練された外観を加え、やわらかい外観が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまな図形に期待どおりの効果を得られます。
+Aspose.Slides for Android via Java でソフトエッジエフェクトを適用するには、図形のエッジ周辺に滑らかでぼやけた遷移を作り出します。このエフェクトは、より繊細で洗練された外観を与え、柔らかい印象が必要なデザインに最適です。半径などのパラメーターを簡単に調整して、プレゼンテーション内のさまざまな図形に希望の効果を実現できます。
 
-この Java コードは、図形に [ソフトエッジ効果](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) を適用する方法を示しています：
+この Java コードは、図形に[ソフトエッジエフェクト](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) を適用する方法を示しています。
+
 ```java
 import com.aspose.slides.*;
 
@@ -225,19 +277,20 @@ try {
 }
 ```
 
-![ソフトエッジ効果](soft_edges_effect.png)
+![ソフトエッジエフェクト](soft_edges_effect.png)
 
-## **ぼかし効果の適用**
+## **ぼかしエフェクトの適用**
 
-形状のぼかしを使用すると、図形の塗りつぶしとアウトラインを柔らかくしながら、図形は編集可能なままにできます。図形の effect format で [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) を呼び出します。半径はポイント単位（1/72 インチ）で測定され、非負の値を使用し、値が大きいほど強いぼかしになります。半径が 0 の場合、外観は変わりません。
+形状のぼかしを使用すると、図形の塗りつぶしとアウトラインをソフトにしながら、図形自体は編集可能なままにできます。図形のエフェクト フォーマットで [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) を呼び出します。半径はポイント (1/72 インチ) 単位で測定し、負の値は使用できません。数値が大きいほどぼかしが強くなります。半径を 0 に設定すると外観は変わりません。
 
-[getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) 設定は、効果の可視境界を制御します。`false` の場合、ぼかしは元の描画境界（アウトラインを含む）にクリップされます。`true` の場合、ぼかしはその境界を超えて広がることができます。どちらの設定も図形の位置やサイズは変更しません。
+[getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) 設定はエフェクトの可視領域を制御します。`false` の場合、ぼかしは元の塗りつぶし領域（アウトラインを含む）にクリップされます。`true` の場合、ぼかしはその領域を超えて伸びることができます。どちらの設定も図形の位置やサイズは変更しません。
 
-以下の比較では、同じ塗りつぶし、アウトライン、図形サイズを使用しています。上段は `grow = false`、下段は `grow = true` を使用しています。
+以下の比較は、同じ塗りつぶし、アウトライン、図形サイズを使用しています。上段は `grow = false`、下段は `grow = true` です。
 
-![ぼかし半径 5 と 15 ポイント、grow 無効/有効 の比較](shape_blur_comparison.png)
+![元の矩形とぼかし半径 5 ポイント・15 ポイントの比較、grow 無効・有効](shape_blur_comparison.png)
 
-この Java の例は、オレンジ色の長方形に濃い青のアウトラインを付け、5 ポイントのぼかしを適用し、次に [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) を再び呼び出して 15 ポイントのぼかしに更新します。両方のぼかし状態を保存し、その後 [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) を呼び出してぼかしなしで図形を保存します。
+この Java の例は、オレンジ色の矩形に濃い青のアウトラインを付け、5 ポイントのぼかしを適用し、続いて [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) を再度呼び出して 15 ポイントに更新します。両方のぼかし状態を保存した後、[disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) を呼び出してぼかしなしの図形を保存します。
+
 ```java
 import com.aspose.slides.*;
 import android.graphics.Color;
@@ -266,18 +319,18 @@ try {
 }
 ```
 
-形状のぼかしは塗りつぶしとアウトラインの両方に影響します。ソフトエッジ効果は図形のエッジをフェードさせますが、影のぼかしは影だけを柔らかくします。画像変換効果は画像コンテンツに対して動作しますが、この例では図形を画像に変換せずに、直接図形の effect format にぼかしを適用しています。
+形状のぼかしは塗りつぶしとアウトラインの両方に影響します。ソフトエッジエフェクトは図形のエッジをフェードさせ、影のぼかしは影だけを柔らかくします。画像変換エフェクトは画像コンテンツに作用しますが、この例は図形を画像に変換せず、直接図形のエフェクト フォーマットにぼかしを適用しています。
 
-## **よくある質問**
+## **FAQ**
 
-**同じ図形に複数の効果を適用できますか？**
+**同じ図形に複数のエフェクトを適用できますか？**
 
-はい、影、反射、グローなどの異なる効果を組み合わせて、単一の図形に適用し、より動的な外観を作成できます。
+はい。影、反射、光彩などの異なるエフェクトを組み合わせて、1 つの図形に対してより動的な外観を作成できます。
 
-**どのような図形に効果を適用できますか？**
+**どのような図形にエフェクトを適用できますか？**
 
-自動図形、チャート、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまな図形に効果を適用できます。
+自動図形、グラフ、表、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまな図形にエフェクトを適用できます。
 
-**グループ化された図形に効果を適用できますか？**
+**グループ化された図形にエフェクトを適用できますか？**
 
-はい、グループ化された図形に効果を適用できます。効果はグループ全体に適用されます。
+はい。グループ化された図形全体にエフェクトが適用されます。

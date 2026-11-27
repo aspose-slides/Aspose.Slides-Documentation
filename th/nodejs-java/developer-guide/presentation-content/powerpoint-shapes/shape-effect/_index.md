@@ -1,44 +1,44 @@
 ---
-title: ประยุกต์ใช้เอฟเฟกต์รูปทรงในงานนำเสนอด้วย JavaScript
-linktitle: เอฟเฟกต์รูปทรง
+title: ใช้เอฟเฟกต์รูปร่างในงานนำเสนอด้วย JavaScript
+linktitle: เอฟเฟกต์รูปร่าง
 type: docs
 weight: 30
 url: /th/nodejs-java/shape-effect/
 keywords:
-- เอฟเฟกต์รูปทรง
+- เอฟเฟกต์รูปร่าง
 - เอฟเฟกต์เงา
 - เอฟเฟกต์การสะท้อน
-- เอฟเฟกต์เรืองแสง
-- เอฟเฟกต์ขอบนุ่ม
+- เอฟเฟกต์แสงเรือง
+- เอฟเฟกต์ขอบอ่อน
 - รูปแบบเอฟเฟกต์
 - PowerPoint
 - งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟกต์รูปทรงขั้นสูงโดยใช้ JavaScript และ Aspose.Slides สำหรับ Node.js—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในไม่กี่วินาที."
+description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟกต์รูปร่างขั้นสูงโดยใช้ JavaScript และ Aspose.Slides สำหรับ Node.js—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในไม่กี่วินาที."
 ---
 ## **บทนำ**
 
-ในขณะที่เอฟเฟกต์ใน PowerPoint สามารถใช้เพื่อทำให้รูปร่างเด่นขึ้น พวกมันต่างจาก [การเติม](/slides/th/nodejs-java/shape-formatting/#gradient-fill) หรือเส้นขอบ การใช้เอฟเฟกต์ PowerPoint คุณสามารถสร้างการสะท้อนที่น่าเชื่อถือบนรูปร่าง กระจายแสงออร่าของรูปร่าง ฯลฯ
+ขณะที่เอฟเฟกต์ใน PowerPoint สามารถใช้เพื่อทำให้รูปร่างโดดเด่นได้ แต่พวกมันจะแตกต่างจาก [การเติม](/slides/th/nodejs-java/shape-formatting/#gradient-fill) หรือเส้นขอบ การใช้เอฟเฟกต์ใน PowerPoint คุณสามารถสร้างการสะท้อนที่ดูสมจริงบนรูปร่าง แพร่กระจายแสงเรืองของรูปร่าง ฯลฯ
 
-![เอฟเฟกต์รูปทรง](shape-effect.png)
+![เอฟเฟกต์รูปร่าง](shape-effect.png)
 
-PowerPoint มีเอฟเฟกต์ทั้งหมดหกแบบที่สามารถใช้กับรูปร่างได้ คุณสามารถใช้หนึ่งหรือหลายเอฟเฟกต์กับรูปร่างได้
+PowerPoint มีเอฟเฟกต์หกประเภทที่สามารถใช้กับรูปร่างได้ คุณสามารถใช้หนึ่งหรือหลายเอฟเฟกต์กับรูปร่างได้
 
-บางการผสมของเอฟเฟกต์ดูดีขึ้นกว่าการผสมอื่น ๆ ด้วยเหตุผลนี้ PowerPoint มีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset เป็นการผสมของสองหรือมากกว่าเอฟเฟกต์ที่รู้ว่าดูดี ด้วยวิธีนี้โดยการเลือก Preset คุณจะไม่ต้องเสียเวลาทดสอบหรือผสมเอฟเฟกต์ต่าง ๆ เพื่อค้นหาการผสมที่ดี
+บางการผสมผสานของเอฟเฟกต์ดูดีกว่าการผสมอื่น ๆ ด้วยเหตุนี้ PowerPoint จึงมีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset เป็นการผสมผสานของสองหรือมากกว่าเอฟเฟกต์ที่ทราบว่าดูดี วิธีนี้โดยการเลือก Preset คุณจะไม่ต้องเสียเวลาทดลองหรือผสมเอฟเฟกต์ต่าง ๆ เพื่อค้นหาการผสมที่เหมาะสม
 
-Aspose.Slides มีคุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) ที่ช่วยให้คุณสามารถใช้เอฟเฟกต์เดียวกันกับรูปร่างในงานนำเสนอ PowerPoint
+Aspose.Slides มีคุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) ที่ช่วยให้คุณสามารถใช้เอฟเฟกต์เดียวกันกับรูปร่างในงานนำเสนอ PowerPoint ได้
 
 ## **ใช้เอฟเฟกต์เงา**
 
-Aspose.Slides for Node.js via Java รองรับเงานอกและเงาภายในสำหรับรูปร่าง คุณสามารถปรับแต่งสี ทิศทาง ระยะทาง และรัศมีเบลอร์ให้ตรงกับการออกแบบงานนำเสนอของคุณ
+Aspose.Slides for Node.js via Java รองรับเงานอกและเงาภายในสำหรับรูปร่าง คุณสามารถปรับสี ทิศทาง ระยะทางและรัศมีเบลอร์ให้ตรงกับการออกแบบงานนำเสนอของคุณ
 
 ### **ใช้เงานอก**
 
-ใช้เงานอกเพื่อทำให้การ์ดหรือพาเนลเด่นขึ้นเหนือพื้นหลังของสไลด์ เงาจะขยายออกนอกขอบของรูปร่าง สร้างความรู้สึกว่ารูปร่างลอยขึ้นเหนือสไลด์ ปรับสี ทิศทาง ระยะทาง และรัศมีเบลอร์ให้ตรงกับแสงและสไตล์ของเทมเพลตของคุณ
+ใช้เงานอกเพื่อทำให้การ์ดหรือแผงเด่นขึ้นจากพื้นหลังของสไลด์ เงาจะขยายออกนอกขอบของรูปร่าง สร้างความรู้สึกว่ารูปร่างลอยขึ้นเหนือสไลด์ ปรับสี ทิศทาง ระยะทางและรัศมีเบลอร์ให้ตรงกับการจัดแสงและสไตล์ของเทมเพลตของคุณ
 
-This JavaScript code shows how to apply the [เอฟเฟกต์เงานอก](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) to a rectangle:
+โค้ด JavaScript นี้แสดงวิธีการใช้ [เอฟเฟกต์เงานอก](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) กับสี่เหลี่ยมผืนผ้า:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -63,13 +63,62 @@ try {
 
 ![เอฟเฟกต์เงา](shadow_effect.png)
 
+#### **ควบคุมทิศทางเงาเมื่อรูปร่างหมุน**
+
+โดยค่าเริ่มต้น เงานอกจะหมุนตามรูปร่าง เพื่อให้รูปร่างที่หันต่างกันดูเหมือนถูกส่องแสงจากทิศทางเดียวกัน ให้เรียก [setRotateShadowWithShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setRotateShadowWithShape) ด้วยค่า `false` แล้วใช้ [setDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setDirection) เพื่อกำหนดทิศทางเดียวกันให้กับเงา
+
+ตัวอย่างสร้างลูกศรสีน้ำเงินสองลูกพร้อมเงาสีเทาที่เลื่อน 42 จุดไปทางขวา (0°) จากนั้นทำสำเนาสไลด์และหมุนลูกศรทั้งสอง 90° ตามเข็มนาฬิกา
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const before = presentation.getSlides().get_Item(0);
+    
+    const left = before.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    left.getFillFormat().getSolidFillColor().setColor(fillColor);
+    left.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    const shadow = left.getEffectFormat().getOuterShadowEffect();
+    const shadowColor = java.getStaticFieldValue("java.awt.Color", "GRAY");
+    shadow.getShadowColor().setColor(shadowColor);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    const right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    const after = presentation.getSlides().addClone(before);
+    const arrows = after.getShapes();
+    for (let i = 0; i < arrows.size(); i++) {
+        arrows.get_Item(i).setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+บนสไลด์ที่สอง ลูกศรด้านซ้ายทำเงาตกลงด้านล่าง ในขณะที่ลูกศรด้านขวายังคงทำเงาไปทางขวา ทิศทางที่กำหนดยังคงเป็น 0° สำหรับเงาทั้งสอง
+
+![การเรนเดอร์ PowerPoint ก่อนและหลังการหมุน 90° ทั้งสองเงาเริ่มจากด้านขวา หลังจากหมุน เงาจะย้ายไปด้านล่างของลูกศรซ้ายและคงอยู่ทางขวาของลูกศรขวา](arrow-shadow-rotation.png)
+
 ### **ใช้เงาภายใน**
 
-เมื่อทำซ้ำสไตล์การออกแบบของเทมเพลต ให้ใช้เงาภายในเพื่อให้การ์ดหรือพาเนลดูดิ่งลง เงานอกขยายออกนอกรูปร่างและทำให้ดูลอยขึ้น ในขณะที่เงาภายในทำให้ขอบด้านในของรูปร่างดูมืดลง
+เมื่อทำตามสไตล์การออกแบบของเทมเพลต ให้ใช้เงาภายในเพื่อให้การ์ดหรือแผงดูเหมือนถูกฝังลงไป เงานอกจะขยายออกนอกรูปร่างทำให้ดูยกขึ้น ในขณะที่เงาภายในจะทำให้ขอบภายในของรูปร่างมืดลง
 
-Call [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect), then configure the shadow returned by [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Larger blur radius values produce softer edges.
+เรียก [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect) แล้วกำหนดค่าเงาที่ได้จาก [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect) ค่าเบลอร์ที่ใหญ่ขึ้นจะให้ขอบที่นุ่มนวลกว่า
 
-This JavaScript example creates a light blue card with a dark gray inner shadow and saves it as a PPTX file. The shadow direction is 225 degrees, its distance is 7 points, and its blur radius is 6 points:
+ตัวอย่าง JavaScript นี้สร้างการ์ดสีฟ้าอ่อนพร้อมเงาภายในสีเทาเข้มและบันทึกเป็นไฟล์ PPTX ทิศทางของเงาคือ 225 องศา ระยะทาง 7 จุด และรัศมีเบลอร์ 6 จุด:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,15 +148,15 @@ try {
 }
 ```
 
-![สี่เหลี่ยมสีน้ำเงินอ่อนกับเงาภายใน](inner_shadow_effect.png)
+![สี่เหลี่ยมสีฟ้าอ่อนพร้อมเงาภายใน](inner_shadow_effect.png)
 
-To remove the inner shadow, call [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) on the shape's effect format.
+เพื่อเอาเงาภายในออก ให้เรียก [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) บนรูปแบบเอฟเฟกต์ของรูปร่าง
 
-### **ใช้, เปลี่ยนและลบเงา Preset**
+### **ใช้ เปลี่ยน และลบ Preset Shadow**
 
-Call [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) and use [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) to select a [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). To switch styles, change the preset on the same shape. Call [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) to remove the shadow while preserving the fill and outline.
+เรียก [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) แล้วใช้ [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) เพื่อเลือก [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/) หากต้องการสลับสไตล์ ให้เปลี่ยน Preset บนรูปร่างเดียวกัน แล้วเรียก [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) เพื่อลบเงาโดยคงการเติมและเส้นขอบไว้
 
-This example shows four stages side by side on one slide. Both shadows are offset by 10 points. A direction of 225° places the first shadow above and to the left of the rectangle, and 45° places the second below and to the right.
+ตัวอย่างนี้แสดงสี่ขั้นตอนเคียงข้างบนสไลด์เดียว ทั้งสองเงาเลื่อน 10 จุด ทิศทาง 225° จะทำให้เงาแรกอยู่ด้านบนซ้ายของสี่เหลี่ยม และ 45° จะทำให้เงาที่สองอยู่ด้านล่างขวา
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -154,15 +203,15 @@ try {
 }
 ```
 
-| ต้นฉบับ | Preset แรก | Preset ที่สอง | หลังการลบ |
+| ดั้งเดิม | Preset แรก | Preset ที่สอง | หลังการลบ |
 | :---: | :---: | :---: | :---: |
-| ![ไม่มีเงา](preset_shadow_original.png) | ![เงาตกซ้ายบน](preset_shadow_top_left.png) | ![เงาตกขวาล่าง](preset_shadow_bottom_right.png) | ![ไม่มีเงาหลังการลบ](preset_shadow_removed.png) |
+| ![ไม่มีเงา](preset_shadow_original.png) | ![เงาลดลงซ้ายบน](preset_shadow_top_left.png) | ![เงาลดลงขวาล่าง](preset_shadow_bottom_right.png) | ![ไม่มีเงาหลังการลบ](preset_shadow_removed.png) |
 
 ## **ใช้เอฟเฟกต์การสะท้อน**
 
-เพื่อใช้เอฟเฟกต์การสะท้อนใน Aspose.Slides for Node.js via Java คุณสามารถเพิ่มการสะท้อนเหมือนกระจกให้กับรูปร่าง ปรับพารามิเตอร์เช่น ระยะทาง ความโปร่งแสง และขนาด เอฟเฟกต์นี้ช่วยยกระดับความสวยงามของงานนำเสนอโดยทำให้รูปร่างดูขัดเกลาและเป็นมืออาชีพยิ่งขึ้น ใช้งานง่ายด้วยโค้ดไม่กี่บรรทัด ทำให้สามารถนำไปใช้กับหลายองค์ประกอบได้อย่างรวดเร็วเพื่อให้การออกแบบสอดคล้องกัน
+เพื่อใช้เอฟเฟกต์การสะท้อนใน Aspose.Slides for Node.js via Java คุณสามารถเพิ่มการสะท้อนคล้ายกระจกให้กับรูปร่างโดยปรับพารามิเตอร์เช่น ระยะทาง ความโปร่งใส และขนาด เอฟเฟกต์นี้ช่วยเสริมความสวยงามของงานนำเสนอโดยให้รูปร่างดูเป็นมืออาชีพและหรูหรามากขึ้น ใช้ง่ายด้วยโค้ดง่าย ๆ ทำให้สามารถนำไปใช้กับหลายองค์ประกอบเพื่อการออกแบบที่สอดคล้อง
 
-This JavaScript code shows how to apply the [เอฟเฟกต์การสะท้อน](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) to a shape:
+โค้ด JavaScript นี้แสดงวิธีการใช้ [เอฟเฟกต์การสะท้อน](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) กับรูปร่าง:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -187,11 +236,11 @@ try {
 
 ![เอฟเฟกต์การสะท้อน](reflection_effect.png)
 
-## **ใช้เอฟเฟกต์เรืองแสง**
+## **ใช้เอฟเฟกต์แสงเรือง**
 
-เพื่อใช้เอฟเฟกต์เรืองแสงกับรูปร่างใน Aspose.Slides for Node.js via Java คุณสามารถเพิ่มออร่าที่นุ่มนวลรอบรูปร่าง ปรับคุณสมบัติเช่น สีและขนาด เอฟเฟกต์นี้ช่วยให้รูปร่างโดดเด่นและเพิ่มองค์ประกอบที่ดึงดูดสายตาให้กับงานนำเสนอของคุณ ใช้งานง่ายด้วยโค้ดเพียงเล็กน้อย ทำให้สไลด์ดูสวยงามยิ่งขึ้น
+เพื่อใช้เอฟเฟกต์แสงเรืองกับรูปร่างใน Aspose.Slides for Node.js via Java คุณสามารถเพิ่มออร่าอ่อน ๆ ที่ส่องแสงรอบรูปร่างโดยปรับคุณสมบัติเช่น สีและขนาด เอฟเฟกต์นี้ช่วยทำให้รูปร่างโดดเด่นและเพิ่มความน่าสนใจให้กับการนำเสนอของคุณ ใช้ง่ายด้วยโค้ดสั้น ๆ ทำให้สไลด์ของคุณดูสวยงามยิ่งขึ้น
 
-This JavaScript code shows how to apply the [เอฟเฟกต์เรืองแสง](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) to a shape:
+โค้ด JavaScript นี้แสดงวิธีการใช้ [เอฟเฟกต์แสงเรือง](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) กับรูปร่าง:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -213,13 +262,13 @@ try {
 }
 ```
 
-![เอฟเฟกต์เรืองแสง](glow_effect.png)
+![เอฟเฟกต์แสงเรือง](glow_effect.png)
 
-## **ใช้เอฟเฟกต์ขอบนุ่ม**
+## **ใช้เอฟเฟกต์ขอบอ่อน**
 
-เพื่อใช้เอฟเฟกต์ขอบนุ่มใน Aspose.Slides for Node.js via Java คุณสามารถสร้างการเปลี่ยนแปลงที่เรียบและเบลอรอบขอบของรูปร่าง เอฟเฟกต์นี้ให้ลุคที่ละเอียดอ่อนและเป็นมืออาชีพ เหมาะกับการออกแบบที่ต้องการความอ่อนโยน คุณสามารถปรับพารามิเตอร์เช่น รัศมีเพื่อให้ได้ผลลัพธ์ตามต้องการในรูปร่างต่าง ๆ ของงานนำเสนอ
+เพื่อใช้เอฟเฟกต์ขอบอ่อนใน Aspose.Slides for Node.js via Java คุณสามารถสร้างการไล่สีที่นุ่มนวลและพร่ามัวรอบขอบของรูปร่าง เอฟเฟกต์นี้เพิ่มความรู้สึกที่ละเอียดอ่อนและเรียบหรู เหมาะสำหรับการออกแบบที่ต้องการลักษณะอ่อนนุ่ม คุณสามารถปรับพารามิเตอร์เช่น รัศมี เพื่อให้ได้ผลลัพธ์ที่ต้องการบนรูปร่างต่าง ๆ ในงานนำเสนอของคุณ
 
-This JavaScript code shows how to apply the [เอฟเฟกต์ขอบนุ่ม](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) to a shape:
+โค้ด JavaScript นี้แสดงวิธีการใช้ [เอฟเฟกต์ขอบอ่อน](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) กับรูปร่าง:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -238,19 +287,19 @@ try {
 }
 ```
 
-![เอฟเฟกต์ขอบนุ่ม](soft_edges_effect.png)
+![เอฟเฟกต์ขอบอ่อน](soft_edges_effect.png)
 
-## **ใช้เอฟเฟกต์เบลอ**
+## **ใช้เอฟเฟกต์เบลอร์**
 
-ใช้การเบลอรูปร่างเพื่อทำให้สีเติมและเส้นขอบของรูปร่างดูนุ่มนวลขณะยังคงให้รูปทรงสามารถแก้ไขได้ เรียก [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) บนรูปแบบเอฟเฟกต์ของรูปร่าง รัศมีวัดเป็นจุด (1/72 นิ้ว): ใช้ค่าที่ไม่เป็นลบ ค่าระดับใหญ่ให้ผลเบลอแรงกว่า รัศมีศูนย์จะคงลักษณะเดิมไว้
+ใช้เบลอร์บนรูปร่างเพื่อทำให้การเติมและเส้นขอบของรูปร่างดูนุ่มนวลลงในขณะที่ยังคงให้แก้ไขรูปร่างได้ เรียก [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) บนรูปแบบเอฟเฟกต์ของรูปร่าง รัศมีวัดเป็นจุด (1/72 นิ้ว): ใช้ค่าที่ไม่เป็นลบ ค่าที่ใหญ่กว่าจะทำให้เบลอร์แรงขึ้น รัศมีศูนย์จะไม่เปลี่ยนลักษณะใด ๆ
 
-การตั้งค่า [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) ควบคุมขอบเขตที่มองเห็นของเอฟเฟกต์ เมื่อเป็น `false` การเบลอจะถูกคลิปตามขอบเขตที่วาดเดิมรวมถึงเส้นขอบ เมื่อเป็น `true` การเบลอสามารถขยายเกินขอบเขตนั้นได้ การตั้งค่าใด ๆ ก็ไม่เปลี่ยนตำแหน่งหรือขนาดของรูปร่าง
+การตั้งค่า [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) ควบคุมขอบเขตที่มองเห็นของเอฟเฟกต์ เมื่อ `false` เบลอร์จะถูกตัดให้พอดีกับขอบที่ทานสีเดิมรวมถึงเส้นขอบ เมื่อ `true` เบลอร์สามารถขยายออกนอกขอบเหล่านั้นได้ ทั้งสองค่าจะไม่เปลี่ยนตำแหน่งหรือขนาดของรูปร่าง
 
-การเปรียบเทียบด้านล่างใช้สีเติม เส้นขอบ และขนาดรูปร่างเดียวกันทั้งหมด แถวบนใช้ `grow = false` แถวล่างใช้ `grow = true`
+การเปรียบเทียบด้านล่างใช้การเติม เส้นขอบ และขนาดรูปร่างเดียวกันทั้งหมด แถวบนใช้ `grow = false` แถวล่างใช้ `grow = true`
 
-![สี่เหลี่ยมดั้งเดิมเปรียบเทียบกับรัศมีเบลอ 5 และ 15 จุด โดยมีการเปิด/ปิดการขยาย](shape_blur_comparison.png)
+![สี่เหลี่ยมดั้งเดิมเปรียบเทียบกับรัศมีเบลอร์ 5 และ 15 จุด โดยมี grow ปิดและเปิดใช้งาน](shape_blur_comparison.png)
 
-This JavaScript example creates an orange rectangle with a dark blue outline, applies a 5-point blur, and then updates it to a 15-point blur by calling [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) again. It saves both blurred states, then calls [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) and saves the shape without blur.
+ตัวอย่าง JavaScript นี้สร้างสี่เหลี่ยมสีส้มพร้อมเส้นขอบสีน้ำเงินเข้ม ใช้เบลอร์ 5 จุด แล้วอัปเดตเป็นเบลอร์ 15 จุดโดยเรียก [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) อีกครั้ง บันทึกทั้งสองสถานะที่เบลอร์แล้วจึงเรียก [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) และบันทึกรูปร่างโดยไม่มีเบลอร์
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,18 +331,18 @@ try {
 }
 ```
 
-การเบลอรูปร่างส่งผลต่อสีเติมและเส้นขอบพร้อมกัน เอฟเฟกต์ขอบนุ่มทำให้ขอบของรูปร่างจางลง ในขณะที่การเบลอเงาจะทำให้เงาเพียงอย่างเดียวนุ่มนวล เอฟเฟกต์การแปลงภาพทำงานบนเนื้อหาภาพ; ตัวอย่างนี้ใช้การเบลอโดยตรงบนรูปแบบเอฟเฟกต์ของรูปร่างโดยไม่ต้องแปลงรูปร่างเป็นภาพ
+เบลอร์บนรูปร่างกระทบต่อการเติมและเส้นขอบพร้อมกัน เอฟเฟกต์ขอบอ่อนทำให้ขอบของรูปร่างจางหาย ไปในขณะที่เบลอร์ของเงาจะทำให้เงานุ่มขึ้นเท่านั้น เอฟเฟกต์การแปลงภาพทำงานกับเนื้อหาภาพ; ตัวอย่างนี้ใช้เบลอร์โดยตรงบนรูปแบบเอฟเฟกต์ของรูปร่างโดยไม่ต้องแปลงรูปร่างเป็นภาพ
 
 ## **คำถามที่พบบ่อย**
 
 **ฉันสามารถใช้หลายเอฟเฟกต์กับรูปร่างเดียวกันได้หรือไม่?**
 
-ได้ คุณสามารถผสมเอฟเฟกต์ต่าง ๆ เช่น เงา การสะท้อน และเรืองแสงบนรูปร่างเดียวเพื่อสร้างลุคที่ไดนามิกมากขึ้น
+ได้ คุณสามารถรวมเอฟเฟกต์ต่าง ๆ เช่น เงา การสะท้อน และแสงเรือง บนรูปร่างเดียวเพื่อสร้างลักษณะที่ไดนามิกมากขึ้น
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปร่างใดบ้าง?**
+**ฉันสามารถใช้เอฟเฟกต์กับรูปร่างประเภทใดได้บ้าง?**
 
-คุณสามารถใช้เอฟเฟกต์กับรูปร่างหลายประเภท รวมถึง autoshapes, charts, tables, pictures, SmartArt objects, OLE objects และอื่น ๆ
+คุณสามารถใช้เอฟเฟกต์กับรูปแบบต่าง ๆ เช่น รูปร่างอัตโนมัติ แผนภูมิ ตาราง รูปภาพ วัตถุ SmartArt วัตถุ OLE และอื่น ๆ
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปทรัพย์ที่จัดกลุ่มได้หรือไม่?**
+**ฉันสามารถใช้เอฟเฟกต์กับรูปร่างที่จัดกลุ่มได้หรือไม่?**
 
-ได้ คุณสามารถใช้เอฟเฟกต์กับรูปทรัพย์ที่จัดกลุ่มได้ เอฟเฟกต์จะถูกนำไปใช้กับกลุ่มทั้งหมด
+ได้ คุณสามารถใช้เอฟเฟกต์กับรูปร่างที่จัดกลุ่มได้ เอฟเฟกต์จะถูกนำไปใช้กับกลุ่มทั้งหมด**

@@ -19,13 +19,13 @@ description: "Ubah file PPT dan PPTX Anda dengan efek bentuk lanjutan menggunaka
 ---
 ## **Pendahuluan**
 
-Sementara efek di PowerPoint dapat digunakan untuk membuat suatu bentuk menonjol, mereka berbeda dari [isi](/slides/id/cpp/shape-formatting/#gradient-fill) atau outline. Dengan menggunakan efek PowerPoint, Anda dapat membuat refleksi yang meyakinkan pada sebuah bentuk, menyebarkan cahaya glow pada bentuk, dll.
+Sementara efek di PowerPoint dapat digunakan untuk menonjolkan sebuah bentuk, mereka berbeda dari [isian](/slides/id/cpp/shape-formatting/#gradient-fill) atau garis luar. Dengan menggunakan efek PowerPoint, Anda dapat membuat refleksi yang meyakinkan pada sebuah bentuk, menyebarkan cahaya bentuk, dll.
 
-![Shape effect](shape-effect.png)
+![Efek Bentuk](shape-effect.png)
 
-PowerPoint menyediakan enam efek yang dapat diterapkan pada bentuk. Anda dapat menerapkan satu atau lebih efek pada sebuah bentuk.
+PowerPoint menyediakan enam efek yang dapat diterapkan pada bentuk. Anda dapat menerapkan satu atau beberapa efek pada sebuah bentuk.
 
-Beberapa kombinasi efek terlihat lebih baik daripada yang lain. Karena itu, PowerPoint memiliki opsi di bawah **Preset**. Opsi Preset pada dasarnya adalah kombinasi dari dua atau lebih efek yang diketahui terlihat bagus bersama. Dengan cara ini, dengan memilih preset, Anda tidak perlu membuang waktu menguji atau menggabungkan efek yang berbeda untuk menemukan kombinasi yang bagus.
+Beberapa kombinasi efek terlihat lebih baik daripada yang lain. Karena itu, PowerPoint memiliki opsi di bawah **Preset**. Opsi Preset pada dasarnya adalah kombinasi dua atau lebih efek yang diketahui terlihat bagus bersama. Dengan cara ini, dengan memilih preset, Anda tidak perlu membuang waktu menguji atau menggabungkan efek yang berbeda untuk menemukan kombinasi yang bagus.
 
 Aspose.Slides menyediakan properti dan metode di bawah kelas [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) yang memungkinkan Anda menerapkan efek yang sama pada bentuk dalam presentasi PowerPoint.
 
@@ -35,9 +35,9 @@ Aspose.Slides untuk C++ mendukung bayangan luar dan dalam untuk bentuk. Anda dap
 
 ### **Terapkan Bayangan Luar**
 
-Gunakan bayangan luar untuk membuat kartu atau panel menonjol dari latar belakang slide. Bayangan memperluas di luar tepi bentuk, menciptakan kesan bahwa bentuk terangkat di atas slide. Sesuaikan warna, arah, jarak, dan radius blur agar sesuai dengan pencahayaan dan gaya templat Anda.
+Gunakan bayangan luar untuk membuat kartu atau panel menonjol terhadap latar belakang slide. Bayangan tersebut meluas melampaui tepi bentuk, menciptakan kesan bahwa bentuk terangkat di atas slide. Sesuaikan warna, arah, jarak, dan radius blur-nya agar cocok dengan pencahayaan dan gaya templat Anda.
 
-This C++ code shows how to apply the [efek bayangan luar](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) to a rectangle:
+Kode C++ berikut menunjukkan cara menerapkan [efek bayangan luar](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) ke sebuah persegi panjang:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -69,15 +69,74 @@ outerShadowEffect->set_Direction(45.0f);
 presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Shadow effect](shadow_effect.png)
+![Efek Bayangan](shadow_effect.png)
+
+#### **Kontrol Arah Bayangan Saat Bentuk Berputar**
+
+Secara default, bayangan luar berputar bersama bentuknya. Untuk membuat bentuk dengan rotasi berbeda tampak diterangi dari arah yang sama, panggil [set_RotateShadowWithShape](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_rotateshadowwithshape/) dengan `false` dan gunakan [set_Direction](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_direction/) untuk memberikan bayangan mereka sudut yang sama.
+
+Contoh ini membuat dua panah dengan bayangan abu-abu yang bergeser ke kanan (0°). Kemudian slide diduplikasi dan kedua panah diputar 90° searah jarum jam.
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto before = presentation->get_Slide(0);
+
+auto left = before->get_Shapes()->AddAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+left->get_FillFormat()->set_FillType(FillType::Solid);
+left->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+left->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+left->get_EffectFormat()->EnableOuterShadowEffect();
+auto shadow = left->get_EffectFormat()->get_OuterShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_Gray());
+shadow->set_Direction(0);
+shadow->set_Distance(42);
+shadow->set_BlurRadius(0);
+shadow->set_RotateShadowWithShape(true);
+
+auto right = before->get_Shapes()->AddClone(left);
+right->set_X(395);
+right->get_EffectFormat()->get_OuterShadowEffect()->set_RotateShadowWithShape(false);
+
+auto after = presentation->get_Slides()->AddClone(before);
+for (auto i = 0; i < after->get_Shapes()->get_Count(); ++i)
+{
+    after->get_Shape(i)->set_Rotation(90);
+}
+
+presentation->Save(u"arrow_shadows.pptx", SaveFormat::Pptx);
+```
+
+Pada slide kedua, panah kiri melemparkan bayangannya ke bawah, sementara panah kanan masih melemparkan bayangannya ke kanan. Arah yang dikonfigurasi tetap 0° untuk kedua bayangan.
+
+![Render PowerPoint sebelum dan sesudah rotasi 90°. Kedua bayangan mulai di kanan. Setelah rotasi, bayangan bergerak di bawah panah kiri dan tetap di kanan panah kanan.](arrow-shadow-rotation.png)
 
 ### **Terapkan Bayangan Dalam**
 
-Saat mereproduksi gaya visual sebuah templat, gunakan bayangan dalam untuk memberi kartu atau panel tampilan terukir. Bayangan luar memperluas di luar bentuk dan membuatnya tampak terangkat, sedangkan bayangan dalam memberi bayangan pada bagian dalam tepinya.
+Saat mereproduksi gaya visual templat, gunakan bayangan dalam untuk memberi kartu atau panel tampilan terpotong. Bayangan luar meluas di luar bentuk dan membuatnya tampak terangkat, sementara bayangan dalam meneduhkan bagian dalam tepinya.
 
-Panggil [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), kemudian konfigurasikan [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Nilai radius blur yang lebih besar menghasilkan tepi yang lebih lembut.
+Panggil [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), lalu konfigurasi [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Nilai radius blur yang lebih besar menghasilkan tepi yang lebih lembut.
 
-Contoh C++ ini membuat kartu biru muda dengan bayangan dalam abu-abu gelap dan menyimpannya sebagai file PPTX:
+Contoh C++ berikut membuat kartu biru muda dengan bayangan dalam abu-abu gelap dan menyimpannya sebagai file PPTX:
 
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
@@ -122,9 +181,9 @@ Untuk menghapus bayangan dalam, panggil [DisableInnerShadowEffect](https://refer
 
 ### **Terapkan, Ubah, dan Hapus Bayangan Preset**
 
-Panggil [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) dan gunakan [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) untuk memilih [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). Untuk beralih gaya, ubah preset pada bentuk yang sama. Panggil [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) untuk menghapus bayangan sambil mempertahankan isi dan outline.
+Panggil [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) dan gunakan [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) untuk memilih sebuah [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). Untuk beralih gaya, ubah preset pada bentuk yang sama. Panggil [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) untuk menghapus bayangan sambil mempertahankan isian dan garis luar.
 
-Contoh ini mempertahankan salinan persegi panjang pada setiap tahap. Kedua bayangan dipindahkan sebesar 10 poin. Arah 225° menempatkan bayangan pertama di atas dan ke kiri persegi panjang, dan 45° menempatkan yang kedua di bawah dan ke kanan.
+Contoh ini menjaga salinan persegi panjang pada setiap tahap. Kedua bayangan bergeser 10 poin. Arah 225° menempatkan bayangan pertama di atas dan kiri persegi panjang, dan 45° menempatkan bayangan kedua di bawah dan kanan.
 
 ```cpp
 #include <DOM/Effects/IPresetShadow.h>
@@ -191,15 +250,15 @@ textFrame->set_Text(u"No shadow");
 presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
 ```
 
-| Asli | Preset pertama | Preset kedua | Setelah dihapus |
+| Asli | Preset pertama | Preset kedua | Setelah penghapusan |
 | :---: | :---: | :---: | :---: |
-| ![Tidak ada bayangan](preset_shadow_original.png) | ![BayanganJatuhKiriAtas](preset_shadow_top_left.png) | ![BayanganJatuhKananBawah](preset_shadow_bottom_right.png) | ![Tidak ada bayangan setelah dihapus](preset_shadow_removed.png) |
+| ![Tidak ada bayangan](preset_shadow_original.png) | ![Bayangan Atas Kiri](preset_shadow_top_left.png) | ![Bayangan Kanan Bawah](preset_shadow_bottom_right.png) | ![Tidak ada bayangan setelah penghapusan](preset_shadow_removed.png) |
 
 ## **Terapkan Efek Refleksi**
 
-Untuk menerapkan efek refleksi di Aspose.Slides untuk C++, Anda dapat menambahkan refleksi mirip cermin pada bentuk, menyesuaikan parameter seperti jarak, transparansi, dan ukuran. Efek ini meningkatkan estetika presentasi Anda dengan memberikan bentuk tampilan yang lebih halus dan canggih. Ini mudah diimplementasikan dengan kode sederhana, memungkinkan penerapan cepat pada banyak elemen untuk desain yang konsisten.
+Untuk menerapkan efek refleksi dalam Aspose.Slides untuk C++, Anda dapat menambahkan refleksi seperti cermin pada bentuk, menyesuaikan parameter seperti jarak, transparansi, dan ukuran. Efek ini meningkatkan estetika presentasi Anda dengan memberikan bentuk tampilan yang lebih halus dan canggih. Mudah diimplementasikan dengan kode sederhana, memungkinkan penerapan cepat pada banyak elemen untuk desain yang konsisten.
 
-This C++ code shows how to apply the [efek refleksi](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) to a shape:
+Kode C++ berikut menunjukkan cara menerapkan [efek refleksi](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) ke sebuah bentuk:
 
 ```cpp
 #include <DOM/Effects/IReflection.h>
@@ -230,13 +289,13 @@ reflectionEffect->set_BlurRadius(2);
 presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Efek refleksi](reflection_effect.png)
+![Efek Refleksi](reflection_effect.png)
 
 ## **Terapkan Efek Cahaya**
 
-Untuk menerapkan efek cahaya pada bentuk di Aspose.Slides untuk C++, Anda dapat menambahkan aura lembut yang bersinar di sekitar bentuk, menyesuaikan properti seperti warna dan ukuran. Efek ini membantu membuat bentuk menonjol dan menambahkan elemen visual yang menarik ke presentasi Anda. Ini mudah diimplementasikan dengan kode minimal, meningkatkan tampilan keseluruhan slide Anda.
+Untuk menerapkan efek cahaya pada bentuk dalam Aspose.Slides untuk C++, Anda dapat menambahkan aura lembut yang bersinar di sekitar bentuk, menyesuaikan properti seperti warna dan ukuran. Efek ini membantu bentuk menonjol dan menambahkan elemen visual yang menarik pada presentasi Anda. Mudah diimplementasikan dengan kode minimal, memperbaiki tampilan keseluruhan slide.
 
-This C++ code shows how to apply the [efek cahaya](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) to a shape:
+Kode C++ berikut menunjukkan cara menerapkan [efek cahaya](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) ke sebuah bentuk:
 
 ```cpp
 #include <DOM/Effects/IGlow.h>
@@ -267,13 +326,13 @@ glowEffect->set_Radius(15);
 presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Efek cahaya](glow_effect.png)
+![Efek Cahaya](glow_effect.png)
 
 ## **Terapkan Efek Tepi Lembut**
 
-Untuk menerapkan efek tepi lembut di Aspose.Slides untuk C++, Anda dapat membuat transisi halus yang kabur di sekitar tepi bentuk. Efek ini menambah tampilan yang lebih halus dan terperinci, cocok untuk desain yang memerlukan penampilan lembut. Anda dapat dengan mudah menyesuaikan parameter seperti radius untuk mencapai efek yang diinginkan pada berbagai bentuk dalam presentasi Anda.
+Untuk menerapkan efek tepi lembut dalam Aspose.Slides untuk C++, Anda dapat membuat transisi halus dan kabur di sekitar tepi bentuk. Efek ini menambahkan tampilan yang lebih halus dan halus, cocok untuk desain yang memerlukan penampilan lembut. Anda dapat dengan mudah menyesuaikan parameter seperti radius untuk mencapai efek yang diinginkan pada berbagai bentuk dalam presentasi Anda.
 
-This C++ code shows how to apply the [tepi lembut](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) to a shape:
+Kode C++ berikut menunjukkan cara menerapkan [efek tepi lembut](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) ke sebuah bentuk:
 
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
@@ -300,19 +359,19 @@ softEdgeEffect->set_Radius(8);
 presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Efek tepi lembut](soft_edges_effect.png)
+![Efek Tepi Lembut](soft_edges_effect.png)
 
 ## **Terapkan Efek Blur**
 
-Gunakan blur bentuk untuk melunakkan isi dan outline bentuk sambil tetap mempertahankan bentuk dapat diedit. Panggil [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) pada format efek bentuk. Radius diukur dalam poin (1/72 inci): gunakan nilai nonnegatif, dengan nilai yang lebih besar menghasilkan blur yang lebih kuat. Radius nol tidak mengubah tampilan.
+Gunakan blur bentuk untuk melunakkan isian dan garis luar bentuk sambil tetap mempertahankan bentuk dapat diedit. Panggil [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) pada format efek bentuk. Radius diukur dalam poin (1/72 inci): gunakan nilai non-negatif, dengan nilai yang lebih besar menghasilkan blur yang lebih kuat. Radius nol tidak mengubah tampilan.
 
-Pengaturan [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) mengontrol batas tampak efek. Dengan `false`, blur dipotong pada batas yang dilukis asal, termasuk outline. Dengan `true`, blur dapat melampaui batas tersebut. Kedua pengaturan tidak mengubah posisi atau dimensi bentuk.
+Pengaturan [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) mengontrol batas tampak efek. Dengan `false`, blur dipotong pada batas asli yang digambar, termasuk garis luar. Dengan `true`, blur dapat meluas melampaui batas tersebut. Tidak ada pengaturan yang mengubah posisi atau dimensi bentuk.
 
-Perbandingan di bawah menggunakan isi, outline, dan dimensi bentuk yang sama sepanjang contoh. Baris atas menggunakan `grow = false`; baris bawah menggunakan `grow = true`.
+Perbandingan di bawah menggunakan isian, garis luar, dan dimensi bentuk yang sama sepanjang waktu. Baris atas menggunakan `grow = false`; baris bawah menggunakan `grow = true`.
 
 ![Persegi panjang asli dibandingkan dengan radius blur 5 dan 15 poin, dengan grow dinonaktifkan dan diaktifkan](shape_blur_comparison.png)
 
-Contoh C++ ini membuat persegi panjang oranye dengan outline biru tua, menerapkan blur 5 poin, kemudian memperbaruinya menjadi blur 15 poin dengan memanggil [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) lagi. Ia menyimpan kedua keadaan blur, lalu memanggil [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) dan menyimpan bentuk tanpa blur.
+Contoh C++ ini membuat persegi panjang oranye dengan garis luar biru tua, menerapkan blur 5 poin, lalu memperbaruinya menjadi blur 15 poin dengan memanggil [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) lagi. Ia menyimpan kedua keadaan blur, lalu memanggil [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) dan menyimpan bentuk tanpa blur.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -352,18 +411,18 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-Blur bentuk memengaruhi isi dan outline secara bersamaan. Efek tepi lembut memudar pada tepi bentuk, sementara blur bayangan melunakkan hanya bayangan. Efek transformasi gambar bekerja pada konten gambar; contoh ini menerapkan blur langsung pada format efek bentuk tanpa mengonversi bentuk menjadi gambar.
+Blur bentuk memengaruhi isian dan garis luar bersama. Efek tepi lembut memudarkan tepi bentuk, sedangkan blur bayangan melunakkan hanya bayangan. Efek transformasi gambar beroperasi pada konten gambar; contoh ini menerapkan blur langsung pada format efek bentuk tanpa mengonversi bentuk menjadi gambar.
 
 ## **FAQ**
 
-**Apakah saya dapat menerapkan beberapa efek pada bentuk yang sama?**
+**Bisakah saya menerapkan beberapa efek pada bentuk yang sama?**
 
-Ya, Anda dapat menggabungkan berbagai efek, seperti bayangan, refleksi, dan cahaya, pada satu bentuk untuk menciptakan tampilan yang lebih dinamis.
+Ya, Anda dapat menggabungkan berbagai efek, seperti bayangan, refleksi, dan cahaya, pada satu bentuk untuk menciptakan penampilan yang lebih dinamis.
 
 **Bentuk apa yang dapat saya terapkan efek?**
 
 Anda dapat menerapkan efek pada berbagai bentuk, termasuk autoshape, diagram, tabel, gambar, objek SmartArt, objek OLE, dan lainnya.
 
-**Apakah saya dapat menerapkan efek pada bentuk yang dikelompokkan?**
+**Bisakah saya menerapkan efek pada bentuk yang dikelompokkan?**
 
 Ya, Anda dapat menerapkan efek pada bentuk yang dikelompokkan. Efek akan diterapkan pada seluruh grup.

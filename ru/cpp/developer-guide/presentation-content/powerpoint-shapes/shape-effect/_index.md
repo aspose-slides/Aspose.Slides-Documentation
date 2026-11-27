@@ -1,43 +1,43 @@
 ---
 title: Применение эффектов фигур в презентациях с использованием C++
-linktitle: Эффект фигуры
+linktitle: Эффект формы
 type: docs
 weight: 30
 url: /ru/cpp/shape-effect/
 keywords:
-- эффект фигуры
+- эффект формы
 - эффект тени
 - эффект отражения
 - эффект свечения
 - эффект мягких краёв
-- формат эффектов
+- формат эффекта
 - PowerPoint
 - презентация
 - C++
 - Aspose.Slides
-description: "Преобразуйте свои файлы PPT и PPTX с помощью продвинутых эффектов фигур, используя Aspose.Slides for C++ — создавайте эффектные, профессиональные слайды за секунды."
+description: "Преобразуйте ваши файлы PPT и PPTX с помощью продвинутых эффектов фигур, используя Aspose.Slides для C++ — создавайте яркие, профессиональные слайды за секунды."
 ---
 ## **Введение**
 
-В то время как эффекты в PowerPoint могут использоваться для выделения фигуры, они отличаются от [заливок](/slides/ru/cpp/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint можно создавать убедительные отражения на фигуре, распространять её свечение и т.д.
+Хотя эффекты в PowerPoint можно использовать, чтобы выделить форму, они отличаются от [заливок](/slides/ru/cpp/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint можно создавать правдоподобные отражения на форме, распространять её свечение и т. д.
 
-![Эффект фигуры](shape-effect.png)
+![Эффект формы](shape-effect.png)
 
-PowerPoint предоставляет шесть эффектов, которые можно применять к фигурам. Вы можете применить один или несколько эффектов к фигуре.
+PowerPoint предоставляет шесть эффектов, которые можно применять к формам. Вы можете применить один или несколько эффектов к форме.
 
-Некоторые комбинации эффектов выглядят лучше, чем другие. По этой причине в PowerPoint есть варианты в разделе **Preset**. Параметры Preset по сути представляют собой комбинацию двух или более эффектов, которые хорошо сочетаются. Таким образом, выбирая предустановку, вам не придётся тратить время на тестирование или комбинирование различных эффектов в поисках удачной комбинации.
+Некоторые комбинации эффектов выглядят лучше, чем другие. По этой причине в PowerPoint есть параметры в разделе **Preset**. Параметры Preset по сути представляют собой комбинацию двух и более эффектов, которые известны тем, что хорошо сочетаются. Таким образом, выбирая предустановку, вам не придется тратить время на тестирование или комбинирование разных эффектов в поисках удачной комбинации.
 
-Aspose.Slides предоставляет свойства и методы в классе [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/), которые позволяют применять те же эффекты к фигурам в презентациях PowerPoint.
+Aspose.Slides предоставляет свойства и методы класса [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/), позволяющие применять те же эффекты к формам в презентациях PowerPoint.
 
 ## **Применение эффекта тени**
 
-Aspose.Slides for C++ поддерживает внешние и внутренние тени для фигур. Вы можете настроить их цвет, направление, расстояние и радиус размытия, чтобы они соответствовали дизайну вашей презентации.
+Aspose.Slides для C++ поддерживает внешние и внутренние тени для форм. Вы можете настроить их цвет, направление, расстояние и радиус размытия, чтобы они соответствовали дизайну вашей презентации.
 
 ### **Применение внешней тени**
 
-Используйте внешнюю тень, чтобы выделить карточку или панель на фоне слайда. Тень выходит за пределы границ фигуры, создавая впечатление, что фигура поднята над слайдом. Настройте её цвет, направление, расстояние и радиус размытия, чтобы они соответствовали освещению и стилю вашего шаблона.
+Используйте внешнюю тень, чтобы карта или панель выделялась на фоне слайда. Тень выходит за пределы краёв формы, создавая впечатление, что форма приподнята над слайдом. Настройте её цвет, направление, расстояние и радиус размытия, чтобы они соответствовали освещению и стилю вашего шаблона.
 
-Этот C++ код показывает, как применить [outer shadow effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) к прямоугольнику:
+Этот код на C++ показывает, как применить [внешний эффект тени](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) к прямоугольнику:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -71,13 +71,72 @@ presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 
 ![Эффект тени](shadow_effect.png)
 
+#### **Управление направлением тени при вращении формы**
+
+По умолчанию внешняя тень вращается вместе с формой. Чтобы формы с разными вращениями выглядели освещёнными из одного направления, вызовите [set_RotateShadowWithShape](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_rotateshadowwithshape/) с `false` и используйте [set_Direction](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_direction/) чтобы задать их теням одинаковый угол.
+
+В примере создаются две стрелки со серая тенями, смещёнными вправо (0°). Затем слайд дублируется и обе стрелки вращаются на 90° по часовой стрелке.
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto before = presentation->get_Slide(0);
+
+auto left = before->get_Shapes()->AddAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+left->get_FillFormat()->set_FillType(FillType::Solid);
+left->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+left->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+left->get_EffectFormat()->EnableOuterShadowEffect();
+auto shadow = left->get_EffectFormat()->get_OuterShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_Gray());
+shadow->set_Direction(0);
+shadow->set_Distance(42);
+shadow->set_BlurRadius(0);
+shadow->set_RotateShadowWithShape(true);
+
+auto right = before->get_Shapes()->AddClone(left);
+right->set_X(395);
+right->get_EffectFormat()->get_OuterShadowEffect()->set_RotateShadowWithShape(false);
+
+auto after = presentation->get_Slides()->AddClone(before);
+for (auto i = 0; i < after->get_Shapes()->get_Count(); ++i)
+{
+    after->get_Shape(i)->set_Rotation(90);
+}
+
+presentation->Save(u"arrow_shadows.pptx", SaveFormat::Pptx);
+```
+
+На втором слайде левая стрелка отбрасывает тень вниз, тогда как правая стрелка всё ещё отбрасывает тень вправо. Настроенное направление остаётся 0° для обеих теней.
+
+![Отображение PowerPoint до и после вращения на 90°. Оба теневых эффекта исходно находятся справа. После вращения тень перемещается под левую стрелку и остаётся справа от правой стрелки.](arrow-shadow-rotation.png)
+
 ### **Применение внутренней тени**
 
-При воспроизведении визуального стиля шаблона используйте внутреннюю тень, чтобы придать карточке или панели врезанный вид. Внешняя тень выходит за пределы фигуры и делает её выглядящей поднятой, тогда как внутренняя тень затемняет внутреннюю часть её границ.
+При воссоздании визуального стиля шаблона используйте внутреннюю тень, чтобы придать карте или панели вдавленный вид. Внешняя тень выходит за пределы формы и делает её выглядящей приподнятой, тогда как внутренняя тень затемняет внутреннюю часть её краёв.
 
 Вызовите [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), затем настройте [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Большие значения радиуса размытия дают более мягкие края.
 
-Этот C++ пример создаёт светло‑голубую карточку с темно‑серой внутренней тенью и сохраняет её как файл PPTX:
+Этот пример на C++ создаёт светло‑голубую карту с тёмно‑серой внутренней тенью и сохраняет её как файл PPTX:
 
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
@@ -116,15 +175,15 @@ shadow->set_BlurRadius(6);
 presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Светло-голубой прямоугольник с внутренней тенью](inner_shadow_effect.png)
+![Светло‑голубой прямоугольник с внутренней тенью](inner_shadow_effect.png)
 
-Чтобы удалить внутреннюю тень, вызовите [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) у формата эффектов фигуры.
+Чтобы удалить внутреннюю тень, вызовите [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) у формата эффекта формы.
 
 ### **Применение, изменение и удаление предустановленной тени**
 
-Вызовите [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) и используйте [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) для выбора [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). Чтобы переключить стиль, измените предустановку той же фигуры. Вызовите [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) для удаления тени при сохранении заливки и контура.
+Вызовите [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) и используйте [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) для выбора [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). Чтобы переключить стили, измените предустановку у той же формы. Вызовите [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) для удаления тени при сохранении заливки и контура.
 
-В этом примере на каждом этапе сохраняется копия прямоугольника. Обе тени смещены на 10 пунктов. Направление 225° размещает первую тень выше и слева от прямоугольника, а 45° — вторую ниже и справа.
+Этот пример сохраняет копию прямоугольника на каждом этапе. Обе тени смещены на 10 пунктов. Направление 225° размещает первую тень над и слева от прямоугольника, а 45° размещает вторую тень ниже и справа.
 
 ```cpp
 #include <DOM/Effects/IPresetShadow.h>
@@ -197,9 +256,9 @@ presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
 
 ## **Применение эффекта отражения**
 
-Чтобы применить эффект отражения в Aspose.Slides for C++, вы можете добавить зеркальное отражение к фигурам, регулируя параметры такие как расстояние, прозрачность и размер. Этот эффект улучшает эстетику ваших презентаций, придавая фигурам более отполированный и изысканный вид. Его легко реализовать простым кодом, позволяющим быстро применять эффект к нескольким элементам для единообразного дизайна.
+Для применения эффекта отражения в Aspose.Slides для C++ можно добавить зеркальное отражение к формам, настроив такие параметры, как расстояние, прозрачность и размер. Этот эффект улучшает эстетический вид ваших презентаций, придавая формам более полированный и изысканный вид. Его легко реализовать с помощью простого кода, что позволяет быстро применять его к нескольким элементам для согласованного дизайна.
 
-Этот C++ код показывает, как применить [reflection effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) к фигуре:
+Этот код на C++ показывает, как применить [reflection effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) к форме:
 
 ```cpp
 #include <DOM/Effects/IReflection.h>
@@ -234,9 +293,9 @@ presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 
 ## **Применение эффекта свечения**
 
-Чтобы применить эффект свечения к фигуре в Aspose.Slides for C++, вы можете добавить мягкое светящееся сияние вокруг фигур, регулируя свойства такие как цвет и размер. Этот эффект помогает выделить фигуры и добавляет привлекательный визуальный элемент в вашу презентацию. Его легко реализовать с минимальным количеством кода, улучшая общий вид слайдов.
+Для применения эффекта свечения к форме в Aspose.Slides для C++ можно добавить мягкое светящееся сияние вокруг формы, настроив такие свойства, как цвет и размер. Этот эффект помогает выделить формы и добавляет привлекательный визуальный элемент к вашей презентации. Его легко реализовать с минимальным объёмом кода, улучшая общий вид ваших слайдов.
 
-Этот C++ код показывает, как применить [glow effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) к фигуре:
+Этот код на C++ показывает, как применить [glow effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) к форме:
 
 ```cpp
 #include <DOM/Effects/IGlow.h>
@@ -271,9 +330,9 @@ presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 
 ## **Применение эффекта мягких краёв**
 
-Чтобы применить эффект мягких краёв в Aspose.Slides for C++, вы можете создать плавный, размытый переход по краям фигуры. Этот эффект придаёт более тонкий и изящный вид, идеально подходящий для дизайнов, требующих нежного внешнего вида. Вы легко можете регулировать параметры, такие как радиус, чтобы достичь желаемого результата на различных фигурах в вашей презентации.
+Для применения эффекта мягких краёв в Aspose.Slides для C++ можно создать плавный размытой переход вокруг краёв формы. Этот эффект добавляет более утончённый и изысканный вид, идеально подходящий для дизайнов, требующих мягкого, менее резкого отображения. Вы легко можете настраивать такие параметры, как радиус, чтобы достичь желаемого эффекта на различных формах в вашей презентации.
 
-Этот C++ код показывает, как применить [soft edges](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) к фигуре:
+Этот код на C++ показывает, как применить [soft edges](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) к форме:
 
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
@@ -300,19 +359,19 @@ softEdgeEffect->set_Radius(8);
 presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Эффект мягких краев](soft_edges_effect.png)
+![Эффект мягких краёв](soft_edges_effect.png)
 
 ## **Применение эффекта размытия**
 
-Используйте размытие фигуры, чтобы смягчить её заливку и контур, оставаясь при этом редактируемой. Вызовите [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) у формата эффектов фигуры. Радиус измеряется в пунктах (1/72 дюйма): используйте неотрицательное значение, большее значение создаёт более сильное размытие. Радиус, равный нулю, оставляет внешний вид без изменений.
+Используйте размытие формы, чтобы смягчить заливку и контур формы, сохраняя её редактируемой. Вызовите [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) у формата эффекта формы. Радиус измеряется в пунктах (1/72 дюйма): используйте неотрицательное значение, при этом большие значения дают более сильное размытие. Радиус 0 оставляет внешний вид без изменений.
 
-Параметр [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) управляет видимыми границами эффекта. При `false` размытие обрезается исходными окрашенными границами, включая контур. При `true` размытие может выходить за эти границы. Ни один из вариантов не изменяет позицию или размеры фигуры.
+Параметр [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) управляет видимыми границами эффекта. При `false` размытие обрезается по оригинальным нарисованным границам, включая контур. При `true` размытие может выходить за эти границы. Ни одна из настроек не меняет положение или размеры формы.
 
-Сравнение ниже использует одну и ту же заливку, контур и размеры фигуры во всех случаях. Верхняя строка использует `grow = false`; нижняя строка — `grow = true`.
+Сравнение ниже использует одинаковую заливку, контур и размеры формы во всех случаях. Верхняя строка использует `grow = false`; нижняя строка — `grow = true`.
 
-![Исходный прямоугольник сравнён с радиусами размытия 5 и 15 пунктов, с отключённым и включённым ростом](shape_blur_comparison.png)
+![Исходный прямоугольник сравнивается с радиусами размытия 5 и 15 пунктов, с отключённым и включённым увеличением](shape_blur_comparison.png)
 
-Этот C++ пример создаёт оранжевый прямоугольник с тёмно‑синим контуром, применяет размытие радиусом 5 пунктов, затем обновляет его до 15 пунктов, снова вызывая [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/). Он сохраняет оба состояния размытия, после чего вызывает [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) и сохраняет фигуру без размытия.
+Этот пример на C++ создаёт оранжевый прямоугольник с тёмно‑синей окантовкой, применяет размытие 5 пунктов, а затем обновляет его до 15 пунктов, снова вызывая [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/). Он сохраняет оба размышлённых состояния, затем вызывает [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) и сохраняет форму без размытия.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -352,18 +411,18 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-Размытие фигуры воздействует одновременно на заливку и контур. Эффект мягких краёв ослабляет края самой фигуры, тогда как размытие тени смягчает только тень. Эффекты трансформации изображений работают с содержимым изображения; в этом примере размытие применяется непосредственно к формату эффектов фигуры без преобразования её в изображение.
+Размытие формы влияет одновременно на заливку и контур. Эффект мягких краёв смягчает края формы, тогда как размытие тени смягчает только тень. Эффекты трансформации изображения работают с содержимым изображения; в этом примере размытие применяется напрямую к формату эффекта формы без преобразования её в изображение.
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Можно ли применить несколько эффектов к одной и той же фигуре?**
+**Можно ли применить несколько эффектов к одной и той же форме?**
 
-Да, вы можете комбинировать разные эффекты, такие как тень, отражение и свечение, на одной фигуре, чтобы создать более динамичный вид.
+Да, вы можете комбинировать разные эффекты, такие как тень, отражение и свечение, на одной форме, чтобы создать более динамичный внешний вид.
 
-**К каким типам фигур можно применять эффекты?**
+**К каким формам можно применять эффекты?**
 
-Эффекты можно применять к различным фигурам, включая автофигуры, диаграммы, таблицы, изображения, объекты SmartArt, OLE‑объекты и многие другие.
+Вы можете применять эффекты к различным формам, включая автофигуры, диаграммы, таблицы, изображения, объекты SmartArt, объекты OLE и другие.
 
-**Можно ли применять эффекты к сгруппированным фигурам?**
+**Можно ли применять эффекты к сгруппированным формам?**
 
-Да, эффекты можно применять к сгруппированным фигурам. Эффект будет применён ко всей группе.
+Да, вы можете применять эффекты к сгруппированным формам. Эффект будет применён ко всей группе.

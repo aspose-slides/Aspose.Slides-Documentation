@@ -7,7 +7,7 @@ url: /pt/nodejs-java/shape-effect/
 keywords:
 - efeito de forma
 - efeito de sombra
-- efeito de reflexão
+- efeito de reflexo
 - efeito de brilho
 - efeito de bordas suaves
 - formato de efeito
@@ -16,7 +16,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Transforme seus arquivos PPT e PPTX com efeitos de forma avançados usando JavaScript e Aspose.Slides para Node.js — crie slides impactantes e profissionais em segundos."
+description: "Transforme seus arquivos PPT e PPTX com efeitos avançados de forma usando JavaScript e Aspose.Slides para Node.js — crie slides impressionantes e profissionais em segundos."
 ---
 ## **Introdução**
 
@@ -24,15 +24,15 @@ Embora os efeitos no PowerPoint possam ser usados para fazer uma forma se destac
 
 ![Efeito de forma](shape-effect.png)
 
-O PowerPoint oferece seis efeitos que podem ser aplicados a formas. Você pode aplicar um ou mais efeitos a uma forma.
+O PowerPoint fornece seis efeitos que podem ser aplicados a formas. Você pode aplicar um ou mais efeitos a uma forma.
 
-Algumas combinações de efeitos ficam melhores que outras. Por esse motivo, o PowerPoint oferece opções em **Preset**. As opções de Preset são combinações de dois ou mais efeitos que são reconhecidas por ficarem bem. Dessa forma, ao selecionar um preset, você não precisará perder tempo testando ou combinando diferentes efeitos para encontrar uma boa combinação.
+Algumas combinações de efeitos ficam melhores que outras. Por esse motivo, o PowerPoint oferece opções em **Preset**. As opções Preset são combinações de dois ou mais efeitos que são conhecidos por ter boa aparência. Dessa forma, ao selecionar um preset, você não precisará perder tempo testando ou combinando diferentes efeitos para encontrar uma boa combinação.
 
-Aspose.Slides fornece propriedades e métodos na classe [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) que permitem aplicar os mesmos efeitos a formas em apresentações do PowerPoint.
+A Aspose.Slides fornece propriedades e métodos na classe [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) que permitem aplicar os mesmos efeitos a formas em apresentações do PowerPoint.
 
 ## **Aplicar um Efeito de Sombra**
 
-Aspose.Slides para Node.js via Java oferece suporte a sombras externas e internas para formas. Você pode personalizar sua cor, direção, distância e raio de desfoque para combinar com o design da sua apresentação.
+O Aspose.Slides para Node.js via Java suporta sombras externas e internas para formas. Você pode personalizar sua cor, direção, distância e raio de desfoque para combinar com o design da sua apresentação.
 
 ### **Aplicar uma Sombra Externa**
 
@@ -63,13 +63,62 @@ try {
 
 ![Efeito de sombra](shadow_effect.png)
 
+#### **Controlar a Direção da Sombra Quando uma Forma Gira**
+
+Por padrão, a sombra externa gira com a forma. Para fazer com que formas com rotações diferentes pareçam iluminadas da mesma direção, chame [setRotateShadowWithShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setRotateShadowWithShape) com `false` e use [setDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setDirection) para dar às sombras a mesma direção.
+
+O exemplo cria duas setas azuis com sombras cinzas deslocadas 42 pontos para a direita (0°). Em seguida, duplica o slide e gira ambas as setas 90° no sentido horário.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const before = presentation.getSlides().get_Item(0);
+    
+    const left = before.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    left.getFillFormat().getSolidFillColor().setColor(fillColor);
+    left.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    const shadow = left.getEffectFormat().getOuterShadowEffect();
+    const shadowColor = java.getStaticFieldValue("java.awt.Color", "GRAY");
+    shadow.getShadowColor().setColor(shadowColor);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    const right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    const after = presentation.getSlides().addClone(before);
+    const arrows = after.getShapes();
+    for (let i = 0; i < arrows.size(); i++) {
+        arrows.get_Item(i).setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+No segundo slide, a seta da esquerda projeta sua sombra para baixo, enquanto a seta da direita ainda projeta sua sombra para a direita. A direção configurada permanece 0° para ambas as sombras.
+
+![Renderização do PowerPoint antes e depois de uma rotação de 90°. Ambas as sombras começam à direita. Após rotação, a sombra se move abaixo da seta esquerda e permanece à direita da seta direita.](arrow-shadow-rotation.png)
+
 ### **Aplicar uma Sombra Interna**
 
 Ao reproduzir o estilo visual de um modelo, use uma sombra interna para dar a um cartão ou painel uma aparência rebaixada. Uma sombra externa se estende fora da forma e faz com que ela pareça elevada, enquanto uma sombra interna sombreia o interior de suas bordas.
 
-Chame [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect), então configure a sombra retornada por [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Valores maiores de raio de desfoque produzem bordas mais suaves.
+Chame [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect) e, em seguida, configure a sombra retornada por [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Valores maiores de raio de desfoque produzem bordas mais suaves.
 
-Este exemplo JavaScript cria um cartão azul‑claro com uma sombra interna cinza‑escura e o salva como um arquivo PPTX. A direção da sombra é 225 graus, sua distância é 7 pontos e o raio de desfoque é 6 pontos:
+Este exemplo JavaScript cria um cartão azul claro com uma sombra interna cinza escura e o salva como um arquivo PPTX. A direção da sombra é 225 graus, sua distância é 7 pontos e seu raio de desfoque é 6 pontos:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,15 +148,15 @@ try {
 }
 ```
 
-![Retângulo azul-claro com sombra interna](inner_shadow_effect.png)
+![Retângulo azul claro com sombra interna](inner_shadow_effect.png)
 
 Para remover a sombra interna, chame [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) no formato de efeito da forma.
 
 ### **Aplicar, Alterar e Remover uma Sombra Predefinida**
 
-Chame [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) e use [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) para selecionar um [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Para alternar estilos, altere o preset na mesma forma. Chame [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) para remover a sombra mantendo o preenchimento e o contorno.
+Chame [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) e use [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) para selecionar um [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Para mudar de estilo, altere o preset na mesma forma. Chame [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) para remover a sombra mantendo o preenchimento e o contorno.
 
-Este exemplo mostra quatro estágios lado a lado em um slide. Ambas as sombras são deslocadas em 10 pontos. Uma direção de 225° coloca a primeira sombra acima e à esquerda do retângulo, e 45° coloca a segunda abaixo e à direita.
+Este exemplo mostra quatro estágios lado a lado em um slide. Ambas as sombras são deslocadas 10 pontos. Uma direção de 225° coloca a primeira sombra acima e à esquerda do retângulo, e 45° coloca a segunda abaixo e à direita.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -156,13 +205,13 @@ try {
 
 | Original | Primeiro preset | Segundo preset | Após remoção |
 | :---: | :---: | :---: | :---: |
-| ![Sem sombra](preset_shadow_original.png) | ![SombraCantoSuperiorEsquerdo](preset_shadow_top_left.png) | ![SombraCantoInferiorDireito](preset_shadow_bottom_right.png) | ![Sem sombra após remoção](preset_shadow_removed.png) |
+| ![Sem sombra](preset_shadow_original.png) | ![SombraDeQuedaSuperiorEsquerda](preset_shadow_top_left.png) | ![SombraDeQuedaInferiorDireita](preset_shadow_bottom_right.png) | ![Sem sombra após remoção](preset_shadow_removed.png) |
 
-## **Aplicar um Efeito de Reflexão**
+## **Aplicar um Efeito de Reflexo**
 
-Para aplicar um efeito de reflexão no Aspose.Slides para Node.js via Java, você pode adicionar uma reflexão semelhante a um espelho nas formas, ajustando parâmetros como distância, transparência e tamanho. Este efeito aprimora a estética de suas apresentações ao dar às formas uma aparência mais refinada e sofisticada. É fácil de implementar com código simples, permitindo a aplicação rápida em vários elementos para um design consistente.
+Para aplicar um efeito de reflexo no Aspose.Slides para Node.js via Java, você pode adicionar um reflexo semelhante a um espelho às formas, ajustando parâmetros como distância, transparência e tamanho. Esse efeito realça a estética de suas apresentações ao dar às formas uma aparência mais polida e sofisticada. É fácil de implementar com código simples, permitindo aplicação rápida em vários elementos para um design consistente.
 
-Este código JavaScript mostra como aplicar o [efeito de reflexão](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) a uma forma:
+Este código JavaScript mostra como aplicar o [efeito de reflexo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) a uma forma:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,11 +234,11 @@ try {
 }
 ```
 
-![Efeito de reflexão](reflection_effect.png)
+![Efeito de reflexo](reflection_effect.png)
 
 ## **Aplicar um Efeito de Brilho**
 
-Para aplicar um efeito de brilho a uma forma no Aspose.Slides para Node.js via Java, você pode adicionar uma aura suave e luminosa ao redor das formas, ajustando propriedades como cor e tamanho. Este efeito ajuda a destacar as formas e adiciona um elemento visual atraente e chamativo à sua apresentação. É fácil de implementar com código mínimo, aprimorando o aspecto geral de seus slides.
+Para aplicar um efeito de brilho a uma forma no Aspose.Slides para Node.js via Java, você pode adicionar uma aura suave e luminosa ao redor das formas, ajustando propriedades como cor e tamanho. Este efeito ajuda a fazer as formas se destacarem e adiciona um elemento visual atraente e chamativo à sua apresentação. É fácil de implementar com código mínimo, aprimorando a aparência geral dos seus slides.
 
 Este código JavaScript mostra como aplicar o [efeito de brilho](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) a uma forma:
 
@@ -215,9 +264,9 @@ try {
 
 ![Efeito de brilho](glow_effect.png)
 
-## **Aplicar um Efeito de Borda Suave**
+## **Aplicar um Efeito de Bordas Suaves**
 
-Para aplicar um efeito de bordas suaves no Aspose.Slides para Node.js via Java, você pode criar uma transição suave e desfocada ao redor das bordas de uma forma. Este efeito confere um aspecto mais sutil e refinado, perfeito para designs que necessitam de uma aparência delicada e suave. Você pode ajustar facilmente parâmetros como raio para obter o efeito desejado em várias formas da sua apresentação.
+Para aplicar um efeito de bordas suaves no Aspose.Slides para Node.js via Java, você pode criar uma transição suave e borrada ao redor das bordas de uma forma. Esse efeito adiciona uma aparência mais sutil e refinada, perfeita para designs que precisam de um aspecto delicado e mais suave. Você pode ajustar facilmente parâmetros como raio para alcançar o efeito desejado em várias formas da sua apresentação.
 
 Este código JavaScript mostra como aplicar o [efeito de bordas suaves](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) a uma forma:
 
@@ -242,15 +291,15 @@ try {
 
 ## **Aplicar um Efeito de Desfoque**
 
-Use o desfoque de forma para suavizar o preenchimento e o contorno de uma forma mantendo-a editável. Chame [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) no formato de efeito da forma. O raio é medido em pontos (1/72 polegada): use um valor não‑negativo, sendo que valores maiores produzem um desfoque mais intenso. Um raio zero deixa a aparência inalterada.
+Use o desfoque de forma para suavizar o preenchimento e o contorno de uma forma mantendo-a editável. Chame [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) no formato de efeito da forma. O raio é medido em pontos (1/72 polegada): use um valor não negativo, com valores maiores produzindo desfoque mais forte. Um raio zero mantém a aparência inalterada.
 
-A configuração [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) controla os limites visíveis do efeito. Com `false`, o desfoque é recortado aos limites originais pintados, incluindo o contorno. Com `true`, o desfoque pode se estender além desses limites. Nenhuma das configurações altera a posição ou as dimensões da forma.
+A configuração [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) controla os limites visíveis do efeito. Com `false`, o desfoque é recortado aos limites pintados originais, incluindo o contorno. Com `true`, o desfoque pode se estender além desses limites. Nenhuma das configurações altera a posição ou as dimensões da forma.
 
-A comparação abaixo usa o mesmo preenchimento, contorno e dimensões da forma em todo o exemplo. A linha superior usa `grow = false`; a linha inferior usa `grow = true`.
+A comparação abaixo usa o mesmo preenchimento, contorno e dimensões da forma ao longo de todo o exemplo. A linha superior usa `grow = false`; a linha inferior usa `grow = true`.
 
 ![Retângulo original comparado com raios de desfoque de 5 e 15 pontos, com grow desativado e ativado](shape_blur_comparison.png)
 
-Este exemplo JavaScript cria um retângulo laranja com contorno azul‑escuro, aplica um desfoque de 5 pontos e, em seguida, atualiza para um desfoque de 15 pontos chamando [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) novamente. Ele salva ambos os estados desfocados, depois chama [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) e salva a forma sem desfoque.
+Este exemplo JavaScript cria um retângulo laranja com contorno azul escuro, aplica um desfoque de 5 pontos e então o atualiza para um desfoque de 15 pontos chamando [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) novamente. Ele salva ambos os estados desfocados, depois chama [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) e salva a forma sem desfoque.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,13 +331,13 @@ try {
 }
 ```
 
-O desfoque de forma afeta o preenchimento e o contorno juntos. Um efeito de bordas suaves esmaece as bordas da forma, enquanto o desfoque da sombra suaviza apenas a sombra. Os efeitos de transformação de imagem operam no conteúdo da imagem; este exemplo aplica desfoque diretamente ao formato de efeito da forma sem converter a forma em uma imagem.
+O desfoque de forma afeta o preenchimento e o contorno juntos. Um efeito de bordas suaves desvanece as bordas da forma, enquanto o desfoque de sombra suaviza apenas a sombra. Os efeitos de transformação de imagem operam no conteúdo da imagem; este exemplo aplica desfoque diretamente ao formato de efeito da forma sem converter a forma em uma imagem.
 
 ## **Perguntas Frequentes**
 
 **Posso aplicar vários efeitos à mesma forma?**
 
-Sim, você pode combinar diferentes efeitos, como sombra, reflexão e brilho, em uma única forma para criar uma aparência mais dinâmica.
+Sim, você pode combinar diferentes efeitos, como sombra, reflexo e brilho, em uma única forma para criar uma aparência mais dinâmica.
 
 **A quais formas posso aplicar efeitos?**
 

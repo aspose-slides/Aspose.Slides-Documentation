@@ -1,5 +1,5 @@
 ---
-title: تطبيق تأثيرات الشكل في العروض التقديمية في .NET
+title: تطبيق تأثيرات الأشكال في العروض التقديمية باستخدام .NET
 linktitle: تأثير الشكل
 type: docs
 weight: 30
@@ -9,36 +9,36 @@ keywords:
 - تأثير الظل
 - تأثير الانعكاس
 - تأثير التوهج
-- تأثير الحواف الناعسة
+- تأثير الحواف الناعمة
 - تنسيق التأثير
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides for .NET—أنشئ شرائح جذابة واحترافية خلال ثوانٍ."
+description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام تأثيرات الأشكال المتقدمة عبر Aspose.Slides for .NET—أنشئ شرائح جذابة واحترافية في ثوانٍ."
 ---
-## **مقدمة**
+## **المقدمة**
 
-في حين يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [ملء](/slides/ar/net/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، وغيرها.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [التعبئات](/slides/ar/net/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، وتوسيع توهج الشكل، وما إلى ذلك.
 
 ![تأثير الشكل](shape-effect.png)
 
-PowerPoint يوفر ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على شكل.
+يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل.
 
-بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يحتوي PowerPoint على خيارات ضمن **Preset**. خيارات Preset هي في الأساس تركيبة معروفة المظهر من تأثيرين أو أكثر. بهذه الطريقة، عند اختيار إعداد مسبق، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة جيدة.
+بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يحتوي PowerPoint على خيارات تحت **Preset**. خيارات Preset هي في الأساس تركيبة معروفة مظهرًا جيدًا من تأثيرين أو أكثر. بهذه الطريقة، عند اختيار إعداد مسبق، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة مناسبة.
 
-توفر Aspose.Slides خصائص وأساليب ضمن فئة [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
+توفر Aspose.Slides خصائص وأساليب تحت الفئة [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
 
 ## **تطبيق تأثير الظل**
 
-Aspose.Slides for .NET يدعم الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص لونها، اتجاهها، مسافتها، ونصف قطر الضبابية لتتناسب مع تصميم العرض التقديمي.
+يدعم Aspose.Slides for .NET الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص اللون والاتجاه والمسافة ونصف قطر التشويش لتتناسب مع تصميم عرضك.
 
 ### **تطبيق ظل خارجي**
 
-استخدم الظل الخارجي لجعل بطاقة أو لوحة تبرز مقابل خلفية الشريحة. يمتد الظل إلى ما وراء حواف الشكل، مما يعطي الانطباع بأن الشكل مرتفع فوق الشريحة. اضبط لونه، اتجاهه، مسافته، ونصف قطر الضبابية لتتناسب مع الإضاءة وتنسيق القالب الخاص بك.
+استخدم الظل الخارجي لجعل بطاقة أو لوحة تبرز ضد خلفية الشريحة. يمتد الظل خارج حدود الشكل، مما يخلق الانطباع بأن الشكل مرتفع فوق الشريحة. اضبط لونه واتجاهه ومسافته ونصف قطر التشويش ليتناسب مع الإضاءة وتنسيق القالب.
 
-هذا الكود C# يوضح كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) على مستطيل:
+يعرض هذا الكود C# كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) على مستطيل:
 
 ```c#
 using System.Drawing;
@@ -59,13 +59,55 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 
 ![تأثير الظل](shadow_effect.png)
 
+#### **التحكم في اتجاه الظل عند تدوير الشكل**
+
+بشكل افتراضي، تكون القيمة [RotateShadowWithShape](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/rotateshadowwithshape/) `true`، لذا يدور الظل مع الشكل. لجعل الأشكال ذات الدورات المختلفة تبدو مضاءة من نفس الاتجاه، قم بتعيين هذه الخاصية إلى `false` ومنح ظلالها نفس [Direction](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/direction/).
+
+ينشئ المثال سهمين بظلال رمادية مائلة إلى اليمين (`Direction = 0`). ثم يكرّر الشريحة ويدور السهمين 90° باتجاه عقارب الساعة.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var before = presentation.Slides[0];
+
+var left = before.Shapes.AddAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+left.FillFormat.FillType = FillType.Solid;
+left.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+left.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+left.EffectFormat.EnableOuterShadowEffect();
+var shadow = left.EffectFormat.OuterShadowEffect;
+shadow.ShadowColor.Color = Color.Gray;
+shadow.Direction = 0;
+shadow.Distance = 42;
+shadow.BlurRadius = 0;
+shadow.RotateShadowWithShape = true;
+
+var right = before.Shapes.AddClone(left);
+right.X = 395;
+right.EffectFormat.OuterShadowEffect.RotateShadowWithShape = false;
+
+var after = presentation.Slides.AddClone(before);
+foreach (var arrow in after.Shapes)
+    arrow.Rotation = 90;
+
+presentation.Save("arrow_shadows.pptx", SaveFormat.Pptx);
+```
+
+في الشريحة الثانية، يُسقّط السهم الأيسر ظله إلى الأسفل، بينما لا يزال السهم الأيمن يُسقّط ظله إلى اليمين. يبقى الاتجاه المكوّن 0° لكلا الظلين.
+
+![عرض PowerPoint قبل وبعد دوران 90°. يبدأ الظلان على اليمين. بعد الدوران، يتحرك الظل أسفل السهم الأيسر ويبقى على يمين السهم الأيمن.](arrow-shadow-rotation.png)
+
 ### **تطبيق ظل داخلي**
 
-عند إعادة إنتاج النمط البصري للقالب، استخدم الظل الداخلي لمنح بطاقة أو لوحة مظهرًا غائرًا. الظل الخارجي يمتد خارج الشكل ويجعله يبدو مرتفعًا، بينما الظل الداخلي يظلل داخل حواف الشكل.
+عند استنساخ النمط البصري للقالب، استخدم الظل الداخلي لإعطاء البطاقة أو اللوحة مظهرًا متجورًا. الظل الخارجي يمتد خارج الشكل ويجعله يبدو مرتفعًا، بينما الظل الداخلي يظلل داخل حواف الشكل.
 
 استدعِ [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/)، ثم اضبط [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). القيم الأكبر تنتج حوافًا أكثر نعومة.
 
-هذا المثال C# ينشئ بطاقة زرقاء فاتحة مع ظل داخلي رمادي داكن ويحفظها كملف PPTX:
+ينشئ هذا المثال C# بطاقة زرقاء فاتحة بظل داخلي رمادي داكن ويحفظها كملف PPTX:
 
 ```csharp
 using System.Drawing;
@@ -90,15 +132,15 @@ shadow.BlurRadius = 6;
 presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![مستطيل أزرق فاتح مع ظل داخلي](inner_shadow_effect.png)
+![مستطيل أزرق فاتح بظل داخلي](inner_shadow_effect.png)
 
 لإزالة الظل الداخلي، استدعِ [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) على تنسيق تأثير الشكل.
 
-### **تطبيق، تغيير، وإزالة ظل مسبق**
+### **تطبيق وتغيير وإزالة ظل مُحدد مسبقًا**
 
-استدعِ [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) وحدد [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) إلى نوع [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/) مسمى. لتبديل الأنماط، غيّر الإعداد المسبق على نفس الشكل. استدعِ [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) لإزالة الظل مع الحفاظ على الملء والحدود.
+استدعِ [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) واضبط [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) إلى نوع [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/) مسمى. لتبديل الأنماط، غيّر الإعداد المسبق على الشكل نفسه. استدعِ [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) لإزالة الظل مع الحفاظ على التعبئة والحد.
 
-هذا المثال يحتفظ بنسخة من المستطيل في كل مرحلة. كلا الظلين مُزاحان بمقدار 10 نقاط. اتجاه 225° يضع الظل الأول فوق ويسار المستطيل، و45° يضع الظل الثاني أسفل ويمين المستطيل.
+يحافظ هذا المثال على نسخة من المستطيل في كل مرحلة. الظلان مزيّنان بمقدار 10 نقاط. اتجاه 225° يضع الظل الأول فوق وإلى يسار المستطيل، و45° يضع الظل الثاني أسفل وإلى يمين المستطيل.
 
 ```csharp
 using System.Drawing;
@@ -140,15 +182,15 @@ shape.TextFrame.Text = "No shadow";
 presentation.Save("preset_shadows.pptx", SaveFormat.Pptx);
 ```
 
-| الأصلي | الإعداد المسبق الأول | الإعداد المسبق الثاني | بعد الإزالة |
+| الأصل | الإعداد المسبق الأول | الإعداد المسبق الثاني | بعد الإزالة |
 | :---: | :---: | :---: | :---: |
-| ![بدون ظل](preset_shadow_original.png) | ![ظل أعلى يسار](preset_shadow_top_left.png) | ![ظل أسفل يمين](preset_shadow_bottom_right.png) | ![بدون ظل بعد الإزالة](preset_shadow_removed.png) |
+| ![بدون ظل](preset_shadow_original.png) | ![ظل من أعلى اليسار](preset_shadow_top_left.png) | ![ظل من أسفل اليمين](preset_shadow_bottom_right.png) | ![بدون ظل بعد الإزالة](preset_shadow_removed.png) |
 
 ## **تطبيق تأثير الانعكاس**
 
-لتطبيق تأثير انعكاس في Aspose.Slides for .NET، يمكنك إضافة انعكاس شبيه بالمرآة إلى الأشكال، مع ضبط معلمات مثل المسافة والشفافية والحجم. يعزز هذا التأثير جمالية عروضك بتوفير مظهر أكثر صقلًا وتطورًا للأشكال. من السهل تنفيذه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عناصر متعددة لتصميم متسق.
+لتطبيق تأثير الانعكاس في Aspose.Slides for .NET، يمكنك إضافة انعكاس مشابه للمرآة إلى الأشكال، مع تعديل معايير مثل المسافة والشفافية والحجم. يعزز هذا التأثير جمالية عروضك من خلال إعطاء الأشكال مظهرًا أكثر صقلاً وتطورًا. من السهل تنفيذه بكود بسيط، مما يتيح تطبيقًا سريعًا عبر عدة عناصر لتصميم متسق.
 
-هذا الكود C# يوضح كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) على شكل:
+يعرض هذا الكود C# كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) على شكل:
 
 ```c#
 using Aspose.Slides;
@@ -171,9 +213,9 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 
 ## **تطبيق تأثير التوهج**
 
-لتطبيق تأثير توهج على شكل في Aspose.Slides for .NET، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، مع ضبط خصائص مثل اللون والحجم. يساعد هذا التأثير على إبراز الأشكال وإضافة عنصر بصري جذاب إلى عرضك. من السهل تنفيذه بكود بسيط، مما يعزز المظهر العام لشرائحك.
+لتطبيق تأثير التوهج على شكل في Aspose.Slides for .NET، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، مع تعديل خصائص مثل اللون والحجم. يساعد هذا التأثير في إبراز الأشكال ويضيف عنصرًا بصريًا جذابًا ولافتًا للانتباه إلى عرضك. من السهل تنفيذه بأقل قدر من الكود، مما يعزز المظهر العام لشرائحك.
 
-هذا الكود C# يوضح كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) على شكل:
+يعرض هذا الكود C# كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) على شكل:
 
 ```c#
 using System.Drawing;
@@ -195,9 +237,9 @@ presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 
 ## **تطبيق تأثير الحواف الناعمة**
 
-لتطبيق تأثير الحواف الناعمة في Aspose.Slides for .NET، يمكنك إنشاء انتقال ناعم ومهبل حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقة وتفصيلًا، وهو مثالي للتصاميم التي تحتاج إلى مظهر لطيف وناعم. يمكنك بسهولة ضبط معلمات مثل نصف القطر لتحقيق التأثير المطلوب عبر أشكال مختلفة في عرضك.
+لتطبيق تأثير الحواف الناعمة في Aspose.Slides for .NET، يمكنك إنشاء انتقال سلس ومطميت حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقة وتفصيلًا، وهو مثالي للتصاميم التي تحتاج إلى ظهور هادئ وأقل حدة. يمكنك بسهولة تعديل معايير مثل نصف القطر لتحقيق التأثير المطلوب عبر الأشكال المختلفة في عرضك.
 
-هذا الكود C# يوضح كيفية تطبيق [الحواف الناعمة](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) على شكل:
+يعرض هذا الكود C# كيفية تطبيق [تأثير الحواف الناعمة](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) على شكل:
 
 ```c#
 using Aspose.Slides;
@@ -217,15 +259,15 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 ## **تطبيق تأثير الضبابية**
 
-استخدم ضبابية الشكل لتنعيم ملء الشكل وحدوده مع الحفاظ على إمكانية تحرير الشكل. استدعِ [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) على تنسيق تأثير الشكل. يُقاس نصف القطر بالنقاط (1/72 بوصة): استخدم قيمة غير سالبة، حيث القيم الأكبر تنتج ضبابية أقوى. نصف قطر صفر يترك المظهر دون تغيير.
+استخدم ضبابية الشكل لتنعيم تعبئة الشكل وحدوده مع الحفاظ على إمكانية تحرير الشكل. استدعِ [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) على تنسيق تأثير الشكل. يُقاس نصف القطر بالنقاط (1/72 بوصة): استخدم قيمة غير سالبة، فالقيم الأكبر تنتج ضبابية أقوى. نصف قطر صفر يترك المظهر دون تغيير.
 
-إعداد [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) يتحكم في حدود التأثير المرئية. مع `false`، تُقص الضبابية إلى الحدود المرسومة الأصلية بما في ذلك الحدود. مع `true`، يمكن للضبابية أن تمد خارج تلك الحدود. لا يغيّر أي من الإعدادين موضع أو أبعاد الشكل.
+تتحكم إعدادات [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) في الحدود المرئية للتأثير. عند `false`، يتم قص الضبابية إلى الحدود المرسومة الأصلية، بما في ذلك الحدود. عند `true`، يمكن للضبابية أن تمتد خارج تلك الحدود. لا يغيّر أي من الإعدادين موقع الشكل أو أبعاده.
 
-المقارنة أدناه تستخدم نفس الملء، الحدود، وأبعاد الشكل طوال الوقت. الصف العلوي يستخدم `grow = false`؛ الصف السفلي يستخدم `grow = true`.
+المقارنة أدناه تستخدم نفس التعبئة والحدود وأبعاد الشكل طوال الوقت. الصف العلوي يستخدم `grow = false`؛ الصف السفلي يستخدم `grow = true`.
 
-![مستطيل أصلي مقارنة مع نصف قطر الضبابية 5 و15 نقطة، مع Grow معطل ومفعل](shape_blur_comparison.png)
+![مقارنة بين المستطيل الأصلي مع أقطار ضبابية 5 و15 نقطة، مع تعطيل وتمكين Grow](shape_blur_comparison.png)
 
-هذا المثال C# ينشئ مستطيلًا برتقاليًا مع حدود زرقاء داكنة، يطبق ضبابية بارتفاع 5 نقاط، ثم يحدّثها إلى 15 نقطة باستدعاء [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) مرة أخرى. يحفظ كلا الحالتين المضبابيتين، ثم يستدعي [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) ويحفظ الشكل دون ضبابية.
+ينشئ هذا المثال C# مستطيلًا برتقاليًا بحدود زرقاء داكنة، يطبق ضبابية 5 نقاط، ثم يحدّثه إلى ضبابية 15 نقطة باستدعاء [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) مرة أخرى. يحفظ كلا الحالةين المضبابتين، ثم يستدعي [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) ويحفظ الشكل بدون ضبابية.
 
 ```csharp
 using System.Drawing;
@@ -252,18 +294,15 @@ shape.EffectFormat.DisableBlurEffect();
 presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
 ```
 
-تؤثر ضبابية الشكل على الملء والحدود معًا. تأثير الحواف الناعمة يخفّف حواف الشكل، بينما ضبابية الظل تُنعّم الظل فقط. تعمل تأثيرات تحويل الصورة على محتوى الصورة؛ هذا المثال يطبق الضبابية مباشرة على تنسيق تأثير الشكل دون تحويله إلى صورة.
+تؤثر ضبابية الشكل على التعبئة والحدود معًا. يخفّف تأثير الحواف الناعمة حواف الشكل، بينما ينعّم ضباب الظل الظل فقط. تعمل تأثيرات تحويل الصورة على محتوى الصورة؛ يطبق هذا المثال الضبابية مباشرةً على تنسيق تأثير الشكل دون تحويل الشكل إلى صورة.
 
 ## **FAQ**
 
-**هل يمكنني تطبيق تأثيرات متعددة على نفس الشكل؟**
-
+**هل يمكنني تطبيق تأثيرات متعددة على نفس الشكل؟**  
 نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل، والانعكاس، والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
 
-**ما الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
+**ما الأشكال التي يمكنني تطبيق التأثيرات عليها؟**  
+يمكنك تطبيق التأثيرات على مجموعة متنوعة من الأشكال، بما في ذلك الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وأكثر.
 
-يمكنك تطبيق التأثيرات على أشكال متعددة، بما في ذلك الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وأكثر.
-
-**هل يمكنني تطبيق التأثيرات على الأشكال المجمعة؟**
-
-نعم، يمكنك تطبيق التأثيرات على الأشكال المجمعة. سيُطبق التأثير على المجموعة بأكملها.
+**هل يمكنني تطبيق التأثيرات على الأشكال المجمّعة؟**  
+نعم، يمكنك تطبيق التأثيرات على الأشكال المجمّعة. سيُطبق التأثير على المجموعة بأكملها.

@@ -1,43 +1,43 @@
 ---
-title: ใช้เอฟเฟ็กต์รูปทรงในงานนำเสนอด้วย PHP
-linktitle: เอฟเฟ็กต์รูปทรง
+title: ใช้เอฟเฟกต์รูปทรงในงานนำเสนอด้วย PHP
+linktitle: เอฟเฟกต์รูปทรง
 type: docs
 weight: 30
 url: /th/php-java/shape-effect/
 keywords:
-- เอฟเฟ็กต์รูปทรง
-- เอฟเฟ็กต์เงา
-- เอฟเฟ็กต์การสะท้อน
-- เอฟเฟ็กต์การเรืองแสง
-- เอฟเฟ็กต์ขอบนุ่ม
-- รูปแบบเอฟเฟ็กต์
+- เอฟเฟกต์รูปทรง
+- เอฟเฟกต์เงา
+- เอฟเฟกต์การสะท้อน
+- เอฟเฟกต์แสงเรือง
+- เอฟเฟกต์ขอบอ่อน
+- รูปแบบเอฟเฟกต์
 - PowerPoint
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟ็กต์รูปทรงขั้นสูงโดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในไม่กี่วินาที."
+description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟกต์รูปทรงขั้นสูงโดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในไม่กี่วินาที."
 ---
 ## **บทนำ**
 
-ในขณะที่เอฟเฟ็กต์ใน PowerPoint สามารถใช้ทำให้รูปทรงเด่นขึ้นได้ พวกมันจะแตกต่างจาก [การเติม](/slides/th/php-java/shape-formatting/#gradient-fill) หรือเส้นขอบ การใช้เอฟเฟ็กต์ของ PowerPoint คุณสามารถสร้างการสะท้อนที่น่าเชื่อบนรูปทรง กระจายแสงเรืองรัศมีของรูปทรง ฯลฯ
+แม้ว่าเอฟเฟกต์ใน PowerPoint จะใช้ทำให้รูปทรงโดดเด่นได้ แต่พวกมันแตกต่างจาก [fills](/slides/th/php-java/shape-formatting/#gradient-fill) หรือเส้นขอบ การใช้เอฟเฟกต์ PowerPoint คุณสามารถสร้างการสะท้อนที่น่าเชื่อถือบนรูปทรง, กระจายแสงเรืองของรูปทรง ฯลฯ
 
 ![Shape effect](shape-effect.png)
 
-PowerPoint มีเอฟเฟ็กต์ทั้งหมดหกแบบที่สามารถใช้กับรูปทรงได้ คุณสามารถใช้หนึ่งหรือหลายเอฟเฟ็กต์กับรูปทรงหนึ่งรูป
+PowerPoint มีเอฟเฟกต์ทั้งหมดหกแบบที่สามารถนำไปใช้กับรูปทรงได้ คุณสามารถใช้เอฟเฟกต์หนึ่งหรือหลายแบบกับรูปทรงหนึ่งรูป
 
-บางการผสมของเอฟเฟ็กต์ดูดีกว่าการผสมอื่น ๆ ด้วยเหตุผลนี้ PowerPoint มีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset เป็นการผสมของสองหรือมากกว่าที่รู้ว่าดูดี วิธีนี้การเลือก Preset จะทำให้คุณไม่ต้องเสียเวลาในการทดสอบหรือผสมเอฟเฟ็กต์ต่าง ๆ เพื่อค้นหาการผสมที่ดี
+บางการผสมผสานของเอฟเฟกต์ดูดีกว่าการผสมผสานอื่น ๆ ด้วยเหตุนี้ PowerPoint จึงมีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset คือการผสมของสองหรือมากกว่าหนึ่งเอฟเฟกต์ที่รู้ว่าดูดี ดังนั้นโดยการเลือก Preset คุณจะไม่ต้องเสียเวลาในการทดสอบหรือผสมเอฟเฟกต์ต่าง ๆ เพื่อหาการผสมที่เหมาะ
 
-Aspose.Slides มีคุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) ที่ทำให้คุณสามารถใช้เอฟเฟ็กต์เดียวกันกับรูปทรงในงานนำเสนอ PowerPoint
+Aspose.Slides มีคุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) ที่ทำให้คุณสามารถใช้เอฟเฟกต์เดียวกันกับรูปทรงในงานนำเสนอ PowerPoint ได้
 
-## **ใช้เอฟเฟ็กต์เงา**
+## **ใช้เอฟเฟกต์เงา**
 
-Aspose.Slides สำหรับ PHP ผ่าน Java รองรับเงานอกและเงาภายในสำหรับรูปทรง คุณสามารถปรับแต่งสี ทิศทาง ระยะทาง และรัศมีเบลอร์เพื่อให้เข้ากับการออกแบบของงานนำเสนอของคุณ
+Aspose.Slides for PHP via Java รองรับเงานอกและเงาภายในสำหรับรูปทรง คุณสามารถปรับแต่งสี, ทิศทาง, ระยะห่าง และรัศมีเบลิร์เพื่อให้ตรงกับการออกแบบงานนำเสนอของคุณ
 
 ### **ใช้เงานอก**
 
-ใช้เงานอกเพื่อทำให้การ์ดหรือแผงเด่นขึ้นเมื่อเทียบกับพื้นหลังของสไลด์ เงาจะขยายออกนอกขอบของรูปทรง สร้างความรู้สึกว่ารูปทรงยกขึ้นเหนือสไลด์ ปรับสี ทิศทาง ระยะทาง และรัศมีเบลอร์ให้สอดคล้องกับแสงและสไตล์ของแม่แบบของคุณ
+ใช้เงานอกเพื่อทำให้บัตรหรือแผงเด่นขึ้นจากพื้นหลังสไลด์ เงาจะขยายออกนอกขอบของรูปทรง ทำให้ดูเหมือนรูปทรงลอยอยู่เหนือสไลด์ ปรับสี, ทิศทาง, ระยะห่าง และรัศมีเบลิร์ให้ตรงกับแสงและสไตล์ของเทมเพลตของคุณ
 
-โค้ด PHP นี้แสดงวิธีใช้ [เอฟเฟ็กต์เงานอก](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) กับสี่เหลี่ยม:
+โค้ด PHP นี้แสดงวิธีใช้ [เอฟเฟกต์เงานอก](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) กับสี่เหลี่ยมผืนผ้า:
 
 ```php
 use aspose\slides\Presentation;
@@ -63,13 +63,62 @@ try {
 
 ![Shadow effect](shadow_effect.png)
 
+#### **ควบคุมทิศทางเงาเมื่อรูปทรงหมุน**
+
+ตามค่าเริ่มต้น เงานอกจะหมุนตามรูปทรง เพื่อให้รูปทรงที่มีการหมุนต่างกันดูเหมือนได้รับแสงจากทิศทางเดียวกัน ให้เรียก [setRotateShadowWithShape](https://reference.aspose.com/slides/php-java/aspose.slides/outershadow/#setRotateShadowWithShape) ด้วย `false` และใช้ [setDirection](https://reference.aspose.com/slides/php-java/aspose.slides/outershadow/#setDirection) เพื่อกำหนดทิศทางเงาเดียวกัน
+
+ตัวอย่างสร้างลูกศรสีน้ำเงินสองลูกที่มีเงาสีเทาเลื่อน 42 จุดไปทางขวา (0°) จากนั้นทำสำเนาสไลด์และหมุนลูกศรทั้งสอง 90° ตามเข็มนาฬิกา
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $before = $presentation->getSlides()->get_Item(0);
+    
+    $left = $before->getShapes()->addAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+    $left->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 70, 130, 180);
+    $left->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+    $left->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $left->getEffectFormat()->enableOuterShadowEffect();
+    $shadow = $left->getEffectFormat()->getOuterShadowEffect();
+    $shadow->getShadowColor()->setColor(java("java.awt.Color")->GRAY);
+    $shadow->setDirection(0);
+    $shadow->setDistance(42);
+    $shadow->setBlurRadius(0);
+    $shadow->setRotateShadowWithShape(true);
+
+    $right = $before->getShapes()->addClone($left);
+    $right->setX(395);
+    $right->getEffectFormat()->getOuterShadowEffect()->setRotateShadowWithShape(false);
+
+    $after = $presentation->getSlides()->addClone($before);
+    foreach ($after->getShapes()->toArray() as $arrow) {
+        $arrow->setRotation(90);
+    }
+
+    $presentation->save("arrow_shadows.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+ในสไลด์ที่สอง ลูกศรซ้ายทำเงาตกลงด้านล่าง ขณะที่ลูกศรขวายังคงทำเงาไปทางขวา ทิศทางที่กำหนดยังคงเป็น 0° สำหรับเงาทั้งสอง
+
+![PowerPoint rendering before and after a 90° rotation. Both shadows start on the right. After rotation, the shadow moves below the left arrow and stays to the right of the right arrow.](arrow-shadow-rotation.png)
+
 ### **ใช้เงาภายใน**
 
-เมื่อต้องทำสำเนาการออกแบบกราฟิกของแม่แบบ ให้ใช้เงาภายในเพื่อให้การ์ดหรือแผงดูเหมือนถมขึ้น เงานอกจะขยายออกนอกรูปทรงและทำให้ดูยกขึ้น ในขณะที่เงาภายในทำให้ด้านในของขอบมีเงา
+เมื่อทำสำเนาการออกแบบของเทมเพลตให้ใช้เงาภายในเพื่อให้บัตรหรือแผงดูร่นลงไป ด้านในเงาภายในจะทำให้ขอบของรูปทรงมืดลง ในขณะที่เงานอกจะขยายออกนอกรูปทรงทำให้ดูเหมือนยกขึ้น
 
-เรียกใช้ [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect) แล้วกำหนดค่าเงาที่คืนมาจาก [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect) ค่ารัศมีเบลอร์ที่ใหญ่กว่าให้ขอบที่นุ่มนวลขึ้น
+เรียก [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect) จากนั้นกำหนดค่าเงาที่ส่งกลับโดย [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect) ค่ารัศมีเบลิร์ที่ใหญ่จะทำให้ขอบนุ่มขึ้น
 
-ตัวอย่าง PHP นี้สร้างการ์ดสีน้ำเงินอ่อนพร้อมเงาภายในสีเทาดำและบันทึกเป็นไฟล์ PPTX ทิศทางของเงาคือ 225 องศา ระยะห่าง 7 จุด และรัศมีเบลอร์ 6 จุด:
+ตัวอย่าง PHP นี้สร้างบัตรสีฟ้าอ่อนที่มีเงาภายในสีเทาเข้มและบันทึกเป็นไฟล์ PPTX ทิศทางเงา 225°, ระยะห่าง 7 จุด, รัศมีเบลิร์ 6 จุด:
 
 ```php
 use aspose\slides\FillType;
@@ -103,13 +152,13 @@ try {
 
 ![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
 
-เพื่อลบเงาภายใน ให้เรียกใช้ [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) บนฟอร์แมตเอฟเฟ็กต์ของรูปทรง
+เพื่อเอาเงาภายในออก ให้เรียก [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) บนรูปทรงที่กำหนดรูปแบบเอฟเฟกต์
 
-### **ใช้, เปลี่ยนและลบ Preset Shadow**
+### **ใช้, เปลี่ยนแปลง, และลบ Preset Shadow**
 
-เรียกใช้ [enablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enablePresetShadowEffect) เพื่อเปิดใช้งาน Preset Shadow ใช้ [setPreset](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadow/#setPreset) เพื่อเลือก [PresetShadowType](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadowtype/) หรือสลับไปยังสไตล์อื่นบนรูปทรงเดียวกัน เรียกใช้ [disablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disablePresetShadowEffect) เพื่อลบเงาโดยคงการเติมและเส้นขอบไว้
+เรียก [enablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enablePresetShadowEffect) เพื่อเปิดใช้งาน Preset Shadow ใช้ [setPreset](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadow/#setPreset) เพื่อเลือก [PresetShadowType](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadowtype/) หรือสลับเป็นสไตล์อื่นบนรูปทรงเดียวกัน เรียก [disablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disablePresetShadowEffect) เพื่อลบเงาโดยคงการเติมและเส้นขอบไว้
 
-ตัวอย่าง PHP นี้ทำสำเนาสี่เหลี่ยมหลังจากแต่ละขั้นตอนในสามขั้นแรกเพื่อให้คุณเปรียบเทียบสี่ขั้นตอนทั้งหมดเคียงข้างกันบนสไลด์เดียว เงาทั้งสองถูกย้ายตำแหน่งด้วยระยะ 10 จุด ทิศทาง 225° จะวางเงาแรกเหนือและซ้ายของสี่เหลี่ยม และ 45° จะวางเงาที่สองใต้และขวา
+ตัวอย่าง PHP นี้ทำสำเนาสี่เหลี่ยมหลังจากแต่ละขั้นตอนสามแรกเพื่อให้คุณเปรียบเทียบสี่ขั้นตอนแบบข้างกันบนสไลด์เดียว ทั้งสองเงาเลื่อน 10 จุด ทิศทาง 225° ทำให้เงาแรกอยู่เหนือและซ้ายของสี่เหลี่ยม, 45° ทำให้เงาที่สองอยู่ล่างและขวา
 
 ```php
 use aspose\slides\FillType;
@@ -167,11 +216,11 @@ try {
 | :---: | :---: | :---: | :---: |
 | ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
-## **ใช้เอฟเฟ็กต์การสะท้อน**
+## **ใช้เอฟเฟกต์การสะท้อน**
 
-ในการใช้เอฟเฟ็กต์การสะท้อนใน Aspose.Slides สำหรับ PHP ผ่าน Java คุณสามารถเพิ่มการสะท้อนแบบกระจกให้กับรูปทรงโดยปรับพารามิเตอร์เช่น ระยะทาง ความโปร่งแสง และขนาด เอฟเฟ็กต์นี้ช่วยยกระดับความสวยงามของงานนำเสนอของคุณโดยทำให้รูปทรงดูเรียบหรูและทันสมัย ง่ายต่อการทำด้วยโค้ดง่าย ๆ ทำให้สามารถนำไปใช้กับหลายองค์ประกอบได้อย่างรวดเร็วเพื่อการออกแบบที่สอดคล้องกัน
+เพื่อใช้เอฟเฟกต์การสะท้อนใน Aspose.Slides for PHP via Java คุณสามารถเพิ่มการสะท้อนแบบกระจกให้กับรูปทรง ปรับพารามิเตอร์เช่น ระยะห่าง, ความโปร่งใส, และขนาด เอฟเฟกต์นี้ช่วยเพิ่มความสวยงามให้กับงานนำเสนอของคุณโดยทำให้รูปทรงดูเรียบหรูและทันสมัย ใช้ง่ายด้วยโค้ดไม่กี่บรรทัด ทำให้สามารถใช้ได้เร็วบนหลายองค์ประกอบเพื่อการออกแบบที่สม่ำเสมอ
 
-โค้ด PHP นี้แสดงวิธีใช้ [เอฟเฟ็กต์การสะท้อน](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) กับรูปทรง:
+โค้ด PHP นี้แสดงวิธีใช้ [เอฟเฟกต์การสะท้อน](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) กับรูปทรง:
 
 ```php
 use aspose\slides\Presentation;
@@ -198,11 +247,11 @@ try {
 
 ![Reflection effect](reflection_effect.png)
 
-## **ใช้เอฟเฟ็กต์การเรืองแสง**
+## **ใช้เอฟเฟกต์แสงเรือง**
 
-ในการใช้เอฟเฟ็กต์การเรืองแสงกับรูปทรงใน Aspose.Slides สำหรับ PHP ผ่าน Java คุณสามารถเพิ่มแสงออร่าที่นุ่มนวลรอบรูปทรงโดยปรับคุณสมบัติเช่น สีและขนาด เอฟเฟ็กต์นี้ช่วยให้รูปทรงโดดเด่นและเพิ่มองค์ประกอบภาพที่น่าสนใจให้กับงานนำเสนอของคุณ ง่ายต่อการทำด้วยโค้ดจำนวนน้อย ช่วยปรับปรุงภาพรวมของสไลด์ของคุณ
+เพื่อใช้เอฟเฟกต์แสงเรืองกับรูปทรงใน Aspose.Slides for PHP via Java คุณสามารถเพิ่มออร่ารอบรูปทรงที่อ่อนนุ่มและสว่างไสว ปรับคุณสมบัติเช่น สีและขนาด เอฟเฟกต์นี้ช่วยทำให้รูปทรงโดดเด่นและเพิ่มองค์ประกอบภาพที่ดึงดูดตาให้กับการนำเสนอของคุณ ใช้ง่ายด้วยโค้ดขั้นต่ำ ทำให้สไลด์ของคุณดูสวยงามยิ่งขึ้น
 
-โค้ด PHP นี้แสดงวิธีใช้ [เอฟเฟ็กต์การเรืองแสง](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) กับรูปทรง:
+โค้ด PHP นี้แสดงวิธีใช้ [เอฟเฟกต์แสงเรือง](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) กับรูปทรง:
 
 ```php
 use aspose\slides\Presentation;
@@ -226,11 +275,11 @@ try {
 
 ![Glow effect](glow_effect.png)
 
-## **ใช้เอฟเฟ็กต์ขอบนุ่ม**
+## **ใช้เอฟเฟกต์ขอบอ่อน**
 
-ในการใช้เอฟเฟ็กต์ขอบนุ่มใน Aspose.Slides สำหรับ PHP ผ่าน Java คุณสามารถสร้างการเปลี่ยนแปลงที่เรียบและเบลอรอบขอบของรูปทรง เอฟเฟ็กต์นี้เพิ่มลุคที่ละเอียดอ่อนและหรูหรา เหมาะกับการออกแบบที่ต้องการรูปลักษณ์อ่อนนุ่ม คุณสามารถปรับพารามิเตอร์เช่น รัศมี เพื่อให้ได้เอฟเฟ็กต์ที่ต้องการบนรูปทรงหลากหลายในงานนำเสนอของคุณ
+เพื่อใช้เอฟเฟกต์ขอบอ่อนใน Aspose.Slides for PHP via Java คุณสามารถสร้างการเปลี่ยนแปลงที่เรียบและเบลอร์รอบขอบของรูปทรง เอฟเฟกต์นี้เพิ่มลุคที่ละเอียดอ่อนและประณีต เหมาะสำหรับการออกแบบที่ต้องการความนุ่มนวล คุณสามารถปรับพารามิเตอร์เช่น รัศมีเพื่อให้ได้ผลลัพธ์ที่ต้องการบนรูปทรงต่าง ๆ ในงานนำเสนอของคุณ
 
-โค้ด PHP นี้แสดงวิธีใช้ [เอฟเฟ็กต์ขอบนุ่ม](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) กับรูปทรง:
+โค้ด PHP นี้แสดงวิธีใช้ [เอฟเฟกต์ขอบอ่อน](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) กับรูปทรง:
 
 ```php
 use aspose\slides\Presentation;
@@ -253,17 +302,17 @@ try {
 
 ![Soft edges effect](soft_edges_effect.png)
 
-## **ใช้เอฟเฟ็กต์เบลอ**
+## **ใช้เอฟเฟกต์เบลอ**
 
-ใช้ Blur ของรูปทรงเพื่อทำให้การเติมและเส้นขอบของรูปทรงนุ่มนวลขึ้นพร้อมยังคงให้รูปทรงแก้ไขได้ เรียกใช้ [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) บนฟอร์แมตเอฟเฟ็กต์ของรูปทรง รัศมีวัดเป็นจุด (1/72 นิ้ว): ใช้ค่าที่ไม่เป็นลบ โดยค่ามากกว่าจะทำให้เบลอแรงขึ้น รัศมีศูนย์จะแสดงผลเหมือนเดิม
+ใช้เบลอรูปทรงเพื่อทำให้สีเติมและเส้นขอบของรูปทรงนุ่มขึ้นในขณะเดียวกันยังคงรูปทรงเป็นแก้ไขได้ เรียก [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) บนรูปทรงที่กำหนดรูปแบบเอฟเฟกต์ รัศมีวัดเป็นจุด (1/72 นิ้ว): ใช้ค่าที่ไม่เป็นลบ โดยค่าที่ใหญ่กว่าจะให้เบลอแรงขึ้น รัศมีศูนย์จะไม่มีการเปลี่ยนแปลงลักษณะ
 
-การตั้งค่า [getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) ควบคุมขอบเขตที่มองเห็นของเอฟเฟ็กต์ เมื่อ `false` เบลอร์จะถูกคลิปให้อยู่ในขอบเขตที่วาดเดิมรวมถึงเส้นขอบ เมื่อ `true` เบลอร์สามารถขยายออกนอกขอบเขตนั้นได้ การตั้งค่าใดๆ จะไม่เปลี่ยนตำแหน่งหรือมิติของรูปทรง
+การตั้งค่า [getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) ควบคุมขอบที่มองเห็นได้ของเอฟเฟกต์ เมื่อ `false` เบลอจะถูกตัดให้เหลือในขอบที่ทาดั้งเดิมรวมถึงเส้นขอบ เมื่อ `true` เบลออาจขยายออกนอกขอบเหล่านั้น ทั้งสองการตั้งค่าไม่ได้เปลี่ยนตำแหน่งหรือขนาดของรูปทรง
 
-การเปรียบเทียบด้านล่างใช้การเติม เส้นขอบ และขนาดรูปทรงเดียวกันตลอด แถวบนใช้ `grow = false`; แถวล่างใช้ `grow = true`.
+การเปรียบเทียบด้านล่างใช้สีเติม, เส้นขอบ, และขนาดรูปทรงเดียวกันทั้งหมด แถวบนใช้ `grow = false`; แถวล่างใช้ `grow = true`
 
 ![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
 
-ตัวอย่าง PHP นี้สร้างสี่เหลี่ยมสีส้มพร้อมเส้นขอบสีน้ำเงินเข้ม ใช้ Blur 5 จุดแล้วอัปเดตเป็น Blur 15 จุดโดยเรียก [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) อีกครั้ง จะบันทึกสถานะ Blur ทั้งสอง แล้วเรียก [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) และบันทึกรูปทรงโดยไม่มี Blur
+ตัวอย่าง PHP นี้สร้างสี่เหลี่ยมสีส้มที่มีเส้นขอบสีฟ้าเข้ม ใช้เบลอ 5 จุด จากนั้นอัปเดตเป็นเบลอ 15 จุดโดยเรียก [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) อีกครั้ง บันทึกสภาพที่เบลอทั้งสอง จากนั้นเรียก [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) และบันทึกรูปทรงโดยไม่มีเบลอ
 
 ```php
 use aspose\slides\FillType;
@@ -297,18 +346,18 @@ try {
 }
 ```
 
-Blur ของรูปทรงจะส่งผลต่อการเติมและเส้นขอบพร้อมกัน เอฟเฟ็กต์ขอบนุ่มจะทำให้ขอบของรูปทรงจางลงในขณะที่ Blur ของเงาจะทำให้เงานุ่มขึ้นเท่านั้น เอฟเฟ็กต์การแปลงภาพทำงานกับเนื้อหาภาพ; ตัวอย่างนี้ใช้ Blur โดยตรงกับฟอร์แมตเอฟเฟ็กต์ของรูปทรงโดยไม่ต้องแปลงรูปทรงเป็นภาพ
+การเบลอรูปทรงส่งผลต่อสีเติมและเส้นขอบพร้อมกัน เอฟเฟกต์ขอบอ่อนทำให้ขอบรูปทรงจางลง ในขณะที่เบลอเงาแค่เงาเท่านั้น เอฟเฟกต์การแปลงรูปภาพทำงานบนเนื้อหารูปภาพ; ตัวอย่างนี้ใช้เบลอโดยตรงบนรูปแบบเอฟเฟกต์ของรูปทรงโดยไม่แปลงรูปทรงเป็นภาพ
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถใช้หลายเอฟเฟ็กต์กับรูปทรงเดียวกันได้หรือไม่?**
+**ฉันสามารถใช้หลายเอฟเฟกต์กับรูปทรงเดียวกันได้หรือไม่?**
 
-ใช่ คุณสามารถรวมเอฟเฟ็กต์ต่าง ๆ เช่น เงา การสะท้อน และการเรืองแสง บนรูปทรงเดียวเพื่อสร้างลุคที่ไดนามิกมากขึ้น
+ได้ คุณสามารถผสมผสานเอฟเฟกต์ต่าง ๆ เช่น เงา, การสะท้อน, และแสงเรือง บนรูปทรงเดียวเพื่อสร้างรูปลักษณ์ที่มีพลวัตมากขึ้น
 
-**ฉันสามารถใช้เอฟเฟ็กต์กับรูปทรงอะไรได้บ้าง?**
+**ฉันสามารถใช้เอฟเฟกต์กับรูปทรงใดได้บ้าง?**
 
-คุณสามารถใช้เอฟเฟ็กต์กับรูปทรงต่าง ๆ รวมถึงออโตช์เอป, แผนภูมิ, ตาราง, รูปภาพ, วัตถุ SmartArt, วัตถุ OLE และอื่น ๆ
+คุณสามารถใช้เอฟเฟกต์กับรูปทรงต่าง ๆ รวมถึงออโต้เชป, แผนภูมิ, ตาราง, รูปภาพ, วัตถุ SmartArt, วัตถุ OLE, และอื่น ๆ
 
-**ฉันสามารถใช้เอฟเฟ็กต์กับรูปทรงที่จัดกลุ่มได้หรือไม่?**
+**ฉันสามารถใช้เอฟเฟกต์กับรูปทรงที่จัดกลุ่มได้หรือไม่?**
 
-ใช่ คุณสามารถใช้เอฟเฟ็กต์กับรูปทรงที่จัดกลุ่มได้ เอฟเฟ็กต์จะถูกนำไปใช้กับทั้งกลุ่ม
+ได้ คุณสามารถใช้เอฟเฟกต์กับรูปทรงที่จัดกลุ่มได้ เอฟเฟกต์จะถูกนำไปใช้กับกลุ่มทั้งหมด

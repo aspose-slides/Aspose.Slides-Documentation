@@ -9,34 +9,34 @@ keywords:
 - efekt stínu
 - efekt odrazu
 - efekt záře
-- efekt měkkých hran
+- efekt měkkých okrajů
 - formát efektu
 - PowerPoint
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Transformujte své soubory PPT a PPTX pomocí pokročilých efektů tvarů v Aspose.Slides pro Python přes Java—vytvořte úchvatné, profesionální snímky během několika sekund."
+description: "Transformujte své soubory PPT a PPTX pomocí pokročilých efektů tvarů s Aspose.Slides pro Python přes Java — vytvořte poutavé, profesionální snímky během několika sekund."
 ---
 ## **Úvod**
 
-Zatímco efekty v PowerPointu lze použít k zvýraznění tvaru, liší se od [výplní](/slides/cs/python-java/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit záři tvaru atd.
+Zatímco efekty v PowerPointu lze použít k zvýraznění tvaru, liší se od [vyplnění](/slides/cs/python-java/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů v PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit záři tvaru atd.
 
 ![Efekt tvaru](shape-effect.png)
 
-PowerPoint poskytuje šest efektů, které lze použít na tvary. Na tvar můžete použít jeden nebo více efektů.
+PowerPoint poskytuje šest efektů, které lze použít na tvary. Můžete použít jeden nebo více efektů na tvar.
 
-Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu PowerPoint nabízí možnosti pod **Preset**. Předvolby jsou kombinace dvou nebo více efektů, o nichž se ví, že vypadají dobře. Tímto způsobem, když vyberete předvolbu, nebudete muset ztrácet čas testováním nebo kombinováním různých efektů, abyste našli pěknou kombinaci.
+Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu PowerPoint poskytuje možnosti pod **Preset**. Možnosti Preset jsou kombinace dvou nebo více efektů, o nichž se ví, že vypadají dobře. Tímto způsobem, když vyberete předvolbu, nebudete muset ztrácet čas testováním nebo kombinováním různých efektů, abyste našli pěknou kombinaci.
 
-Aspose.Slides poskytuje vlastnosti a metody pod třídou [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/), které umožňují použít stejné efekty na tvary v prezentacích PowerPoint.
+Aspose.Slides poskytuje vlastnosti a metody ve třídě [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/), které vám umožňují použít stejné efekty na tvary v prezentacích PowerPoint.
 
-## **Použití stínového efektu**
+## **Použít stínový efekt**
 
-Aspose.Slides pro Python via Java podporuje vnější a vnitřní stíny pro tvary. Můžete přizpůsobit jejich barvu, směr, vzdálenost a poloměr rozostření, aby odpovídaly designu vaší prezentace.
+Aspose.Slides for Python via Java podporuje vnější a vnitřní stíny pro tvary. Můžete přizpůsobit jejich barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly designu vaší prezentace.
 
-### **Použití vnějšího stínu**
+### **Použít vnější stín**
 
-Použijte vnější stín, aby karta nebo panel vynikl oproti pozadí snímku. Stín se rozprostírá za okraji tvaru a vytváří dojem, že je tvar nad snímkem. Přizpůsobte jeho barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly osvětlení a stylu vaší šablony.
+Použijte vnější stín k zvýraznění karty nebo panelu proti pozadí snímku. Stín přesahuje okraje tvaru a vytváří dojem, že je tvar vyvýšený nad snímkem. Upravte jeho barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly osvětlení a stylu vašeho šablony.
 
 Tento Python kód ukazuje, jak použít [vnější stínový efekt](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) na obdélník:
 
@@ -67,13 +67,63 @@ finally:
 
 ![Stínový efekt](shadow_effect.png)
 
-### **Použití vnitřního stínu**
+#### **Ovládání směru stínu při otáčení tvaru**
 
-Při reprodukci vizuálního stylu šablony použijte vnitřní stín, aby karta nebo panel měl zapuštěný vzhled. Vnější stín se rozprostírá mimo tvar a dává mu vzhled zvýšeného, zatímco vnitřní stín zesvětluje vnitřní okraje.
+Ve výchozím nastavení se vnější stín otáčí spolu s tvarem. Aby se tvary s různými otočeními jevily nasvícené ze stejného směru, zavolejte [setRotateShadowWithShape](https://reference.aspose.com/slides/python-java/aspose.slides/outershadow/#setRotateShadowWithShape) s hodnotou `False` a použijte [setDirection](https://reference.aspose.com/slides/python-java/aspose.slides/outershadow/#setDirection) k nastavení stejného směru pro jejich stíny.
 
-Zavolejte [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), poté nakonfigurujte stín vrácený metodou [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Větší hodnoty poloměru rozostření produkují měkčí okraje.
+Příklad vytvoří dvě modré šipky se šedými stíny posunutými o 42 bodů doprava (0°). Pak duplikuje snímek a otočí obě šipky o 90° po směru hodinových ručiček.
 
-Tento Python příklad vytvoří světlemodrou kartu s tmavě šedým vnitřním stínem a uloží ji jako soubor PPTX. Směr stínu je 225 stupňů, vzdálenost 7 bodů a poloměr rozostření 6 bodů:
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    before = presentation.getSlides().get_Item(0)
+    
+    left = before.getShapes().addAutoShape(ShapeType.RightArrow, 55, 130, 110, 60)
+    left.getFillFormat().setFillType(FillType.Solid)
+    left.getFillFormat().getSolidFillColor().setColor(Color(70, 130, 180))
+    left.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    left.getEffectFormat().enableOuterShadowEffect()
+    shadow = left.getEffectFormat().getOuterShadowEffect()
+    shadow.getShadowColor().setColor(Color.GRAY)
+    shadow.setDirection(0)
+    shadow.setDistance(42)
+    shadow.setBlurRadius(0)
+    shadow.setRotateShadowWithShape(True)
+
+    right = before.getShapes().addClone(left)
+    right.setX(395)
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(False)
+
+    after = presentation.getSlides().addClone(before)
+    for arrow in after.getShapes():
+        arrow.setRotation(90)
+
+    presentation.save("arrow_shadows.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Na druhém snímku levá šipka vrhá stín dolů, zatímco pravá šipka stále vrhá stín doprava. Nastavený směr zůstává 0° pro oba stíny.
+
+![Vykreslení PowerPointu před a po otočení o 90°. Oba stíny začínají vpravo. Po otočení se stín posune pod levý šipku a zůstane vpravo od pravé šipky.](arrow-shadow-rotation.png)
+
+### **Použít vnitřní stín**
+
+Při reprodukci vizuálního stylu šablony použijte vnitřní stín, aby karta nebo panel získaly zapuštěný vzhled. Vnější stín se rozprostírá mimo tvar a dává mu vzhled vyvýšeného, zatímco vnitřní stín stínuje vnitřní část jeho okrajů.
+
+Zavolejte [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), pak nakonfigurujte stín vrácený metodou [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Větší hodnoty poloměru rozostření produkují měkčí hrany.
+
+Tento Python příklad vytvoří světle modrou kartu s tmavě šedým vnitřním stínem a uloží ji jako soubor PPTX. Směr stínu je 225 stupňů, jeho vzdálenost 7 bodů a poloměr rozostření 6 bodů:
 
 ```python
 import jpype
@@ -110,11 +160,11 @@ finally:
 
 Pro odebrání vnitřního stínu zavolejte [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) na formátu efektu tvaru.
 
-### **Použití, změna a odebrání přednastaveného stínu**
+### **Použít, změnit a odstranit přednastavený stín**
 
-Zavolejte [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect), poté použijte [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) pro výběr [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/). Pro změnu stylu změňte předvolbu na stejném tvaru. Zavolejte [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) pro odebrání stínu při zachování výplně a obrysu.
+Zavolejte [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect), pak použijte [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) k výběru [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/). Pro změnu stylu změňte předvolbu na stejném tvaru. Zavolejte [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) k odstranění stínu při zachování výplně a obrysu.
 
-Příklad klonuje obdélník v každé fázi, takže můžete porovnat všechny čtyři stavy vedle sebe na jednom snímku. Oba stíny jsou posunuté o 10 bodů. Směr 225° umisťuje první stín nad a vlevo od obdélníku. Směr 45° umisťuje druhý pod a vpravo.
+Příklad klonuje obdélník v každé fázi, aby bylo možné porovnat všechny čtyři stavy vedle sebe na jednom snímku. Oba stíny jsou posunuty o 10 bodů. Směr 225° umisťuje první stín nad a vlevo od obdélníku. Směr 45° umisťuje druhý stín pod a vpravo.
 
 ```python
 import jpype
@@ -166,13 +216,13 @@ finally:
     presentation.dispose()
 ```
 
-| Originál | První předvolba | Druhá předvolba | Po odebrání |
+| Originál | První předvolba | Druhá předvolba | Po odstranění |
 | :---: | :---: | :---: | :---: |
-| ![Žádný stín](preset_shadow_original.png) | ![Stín nahoře vlevo](preset_shadow_top_left.png) | ![Stín dole vpravo](preset_shadow_bottom_right.png) | ![Žádný stín po odebrání](preset_shadow_removed.png) |
+| ![Bez stínu](preset_shadow_original.png) | ![Stín nahoře vlevo](preset_shadow_top_left.png) | ![Stín dole vpravo](preset_shadow_bottom_right.png) | ![Bez stínu po odstranění](preset_shadow_removed.png) |
 
-## **Použití odrazového efektu**
+## **Použít odrazový efekt**
 
-Pro použití odrazového efektu v Aspose.Slides pro Python via Java můžete přidat zrcadlový odraz na tvary a upravit parametry jako vzdálenost, průhlednost a velikost. Tento efekt vylepšuje estetiku vašich prezentací tím, že tvary získají uhlazený a sofistikovaný vzhled. Je snadné jej implementovat jednoduchým kódem, což umožňuje rychlé použití napříč více prvky pro konzistentní design.
+Pro použití odrazového efektu v Aspose.Slides for Python via Java můžete přidat zrcadlový odraz k tvarům a upravit parametry jako vzdálenost, průhlednost a velikost. Tento efekt zvyšuje estetiku vašich prezentací tím, že tvarům dodává uhlazený a sofistikovaný vzhled. Je snadno implementovatelný pomocí jednoduchého kódu, což umožňuje rychlé použití napříč více prvky pro jednotný design.
 
 Tento Python kód ukazuje, jak použít [odrazový efekt](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) na tvar:
 
@@ -203,11 +253,11 @@ finally:
 
 ![Odrazový efekt](reflection_effect.png)
 
-## **Použití zářivého efektu**
+## **Použít efekt záře**
 
-Pro použití zářivého efektu na tvar v Aspose.Slides pro Python via Java můžete přidat měkkou, zářivou auru kolem tvarů a upravit vlastnosti jako barvu a velikost. Tento efekt pomáhá tvarům vyniknout a přidává atraktivní, upoutávající vizuální prvek do vaší prezentace. Je snadné jej implementovat s minimálním kódem, což zlepšuje celkový vzhled vašich snímků.
+Pro použití efektu záře na tvar v Aspose.Slides for Python via Java můžete přidat měkkou, světélkující auru kolem tvarů a upravit vlastnosti jako barvu a velikost. Tento efekt pomáhá tvarům vyniknout a přidává atraktivní, výrazný vizuální prvek vaší prezentaci. Je snadno implementovatelný s minimálním kódem, což zlepšuje celkový vzhled vašich snímků.
 
-Tento Python kód ukazuje, jak použít [zářivý efekt](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) na tvar:
+Tento Python kód ukazuje, jak použít [efekt záře](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) na tvar:
 
 ```python
 import jpype
@@ -233,13 +283,13 @@ finally:
     presentation.dispose()
 ```
 
-![Zářivý efekt](glow_effect.png)
+![Efekt záře](glow_effect.png)
 
-## **Použití efektu měkkých hran**
+## **Použít efekt měkkých okrajů**
 
-Pro použití efektu měkkých hran v Aspose.Slides pro Python via Java můžete vytvořit hladký, rozmazaný přechod kolem okrajů tvaru. Tento efekt přidává jemnější a rafinovanější vzhled, ideální pro designy, které potřebují jemný, měkčí vzhled. Jednoduše můžete upravit parametry jako poloměr, abyste dosáhli požadovaného efektu napříč různými tvary v prezentaci.
+Pro použití efektu měkkých okrajů v Aspose.Slides for Python via Java můžete vytvořit hladký, rozostřený přechod po obvodu tvaru. Tento efekt přidává jemnější a rafinovanější vzhled, ideální pro návrhy, které vyžadují měkký a elegantní dojem. Parametry jako poloměr lze snadno upravit, aby byl dosažen požadovaný výsledek na různých tvarech ve vaší prezentaci.
 
-Tento Python kód ukazuje, jak použít [efekt měkkých hran](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) na tvar:
+Tento Python kód ukazuje, jak použít [efekt měkkých okrajů](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) na tvar:
 
 ```python
 import jpype
@@ -263,19 +313,19 @@ finally:
     presentation.dispose()
 ```
 
-![Efekt měkkých hran](soft_edges_effect.png)
+![Efekt měkkých okrajů](soft_edges_effect.png)
 
-## **Použití rozostření**
+## **Použít efekt rozostření**
 
-Použijte rozostření tvaru ke změkčení výplně a obrysu tvaru při zachování editovatelnosti tvaru. Zavolejte [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) na formátu efektu tvaru. Poloměr se měří v bodech (1/72 palce): použijte nezápornou hodnotu, přičemž vyšší hodnoty vytvářejí silnější rozostření. Poloměr nula ponechává vzhled beze změny.
+Použijte rozostření tvaru k změkčení výplně a obrysu tvaru a přitom zachovat editovatelnost tvaru. Zavolejte [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) na formátu efektu tvaru. Poloměr se měří v bodech (1/72 palce): použijte nezápornou hodnotu, přičemž větší hodnoty způsobí silnější rozostření. Poloměr nula nezmění vzhled.
 
-Nastavení [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) řídí viditelné ohraničení efektu. S hodnotou `False` je rozostření oříznuto na původní vykreslené ohraničení, včetně obrysu. S hodnotou `True` může rozostření přesáhnout tato ohraničení. Žádné nastavení nemění pozici ani rozměry tvaru.
+Nastavení [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) řídí viditelné hranice efektu. S hodnotou `False` je rozostření oříznuto na původní namalované hranice, včetně obrysu. S hodnotou `True` může rozostření přesáhnout tyto hranice. Žádné nastavení nemění polohu ani rozměry tvaru.
 
 Porovnání níže používá stejnou výplň, obrys a rozměry tvaru po celou dobu. Horní řada používá `grow = False`; spodní řada používá `grow = True`.
 
-![Originální obdélník porovnaný s rozostřením 5 a 15 bodů, s vypnutým a zapnutým rostem](shape_blur_comparison.png)
+![Původní obdélník porovnán s poloměry rozostření 5 a 15 bodů, s vypnutým a zapnutým zvětšením](shape_blur_comparison.png)
 
-Tento Python příklad vytvoří oranžový obdélník s tmavě modrým obrysem, použije 5‑bodové rozostření a poté jej aktualizuje na 15‑bodové rozostření opětovným voláním [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect). Uloží oba rozostřené stavy, pak zavolá [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) a uloží tvar bez rozostření.
+Tento Python příklad vytvoří oranžový obdélník s tmavě modrým obrysem, aplikuje 5‑bodové rozostření a poté jej aktualizuje na 15‑bodové rozostření pomocí opětovného volání [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect). Uloží oba rozostřené stavy, poté zavolá [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) a uloží tvar bez rozostření.
 
 ```python
 import jpype
@@ -310,7 +360,7 @@ finally:
     presentation.dispose()
 ```
 
-Rozostření tvaru postihuje výplň i obrys společně. Efekt měkkých hran zeslabuje okraje tvaru, zatímco rozostření stínu změkčuje pouze stín. Efekty transformace obrazu pracují s obsahem obrázku; tento příklad aplikuje rozostření přímo na formát efektu tvaru bez převodu tvaru na obrázek.
+Rozostření tvaru ovlivňuje výplň i obrys společně. Efekt měkkých okrajů rozostřuje okraje tvaru, zatímco rozostření stínu změkčuje jen stín. Obrázkové transformace působí na obsah obrázku; tento příklad aplikuje rozostření přímo na formát efektu tvaru bez převodu tvaru na obrázek.
 
 ## **Často kladené otázky**
 
@@ -320,8 +370,8 @@ Ano, můžete kombinovat různé efekty, jako jsou stín, odraz a záře, na jed
 
 **Na jaké tvary mohu aplikovat efekty?**
 
-Efekty můžete použít na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
+Můžete aplikovat efekty na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
 
-**Mohu použít efekty na seskupené tvary?**
+**Mohu aplikovat efekty na seskupené tvary?**
 
 Ano, můžete aplikovat efekty na seskupené tvary. Efekt bude aplikován na celou skupinu.

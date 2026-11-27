@@ -9,36 +9,36 @@ keywords:
 - εφέ σκιάς
 - εφέ αντανάκλασης
 - εφέ λάμψης
-- εφέ μαλακών άκρων
+- εφέ μαλακών ακμών
 - μορφή εφέ
 - PowerPoint
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προηγμένα εφέ σχήματος χρησιμοποιώντας το Aspose.Slides για .NET—δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
+description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προηγμένα εφέ σχημάτων χρησιμοποιώντας το Aspose.Slides για .NET—δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
 ---
 ## **Εισαγωγή**
 
-Ενώ τα εφέ στο PowerPoint μπορούν να χρησιμοποιηθούν για να ξεχωρίσει ένα σχήμα, διαφέρουν από τις [γέμιση](/slides/el/net/shape-formatting/#gradient-fill) ή τα περιγράμματα. Χρησιμοποιώντας τα εφέ του PowerPoint, μπορείτε να δημιουργήσετε πειστικές αντανακλάσεις σε ένα σχήμα, να διαστέλλετε τη λάμψη ενός σχήματος κ.λπ.
+While effects in PowerPoint can be used to make a shape stand out, they differ from [συμπληρώσεις](/slides/el/net/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.
 
 ![Εφέ σχήματος](shape-effect.png)
 
-Το PowerPoint παρέχει έξι εφέ που μπορούν να εφαρμοστούν σε σχήματα. Μπορείτε να εφαρμόσετε ένα ή περισσότερα εφέ σε ένα σχήμα.
+PowerPoint provides six effects that can be applied to shapes. You can apply one or more effects to a shape.
 
-Ορισμένοι συνδυασμοί εφέ φαίνονται καλύτεροι από άλλους. Για το λόγο αυτό, το PowerPoint διαθέτει επιλογές κάτω από **Προεπιλογή**. Οι επιλογές Προεπιλογής είναι ουσιαστικά ένας γνωστός, καλός συνδυασμός δύο ή περισσότερων εφέ. Έτσι, επιλέγοντας μια προεπιλογή, δεν χρειάζεται να χάσετε χρόνο ελέγχοντας ή συνδυάζοντας διαφορετικά εφέ για να βρείτε έναν καλό συνδυασμό.
+Some combinations of effects look better than others. For this reason, PowerPoint has options under **Preset**. The Preset options are essentially a known good-looking combination of two or more effects. This way, by selecting a preset, you won't have to waste time testing or combining different effects to find a nice combination.
 
-Το Aspose.Slides παρέχει ιδιότητες και μεθόδους στην κλάση [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) που σας επιτρέπουν να εφαρμόζετε τα ίδια εφέ σε σχήματα σε παρουσιάσεις PowerPoint.
+Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) class that allow you to apply the same effects to shapes in PowerPoint presentations.
 
-## **Εφαρμογή Εφέ Σκιάς**
+## **Εφαρμογή Σκιάς**
 
-Το Aspose.Slides για .NET υποστηρίζει εξωτερικές και εσωτερικές σκιές για σχήματα. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζει με το σχεδιασμό της παρουσίασής σας.
+Aspose.Slides for .NET supports outer and inner shadows for shapes. You can customize their color, direction, distance, and blur radius to match your presentation's design.
 
 ### **Εφαρμογή Εξωτερικής Σκιάς**
 
-Χρησιμοποιήστε μια εξωτερική σκιά για να κάνετε μια κάρτα ή πίνακα να ξεχωρίζει από το φόντο της διαφάνειας. Η σκιά επεκτείνεται πέρα από τις άκρες του σχήματος, δημιουργώντας την εντύπωση ότι το σχήμα είναι ανυψωμένο πάνω από τη διαφάνεια. Ρυθμίστε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζει με το φωτισμό και το στυλ του προτύπου σας.
+Use an outer shadow to make a card or panel stand out against the slide background. The shadow extends beyond the shape's edges, creating the impression that the shape is raised above the slide. Adjust its color, direction, distance, and blur radius to match the lighting and styling of your template.
 
-Αυτός ο κώδικας C# δείχνει πώς να εφαρμόσετε το [εφέ εξωτερικής σκιάς](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) σε ένα παραλληλόγραμμο:
+This C# code shows how to apply the [outer shadow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) to a rectangle:
 
 ```c#
 using System.Drawing;
@@ -59,13 +59,55 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 
 ![Εφέ σκιάς](shadow_effect.png)
 
+#### **Έλεγχος Κατεύθυνσης Σκιάς Όταν Στρέφεται ένα Σχήμα**
+
+By default, [RotateShadowWithShape](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/rotateshadowwithshape/) is `true`, so the shadow turns with the shape. To make shapes with different rotations appear lit from the same direction, set this property to `false` and give their shadows the same [Direction](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/direction/).
+
+The example creates two arrows with gray shadows offset to the right (`Direction = 0`). It then duplicates the slide and rotates both arrows 90° clockwise.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var before = presentation.Slides[0];
+
+var left = before.Shapes.AddAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+left.FillFormat.FillType = FillType.Solid;
+left.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+left.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+left.EffectFormat.EnableOuterShadowEffect();
+var shadow = left.EffectFormat.OuterShadowEffect;
+shadow.ShadowColor.Color = Color.Gray;
+shadow.Direction = 0;
+shadow.Distance = 42;
+shadow.BlurRadius = 0;
+shadow.RotateShadowWithShape = true;
+
+var right = before.Shapes.AddClone(left);
+right.X = 395;
+right.EffectFormat.OuterShadowEffect.RotateShadowWithShape = false;
+
+var after = presentation.Slides.AddClone(before);
+foreach (var arrow in after.Shapes)
+    arrow.Rotation = 90;
+
+presentation.Save("arrow_shadows.pptx", SaveFormat.Pptx);
+```
+
+On the second slide, the left arrow casts its shadow downward, while the right arrow still casts its shadow to the right. The configured direction remains 0° for both shadows.
+
+![Απόδοση PowerPoint πριν και μετά από περιστροφή 90°. Και οι δύο σκιές ξεκινούν δεξιά. Μετά την περιστροφή, η σκιά μετακινείται κάτω από το αριστερό βέλος και παραμένει δεξιά του δεξιού βέλους.](arrow-shadow-rotation.png)
+
 ### **Εφαρμογή Εσωτερικής Σκιάς**
 
-Κατά την αναπαραγωγή του οπτικού στυλ ενός προτύπου, χρησιμοποιήστε μια εσωτερική σκιά για να δώσετε σε μια κάρτα ή πίνακα μια εσοπτική εμφάνιση. Μια εξωτερική σκιά επεκτείνεται έξω από το σχήμα και το κάνει να φαίνεται ανυψωμένο, ενώ μια εσωτερική σκιά φωτίζει το εσωτερικό των άκρων του.
+When reproducing a template's visual styling, use an inner shadow to give a card or panel a recessed appearance. An outer shadow extends outside the shape and makes it appear raised, while an inner shadow shades the inside of its edges.
 
-Καλέστε το [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/), στη συνέχεια διαμορφώστε το [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). Μεγαλύτερες τιμές παράγουν πιο απαλές άκρες.
+Call [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/), then configure [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). Larger values produce softer edges.
 
-Αυτό το παράδειγμα C# δημιουργεί μια ανοιχτόχρωμη μπλε κάρτα με μια σκούρο γκρι εσωτερική σκιά και την αποθηκεύει ως αρχείο PPTX:
+This C# example creates a light blue card with a dark gray inner shadow and saves it as a PPTX file:
 
 ```csharp
 using System.Drawing;
@@ -90,15 +132,15 @@ shadow.BlurRadius = 6;
 presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Ανοικτό μπλε παραλληλόγραμμο με εσωτερική σκιά](inner_shadow_effect.png)
+![Ανοιχτό μπλε ορθογώνιο με εσωτερική σκιά](inner_shadow_effect.png)
 
-Για να αφαιρέσετε την εσωτερική σκιά, καλέστε το [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) στη μορφή εφέ του σχήματος.
+To remove the inner shadow, call [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) on the shape's effect format.
 
-### **Εφαρμογή, Αλλαγή και Αφαίρεση Προεπιλογής Σκιάς**
+### **Εφαρμογή, Αλλαγή και Κατάργηση Προεπιλεγμένης Σκιάς**
 
-Καλέστε το [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) και ορίστε το [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) σε έναν ονομασμένο [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/). Για να αλλάξετε το στυλ, αλλάξτε την προεπιλογή στο ίδιο σχήμα. Καλέστε το [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) για να αφαιρέσετε τη σκιά διατηρώντας τη γέμιση και το περίγραμμα.
+Call [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) and set [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) to a named [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/). To switch styles, change the preset on the same shape. Call [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) to remove the shadow while preserving the fill and outline.
 
-Αυτό το παράδειγμα κρατάει ένα αντίγραφο του παραλληλογράμμου σε κάθε στάδιο. Και οι δύο σκιές μετατοπίζονται κατά 10 μοντέλα. Μία κατεύθυνση 225° τοποθετεί την πρώτη σκιά πάνω και στα αριστερά του παραλληλογράμμου, ενώ 45° τοποθετεί τη δεύτερη κάτω και δεξιά.
+This example keeps a copy of the rectangle at each stage. Both shadows are offset by 10 points. A direction of 225° places the first shadow above and to the left of the rectangle, and 45° places the second below and to the right.
 
 ```csharp
 using System.Drawing;
@@ -140,15 +182,15 @@ shape.TextFrame.Text = "No shadow";
 presentation.Save("preset_shadows.pptx", SaveFormat.Pptx);
 ```
 
-| Αρχικό | Πρώτη προεπιλογή | Δεύτερη προεπιλογή | Μετά την αφαίρεση |
+| Αρχικό | Πρώτη προεπιλογή | Δεύτερη προεπιλογή | Μετά την κατάργηση |
 | :---: | :---: | :---: | :---: |
-| ![Χωρίς σκιά](preset_shadow_original.png) | ![Σκιά Πάνω Αριστερά](preset_shadow_top_left.png) | ![Σκιά Κάτω Δεξιά](preset_shadow_bottom_right.png) | ![Χωρίς σκιά μετά την αφαίρεση](preset_shadow_removed.png) |
+| ![Χωρίς σκιά](preset_shadow_original.png) | ![Σκιά πάνω‑αριστερά](preset_shadow_top_left.png) | ![Σκιά κάτω‑δεξιά](preset_shadow_bottom_right.png) | ![Χωρίς σκιά μετά την κατάργηση](preset_shadow_removed.png) |
 
 ## **Εφαρμογή Εφέ Αντανάκλασης**
 
-Για να εφαρμόσετε ένα εφέ αντανάκλασης στο Aspose.Slides για .NET, μπορείτε να προσθέσετε μια καθρέφτη-όμοια αντανάκλαση σε σχήματα, ρυθμίζοντας παραμέτρους όπως η απόσταση, η διαφάνεια και το μέγεθος. Αυτό το εφέ ενισχύει την αισθητική των παρουσιάσεών σας δίνοντας στα σχήματα μια πιο γυαλιστερή και εξελιγμένη εμφάνιση. Είναι εύκολο στην υλοποίηση με απλό κώδικα, επιτρέποντας γρήγορη εφαρμογή σε πολλά στοιχεία για συνεπές σχεδιασμό.
+To apply a reflection effect in Aspose.Slides for .NET, you can add a mirror-like reflection to shapes, adjusting parameters such as distance, transparency, and size. This effect enhances the aesthetic of your presentations by giving shapes a more polished and sophisticated look. It’s easy to implement with simple code, enabling quick application across multiple elements for a consistent design.
 
-Αυτός ο κώδικας C# δείχνει πώς να εφαρμόσετε το [εφέ αντανάκλασης](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) σε ένα σχήμα:
+This C# code shows how to apply the [reflection effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) to a shape:
 
 ```c#
 using Aspose.Slides;
@@ -171,9 +213,9 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 
 ## **Εφαρμογή Εφέ Λάμψης**
 
-Για να εφαρμόσετε ένα εφέ λάμψης σε ένα σχήμα στο Aspose.Slides για .NET, μπορείτε να προσθέσετε μια ήπια, φωτεινή αύρα γύρω από τα σχήματα, ρυθμίζοντας ιδιότητες όπως το χρώμα και το μέγεθος. Αυτό το εφέ βοηθά τα σχήματα να ξεχωρίζουν και προσθέτει ένα ελκυστικό, εντυπωσιακό οπτικό στοιχείο στην παρουσίασή σας. Είναι εύκολο στην υλοποίηση με ελάχιστο κώδικα, βελτιώνοντας τη συνολική εμφάνιση των διαφανειών σας.
+To apply a glow effect to a shape in Aspose.Slides for .NET, you can add a soft, luminous aura around shapes, adjusting properties like color and size. This effect helps make shapes stand out and adds an attractive, eye-catching visual element to your presentation. It's easy to implement with minimal code, enhancing the overall look of your slides.
 
-Αυτός ο κώδικας C# δείχνει πώς να εφαρμόσετε το [εφέ λάμψης](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) σε ένα σχήμα:
+This C# code shows how to apply the [glow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) to a shape:
 
 ```c#
 using System.Drawing;
@@ -193,11 +235,11 @@ presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 
 ![Εφέ λάμψης](glow_effect.png)
 
-## **Εφαρμογή Εφέ Μαλακών Άκρων**
+## **Εφαρμογή Εφέ Μαλακών Ακμών**
 
-Για να εφαρμόσετε ένα εφέ μαλακών άκρων στο Aspose.Slides για .NET, μπορείτε να δημιουργήσετε μια ομαλή, θολή μετάβαση γύρω από τις άκρες ενός σχήματος. Αυτό το εφέ προσθέτει μια πιο διακριτική και εκλεπτυσμένη εμφάνιση, ιδανική για σχεδιασμούς που χρειάζονται μια απαλή, πιο μαλακή εμφάνιση. Μπορείτε εύκολα να ρυθμίσετε παραμέτρους όπως η ακτίνα για να επιτύχετε το επιθυμητό αποτέλεσμα σε διάφορα σχήματα της παρουσίασής σας.
+To apply a soft edges effect in Aspose.Slides for .NET, you can create a smooth, blurred transition around the edges of a shape. This effect adds a more subtle and refined look, perfect for designs that need a gentle, softer appearance. You can easily adjust parameters like radius to achieve the desired effect across various shapes in your presentation.
 
-Αυτός ο κώδικας C# δείχνει πώς να εφαρμόσετε τα [μαλακά άκρα](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) σε ένα σχήμα:
+This C# code shows how to apply the [soft edges](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) to a shape:
 
 ```c#
 using Aspose.Slides;
@@ -213,19 +255,19 @@ shape.EffectFormat.SoftEdgeEffect.Radius = 8;
 presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 ```
 
-![Εφέ μαλακών άκρων](soft_edges_effect.png)
+![Εφέ μαλακών ακμών](soft_edges_effect.png)
 
-## **Εφαρμογή Εφέ Θόλωσης**
+## **Εφαρμογή Εφέ Θολώματος**
 
-Χρησιμοποιήστε τη θόλωση σχήματος για να μαλακώσετε τη γέμιση και το περίγραμμα ενός σχήματος ενώ παραμένετε επεξεργάσιμο το σχήμα. Καλέστε το [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) στη μορφή εφέ του σχήματος. Η ακτίνα μετράται σε μοντέλα (1/72 ίντσα): χρησιμοποιήστε μια μη αρνητική τιμή, με μεγαλύτερες τιμές που προκαλούν πιο ισχυρή θόλωση. Μια ακτίνα μηδέν αφήνει την εμφάνιση αμετάβλητη.
+Use shape blur to soften a shape's fill and outline while keeping the shape editable. Call [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) on the shape's effect format. The radius is measured in points (1/72 inch): use a nonnegative value, with larger values producing stronger blur. A radius of zero leaves the appearance unchanged.
 
-Η ρύθμιση [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) ελέγχει τα ορατά όρια του εφέ. Με `false`, η θόλωση περιορίζεται στα αρχικά βαμμένα όρια, συμπεριλαμβανομένου του περιγράμματος. Με `true`, η θόλωση μπορεί να επεκταθεί πέρα από αυτά τα όρια. Κανένα από τα δύο δεν αλλάζει τη θέση ή τις διαστάσεις του σχήματος.
+The [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) setting controls the visible bounds of the effect. With `false`, the blur is clipped to the original painted bounds, including the outline. With `true`, the blur can extend beyond those bounds. Neither setting changes the shape's position or dimensions.
 
-Η σύγκριση παρακάτω χρησιμοποιεί την ίδια γέμιση, περίγραμμα και διαστάσεις σχήματος σε όλο το παράδειγμα. Η πάνω σειρά χρησιμοποιεί `grow = false`; η κάτω σειρά χρησιμοποιεί `grow = true`.
+The comparison below uses the same fill, outline, and shape dimensions throughout. The top row uses `grow = false`; the bottom row uses `grow = true`.
 
-![Αρχικό παραλληλόγραμμο συγκρινόμενο με ακτίνες θόλωσης 5 και 15 μοντέλων, με grow απενεργοποιημένο και ενεργοποιημένο](shape_blur_comparison.png)
+![Αρχικό ορθογώνιο συγκρινόμενο με ακτίνες θολώματος 5 και 15 σημείων, με το grow απενεργοποιημένο και ενεργοποιημένο](shape_blur_comparison.png)
 
-Αυτό το παράδειγμα C# δημιουργεί ένα πορτοκαλί παραλληλόγραμμο με σκούρο μπλε περίγραμμα, εφαρμόζει θόλωση 5 μοντέλων και έπειτα το ενημερώνει σε θόλωση 15 μοντέλων καλώντας ξανά το [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/). Αποθηκεύει και τις δύο καταστάσεις με θόλωση, στη συνέχεια καλεί το [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) και αποθηκεύει το σχήμα χωρίς θόλωση.
+This C# example creates an orange rectangle with a dark blue outline, applies a 5-point blur, and then updates it to a 15-point blur by calling [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) again. It saves both blurred states, then calls [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) and saves the shape without blur.
 
 ```csharp
 using System.Drawing;
@@ -252,18 +294,18 @@ shape.EffectFormat.DisableBlurEffect();
 presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
 ```
 
-Η θόλωση σχήματος επηρεάζει τη γέμιση και το περίγραμμα μαζί. Το εφέ μαλακών άκρων εξασθενίζει τις άκρες του σχήματος, ενώ η θόλωση της σκιάς μαλακώνει μόνο τη σκιά. Τα εφέ μετασχηματισμού εικόνας λειτουργούν στο περιεχόμενο της εικόνας· αυτό το παράδειγμα εφαρμόζει θόλωση απευθείας στη μορφή εφέ του σχήματος χωρίς να μετατρέπει το σχήμα σε εικόνα.
+Shape blur affects the fill and outline together. A soft edges effect fades the shape's edges, while shadow blur softens only the shadow. Image transformation effects operate on image content; this example applies blur directly to the shape's effect format without converting the shape to an image.
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
 **Μπορώ να εφαρμόσω πολλαπλά εφέ στο ίδιο σχήμα;**
 
-Ναι, μπορείτε να συνδυάσετε διαφορετικά εφέ, όπως σκιά, αντανάκλαση και λάμψη, σε ένα μόνο σχήμα για να δημιουργήσετε μια πιο δυναμική εμφάνιση.
+Yes, you can combine different effects, such as shadow, reflection, and glow, on a single shape to create a more dynamic appearance.
 
-**Σε ποια σχήματα μπορώ να εφαρμόσω εφέ;**
+**Ποια σχήματα μπορούν να έχουν εφέ;**
 
-Μπορείτε να εφαρμόσετε εφέ σε διάφορα σχήματα, συμπεριλαμβανομένων αυτόματων σχημάτων, διαγραμμάτων, πινάκων, εικόνων, αντικειμένων SmartArt, αντικειμένων OLE κ.ά.
+You can apply effects to various shapes, including autoshapes, charts, tables, pictures, SmartArt objects, OLE objects, and more.
 
 **Μπορώ να εφαρμόσω εφέ σε ομαδοποιημένα σχήματα;**
 
-Ναι, μπορείτε να εφαρμόσετε εφέ σε ομαδοποιημένα σχήματα. Το εφέ θα εφαρμοστεί σε ολόκληρη την ομάδα.
+Yes, you can apply effects to grouped shapes. The effect will apply to the entire group.

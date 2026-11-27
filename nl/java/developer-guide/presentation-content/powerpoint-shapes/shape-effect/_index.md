@@ -8,36 +8,36 @@ keywords:
 - vormeffect
 - schaduweffect
 - reflectie-effect
-- gloed-effect
+- gloeieffect
 - zachte randen-effect
 - effectformaat
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Transformeer uw PPT- en PPTX-bestanden met geavanceerde vormeffecten met Aspose.Slides voor Java—maak in enkele seconden indrukwekkende, professionele dia’s."
+description: "Transformeer uw PPT- en PPTX-bestanden met geavanceerde vormeffecten met Aspose.Slides voor Java - maak binnen enkele seconden indrukwekkende, professionele dia's."
 ---
-## **Introductie**
+## **Inleiding**
 
-Terwijl effecten in PowerPoint kunnen worden gebruikt om een vorm te laten opvallen, verschillen ze van [vullingen](/slides/nl/java/shape-formatting/#gradient-fill) of randen. Met PowerPoint‑effecten kun je overtuigende reflecties op een vorm creëren, een gloed rond een vorm verspreiden, enz.
+Terwijl effecten in PowerPoint kunnen worden gebruikt om een vorm te laten opvallen, verschillen ze van [opvullingen](/slides/nl/java/shape-formatting/#gradient-fill) of omlijningen. Met PowerPoint‑effecten kun je overtuigende reflecties op een vorm creëren, de gloed van een vorm laten uitstralen, enzovoort.
 
-![Vormeffect](shape-effect.png)
+![Shape effect](shape-effect.png)
 
-PowerPoint biedt zes effecten die op vormen kunnen worden toegepast. Je kunt één of meer effecten op een vorm toepassen.
+PowerPoint biedt zes effecten die op vormen kunnen worden toegepast. Je kunt één of meerdere effecten op een vorm toepassen.
 
-Enkele combinaties van effecten zien er beter uit dan andere. Om die reden biedt PowerPoint opties onder **Preset**. De Preset‑opties zijn combinaties van twee of meer effecten die bekend staan om hun goede uiterlijk. Op deze manier hoef je bij het selecteren van een preset geen tijd te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
+Sommige combinaties van effecten zien er beter uit dan andere. Daarom biedt PowerPoint opties onder **Preset**. De preset‑opties zijn combinaties van twee of meer effecten die bekend staan om goed te renderen. Op deze manier hoef je bij het kiezen van een preset geen tijd te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
 
 Aspose.Slides biedt eigenschappen en methoden onder de klasse [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) die je toestaan dezelfde effecten op vormen in PowerPoint‑presentaties toe te passen.
 
-## **Toepassen van een schaduweffect**
+## **Een schaduweffect toepassen**
 
-Aspose.Slides for Java ondersteunt buiten- en binnenschaduwen voor vormen. Je kunt hun kleur, richting, afstand en onscherpte‑radius aanpassen om overeen te komen met het ontwerp van je presentatie.
+Aspose.Slides for Java ondersteunt buiten- en binnenschaduwen voor vormen. Je kunt hun kleur, richting, afstand en vervagingsradius aanpassen om overeen te komen met het ontwerp van je presentatie.
 
-### **Buitenste schaduw toepassen**
+### **Een buitenste schaduw toepassen**
 
-Gebruik een buitenste schaduw om een kaart of paneel te laten opvallen tegen de achtergrond van de dia. De schaduw reikt voorbij de randen van de vorm, waardoor de indruk ontstaat dat de vorm boven de dia zweeft. Pas de kleur, richting, afstand en onscherpte‑radius aan zodat ze overeenkomen met de belichting en stijl van je sjabloon.
+Gebruik een buitenste schaduw om een kaart of paneel te laten opvallen tegen de dia‑achtergrond. De schaduw strekt zich uit buiten de randen van de vorm, waardoor de indruk ontstaat dat de vorm boven de dia zweeft. Pas de kleur, richting, afstand en vervagingsradius aan om overeen te komen met de belichting en styling van je sjabloon.
 
-Deze Java‑code laat zien hoe je het [buitenste schaduw‑effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) toepast op een rechthoek:
+Deze Java‑code laat zien hoe je het [outer shadow effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) op een rechthoek toepast:
 
 ```java
 import com.aspose.slides.*;
@@ -59,15 +59,61 @@ try {
 }
 ```
 
-![Schaduweffect](shadow_effect.png)
+![Shadow effect](shadow_effect.png)
 
-### **Binnenschaduw toepassen**
+#### **De schaduwrichting regelen wanneer een vorm roteert**
 
-Wanneer je de visuele stijl van een sjabloon wilt reproduceren, gebruik je een binnenschaduw om een kaart of paneel een verzonken uitstraling te geven. Een buitenste schaduw strekt zich uit buiten de vorm en maakt deze lijken te zweven, terwijl een binnenschaduw de binnenkant van de randen schaduwt.
+Standaard roteert de buitenste schaduw mee met de vorm. Om vormen met verschillende rotaties vanuit dezelfde richting te laten verlichten, roep je [setRotateShadowWithShape](https://reference.aspose.com/slides/java/com.aspose.slides/ioutershadow/#setRotateShadowWithShape-boolean-) aan met `false` en gebruik je [setDirection](https://reference.aspose.com/slides/java/com.aspose.slides/ioutershadow/#setDirection-float-) om hun schaduwen dezelfde richting te geven.
 
-Roep [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--) aan en configureer vervolgens de schaduw die wordt geretourneerd door [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--). Grotere waarden voor de onscherpte‑radius geven zachtere randen.
+Het voorbeeld maakt twee blauwe pijlen met grijze schaduwen die 42 punten naar rechts zijn verschoven (0°). Vervolgens dupliceert het de dia en roteert beide pijlen 90° met de klok mee.
 
-Dit Java‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnenschaduw en slaat deze op als een PPTX‑bestand. De schaduwrichting is 225 graden, de afstand is 7 punten en de onscherpte‑radius is 6 punten:
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide before = presentation.getSlides().get_Item(0);
+
+    IAutoShape left = before.getShapes().addAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(FillType.Solid);
+    left.getFillFormat().getSolidFillColor().setColor(new Color(70, 130, 180));
+    left.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    IOuterShadow shadow = left.getEffectFormat().getOuterShadowEffect();
+    shadow.getShadowColor().setColor(Color.GRAY);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    IShape right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    ISlide after = presentation.getSlides().addClone(before);
+    for (IShape arrow : after.getShapes()) {
+        arrow.setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Op de tweede dia werpt de linkerpijl zijn schaduw naar beneden, terwijl de rechterpijl nog steeds zijn schaduw naar rechts werpt. De geconfigureerde richting blijft 0° voor beide schaduwen.
+
+![PowerPoint rendering before and after a 90° rotation. Both shadows start on the right. After rotation, the shadow moves below the left arrow and stays to the right of the right arrow.](arrow-shadow-rotation.png)
+
+### **Een binnenschaduw toepassen**
+
+Wanneer je de visuele styling van een sjabloon reproduceert, gebruik je een binnenschaduw om een kaart of paneel een verzonken uiterlijk te geven. Een buitenste schaduw strekt zich buiten de vorm uit en laat deze lijken te worden opgeheven, terwijl een binnenschaduw de binnenkant van de randen verkleurt.
+
+Roep [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--) aan en configureer vervolgens de schaduw die wordt geretourneerd door [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--). Grotere waarden voor de vervagingsradius geven zachtere randen.
+
+Deze Java‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnenschaduw en slaat deze op als een PPTX‑bestand. De schaduwrichting is 225 graden, de afstand is 7 punten en de vervagingsradius is 6 punten:
 
 ```java
 import com.aspose.slides.*;
@@ -95,13 +141,13 @@ try {
 }
 ```
 
-![Lichtblauwe rechthoek met een binnenschaduw](inner_shadow_effect.png)
+![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
 
-Om de binnenschaduw te verwijderen, roep je [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) aan op het effect‑formaat van de vorm.
+Om de binnenschaduw te verwijderen, roep je [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) aan op het effectformaat van de vorm.
 
 ### **Een preset‑schaduw toepassen, wijzigen en verwijderen**
 
-Roep [enablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) aan en gebruik [setPreset](https://reference.aspose.com/slides/java/com.aspose.slides/ipresetshadow/#setPreset-int-) om een [PresetShadowType](https://reference.aspose.com/slides/java/com.aspose.slides/presetshadowtype/) te selecteren. Om de stijl te wijzigen, verander je de preset op dezelfde vorm. Roep [disablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) aan om de schaduw te verwijderen terwijl de vulling en lijn behouden blijven.
+Roep [enablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) aan en gebruik [setPreset](https://reference.aspose.com/slides/java/com.aspose.slides/ipresetshadow/#setPreset-int-) om een [PresetShadowType](https://reference.aspose.com/slides/java/com.aspose.slides/presetshadowtype/) te selecteren. Om de stijl te wijzigen, verander je het preset op dezelfde vorm. Roep [disablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) aan om de schaduw te verwijderen terwijl de opvulling en omlijning behouden blijven.
 
 Dit voorbeeld toont vier fasen naast elkaar op één dia. Beide schaduwen zijn 10 punten verschoven. Een richting van 225° plaatst de eerste schaduw boven en links van de rechthoek, en 45° plaatst de tweede onder en rechts.
 
@@ -154,9 +200,9 @@ try {
 
 ## **Een reflectie‑effect toepassen**
 
-Om een reflectie‑effect toe te passen in Aspose.Slides for Java, kun je een spiegelachtige reflectie aan vormen toevoegen en parameters zoals afstand, transparantie en grootte aanpassen. Dit effect verbetert de esthetiek van je presentaties door vormen een meer gepolijste en verfijnde uitstraling te geven. Het is eenvoudig te implementeren met eenvoudige code, waardoor je het snel kunt toepassen op meerdere elementen voor een consistent ontwerp.
+Om een reflectie‑effect toe te passen in Aspose.Slides for Java, kun je een spiegelachtige reflectie aan vormen toevoegen en parameters zoals afstand, transparantie en grootte aanpassen. Dit effect verbetert de esthetiek van je presentaties door vormen een meer gepolijste en verfijnde uitstraling te geven. Het is eenvoudig te implementeren met eenvoudige code, waardoor snelle toepassing over meerdere elementen voor een consistente vormgeving mogelijk is.
 
-Deze Java‑code toont hoe je het [reflectie‑effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) toepast op een vorm:
+Deze Java‑code laat zien hoe je het [reflection effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) op een vorm toepast:
 
 ```java
 import com.aspose.slides.*;
@@ -178,13 +224,13 @@ try {
 }
 ```
 
-![Reflectie‑effect](reflection_effect.png)
+![Reflection effect](reflection_effect.png)
 
 ## **Een gloed‑effect toepassen**
 
-Om een gloed‑effect op een vorm toe te passen in Aspose.Slides for Java, kun je een zachte, lichtgevende aura rond vormen toevoegen en eigenschappen zoals kleur en grootte aanpassen. Dit effect helpt vormen op te laten vallen en voegt een aantrekkelijk, opvallend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor het algehele uiterlijk van je dia's wordt verbeterd.
+Om een gloed‑effect toe te passen op een vorm in Aspose.Slides for Java, kun je een zachte, lumineuze aura rond vormen toevoegen en eigenschappen zoals kleur en grootte aanpassen. Dit effect helpt vormen op te laten vallen en voegt een aantrekkelijk, opvallend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor de algehele uitstraling van je dia's wordt verbeterd.
 
-Deze Java‑code laat zien hoe je het [gloed‑effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) toepast op een vorm:
+Deze Java‑code laat zien hoe je het [glow effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) op een vorm toepast:
 
 ```java
 import com.aspose.slides.*;
@@ -205,13 +251,13 @@ try {
 }
 ```
 
-![Gloed‑effect](glow_effect.png)
+![Glow effect](glow_effect.png)
 
-## **Een zacht‑rand‑effect toepassen**
+## **Een zacht‑randen‑effect toepassen**
 
-Om een zacht‑rand‑effect toe te passen in Aspose.Slides for Java, kun je een vlotte, vervaagde overgang rond de randen van een vorm creëren. Dit effect geeft een subtielere en verfijndere uitstraling, perfect voor ontwerpen die een zachte, zachtere look nodig hebben. Je kunt parameters zoals radius eenvoudig aanpassen om het gewenste effect over verschillende vormen in je presentatie te bereiken.
+Om een zacht‑randen‑effect toe te passen in Aspose.Slides for Java, kun je een vloeiende, vervaagde overgang rond de randen van een vorm creëren. Dit effect geeft een subtielere en verfijndere look, perfect voor ontwerpen die een zachte, zachtere uitstraling nodig hebben. Je kunt eenvoudig parameters zoals de radius aanpassen om het gewenste effect over verschillende vormen in je presentatie te bereiken.
 
-Deze Java‑code toont hoe je het [soft edges effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) toepast op een vorm:
+Deze Java‑code laat zien hoe je het [soft edges effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) op een vorm toepast:
 
 ```java
 import com.aspose.slides.*;
@@ -230,19 +276,19 @@ try {
 }
 ```
 
-![Zachte randen‑effect](soft_edges_effect.png)
+![Soft edges effect](soft_edges_effect.png)
 
-## **Een vervaag‑effect toepassen**
+## **Een vervagings‑effect toepassen**
 
-Gebruik vormvervaging om de vulling en lijn van een vorm te verzachten terwijl de vorm bewerkbaar blijft. Roep [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) aan op het effect‑formaat van de vorm. De radius wordt gemeten in punten (1/72 inch): gebruik een niet‑negatieve waarde, waarbij grotere waarden een sterkere vervaging opleveren. Een radius van nul laat het uiterlijk onveranderd.
+Gebruik vervaging van vormen om de opvulling en omlijning van een vorm te verzachten terwijl de vorm bewerkbaar blijft. Roep [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) aan op het effectformaat van de vorm. De radius wordt gemeten in punten (1/72 inch): gebruik een niet‑negatieve waarde, waarbij grotere waarden een sterkere vervaging geven. Een radius van nul laat het uiterlijk ongewijzigd.
 
-De [getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) instelling bepaalt de zichtbare grenzen van het effect. Met `false` wordt de vervaging begrensd tot de oorspronkelijke geschilderde grenzen, inclusief de lijn. Met `true` kan de vervaging zich buiten die grenzen uitstrekken. Geen van beide instellingen verandert de positie of afmetingen van de vorm.
+De instelling [getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) bepaalt de zichtbare grenzen van het effect. Met `false` wordt de vervaging afgesneden tot de oorspronkelijke geschilderde randen, inclusief de omlijning. Met `true` kan de vervaging voorbij die randen uitbreiden. Geen van beide instellingen verandert de positie of afmetingen van de vorm.
 
-De vergelijking hieronder gebruikt dezelfde vulling, lijn en vormafmetingen door het hele voorbeeld. De bovenste rij gebruikt `grow = false`; de onderste rij gebruikt `grow = true`.
+De onderstaande vergelijking gebruikt dezelfde opvulling, omlijning en vormafmetingen overal. De bovenste rij gebruikt `grow = false`; de onderste rij gebruikt `grow = true`.
 
-![Originele rechthoek vergeleken met vervagingsradii van 5 en 15 punten, met grow uitgeschakeld en ingeschakeld](shape_blur_comparison.png)
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
 
-Dit Java‑voorbeeld maakt een oranje rechthoek met een donkerblauwe lijn, past een vervaging van 5 punten toe, en werkt deze vervolgens bij naar een vervaging van 15 punten door opnieuw [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) aan te roepen. Het slaat beide vervaagde toestanden op, waarna [disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) wordt aangeroepen en de vorm zonder vervaging wordt opgeslagen.
+Dit Java‑voorbeeld maakt een oranje rechthoek met een donkerblauwe omlijning, past een vervaging van 5 punten toe en werkt deze vervolgens bij naar een vervaging van 15 punten door opnieuw [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) aan te roepen. Beide vervaagde toestanden worden opgeslagen, daarna wordt [disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) aangeroepen en de vorm zonder vervaging opgeslagen.
 
 ```java
 import com.aspose.slides.*;
@@ -272,17 +318,17 @@ try {
 }
 ```
 
-Vormvervaging beïnvloedt zowel de vulling als de lijn tegelijk. Een zacht‑rand‑effect vervaagt de randen van de vorm, terwijl schaduwvervaging alleen de schaduw verzacht. Beeldeffecten werken op afbeeldingsinhoud; dit voorbeeld past vervaging direct toe op het effect‑formaat van de vorm zonder de vorm naar een afbeelding te converteren.
+Vervaging van vormen beïnvloedt zowel de opvulling als de omlijning samen. Een zacht‑randen‑effect doet de randen van de vorm vervagen, terwijl een schaduwvervaging alleen de schaduw verzacht. Beeldtransformatie‑effecten werken op de beeldinhoud; dit voorbeeld past vervaging direct toe op het effectformaat van de vorm zonder de vorm naar een afbeelding te converteren.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Kan ik meerdere effecten op dezelfde vorm toepassen?**
+**Kan ik meerdere effecten toepassen op dezelfde vorm?**
 
-Ja, je kunt verschillende effecten, zoals schaduw, reflectie en gloed, combineren op één vorm om een meer dynamisch uiterlijk te creëren.
+Ja, je kunt verschillende effecten, zoals schaduw, reflectie en gloed, combineren op één enkele vorm om een dynamischere uitstraling te creëren.
 
 **Op welke vormen kan ik effecten toepassen?**
 
-Je kunt effecten toepassen op verschillende vormen, waaronder autoshapes, grafieken, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
+Je kunt effecten toepassen op diverse vormen, waaronder autoshapes, diagrammen, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
 
 **Kan ik effecten toepassen op gegroepeerde vormen?**
 

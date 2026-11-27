@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή Εφέ Σχημάτων στις Παρουσιάσεις Χρησιμοποιώντας Python μέσω Java
+title: Εφαρμογή Εφέ Σχήματος σε Παρουσιάσεις Χρησιμοποιώντας Python μέσω Java
 linktitle: Εφέ Σχήματος
 type: docs
 weight: 30
@@ -16,29 +16,29 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προχωρημένα εφέ σχημάτων χρησιμοποιώντας Aspose.Slides for Python via Java—δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
+description: "Μετατρέψτε τα αρχεία PPT και PPTX σας με προχωρημένα εφέ σχήματος χρησιμοποιώντας το Aspose.Slides για Python μέσω Java—δημιουργήστε εντυπωσιακές, επαγγελματικές διαφάνειες σε δευτερόλεπτα."
 ---
 ## **Εισαγωγή**
 
-Ενώ τα εφέ στο PowerPoint μπορούν να χρησιμοποιηθούν για να αναδείξουν ένα σχήμα, διαφέρουν από [συμπληρώσεις](/slides/el/python-java/shape-formatting/#gradient-fill) ή περιγράμματα. Χρησιμοποιώντας τα εφέ του PowerPoint, μπορείτε να δημιουργήσετε πειστικές αντανακλάσεις σε ένα σχήμα, να διαστέλλετε τη λάμψη ενός σχήματος κ.λπ.
+Ενώ τα εφέ στο PowerPoint μπορούν να χρησιμοποιηθούν για να κάνει ένα σχήμα να ξεχωρίσει, διαφέρουν από τα [συμπληρώσεις](/slides/el/python-java/shape-formatting/#gradient-fill) ή τα περιγράμματα. Χρησιμοποιώντας τα εφέ του PowerPoint, μπορείτε να δημιουργήσετε πειστικούς καθρεφτισμούς σε ένα σχήμα, να εξαπλώσετε το φως του σχήματος κ.λπ.
 
 ![Shape effect](shape-effect.png)
 
 Το PowerPoint παρέχει έξι εφέ που μπορούν να εφαρμοστούν σε σχήματα. Μπορείτε να εφαρμόσετε ένα ή περισσότερα εφέ σε ένα σχήμα.
 
-Ορισμένοι συνδυασμοί εφέ φαίνονται καλύτεροι από άλλους. Για αυτόν τον λόγο, το PowerPoint παρέχει επιλογές κάτω από **Preset**. Οι επιλογές Preset είναι συνδυασμοί δύο ή περισσότερων εφέ που θεωρούνται καλές. Με αυτόν τον τρόπο, επιλέγοντας ένα preset, δεν θα χρειαστεί να σπαταλήσετε χρόνο δοκιμάζοντας ή συνδυάζοντας διαφορετικά εφέ για να βρείτε έναν ωραίο συνδυασμό.
+Ορισμένοι συνδυασμοί εφέ φαίνονται καλύτεροι από άλλους. Για το λόγο αυτό, το PowerPoint προσφέρει επιλογές κάτω από **Preset**. Οι επιλογές Preset είναι συνδυασμοί δύο ή περισσότερων εφέ που είναι γνωστό ότι φαίνονται καλά. Με αυτόν τον τρόπο, επιλέγοντας ένα preset, δεν χρειάζεται να χάνετε χρόνο δοκιμάζοντας ή συνδυάζοντας διαφορετικά εφέ για να βρείτε έναν καλό συνδυασμό.
 
-Το Aspose.Slides παρέχει ιδιότητες και μεθόδους στην κλάση [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) που επιτρέπουν την εφαρμογή των ίδιων εφέ σε σχήματα σε παρουσιάσεις PowerPoint.
+Η Aspose.Slides παρέχει ιδιότητες και μεθόδους στην κλάση [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) που σας επιτρέπουν να εφαρμόζετε τα ίδια εφέ σε σχήματα σε παρουσιάσεις PowerPoint.
 
-## **Εφαρμογή Σκιάς**
+## **Εφαρμογή Εφέ Σκιάς**
 
-Το Aspose.Slides for Python via Java υποστηρίζει εξωτερικές και εσωτερικές σκιές για σχήματα. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θόλωσης ώστε να ταιριάζουν με το σχεδιασμό της παρουσίασής σας.
+Η Aspose.Slides for Python via Java υποστηρίζει εξωτερικές και εσωτερικές σκιές για σχήματα. Μπορείτε να προσαρμόσετε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζουν με το σχεδιασμό της παρουσίασής σας.
 
 ### **Εφαρμογή Εξωτερικής Σκιάς**
 
-Χρησιμοποιήστε μια εξωτερική σκιά για να αναδείξετε μια κάρτα ή πίνακα ενάντια στο φόντο της διαφάνειας. Η σκιά εκτείνεται πέρα από τις άκρες του σχήματος, δημιουργώντας την εντύπωση ότι το σχήμα είναι ανυψωμένο πάνω από τη διαφάνεια. Ρυθμίστε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θόλωσης ώστε να ταιριάζουν με το φωτισμό και το στυλ του προτύπου σας.
+Χρησιμοποιήστε μια εξωτερική σκιά για να κάνετε μια κάρτα ή ένα πάνελ να ξεχωρίζει από το φόντο της διαφάνειας. Η σκιά εκτείνεται πέρα από τις άκρες του σχήματος, δημιουργώντας την εντύπωση ότι το σχήμα είναι ανασηκωμένο πάνω από τη διαφάνεια. Ρυθμίστε το χρώμα, την κατεύθυνση, την απόσταση και την ακτίνα θολώματος ώστε να ταιριάζει με το φωτισμό και το στυλ του προτύπου σας.
 
-Αυτός ο κώδικας Python δείχνει πώς να εφαρμόσετε το [εξωτερικό εφέ σκιάς](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) σε ένα ορθογώνιο:
+Αυτός ο κώδικας Python δείχνει πώς να εφαρμόσετε το [outer shadow effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) σε ένα ορθογώνιο:
 
 ```python
 import jpype
@@ -67,13 +67,63 @@ finally:
 
 ![Shadow effect](shadow_effect.png)
 
+#### **Έλεγχος Κατεύθυνσης Σκιάς Όταν το Σχήμα Περιστρέφεται**
+
+Από προεπιλογή, η εξωτερική σκιά περιστρέφεται μαζί με το σχήμα. Για να εμφανίζονται σχήματα με διαφορετικές περιστροφές φωτισμένα από την ίδια κατεύθυνση, καλέστε [setRotateShadowWithShape](https://reference.aspose.com/slides/python-java/aspose.slides/outershadow/#setRotateShadowWithShape) με `False` και χρησιμοποιήστε [setDirection](https://reference.aspose.com/slides/python-java/aspose.slides/outershadow/#setDirection) για να δώσετε στις σκιές την ίδια κατεύθυνση.
+
+Το παράδειγμα δημιουργεί δύο μπλε βέλους με γκρίζες σκιές μετατοπισμένες 42 σημεία προς τα δεξιά (0°). Στη συνέχεια αντιγράφει τη διαφάνεια και περιστρέφει και τα δύο βέλη κατά 90° δεξιόστροφα.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    before = presentation.getSlides().get_Item(0)
+    
+    left = before.getShapes().addAutoShape(ShapeType.RightArrow, 55, 130, 110, 60)
+    left.getFillFormat().setFillType(FillType.Solid)
+    left.getFillFormat().getSolidFillColor().setColor(Color(70, 130, 180))
+    left.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    left.getEffectFormat().enableOuterShadowEffect()
+    shadow = left.getEffectFormat().getOuterShadowEffect()
+    shadow.getShadowColor().setColor(Color.GRAY)
+    shadow.setDirection(0)
+    shadow.setDistance(42)
+    shadow.setBlurRadius(0)
+    shadow.setRotateShadowWithShape(True)
+
+    right = before.getShapes().addClone(left)
+    right.setX(395)
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(False)
+
+    after = presentation.getSlides().addClone(before)
+    for arrow in after.getShapes():
+        arrow.setRotation(90)
+
+    presentation.save("arrow_shadows.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Στη δεύτερη διαφάνεια, το αριστερό βέλος ρίχνει τη σκιά του προς τα κάτω, ενώ το δεξιό βέλος εξακολουθεί να ρίχνει τη σκιά του προς τα δεξιά. Η ρυθμισμένη κατεύθυνση παραμένει 0° και για τις δύο σκιές.
+
+![PowerPoint rendering before and after a 90° rotation. Both shadows start on the right. After rotation, the shadow moves below the left arrow and stays to the right of the right arrow.](arrow-shadow-rotation.png)
+
 ### **Εφαρμογή Εσωτερικής Σκιάς**
 
-Κατά την αναπαραγωγή του οπτικού στυλ ενός προτύπου, χρησιμοποιήστε μια εσωτερική σκιά για να δώσετε σε μια κάρτα ή πίνακα μια εσοχή. Μία εξωτερική σκιά εκτείνεται έξω από το σχήμα και το κάνει να φαίνεται ανυψωμένο, ενώ μια εσωτερική σκιά χρωματίζει το εσωτερικό των άκρων του.
+Όταν αναπαράγετε το οπτικό στυλ ενός προτύπου, χρησιμοποιήστε μια εσωτερική σκιά για να δώσετε σε μια κάρτα ή ένα πάνελ μια εσοχή. Μια εξωτερική σκιά επεκτείνεται έξω από το σχήμα και το κάνει να φαίνεται ανασηκωμένο, ενώ μια εσωτερική σκιά χρωματίζει το εσωτερικό των άκρων του.
 
-Καλέστε το [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), στη συνέχεια διαμορφώστε τη σκιά που επιστρέφεται από το [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Μεγαλύτερες τιμές ακτίνας θόλωσης παράγουν πιο απαλές άκρες.
+Καλέστε [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), στη συνέχεια ρυθμίστε τη σκιά που επιστρέφεται από το [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Μεγαλύτερες τιμές ακτίνας θολώματος παράγουν πιο απαλή άκρη.
 
-Αυτό το παράδειγμα Python δημιουργεί μια ανοιχτό-μπλε κάρτα με σκούρο γκρι εσωτερική σκιά και το αποθηκεύει ως αρχείο PPTX. Η κατεύθυνση της σκιάς είναι 225 μοίρες, η απόστασή της είναι 7 points και η ακτίνα θόλωσης είναι 6 points:
+Αυτό το παράδειγμα Python δημιουργεί μια ανοιχτό μπλε κάρτα με μια σκούρα γκρίζα εσωτερική σκιά και την αποθηκεύει ως αρχείο PPTX. Η κατεύθυνση της σκιάς είναι 225 μοίρες, η απόσταση 7 σημεία και η ακτίνα θολώματος 6 σημεία:
 
 ```python
 import jpype
@@ -106,15 +156,15 @@ finally:
     presentation.dispose()
 ```
 
-![Ανοιχτό μπλε ορθογώνιο με εσωτερική σκιά](inner_shadow_effect.png)
+![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
 
-Για να αφαιρέσετε την εσωτερική σκιά, καλέστε το [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) στο effect format του σχήματος.
+Για να αφαιρέσετε την εσωτερική σκιά, καλέστε [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) στη μορφή εφέ του σχήματος.
 
-### **Εφαρμογή, Αλλαγή και Κατάργηση Preset Σκιάς**
+### **Εφαρμογή, Αλλαγή και Αφαίρεση Προρυθμισμένης Σκιάς**
 
-Καλέστε το [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect), στη συνέχεια χρησιμοποιήστε το [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) για να επιλέξετε ένα [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/). Για να αλλάξετε στυλ, αλλάξτε το preset στο ίδιο σχήμα. Καλέστε το [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) για να αφαιρέσετε τη σκιά διατηρώντας το γέμισμα και το περίγραμμα.
+Καλέστε [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect), στη συνέχεια χρησιμοποιήστε [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) για να επιλέξετε έναν [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/). Για να αλλάξετε στυλ, αλλάξτε το preset στο ίδιο σχήμα. Καλέστε [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) για να αφαιρέσετε τη σκιά ενώ διατηρείτε το γέμισμα και το περίγραμμα.
 
-Το παράδειγμα κλωνοποιεί το ορθογώνιο σε κάθε στάδιο ώστε να μπορείτε να συγκρίνετε και τις τέσσερις καταστάσεις πλάι-πλάι σε μια διαφάνεια. Και οι δύο σκιές μετατοπίζονται κατά 10 points. Μία κατεύθυνση 225° τοποθετεί την πρώτη σκιά πάνω και προς τα αριστερά του ορθογωνίου. Μία κατεύθυνση 45° τοποθετεί τη δεύτερη κάτω και προς τα δεξιά.
+Το παράδειγμα κλωνοποιεί το ορθογώνιο σε κάθε στάδιο ώστε να μπορείτε να συγκρίνετε τις τέσσερις καταστάσεις δίπλα-δίπλα σε μία διαφάνεια. Και οι δύο σκιές είναι μετατοπισμένες 10 σημεία. Μια κατεύθυνση 225° τοποθετεί τη πρώτη σκιά πάνω και αριστερά του ορθογωνίου. Μια κατεύθυνση 45° τοποθετεί τη δεύτερη κάτω και δεξιά.
 
 ```python
 import jpype
@@ -166,15 +216,15 @@ finally:
     presentation.dispose()
 ```
 
-| Αρχικό | Πρώτη προεπιλογή | Δεύτερη προεπιλογή | Μετά την αφαίρεση |
+| Αρχικό | Πρώτο preset | Δεύτερο preset | Μετά την αφαίρεση |
 | :---: | :---: | :---: | :---: |
-| ![Χωρίς σκιά](preset_shadow_original.png) | ![Σκιά Πάνω Αριστερά](preset_shadow_top_left.png) | ![Σκιά Κάτω Δεξιά](preset_shadow_bottom_right.png) | ![Χωρίς σκιά μετά την αφαίρεση](preset_shadow_removed.png) |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
 ## **Εφαρμογή Εφέ Αντανάκλασης**
 
-Για να εφαρμόσετε ένα εφέ αντανάκλασης στο Aspose.Slides for Python via Java, μπορείτε να προσθέσετε μια καθρεφτική αντανάκλαση σε σχήματα, ρυθμίζοντας παραμέτρους όπως απόσταση, διαφάνεια και μέγεθος. Αυτό το εφέ βελτιώνει την αισθητική των παρουσιάσεών σας δίνοντας στα σχήματα μια πιο γυαλιστερή και κομψή εμφάνιση. Είναι εύκολο να υλοποιηθεί με απλό κώδικα, επιτρέποντας γρήγορη εφαρμογή σε πολλά στοιχεία για συνεπές σχέδιο.
+Για να εφαρμόσετε ένα εφέ αντανάκλασης στην Aspose.Slides for Python via Java, μπορείτε να προσθέσετε έναν καθρέφτη‑σαν αντανακλαστικό εφέ σε σχήματα, ρυθμίζοντας παραμέτρους όπως απόσταση, διαφάνεια και μέγεθος. Αυτό το εφέ ενισχύει την αισθητική των παρουσιάσεών σας προσδίδοντας στα σχήματα μια πιο πολυτελή και εκλεπτυσμένη εμφάνιση. Είναι εύκολο να υλοποιηθεί με απλό κώδικα, επιτρέποντας γρήγορη εφαρμογή σε πολλαπλά στοιχεία για ενιαίο σχεδιασμό.
 
-Αυτός ο κώδικας Python δείχνει πώς να εφαρμόσετε το [εφέ αντανάκλασης](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) σε ένα σχήμα:
+Αυτός ο κώδικας Python δείχνει πώς να εφαρμόσετε το [reflection effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) σε ένα σχήμα:
 
 ```python
 import jpype
@@ -201,13 +251,13 @@ finally:
     presentation.dispose()
 ```
 
-![Εφέ αντανάκλασης](reflection_effect.png)
+![Reflection effect](reflection_effect.png)
 
-## **Εφαρμογή Εφέ Λάμψης**
+## **Εφαρμογή Εφέ Λαμπερού Περιγράμματος**
 
-Για να εφαρμόσετε ένα εφέ λάμψης σε ένα σχήμα στο Aspose.Slides for Python via Java, μπορείτε να προσθέσετε μια ήπια, λαμπερή αύρα γύρω από τα σχήματα, ρυθμίζοντας ιδιότητες όπως το χρώμα και το μέγεθος. Αυτό το εφέ βοηθά τα σχήματα να αναδειχθούν και προσθέτει ένα ελκυστικό, εντυπωσιακό οπτικό στοιχείο στην παρουσίασή σας. Είναι εύκολο να υλοποιηθεί με ελάχιστο κώδικα, βελτιώνοντας τη συνολική εμφάνιση των διαφανειών σας.
+Για να εφαρμόσετε ένα εφέ λάμψης σε ένα σχήμα στην Aspose.Slides for Python via Java, μπορείτε να προσθέσετε μια απαλή, φωτεινή αύρα γύρω από τα σχήματα, ρυθμίζοντας ιδιότητες όπως το χρώμα και το μέγεθος. Αυτό το εφέ βοηθά τα σχήματα να ξεχωρίζουν και προσθέτει ένα ελκυστικό, εντυπωσιακό οπτικό στοιχείο στην παρουσίασή σας. Είναι εύκολο να υλοποιηθεί με ελάχιστο κώδικα, βελτιώνοντας τη συνολική εμφάνιση των διαφανειών σας.
 
-Αυτός ο κώδικας Python δείχνει πώς να εφαρμόσετε το [εφέ λάμψης](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) σε ένα σχήμα:
+Αυτός ο κώδικας Python δείχνει πώς να εφαρμόσετε το [glow effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) σε ένα σχήμα:
 
 ```python
 import jpype
@@ -233,13 +283,13 @@ finally:
     presentation.dispose()
 ```
 
-![Εφέ λάμψης](glow_effect.png)
+![Glow effect](glow_effect.png)
 
 ## **Εφαρμογή Εφέ Μαλακών Άκρων**
 
-Για να εφαρμόσετε ένα εφέ μαλακών άκρων στο Aspose.Slides for Python via Java, μπορείτε να δημιουργήσετε μια ομαλή, θολή μετάβαση γύρω από τις ακμές ενός σχήματος. Αυτό το εφέ προσθέτει μια πιο διακριτική και εκλεπτυσμένη εμφάνιση, ιδανική για σχεδιασμούς που απαιτούν ένα ήπιο, πιο απαλό φινίρισμα. Μπορείτε εύκολα να προσαρμόσετε παραμέτρους όπως η ακτίνα για να πετύχετε το επιθυμητό αποτέλεσμα σε διάφορα σχήματα της παρουσίασής σας.
+Για να εφαρμόσετε ένα εφέ μαλακών άκρων στην Aspose.Slides for Python via Java, μπορείτε να δημιουργήσετε μια ομαλή, θολή μετάβαση γύρω από τα άκρα ενός σχήματος. Αυτό το εφέ προσθέτει μια πιο ήπια και εκλεπτυσμένη εμφάνιση, ιδανική για σχέδια που απαιτούν ήπια, απαλότερη εμφάνιση. Μπορείτε εύκολα να ρυθμίσετε παραμέτρους όπως η ακτίνα για να πετύχετε το επιθυμητό αποτέλεσμα σε διάφορα σχήματα της παρουσίασής σας.
 
-Αυτός ο κώδικας Python δείχνει πώς να εφαρμόσετε το [εφέ μαλακών άκρων](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) σε ένα σχήμα:
+Αυτός ο κώδικας Python δείχνει πώς να εφαρμόσετε το [soft edges effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) σε ένα σχήμα:
 
 ```python
 import jpype
@@ -263,19 +313,19 @@ finally:
     presentation.dispose()
 ```
 
-![Εφέ μαλακών άκρων](soft_edges_effect.png)
+![Soft edges effect](soft_edges_effect.png)
 
-## **Εφαρμογή Εφέ Θόλωσης**
+## **Εφαρμογή Εφέ Θολώματος**
 
-Χρησιμοποιήστε το θόλωμα σχήματος για να μαλακώσετε το γέμισμα και το περίγραμμα ενός σχήματος ενώ παραμένετε επεξεργάσιμο. Καλέστε το [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) στο effect format του σχήματος. Η ακτίνα μετράται σε points (1/72 ίντσα): χρησιμοποιήστε μια μη αρνητική τιμή, με μεγαλύτερες τιμές να παράγουν πιο έντονο θόλωμα. Μια ακτίνα μηδέν αφήνει την εμφάνιση αμετάβλητη.
+Χρησιμοποιήστε θόλωση σχήματος για να μαλακώσετε το γέμισμα και το περίγραμμα ενός σχήματος ενώ το σχήμα παραμένει επεξεργάσιμο. Καλέστε [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) στη μορφή εφέ του σχήματος. Η ακτίνα μετράται σε σημεία (1/72 ίντσα): χρησιμοποιήστε μη‑αρνητική τιμή, με μεγαλύτερες τιμές να παράγουν ισχυρότερη θόλωση. Μια ακτίνα μηδέν αφήνει την εμφάνιση αμετάβλητη.
 
-Η ρύθμιση [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) ελέγχει τα ορατά όρια του εφέ. Με `False`, το θόλωμα περικόπτεται στα αρχικά ζωγραφισμένα όρια, συμπεριλαμβανομένου του περιγράμματος. Με `True`, το θόλωμα μπορεί να εκτείνεται πέρα από αυτά τα όρια. Καμία από τις ρυθμίσεις δεν αλλάζει τη θέση ή τις διαστάσεις του σχήματος.
+Η ρύθμιση [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) ελέγχει τα ορατά όρια του εφέ. Με `False`, η θόλωση κόβεται στα αρχικά βάφητα όρια, περιλαμβανομένου του περιγράμματος. Με `True`, η θόλωση μπορεί να εκτείνεται πέρα από αυτά τα όρια. Καμία ρύθμιση δεν αλλάζει τη θέση ή τις διαστάσεις του σχήματος.
 
-Η παρακάτω σύγκριση χρησιμοποιεί το ίδιο γέμισμα, περίγραμμα και διαστάσεις σχήματος καθ' όλη τη διάρκεια. Η επάνω σειρά χρησιμοποιεί `grow = False`; η κάτω σειρά χρησιμοποιεί `grow = True`.
+Η σύγκριση παρακάτω χρησιμοποιεί το ίδιο γέμισμα, περίγραμμα και διαστάσεις σχήματος σε όλα τα βήματα. Η πρώτη σειρά χρησιμοποιεί `grow = False`; η δεύτερη σειρά χρησιμοποιεί `grow = True`.
 
-![Αρχικό ορθογώνιο συγκριμένο με ακτίνες θόλωσης 5 και 15 points, με το grow απενεργοποιημένο και ενεργοποιημένο](shape_blur_comparison.png)
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
 
-Αυτό το παράδειγμα Python δημιουργεί ένα πορτοκαλί ορθογώνιο με σκούρο μπλε περίγραμμα, εφαρμόζει θόλωμα 5 points και στη συνέχεια το ενημερώνει σε θόλωμα 15 points καλώντας ξανά το [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect). Αποθηκεύει και τις δύο καταστάσεις με θόλωμα, στη συνέχεια καλεί το [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) και αποθηκεύει το σχήμα χωρίς θόλωμα.
+Αυτό το παράδειγμα Python δημιουργεί ένα πορτοκαλί ορθογώνιο με σκούρο μπλε περίγραμμα, εφαρμόζει θόλωση 5 σημείων, και στη συνέχεια το ενημερώνει σε θόλωση 15 σημείων καλώντας ξανά το [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect). Αποθηκεύει και τις δύο καταστάσεις με θόλωση, έπειτα καλεί [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) και αποθηκεύει το σχήμα χωρίς θόλωση.
 
 ```python
 import jpype
@@ -310,17 +360,17 @@ finally:
     presentation.dispose()
 ```
 
-Το θόλωμα σχήματος επηρεάζει ταυτόχρονα το γέμισμα και το περίγραμμα. Ένα εφέ μαλακών άκρων εξομαλύνει τις άκρες του σχήματος, ενώ το θόλωμα σκιάς μαλακώνει μόνο τη σκιά. Τα εφέ μετασχηματισμού εικόνας λειτουργούν στο περιεχόμενο της εικόνας· αυτό το παράδειγμα εφαρμόζει θόλωμα απευθείας στο effect format του σχήματος χωρίς μετατροπή του σχήματος σε εικόνα.
+Η θόλωση σχήματος επηρεάζει το γέμισμα και το περίγραμμα μαζί. Ένα εφέ μαλακών άκρων εξασθενεί τις άκρες του σχήματος, ενώ η θόλωση σκιάς μαλακώνει μόνο τη σκιά. Τα εφέ μετασχηματισμού εικόνας λειτουργούν στο περιεχόμενο της εικόνας· αυτό το παράδειγμα εφαρμόζει θόλωση απευθείας στη μορφή εφέ του σχήματος χωρίς μετατροπή του σχήματος σε εικόνα.
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
 **Μπορώ να εφαρμόσω πολλαπλά εφέ στο ίδιο σχήμα;**
 
-Ναι, μπορείτε να συνδυάσετε διαφορετικά εφέ, όπως σκιά, αντανάκλαση και λάμψη, σε ένα σχήμα για να δημιουργήσετε μια πιο δυναμική εμφάνιση.
+Ναι, μπορείτε να συνδυάσετε διαφορετικά εφέ, όπως σκιά, αντανάκλαση και λάμψη, σε ένα μόνο σχήμα για πιο δυναμική εμφάνιση.
 
 **Σε ποια σχήματα μπορώ να εφαρμόσω εφέ;**
 
-Μπορείτε να εφαρμόσετε εφέ σε διάφορα σχήματα, συμπεριλαμβανομένων των αυτόματων σχημάτων, διαγραμμάτων, πινάκων, εικόνων, αντικειμένων SmartArt, αντικειμένων OLE κ.ά.
+Μπορείτε να εφαρμόσετε εφέ σε διάφορα σχήματα, συμπεριλαμβανομένων αυτόμορφων σχήματων, διαγραμμάτων, πινάκων, εικόνων, αντικειμένων SmartArt, αντικειμένων OLE και άλλων.
 
 **Μπορώ να εφαρμόσω εφέ σε ομαδοποιημένα σχήματα;**
 
