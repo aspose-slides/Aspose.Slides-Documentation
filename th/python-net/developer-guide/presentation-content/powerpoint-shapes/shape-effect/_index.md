@@ -1,14 +1,14 @@
 ---
-title: ใช้เอฟเฟกต์รูปร่างในงานนำเสนอด้วย Python
-linktitle: เอฟเฟกต์รูปร่าง
+title: ใช้เอฟเฟกต์รูปทรงในงานนำเสนอด้วย Python
+linktitle: เอฟเฟกต์รูปทรง
 type: docs
 weight: 30
 url: /th/python-net/shape-effect
 keywords:
-- เอฟเฟกต์รูปร่าง
+- เอฟเฟกต์รูปทรง
 - เอฟเฟกต์เงา
 - เอฟเฟกต์การสะท้อน
-- เอฟเฟกต์เรืองแสง
+- เอฟเฟกต์แสงเรืองแสง
 - เอฟเฟกต์ขอบนุ่ม
 - รูปแบบเอฟเฟกต์
 - PowerPoint
@@ -16,29 +16,29 @@ keywords:
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "แปลงไฟล์ PPT, PPTX และ ODP ของคุณด้วยเอฟเฟกต์รูปร่างขั้นสูงโดยใช้ Aspose.Slides สำหรับ Python — สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพภายในไม่กี่วินาที."
+description: "แปลงไฟล์ PPT, PPTX และ ODP ของคุณด้วยเอฟเฟกต์รูปทรงขั้นสูงโดยใช้ Aspose.Slides สำหรับ Python—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพภายในไม่กี่วินาที."
 ---
 ## **บทนำ**
 
-ขณะเดียวกันเอฟเฟกต์ใน PowerPoint สามารถใช้ทำให้รูปร่างโดดเด่นได้ แต่แตกต่างจาก [การเติมสี](/slides/th/python-net/shape-formatting/#gradient-fill) หรือ เส้นขอบ. การใช้เอฟเฟกต์ PowerPoint คุณสามารถสร้างการสะท้อนที่น่าเชื่อถือบนรูปร่าง, กระจายแสงเรืองแสงของรูปร่าง, เป็นต้น.
+ในขณะที่เอฟเฟกต์ใน PowerPoint สามารถใช้ทำให้รูปทรงโดดเด่นได้ แต่พวกมันแตกต่างจาก [การเติม](/slides/th/python-net/shape-formatting/#gradient-fill) หรือเส้นขอบ การใช้เอฟเฟกต์ของ PowerPoint คุณสามารถสร้างการสะท้อนที่น่าเชื่อถือบนรูปทรง กระจายแสงเรืองแสงของรูปทรง ฯลฯ
 
-![Shape effect](shape-effect.png)
+![เอฟเฟ็กต์รูปทรง](shape-effect.png)
 
-PowerPoint มีเอฟเฟกต์หกประเภทที่สามารถใช้กับรูปร่างได้ คุณสามารถใช้หนึ่งหรือหลายเอฟเฟกต์กับรูปร่างได้
+PowerPoint มีเอฟเฟกต์หกชนิดที่สามารถนำไปใช้กับรูปทรงได้ คุณสามารถใช้หนึ่งหรือหลายเอฟเฟกต์กับรูปทรงหนึ่งรูปได้
 
-บางการผสมผสานของเอฟเฟกต์ดูดีกว่าอื่น ๆ ด้วยเหตุผลนี้ PowerPoint มีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset โดยพื้นฐานคือการผสมผสานที่ดูดีของสองหรือมากกว่าหนึ่งเอฟเฟกต์ ด้วยวิธีนี้โดยการเลือก Preset คุณจะไม่ต้องเสียเวลา ทดสอบหรือผสมผสานเอฟเฟกต์ต่าง ๆ เพื่อหาการผสมผสานที่ดี
+บางการผสมของเอฟเฟกต์ดูดีกว่าการผสมอื่น ๆ ด้วยเหตุนี้ PowerPoint มีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset เป็นการผสมที่ดูดีแล้วของสองหรือหลายเอฟเฟกต์ ด้วยวิธีนี้ การเลือก Preset จะช่วยให้คุณไม่ต้องเสียเวลาในการทดสอบหรือผสมเอฟเฟกต์ต่าง ๆ เพื่อหาการผสมที่ดี
 
-Aspose.Slides มีคุณสมบัติและวิธีการภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) ที่ช่วยให้คุณสามารถใช้เอฟเฟกต์เดียวกันกับรูปร่างในงานนำเสนอ PowerPoint
+Aspose.Slides ให้คุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) ที่ช่วยให้คุณใส่เอฟเฟกต์เดียวกันกับรูปทรงในงานนำเสนอ PowerPoint
 
-## **ใช้เอฟเฟกต์เงา**
+## **ใส่เอฟเฟกต์เงา**
 
-Aspose.Slides for Python via .NET รองรับเงานอกและเงาภายในสำหรับรูปร่าง คุณสามารถปรับแต่งสี, ทิศทาง, ระยะทาง, และรัศมีเบลอร์ให้ตรงกับการออกแบบงานนำเสนอของคุณ
+Aspose.Slides for Python via .NET รองรับเงานอกและเงาภายในสำหรับรูปทรง คุณสามารถปรับสี ทิศทาง ระยะทางและรัศมีเบลอร์ให้ตรงกับการออกแบบงานนำเสนอของคุณ
 
-### **ใช้เงานอก**
+### **ใส่เงานอก**
 
-ใช้เงานอกเพื่อทำให้การ์ดหรือพาเนลโดดเด่นต่อพื้นหลังของสไลด์ เงาจะขยายออกนอกขอบของรูปร่าง สร้างความรู้สึกว่ารูปร่างยกขึ้นเหนือสไลด์ ปรับสี, ทิศทาง, ระยะทาง, และรัศมีเบลอร์ให้สอดคล้องกับแสงและสไตล์ของเทมเพลตของคุณ
+ใช้เงานอกเพื่อทำให้การ์ดหรือแผงเด่นขึ้นจากพื้นหลังสไลด์ เงาจะขยายออกนอกขอบรูปทรง ทำให้ดูเหมือนรูปทรงลอยขึ้นเหนือสไลด์ ปรับสี ทิศทาง ระยะทางและรัศมีเบลอร์ให้สอดคล้องกับแสงและสไตล์ของแม่แบบของคุณ
 
-ตัวอย่างโค้ด Python นี้แสดงวิธีการใช้ [เอฟเฟกต์เงานอก](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/outer_shadow_effect/) กับสี่เหลี่ยม:
+Python โค้ดนี้แสดงวิธีใส่ [เอฟเฟกต์เงานอก](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/outer_shadow_effect/) ให้กับสี่เหลี่ยมผืนผ้า:
 
 ```python
 import aspose.slides as slides
@@ -55,15 +55,55 @@ with slides.Presentation() as presentation:
     presentation.save("shadow_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Shadow effect](shadow_effect.png)
+![เอฟเฟกต์เงา](shadow_effect.png)
 
-### **ใช้เงาภายใน**
+#### **ควบคุมทิศทางเงาเมื่อรูปทรงหมุน**
 
-เมื่อทำซ้ำสไตล์ภาพของเทมเพลต ให้ใช้เงาภายในเพื่อให้การ์ดหรือพาเนลดูเป็นบานเลื่อนภายใน เงานอกขยายออกนอกรูปร่างทำให้ดูยกขึ้น ในขณะที่เงาภายในทำให้ขอบด้านในของรูปร่างมีเงา
+โดยค่าเริ่มต้น [OuterShadow.rotate_shadow_with_shape](https://reference.aspose.com/slides/python-net/aspose.slides.effects/outershadow/rotate_shadow_with_shape/) เป็น `True` ดังนั้นเงาจะหมุนตามรูปทรง เพื่อให้รูปทรงที่มีการหมุนต่างกันดูเหมือนได้รับแสงจากทิศทางเดียวกัน ให้ตั้งค่าคุณสมบัตินี้เป็น `False` และกำหนด [direction](https://reference.aspose.com/slides/python-net/aspose.slides.effects/outershadow/direction/) ของเงาให้เหมือนกัน
 
-เรียก [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/), จากนั้นกำหนดค่า [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/). ค่ารัศมีเบลอร์ที่ใหญ่กว่าจะทำให้ขอบนุ่มขึ้น
+ตัวอย่างสร้างลูกศรสองอาญที่มีเงาสีเทาเลื่อนไปทางขวา 42 จุด (`direction = 0`) แล้วทำสำเนาสไลด์และหมุนลูกศรทั้งสอง 90° ตามเข็มนาฬิกา
 
-ตัวอย่าง Python นี้สร้างการ์ดสีฟ้าอ่อนพร้อมเงาภายในสีเทาดำและบันทึกเป็นไฟล์ PPTX:
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    before = presentation.slides[0]
+
+    left = before.shapes.add_auto_shape(slides.ShapeType.RIGHT_ARROW, 55, 130, 110, 60)
+    left.fill_format.fill_type = slides.FillType.SOLID
+    left.fill_format.solid_fill_color.color = slides.Color.steel_blue
+    left.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    left.effect_format.enable_outer_shadow_effect()
+    shadow = left.effect_format.outer_shadow_effect
+    shadow.shadow_color.color = slides.Color.gray
+    shadow.direction = 0
+    shadow.distance = 42
+    shadow.blur_radius = 0
+    shadow.rotate_shadow_with_shape = True
+
+    right = before.shapes.add_clone(left)
+    right.x = 395
+    right.effect_format.outer_shadow_effect.rotate_shadow_with_shape = False
+
+    after = presentation.slides.add_clone(before)
+    for arrow in after.shapes:
+        arrow.rotation = 90
+
+    presentation.save("arrow_shadows.pptx", slides.export.SaveFormat.PPTX)
+```
+
+บนสไลด์ที่สอง ลูกศรซ้ายทำเงาตกลงด้านล่าง ส่วนลูกศรขวายังคงทำเงาตกไปทางขวา ทิศทางที่กำหนดยังคงเป็น 0° สำหรับเงาทั้งสอง
+
+![การแสดงผล PowerPoint ก่อนและหลังการหมุน 90° เงาทั้งสองเริ่มจากด้านขวา หลังจากหมุน เงาจะย้ายไปอยู่ใต้ลูกศรซ้ายและคงอยู่ทางด้านขวาของลูกศรขวา](arrow-shadow-rotation.png)
+
+### **ใส่เงาภายใน**
+
+เมื่อทำการจำลองสไตล์ภาพของแม่แบบ ให้ใช้เงาภายในเพื่อให้การ์ดหรือแผงดูเป็นช่องรบกวน เงานอกขยายออกนอกรูปทรงทำให้ดูเหมือนยกขึ้น ส่วนเงาภายในจะทำให้ขอบภายในของรูปทรงเงา
+
+เรียกใช้ [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/) แล้วกำหนดค่า [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/) ค่า blur-radius ที่ใหญ่กว่าจะทำให้ขอบนุ่มขึ้น
+
+Python ตัวอย่างนี้สร้างการ์ดสีฟ้าอ่อนที่มีเงาภายในสีเทาเข้มและบันทึกเป็นไฟล์ PPTX:
 
 ```python
 import aspose.slides as slides
@@ -86,15 +126,15 @@ with slides.Presentation() as presentation:
     presentation.save("inner_shadow_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![สี่เหลี่ยมสีฟ้าอ่อนพร้อมเงาภายในสีเทาดำ](inner_shadow_effect.png)
+![สี่เหลี่ยมสีฟ้าอ่อนกับเงาภายใน](inner_shadow_effect.png)
 
-เพื่อเอาเงาภายในออก ให้เรียก [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/) บนรูปแบบเอฟเฟกต์ของรูปร่าง
+เพื่อเอาเงาภายในออก ให้เรียกใช้ [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/) บนรูปทรงที่ต้องการ
 
-### **ใช้, เปลี่ยนแปลง, และลบ Preset Shadow**
+### **ใส่, เปลี่ยน, และลบเงา Preset**
 
-เรียก [enable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_preset_shadow_effect/) และตั้งค่าคุณสมบัติ [preset](https://reference.aspose.com/slides/python-net/aspose.slides.effects/presetshadow/preset/) ของเงาเป็นค่า [PresetShadowType](https://reference.aspose.com/slides/python-net/aspose.slides/presetshadowtype/) เพื่อสลับสไตล์ ให้เปลี่ยน Preset บนรูปร่างเดียวกัน เรียก [disable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_preset_shadow_effect/) เพื่อลบเงาโดยยังคงรักษาการเติมสีและเส้นขอบไว้
+เรียกใช้ [enable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_preset_shadow_effect/) และตั้งค่าคุณสมบัติ [preset](https://reference.aspose.com/slides/python-net/aspose.slides.effects/presetshadow/preset/) ของเงาเป็นค่าของ [PresetShadowType](https://reference.aspose.com/slides/python-net/aspose.slides/presetshadowtype/) เพื่อสลับสไตล์ ให้เปลี่ยน preset บนรูปทรงเดียวกัน เรียกใช้ [disable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_preset_shadow_effect/) เพื่อลบเงาโดยคงการเติมและเส้นขอบไว้
 
-ตัวอย่างนี้แสดงสี่ขั้นตอนข้างเคียงกันบนสไลด์เดียว มันจะทำการโคลนสี่เหลี่ยมก่อนแต่ละการเปลี่ยนแปลงเพื่อให้คุณเปรียบเทียบผลลัพธ์ ทั้งสองเงาถูกย้ายโดย 10 จุด ทิศทาง 225° จะวางเงาแรกเหนือและ左ของสี่เหลี่ยม, และ 45° จะวางเงาที่สองด้านล่างและขวา
+ตัวอย่างนี้แสดงสี่ขั้นตอนข้างกันบนสไลด์เดียว มันทำสำเนาสี่เหลี่ยมก่อนแต่ละการเปลี่ยนเพื่อให้คุณเปรียบเทียบผลลัพธ์ เงาทั้งสองเลื่อนออก 10 จุด ทิศทาง 225° จะทำให้เงาแรกอยู่ด้านบนซ้ายของสี่เหลี่ยม และ 45° จะทำให้เงาที่สองอยู่ด้านล่างขวา
 
 ```python
 import aspose.slides as slides
@@ -136,13 +176,13 @@ with slides.Presentation() as presentation:
 
 | ต้นฉบับ | Preset แรก | Preset ที่สอง | หลังการลบ |
 | :---: | :---: | :---: | :---: |
-| ![ไม่มีเงา](preset_shadow_original.png) | ![เงาตกด้านซ้ายบน](preset_shadow_top_left.png) | ![เงาตกด้านขวาล่าง](preset_shadow_bottom_right.png) | ![ไม่มีเงาหลังการลบ](preset_shadow_removed.png) |
+| ![No shadow](preset_shadow_original.png) | ![Top-left drop shadow](preset_shadow_top_left.png) | ![Bottom-right drop shadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
-## **ใช้เอฟเฟกต์การสะท้อน**
+## **ใส่เอฟเฟกต์การสะท้อน**
 
-เพื่อใช้เอฟเฟกต์การสะท้อนใน Aspose.Slides for Python via .NET, คุณสามารถเพิ่มการสะท้อนคล้ายกระจกให้กับรูปร่างโดยปรับพารามิเตอร์เช่น ระยะทาง, ความโปร่งใส, และขนาด เอฟเฟกต์นี้ช่วยเพิ่มความสวยงามของงานนำเสนอด้วยการให้รูปร่างดูเรียบหรูและเป็นมืออาชีพ ใช้ง่ายด้วยโค้ดแบบง่าย ทำให้สามารถประยุกต์ใช้งานได้อย่างรวดเร็วบนหลายองค์ประกอบเพื่อให้การออกแบบสอดคล้องกัน
+เพื่อใส่เอฟเฟกต์การสะท้อนใน Aspose.Slides for Python via .NET คุณสามารถเพิ่มการสะท้อนคล้ายกระจกให้กับรูปทรงโดยปรับพารามิเตอร์เช่น ระยะทาง ความโปร่งใสและขนาด เอฟเฟกต์นี้ช่วยเพิ่มความสวยงามของงานนำเสนอด้วยการทำให้รูปทรงดูเรียบหรูและเป็นมืออาชีพ ใช้ง่ายด้วยโค้ดไม่กี่บรรทัด ทำให้สามารถนำไปใช้กับหลายองค์ประกอบได้อย่างสม่ำเสมอ
 
-ตัวอย่างโค้ด Python นี้แสดงวิธีการใช้ [เอฟเฟกต์การสะท้อน](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/) กับรูปร่าง:
+Python โค้ดนี้แสดงวิธีใส่ [เอฟเฟกต์การสะท้อน](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/) ให้กับรูปทรง:
 
 ```python
 import aspose.slides as slides
@@ -160,13 +200,13 @@ with slides.Presentation() as presentation:
     presentation.save("reflection_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![เอฟเฟกต์การสะท้อน](reflection_effect.png)
+![เอฟเฟ็กต์การสะท้อน](reflection_effect.png)
 
-## **ใช้เอฟเฟกต์เรืองแสง**
+## **ใส่เอฟเฟกต์แสงเรืองแสง**
 
-เพื่อใช้เอฟเฟกต์เรืองแสงกับรูปร่างใน Aspose.Slides for Python via .NET, คุณสามารถเพิ่มออร่าระบายแสงอ่อนรอบรูปร่างโดยปรับคุณสมบัติเช่น สีและขนาด เอฟเฟกต์นี้ช่วยให้รูปร่างโดดเด่นและเพิ่มความดึงดูดตาให้กับงานนำเสนอของคุณ ใช้ง่ายด้วยโค้ดเพียงเล็กน้อย ทำให้สไลด์ทั้งหมดดูมีชีวิตชีวาขึ้น
+เพื่อใส่เอฟเฟกต์แสงเรืองแสงให้กับรูปทรงใน Aspose.Slides for Python via .NET คุณสามารถเพิ่มออร่าอ่อนนุ่มรอบรูปทรงโดยปรับคุณสมบัติเช่น สีและขนาด เอฟเฟกต์นี้ช่วยทำให้รูปทรงโดดเด่นและเพิ่มองค์ประกอบภาพที่น่าสนใจให้กับการนำเสนอของคุณ ใช้ง่ายด้วยโค้ดเพียงเล็กน้อย ช่วยปรับรูปลักษณ์โดยรวมของสไลด์
 
-ตัวอย่างโค้ด Python นี้แสดงวิธีการใช้ [เอฟเฟกต์เรืองแสง](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/) กับรูปร่าง:
+Python โค้ดนี้แสดงวิธีใส่ [เอฟเฟกต์แสงเรืองแสง](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/) ให้กับรูปทรง:
 
 ```python
 import aspose.slides as slides
@@ -182,13 +222,13 @@ with slides.Presentation() as presentation:
     presentation.save("glow_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![เอฟเฟกต์เรืองแสง](glow_effect.png)
+![เอฟเฟกต์แสงเรืองแสง](glow_effect.png)
 
-## **ใช้เอฟเฟกต์ขอบนุ่ม**
+## **ใส่เอฟเฟกต์ขอบนุ่ม**
 
-เพื่อใช้เอฟเฟกต์ขอบนุ่มใน Aspose.Slides for Python via .NET, คุณสามารถสร้างการเปลี่ยนแปลงราบรื่นและเบลอรอบขอบของรูปร่าง เอฟเฟกต์นี้เพิ่มลุคที่ละเอียดอ่อนและประณีต เหมาะกับการออกแบบที่ต้องการความนุ่มนวล คุณสามารถปรับรัศมีได้ง่ายตามต้องการเพื่อให้ได้ผลลัพธ์ที่ต้องการบนรูปร่างต่าง ๆ ในงานนำเสนอของคุณ
+เพื่อใส่เอฟเฟกต์ขอบนุ่มใน Aspose.Slides for Python via .NET คุณสามารถสร้างการเปลี่ยนแปลงที่เรียบและเบลอรอบขอบของรูปทรง เอฟเฟกต์นี้เพิ่มลักษณะที่ละเอียดอ่อนและปราณีต เหมาะกับการออกแบบที่ต้องการความนุ่มนวล คุณสามารถปรับพารามิเตอร์เช่น รัศมีเพื่อให้ได้ผลลัพธ์ที่ต้องการบนรูปทรงต่าง ๆ ในงานนำเสนอของคุณ
 
-ตัวอย่างโค้ด Python นี้แสดงวิธีการใช้ [ขอบนุ่ม](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/) กับรูปร่าง:
+Python โค้ดนี้แสดงวิธีใส่ [ขอบนุ่ม](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/) ให้กับรูปทรง:
 
 ```python
 import aspose.slides as slides
@@ -205,17 +245,17 @@ with slides.Presentation() as presentation:
 
 ![เอฟเฟกต์ขอบนุ่ม](soft_edges_effect.png)
 
-## **ใช้เอฟเฟกต์เบลอ**
+## **ใส่เอฟเฟกต์เบลอ**
 
-ใช้การเบลอรูปร่างเพื่อทำให้การเติมสีและเส้นขอบของรูปร่างนุ่มลงโดยยังคงให้รูปร่างสามารถแก้ไขได้ เรียก [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) บนรูปแบบเอฟเฟกต์ของรูปร่าง รัศมีวัดเป็นจุด (1/72 นิ้ว): ใช้ค่าไม่เป็นลบ, ค่ามากขึ้นจะให้ความเบลอที่แรงขึ้น รัศมีศูนย์จะไม่เปลี่ยนรูปลักษณ์
+ใช้การเบลอรูปทรงเพื่อทำให้การเติมและเส้นขอบของรูปทรงนุ่มลงในขณะที่รักษาความสามารถในการแก้ไขรูปทรงไว้ เรียกใช้ [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) บนรูปทรงที่ต้องการ รัศมีวัดเป็นจุด (1/72 นิ้ว) ใช้ค่าที่ไม่เป็นลบ โดยค่าที่ใหญ่กว่าจะทำให้เบลอแรงขึ้น รัศมีศูนย์จะไม่เปลี่ยนลักษณะใด ๆ
 
-การตั้งค่า [grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) ควบคุมขอบที่มองเห็นของเอฟเฟกต์ เมื่อเป็น `False` เบลอจะถูกตัดให้พอดีกับขอบที่ทาด้วยสีรวมถึงเส้นขอบ เมื่อเป็น `True` เบลอสามารถขยายออกไปเกินขอบเหล่านั้นได้ ทั้งสองค่าไม่ได้เปลี่ยนตำแหน่งหรือขนาดของรูปร่าง
+การตั้งค่า [grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) ควบคุมขอบที่มองเห็นของเอฟเฟกต์ หาก `False` เบลอจะถูกคลิปที่ขอบที่วาดเดิมรวมถึงเส้นขอบ หาก `True` เบลออาจขยายออกนอกขอบเหล่านั้น การตั้งค่าใด ๆ จะไม่เปลี่ยนตำแหน่งหรือขนาดของรูปทรง
 
-การเปรียบเทียบด้านล่างใช้การเติมสี, เส้นขอบ, และขนาดรูปร่างเดียวกันทั่วทั้งตัวอย่าง แถวบนใช้ `grow = False`; แถวล่างใช้ `grow = True`.
+การเปรียบเทียบด้านล่างใช้การเติม เส้นขอบและขนาดรูปทรงเดียวกันทั้งหมด แถวบนใช้ `grow = False` แถวล่างใช้ `grow = True`
 
-![สี่เหลี่ยมต้นฉบับเปรียบเทียบกับรัศมีเบลอ 5 และ 15 จุด, โดยมีการเปิด/ปิด grow](shape_blur_comparison.png)
+![สี่เหลี่ยมต้นฉบับเปรียบเทียบกับรัศมีเบลอ 5 และ 15 จุด พร้อมการปิดและเปิดการขยาย](shape_blur_comparison.png)
 
-ตัวอย่าง Python นี้สร้างสี่เหลี่ยมสีส้มพร้อมเส้นขอบสีน้ำเงินเข้ม, ใช้เบลอ 5 จุด, จากนั้นอัปเดตเป็นเบลอ 15 จุดโดยเรียก [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) อีกครั้ง บันทึกทั้งสองสถานะที่เบลอ แล้วเรียก [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) และบันทึกรูปร่างโดยไม่มีเบลอ
+Python ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มที่มีเส้นขอบสีน้ำเงินเข้ม ใช้เบลอ 5 จุด แล้วอัปเดตเป็นเบลอ 15 จุดโดยเรียกใช้ [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) อีกครั้ง บันทึกสถานะที่เบลอแล้วทั้งสอง แล้วเรียกใช้ [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) และบันทึกรูปทรงโดยไม่มีเบลอ
 
 ```python
 import aspose.slides as slides
@@ -240,18 +280,18 @@ with slides.Presentation() as presentation:
     presentation.save("shape_blur_removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-การเบลอรูปร่างส่งผลต่อการเติมสีและเส้นขอบพร้อมกัน เอฟเฟกต์ขอบนุ่มจะทำให้ขอบของรูปร่างจางลง, ในขณะที่เบลอเงาจะทำให้เงาเท่านั้นนุ่มลง. เอฟเฟกต์การแปลงรูปทำงานกับเนื้อหาภาพ; ตัวอย่างนี้ใช้เบลอโดยตรงบนรูปแบบเอฟเฟกต์ของรูปร่างโดยไม่ต้องแปลงรูปร่างเป็นภาพ
+การเบลอรูปทรงส่งผลต่อการเติมและเส้นขอบพร้อมกัน เอฟเฟกต์ขอบนุ่มจะทำให้ขอบรูปทรงจางหายไป ในขณะที่เบลอเงาจะทำให้เงานุ่มลง ผลการแปลงภาพทำงานบนเนื้อหาภาพ; ตัวอย่างนี้ใส่เบลอโดยตรงบนฟอร์แมตเอฟเฟกต์ของรูปทรงโดยไม่ต้องแปลงรูปทรงเป็นภาพ
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันสามารถใช้หลายเอฟเฟกต์กับรูปร่างเดียวกันได้หรือไม่?**
+**ฉันสามารถใส่หลายเอฟเฟกต์ให้กับรูปทรงเดียวกันได้หรือไม่?**
 
-ใช่, คุณสามารถรวมเอฟเฟกต์ต่าง ๆ เช่น เงา, การสะท้อน, และเรืองแสง บนรูปร่างเดียวเพื่อให้ดูมีไดนามิกมากขึ้น
+ใช่ คุณสามารถผสมเอฟเฟกต์ต่าง ๆ เช่น เงา การสะท้อน และแสงเรืองแสงบนรูปทรงเดียวเพื่อให้ได้ลักษณะที่ไดนามิกมากขึ้น
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปร่างประเภทใดได้บ้าง?**
+**ฉันสามารถใส่เอฟเฟกต์ให้กับรูปทรงใดได้บ้าง?**
 
-คุณสามารถใช้เอฟเฟกต์กับรูปร่างหลายประเภท รวมถึงอัตโนมัติรูปร่าง, ชาร์ต, ตาราง, รูปภาพ, วัตถุ SmartArt, วัตถุ OLE, และอื่น ๆ
+คุณสามารถใส่เอฟเฟกต์ให้กับรูปทรงต่าง ๆ รวมถึงอัตตรูป แผนภูมิ ตาราง รูปภาพ วัตถุ SmartArt วัตถุ OLE และอื่น ๆ
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปร่างที่รวมกลุ่มกันได้หรือไม่?**
+**ฉันสามารถใส่เอฟเฟกต์ให้กับกลุ่มรูปทรงได้หรือไม่?**
 
-ใช่, คุณสามารถใช้เอฟเฟกต์กับรูปร่างที่รวมกลุ่มกันได้ เอฟเฟกต์จะถูกใช้กับกลุ่มทั้งหมด.
+ใช่ คุณสามารถใส่เอฟเฟกต์ให้กับกลุ่มรูปทรงได้ เอฟเฟกต์จะนำไปใช้กับทั้งกลุ่มโดยรวม

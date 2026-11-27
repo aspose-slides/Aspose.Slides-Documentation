@@ -1,5 +1,5 @@
 ---
-title: Applicare effetti forma nelle presentazioni su Android
+title: Applica effetti forma nelle presentazioni su Android
 linktitle: Effetto forma
 type: docs
 weight: 30
@@ -7,7 +7,7 @@ url: /it/androidjava/shape-effect/
 keywords:
 - effetto forma
 - effetto ombra
-- effetto riflesso
+- effetto riflessione
 - effetto bagliore
 - effetto bordi morbidi
 - formato effetto
@@ -16,27 +16,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Trasforma i tuoi file PPT e PPTX con effetti forma avanzati usando Aspose.Slides per Android via Java—crea diapositive sorprendenti e professionali in pochi secondi."
+description: "Trasforma i tuoi file PPT e PPTX con effetti forma avanzati usando Aspose.Slides per Android via Java—crea diapositive accattivanti e professionali in pochi secondi."
 ---
 ## **Introduzione**
 
-Mentre gli effetti in PowerPoint possono essere usati per far risaltare una forma, differiscono da [riempimenti](/slides/it/androidjava/shape-formatting/#gradient-fill) o contorni. Usando gli effetti di PowerPoint, è possibile creare riflessi convincenti su una forma, diffondere il bagliore di una forma, ecc.
+Mentre gli effetti in PowerPoint possono essere usati per far risaltare una forma, differiscono da [riempimenti](/slides/it/androidjava/shape-formatting/#gradient-fill) o contorni. Utilizzando gli effetti di PowerPoint, è possibile creare riflessi convincenti su una forma, diffondere il bagliore di una forma, ecc.
 
 ![Effetto forma](shape-effect.png)
 
 PowerPoint offre sei effetti che possono essere applicati alle forme. È possibile applicare uno o più effetti a una forma.
 
-Alcune combinazioni di effetti risultano migliori di altre. Per questo motivo, PowerPoint fornisce opzioni sotto **Preset**. Le opzioni Preset sono combinazioni di due o più effetti noti per avere un aspetto gradevole. In questo modo, selezionando un preset, non sarà necessario perdere tempo a testare o combinare effetti diversi per trovare una buona combinazione.
+Alcune combinazioni di effetti appaiono migliori di altre. Per questo motivo, PowerPoint fornisce opzioni sotto **Preset**. Le opzioni Preset sono combinazioni di due o più effetti noti per avere un buon aspetto. In questo modo, selezionando un preset, non dovrai perdere tempo a testare o combinare effetti diversi per trovare una buona combinazione.
 
 Aspose.Slides fornisce proprietà e metodi nella classe [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) che consentono di applicare gli stessi effetti alle forme nelle presentazioni PowerPoint.
 
-## **Applicare un effetto ombra**
+## **Applica un effetto ombra**
 
-Aspose.Slides per Android via Java supporta ombre esterne e interne per le forme. È possibile personalizzare il colore, la direzione, la distanza e il raggio di sfocatura per corrispondere al design della presentazione.
+Aspose.Slides per Android via Java supporta ombre esterne e interne per le forme. È possibile personalizzare colore, direzione, distanza e raggio di sfocatura per adattarli al design della presentazione.
 
-### **Applicare un'ombra esterna**
+### **Applica un'ombra esterna**
 
-Utilizza un'ombra esterna per far risaltare una scheda o un pannello rispetto allo sfondo della diapositiva. L'ombra si estende oltre i bordi della forma, creando l'impressione che la forma sia sollevata sopra la diapositiva. Regola il colore, la direzione, la distanza e il raggio di sfocatura per adattarli all'illuminazione e allo stile del modello.
+Utilizza un'ombra esterna per far risaltare una scheda o un pannello sullo sfondo della diapositiva. L'ombra si estende oltre i bordi della forma, creando l'impressione che la forma sia sollevata sopra la diapositiva. Regola colore, direzione, distanza e raggio di sfocatura per adattarli all'illuminazione e allo stile del modello.
 
 Questo codice Java mostra come applicare l'[effetto ombra esterna](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) a un rettangolo:
 
@@ -62,13 +62,59 @@ try {
 
 ![Effetto ombra](shadow_effect.png)
 
-### **Applicare un'ombra interna**
+#### **Controlla la direzione dell'ombra quando una forma ruota**
 
-Quando si riproduce lo stile visivo di un modello, usa un'ombra interna per dare a una scheda o a un pannello un aspetto incassato. Un'ombra esterna si estende al di fuori della forma e la fa apparire sollevata, mentre un'ombra interna ombreggia l'interno dei suoi bordi.
+Per impostazione predefinita, l'ombra esterna ruota con la forma. Per far apparire forme con rotazioni diverse illuminate dalla stessa direzione, chiama [setRotateShadowWithShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioutershadow/#setRotateShadowWithShape-boolean-) con `false` e usa [setDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioutershadow/#setDirection-float-) per impostare le loro ombre nella stessa direzione.
 
-Chiama [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--), quindi configura l'ombra restituita da [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--). Valori più alti del raggio di sfocatura producono bordi più morbidi.
+L'esempio crea due frecce blu con ombre grigie spostate di 42 punti verso destra (0°). Successivamente duplica la diapositiva e ruota entrambe le frecce di 90° in senso orario.
 
-Questo esempio Java crea una scheda azzurro chiaro con un'ombra interna grigio scuro e la salva come file PPTX. La direzione dell'ombra è di 225 gradi, la sua distanza è di 7 punti e il raggio di sfocatura è di 6 punti:
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide before = presentation.getSlides().get_Item(0);
+
+    IAutoShape left = before.getShapes().addAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(FillType.Solid);
+    left.getFillFormat().getSolidFillColor().setColor(Color.rgb(70, 130, 180));
+    left.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    IOuterShadow shadow = left.getEffectFormat().getOuterShadowEffect();
+    shadow.getShadowColor().setColor(Color.rgb(128, 128, 128));
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    IShape right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    ISlide after = presentation.getSlides().addClone(before);
+    for (IShape arrow : after.getShapes()) {
+        arrow.setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Nella seconda diapositiva, la freccia sinistra proietta la sua ombra verso il basso, mentre la freccia destra proietta ancora l'ombra verso destra. La direzione configurata resta 0° per entrambe le ombre.
+
+![Rendering PowerPoint prima e dopo una rotazione di 90°. Entrambe le ombre iniziano a destra. Dopo la rotazione, l'ombra si sposta sotto la freccia sinistra e resta a destra della freccia destra.](arrow-shadow-rotation.png)
+
+### **Applica un'ombra interna**
+
+Quando si riproduce lo stile visivo di un modello, utilizza un'ombra interna per conferire a una scheda o a un pannello un aspetto incassato. Un'ombra esterna si estende al di fuori della forma e la fa apparire sollevata, mentre un'ombra interna ombreggia l'interno dei suoi bordi.
+
+Chiama [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--) e poi configura l'ombra restituita da [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--). Valori più grandi del raggio di sfocatura producono bordi più morbidi.
+
+Questo esempio Java crea una scheda azzurro chiaro con un'ombra interna grigio scuro e la salva come file PPTX. La direzione dell'ombra è 225 gradi, la distanza è 7 punti e il raggio di sfocatura è 6 punti:
 
 ```java
 import com.aspose.slides.*;
@@ -96,13 +142,13 @@ try {
 }
 ```
 
-![Rettangolo azzurro chiaro con ombra interna](inner_shadow_effect.png)
+![Rettangolo azzurro chiaro con un'ombra interna](inner_shadow_effect.png)
 
 Per rimuovere l'ombra interna, chiama [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) sul formato effetto della forma.
 
-### **Applicare, modificare e rimuovere un'ombra preset**
+### **Applica, modifica e rimuovi un'ombra predefinita**
 
-Chiama [enablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) e usa [setPreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresetshadow/#setPreset-int-) per selezionare un [PresetShadowType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presetshadowtype/). Per cambiare stile, modifica il preset sulla stessa forma. Chiama [disablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) per rimuovere l'ombra conservando il riempimento e il contorno.
+Chiama [enablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) e usa [setPreset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresetshadow/#setPreset-int-) per selezionare un [PresetShadowType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presetshadowtype/). Per cambiare lo stile, modifica il preset sulla stessa forma. Chiama [disablePresetShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) per rimuovere l'ombra mantenendo il riempimento e il contorno.
 
 Questo esempio mostra quattro fasi affiancate su una diapositiva. Entrambe le ombre sono spostate di 10 punti. Una direzione di 225° posiziona la prima ombra sopra e a sinistra del rettangolo, e 45° posiziona la seconda sotto e a destra.
 
@@ -151,13 +197,13 @@ try {
 
 | Originale | Primo preset | Secondo preset | Dopo rimozione |
 | :---: | :---: | :---: | :---: |
-| ![Nessuna ombra](preset_shadow_original.png) | ![Ombra in alto a sinistra](preset_shadow_top_left.png) | ![Ombra in basso a destra](preset_shadow_bottom_right.png) | ![Nessuna ombra dopo rimozione](preset_shadow_removed.png) |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
-## **Applicare un effetto riflesso**
+## **Applica un effetto riflessione**
 
-Per applicare un effetto di riflesso in Aspose.Slides per Android via Java, è possibile aggiungere un riflesso simile a uno specchio alle forme, regolando parametri come distanza, trasparenza e dimensione. Questo effetto migliora l'estetica delle presentazioni conferendo alle forme un aspetto più raffinato e sofisticato. È facile da implementare con codice semplice, consentendo un'applicazione rapida su più elementi per un design coerente.
+Per applicare un effetto di riflessione in Aspose.Slides per Android via Java, è possibile aggiungere una riflessione tipo specchio alle forme, regolando parametri come distanza, trasparenza e dimensione. Questo effetto migliora l'estetica delle presentazioni conferendo alle forme un aspetto più raffinato e sofisticato. È facile da implementare con codice semplice, consentendo un'applicazione rapida su più elementi per un design coerente.
 
-Questo codice Java mostra come applicare l'[effetto riflesso](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) a una forma:
+Questo codice Java mostra come applicare l'[effetto di riflessione](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) a una forma:
 
 ```java
 import com.aspose.slides.*;
@@ -179,11 +225,11 @@ try {
 }
 ```
 
-![Effetto riflesso](reflection_effect.png)
+![Effetto di riflessione](reflection_effect.png)
 
-## **Applicare un effetto bagliore**
+## **Applica un effetto bagliore**
 
-Per applicare un effetto bagliore a una forma in Aspose.Slides per Android via Java, è possibile aggiungere un'aura soffice e luminosa intorno alle forme, regolando proprietà come colore e dimensione. Questo effetto aiuta a far risaltare le forme e aggiunge un elemento visivo attraente e accattivante alla presentazione. È facile da implementare con pochi righe di codice, migliorando l'aspetto complessivo delle diapositive.
+Per applicare un effetto bagliore a una forma in Aspose.Slides per Android via Java, è possibile aggiungere un'aura soffusa e luminosa attorno alle forme, regolando proprietà come colore e dimensione. Questo effetto aiuta a far risaltare le forme e aggiunge un elemento visivo attraente e accattivante alla presentazione. È facile da implementare con codice minimo, migliorando l'aspetto complessivo delle diapositive.
 
 Questo codice Java mostra come applicare l'[effetto bagliore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) a una forma:
 
@@ -208,9 +254,9 @@ try {
 
 ![Effetto bagliore](glow_effect.png)
 
-## **Applicare un effetto bordi morbidi**
+## **Applica un effetto bordi morbidi**
 
-Per applicare un effetto bordi morbidi in Aspose.Slides per Android via Java, è possibile creare una transizione liscia e sfocata attorno ai bordi di una forma. Questo effetto aggiunge un aspetto più delicato e raffinato, perfetto per progetti che richiedono un aspetto più gentile e soffuso. È possibile regolare facilmente parametri come il raggio per ottenere l'effetto desiderato su varie forme nella presentazione.
+Per applicare un effetto bordi morbidi in Aspose.Slides per Android via Java, è possibile creare una transizione liscia e sfumata attorno ai bordi di una forma. Questo effetto aggiunge un aspetto più sottile e raffinato, perfetto per design che richiedono un aspetto più delicato. È possibile regolare facilmente parametri come il raggio per ottenere l'effetto desiderato su varie forme nella presentazione.
 
 Questo codice Java mostra come applicare l'[effetto bordi morbidi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) a una forma:
 
@@ -233,17 +279,17 @@ try {
 
 ![Effetto bordi morbidi](soft_edges_effect.png)
 
-## **Applicare un effetto sfocatura**
+## **Applica un effetto sfocatura**
 
-Utilizza la sfocatura della forma per ammorbidire il riempimento e il contorno della forma mantenendola modificabile. Chiama [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) sul formato effetto della forma. Il raggio è misurato in punti (1/72 di pollice): usa un valore non negativo, con valori più alti che producono una sfocatura più intensa. Un raggio di zero mantiene inalterato l'aspetto.
+Utilizza la sfocatura della forma per ammorbidire il riempimento e il contorno della forma mantenendola modificabile. Chiama [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) sul formato effetto della forma. Il raggio è misurato in punti (1/72 di pollice): usa un valore non negativo, con valori più grandi che producono una sfocatura più forte. Un raggio pari a zero lascia inalterato l'aspetto.
 
-L'impostazione [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) controlla i limiti visibili dell'effetto. Con `false`, la sfocatura è limitata ai limiti originali dipinti, includendo il contorno. Con `true`, la sfocatura può estendersi oltre tali limiti. Nessuna delle due impostazioni modifica la posizione o le dimensioni della forma.
+L'impostazione [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) controlla i limiti visibili dell'effetto. Con `false`, la sfocatura è ritagliata ai limiti originali dipinti, inclusi i contorni. Con `true`, la sfocatura può estendersi oltre tali limiti. Nessuna delle impostazioni modifica la posizione o le dimensioni della forma.
 
-Il confronto qui sotto utilizza lo stesso riempimento, contorno e dimensioni della forma in tutti i casi. La riga superiore usa `grow = false`; la riga inferiore usa `grow = true`.
+Il confronto sotto utilizza lo stesso riempimento, contorno e dimensioni della forma per tutta la sequenza. La riga superiore usa `grow = false`; la riga inferiore usa `grow = true`.
 
 ![Rettangolo originale confrontato con raggi di sfocatura di 5 e 15 punti, con grow disabilitato e abilitato](shape_blur_comparison.png)
 
-Questo esempio Java crea un rettangolo arancione con un contorno blu scuro, applica una sfocatura di 5 punti e poi la aggiorna a una sfocatura di 15 punti chiamando nuovamente [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-). Salva entrambi gli stati sfocati, quindi chiama [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) e salva la forma senza sfocatura.
+Questo esempio Java crea un rettangolo arancione con un contorno blu scuro, applica una sfocatura di 5 punti, e poi la aggiorna a 15 punti chiamando nuovamente [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-). Salva entrambi gli stati sfocati, poi chiama [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) e salva la forma senza sfocatura.
 
 ```java
 import com.aspose.slides.*;
@@ -273,18 +319,18 @@ try {
 }
 ```
 
-La sfocatura della forma agisce sia sul riempimento sia sul contorno contemporaneamente. Un effetto bordi morbidi attenua i bordi della forma, mentre la sfocatura dell'ombra ammorbidisce solo l'ombra. Gli effetti di trasformazione delle immagini operano sul contenuto dell'immagine; questo esempio applica la sfocatura direttamente al formato effetto della forma senza convertire la forma in un'immagine.
+La sfocatura della forma influisce simultaneamente su riempimento e contorno. Un effetto bordi morbidi attenua i bordi della forma, mentre la sfocatura dell'ombra ammorbidisce solo l'ombra. Gli effetti di trasformazione delle immagini operano sul contenuto dell'immagine; questo esempio applica la sfocatura direttamente al formato effetto della forma senza convertire la forma in immagine.
 
 ## **FAQ**
 
 **Posso applicare più effetti alla stessa forma?**
 
-Sì, è possibile combinare effetti diversi, come ombra, riflesso e bagliore, su un'unica forma per ottenere un aspetto più dinamico.
+Sì, è possibile combinare effetti diversi, come ombra, riflessione e bagliore, su una singola forma per creare un aspetto più dinamico.
 
 **Su quali forme posso applicare gli effetti?**
 
-È possibile applicare effetti a varie forme, inclusi autoshape, grafici, tabelle, immagini, oggetti SmartArt, oggetti OLE e altro.
+È possibile applicare gli effetti a varie forme, incluse forme automatiche, grafici, tabelle, immagini, oggetti SmartArt, oggetti OLE e altro.
 
-**Posso applicare effetti a forme raggruppate?**
+**Posso applicare gli effetti a forme raggruppate?**
 
-Sì, è possibile applicare effetti a forme raggruppate. L'effetto verrà applicato all'intero gruppo.
+Sì, è possibile applicare gli effetti a forme raggruppate. L'effetto verrà applicato all'intero gruppo.

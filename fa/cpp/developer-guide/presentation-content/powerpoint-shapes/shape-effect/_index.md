@@ -1,43 +1,43 @@
 ---
-title: اعمال افکت‌های شکل در ارائه‌ها با استفاده از C++
-linktitle: افکت شکل
+title: "اعمال افکت‌های شکل در ارائه‌ها با استفاده از C++"
+linktitle: "افکت شکل"
 type: docs
 weight: 30
 url: /fa/cpp/shape-effect/
 keywords:
-- افکت شکل
-- افکت سایه
-- افکت انعکاس
-- افکت درخشانی
-- افکت لبه‌های نرم
-- قالب افکت
-- پاورپوینت
-- ارائه
-- C++
-- Aspose.Slides
-description: "فایل‌های PPT و PPTX خود را با استفاده از افکت‌های پیشرفته شکل با Aspose.Slides برای C++ تبدیل کنید — در چند ثانیه اسلایدهای جذاب و حرفه‌ای ایجاد کنید."
+- "اثر شکل"
+- "اثر سایه"
+- "اثر انعکاس"
+- "اثر تابش"
+- "اثر لبه‌های نرم"
+- "قالب اثر"
+- "PowerPoint"
+- "ارائه"
+- "C++"
+- "Aspose.Slides"
+description: "فایل‌های PPT و PPTX خود را با استفاده از افکت‌های پیشرفته شکل در Aspose.Slides برای C++ تبدیل کنید — اسلایدهای چشم‌نواز و حرفه‌ای را در ثانیه‌ها ایجاد کنید."
 ---
 ## **مقدمه**
 
-در حالی که افکت‌ها در پاورپوینت می‌توانند برای برجسته کردن یک شکل استفاده شوند، آن‌ها با [پرکننده‌ها](/slides/fa/cpp/shape-formatting/#gradient-fill) یا خطوط مرزی متفاوت هستند. با استفاده از افکت‌های پاورپوینت، می‌توانید انعکاس‌های قانع‌کننده‌ای روی یک شکل ایجاد کنید، تابش یک شکل را گسترش دهید و غیره.
+در حالی که افکت‌ها در PowerPoint می‌توانند برای برجسته کردن یک شکل استفاده شوند، آن‌ها با [پرکننده‌ها](/slides/fa/cpp/shape-formatting/#gradient-fill) یا خطوط پیرامون متفاوت هستند. با استفاده از افکت‌های PowerPoint می‌توانید انعکاس‌های قانع‌کننده بر روی یک شکل ایجاد کنید، نوردهی شکل را گسترش دهید و غیره.
 
 ![اثر شکل](shape-effect.png)
 
-پاورپوینت شش افکت را فراهم می‌کند که می‌توانند بر روی اشکال اعمال شوند. می‌توانید یک یا چند افکت را بر روی یک شکل اعمال کنید.
+PowerPoint شش افکت فراهم می‌کند که می‌توان به اشکال اعمال کرد. می‌توانید یک یا چند افکت بر یک شکل اعمال کنید.
 
-برخی ترکیب‌های افکت بهتر از دیگران به نظر می‌رسند. به همین دلیل، پاورپوینت گزینه‌هایی تحت **Preset** دارد. گزینه‌های Preset در اصل ترکیبی از دو یا چند افکت هستند که شناخته شده‌اند که با هم خوب به نظر می‌رسند. به این ترتیب، با انتخاب یک پیش‌تنظیم، نیازی به صرف زمان برای آزمایش یا ترکیب افکت‌های مختلف برای یافتن ترکیب مناسب ندارید.
+برخی ترکیب‌های افکت بهتر از دیگران به نظر می‌رسند. به همین دلیل، PowerPoint گزینه‌هایی تحت **Preset** دارد. گزینه‌های Preset در واقع ترکیبی از دو یا چند افکت هستند که به خوبی با هم ترکیب می‌شوند. به این ترتیب، با انتخاب یک پیش‌تنظیم، نیازی به صرف زمان برای آزمایش یا ترکیب افکت‌های مختلف برای پیدا کردن ترکیب مناسب نخواهید داشت.
 
-Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) ارائه می‌دهد که به شما اجازه می‌دهد همان افکت‌ها را بر روی اشکال در ارائه‌های پاورپوینت اعمال کنید.
+Aspose.Slides ویژگی‌ها و متدهایی تحت کلاس [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) ارائه می‌دهد که به شما امکان می‌دهد همان افکت‌ها را بر اشکال در ارائه‌های PowerPoint اعمال کنید.
 
 ## **اعمال افکت سایه**
 
-Aspose.Slides برای C++ از سایه‌های بیرونی و داخلی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع تاری آن‌ها را برای مطابقت با طراحی ارائه خود سفارشی کنید.
+Aspose.Slides برای C++ از سایه‌های بیرونی و داخلی برای اشکال پشتیبانی می‌کند. می‌توانید رنگ، جهت، فاصله و شعاع تاری آن‌ها را مطابق با طراحی ارائه خود تنظیم کنید.
 
 ### **اعمال سایه بیرونی**
 
-از سایه بیرونی برای برجسته کردن یک کارت یا پنل نسبت به پس‌زمینه اسلاید استفاده کنید. سایه فراتر از لبه‌های شکل گسترش می‌یابد و تصور می‌کند که شکل بالاتر از اسلاید قرار دارد. رنگ، جهت، فاصله و شعاع تاری آن را برای مطابقت با نورپردازی و سبک قالب خود تنظیم کنید.
+از سایه بیرونی برای برجسته کردن یک کارت یا پنل در مقابل پس‌زمینه اسلاید استفاده کنید. سایه خارج از لبه‌های شکل امتداد می‌یابد و این impression را می‌دهد که شکل از اسلاید برآمده است. رنگ، جهت، فاصله و شعاع تاری آن را مطابق با نورپردازی و سبک قالب خود تنظیم کنید.
 
-این کد C++ نشان می‌دهد چگونه [افکت سایه بیرونی](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) را بر روی یک مستطیل اعمال کنید:
+این کد C++ نشان می‌دهد چگونه می‌توان [اثر سایه بیرونی](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) را بر روی یک مستطیل اعمال کرد:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -69,15 +69,74 @@ outerShadowEffect->set_Direction(45.0f);
 presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![افکت سایه](shadow_effect.png)
+![اثر سایه](shadow_effect.png)
+
+#### **کنترل جهت سایه هنگام چرخش یک شکل**
+
+به‌طور پیش‌فرض، یک سایه بیرونی همراه با شکل خود می‌چرخد. برای اینکه اشکالی با چرخش‌های مختلف به‌نظر برسند که نور از همان جهت می‌آید، متد [set_RotateShadowWithShape](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_rotateshadowwithshape/) را با مقدار `false` صدا بزنید و از [set_Direction](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_direction/) برای دادن همان زاویه به سایه‌ها استفاده کنید.
+
+مثال دو فلش با سایه‌های خاکستری که به سمت راست (۰°) جابه‌جا شده‌اند، ایجاد می‌کند. سپس اسلاید را کپی می‌کند و هر دو فلش را ۹۰ درجه ساعت‌گرد می‌چرخاند.
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto before = presentation->get_Slide(0);
+
+auto left = before->get_Shapes()->AddAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+left->get_FillFormat()->set_FillType(FillType::Solid);
+left->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+left->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+left->get_EffectFormat()->EnableOuterShadowEffect();
+auto shadow = left->get_EffectFormat()->get_OuterShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_Gray());
+shadow->set_Direction(0);
+shadow->set_Distance(42);
+shadow->set_BlurRadius(0);
+shadow->set_RotateShadowWithShape(true);
+
+auto right = before->get_Shapes()->AddClone(left);
+right->set_X(395);
+right->get_EffectFormat()->get_OuterShadowEffect()->set_RotateShadowWithShape(false);
+
+auto after = presentation->get_Slides()->AddClone(before);
+for (auto i = 0; i < after->get_Shapes()->get_Count(); ++i)
+{
+    after->get_Shape(i)->set_Rotation(90);
+}
+
+presentation->Save(u"arrow_shadows.pptx", SaveFormat::Pptx);
+```
+
+در اسلاید دوم، فلش چپ سایه خود را به سمت پایین می‌اندازد، در حالی که فلش راست همچنان سایه خود را به سمت راست می‌اندازد. جهت پیکربندی شده برای هر دو سایه ۰° باقی می‌ماند.
+
+![رندر PowerPoint قبل و بعد از چرخش ۹۰°. هر دو سایه ابتدا در سمت راست بودند. پس از چرخش، سایه زیر فلش چپ جابه‌جا شد و در سمت راست فلش راست ماند.](arrow-shadow-rotation.png)
 
 ### **اعمال سایه داخلی**
 
-هنگام بازتولید سبک بصری یک قالب، از سایه داخلی برای دادن ظاهر فرو‌رفتگی به یک کارت یا پنل استفاده کنید. سایه بیرونی خارج از شکل گسترش می‌یابد و آن را برجسته می‌کند، در حالی که سایه داخلی لبه‌های داخلی آن را سایه‌زده می‌کند.
+هنگام بازآفرینی سبک بصری یک قالب، از سایه داخلی برای ایجاد ظاهر فرو رفتگی در کارت یا پنل استفاده کنید. یک سایه بیرونی خارج از شکل امتداد می‌یابد و آن را برجسته نشان می‌دهد، در حالی که یک سایه داخلی داخل حاشیه‌های شکل را رنگ می‌کند.
 
-متد [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) را فراخوانی کنید، سپس [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/) را پیکربندی کنید. مقادیر بزرگ‌تر شعاع تاری، لبه‌های نرم‌تری تولید می‌کند.
+متد [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) را صدا بزنید، سپس [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/) را پیکربندی کنید. مقادیر بزرگ‌تر شعاع تاری لبه‌های نرم‌تری تولید می‌کند.
 
-این مثال C++ یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و آن را به‌عنوان فایل PPTX ذخیره می‌کند:
+این مثال C++ یک کارت آبی روشن با سایه داخلی خاکستری تیره ایجاد می‌کند و آن را به‌صورت فایل PPTX ذخیره می‌نماید:
 
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
@@ -118,13 +177,13 @@ presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 
 ![مستطیل آبی روشن با سایه داخلی](inner_shadow_effect.png)
 
-برای حذف سایه داخلی، متد [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) را بر روی فرمت افکت شکل فراخوانی کنید.
+برای حذف سایه داخلی، متد [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) را بر فرمت افکت شکل صدا بزنید.
 
 ### **اعمال، تغییر و حذف سایه پیش‌تنظیم شده**
 
-متد [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) را فراخوانی کنید و برای انتخاب یک [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/) از [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) استفاده کنید. برای تغییر سبک‌ها، پیش‌تنظیم را روی همان شکل تغییر دهید. برای حذف سایه در حالی که پرکننده و خط کانتور حفظ می‌شوند، متد [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) را فراخوانی کنید.
+متد [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) را صدا بزنید و از [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) برای انتخاب یک [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/) استفاده کنید. برای تغییر سبک، پیش‌تنظیم را بر همان شکل تغییر دهید. متد [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) سایه را حذف می‌کند در حالی که پرکننده و خط پیرامون حفظ می‌شوند.
 
-این مثال یک کپی از مستطیل را در هر مرحله نگه می‌دارد. هر دو سایه ۱۰ نقطه جابجا شده‌اند. جهت ۲۲۵° سایه اول را بالای چپ مستطیل قرار می‌دهد و ۴۵° سایه دوم را پایین راست.
+این مثال یک کپی از مستطیل را در هر مرحله نگه می‌دارد. هر دو سایه ۱۰ پوینت جابه‌جا شده‌اند. جهت ۲۲۵° سایه اول را بالای چپ مستطیل قرار می‌دهد و ۴۵° سایه دوم را پایین راست.
 
 ```cpp
 #include <DOM/Effects/IPresetShadow.h>
@@ -193,13 +252,13 @@ presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
 
 | اصلی | پیش‌تنظیم اول | پیش‌تنظیم دوم | پس از حذف |
 | :---: | :---: | :---: | :---: |
-| ![بدون سایه](preset_shadow_original.png) | ![سایه افت بالا چپ](preset_shadow_top_left.png) | ![سایه افت پایین راست](preset_shadow_bottom_right.png) | ![بدون سایه پس از حذف](preset_shadow_removed.png) |
+| ![بدون سایه](preset_shadow_original.png) | ![سایه‌افت بالا-چپ](preset_shadow_top_left.png) | ![سایه‌افت پایین-راست](preset_shadow_bottom_right.png) | ![بدون سایه پس از حذف](preset_shadow_removed.png) |
 
 ## **اعمال افکت انعکاس**
 
-برای اعمال افکت انعکاس در Aspose.Slides برای C++، می‌توانید انعکاس مشابه آینه را به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این افکت زیبایی ارائه‌های شما را با دادن ظاهر صیقلی و پیشرفته به اشکال ارتقا می‌دهد. پیاده‌سازی آن با کد ساده‌ای آسان است و امکان اعمال سریع در چندین عنصر را برای طراحی یکدست فراهم می‌کند.
+برای اعمال افکت انعکاس در Aspose.Slides برای C++ می‌توانید انعکاس آینه‌ای به اشکال اضافه کنید و پارامترهایی مانند فاصله، شفافیت و اندازه را تنظیم کنید. این افکت ظاهر ارائه شما را با دادن ظاهری صیقلی و پیشرفته به اشکال ارتقا می‌دهد. پیاده‌سازی آن با کد ساده است و امکان اعمال سریع در چندین عنصر برای طراحی یکدست را می‌دهد.
 
-این کد C++ نشان می‌دهد چگونه [افکت انعکاس](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) را بر روی یک شکل اعمال کنید:
+این کد C++ نشان می‌دهد چگونه می‌توان [اثر انعکاس](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) را به یک شکل اعمال کرد:
 
 ```cpp
 #include <DOM/Effects/IReflection.h>
@@ -230,13 +289,13 @@ reflectionEffect->set_BlurRadius(2);
 presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
-![افکت انعکاس](reflection_effect.png)
+![اثر انعکاس](reflection_effect.png)
 
-## **اعمال افکت درخشانی**
+## **اعمال افکت تابش**
 
-برای اعمال افکت درخشانی به یک شکل در Aspose.Slides برای C++، می‌توانید هاله‌ای ملایم و نورانی اطراف اشکال اضافه کنید و ویژگی‌هایی مانند رنگ و اندازه را تنظیم کنید. این افکت به برجسته شدن اشکال کمک کرده و عنصری جذاب بصری به ارائه شما می‌افزاید. پیاده‌سازی آن با کد کمینه آسان است و ظاهر کلی اسلایدهای شما را بهبود می‌بخشد.
+برای اعمال افکت تابش به یک شکل در Aspose.Slides برای C++ می‌توانید هاله‌ای نرم و درخشان اطراف اشکال اضافه کنید و ویژگی‌هایی مانند رنگ و اندازه را تنظیم کنید. این افکت به برجسته شدن اشکال کمک می‌کند و عنصر بصری جذاب و چشم‌نوازی به ارائه شما می‌افزاید. پیاده‌سازی آن با کد حداقل امکان‌پذیر است و ظاهر کلی اسلایدها را بهبود می‌بخشد.
 
-این کد C++ نشان می‌دهد چگونه [افکت درخشانی](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) را بر روی یک شکل اعمال کنید:
+این کد C++ نشان می‌دهد چگونه می‌توان [اثر تابش](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) را به یک شکل اعمال کرد:
 
 ```cpp
 #include <DOM/Effects/IGlow.h>
@@ -267,13 +326,13 @@ glowEffect->set_Radius(15);
 presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![افکت درخشانی](glow_effect.png)
+![اثر تابش](glow_effect.png)
 
 ## **اعمال افکت لبه‌های نرم**
 
-برای اعمال افکت لبه‌های نرم در Aspose.Slides برای C++، می‌توانید یک انتقال صاف و مبهم اطراف لبه‌های یک شکل ایجاد کنید. این افکت ظاهر ظریف‌تری اضافه می‌کند که برای طراحی‌های نیازمند ظاهری ملایم و نرم ایده‌آل است. می‌توانید به راحتی پارامترهایی مانند شعاع را تنظیم کنید تا افکت دلخواه را بر روی اشکال مختلف در ارائه خود به دست آورید.
+برای اعمال افکت لبه‌های نرم در Aspose.Slides برای C++ می‌توانید انتقالی صاف و مات در اطراف لبه‌های یک شکل ایجاد کنید. این افکت ظاهر ملایم‌تر و دقیق‌تری می‌دهد که برای طرح‌هایی که نیاز به ظاهر نرم‌تری دارند ایده‌آل است. می‌توانید به راحتی پارامترهایی مانند شعاع را تنظیم کنید تا افکت مورد نظر را بر روی اشکال مختلف در ارائه خود اعمال کنید.
 
-این کد C++ نشان می‌دهد چگونه [لبه‌های نرم](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) را بر روی یک شکل اعمال کنید:
+این کد C++ نشان می‌دهد چگونه می‌توان [لبه‌های نرم](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) را به یک شکل اعمال کرد:
 
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
@@ -300,19 +359,19 @@ softEdgeEffect->set_Radius(8);
 presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
-![افکت لبه‌های نرم](soft_edges_effect.png)
+![اثر لبه‌های نرم](soft_edges_effect.png)
 
 ## **اعمال افکت تاری**
 
-از تاری شکل برای نرم کردن پرکننده و خط مرزبندی یک شکل استفاده کنید در حالی که شکل قابل ویرایش باقی می‌ماند. متد [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) را بر روی فرمت افکت شکل فراخوانی کنید. شعاع بر حسب نقطه (1/72 اینچ) است: از مقدار غیرمنفی استفاده کنید؛ مقادیر بزرگ‌تر تاری قوی‌تری ایجاد می‌کند. شعاع صفر ظاهر را تغییر نمی‌دهد.
+از تاری شکل برای نرم‌کردن پرکننده و خط پیرامون شکل استفاده کنید در حالی که شکل قابل ویرایش می‌ماند. متد [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) را بر فرمت افکت شکل صدا بزنید. شعاع به پوینت (۱/۷۲ اینچ) اندازه‌گیری می‌شود: مقدار غیرمنفی استفاده کنید؛ مقادیر بزرگ‌تر تاریک شدگی قوی‌تری تولید می‌کند. شعاع صفر ظاهر را بدون تغییر می‌گذارد.
 
-تنظیم [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) محدوده قابل مشاهده افکت را کنترل می‌کند. با `false`، تاری به محدوده‌های رنگ‌شده اصلی، شامل خط مرزی، محدود می‌شود. با `true`، تاری می‌تواند فراتر از آن محدوده‌ها گسترش یابد. هیچ‌یک از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهند.
+تنظیم [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) محدوده قابل مشاهده افکت را کنترل می‌کند. با `false`، تاری به مرزهای رنگ‌آمیزی اصلی، شامل خط پیرامون، محدود می‌شود. با `true`، تاری می‌تواند فراتر از این مرزها گسترش یابد. هیچ‌یک از این تنظیمات موقعیت یا ابعاد شکل را تغییر نمی‌دهد.
 
-مقایسهٔ زیر از همان پرکننده، خط مرزی و ابعاد شکل در تمام مثال‌ها استفاده می‌کند. ردیف بالا از `grow = false` استفاده می‌کند؛ ردیف پایین از `grow = true`.
+مقایسه زیر از همان پرکننده، خط پیرامون و ابعاد شکل در تمام حالات استفاده می‌کند. ردیف بالا `grow = false`؛ ردیف پایین `grow = true`.
 
-![مستطیل اصلی مقایسه شده با شعاع‌های تاری ۵ و ۱۵ نقطه، با قابلیت Grow غیرفعال و فعال](shape_blur_comparison.png)
+![مستطیل اصلی مقایسه شده با شعاع‌های تاری ۵ و ۱۵ پوینت، با Grow غیرفعال و فعال](shape_blur_comparison.png)
 
-این مثال C++ یک مستطیل نارنجی با خط مرزی آبی تیره ایجاد می‌کند، تاری ۵ نقطه اعمال می‌کند، سپس آن را به تاری ۱۵ نقطه به‌روزرسانی می‌کند با فراخوانی مجدد [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) . سپس هر دو حالت تاری را ذخیره می‌کند، سپس [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) را فراخوانی می‌کند و شکل بدون تاری را ذخیره می‌کند.
+این مثال C++ یک مستطیل نارنجی با خط پیرامون آبی تیره ایجاد می‌کند، تاری ۵ پوینتی اعمال می‌کند و سپس با صدا زدن دوباره [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) به ۱۵ پوینت بروزرسانی می‌کند. هر دو وضعیت تاری را ذخیره می‌کند، سپس [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) را صدا می‌زند و شکل بدون تاری ذخیره می‌شود.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -352,18 +411,18 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-تاری شکل بر روی پرکننده و خط مرزی به‌صورت همزمان تاثیر می‌گذارد. افکت لبه‌های نرم لبه‌های شکل را محو می‌کند، در حالی که تاری سایه تنها سایه را نرم می‌کند. افکت‌های تبدیل تصویر بر محتوای تصویر عمل می‌کنند؛ این مثال تاری را مستقیماً بر روی فرمت افکت شکل بدون تبدیل شکل به تصویر اعمال می‌کند.
+تاری شکل هم پرکننده و هم خط پیرامون را تحت تأثیر قرار می‌دهد. افکت لبه‌های نرم لبه‌های شکل را محو می‌کند، در حالی که تاری سایه فقط سایه را نرم می‌کند. افکت‌های تبدیل تصویر بر محتوای تصویر اعمال می‌شوند؛ این مثال تاری را مستقیماً بر فرمت افکت شکل اعمال می‌کند بدون تبدیل شکل به تصویر.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم چندین افکت را بر روی یک شکل اعمال کنم؟**
+**آیا می‌توانم چندین افکت را بر یک شکل اعمال کنم؟**
 
-بله، می‌توانید افکت‌های مختلفی مانند سایه، انعکاس و درخشانی را بر روی یک شکل ترکیب کنید تا ظاهر پویا‌تری ایجاد کنید.
+بله، می‌توانید افکت‌های مختلفی مانند سایه، انعکاس و تابش را بر یک شکل ترکیب کنید تا ظاهر دینامیک‌تری داشته باشد.
 
-**به چه اشکالی می‌توانم افکت‌ها را اعمال کنم؟**
+**به چه اشکالی می‌توانم افکت اعمال کنم؟**
 
-می‌توانید افکت‌ها را بر روی انواع اشکال، از جمله اشکال خودکار، نمودارها، جدول‌ها، تصاویر، اشیاء SmartArt، اشیاء OLE و غیره اعمال کنید.
+می‌توانید افکت‌ها را به انواع اشکال از جمله اشکال خودکار، نمودارها، جدول‌ها، تصاویر، اشیای SmartArt، اشیای OLE و سایر موارد اعمال کنید.
 
-**آیا می‌توانم افکت‌ها را بر روی اشکال گروه‌بندی شده اعمال کنم؟**
+**آیا می‌توانم افکت‌ها را به اشکال گروهی اعمال کنم؟**
 
-بله، می‌توانید افکت‌ها را بر روی اشکال گروه‌بندی شده اعمال کنید. افکت بر روی کل گروه اعمال خواهد شد.
+بله، می‌توانید افکت‌ها را به اشکال گروهی اعمال کنید. افکت بر کل گروه اعمال خواهد شد.

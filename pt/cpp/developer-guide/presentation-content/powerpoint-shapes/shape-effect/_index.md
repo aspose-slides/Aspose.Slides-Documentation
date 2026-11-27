@@ -1,41 +1,41 @@
 ---
-title: "Aplicar efeitos de forma em apresentações usando C++"
-linktitle: "Efeito de Forma"
+title: Aplicar Efeitos de Forma em Apresentações Usando C++
+linktitle: Efeito de Forma
 type: docs
 weight: 30
 url: /pt/cpp/shape-effect/
 keywords:
-  - "efeito de forma"
-  - "efeito de sombra"
-  - "efeito de reflexão"
-  - "efeito de brilho"
-  - "efeito de bordas suaves"
-  - "formato de efeito"
-  - "PowerPoint"
-  - "apresentação"
-  - "C++"
-  - "Aspose.Slides"
-description: "Transforme seus arquivos PPT e PPTX com efeitos de forma avançados usando Aspose.Slides para C++ — crie slides impressionantes e profissionais em segundos."
+- efeito de forma
+- efeito de sombra
+- efeito de reflexão
+- efeito de brilho
+- efeito de bordas suaves
+- formato de efeito
+- PowerPoint
+- apresentação
+- C++
+- Aspose.Slides
+description: "Transforme seus arquivos PPT e PPTX com efeitos avançados de forma usando Aspose.Slides para C++ — crie slides impactantes e profissionais em segundos."
 ---
 ## **Introdução**
 
-Enquanto os efeitos no PowerPoint podem ser usados para fazer uma forma se destacar, eles diferem de [preenchimentos](/slides/pt/cpp/shape-formatting/#gradient-fill) ou contornos. Usando os efeitos do PowerPoint, você pode criar reflexos convincentes em uma forma, espalhar o brilho de uma forma, etc.
+Embora os efeitos no PowerPoint possam ser usados para fazer um formato se destacar, eles diferem de [preenchimentos](/slides/pt/cpp/shape-formatting/#gradient-fill) ou contornos. Usando os efeitos do PowerPoint, você pode criar reflexos convincentes em um formato, espalhar o brilho de um formato, etc.
 
-![Shape effect](shape-effect.png)
+![Efeito de forma](shape-effect.png)
 
-O PowerPoint oferece seis efeitos que podem ser aplicados a formas. Você pode aplicar um ou mais efeitos a uma forma.
+O PowerPoint fornece seis efeitos que podem ser aplicados a formatos. Você pode aplicar um ou mais efeitos a um formato.
 
-Algumas combinações de efeitos ficam melhores que outras. Por esse motivo, o PowerPoint possui opções em **Preset**. As opções de Preset são essencialmente uma combinação de dois ou mais efeitos que são conhecidos por ficarem bem juntos. Dessa forma, ao selecionar um preset, você não precisará perder tempo testando ou combinando diferentes efeitos para encontrar uma boa combinação.
+Algumas combinações de efeitos ficam melhores que outras. Por esse motivo, o PowerPoint possui opções em **Predefinição**. As opções de Predefinição são essencialmente uma combinação de dois ou mais efeitos que se sabe que ficam bem juntos. Dessa forma, ao selecionar uma predefinição, você não precisará perder tempo testando ou combinando diferentes efeitos para encontrar uma boa combinação.
 
-Aspose.Slides fornece propriedades e métodos na classe [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) que permitem aplicar os mesmos efeitos a formas em apresentações do PowerPoint.
+Aspose.Slides fornece propriedades e métodos na classe [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) que permitem aplicar os mesmos efeitos a formatos em apresentações do PowerPoint.
 
 ## **Aplicar um Efeito de Sombra**
 
-Aspose.Slides para C++ oferece suporte a sombras externas e internas para formas. Você pode personalizar sua cor, direção, distância e raio do desfoque para combinar com o design da sua apresentação.
+Aspose.Slides for C++ oferece suporte a sombras externas e internas para formatos. Você pode personalizar sua cor, direção, distância e raio de desfoque para combinar com o design da sua apresentação.
 
 ### **Aplicar uma Sombra Externa**
 
-Use uma sombra externa para fazer um cartão ou painel se destacar contra o fundo do slide. A sombra se estende além das bordas da forma, criando a impressão de que a forma está elevada acima do slide. Ajuste sua cor, direção, distância e raio do desfoque para combinar com a iluminação e o estilo do seu modelo.
+Use uma sombra externa para fazer um cartão ou painel se destacar do plano de fundo do slide. A sombra se estende além das bordas do formato, criando a impressão de que o formato está elevado acima do slide. Ajuste sua cor, direção, distância e raio de desfoque para combinar com a iluminação e o estilo do seu modelo.
 
 Este código C++ mostra como aplicar o [efeito de sombra externa](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) a um retângulo:
 
@@ -69,13 +69,72 @@ outerShadowEffect->set_Direction(45.0f);
 presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Shadow effect](shadow_effect.png)
+![Efeito de sombra](shadow_effect.png)
+
+#### **Controlar a Direção da Sombra Quando um Formato Gira**
+
+Por padrão, uma sombra externa gira junto com seu formato. Para que formatos com rotações diferentes pareçam iluminados a partir da mesma direção, chame [set_RotateShadowWithShape](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_rotateshadowwithshape/) com `false` e use [set_Direction](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_direction/) para dar às sombras o mesmo ângulo.
+
+O exemplo cria duas setas com sombras cinzas deslocadas para a direita (0°). Em seguida, duplica o slide e gira ambas as setas 90° no sentido horário.
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto before = presentation->get_Slide(0);
+
+auto left = before->get_Shapes()->AddAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+left->get_FillFormat()->set_FillType(FillType::Solid);
+left->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+left->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+left->get_EffectFormat()->EnableOuterShadowEffect();
+auto shadow = left->get_EffectFormat()->get_OuterShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_Gray());
+shadow->set_Direction(0);
+shadow->set_Distance(42);
+shadow->set_BlurRadius(0);
+shadow->set_RotateShadowWithShape(true);
+
+auto right = before->get_Shapes()->AddClone(left);
+right->set_X(395);
+right->get_EffectFormat()->get_OuterShadowEffect()->set_RotateShadowWithShape(false);
+
+auto after = presentation->get_Slides()->AddClone(before);
+for (auto i = 0; i < after->get_Shapes()->get_Count(); ++i)
+{
+    after->get_Shape(i)->set_Rotation(90);
+}
+
+presentation->Save(u"arrow_shadows.pptx", SaveFormat::Pptx);
+```
+
+No segundo slide, a seta esquerda projeta sua sombra para baixo, enquanto a seta direita ainda projeta sua sombra para a direita. A direção configurada permanece em 0° para ambas as sombras.
+
+![Renderização do PowerPoint antes e depois de uma rotação de 90°. Ambas as sombras começam à direita. Após a rotação, a sombra move-se abaixo da seta esquerda e permanece à direita da seta direita.](arrow-shadow-rotation.png)
 
 ### **Aplicar uma Sombra Interna**
 
-Ao reproduzir o estilo visual de um modelo, use uma sombra interna para dar a um cartão ou painel uma aparência rebaixada. Uma sombra externa se estende fora da forma e a faz parecer elevada, enquanto uma sombra interna sombreia o interior de suas bordas.
+Ao reproduzir o estilo visual de um modelo, use uma sombra interna para dar a um cartão ou painel uma aparência rebaixada. Uma sombra externa se estende fora do formato e faz com que pareça elevado, enquanto uma sombra interna sombreia o interior de suas bordas.
 
-Call [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), then configure [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Valores maiores de raio de desfoque produzem bordas mais suaves.
+Chame [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), então configure [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Valores maiores de raio de desfoque produzem bordas mais suaves.
 
 Este exemplo C++ cria um cartão azul claro com uma sombra interna cinza escura e o salva como um arquivo PPTX:
 
@@ -116,15 +175,15 @@ shadow->set_BlurRadius(6);
 presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+![Retângulo azul claro com sombra interna](inner_shadow_effect.png)
 
-Para remover a sombra interna, chame [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) no formato de efeito da forma.
+Para remover a sombra interna, chame [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) no formato de efeito do formato.
 
 ### **Aplicar, Alterar e Remover uma Sombra Predefinida**
 
-Call [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) and use [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) to select a [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). To switch styles, change the preset on the same shape. Call [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) to remove the shadow while preserving the fill and outline.
+Chame [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) e use [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) para selecionar um [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). Para mudar de estilo, altere a predefinição no mesmo formato. Chame [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) para remover a sombra mantendo o preenchimento e o contorno.
 
-Este exemplo mantém uma cópia do retângulo em cada etapa. Ambas as sombras são deslocadas em 10 pontos. Uma direção de 225° posiciona a primeira sombra acima e à esquerda do retângulo, e 45° posiciona a segunda abaixo e à direita.
+Este exemplo mantém uma cópia do retângulo em cada etapa. Ambas as sombras são deslocadas em 10 pontos. Uma direção de 225° coloca a primeira sombra acima e à esquerda do retângulo, e 45° coloca a segunda abaixo e à direita.
 
 ```cpp
 #include <DOM/Effects/IPresetShadow.h>
@@ -191,15 +250,15 @@ textFrame->set_Text(u"No shadow");
 presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
 ```
 
-| Original | Primeiro preset | Segundo preset | Após remoção |
+| Original | Primeira predefinição | Segunda predefinição | Depois da remoção |
 | :---: | :---: | :---: | :---: |
-| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
+| ![Sem sombra](preset_shadow_original.png) | ![Sombra superior esquerda](preset_shadow_top_left.png) | ![Sombra inferior direita](preset_shadow_bottom_right.png) | ![Sem sombra após remoção](preset_shadow_removed.png) |
 
 ## **Aplicar um Efeito de Reflexão**
 
-Para aplicar um efeito de reflexão no Aspose.Slides para C++, você pode adicionar uma reflexão semelhante a um espelho nas formas, ajustando parâmetros como distância, transparência e tamanho. Este efeito melhora a estética das suas apresentações ao dar às formas um aspecto mais polido e sofisticado. É fácil de implementar com código simples, permitindo aplicação rápida em vários elementos para um design consistente.
+Para aplicar um efeito de reflexão no Aspose.Slides para C++, você pode adicionar uma reflexão semelhante a um espelho aos formatos, ajustando parâmetros como distância, transparência e tamanho. Esse efeito aprimora a estética de suas apresentações ao conferir aos formatos uma aparência mais polida e sofisticada. É fácil de implementar com código simples, permitindo aplicação rápida em vários elementos para um design consistente.
 
-Este código C++ mostra como aplicar o [efeito de reflexão](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) a uma forma:
+Este código C++ mostra como aplicar o [efeito de reflexão](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) a um formato:
 
 ```cpp
 #include <DOM/Effects/IReflection.h>
@@ -230,13 +289,13 @@ reflectionEffect->set_BlurRadius(2);
 presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Reflection effect](reflection_effect.png)
+![Efeito de reflexão](reflection_effect.png)
 
 ## **Aplicar um Efeito de Brilho**
 
-Para aplicar um efeito de brilho a uma forma no Aspose.Slides para C++, você pode adicionar uma aura luminosa e suave ao redor das formas, ajustando propriedades como cor e tamanho. Este efeito ajuda a destacar as formas e adiciona um elemento visual atraente à sua apresentação. É fácil de implementar com pouco código, melhorando a aparência geral dos seus slides.
+Para aplicar um efeito de brilho a um formato no Aspose.Slides para C++, você pode adicionar uma aura suave e luminosa ao redor dos formatos, ajustando propriedades como cor e tamanho. Esse efeito ajuda a destacar os formatos e adiciona um elemento visual atraente e chamativo à sua apresentação. É fácil de implementar com código mínimo, melhorando a aparência geral de seus slides.
 
-Este código C++ mostra como aplicar o [efeito de brilho](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) a uma forma:
+Este código C++ mostra como aplicar o [efeito de brilho](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) a um formato:
 
 ```cpp
 #include <DOM/Effects/IGlow.h>
@@ -267,13 +326,13 @@ glowEffect->set_Radius(15);
 presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Glow effect](glow_effect.png)
+![Efeito de brilho](glow_effect.png)
 
 ## **Aplicar um Efeito de Borda Suave**
 
-Para aplicar um efeito de bordas suaves no Aspose.Slides para C++, você pode criar uma transição lisa e borrada ao redor das bordas de uma forma. Este efeito confere um aspecto mais sutil e refinado, perfeito para designs que precisam de uma aparência suave. Você pode ajustar facilmente parâmetros como raio para obter o efeito desejado em várias formas da sua apresentação.
+Para aplicar um efeito de borda suave no Aspose.Slides para C++, você pode criar uma transição lisa e desfocada ao redor das bordas de um formato. Esse efeito adiciona uma aparência mais sutil e refinada, perfeita para designs que precisam de um aspecto delicado e mais suave. Você pode ajustar facilmente parâmetros como raio para obter o efeito desejado em vários formatos da sua apresentação.
 
-Este código C++ mostra como aplicar o [efeito de bordas suaves](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) a uma forma:
+Este código C++ mostra como aplicar as [bordas suaves](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) a um formato:
 
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
@@ -300,19 +359,19 @@ softEdgeEffect->set_Radius(8);
 presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Soft edges effect](soft_edges_effect.png)
+![Efeito de bordas suaves](soft_edges_effect.png)
 
 ## **Aplicar um Efeito de Desfoque**
 
-Use desfoque de forma para suavizar o preenchimento e o contorno de uma forma mantendo-a editável. Chame [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) no formato de efeito da forma. O raio é medido em pontos (1/72 polegada): use um valor não negativo, sendo que valores maiores produzem desfoque mais forte. Um raio de zero deixa a aparência inalterada.
+Use o desfoque de formato para suavizar o preenchimento e o contorno de um formato enquanto mantém o formato editável. Chame [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) no formato de efeito do formato. O raio é medido em pontos (1/72 polegada): use um valor não negativo, sendo que valores maiores produzem um desfoque mais intenso. Um raio zero deixa a aparência inalterada.
 
-A configuração [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) controla os limites visíveis do efeito. Com `false`, o desfoque é recortado aos limites pintados originais, incluindo o contorno. Com `true`, o desfoque pode se estender além desses limites. Nenhuma das configurações altera a posição ou as dimensões da forma.
+A configuração [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) controla os limites visíveis do efeito. Com `false`, o desfoque é limitado aos limites originais pintados, incluindo o contorno. Com `true`, o desfoque pode se estender além desses limites. Nenhuma das configurações altera a posição ou as dimensões do formato.
 
-A comparação abaixo usa o mesmo preenchimento, contorno e dimensões da forma em todo o teste. A linha superior usa `grow = false`; a linha inferior usa `grow = true`.
+A comparação abaixo usa o mesmo preenchimento, contorno e dimensões do formato em todo o exemplo. A linha superior usa `grow = false`; a linha inferior usa `grow = true`.
 
-![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+![Retângulo original comparado com raios de desfoque de 5 e 15 pontos, com grow desativado e ativado](shape_blur_comparison.png)
 
-Este exemplo C++ cria um retângulo laranja com contorno azul escuro, aplica um desfoque de 5 pontos e depois o atualiza para 15 pontos chamando [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) novamente. Ele salva ambos os estados desfocados, então chama [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) e salva a forma sem desfoque.
+Este exemplo C++ cria um retângulo laranja com um contorno azul escuro, aplica um desfoque de 5 pontos e depois o atualiza para um desfoque de 15 pontos chamando [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) novamente. Ele salva ambos os estados desfocados, então chama [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) e salva o formato sem desfoque.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -352,18 +411,18 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-O desfoque de forma afeta o preenchimento e o contorno juntos. Um efeito de bordas suaves desvanece as bordas da forma, enquanto o desfoque de sombra suaviza apenas a sombra. Efeitos de transformação de imagem operam no conteúdo da imagem; este exemplo aplica desfoque diretamente ao formato de efeito da forma sem converter a forma em imagem.
+O desfoque de formato afeta o preenchimento e o contorno juntos. Um efeito de borda suave desvanece as bordas do formato, enquanto o desfoque de sombra suaviza apenas a sombra. Os efeitos de transformação de imagem operam no conteúdo da imagem; este exemplo aplica desfoque diretamente ao formato de efeito do formato sem converter o formato em uma imagem.
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**Posso aplicar múltiplos efeitos à mesma forma?**
+**Posso aplicar vários efeitos ao mesmo formato?**
 
-Sim, você pode combinar diferentes efeitos, como sombra, reflexão e brilho, em uma única forma para criar uma aparência mais dinâmica.
+Sim, você pode combinar diferentes efeitos, como sombra, reflexão e brilho, em um único formato para criar uma aparência mais dinâmica.
 
-**Em quais formas posso aplicar efeitos?**
+**A quais formatos posso aplicar efeitos?**
 
-Você pode aplicar efeitos a várias formas, incluindo autoshapes, gráficos, tabelas, imagens, objetos SmartArt, objetos OLE e mais.
+Você pode aplicar efeitos a diversos formatos, incluindo autoshapes, gráficos, tabelas, imagens, objetos SmartArt, objetos OLE e muito mais.
 
-**Posso aplicar efeitos a formas agrupadas?**
+**Posso aplicar efeitos a formatos agrupados?**
 
-Sim, você pode aplicar efeitos a formas agrupadas. O efeito será aplicado a todo o grupo.
+Sim, você pode aplicar efeitos a formatos agrupados. O efeito será aplicado a todo o grupo.

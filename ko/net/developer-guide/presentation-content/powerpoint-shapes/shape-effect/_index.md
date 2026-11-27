@@ -8,7 +8,7 @@ keywords:
 - 도형 효과
 - 그림자 효과
 - 반사 효과
-- 글로우 효과
+- 빛남 효과
 - 부드러운 가장자리 효과
 - 효과 형식
 - PowerPoint
@@ -16,29 +16,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET를 사용하여 고급 도형 효과로 PPT 및 PPTX 파일을 변환—몇 초 만에 강렬하고 전문적인 슬라이드를 만들 수 있습니다."
+description: "Aspose.Slides for .NET을 사용하여 고급 도형 효과로 PPT 및 PPTX 파일을 변환하십시오—몇 초 만에 눈에 띄고 전문가 수준의 슬라이드를 만들 수 있습니다."
 ---
 ## **소개**
 
-PowerPoint의 효과는 도형을 돋보이게 할 때 사용할 수 있지만, [채우기](/slides/ko/net/shape-formatting/#gradient-fill) 또는 윤곽선과는 다릅니다. PowerPoint 효과를 사용하면 도형에 사실적인 반사 효과를 만들고, 도형의 글로우를 퍼뜨리는 등 다양한 효과를 구현할 수 있습니다.
+PowerPoint에서 효과는 도형을 돋보이게 할 수 있지만, [채우기](/slides/ko/net/shape-formatting/#gradient-fill) 또는 외곽선과는 다릅니다. PowerPoint 효과를 사용하면 도형에 실제 같은 반사 효과를 만들거나, 도형의 빛남을 퍼뜨리는 등 다양한 작업을 할 수 있습니다.
 
 ![도형 효과](shape-effect.png)
 
-PowerPoint는 도형에 적용할 수 있는 6가지 효과를 제공합니다. 하나 이상의 효과를 도형에 적용할 수 있습니다.
+PowerPoint는 도형에 적용할 수 있는 여섯 가지 효과를 제공합니다. 하나 이상의 효과를 도형에 적용할 수 있습니다.
 
-일부 효과 조합은 다른 조합보다 더 보기 좋습니다. 이러한 이유로 PowerPoint에는 **프리셋** 옵션이 있습니다. 프리셋 옵션은 기본적으로 두 개 이상 효과의 잘 어울리는 조합을 의미합니다. 따라서 프리셋을 선택하면 다양한 효과를 시험하거나 조합하여 좋은 조합을 찾는 데 시간을 들일 필요가 없습니다.
+효과 조합 중 일부는 다른 조합보다 더 보기 좋습니다. 이러한 이유로 PowerPoint에는 **Preset** 옵션이 있습니다. 프리셋 옵션은 기본적으로 두 개 이상의 효과를 조합한 보기 좋은 조합을 의미합니다. 프리셋을 선택하면 다양한 효과를 시험하거나 조합하는 데 시간을 낭비하지 않아도 됩니다.
 
-Aspose.Slides는 PowerPoint 프레젠테이션의 도형에 동일한 효과를 적용할 수 있도록 [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) 클래스를 통해 속성 및 메서드를 제공합니다.
+Aspose.Slides는 [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) 클래스 아래에 있는 속성과 메서드를 제공하여 PowerPoint 프레젠테이션의 도형에 동일한 효과를 적용할 수 있도록 합니다.
 
 ## **그림자 효과 적용**
 
-Aspose.Slides for .NET는 도형에 대한 외부 그림자와 내부 그림자를 지원합니다. 색상, 방향, 거리 및 블러 반경을 프레젠테이션 디자인에 맞게 사용자 지정할 수 있습니다.
+Aspose.Slides for .NET은 도형에 대한 외부 및 내부 그림자를 지원합니다. 색상, 방향, 거리 및 흐림 반경을 사용자 지정하여 프레젠테이션 디자인에 맞출 수 있습니다.
 
 ### **외부 그림자 적용**
 
-외부 그림자를 사용하면 카드나 패널이 슬라이드 배경에 대비되어 돋보이게 할 수 있습니다. 그림자는 도형 가장자리를 넘어 확장되어 도형이 슬라이드 위로 떠 있는 듯한 인상을 줍니다. 색상, 방향, 거리 및 블러 반경을 템플릿의 조명과 스타일에 맞게 조정하십시오.
+외부 그림자를 사용하면 카드나 패넬이 슬라이드 배경에 대해 돋보이게 할 수 있습니다. 그림자는 도형 가장자리를 넘어 확장되어 도형이 슬라이드 위에 떠 있는 것처럼 보이게 합니다. 색상, 방향, 거리 및 흐림 반경을 조정하여 템플릿의 조명 및 스타일에 맞추세요.
 
-다음 C# 코드는 사각형에 [외부 그림자 효과](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/)를 적용하는 방법을 보여줍니다:
+This C# code shows how to apply the [outer shadow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) to a rectangle:
+
 ```c#
 using System.Drawing;
 using Aspose.Slides;
@@ -58,13 +59,56 @@ presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 
 ![그림자 효과](shadow_effect.png)
 
+#### **도형 회전 시 그림자 방향 제어**
+
+기본적으로 [RotateShadowWithShape](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/rotateshadowwithshape/) 은 `true` 이므로 그림자가 도형과 함께 회전합니다. 서로 다른 회전을 가진 도형이 동일한 방향에서 조명을 받는 것처럼 보이게 하려면 이 속성을 `false` 로 설정하고 그림자에 동일한 [Direction](https://reference.aspose.com/slides/net/aspose.slides.effects/ioutershadow/direction/) 을 지정합니다.
+
+예제는 회색 그림자를 오른쪽으로 오프셋(`Direction = 0`) 한 두 개의 화살표를 생성합니다. 그런 다음 슬라이드를 복제하고 두 화살표를 시계 방향으로 90° 회전합니다.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var before = presentation.Slides[0];
+
+var left = before.Shapes.AddAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+left.FillFormat.FillType = FillType.Solid;
+left.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+left.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+left.EffectFormat.EnableOuterShadowEffect();
+var shadow = left.EffectFormat.OuterShadowEffect;
+shadow.ShadowColor.Color = Color.Gray;
+shadow.Direction = 0;
+shadow.Distance = 42;
+shadow.BlurRadius = 0;
+shadow.RotateShadowWithShape = true;
+
+var right = before.Shapes.AddClone(left);
+right.X = 395;
+right.EffectFormat.OuterShadowEffect.RotateShadowWithShape = false;
+
+var after = presentation.Slides.AddClone(before);
+foreach (var arrow in after.Shapes)
+    arrow.Rotation = 90;
+
+presentation.Save("arrow_shadows.pptx", SaveFormat.Pptx);
+```
+
+두 번째 슬라이드에서는 왼쪽 화살표가 그림자를 아래로 드리우고, 오른쪽 화살표는 여전히 오른쪽에 그림자를 유지합니다. 구성된 방향은 두 그림자 모두 0° 로 남아 있습니다.
+
+![90° 회전 전후 PowerPoint 렌더링. 두 그림자는 오른쪽에서 시작합니다. 회전 후 왼쪽 화살표 아래로 그림자가 이동하고 오른쪽 화살표는 여전히 오른쪽에 그림자가 있습니다.](arrow-shadow-rotation.png)
+
 ### **내부 그림자 적용**
 
-템플릿의 시각적 스타일을 재현할 때는 내부 그림자를 사용하여 카드나 패널에 오목한 모습을 부여합니다. 외부 그림자는 도형 외부로 확장되어 떠 있는 듯한 효과를 주는 반면, 내부 그림자는 가장자리 내부를 그림자로 처리합니다.
+템플릿의 시각적 스타일을 재현할 때 내부 그림자를 사용하면 카드나 패널에 움푹 들어간 외관을 부여할 수 있습니다. 외부 그림자는 도형 밖으로 확장되어 도형이 떠 있는 것처럼 보이게 하고, 내부 그림자는 가장자리 내부를 음영 처리합니다.
 
-먼저 [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/)를 호출하고, 그런 다음 [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/)를 구성합니다. 높은 값일수록 부드러운 가장자리를 만듭니다.
+[EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) 를 호출한 다음 [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/) 를 구성합니다. 값이 클수록 가장자리가 부드러워집니다.
 
-다음 C# 예제는 연한 파란색 카드를 어두운 회색 내부 그림자와 함께 만들고 PPTX 파일로 저장합니다:
+This C# example creates a light blue card with a dark gray inner shadow and saves it as a PPTX file:
+
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -88,15 +132,16 @@ shadow.BlurRadius = 6;
 presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![내부 그림자가 있는 연한 파란 사각형](inner_shadow_effect.png)
+![내부 그림자가 있는 연파란 사각형](inner_shadow_effect.png)
 
-내부 그림자를 제거하려면 도형의 EffectFormat에서 [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/)를 호출합니다.
+내부 그림자를 제거하려면 도형의 효과 형식에서 [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) 를 호출합니다.
 
 ### **프리셋 그림자 적용, 변경 및 제거**
 
-먼저 [EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/)를 호출하고, [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/)을 지정된 [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/)으로 설정합니다. 스타일을 전환하려면 같은 도형에서 프리셋을 변경합니다. 그림자를 제거하면서 채우기와 윤곽선을 유지하려면 [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/)를 호출합니다.
+[EnablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/enablepresetshadoweffect/) 를 호출하고 [Preset](https://reference.aspose.com/slides/net/aspose.slides.effects/ipresetshadow/preset/) 을 명명된 [PresetShadowType](https://reference.aspose.com/slides/net/aspose.slides/presetshadowtype/) 으로 설정합니다. 스타일을 전환하려면 동일한 도형에서 프리셋을 변경합니다. 그림자를 제거하면서 채우기와 외곽선을 보존하려면 [DisablePresetShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disablepresetshadoweffect/) 를 호출합니다.
 
-이 예제는 각 단계에서 사각형 사본을 유지합니다. 두 그림자는 모두 10포인트만큼 오프셋됩니다. 225° 방향은 첫 번째 그림자를 사각형의 위쪽 왼쪽에 배치하고, 45° 방향은 두 번째 그림자를 아래쪽 오른쪽에 배치합니다.
+이 예제는 각 단계마다 사각형의 복사본을 유지합니다. 두 그림자는 10포인트만큼 오프셋됩니다. 225° 방향은 첫 번째 그림자를 사각형 위와 왼쪽에 배치하고, 45° 방향은 두 번째 그림자를 아래와 오른쪽에 배치합니다.
+
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -139,13 +184,14 @@ presentation.Save("preset_shadows.pptx", SaveFormat.Pptx);
 
 | 원본 | 첫 번째 프리셋 | 두 번째 프리셋 | 제거 후 |
 | :---: | :---: | :---: | :---: |
-| ![그림자 없음](preset_shadow_original.png) | ![왼쪽 위 그림자](preset_shadow_top_left.png) | ![오른쪽 아래 그림자](preset_shadow_bottom_right.png) | ![제거 후 그림자 없음](preset_shadow_removed.png) |
+| ![그림자 없음](preset_shadow_original.png) | ![좌상단 그림자](preset_shadow_top_left.png) | ![우하단 그림자](preset_shadow_bottom_right.png) | ![제거 후 그림자 없음](preset_shadow_removed.png) |
 
 ## **반사 효과 적용**
 
-Aspose.Slides for .NET에서 반사 효과를 적용하려면 도형에 거울과 같은 반사를 추가하고 거리, 투명도 및 크기와 같은 매개변수를 조정하면 됩니다. 이 효과는 도형에 보다 세련되고 정교한 모습을 부여하여 프레젠테이션의 미적 가치를 높입니다. 간단한 코드로 쉽게 구현할 수 있어 여러 요소에 빠르게 적용하여 일관된 디자인을 구현할 수 있습니다.
+Aspose.Slides for .NET에서 반사 효과를 적용하려면 도형에 거울 같은 반사를 추가하고 거리, 투명도 및 크기와 같은 매개변수를 조정하면 됩니다. 이 효과는 도형을 보다 세련되고 정교하게 보이게 하여 프레젠테이션의 미적 품질을 향상시킵니다. 간단한 코드로 손쉽게 구현할 수 있어 여러 요소에 일관된 디자인을 빠르게 적용할 수 있습니다.
 
-다음 C# 코드는 도형에 [반사 효과](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/)를 적용하는 방법을 보여줍니다:
+This C# code shows how to apply the [reflection effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) to a shape:
+
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -165,11 +211,12 @@ presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 
 ![반사 효과](reflection_effect.png)
 
-## **글로우 효과 적용**
+## **빛남 효과 적용**
 
-Aspose.Slides for .NET에서 도형에 글로우 효과를 적용하려면 색상 및 크기와 같은 속성을 조정하면서 부드럽고 빛나는 광환을 도형 주위에 추가할 수 있습니다. 이 효과는 도형을 돋보이게 하고 프레젠테이션에 매력적이고 눈에 띄는 시각 요소를 추가합니다. 최소한의 코드로 쉽게 구현할 수 있어 슬라이드 전체의 외관을 향상시킵니다.
+Aspose.Slides for .NET에서 도형에 빛남 효과를 적용하려면 부드럽고 빛나는 오라를 도형 주위에 추가하고 색상 및 크기와 같은 속성을 조정할 수 있습니다. 이 효과는 도형을 돋보이게 하고 프레젠테이션에 매력적이고 눈에 띄는 시각 요소를 추가합니다. 최소한의 코드로 구현이 쉬워 슬라이드 전체의 외관을 향상시킬 수 있습니다.
 
-다음 C# 코드는 도형에 [글로우 효과](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/)를 적용하는 방법을 보여줍니다:
+This C# code shows how to apply the [glow effect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) to a shape:
+
 ```c#
 using System.Drawing;
 using Aspose.Slides;
@@ -186,13 +233,14 @@ shape.EffectFormat.GlowEffect.Radius = 15;
 presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![글로우 효과](glow_effect.png)
+![빛남 효과](glow_effect.png)
 
 ## **부드러운 가장자리 효과 적용**
 
-Aspose.Slides for .NET에서 부드러운 가장자리 효과를 적용하려면 도형의 가장자리 주변에 부드럽고 흐릿한 전환을 만들 수 있습니다. 이 효과는 보다 미묘하고 정교한 외관을 제공하여 부드럽고 섬세한 디자인에 적합합니다. 반경과 같은 매개변수를 쉽게 조정하여 프레젠테이션의 다양한 도형에 원하는 효과를 적용할 수 있습니다.
+Aspose.Slides for .NET에서 부드러운 가장자리 효과를 적용하면 도형 가장자리 주위에 부드럽고 흐릿한 전환을 만들 수 있습니다. 이 효과는 보다 섬세하고 정교한 외관을 부여하여 부드러운 디자인에 적합합니다. 반경과 같은 매개변수를 쉽게 조정하여 프레젠테이션의 다양한 도형에 원하는 효과를 적용할 수 있습니다.
 
-다음 C# 코드는 도형에 [부드러운 가장자리](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/)를 적용하는 방법을 보여줍니다:
+This C# code shows how to apply the [soft edges](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) to a shape:
+
 ```c#
 using Aspose.Slides;
 using Aspose.Slides.Export;
@@ -211,15 +259,16 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 ## **블러 효과 적용**
 
-도형 블러를 사용하면 도형을 편집 가능하게 유지하면서 채우기와 윤곽선을 부드럽게 만들 수 있습니다. 도형의 EffectFormat에서 [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/)를 호출합니다. 반경은 포인트(1/72 인치) 단위이며, 음수가 아닌 값을 사용하고 값이 클수록 블러가 강해집니다. 반경이 0이면 외관이 그대로 유지됩니다.
+도형 블러를 사용하면 도형의 채우기와 외곽선을 부드럽게 만들면서도 도형을 편집 가능하게 유지할 수 있습니다. 도형의 효과 형식에서 [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) 를 호출합니다. 반경은 포인트(1/72 인치) 단위이며, 0 이상의 값을 사용합니다. 값이 클수록 흐림이 강해집니다. 반경이 0이면 외관이 변하지 않습니다.
 
-[Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) 설정은 효과의 보이는 경계를 제어합니다. `false`인 경우 블러가 윤곽선을 포함한 원래 그려진 경계에 클리핑됩니다. `true`인 경우 블러가 해당 경계를 넘어 확장될 수 있습니다. 두 설정 모두 도형의 위치나 크기를 변경하지 않습니다.
+[Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) 설정은 효과의 가시적 경계를 제어합니다. `false`이면 흐림이 원래 그려진 경계(외곽선 포함) 내부에 제한되고, `true`이면 그 경계를 넘어 확장될 수 있습니다. 두 설정 모두 도형의 위치나 크기를 변경하지는 않습니다.
 
-아래 비교에서는 동일한 채우기, 윤곽선 및 도형 크기가 전체에 걸쳐 사용됩니다. 상단 행은 `grow = false`를 사용하고, 하단 행은 `grow = true`를 사용합니다.
+아래 비교에서는 동일한 채우기, 외곽선 및 도형 크기를 throughout 사용했습니다. 첫 번째 행은 `grow = false` 를, 두 번째 행은 `grow = true` 를 사용합니다.
 
-![grow 비활성화 및 활성화 시 5포인트와 15포인트 블러 반경을 가진 원본 사각형 비교](shape_blur_comparison.png)
+![원본 사각형과 흐림 반경 5포인트 및 15포인트 비교, grow 비활성 및 활성 상태](shape_blur_comparison.png)
 
-다음 C# 예제는 주황색 사각형에 어두운 파란색 윤곽선을 적용하고, 5포인트 블러를 적용한 뒤 다시 [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/)를 호출하여 15포인트 블러로 업데이트합니다. 두 블러 효과가 적용된 상태를 저장한 다음 [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/)를 호출하여 블러가 없는 도형을 저장합니다.
+This C# example creates an orange rectangle with a dark blue outline, applies a 5-point blur, and then updates it to a 15-point blur by calling [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) again. It saves both blurred states, then calls [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) and saves the shape without blur.
+
 ```csharp
 using System.Drawing;
 using Aspose.Slides;
@@ -245,15 +294,18 @@ shape.EffectFormat.DisableBlurEffect();
 presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
 ```
 
-도형 블러는 채우기와 윤곽선을 함께 영향을 줍니다. 부드러운 가장자리 효과는 도형의 가장자리를 페이드 처리하는 반면, 그림자 블러는 그림자만 부드럽게 합니다. 이미지 변환 효과는 이미지 콘텐츠에 적용되며, 이 예제는 도형을 이미지로 변환하지 않고 도형의 EffectFormat에 직접 블러를 적용합니다.
+도형 블러는 채우기와 외곽선을 함께 영향을 미칩니다. 부드러운 가장자리 효과는 도형 가장자리를 흐리게 하고, 그림자 블러는 그림자만 부드럽게 합니다. 이미지 변환 효과는 이미지 콘텐츠에 적용되지만, 이 예제는 도형을 이미지로 변환하지 않고 직접 도형의 효과 형식에 블러를 적용합니다.
 
 ## **FAQ**
 
-**같은 도형에 여러 효과를 적용할 수 있나요?**  
-예, 그림자, 반사, 글로우와 같은 다양한 효과를 하나의 도형에 결합하여 보다 역동적인 모습을 만들 수 있습니다.
+**같은 도형에 여러 효과를 적용할 수 있나요?**
 
-**어떤 도형에 효과를 적용할 수 있나요?**  
-자동 도형, 차트, 표, 그림, SmartArt 개체, OLE 개체 등 다양한 도형에 효과를 적용할 수 있습니다.
+예, 그림자, 반사, 빛남 등 다양한 효과를 하나의 도형에 결합하여 보다 역동적인 외관을 만들 수 있습니다.
 
-**그룹화된 도형에 효과를 적용할 수 있나요?**  
-예, 그룹화된 도형에도 효과를 적용할 수 있습니다. 효과는 전체 그룹에 적용됩니다.
+**어떤 도형에 효과를 적용할 수 있나요?**
+
+자동 도형, 차트, 표, 사진, SmartArt 개체, OLE 개체 등 다양한 도형에 효과를 적용할 수 있습니다.
+
+**그룹화된 도형에 효과를 적용할 수 있나요?**
+
+예, 그룹화된 도형 전체에 효과가 적용됩니다.

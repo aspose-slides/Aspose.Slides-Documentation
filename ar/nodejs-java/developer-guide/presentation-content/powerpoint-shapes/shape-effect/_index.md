@@ -20,25 +20,25 @@ description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام
 ---
 ## **المقدمة**
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل بارزًا، فإنها تختلف عن [التعبئات](/slides/ar/nodejs-java/shape-formatting/#gradient-fill) أو الخطوط الخارجية. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعّة على الشكل، ونشر توهج الشكل، وما إلى ذلك.
+في حين يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فهي تختلف عن [التعبئات](/slides/ar/nodejs-java/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، أو نشر توهج الشكل، وما إلى ذلك.
 
 ![تأثير الشكل](shape-effect.png)
 
-يقدم PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير أو أكثر على الشكل.
+يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل.
 
-بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يقدم PowerPoint خيارات تحت **إعداد مسبق**. خيارات الإعداد المسبق هي تركيبات من تأثيرين أو أكثر معروفة بأنها تبدو جيدة. بهذه الطريقة، عند اختيار إعداد مسبق، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة مناسبة.
+بعض تركيبة التأثيرات تبدو أفضل من غيرها. لهذا السبب يوفر PowerPoint خيارات تحت **Preset**. خيارات الـ Preset هي تركيبات من اثنين أو أكثر من التأثيرات المعروف أنها تبدو جيدة. بهذه الطريقة، باختيار إعداد مسبق لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة ملائمة.
 
-توفر Aspose.Slides خصائص وأساليب ضمن الفئة [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint التقديمية.
+توفر Aspose.Slides خصائص وأساليب تحت فئة [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) التي تسمح لك بتطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
 
 ## **تطبيق تأثير الظل**
 
-يدعم Aspose.Slides لـ Node.js عبر Java الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص لونها، اتجاهها، مسافتها، ونصف قطر التعتيم لتطابق تصميم عرضك التقديمي.
+يدعم Aspose.Slides for Node.js via Java الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص لونها، واتجاهها، والمسافة، ونصف قطر التشويش لتتناسب مع تصميم العرض الخاص بك.
 
 ### **تطبيق ظل خارجي**
 
-استخدم ظلًا خارجيًا لجعل بطاقة أو لوحة تبرز مقابل خلفية الشريحة. يمتد الظل خارج حواف الشكل، مما يخلق الانطباع بأن الشكل مرتفع فوق الشريحة. اضبط لونه، اتجاهه، مسافته، ونصف قطر التعتيم ليتطابق مع الإضاءة وتنسيق القالب الخاص بك.
+استخدم ظلًا خارجيًا لجعل بطاقة أو لوحة تبرز مقابل خلفية الشريحة. يمتد الظل إلى ما بعد حواف الشكل، مما يخلق انطباعًا بأن الشكل مرتفع فوق الشريحة. قم بضبط لونه، واتجاهه، ومسافته، ونصف قطر التشويش ليتماشى مع الإضاءة وتنسيق القالب الخاص بك.
 
-هذا الكود JavaScript يوضح كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) على مستطيل:
+يعرض هذا الكود JavaScript كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) على مستطيل:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -63,13 +63,62 @@ try {
 
 ![تأثير الظل](shadow_effect.png)
 
+#### **التحكم في اتجاه الظل عندما يدور الشكل**
+
+بشكل افتراضي، يدور الظل الخارجي مع الشكل. لجعل الأشكال ذات الدورانات المختلفة تبدو مضاءة من نفس الاتجاه، استدعِ [setRotateShadowWithShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setRotateShadowWithShape) مع `false` واستخدم [setDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setDirection) لإعطاء ظلالها نفس الاتجاه.
+
+يمثل المثال سهمين أزرقين بظلال رمادية إزاحة 42 نقطة إلى اليمين (0°). ثم يكرر الشريحة ويدور كلا السهمين 90° باتجاه عقارب الساعة.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const before = presentation.getSlides().get_Item(0);
+    
+    const left = before.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    left.getFillFormat().getSolidFillColor().setColor(fillColor);
+    left.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    const shadow = left.getEffectFormat().getOuterShadowEffect();
+    const shadowColor = java.getStaticFieldValue("java.awt.Color", "GRAY");
+    shadow.getShadowColor().setColor(shadowColor);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    const right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    const after = presentation.getSlides().addClone(before);
+    const arrows = after.getShapes();
+    for (let i = 0; i < arrows.size(); i++) {
+        arrows.get_Item(i).setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+في الشريحة الثانية، يسقط السهم الأيسر ظله نحو الأسفل، بينما يظل السهم الأيمن يسقط ظله نحو اليمين. يبقى الاتجاه المحدد 0° لكلا الظلين.
+
+![عرض PowerPoint قبل وبعد دوران 90°. كلا الظلين يبدأان على اليمين. بعد الدوران، يتحرك الظل أسفل السهم الأيسر ويبقى إلى يمين السهم الأيمن.](arrow-shadow-rotation.png)
+
 ### **تطبيق ظل داخلي**
 
-عند إعادة إنتاج النمط البصري للقالب، استخدم ظلًا داخليًا لإعطاء بطاقة أو لوحة مظهرًا متجوفًا. الظل الخارجي يمتد خارج الشكل ويجعله يبدو مرتفعًا، بينما الظل الداخلي يظلّل داخل حوافه.
+عند إعادة إنتاج النمط البصري للقالب، استخدم ظلًا داخليًا لمنح بطاقة أو لوحة مظهرًا مضمّنًا. الظل الخارجي يمتد خارج الشكل ويجعله يبدو مرتفعًا، بينما الظل الداخلي يظلل داخل حواف الشكل.
 
-استدعِ [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect)، ثم ضبط الظل الذي تُعيده [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). القيم الأكبر لنصف قطر التعتيم تنتج حوافًا أكثر نعومة.
+استدعِ [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect)، ثم قم بتكوين الظل الذي تعيده [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). قيم نصف قطر التشويش الأكبر تنتج حوافًا أكثر نعومة.
 
-هذا المثال JavaScript ينشئ بطاقة زرقاء فاتحة مع ظل داخلي رمادي داكن ويحفظها كملف PPTX. اتجاه الظل هو 225 درجة، مسافته 7 نقاط، ونصف قطر التعتيم 6 نقاط:
+يُظهر هذا المثال JavaScript بطاقة زرقاء فاتحة بظل داخلي رمادي داكن ويحفظها كملف PPTX. اتجاه الظل 225 درجة، مسافته 7 نقاط، ونصف قطر التشويش 6 نقاط:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -101,13 +150,13 @@ try {
 
 ![مستطيل أزرق فاتح بظل داخلي](inner_shadow_effect.png)
 
-لإزالة الظل الداخلي، استدعِ [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) على صيغة تأثير الشكل.
+لإزالة الظل الداخلي، استدعِ [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) على تنسيق تأثير الشكل.
 
-### **تطبيق، تعديل، وإزالة ظل إعداد مسبق**
+### **تطبيق، تعديل، وإزالة ظل مسبق**
 
-استدعِ [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) واستخدم [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) لاختيار نوع [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). لتغيير الأنماط، غيّر الإعداد المسبق على الشكل نفسه. استدعِ [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) لإزالة الظل مع الحفاظ على التعبئة والخط الخارجي.
+استدعِ [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) واستخدم [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) لتحديد [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). لتبديل الأنماط، غيّر الإعداد المسبق على نفس الشكل. استدعِ [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) لإزالة الظل مع الحفاظ على التعبئة والحد.
 
-يظهر هذا المثال أربع مراحل جنبًا إلى جنب على شريحة واحدة. كلا الظلين مُزاحان بمقدار 10 نقاط. اتجاه 225° يضع الظل الأول أعلى ويسار المستطيل، و45° يضع الظل الثاني أسفل ويسار المستطيل.
+يعرض هذا المثال أربع مراحل جنبًا إلى جنب على شريحة واحدة. كلا الظلين إزاحة 10 نقاط. اتجاه 225° يضع الظل الأول أعلى ويسار المستطيل، و45° يضع الظل الثاني أسفل ويسار.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -154,15 +203,15 @@ try {
 }
 ```
 
-| الأصلي | الإعداد المسبق الأول | الإعداد المسبق الثاني | بعد الإزالة |
+| الأصل | الإعداد المسبق الأول | الإعداد المسبق الثاني | بعد الإزالة |
 | :---: | :---: | :---: | :---: |
-| ![بدون ظل](preset_shadow_original.png) | ![ظل إسقاط أعلى يسار](preset_shadow_top_left.png) | ![ظل إسقاط أسفل يمين](preset_shadow_bottom_right.png) | ![بدون ظل بعد الإزالة](preset_shadow_removed.png) |
+| ![بدون ظل](preset_shadow_original.png) | ![ظل أعلى يسار](preset_shadow_top_left.png) | ![ظل أسفل يمين](preset_shadow_bottom_right.png) | ![بدون ظل بعد الإزالة](preset_shadow_removed.png) |
 
 ## **تطبيق تأثير الانعكاس**
 
-لتطبيق تأثير الانعكاس في Aspose.Slides لـ Node.js عبر Java، يمكنك إضافة انعكاس يشبه المرآة إلى الأشكال، وضبط معايير مثل المسافة، الشفافية، والحجم. يعزز هذا التأثير الجمالية في عروضك التقديمية بمنح الأشكال مظهرًا أكثر صقلًا وتطورًا. من السهل تنفيذه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عدة عناصر لتصميم موحد.
+لتطبيق تأثير انعكاس في Aspose.Slides for Node.js via Java، يمكنك إضافة انعكاس شبيه بالمرآة إلى الأشكال، مع تعديل معلمات مثل المسافة والشفافية والحجم. يُحسّن هذا التأثير مظهر عروضك من خلال إعطاء الأشكال مظهرًا أكثر صقلاً وتطورًا. من السهل تنفيذه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عناصر متعددة لتصميم موحد.
 
-هذا الكود JavaScript يوضح كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) على شكل:
+يعرض هذا الكود JavaScript كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) على شكل:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -189,9 +238,9 @@ try {
 
 ## **تطبيق تأثير التوهج**
 
-لتطبيق تأثير التوهج على شكل في Aspose.Slides لـ Node.js عبر Java، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، وضبط خصائص مثل اللون والحجم. يساعد هذا التأثير على إبراز الأشكال وإضافة عنصر بصري جذاب ولافت للنظر إلى عرضك التقديمي. من السهل تنفيذه باستخدام كود بسيط، مما يعزز المظهر العام لشرائحك.
+لتطبيق تأثير توهج على شكل في Aspose.Slides for Node.js via Java، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، مع ضبط خصائص مثل اللون والحجم. يساعد هذا التأثير على إبراز الأشكال وإضافة عنصر بصري جذاب إلى عرضك. من السهل تنفيذه بكود بسيط، مما يُحسّن المظهر العام لشرائحك.
 
-هذا الكود JavaScript يوضح كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) على شكل:
+يعرض هذا الكود JavaScript كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) على شكل:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -217,9 +266,9 @@ try {
 
 ## **تطبيق تأثير الحواف الناعمة**
 
-لتطبيق تأثير الحواف الناعمة في Aspose.Slides لـ Node.js عبر Java، يمكنك إنشاء انتقال ناعم ومطمّس حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقة وتفصيلًا، وهو مثالي للتصاميم التي تحتاج إلى مظهر هادئ وأقل حدة. يمكنك بسهولة ضبط معايير مثل نصف القطر لتحقيق التأثير المطلوب عبر أشكال مختلفة في عرضك التقديمي.
+لتطبيق تأثير الحواف الناعمة في Aspose.Slides for Node.js via Java، يمكنك إنشاء انتقال ناعم ومُطمس حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقة ونعومة، مثالي للتصاميم التي تحتاج إلى مظهر لطيف. يمكنك بسهولة تعديل معلمة نصف القطر لتحقيق التأثير المطلوب عبر مختلف الأشكال في عرضك.
 
-هذا الكود JavaScript يوضح كيفية تطبيق [تأثير الحواف الناعمة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) على شكل:
+يعرض هذا الكود JavaScript كيفية تطبيق [تأثير الحواف الناعمة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) على شكل:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -242,15 +291,15 @@ try {
 
 ## **تطبيق تأثير الضبابية**
 
-استخدم ضبابية الشكل لتنعيم تعبئة الشكل وخطّه الخارجي مع الحفاظ على إمكانية تحرير الشكل. استدعِ [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) على صيغة تأثير الشكل. يُقاس نصف القطر بالنقاط (1/72 بوصة): استخدم قيمة غير سالبة، حيث القيم الأكبر تنتج ضبابية أقوى. نصف قطر صفر يترك المظهر كما هو.
+استخدم تشويش الشكل لتنعيم تعبئة الشكل وحدوده مع إبقاء الشكل قابلاً للتحرير. استدعِ [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) على تنسيق تأثير الشكل. يُقاس نصف القطر بالنقاط (1/72 بوصة): استخدم قيمة غير سالبة، حيث إن القيم الأكبر تنتج ضبابية أقوى. نصف القطر صفر يبقي المظهر كما هو.
 
-إعداد [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) يتحكم في حدود التأثير المرئية. عند `false`، يتم قص الضبابية إلى الحدود المرسومة الأصلية، بما في ذلك الخط الخارجي. عند `true`، يمكن أن تمتد الضبابية خارج تلك الحدود. لا تغير أي من الإعدادات موضع الشكل أو أبعاده.
+تتحكم إعدادات [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) في حدود التأثير الظاهرة. مع `false`، يُقَص الضبابية إلى الحدود المرسومة الأصلية بما فيها الحدود. مع `true`، يمكن للضبابية أن تمتد خارج تلك الحدود. لا يغيّر أي من الإعدادين موقع الشكل أو أبعاده.
 
-المقارنة أدناه تستخدم نفس التعبئة، الخط الخارجي، وأبعاد الشكل طوال الوقت. الصف العلوي يستخدم `grow = false`؛ الصف السفلي يستخدم `grow = true`.
+المقارنة أدناه تستخدم نفس التعبئة، والحد، وأبعاد الشكل طوال الوقت. الصف العلوي يستخدم `grow = false`؛ الصف السفلي يستخدم `grow = true`.
 
-![مستطيل أصلي مقارنةً بأشعاع ضبابية 5 و15 نقطة، مع تعطيل وتمكين النمو](shape_blur_comparison.png)
+![مستطيل أصلي مقارنةً بتشويش نصف قطره 5 و15 نقطة، مع تعطيل وتمكين النمو](shape_blur_comparison.png)
 
-هذا المثال JavaScript ينشئ مستطيلًا برتقاليًا بخط خارجي أزرق داكن، يطبق ضبابية 5 نقاط، ثم يحدّثها إلى ضبابية 15 نقطة عبر استدعاء [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) مرة أخرى. يحفظ كلا الحالتين الضبابيتين، ثم يستدعي [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) ويحفظ الشكل بدون ضبابية.
+هذا المثال JavaScript ينشئ مستطيلًا برتقاليًا بحد أزرق داكن، يطبق تشويشًا ب5 نقاط، ثم يحدّثه إلى تشويش ب15 نقطة باستدعاء [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) مرة أخرى. يحفظ كلا الحالتين المشوشتين، ثم يستدعي [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) ويحفظ الشكل بدون ضبابية.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,18 +331,18 @@ try {
 }
 ```
 
-تؤثر ضبابية الشكل على التعبئة والخط الخارجي معًا. يؤثر تأثير الحواف الناعمة على تلاشي حواف الشكل، بينما تضفي ضبابية الظل نعومة فقط على الظل. تعمل تأثيرات تحويل الصورة على محتوى الصورة؛ هذا المثال يطبق الضبابية مباشرةً على صيغة تأثير الشكل دون تحويل الشكل إلى صورة.
+تشويش الشكل يؤثر على التعبئة والحد معًا. تأثير الحواف الناعمة يبهت حواف الشكل، بينما يشوش ظل الظل فقط. تأثيرات تحويل الصورة تعمل على محتوى الصورة؛ هذا المثال يطبق الضبابية مباشرة على تنسيق تأثير الشكل دون تحويله إلى صورة.
 
 ## **الأسئلة المتكررة**
 
 **هل يمكنني تطبيق تأثيرات متعددة على نفس الشكل؟**
 
-نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل، الانعكاس، والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
+نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل، والانعكاس، والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
 
 **ما هي الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
 
-يمكنك تطبيق التأثيرات على أشكال متنوعة، بما في ذلك الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وأكثر.
+يمكنك تطبيق التأثيرات على أشكال متعددة بما في ذلك الأشكال التلقائية، والمخططات، والجداول، والصور، وكائنات SmartArt، وكائنات OLE، وغير ذلك.
 
-**هل يمكنني تطبيق التأثيرات على الأشكال المجمعة؟**
+**هل يمكنني تطبيق التأثيرات على أشكال مجمعة؟**
 
-نعم، يمكنك تطبيق التأثيرات على الأشكال المجمعة. سيطبق التأثير على المجموعة بأكملها.
+نعم، يمكنك تطبيق التأثيرات على الأشكال المجمعة. سيُطبق التأثير على المجموعة بأكملها.

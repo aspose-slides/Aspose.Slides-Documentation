@@ -7,7 +7,7 @@ url: /hi/php-java/shape-effect/
 keywords:
 - आकार प्रभाव
 - छाया प्रभाव
-- परावर्तन प्रभाव
+- प्रतिबिंब प्रभाव
 - ग्लो प्रभाव
 - नरम किनारे प्रभाव
 - इफ़ेक्ट फ़ॉर्मेट
@@ -15,29 +15,29 @@ keywords:
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java का उपयोग करके उन्नत आकार प्रभावों के साथ आपके PPT और PPTX फ़ाइलों को बदलें—सेकंडों में प्रभावशाली, पेशेवर स्लाइड बनाएं।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके उन्नत आकार प्रभावों के साथ अपने PPT और PPTX फ़ाइलों को बदलें—सेकंडों में आकर्षक, पेशेवर स्लाइड्स बनाएं।"
 ---
 ## **परिचय**
 
-PowerPoint में प्रभावों का उपयोग किसी आकार को उभारा बनाने के लिए किया जा सकता है, लेकिन वे [भरण](/slides/hi/php-java/shape-formatting/#gradient-fill) या outlines से भिन्न होते हैं। PowerPoint प्रभावों का उपयोग करके आप किसी आकार पर विश्वसनीय परावर्तन बना सकते हैं, आकार की चमक फैलाना आदि।
+जबकि PowerPoint में इफ़ेक्ट्स का उपयोग किसी आकार को प्रमुख बनाने के लिए किया जा सकता है, वे [fills](/slides/hi/php-java/shape-formatting/#gradient-fill) या outlines से अलग होते हैं। PowerPoint इफ़ेक्ट्स का उपयोग करके आप किसी आकार पर विश्वसनीय प्रतिबिंब बना सकते हैं, आकार की चमक फैलाना आदि।
 
 ![Shape effect](shape-effect.png)
 
-PowerPoint छह प्रभाव प्रदान करता है जिन्हें आकारों पर लागू किया जा सकता है। आप एक आकार पर एक या अधिक प्रभाव लागू कर सकते हैं।
+PowerPoint छह इफ़ेक्ट्स प्रदान करता है जिन्हें आकारों पर लागू किया जा सकता है। आप एक आकार पर एक या अधिक इफ़ेक्ट्स लागू कर सकते हैं।
 
-कुछ प्रभाव संयोजन दूसरों से बेहतर दिखते हैं। इसी कारण PowerPoint **Preset** के तहत विकल्प प्रदान करता है। Preset विकल्प दो या अधिक प्रभावों के संयोजन होते हैं जो दिखने में अच्छे माने जाते हैं। इस तरह, एक प्रीसेट चुनकर आपको विभिन्न प्रभावों का परीक्षण या संयोजन करके एक अच्छा संयोजन खोजने में समय बर्बाद नहीं करना पड़ेगा।
+कुछ इफ़ेक्ट संयोजन अन्य की तुलना में बेहतर दिखते हैं। इसी कारण PowerPoint **Preset** के तहत विकल्प प्रदान करता है। Preset विकल्प दो या अधिक इफ़ेक्ट्स के संयोजन होते हैं जो दिखने में अच्छे माने जाते हैं। इस प्रकार, एक preset चुनकर आपको विभिन्न इफ़ेक्ट्स को परीक्षण या संयोजन करने में समय बर्बाद नहीं करना पड़ेगा।
 
-Aspose.Slides प्रोपरटीज़ और मेथड्स [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) क्लास के तहत प्रदान करता है जो आपको PowerPoint प्रस्तुतियों में आकारों पर समान प्रभाव लागू करने की अनुमति देते हैं।
+Aspose.Slides [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) क्लास के तहत गुण और विधियाँ प्रदान करता है जो आपको PowerPoint प्रस्तुतियों में आकारों पर समान इफ़ेक्ट्स लागू करने की अनुमति देती हैं।
 
-## **शैडो प्रभाव लागू करें**
+## **छाया प्रभाव लागू करें**
 
-Aspose.Slides for PHP via Java आकारों के लिए बाहरी और आंतरिक शैडो का समर्थन करता है। आप उनके रंग, दिशा, दूरी और ब्लर त्रिज्या को अपनी प्रस्तुति के डिज़ाइन के अनुरूप कस्टमाइज़ कर सकते हैं।
+Aspose.Slides for PHP via Java आकारों के लिए बाहरी और आंतरिक छायाएँ समर्थन करता है। आप उनका रंग, दिशा, दूरी और ब्लर रेडियस को अपनी प्रस्तुति के डिज़ाइन के अनुसार अनुकूलित कर सकते हैं।
 
-### **बाहरी शैडो लागू करें**
+### **बाहरी छाया लागू करें**
 
-एक बाहरी शैडो का उपयोग करके कार्ड या पैनल को स्लाइड पृष्ठभूमि के विरुद्ध उभारा बना सकते हैं। शैडो आकार की किनारों से बाहर तक विस्तारित होती है, जिससे यह लगते हैं कि आकार स्लाइड से ऊपर उठा हुआ है। रंग, दिशा, दूरी और ब्लर त्रिज्या को टेम्पलेट की लाइटिंग और शैली से मिलाने के लिए समायोजित करें।
+बाहरी छाया का उपयोग करके आप कार्ड या पैनल को स्लाइड बैकग्राउंड के विरुद्ध प्रमुख बना सकते हैं। छाया आकार की किनारों से आगे निकलती है, जिससे ऐसा प्रभाव बनता है कि आकार स्लाइड से ऊपर उठा हो। अपने टेम्पलेट की रोशनी और शैली से मेल खाने के लिए उसका रंग, दिशा, दूरी और ब्लर रेडियस समायोजित करें।
 
-यह PHP कोड दिखाता है कि कैसे [बाहरी शैडो प्रभाव](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) को एक आयत पर लागू किया जाए:
+यह PHP कोड दिखाता है कि कैसे आयत पर [outer shadow effect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) लागू किया जाए:
 
 ```php
 use aspose\slides\Presentation;
@@ -61,15 +61,64 @@ try {
 }
 ```
 
-![शैडो प्रभाव](shadow_effect.png)
+![Shadow effect](shadow_effect.png)
 
-### **आंतरिक शैडो लागू करें**
+#### **आकार के घुमाव पर छाया दिशा को नियंत्रित करें**
 
-जब टेम्पलेट की दृश्य शैली को पुनः प्रस्तुत कर रहे हों, तो कार्ड या पैनल को संकुचित रूप देने के लिए आंतरिक शैडो का उपयोग करें। बाहरी शैडो आकार के बाहर तक विस्तारित होती है और इसे उठे हुए दिखाती है, जबकि आंतरिक शैडो किनारों के अंदर को शेड करती है।
+डिफ़ॉल्ट रूप से, बाहरी छाया आकार के साथ घूमती है। विभिन्न घुमाव वाले आकारों को एक ही दिशा से प्रकाशित दिखाने के लिए, `false` के साथ [setRotateShadowWithShape](https://reference.aspose.com/slides/php-java/aspose.slides/outershadow/#setRotateShadowWithShape) को कॉल करें और उनकी छायाओं को समान दिशा देने के लिए [setDirection](https://reference.aspose.com/slides/php-java/aspose.slides/outershadow/#setDirection) का उपयोग करें।
 
-[enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect) को कॉल करें, फिर [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect) द्वारा लौटाई गई शैडो को कॉन्फ़िगर करें। बड़ी ब्लर त्रिज्या मान नरम किनारे उत्पन्न करते हैं।
+उदाहरण दो नीली तीर बनाता है जिनकी ग्रे छाया दाएँ 42 पॉइंट (0°) पर ऑफ़सेट है। फिर स्लाइड को डुप्लिकेट करके दोनों तीरों को 90° घड़ी की दिशा में घुमाया जाता है।
 
-यह PHP उदाहरण हल्के नीले कार्ड को गहरा ग्रे आंतरिक शैडो के साथ बनाता है और इसे PPTX फ़ाइल के रूप में सहेजता है। शैडो की दिशा 225 डिग्री है, उसकी दूरी 7 पॉइंट है, और ब्लर त्रिज्या 6 पॉइंट है:
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $before = $presentation->getSlides()->get_Item(0);
+    
+    $left = $before->getShapes()->addAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+    $left->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 70, 130, 180);
+    $left->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+    $left->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $left->getEffectFormat()->enableOuterShadowEffect();
+    $shadow = $left->getEffectFormat()->getOuterShadowEffect();
+    $shadow->getShadowColor()->setColor(java("java.awt.Color")->GRAY);
+    $shadow->setDirection(0);
+    $shadow->setDistance(42);
+    $shadow->setBlurRadius(0);
+    $shadow->setRotateShadowWithShape(true);
+
+    $right = $before->getShapes()->addClone($left);
+    $right->setX(395);
+    $right->getEffectFormat()->getOuterShadowEffect()->setRotateShadowWithShape(false);
+
+    $after = $presentation->getSlides()->addClone($before);
+    foreach ($after->getShapes()->toArray() as $arrow) {
+        $arrow->setRotation(90);
+    }
+
+    $presentation->save("arrow_shadows.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+दूसरी स्लाइड पर, बायाँ तीर अपनी छाया नीचे की ओर डालता है, जबकि दायाँ तीर अभी भी अपनी छाया दाएँ की ओर डालता है। कॉन्फ़िगर की गई दिशा दोनों छायाओं के लिए 0° बनी रहती है।
+
+![PowerPoint rendering before and after a 90° rotation. Both shadows start on the right. After rotation, the shadow moves below the left arrow and stays to the right of the right arrow.](arrow-shadow-rotation.png)
+
+### **आंतरिक छाया लागू करें**
+
+किसी टेम्पलेट की दृश्य शैली को पुनः निर्मित करने के लिए, आंतरिक छाया का उपयोग करके कार्ड या पैनल को अवसादित रूप दे सकते हैं। बाहरी छाया आकार के बाहर विस्तार करती है और उसे उठे हुए दिखाती है, जबकि आंतरिक छाया उसके किनारों के अंदर के हिस्से को शेड करती है।
+
+[enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect) को कॉल करें, फिर [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect) द्वारा लौटाए गए छाया को कॉन्फ़िगर करें। बड़े ब्लर रेडियस मान नरम किनारे उत्पन्न करते हैं।
+
+यह PHP उदाहरण हल्के नीले कार्ड पर गहरा ग्रे आंतरिक छाया बनाता है और उसे PPTX फ़ाइल के रूप में सहेजता है। छाया की दिशा 225 डिग्री, उसकी दूरी 7 पॉइंट, और ब्लर रेडियस 6 पॉइंट है:
 
 ```php
 use aspose\slides\FillType;
@@ -101,15 +150,15 @@ try {
 }
 ```
 
-![हल्के नीले आयत के साथ आंतरिक शैडो](inner_shadow_effect.png)
+![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
 
-आंतरिक शैडो को हटाने के लिए, आकार के इफ़ेक्ट फ़ॉर्मेट पर [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) को कॉल करें।
+आंतरिक छाया हटाने के लिए, आकार के इफ़ेक्ट फ़ॉर्मेट पर [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) को कॉल करें।
 
-### **प्रिसेट शैडो लागू करें, बदलें और हटाएँ**
+### **Preset छाया लागू करें, बदलें और हटाएँ**
 
-[enablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enablePresetShadowEffect) को कॉल करके एक प्रिसेट शैडो सक्षम करें। एक [PresetShadowType](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadowtype/) चुनने के लिए [setPreset](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadow/#setPreset) का उपयोग करें या उसी आकार पर किसी अन्य शैली पर स्विच करें। शैडो को हटाने और भराव एवं रूपरेखा को बरकरार रखने के लिए [disablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disablePresetShadowEffect) को कॉल करें।
+Preset छाया सक्षम करने के लिए [enablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enablePresetShadowEffect) को कॉल करें। एक [PresetShadowType](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadowtype/) चुनने या उसी आकार पर किसी अन्य शैली पर स्विच करने के लिए [setPreset](https://reference.aspose.com/slides/php-java/aspose.slides/presetshadow/#setPreset) का उपयोग करें। छाया को हटाने के लिए जबकि भराव और रूपरेखा बनी रहे, [disablePresetShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disablePresetShadowEffect) को कॉल करें।
 
-यह PHP उदाहरण पहले तीन चरणों के बाद आयत को क्लोन करता है ताकि आप सभी चार चरणों की एक ही स्लाइड पर पड़ताल कर सकें। दोनों शैडो 10 पॉइंट द्वारा ऑफ़सेट हैं। 225° दिशा पहला शैडो आयत के ऊपर और बाएँ रखती है, और 45° दिशा दूसरा शैडो नीचे और दाएँ रखती है।
+यह PHP उदाहरण पहले तीन चरणों के बाद आयत को क्लोन करता है ताकि आप एक ही स्लाइड पर चारों चरणों की तुलना साइड‑बाइ‑साइड कर सकें। दोनों छायाएँ 10 पॉइंट ऑफ़सेट हैं। 225° की दिशा पहली छाया को आयत के ऊपर‑बाएँ रखती है, और 45° की दिशा दूसरी छाया को नीचे‑दाएँ रखती है।
 
 ```php
 use aspose\slides\FillType;
@@ -163,15 +212,15 @@ try {
 }
 ```
 
-| मूल | पहला प्रिसेट | दूसरा प्रिसेट | हटाने के बाद |
+| मूल | पहला preset | दूसरा preset | हटाने के बाद |
 | :---: | :---: | :---: | :---: |
-| ![कोई शैडो नहीं](preset_shadow_original.png) | ![ऊपरी बायां ड्रॉप शैडो](preset_shadow_top_left.png) | ![नीचे दायां ड्रॉप शैडो](preset_shadow_bottom_right.png) | ![हटाने के बाद कोई शैडो नहीं](preset_shadow_removed.png) |
+| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
-## **परावर्तन प्रभाव लागू करें**
+## **प्रतिबिंब प्रभाव लागू करें**
 
-परावर्तन प्रभाव Aspose.Slides for PHP via Java में लागू करने के लिए, आप आकारों पर दर्पण जैसी परावर्तन जोड़ सकते हैं, दूरी, पारदर्शिता और आकार जैसे पैरामीटर समायोजित कर सकते हैं। यह प्रभाव आपकी प्रस्तुतियों को अधिक परिष्कृत और सुशोभित दिखाता है। सरल कोड के साथ इसे लागू करना आसान है, जिससे कई तत्वों पर समान डिजाइन तेज़ी से लागू किया जा सकता है।
+Aspose.Slides for PHP via Java में प्रतिबिंब प्रभाव लागू करने के लिए, आप आकारों पर परावर्तक‑समान प्रतिबिंब जोड़ सकते हैं, दूरी, पारदर्शिता और आकार जैसे पैरामीटर समायोजित कर सकते हैं। यह प्रभाव आपकी प्रस्तुतियों की सौंदर्यशास्त्र को बढ़ाता है, आकारों को अधिक परिष्कृत तथा आकर्षक बनाता है। इसे सरल कोड से लागू किया जा सकता है, जिससे कई तत्वों पर स्थिर डिज़ाइन के लिए तेज़ी से लागू किया जा सके।
 
-यह PHP कोड दिखाता है कि कैसे [परावर्तन प्रभाव](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) को एक आकार पर लागू किया जाए:
+यह PHP कोड दिखाता है कि कैसे [reflection effect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) को किसी आकार पर लागू किया जाए:
 
 ```php
 use aspose\slides\Presentation;
@@ -196,13 +245,13 @@ try {
 }
 ```
 
-![परावर्तन प्रभाव](reflection_effect.png)
+![Reflection effect](reflection_effect.png)
 
 ## **ग्लो प्रभाव लागू करें**
 
-Aspose.Slides for PHP via Java में किसी आकार पर ग्लो प्रभाव लागू करने के लिए, आप आकार के चारों ओर कोमल, चमकदार आभा जोड़ सकते हैं, रंग और आकार जैसी प्रॉपर्टीज़ को समायोजित कर सकते हैं। यह प्रभाव आकार को उभारा बनाता है और प्रस्तुति में आकर्षक दृश्य घटक जोड़ता है। न्यूनतम कोड के साथ इसे लागू करना आसान है, जिससे स्लाइड की कुल दिखावट बेहतर होती है।
+Aspose.Slides for PHP via Java में किसी आकार पर ग्लो प्रभाव लागू करने के लिए, आप आकारों के चारों ओर एक नरम, उज्ज्वल आभा जोड़ सकते हैं, रंग और आकार जैसी विशेषताएँ समायोजित कर सकते हैं। यह प्रभाव आकारों को प्रमुख बनाता है और आपकी प्रस्तुति में एक आकर्षक दृश्य तत्व जोड़ता है। इसे न्यूनतम कोड से आसानी से लागू किया जा सकता है, जिससे स्लाइडों की समग्र उपस्थिति में सुधार होता है।
 
-यह PHP कोड दिखाता है कि कैसे [ग्लो प्रभाव](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) को एक आकार पर लागू किया जाए:
+यह PHP कोड दिखाता है कि कैसे [glow effect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) को किसी आकार पर लागू किया जाए:
 
 ```php
 use aspose\slides\Presentation;
@@ -224,13 +273,13 @@ try {
 }
 ```
 
-![ग्लो प्रभाव](glow_effect.png)
+![Glow effect](glow_effect.png)
 
-## **सॉफ्ट एजेस प्रभाव लागू करें**
+## **नरम किनारे प्रभाव लागू करें**
 
-Aspose.Slides for PHP via Java में सॉफ्ट एजेस प्रभाव लागू करने के लिए, आप आकार के किनारों के चारों ओर एक सुगम, धुंधला संक्रमण बना सकते हैं। यह प्रभाव अधिक सूक्ष्म और परिष्कृत दिखावट जोड़ता है, जो उन डिज़ाइनों के लिए उपयुक्त है जिन्हें कोमल, नरम रूप चाहिए। आप विभिन्न आकारों में इच्छित प्रभाव पाने के लिए त्रिज्या जैसे पैरामीटर को आसानी से समायोजित कर सकते हैं।
+Aspose.Slides for PHP via Java में नरम किनारे प्रभाव लागू करने के लिए, आप आकार के किनारों के चारों ओर एक सुगम, धुंधला संक्रमण बना सकते हैं। यह प्रभाव अधिक सूक्ष्म और परिष्कृत रूप देता है, विशेष रूप से उन डिज़ाइनों के लिये जो कोमल, मुलायम उपस्थिति चाहते हैं। आप विभिन्न आकारों में वांछित प्रभाव प्राप्त करने के लिये रेडियस जैसे पैरामीटर को आसानी से समायोजित कर सकते हैं।
 
-यह PHP कोड दिखाता है कि कैसे [सॉफ्ट एजेस प्रभाव](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) को एक आकार पर लागू किया जाए:
+यह PHP कोड दिखाता है कि कैसे [soft edges effect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) को किसी आकार पर लागू किया जाए:
 
 ```php
 use aspose\slides\Presentation;
@@ -251,19 +300,19 @@ try {
 }
 ```
 
-![सॉफ्ट एजेस प्रभाव](soft_edges_effect.png)
+![Soft edges effect](soft_edges_effect.png)
 
 ## **ब्लर प्रभाव लागू करें**
 
-आकार ब्लर का उपयोग करके आप आकार की भराव और रूपरेखा को नरम कर सकते हैं जबकि आकार संपादित योग्य रहता है। आकार के इफ़ेक्ट फ़ॉर्मेट पर [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) को कॉल करें। त्रिज्या पॉइंट में मापी जाती है (1/72 इंच): नकारात्मक नहीं होने वाला मान उपयोग करें, बड़ी मान अधिक तीव्र ब्लर उत्पन्न करती हैं। शून्य त्रिज्या का अर्थ कोई परिवर्तन नहीं।
+Shape blur का उपयोग करके आप आकार की भराव और रूपरेखा को नरम कर सकते हैं जबकि आकार को संपादन योग्य बनाए रखते हैं। आकार के इफ़ेक्ट फ़ॉर्मेट पर [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) को कॉल करें। रेडियस पॉइंट में मापी जाती है (1/72 इंच): एक गैर‑नकारात्मक मान प्रयोग करें, बड़े मान अधिक तीव्र ब्लर उत्पन्न करते हैं। शून्य रेडियस रहने पर उपस्थिति अपरिवर्तित रहती है।
 
-[getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) सेटिंग प्रभाव की दृश्यमान सीमा को नियंत्रित करती है। `false` होने पर ब्लर मूल पेंट किए गए सीमाओं में ही सीमित रहता है, जिसमें रूपरेखा भी शामिल है। `true` होने पर ब्लर उन सीमाओं से बाहर तक विस्तारित हो सकता है। इन सेटिंग्स में से कोई भी आकार की स्थिति या आयाम नहीं बदलती।
+[getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) सेटिंग प्रभाव की दृश्यमान सीमा को नियंत्रित करती है। `false` के साथ, ब्लर को मूल पेंट की गई सीमा (रूपरेखा सहित) तक क्लिप किया जाता है। `true` के साथ, ब्लर उन सीमाओं से बाहर तक विस्तृत हो सकता है। कोई भी सेटिंग आकार की स्थिति या आयाम नहीं बदलती।
 
-नीचे का तुलना समान भराव, रूपरेखा और आकार आयामों को पूरे परीक्षण में उपयोग करती है। शीर्ष पंक्ति `grow = false` के साथ; नीचे पंक्ति `grow = true` के साथ।
+नीचे का तुलना वही भराव, रूपरेखा और आकार आयामों का उपयोग करता है। शीर्ष पंक्ति में `grow = false`; नीचे की पंक्ति में `grow = true` है।
 
-![हालिया आयत की तुलना 5 और 15 पॉइंट ब्लर त्रिज्या के साथ, grow निष्क्रिय और सक्रिय है](shape_blur_comparison.png)
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
 
-यह PHP उदाहरण नारंगी आयत को डार्क ब्लू रूपरेखा के साथ बनाता है, 5 पॉइंट ब्लर लागू करता है, और फिर फिर से [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) को कॉल करके 15 पॉइंट ब्लर में अपडेट करता है। दोनों ब्लर स्थितियों को सहेजता है, फिर [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) को कॉल करके ब्लर के बिना आकार को सहेजता है।
+यह PHP उदाहरण एक नारंगी आयत को डार्क ब्लू रूपरेखा के साथ बनाता है, 5‑पॉइंट ब्लर लागू करता है, फिर फिर से [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) को कॉल करके 15‑पॉइंट ब्लर में अपडेट करता है। यह दोनों ब्लर किए हुए रूप सहेजता है, फिर [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) को कॉल करके बिना ब्लर के आकार को सहेजता है।
 
 ```php
 use aspose\slides\FillType;
@@ -297,18 +346,18 @@ try {
 }
 ```
 
-आकार ब्लर भराव और रूपरेखा को साथ में प्रभावित करता है। सॉफ्ट एजेस प्रभाव आकार के किनारों को फेड करता है, जबकि शैडो ब्लर केवल शैडो को नरम करता है। इमेज ट्रांसफ़ॉर्मेशन प्रभाव इमेज सामग्री पर कार्य करते हैं; यह उदाहरण आकार को इमेज में बदलें बिना सीधे आकार के इफ़ेक्ट फ़ॉर्मेट पर ब्लर लागू करता है।
+Shape blur भराव और रूपरेखा दोनों को प्रभावित करता है। नरम किनारे प्रभाव आकार के किनारों को फ़ेड करता है, जबकि छाया ब्लर केवल छाया को नरम करता है। इमेज ट्रांसफ़ॉर्मेशन इफ़ेक्ट्स इमेज सामग्री पर काम करते हैं; यह उदाहरण आकार को इमेज में बदलें बिना सीधे आकार के इफ़ेक्ट फ़ॉर्मेट पर ब्लर लागू करता है।
 
 ## **FAQ**
 
-**क्या मैं एक ही आकार पर कई प्रभाव लागू कर सकता हूँ?**
+**क्या मैं एक ही आकार पर कई इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-हाँ, आप शैडो, परावर्तन और ग्लो जैसे विभिन्न प्रभावों को एक ही आकार पर संयोजित करके अधिक गतिशील रूप बना सकते हैं।
+हां, आप विभिन्न इफ़ेक्ट्स—जैसे छाया, प्रतिबिंब और ग्लो—को एक ही आकार पर संयोजित करके अधिक गतिशील उपस्थिति बना सकते हैं।
 
-**मैं किन आकारों पर प्रभाव लागू कर सकता हूँ?**
+**मैं किन आकारों पर इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-आप विभिन्न आकारों पर प्रभाव लागू कर सकते हैं, जिनमें ऑटोशेप्स, चार्ट, टेबल, चित्र, SmartArt ऑब्जेक्ट, OLE ऑब्जेक्ट और अधिक शामिल हैं।
+आप विभिन्न प्रकार के आकारों, जैसे ऑटोशेप्स, चार्ट्स, टेबल्स, पिक्चर, SmartArt ऑब्जेक्ट्स, OLE ऑब्जेक्ट्स और अधिक पर इफ़ेक्ट्स लागू कर सकते हैं।
 
-**क्या मैं ग्रुप किए गए आकारों पर प्रभाव लागू कर सकता हूँ?**
+**क्या मैं समूहबद्ध आकारों पर इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-हाँ, आप ग्रुप किए गए आकारों पर प्रभाव लागू कर सकते हैं। प्रभाव पूरी समूह पर लागू होगा।
+हां, आप समूहबद्ध आकारों पर इफ़ेक्ट्स लागू कर सकते हैं। इफ़ेक्ट पूरे समूह पर लागू होगा।

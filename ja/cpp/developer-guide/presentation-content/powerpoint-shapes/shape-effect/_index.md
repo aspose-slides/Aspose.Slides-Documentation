@@ -10,7 +10,7 @@ keywords:
 - 反射エフェクト
 - グローエフェクト
 - ソフトエッジエフェクト
-- エフェクトフォーマット
+- エフェクト形式
 - PowerPoint
 - プレゼンテーション
 - C++
@@ -19,25 +19,25 @@ description: "Aspose.Slides for C++ を使用して高度な形状エフェク�
 ---
 ## **はじめに**
 
-PowerPoint のエフェクトは形状を目立たせるために使用できますが、[塗りつぶし](/slides/ja/cpp/shape-formatting/#gradient-fill) やアウトラインとは異なります。PowerPoint のエフェクトを使用すると、形状にリアルな反射を作成したり、形状のグローを広げたりすることができます。
+PowerPoint のエフェクトは形状を際立たせるために使用できますが、[塗りつぶし](/slides/ja/cpp/shape-formatting/#gradient-fill)や輪郭とは異なります。PowerPoint のエフェクトを使用すると、形状に実感のある反射を作成したり、形状のグローを広げたりできます。
 
-![形状効果](shape-effect.png)
+![形状エフェクト](shape-effect.png)
 
-PowerPoint は、形状に適用できる 6 つのエフェクトを提供します。1 つまたは複数のエフェクトを形状に適用できます。
+PowerPoint には形状に適用できる 6 つのエフェクトが用意されています。形状に 1 つまたは複数のエフェクトを適用できます。
 
-エフェクトの組み合わせの中には、他よりも見栄えが良いものがあります。このため、PowerPoint には **プリセット** オプションがあります。プリセットオプションは、組み合わせて使用すると見栄えが良いことが分かっている 2 つ以上のエフェクトの組み合わせです。プリセットを選択すれば、さまざまなエフェクトをテストしたり組み合わせたりして最適な組み合わせを探す手間が省けます。
+エフェクトの組み合わせの中には、他よりも見栄えが良いものがあります。そのため、PowerPoint では **プリセット** のオプションが用意されています。プリセットオプションは、組み合わせると見栄えが良いと知られている 2 つ以上のエフェクトの組み合わせです。このように、プリセットを選択すれば、さまざまなエフェクトを試したり組み合わせたりして最適な組み合わせを見つける手間が省けます。
 
-Aspose.Slides は、PowerPoint プレゼンテーションの形状に同じエフェクトを適用できるように、[EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) クラスのプロパティおよびメソッドを提供します。
+Aspose.Slides は、PowerPoint プレゼンテーション内の形状に同じエフェクトを適用できるようにする、[EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) クラスのプロパティとメソッドを提供します。
 
 ## **影エフェクトの適用**
 
-Aspose.Slides for C++ は、形状に対して外側と内側の影をサポートしています。影の色、方向、距離、ぼかし半径をカスタマイズしてプレゼンテーションのデザインに合わせることができます。
+Aspose.Slides for C++ は形状の外側および内側のシャドウをサポートしています。色、方向、距離、ぼかし半径をカスタマイズして、プレゼンテーションのデザインに合わせることができます。
 
-### **外側の影の適用**
+### **外側シャドウの適用**
 
-外側の影を使用すると、カードやパネルがスライドの背景に対して際立ちます。影は形状のエッジの外側まで広がり、形状がスライド上に浮き上がっているように見せます。影の色、方向、距離、ぼかし半径を調整して、テンプレートの照明やスタイルに合わせます。
+外側シャドウを使用して、カードやパネルをスライド背景から際立たせます。シャドウは形状のエッジの外側まで広がり、形状がスライド上に浮き上がっているように見せます。色、方向、距離、ぼかし半径を調整して、テンプレートの照明やスタイルに合わせます。
 
-この C++ コードは、長方形に [外側の影エフェクト](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) を適用する方法を示します:
+この C++ コードは、矩形に[外側シャドウ エフェクト](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) を適用する方法を示しています:
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
 #include <DOM/IAutoShape.h>
@@ -68,15 +68,73 @@ outerShadowEffect->set_Direction(45.0f);
 presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![影エフェクト](shadow_effect.png)
+![シャドウ エフェクト](shadow_effect.png)
 
-### **内側の影の適用**
+#### **形状が回転したときのシャドウ方向の制御**
 
-テンプレートのビジュアルスタイルを再現する際は、内側の影を使用してカードやパネルにくぼんだ外観を付けます。外側の影は形状の外側に広がり、浮き上がって見えるのに対し、内側の影はエッジの内部を陰影付けします。
+デフォルトでは、外側シャドウは形状と共に回転します。回転が異なる形状でも同じ方向から光が当たっているように見せるには、`false` を指定して [set_RotateShadowWithShape](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_rotateshadowwithshape/) を呼び出し、[set_Direction](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_direction/) でシャドウに同じ角度を設定します。
 
-まず [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) を呼び出し、次に [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/) を設定します。ぼかし半径の値を大きくすると、エッジがよりソフトになります。
+この例では、右方向にオフセットされた (0°) グレーのシャドウを持つ 2 本の矢印を作成します。その後、スライドを複製し、両方の矢印を時計回りに 90° 回転させます。
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
 
-この C++ の例は、淡い青色のカードに濃い灰色の内側の影を付け、PPTX ファイルとして保存します:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto before = presentation->get_Slide(0);
+
+auto left = before->get_Shapes()->AddAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+left->get_FillFormat()->set_FillType(FillType::Solid);
+left->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+left->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+left->get_EffectFormat()->EnableOuterShadowEffect();
+auto shadow = left->get_EffectFormat()->get_OuterShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_Gray());
+shadow->set_Direction(0);
+shadow->set_Distance(42);
+shadow->set_BlurRadius(0);
+shadow->set_RotateShadowWithShape(true);
+
+auto right = before->get_Shapes()->AddClone(left);
+right->set_X(395);
+right->get_EffectFormat()->get_OuterShadowEffect()->set_RotateShadowWithShape(false);
+
+auto after = presentation->get_Slides()->AddClone(before);
+for (auto i = 0; i < after->get_Shapes()->get_Count(); ++i)
+{
+    after->get_Shape(i)->set_Rotation(90);
+}
+
+presentation->Save(u"arrow_shadows.pptx", SaveFormat::Pptx);
+```
+
+2 枚目のスライドでは、左矢印のシャドウは下向きに投影され、右矢印のシャドウは依然として右向きです。両方のシャドウの設定された方向は 0° のままです。
+
+![90° 回転前後の PowerPoint レンダリング。両方のシャドウは右側から開始し、回転後、左矢印の下にシャドウが移動し、右矢印の右側に残ります。](arrow-shadow-rotation.png)
+
+### **内側シャドウの適用**
+
+テンプレートのビジュアルスタイルを再現する際は、内側シャドウを使用してカードやパネルに凹んだ外観を付けます。外側シャドウは形状の外側に広がり浮き上がって見せますが、内側シャドウはエッジの内部を陰影付けします。
+
+[EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) を呼び出し、次に [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/) を設定します。ぼかし半径の値を大きくすると、エッジが柔らかくなります。
+
+この C++ の例は、淡い青色のカードに濃い灰色の内側シャドウを付け、PPTX ファイルとして保存します:
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
 #include <DOM/IAutoShape.h>
@@ -114,16 +172,15 @@ shadow->set_BlurRadius(6);
 presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![内側の影が付いた淡い青の長方形](inner_shadow_effect.png)
+![内側シャドウ付きの淡い青色の矩形](inner_shadow_effect.png)
 
-内側の影を削除するには、シェイプのエフェクトフォーマットで [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) を呼び出します。
+内側シャドウを削除するには、形状の EffectFormat で [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) を呼び出します。
 
-### **プリセット影の適用、変更、削除**
+### **プリセットシャドウの適用、変更、削除**
 
-まず [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) を呼び出し、[set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) を使用して [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/) を選択します。同じシェイプでスタイルを切り替えるには、プリセットを変更します。塗りつぶしとアウトラインを保持したまま影を削除するには、[DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) を呼び出します。
+[EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) を呼び出し、[set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) で [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/) を選択します。同じ形状でスタイルを切り替えるには、プリセットを変更します。[DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) を呼び出すと、塗りつぶしと輪郭は保持したままシャドウを削除できます。
 
-この例では、各段階で長方形のコピーを保持します。両方の影は 10 ポイントずつオフセットされています。方向 225° は最初の影を長方形の上方左側に配置し、45° は2番目の影を下方右側に配置します。
-
+この例では、各段階で矩形のコピーを保持します。両方のシャドウは 10 ポイントオフセットされています。方向が 225° の場合、最初のシャドウは矩形の左上に配置され、45° の場合、2 番目のシャドウは右下に配置されます。
 ```cpp
 #include <DOM/Effects/IPresetShadow.h>
 #include <DOM/FillType.h>
@@ -189,15 +246,15 @@ textFrame->set_Text(u"No shadow");
 presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
 ```
 
-| 元 | 最初のプリセット | 2番目のプリセット | 削除後 |
+| 元の状態 | 最初のプリセット | 2 番目のプリセット | 削除後 |
 | :---: | :---: | :---: | :---: |
 | ![影なし](preset_shadow_original.png) | ![左上ドロップシャドウ](preset_shadow_top_left.png) | ![右下ドロップシャドウ](preset_shadow_bottom_right.png) | ![削除後の影なし](preset_shadow_removed.png) |
 
 ## **反射エフェクトの適用**
 
-Aspose.Slides for C++ で反射エフェクトを適用するには、形状に鏡のような反射を追加し、距離・透明度・サイズなどのパラメータを調整します。このエフェクトは、形状により洗練された外観を与えることでプレゼンテーションの美しさを高めます。シンプルなコードで簡単に実装でき、複数の要素に素早く適用して一貫したデザインを実現できます。
+Aspose.Slides for C++ で反射エフェクトを適用するには、形状に鏡のような反射を追加し、距離、透明度、サイズなどのパラメータを調整します。このエフェクトは、形状に洗練された外観を与え、プレゼンテーションの美しさを向上させます。簡単なコードで実装でき、複数の要素に素早く適用して一貫したデザインを実現できます。
 
-この C++ コードは、シェイプに [反射エフェクト](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) を適用する方法を示します:
+この C++ コードは、形状に[反射エフェクト](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) を適用する方法を示しています:
 ```cpp
 #include <DOM/Effects/IReflection.h>
 #include <DOM/IAutoShape.h>
@@ -231,9 +288,9 @@ presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 
 ## **グローエフェクトの適用**
 
-Aspose.Slides for C++ でシェイプにグローエフェクトを適用するには、形状の周囲に柔らかく光るオーラを加え、色やサイズなどのプロパティを調整します。このエフェクトは形状を際立たせ、プレゼンテーションに魅力的で目を引くビジュアル要素を追加します。最小限のコードで簡単に実装でき、スライド全体の見栄えを向上させます。
+Aspose.Slides for C++ で形状にグローエフェクトを適用するには、形状の周囲に柔らかく光るオーラを追加し、色やサイズなどのプロパティを調整します。このエフェクトは形状を際立たせ、プレゼンテーションに魅力的で目を引くビジュアル要素を加えます。最小限のコードで実装でき、スライド全体の外観を向上させます。
 
-この C++ コードは、シェイプに [グローエフェクト](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) を適用する方法を示します:
+この C++ コードは、形状に[グローエフェクト](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) を適用する方法を示しています:
 ```cpp
 #include <DOM/Effects/IGlow.h>
 #include <DOM/IAutoShape.h>
@@ -267,9 +324,9 @@ presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 
 ## **ソフトエッジエフェクトの適用**
 
-Aspose.Slides for C++ でソフトエッジエフェクトを適用するには、形状のエッジ周辺に滑らかでぼやけた遷移を作成します。このエフェクトは、より控えめで洗練された外観を加え、柔らかい外観が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまな形状に希望の効果を実現できます。
+Aspose.Slides for C++ でソフトエッジエフェクトを適用すると、形状のエッジ周囲に滑らかでぼかされた移行を作成できます。このエフェクトは、より控えめで洗練された外観を付加し、柔らかな印象が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまな形状に目的の効果を実現できます。
 
-この C++ コードは、シェイプに [ソフトエッジ](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) を適用する方法を示します:
+この C++ コードは、形状に[ソフトエッジ](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) を適用する方法を示しています:
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
 #include <DOM/IAutoShape.h>
@@ -297,17 +354,17 @@ presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 
 ![ソフトエッジエフェクト](soft_edges_effect.png)
 
-## **ブラーエフェクトの適用**
+## **ぼかしエフェクトの適用**
 
-シェイプブラーを使用すると、シェイプを編集可能なまま塗りつぶしとアウトラインをソフトにできます。シェイプのエフェクトフォーマットで [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) を呼び出します。半径はポイント（1/72 インチ）で測定され、負の値は使用できず、値が大きいほど強いぼかしになります。半径を 0 にすると外観は変わりません。
+形状ぼかしを使用すると、形状の塗りつぶしと輪郭を柔らかくしながら、形状自体は編集可能なままにできます。形状の EffectFormat で [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) を呼び出します。半径はポイント (1/72 インチ) で測定され、非負の値を使用し、値が大きいほど強いぼかしになります。半径が 0 の場合、外観は変更されません。
 
-[Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) 設定はエフェクトの可視範囲を制御します。`false` の場合、ブラーは元の描画範囲（アウトラインを含む）にクリップされます。`true` の場合、ブラーはその範囲を超えて拡張できます。どちらの設定もシェイプの位置やサイズは変更しません。
+[Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) 設定はエフェクトの可視範囲を制御します。`false` の場合、ぼかしは元の描画範囲（輪郭を含む）にクリップされます。`true` の場合、ぼかしはその範囲を超えて広がることができます。どちらの設定も形状の位置やサイズは変更しません。
 
-以下の比較は、全体で同じ塗りつぶし、アウトライン、シェイプのサイズを使用しています。上段は `grow = false`、下段は `grow = true` を使用しています。
+以下の比較では、全体を通して同じ塗りつぶし、輪郭、形状サイズを使用しています。上段は `grow = false`、下段は `grow = true` を使用しています。
 
-![ブラー半径5・15ポイント、grow無効・有効の比較](shape_blur_comparison.png)
+![ぼかし半径 5 ポイントと 15 ポイント、grow 無効・有効の状態で比較した元の矩形](shape_blur_comparison.png)
 
-この C++ の例は、オレンジ色の長方形に濃い青のアウトラインを付け、5 ポイントのブラーを適用し、次に [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) を再度呼び出して 15 ポイントのブラーに更新します。両方のブラー状態を保存し、続いて [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) を呼び出してブラーなしのシェイプを保存します。
+この C++ の例は、オレンジの矩形に濃い青の輪郭を付け、5 ポイントのぼかしを適用し、その後 [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) を再度呼び出して 15 ポイントのぼかしに更新します。両方のぼかし状態を保存し、次に [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) を呼び出してぼかしなしの形状を保存します。
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IColorFormat.h>
@@ -346,18 +403,18 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-シェイプブラーは塗りつぶしとアウトラインの両方に影響します。ソフトエッジエフェクトはシェイプのエッジをフェードさせますが、シャドウブラーは影だけをソフトにします。画像変換エフェクトは画像コンテンツに対して作用しますが、この例はシェイプを画像に変換せず、シェイプのエフェクトフォーマットに直接ブラーを適用しています。
+形状ぼかしは塗りつぶしと輪郭の両方に影響します。ソフトエッジエフェクトは形状のエッジをフェードさせ、シャドウぼかしはシャドウのみを柔らかくします。画像変換エフェクトは画像内容に対して作用しますが、この例では形状を画像に変換せず、直接形状の EffectFormat にぼかしを適用しています。
 
-## **よくある質問**
+## **FAQ**
 
-**同じシェイプに複数のエフェクトを適用できますか？**
+**同じ形状に複数のエフェクトを適用できますか？**
 
-はい、影、反射、グローなどの異なるエフェクトを単一のシェイプに組み合わせて、より動的な外観を作成できます。
+はい、影、反射、グローなどの異なるエフェクトを組み合わせて、単一の形状に適用し、より動的な外観を作成できます。
 
-**どのようなシェイプにエフェクトを適用できますか？**
+**どのような形状にエフェクトを適用できますか？**
 
-自動図形、グラフ、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまなシェイプにエフェクトを適用できます。
+オートシェイプ、チャート、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまな形状にエフェクトを適用できます。
 
-**グループ化したシェイプにエフェクトを適用できますか？**
+**グループ化された形状にエフェクトを適用できますか？**
 
-はい、グループ化したシェイプにもエフェクトを適用できます。エフェクトはグループ全体に適用されます。
+はい、グループ化された形状にもエフェクトを適用できます。エフェクトはグループ全体に適用されます。

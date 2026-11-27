@@ -1,5 +1,5 @@
 ---
-title: Menerapkan Efek Bentuk dalam Presentasi Menggunakan JavaScript
+title: Terapkan Efek Bentuk dalam Presentasi Menggunakan JavaScript
 linktitle: Efek Bentuk
 type: docs
 weight: 30
@@ -16,29 +16,29 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ubah file PPT dan PPTX Anda dengan efek bentuk tingkat lanjut menggunakan JavaScript dan Aspose.Slides untuk Node.js—ciptakan slide yang menarik dan profesional dalam hitungan detik."
+description: "Ubah file PPT dan PPTX Anda dengan efek bentuk tingkat lanjut menggunakan JavaScript dan Aspose.Slides untuk Node.js—buat slide yang menarik dan profesional dalam hitungan detik."
 ---
 ## **Pendahuluan**
 
-Sementara efek dalam PowerPoint dapat digunakan untuk membuat sebuah bentuk menonjol, mereka berbeda dari [isi](/slides/id/nodejs-java/shape-formatting/#gradient-fill) atau garis tepi. Dengan menggunakan efek PowerPoint, Anda dapat membuat refleksi yang meyakinkan pada sebuah bentuk, menyebarkan cahaya pada bentuk, dan lain-lain.
+Sementara efek di PowerPoint dapat digunakan untuk membuat suatu bentuk menonjol, mereka berbeda dari [isi](/slides/id/nodejs-java/shape-formatting/#gradient-fill) atau garis tepi. Dengan menggunakan efek PowerPoint, Anda dapat membuat refleksi yang meyakinkan pada sebuah bentuk, menyebarkan cahaya bersinar pada bentuk, dll.
 
-![Shape effect](shape-effect.png)
+![Efek bentuk](shape-effect.png)
 
-PowerPoint menyediakan enam efek yang dapat diterapkan pada bentuk. Anda dapat menerapkan satu atau lebih efek pada sebuah bentuk.
+PowerPoint menyediakan enam efek yang dapat diterapkan pada bentuk. Anda dapat menerapkan satu atau beberapa efek pada sebuah bentuk.
 
-Beberapa kombinasi efek terlihat lebih baik daripada yang lain. Karena itu, PowerPoint menyediakan opsi di bawah **Preset**. Opsi Preset merupakan kombinasi dua atau lebih efek yang diketahui terlihat bagus. Dengan cara ini, dengan memilih preset, Anda tidak perlu membuang waktu untuk menguji atau menggabungkan efek yang berbeda demi menemukan kombinasi yang tepat.
+Beberapa kombinasi efek terlihat lebih baik daripada yang lain. Untuk alasan ini, PowerPoint menyediakan opsi di bawah **Preset**. Opsi Preset merupakan kombinasi dua atau lebih efek yang diketahui menghasilkan tampilan yang baik. Dengan cara ini, dengan memilih preset, Anda tidak perlu membuang waktu menguji atau menggabungkan efek yang berbeda untuk menemukan kombinasi yang bagus.
 
 Aspose.Slides menyediakan properti dan metode di bawah kelas [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) yang memungkinkan Anda menerapkan efek yang sama pada bentuk dalam presentasi PowerPoint.
 
 ## **Terapkan Efek Bayangan**
 
-Aspose.Slides untuk Node.js via Java mendukung bayangan luar dan dalam untuk bentuk. Anda dapat menyesuaikan warna, arah, jarak, dan radius blur agar sesuai dengan desain presentasi Anda.
+Aspose.Slides untuk Node.js via Java mendukung bayangan luar dan dalam untuk bentuk. Anda dapat menyesuaikan warna, arah, jarak, dan radius blur mereka agar sesuai dengan desain presentasi Anda.
 
 ### **Terapkan Bayangan Luar**
 
-Gunakan bayangan luar untuk membuat kartu atau panel menonjol terhadap latar belakang slide. Bayangan memperluas melewati tepi bentuk, menciptakan kesan bahwa bentuk tersebut terangkat di atas slide. Sesuaikan warna, arah, jarak, dan radius blur agar cocok dengan pencahayaan dan gaya templat Anda.
+Gunakan bayangan luar untuk membuat kartu atau panel menonjol di atas latar belakang slide. Bayangan tersebut meluas melewati tepi bentuk, menciptakan kesan bahwa bentuk terangkat di atas slide. Sesuaikan warna, arah, jarak, dan radius blur untuk mencocokkan pencahayaan dan gaya templat Anda.
 
-Contoh kode JavaScript ini menunjukkan cara menerapkan [efek bayangan luar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) pada sebuah persegi panjang:
+Kode JavaScript berikut menunjukkan cara menerapkan [efek bayangan luar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) pada sebuah persegi panjang:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -61,15 +61,64 @@ try {
 }
 ```
 
-![Shadow effect](shadow_effect.png)
+![Efek bayangan](shadow_effect.png)
+
+#### **Kendalikan Arah Bayangan Saat Bentuk Berputar**
+
+Secara default, bayangan luar berputar bersama bentuk. Untuk membuat bentuk dengan rotasi berbeda tampak diterangi dari arah yang sama, panggil [setRotateShadowWithShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setRotateShadowWithShape) dengan `false` dan gunakan [setDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setDirection) untuk memberi bayangan mereka arah yang sama.
+
+Contoh ini membuat dua panah biru dengan bayangan abu-abu yang digeser 42 poin ke kanan (0°). Kemudian slide diduplikasi dan kedua panah diputar 90° searah jarum jam.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const before = presentation.getSlides().get_Item(0);
+    
+    const left = before.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    left.getFillFormat().getSolidFillColor().setColor(fillColor);
+    left.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    const shadow = left.getEffectFormat().getOuterShadowEffect();
+    const shadowColor = java.getStaticFieldValue("java.awt.Color", "GRAY");
+    shadow.getShadowColor().setColor(shadowColor);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    const right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    const after = presentation.getSlides().addClone(before);
+    const arrows = after.getShapes();
+    for (let i = 0; i < arrows.size(); i++) {
+        arrows.get_Item(i).setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pada slide kedua, panah kiri memproyeksikan bayangannya ke bawah, sementara panah kanan masih memproyeksikan bayangannya ke kanan. Arah yang dikonfigurasi tetap 0° untuk kedua bayangan.
+
+![Render PowerPoint sebelum dan sesudah rotasi 90°. Kedua bayangan mulai di sebelah kanan. Setelah rotasi, bayangan bergerak ke bawah panah kiri dan tetap di sebelah kanan panah kanan.](arrow-shadow-rotation.png)
 
 ### **Terapkan Bayangan Dalam**
 
-Saat meniru gaya visual sebuah templat, gunakan bayangan dalam untuk memberikan kartu atau panel tampilan yang tertekan. Bayangan luar memperluas ke luar bentuk dan membuatnya tampak terangkat, sementara bayangan dalam memberi bayangan pada bagian dalam tepinya.
+Saat meniru gaya visual templat, gunakan bayangan dalam untuk memberikan kartu atau panel tampilan yang terbenam. Bayangan luar meluas di luar bentuk dan membuatnya terlihat terangkat, sedangkan bayangan dalam memberi bayangan pada bagian dalam tepinya.
 
-Panggil [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect), lalu konfigurasikan bayangan yang dikembalikan oleh [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Nilai radius blur yang lebih besar menghasilkan tepi yang lebih lembut.
+Panggil [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect), kemudian konfigurasikan bayangan yang dikembalikan oleh [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Nilai radius blur yang lebih besar menghasilkan tepi yang lebih lembut.
 
-Contoh JavaScript ini membuat kartu biru muda dengan bayangan dalam abu-abu gelap dan menyimpannya sebagai file PPTX. Arah bayangan adalah 225 derajat, jaraknya 7 poin, dan radius blur-nya 6 poin:
+Contoh JavaScript ini membuat kartu biru muda dengan bayangan dalam abu-abu gelap dan menyimpannya sebagai file PPTX. Arah bayangan adalah 225 derajat, jaraknya 7 poin, dan radius blurnya 6 poin:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,15 +148,15 @@ try {
 }
 ```
 
-![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+![Persegi panjang biru muda dengan bayangan dalam](inner_shadow_effect.png)
 
 Untuk menghapus bayangan dalam, panggil [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) pada format efek bentuk.
 
 ### **Terapkan, Ubah, dan Hapus Bayangan Preset**
 
-Panggil [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) dan gunakan [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) untuk memilih [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Untuk beralih gaya, ubah preset pada bentuk yang sama. Panggil [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) untuk menghapus bayangan sambil mempertahankan isi dan garis tepi.
+Panggil [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) dan gunakan [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) untuk memilih [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Untuk mengganti gaya, ubah preset pada bentuk yang sama. Panggil [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) untuk menghapus bayangan sambil mempertahankan isi dan garis tepi.
 
-Contoh ini menunjukkan empat tahap berdampingan pada satu slide. Kedua bayangan memiliki offset 10 poin. Arah 225° menempatkan bayangan pertama di atas dan ke kiri persegi panjang, dan 45° menempatkan yang kedua di bawah dan ke kanan.
+Contoh ini menunjukkan empat tahap berdampingan pada satu slide. Kedua bayangan digeser sebesar 10 poin. Arah 225° menempatkan bayangan pertama di atas dan di kiri persegi panjang, dan 45° menempatkan bayangan kedua di bawah dan di kanan.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -154,15 +203,15 @@ try {
 }
 ```
 
-| Asli | Preset pertama | Preset kedua | Setelah dihapus |
+| Asli | Preset pertama | Preset kedua | Setelah penghapusan |
 | :---: | :---: | :---: | :---: |
-| ![Tanpa bayangan](preset_shadow_original.png) | ![Bayangan Drop Kiri Atas](preset_shadow_top_left.png) | ![Bayangan Drop Kanan Bawah](preset_shadow_bottom_right.png) | ![Tanpa bayangan setelah dihapus](preset_shadow_removed.png) |
+| ![Tidak ada bayangan](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![Tidak ada bayangan setelah penghapusan](preset_shadow_removed.png) |
 
 ## **Terapkan Efek Refleksi**
 
-Untuk menerapkan efek refleksi dalam Aspose.Slides untuk Node.js via Java, Anda dapat menambahkan refleksi seperti cermin pada bentuk, menyesuaikan parameter seperti jarak, transparansi, dan ukuran. Efek ini meningkatkan estetika presentasi Anda dengan memberi bentuk tampilan yang lebih halus dan canggih. Implementasinya mudah dengan kode sederhana, memungkinkan penerapan cepat pada banyak elemen untuk desain yang konsisten.
+Untuk menerapkan efek refleksi di Aspose.Slides untuk Node.js via Java, Anda dapat menambahkan refleksi seperti cermin pada bentuk, menyesuaikan parameter seperti jarak, transparansi, dan ukuran. Efek ini meningkatkan estetika presentasi Anda dengan memberikan bentuk tampilan yang lebih halus dan canggih. Mudah diimplementasikan dengan kode sederhana, memungkinkan penerapan cepat pada banyak elemen untuk desain yang konsisten.
 
-Contoh kode JavaScript ini menunjukkan cara menerapkan [efek refleksi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) pada sebuah bentuk:
+Kode JavaScript berikut menunjukkan cara menerapkan [efek refleksi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) pada sebuah bentuk:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,13 +234,13 @@ try {
 }
 ```
 
-![Reflection effect](reflection_effect.png)
+![Efek refleksi](reflection_effect.png)
 
 ## **Terapkan Efek Cahaya**
 
-Untuk menerapkan efek cahaya pada sebuah bentuk dalam Aspose.Slides untuk Node.js via Java, Anda dapat menambahkan aura lembut dan berkilau di sekitar bentuk, menyesuaikan properti seperti warna dan ukuran. Efek ini membantu membuat bentuk menonjol dan menambah elemen visual yang menarik dan memikat pada presentasi Anda. Implementasinya mudah dengan kode minimal, meningkatkan tampilan keseluruhan slide Anda.
+Untuk menerapkan efek cahaya pada sebuah bentuk di Aspose.Slides untuk Node.js via Java, Anda dapat menambahkan aura lembut dan bersinar di sekitar bentuk, menyesuaikan properti seperti warna dan ukuran. Efek ini membantu membuat bentuk menonjol dan menambahkan elemen visual yang menarik dan memikat pada presentasi Anda. Mudah diimplementasikan dengan kode minimal, meningkatkan tampilan keseluruhan slide Anda.
 
-Contoh kode JavaScript ini menunjukkan cara menerapkan [efek cahaya](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) pada sebuah bentuk:
+Kode JavaScript berikut menunjukkan cara menerapkan [efek cahaya](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) pada sebuah bentuk:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -213,13 +262,13 @@ try {
 }
 ```
 
-![Glow effect](glow_effect.png)
+![Efek cahaya](glow_effect.png)
 
 ## **Terapkan Efek Tepi Lembut**
 
-Untuk menerapkan efek tepi lembut dalam Aspose.Slides untuk Node.js via Java, Anda dapat membuat transisi halus dan blur di sekitar tepi bentuk. Efek ini menambah tampilan yang lebih halus dan terperinci, cocok untuk desain yang memerlukan tampilan lembut. Anda dapat dengan mudah menyesuaikan parameter seperti radius untuk mencapai efek yang diinginkan pada berbagai bentuk dalam presentasi Anda.
+Untuk menerapkan efek tepi lembut di Aspose.Slides untuk Node.js via Java, Anda dapat membuat transisi halus dan kabur di sekitar tepi sebuah bentuk. Efek ini menambah tampilan yang lebih halus dan elegan, cocok untuk desain yang memerlukan penampilan lembut dan halus. Anda dapat dengan mudah menyesuaikan parameter seperti radius untuk mencapai efek yang diinginkan pada berbagai bentuk dalam presentasi Anda.
 
-Contoh kode JavaScript ini menunjukkan cara menerapkan [efek tepi lembut](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) pada sebuah bentuk:
+Kode JavaScript berikut menunjukkan cara menerapkan [efek tepi lembut](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) pada sebuah bentuk:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -238,19 +287,19 @@ try {
 }
 ```
 
-![Soft edges effect](soft_edges_effect.png)
+![Efek tepi lembut](soft_edges_effect.png)
 
-## **Terapkan Efek Blur**
+## **Terapkan Efek Kabur**
 
-Gunakan blur bentuk untuk melembutkan isi dan garis tepi bentuk sambil tetap dapat diedit. Panggil [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) pada format efek bentuk. Radius diukur dalam poin (1/72 inci): gunakan nilai non-negatif, dengan nilai yang lebih besar menghasilkan blur yang lebih kuat. Radius nol tidak mengubah tampilan.
+Gunakan blur bentuk untuk melunakkan isi dan garis tepi bentuk sambil tetap dapat diedit. Panggil [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) pada format efek bentuk. Radius diukur dalam poin (1/72 inci): gunakan nilai nonnegatif, dengan nilai yang lebih besar menghasilkan blur yang lebih kuat. Radius nol tidak mengubah tampilan.
 
-Pengaturan [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) mengontrol batas tampak efek. Dengan `false`, blur dipotong pada batas asli yang digambar, termasuk garis tepi. Dengan `true`, blur dapat melampaui batas tersebut. Kedua pengaturan tidak mengubah posisi atau dimensi bentuk.
+Pengaturan [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) mengontrol batas tampak efek. Dengan `false`, blur dipotong pada batas yang dilukis asli, termasuk garis tepi. Dengan `true`, blur dapat melampaui batas tersebut. Kedua pengaturan tidak mengubah posisi atau dimensi bentuk.
 
 Perbandingan di bawah ini menggunakan isi, garis tepi, dan dimensi bentuk yang sama sepanjang waktu. Baris atas menggunakan `grow = false`; baris bawah menggunakan `grow = true`.
 
 ![Persegi panjang asli dibandingkan dengan radius blur 5 dan 15 poin, dengan grow dinonaktifkan dan diaktifkan](shape_blur_comparison.png)
 
-Contoh JavaScript ini membuat persegi panjang oranye dengan garis tepi biru tua, menerapkan blur 5 poin, dan kemudian memperbaruinya menjadi blur 15 poin dengan memanggil [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) lagi. Ia menyimpan kedua keadaan blur, lalu memanggil [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) dan menyimpan bentuk tanpa blur.
+Contoh JavaScript ini membuat persegi panjang oranye dengan garis tepi biru tua, menerapkan blur 5 poin, kemudian memperbaruinya menjadi blur 15 poin dengan memanggil [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) lagi. Ia menyimpan kedua kondisi blur, lalu memanggil [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) dan menyimpan bentuk tanpa blur.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,17 +331,17 @@ try {
 }
 ```
 
-Blur bentuk memengaruhi isi dan garis tepi secara bersamaan. Efek tepi lembut memudarkan tepi bentuk, sementara blur bayangan hanya melembutkan bayangan. Efek transformasi gambar beroperasi pada konten gambar; contoh ini menerapkan blur langsung pada format efek bentuk tanpa mengonversi bentuk menjadi gambar.
+Blur bentuk memengaruhi isi dan garis tepi secara bersamaan. Efek tepi lembut memudar tepi bentuk, sementara blur bayangan melunakkan hanya bayangan. Efek transformasi gambar beroperasi pada konten gambar; contoh ini menerapkan blur langsung pada format efek bentuk tanpa mengubah bentuk menjadi gambar.
 
-## **FAQ**
+## **Tanya Jawab**
 
 **Apakah saya dapat menerapkan beberapa efek pada bentuk yang sama?**
 
-Ya, Anda dapat menggabungkan efek yang berbeda, seperti bayangan, refleksi, dan cahaya, pada satu bentuk untuk menciptakan tampilan yang lebih dinamis.
+Ya, Anda dapat menggabungkan berbagai efek, seperti bayangan, refleksi, dan cahaya, pada satu bentuk untuk menciptakan tampilan yang lebih dinamis.
 
-**Bentuk apa yang dapat saya beri efek?**
+**Bentuk apa yang dapat saya terapkan efek?**
 
-Anda dapat menerapkan efek pada berbagai bentuk, termasuk autoshape, bagan, tabel, gambar, objek SmartArt, objek OLE, dan lainnya.
+Anda dapat menerapkan efek pada berbagai bentuk, termasuk autoshape, diagram, tabel, gambar, objek SmartArt, objek OLE, dan lainnya.
 
 **Apakah saya dapat menerapkan efek pada bentuk yang dikelompokkan?**
 

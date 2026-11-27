@@ -1,21 +1,21 @@
 ---
-title: Formeffekte in Präsentationen mit C++ anwenden
-linktitle: Formeffekt
+title: "Formeffekte in Präsentationen mit C++ anwenden"
+linktitle: "Formeffekt"
 type: docs
 weight: 30
 url: /de/cpp/shape-effect/
 keywords:
-- Formeffekt
-- Schatteneffekt
-- Reflexionseffekt
-- Leuchteffekt
-- Weiche Kanten Effekt
-- Effektformat
-- PowerPoint
-- Präsentation
-- C++
-- Aspose.Slides
-description: "Transformieren Sie Ihre PPT- und PPTX-Dateien mit fortgeschrittenen Formeffekten mithilfe von Aspose.Slides für C++ — erstellen Sie eindrucksvolle, professionelle Folien in Sekunden."
+- "Formeffekt"
+- "Schatteneffekt"
+- "Reflexionseffekt"
+- "Leuchteffekt"
+- "Weiche Kanten Effekt"
+- "Effektformat"
+- "PowerPoint"
+- "Präsentation"
+- "C++"
+- "Aspose.Slides"
+description: "Transformieren Sie Ihre PPT- und PPTX-Dateien mit erweiterten Formeffekten mithilfe von Aspose.Slides für C++ — erstellen Sie beeindruckende, professionelle Folien in Sekundenschnelle."
 ---
 ## **Einleitung**
 
@@ -23,11 +23,11 @@ Während Effekte in PowerPoint verwendet werden können, um eine Form hervorzuhe
 
 ![Formeffekt](shape-effect.png)
 
-PowerPoint bietet sechs Effekte, die auf Formen angewendet werden können. Sie können einer Form einen oder mehrere Effekte zuweisen.
+PowerPoint stellt sechs Effekte bereit, die auf Formen angewendet werden können. Sie können einer Form einen oder mehrere Effekte zuweisen.
 
-Einige Kombinationen von Effekten sehen besser aus als andere. Aus diesem Grund bietet PowerPoint Optionen unter **Preset**. Die Preset‑Optionen sind im Wesentlichen eine Kombination aus zwei oder mehr Effekten, die zusammen gut aussehen. Auf diese Weise müssen Sie durch Auswahl eines Presets keine Zeit damit verbringen, verschiedene Effekte zu testen oder zu kombinieren, um eine passende Kombination zu finden.
+Einige Kombinationen von Effekten sehen besser aus als andere. Aus diesem Grund bietet PowerPoint Optionen unter **Preset**. Die Preset‑Optionen sind im Wesentlichen eine Kombination aus zwei oder mehr Effekten, die zusammen gut aussehen. Auf diese Weise müssen Sie beim Auswählen eines Presets keine Zeit damit verbringen, verschiedene Effekte zu testen oder zu kombinieren, um eine passende Kombination zu finden.
 
-Aspose.Slides stellt Eigenschaften und Methoden in der Klasse [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) bereit, mit denen Sie dieselben Effekte auf Formen in PowerPoint‑Präsentationen anwenden können.
+Aspose.Slides stellt Eigenschaften und Methoden der Klasse [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) bereit, mit denen Sie dieselben Effekte auf Formen in PowerPoint‑Präsentationen anwenden können.
 
 ## **Schatteneffekt anwenden**
 
@@ -35,9 +35,10 @@ Aspose.Slides für C++ unterstützt äußere und innere Schatten für Formen. Si
 
 ### **Äußeren Schatten anwenden**
 
-Verwenden Sie einen äußeren Schatten, um eine Karte oder ein Feld gegenüber dem Folienhintergrund hervorzuheben. Der Schatten erstreckt sich über die Kanten der Form hinaus und erzeugt den Eindruck, dass die Form über der Folie schwebt. Passen Sie Farbe, Richtung, Abstand und Unschärferadius an die Beleuchtung und das Design Ihrer Vorlage an.
+Verwenden Sie einen äußeren Schatten, um eine Karte oder ein Panel gegenüber dem Folienhintergrund hervorzuheben. Der Schatten erstreckt sich über die Kanten der Form hinaus und erzeugt den Eindruck, dass die Form über der Folie schwebt. Passen Sie Farbe, Richtung, Abstand und Unschärferadius an, um sie an die Beleuchtung und das Styling Ihrer Vorlage anzupassen.
 
-Dieser C++‑Code zeigt, wie man den [äußeren Schatteneffekt](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) auf ein Rechteck anwendet:
+Dieser C++‑Code zeigt, wie der [Außenschatten-Effekt](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) auf ein Rechteck angewendet wird:
+
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
 #include <DOM/IAutoShape.h>
@@ -70,13 +71,73 @@ presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 
 ![Schatteneffekt](shadow_effect.png)
 
+#### **Steuerung der Schattenrichtung bei Rotation einer Form**
+
+Standardmäßig rotiert ein äußerer Schatten mit seiner Form. Um Formen mit unterschiedlichen Rotationen aus derselben Richtung beleuchtet erscheinen zu lassen, rufen Sie [set_RotateShadowWithShape](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_rotateshadowwithshape/) mit `false` auf und verwenden Sie [set_Direction](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_direction/), um ihren Schatten denselben Winkel zu geben.
+
+Das Beispiel erstellt zwei Pfeile mit grauen Schatten, die nach rechts versetzt sind (0°). Anschließend wird die Folie dupliziert und beide Pfeile um 90° im Uhrzeigersinn gedreht.
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto before = presentation->get_Slide(0);
+
+auto left = before->get_Shapes()->AddAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+left->get_FillFormat()->set_FillType(FillType::Solid);
+left->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+left->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+left->get_EffectFormat()->EnableOuterShadowEffect();
+auto shadow = left->get_EffectFormat()->get_OuterShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_Gray());
+shadow->set_Direction(0);
+shadow->set_Distance(42);
+shadow->set_BlurRadius(0);
+shadow->set_RotateShadowWithShape(true);
+
+auto right = before->get_Shapes()->AddClone(left);
+right->set_X(395);
+right->get_EffectFormat()->get_OuterShadowEffect()->set_RotateShadowWithShape(false);
+
+auto after = presentation->get_Slides()->AddClone(before);
+for (auto i = 0; i < after->get_Shapes()->get_Count(); ++i)
+{
+    after->get_Shape(i)->set_Rotation(90);
+}
+
+presentation->Save(u"arrow_shadows.pptx", SaveFormat::Pptx);
+```
+
+Auf der zweiten Folie wirft der linke Pfeil seinen Schatten nach unten, während der rechte Pfeil seinen Schatten weiterhin nach rechts wirft. Die konfigurierte Richtung bleibt für beide Schatten bei 0°.
+
+![PowerPoint‑Darstellung vor und nach einer 90°‑Drehung. Beide Schatten beginnen rechts. Nach der Drehung bewegt sich der Schatten unter den linken Pfeil und bleibt rechts vom rechten Pfeil.](arrow-shadow-rotation.png)
+
 ### **Inneren Schatten anwenden**
 
-Beim Nachbilden des visuellen Stils einer Vorlage verwenden Sie einen inneren Schatten, um einer Karte oder einem Feld ein vertieftes Erscheinungsbild zu verleihen. Ein äußerer Schatten erstreckt sich außerhalb der Form und lässt sie erhöht erscheinen, während ein innerer Schatten die Innenseiten ihrer Kanten abdunkelt.
+Wenn Sie das visuelle Styling einer Vorlage reproduzieren, verwenden Sie einen inneren Schatten, um einer Karte oder einem Panel ein vertieftes Erscheinungsbild zu verleihen. Ein äußerer Schatten erstreckt sich außerhalb der Form und lässt sie erhöht erscheinen, während ein innerer Schatten die Innenseite der Kanten abschattet.
 
-Rufen Sie [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) auf und konfigurieren Sie dann [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Größere Werte für den Unschärferadius erzeugen weichere Kanten.
+Rufen Sie [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) auf und konfigurieren Sie anschließend [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). Größere Werte für den Unschärferadius erzeugen weichere Kanten.
 
 Dieses C++‑Beispiel erstellt eine hellblaue Karte mit einem dunkelgrauen inneren Schatten und speichert sie als PPTX‑Datei:
+
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
 #include <DOM/IAutoShape.h>
@@ -120,9 +181,10 @@ Um den inneren Schatten zu entfernen, rufen Sie [DisableInnerShadowEffect](https
 
 ### **Voreingestellten Schatten anwenden, ändern und entfernen**
 
-Rufen Sie [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) auf und verwenden Sie [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/), um einen [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/) auszuwählen. Um den Stil zu wechseln, ändern Sie das Preset bei derselben Form. Rufen Sie [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) auf, um den Schatten zu entfernen und dabei Füllung und Kontur beizubehalten.
+Rufen Sie [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) auf und verwenden Sie [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/), um einen [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/) auszuwählen. Um den Stil zu wechseln, ändern Sie das Preset an derselben Form. Rufen Sie [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) auf, um den Schatten zu entfernen und gleichzeitig die Füllung und Kontur beizubehalten.
 
-Dieses Beispiel behält in jeder Phase eine Kopie des Rechtecks. Beide Schatten sind um 10 Punkte versetzt. Eine Richtung von 225° positioniert den ersten Schatten oberhalb und links vom Rechteck, und 45° platziert den zweiten darunter und rechts.
+Dieses Beispiel behält in jedem Schritt eine Kopie des Rechtecks. Beide Schatten sind um 10 Punkte versetzt. Eine Richtung von 225° positioniert den ersten Schatten über und links vom Rechteck, und 45° positioniert den zweiten darunter und rechts.
+
 ```cpp
 #include <DOM/Effects/IPresetShadow.h>
 #include <DOM/FillType.h>
@@ -188,15 +250,16 @@ textFrame->set_Text(u"No shadow");
 presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
 ```
 
-| Original | Erstes Preset | Zweites Preset | Nach Entfernung |
+| Original | Erstes Preset | Zweites Preset | Nach dem Entfernen |
 | :---: | :---: | :---: | :---: |
 | ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
 ## **Reflexionseffekt anwenden**
 
-Um in Aspose.Slides für C++ einen Reflexionseffekt anzuwenden, können Sie Formen eine spiegelähnliche Reflexion hinzufügen und Parameter wie Abstand, Transparenz und Größe anpassen. Dieser Effekt verbessert die Ästhetik Ihrer Präsentationen, indem er Formen ein noch polierteres und anspruchsvolleres Aussehen verleiht. Er lässt sich mit einfachem Code leicht implementieren, sodass er schnell auf mehrere Elemente angewendet werden kann, um ein einheitliches Design zu gewährleisten.
+Um in Aspose.Slides für C++ einen Reflexionseffekt anzuwenden, können Sie Formen eine spiegelähnliche Reflexion hinzufügen und Parameter wie Abstand, Transparenz und Größe anpassen. Dieser Effekt verbessert die Ästhetik Ihrer Präsentationen, indem er Formen ein raffinierteres und professionelleres Aussehen verleiht. Er lässt sich mit einfachem Code leicht umsetzen, sodass er schnell auf mehrere Elemente angewendet werden kann, um ein konsistentes Design zu gewährleisten.
 
-Dieser C++‑Code zeigt, wie man den [Reflexionseffekt](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) auf eine Form anwendet:
+Dieser C++‑Code zeigt, wie der [Reflexionseffekt](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) auf eine Form angewendet wird:
+
 ```cpp
 #include <DOM/Effects/IReflection.h>
 #include <DOM/IAutoShape.h>
@@ -230,9 +293,10 @@ presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 
 ## **Leuchteffekt anwenden**
 
-Um in Aspose.Slides für C++ einen Leuchteffekt auf eine Form anzuwenden, können Sie eine weiche, leuchtende Aura um die Form hinzufügen und Eigenschaften wie Farbe und Größe anpassen. Dieser Effekt lässt Formen hervortreten und fügt Ihrer Präsentation ein attraktives, auffälliges visuelles Element hinzu. Er lässt sich mit minimalem Code leicht implementieren und verbessert das Gesamterscheinungsbild Ihrer Folien.
+Um in Aspose.Slides für C++ einen Leuchteffekt auf eine Form anzuwenden, können Sie eine weiche, leuchtende Aura um Formen hinzufügen und Eigenschaften wie Farbe und Größe anpassen. Dieser Effekt lässt Formen hervorstechen und fügt Ihrer Präsentation ein attraktives, auffälliges visuelles Element hinzu. Er ist mit minimalem Code leicht umzusetzen und verbessert das Gesamtbild Ihrer Folien.
 
-Dieser C++‑Code zeigt, wie man den [Leuchteffekt](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) auf eine Form anwendet:
+Dieser C++‑Code zeigt, wie der [Leuchteffekt](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) auf eine Form angewendet wird:
+
 ```cpp
 #include <DOM/Effects/IGlow.h>
 #include <DOM/IAutoShape.h>
@@ -264,11 +328,12 @@ presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 
 ![Leuchteffekt](glow_effect.png)
 
-## **Weiche Kanten anwenden**
+## **Weiche Kanten‑Effekt anwenden**
 
-Um in Aspose.Slides für C++ einen Effekt mit weichen Kanten anzuwenden, können Sie einen glatten, verschwommenen Übergang um die Kanten einer Form erzeugen. Dieser Effekt verleiht ein dezenteres und raffinierteres Aussehen, ideal für Designs, die ein sanftes, weicheres Erscheinungsbild benötigen. Sie können Parameter wie den Radius leicht anpassen, um den gewünschten Effekt bei verschiedenen Formen in Ihrer Präsentation zu erzielen.
+Um in Aspose.Slides für C++ einen weiche‑Kanten‑Effekt anzuwenden, können Sie einen sanften, unscharfen Übergang um die Kanten einer Form erzeugen. Dieser Effekt verleiht ein subtileres und raffinierteres Aussehen, ideal für Designs, die ein sanftes, weicheres Erscheinungsbild benötigen. Sie können Parameter wie den Radius leicht anpassen, um den gewünschten Effekt auf verschiedene Formen in Ihrer Präsentation zu erzielen.
 
-Dieser C++‑Code zeigt, wie man die [weichen Kanten](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) auf eine Form anwendet:
+Dieser C++‑Code zeigt, wie die [weichen Kanten](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) auf eine Form angewendet werden:
+
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
 #include <DOM/IAutoShape.h>
@@ -294,19 +359,20 @@ softEdgeEffect->set_Radius(8);
 presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Weiche Kanten](soft_edges_effect.png)
+![Weiche Kanten Effekt](soft_edges_effect.png)
 
-## **Unschärfeeffekt anwenden**
+## **Unschärfe‑Effekt anwenden**
 
-Verwenden Sie Form‑Unschärfe, um die Füllung und Kontur einer Form zu weichen, wobei die Form bearbeitbar bleibt. Rufen Sie [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) im Effektformat der Form auf. Der Radius wird in Punkten (1/72 Zoll) gemessen: Verwenden Sie einen nicht‑negativen Wert, wobei größere Werte eine stärkere Unschärfe erzeugen. Ein Radius von null lässt das Aussehen unverändert.
+Verwenden Sie Form‑Unschärfe, um die Füllung und Kontur einer Form zu erweichen, während die Form bearbeitbar bleibt. Rufen Sie [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) im Effektformat der Form auf. Der Radius wird in Punkten (1/72 Zoll) gemessen: Verwenden Sie einen nicht‑negativen Wert, wobei größere Werte eine stärkere Unschärfe erzeugen. Ein Radius von Null lässt das Aussehen unverändert.
 
-Die Einstellung [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) steuert die sichtbaren Grenzen des Effekts. Bei `false` wird die Unschärfe auf die ursprünglich gemalten Grenzen, einschließlich der Kontur, beschnitten. Bei `true` kann die Unschärfe über diese Grenzen hinausgehen. Keine der beiden Einstellungen ändert die Position oder Abmessungen der Form.
+Die Einstellung [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) steuert die sichtbaren Begrenzungen des Effekts. Bei `false` wird die Unschärfe auf die ursprünglich gemalten Begrenzungen, einschließlich der Kontur, zugeschnitten. Bei `true` kann die Unschärfe über diese Begrenzungen hinausgehen. Keine der Einstellungen ändert die Position oder Abmessungen der Form.
 
 Der nachstehende Vergleich verwendet durchgehend dieselbe Füllung, Kontur und Formabmessungen. Die obere Reihe verwendet `grow = false`; die untere Reihe verwendet `grow = true`.
 
-![Originalrechteck im Vergleich mit Unschärferadien von 5 und 15 Punkten, bei deaktiviertem und aktiviertem Grow](shape_blur_comparison.png)
+![Originales Rechteck im Vergleich mit Unschärferadien von 5 und 15 Punkten, bei deaktiviertem und aktiviertem Grow](shape_blur_comparison.png)
 
-Dieses C++‑Beispiel erstellt ein oranges Rechteck mit einer dunkelblauen Kontur, wendet eine 5‑Punkte‑Unschärfe an und aktualisiert es anschließend zu einer 15‑Punkte‑Unschärfe, indem es erneut [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) aufruft. Es speichert beide unscharfen Zustände, ruft dann [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) auf und speichert die Form ohne Unschärfe.
+Dieses C++‑Beispiel erstellt ein oranges Rechteck mit einer dunkelblauen Kontur, wendet eine 5‑Punkt‑Unschärfe an und aktualisiert es anschließend auf eine 15‑Punkt‑Unschärfe, indem es erneut [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) aufruft. Es speichert beide unscharfen Zustände, ruft dann [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) auf und speichert die Form ohne Unschärfe.
+
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IColorFormat.h>
@@ -345,17 +411,17 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-Form‑Unschärfe wirkt sich sowohl auf die Füllung als auch auf die Kontur aus. Ein Weiche‑Kanten‑Effekt verblasst die Kanten der Form, während Schatten‑Unschärfe nur den Schatten weicher macht. Bild‑Transformations‑Effekte arbeiten am Bildinhalt; dieses Beispiel wendet die Unschärfe direkt auf das Effektformat der Form an, ohne die Form in ein Bild zu konvertieren.
+Form‑Unschärfe wirkt sich gleichzeitig auf Füllung und Kontur aus. Ein weiche‑Kanten‑Effekt verblasst die Kanten der Form, während Schatten‑Unschärfe nur den Schatten erweicht. Bild‑Transformations‑Effekte wirken auf Bildinhalte; dieses Beispiel wendet Unschärfe direkt auf das Effektformat der Form an, ohne die Form in ein Bild zu konvertieren.
 
 ## **FAQ**
 
 **Kann ich mehrere Effekte auf dieselbe Form anwenden?**
 
-Ja, Sie können verschiedene Effekte, wie Schatten, Reflexion und Leuchteffekt, auf einer einzelnen Form kombinieren, um ein dynamischeres Erscheinungsbild zu erzeugen.
+Ja, Sie können verschiedene Effekte wie Schatten, Reflexion und Leuchteffekt auf einer einzelnen Form kombinieren, um ein dynamischeres Erscheinungsbild zu erzeugen.
 
-**Auf welche Formen kann ich Effekte anwenden?**
+**Welche Formen kann ich mit Effekten versehen?**
 
-Sie können Effekte auf verschiedene Formen anwenden, darunter Autoformen, Diagramme, Tabellen, Bilder, SmartArt‑Objekte, OLE‑Objekte und weitere.
+Sie können Effekte auf verschiedene Formen anwenden, einschließlich Autoformen, Diagrammen, Tabellen, Bildern, SmartArt‑Objekten, OLE‑Objekten und mehr.
 
 **Kann ich Effekte auf gruppierte Formen anwenden?**
 

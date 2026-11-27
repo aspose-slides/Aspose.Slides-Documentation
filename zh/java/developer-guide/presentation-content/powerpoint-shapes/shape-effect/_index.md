@@ -1,5 +1,5 @@
 ---
-title: 使用 Java 在演示文稿中应用形状效果
+title: 在演示文稿中使用 Java 应用形状效果
 linktitle: 形状效果
 type: docs
 weight: 30
@@ -8,26 +8,26 @@ keywords:
 - 形状效果
 - 阴影效果
 - 反射效果
-- 辉光效果
-- 柔边效果
+- 发光效果
+- 柔和边缘效果
 - 效果格式
 - PowerPoint
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 将您的 PPT 和 PPTX 文件转换为高级形状效果——几秒钟内创建引人注目、专业的幻灯片。"
+description: "使用 Aspose.Slides for Java 将您的 PPT 和 PPTX 文件转换为高级形状效果——在秒钟内创建引人注目、专业的幻灯片。"
 ---
-## **简介**
+## **介绍**
 
-虽然 PowerPoint 中的效果可用于使形状突出，但它们不同于[填充](/slides/zh/java/shape-formatting/#gradient-fill)或轮廓。使用 PowerPoint 效果，您可以在形状上创建逼真的反射，扩散形状的光晕等。
+虽然 PowerPoint 中的效果可用于使形状突出，但它们不同于 [填充](/slides/zh/java/shape-formatting/#gradient-fill) 或轮廓。使用 PowerPoint 效果，您可以在形状上创建逼真的反射，散布形状的光晕等。
 
 ![形状效果](shape-effect.png)
 
-PowerPoint 提供六种可应用于形状的效果。您可以对形状应用一个或多个效果。
+PowerPoint 提供六种可应用于形状的效果。您可以对形状应用一种或多种效果。
 
-某些效果组合比其他的更好看。因此，PowerPoint 在 **预设** 下提供了选项。预设选项是两种或更多效果的组合，已知效果良好。这样，选择预设后，您无需浪费时间测试或组合不同的效果来找到合适的组合。
+某些效果组合比其他组合更好看。因此，PowerPoint 在 **Preset** 下提供选项。Preset 选项是两种或更多已知好看的效果组合。这样，通过选择预设，您无需浪费时间测试或组合不同的效果来寻找合适的组合。
 
-Aspose.Slides 在 [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) 类下提供属性和方法，允许您在 PowerPoint 演示文稿中对形状应用相同的效果。
+Aspose.Slides 在 [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) 类中提供属性和方法，允许您在 PowerPoint 演示文稿中对形状应用相同的效果。
 
 ## **应用阴影效果**
 
@@ -35,9 +35,9 @@ Aspose.Slides for Java 支持形状的外部和内部阴影。您可以自定义
 
 ### **应用外部阴影**
 
-使用外部阴影可以使卡片或面板在幻灯片背景上突出。阴影延伸到形状的边缘之外，产生形状悬浮在幻灯片上的印象。调整其颜色、方向、距离和模糊半径，以匹配模板的光照和样式。
+使用外部阴影使卡片或面板在幻灯片背景上突出。阴影延伸到形状边缘之外，产生形状在幻灯片上方抬起的感觉。调整其颜色、方向、距离和模糊半径，以匹配模板的光照和样式。
 
-下面的 Java 代码展示了如何对矩形应用 [外部阴影效果](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--)：
+以下 Java 代码展示了如何对矩形应用 [外部阴影效果](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--)：
 
 ```java
 import com.aspose.slides.*;
@@ -61,13 +61,59 @@ try {
 
 ![阴影效果](shadow_effect.png)
 
+#### **在形状旋转时控制阴影方向**
+
+默认情况下，外部阴影随形状旋转。要使不同旋转的形状看起来受到相同方向的光照，请使用 `false` 调用 [setRotateShadowWithShape](https://reference.aspose.com/slides/java/com.aspose.slides/ioutershadow/#setRotateShadowWithShape-boolean-)，并使用 [setDirection](https://reference.aspose.com/slides/java/com.aspose.slides/ioutershadow/#setDirection-float-) 为它们的阴影设置相同的方向。
+
+该示例创建了两个带有向右偏移 42 点（0°）的灰色阴影的蓝色箭头。随后复制幻灯片并将两个箭头顺时针旋转 90°。
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide before = presentation.getSlides().get_Item(0);
+
+    IAutoShape left = before.getShapes().addAutoShape(ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(FillType.Solid);
+    left.getFillFormat().getSolidFillColor().setColor(new Color(70, 130, 180));
+    left.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    IOuterShadow shadow = left.getEffectFormat().getOuterShadowEffect();
+    shadow.getShadowColor().setColor(Color.GRAY);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    IShape right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    ISlide after = presentation.getSlides().addClone(before);
+    for (IShape arrow : after.getShapes()) {
+        arrow.setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+在第二张幻灯片上，左侧箭头的阴影向下投射，而右侧箭头的阴影仍向右投射。两者的配置方向均保持为 0°。
+
+![PowerPoint 渲染在 90° 旋转前后的对比。两个阴影最初在右侧。旋转后，左侧箭头的阴影移动到下方，右侧箭头的阴影仍保持在右侧。](arrow-shadow-rotation.png)
+
 ### **应用内部阴影**
 
-在复现模板的视觉样式时，使用内部阴影可为卡片或面板提供凹陷的外观。外部阴影延伸到形状外部，使其看起来凸起，而内部阴影则在其边缘内部产生阴影。
+在复制模板的视觉样式时，使用内部阴影为卡片或面板营造凹陷的外观。外部阴影延伸到形状外部，使其看起来抬起，而内部阴影则对其边缘内部进行阴影处理。
 
-调用 [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--)，然后配置由 [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--) 返回的阴影。较大的模糊半径值会产生更柔和的边缘。
+调用 [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--)，然后配置由 [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--) 返回的阴影。更大的模糊半径值会产生更柔和的边缘。
 
-下面的 Java 示例创建了一个带有深灰色内部阴影的淡蓝色卡片，并将其保存为 PPTX 文件。阴影方向为 225 度，距离为 7 磅，模糊半径为 6 磅：
+此 Java 示例创建一个带有深灰色内部阴影的浅蓝色卡片，并将其保存为 PPTX 文件。阴影方向为 225 度，距离为 7 点，模糊半径为 6 点：
 
 ```java
 import com.aspose.slides.*;
@@ -95,15 +141,15 @@ try {
 }
 ```
 
-![带内部阴影的淡蓝色矩形](inner_shadow_effect.png)
+![带内部阴影的浅蓝色矩形](inner_shadow_effect.png)
 
-要移除内部阴影，请在形状的 EffectFormat 上调用 [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--)。
+要移除内部阴影，请在形状的 effect format 上调用 [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--)。
 
 ### **应用、更改和移除预设阴影**
 
-调用 [enablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) 并使用 [setPreset](https://reference.aspose.com/slides/java/com.aspose.slides/ipresetshadow/#setPreset-int-) 选择一个 [PresetShadowType](https://reference.aspose.com/slides/java/com.aspose.slides/presetshadowtype/)。要切换样式，可在同一形状上更改预设。调用 [disablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) 可移除阴影，同时保留填充和轮廓。
+调用 [enablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#enablePresetShadowEffect--) 并使用 [setPreset](https://reference.aspose.com/slides/java/com.aspose.slides/ipresetshadow/#setPreset-int-) 选择 [PresetShadowType](https://reference.aspose.com/slides/java/com.aspose.slides/presetshadowtype/)。要切换样式，可在同一形状上更改预设。调用 [disablePresetShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disablePresetShadowEffect--) 可在保留填充和轮廓的同时移除阴影。
 
-此示例在同一幻灯片上并排显示四个阶段。两个阴影均偏移 10 磅。225° 的方向将第一个阴影放置在矩形的左上方，45° 的方向则将第二个放在右下方。
+此示例在同一幻灯片上并排显示四个阶段。两个阴影均偏移 10 点。225° 的方向将第一个阴影放置在矩形的左上方，45° 的方向则将第二个阴影放在右下方。
 
 ```java
 import com.aspose.slides.*;
@@ -150,13 +196,13 @@ try {
 
 | 原始 | 第一个预设 | 第二个预设 | 移除后 |
 | :---: | :---: | :---: | :---: |
-| ![无阴影](preset_shadow_original.png) | ![左上投影](preset_shadow_top_left.png) | ![右下投影](preset_shadow_bottom_right.png) | ![移除后的无阴影](preset_shadow_removed.png) |
+| ![无阴影](preset_shadow_original.png) | ![左上角投影](preset_shadow_top_left.png) | ![右下角投影](preset_shadow_bottom_right.png) | ![移除后无阴影](preset_shadow_removed.png) |
 
 ## **应用反射效果**
 
-要在 Aspose.Slides for Java 中应用反射效果，您可以为形状添加类似镜面的反射，并调整距离、透明度和大小等参数。此效果通过为形状提供更精致、专业的外观来提升演示文稿的美感。使用简短代码即可轻松实现，可在多个元素之间快速应用，以保持设计的一致性。
+要在 Aspose.Slides for Java 中应用反射效果，您可以为形状添加镜面反射，并调整距离、透明度和尺寸等参数。此效果通过使形状更具抛光感和精致感来提升演示文稿的美观度。使用简单代码即可轻松实现，可快速在多个元素上应用，实现一致的设计。
 
-下面的 Java 代码展示了如何对形状应用 [反射效果](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--)：
+以下 Java 代码展示了如何对形状应用 [反射效果](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--)：
 
 ```java
 import com.aspose.slides.*;
@@ -180,11 +226,11 @@ try {
 
 ![反射效果](reflection_effect.png)
 
-## **应用辉光效果**
+## **应用发光效果**
 
-要在 Aspose.Slides for Java 中为形状应用辉光效果，您可以在形状周围添加柔和的光晕，并调整颜色和大小等属性。此效果有助于突出形状，并为演示文稿增添吸引人的视觉元素。只需少量代码即可实现，提升幻灯片的整体外观。
+要在 Aspose.Slides for Java 中对形状应用发光效果，您可以在形状周围添加柔和的光晕，并调整颜色和大小等属性。此效果有助于使形状突出，并为演示文稿增添吸引人的视觉元素。只需少量代码即可实现，提升幻灯片的整体外观。
 
-下面的 Java 代码展示了如何对形状应用 [辉光效果](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--)：
+以下 Java 代码展示了如何对形状应用 [发光效果](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--)：
 
 ```java
 import com.aspose.slides.*;
@@ -205,13 +251,13 @@ try {
 }
 ```
 
-![辉光效果](glow_effect.png)
+![发光效果](glow_effect.png)
 
-## **应用柔边效果**
+## **应用柔和边缘效果**
 
-要在 Aspose.Slides for Java 中应用柔边效果，您可以在形状的边缘创建平滑、模糊的过渡。此效果增添更细腻、精致的外观，适用于需要柔和外观的设计。您可以轻松调整半径等参数，以在演示文稿的各种形状上实现所需效果。
+要在 Aspose.Slides for Java 中应用柔和边缘效果，您可以在形状的边缘创建平滑、模糊的过渡。此效果增添更微妙、精致的外观，适用于需要柔和外形的设计。您可以轻松调整半径等参数，以在演示文稿中各种形状上实现所需效果。
 
-下面的 Java 代码展示了如何对形状应用 [柔边效果](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--)：
+以下 Java 代码展示了如何对形状应用 [柔和边缘效果](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--)：
 
 ```java
 import com.aspose.slides.*;
@@ -230,19 +276,19 @@ try {
 }
 ```
 
-![柔边效果](soft_edges_effect.png)
+![柔和边缘效果](soft_edges_effect.png)
 
 ## **应用模糊效果**
 
-使用形状模糊可在保持形状可编辑的同时软化其填充和轮廓。调用 [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) 在形状的 EffectFormat 上。半径以点为单位（1/72 英寸）：使用非负值，较大值产生更强的模糊。半径为零时外观保持不变。
+使用形状模糊可软化形状的填充和轮廓，同时保持形状可编辑。对形状的 effect format 调用 [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-)。半径以点为单位（1/72 英寸）：使用非负值，值越大模糊效果越强。半径为零时外观保持不变。
 
-[getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) 设置控制效果的可见边界。设为 `false` 时，模糊被裁剪到原始绘制边界（包括轮廓）。设为 `true` 时，模糊可延伸超出这些边界。两种设置都不会改变形状的位置或尺寸。
+[getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) 设置控制效果的可见范围。设置为 `false` 时，模糊被裁剪到原始绘制范围（包括轮廓）。设置为 `true` 时，模糊可超出该范围。两者都不会改变形状的位置或尺寸。
 
-以下比较在整个过程中使用相同的填充、轮廓和形状尺寸。上排使用 `grow = false`；下排使用 `grow = true`。
+下面的对比在整个示例中使用相同的填充、轮廓和形状尺寸。上排使用 `grow = false`；下排使用 `grow = true`。
 
-![比较原始矩形在模糊半径为5和15点时的效果（grow 禁用和启用）](shape_blur_comparison.png)
+![原始矩形与模糊半径为 5 点和 15 点的对比，分别在禁用和启用 grow 的情况下](shape_blur_comparison.png)
 
-下面的 Java 示例创建了一个橙色矩形并带有深蓝色轮廓，先应用 5 点模糊，然后通过再次调用 [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) 将其更新为 15 点模糊。它保存了两个模糊状态，然后调用 [disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) 并保存无模糊的形状。
+此 Java 示例创建一个橙色矩形，带有深蓝色轮廓，先应用 5 点模糊，然后再次调用 [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) 将模糊半径更新为 15 点。它保存了两种模糊状态，然后调用 [disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) 并保存无模糊的形状。
 
 ```java
 import com.aspose.slides.*;
@@ -272,13 +318,13 @@ try {
 }
 ```
 
-形状模糊同时影响填充和轮廓。柔边效果会淡化形状的边缘，而阴影模糊仅软化阴影本身。图像变换效果作用于图像内容；本例直接对形状的 EffectFormat 应用模糊，而不将形状转换为图像。
+形状模糊同时影响填充和轮廓。柔和边缘效果使形状的边缘渐变，而阴影模糊仅软化阴影。图像变换效果作用于图像内容；本示例直接在形状的 effect format 上应用模糊，而不将形状转换为图像。
 
 ## **常见问题**
 
 **我可以对同一形状应用多个效果吗？**
 
-是的，您可以在单个形状上组合不同的效果，例如阴影、反射和辉光，以创建更具动感的外观。
+是的，您可以在单个形状上组合不同的效果，如阴影、反射和发光，以实现更具动感的外观。
 
 **我可以对哪些形状应用效果？**
 
@@ -286,4 +332,4 @@ try {
 
 **我可以对组合形状应用效果吗？**
 
-是的，您可以对组合形状应用效果。效果将应用于整个组。
+是的，您可以对组合形状应用效果。该效果将应用于整个组合。

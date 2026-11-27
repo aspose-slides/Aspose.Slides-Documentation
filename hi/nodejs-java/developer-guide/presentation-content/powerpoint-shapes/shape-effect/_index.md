@@ -1,5 +1,5 @@
 ---
-title: जावास्क्रिप्ट का उपयोग करके प्रस्तुतियों में आकार प्रभाव लागू करें
+title: JavaScript का उपयोग करके प्रस्तुतियों में आकार प्रभाव लागू करें
 linktitle: आकार प्रभाव
 type: docs
 weight: 30
@@ -9,36 +9,36 @@ keywords:
 - छाया प्रभाव
 - परावर्तन प्रभाव
 - ग्लो प्रभाव
-- नरम किनारों का प्रभाव
+- सॉफ्ट एजेज प्रभाव
 - इफ़ेक्ट फ़ॉर्मेट
 - PowerPoint
 - प्रस्तुति
 - Node.js
-- जावास्क्रिप्ट
+- JavaScript
 - Aspose.Slides
-description: "जावास्क्रिप्ट और Aspose.Slides for Node.js का उपयोग करके उन्नत आकार प्रभावों के साथ अपने PPT और PPTX फ़ाइलों को बदलें—सेकंडों में आकर्षक, पेशेवर स्लाइड बनाएं।"
+description: "JavaScript और Aspose.Slides for Node.js का उपयोग करके अपने PPT और PPTX फ़ाइलों को उन्नत आकार प्रभावों के साथ बदलें—सेकंडों में आकर्षक, पेशेवर स्लाइड बनाएं।"
 ---
 ## **परिचय**
 
-जबकि PowerPoint में इफ़ेक्ट्स का उपयोग किसी आकार को प्रमुख बनाने के लिए किया जा सकता है, वे [भरण](/slides/hi/nodejs-java/shape-formatting/#gradient-fill) या outlines से अलग होते हैं। PowerPoint इफ़ेक्ट्स का उपयोग करके आप किसी आकार पर भरोसेमंद प्रतिबिंब, आकार की चमक आदि बना सकते हैं।
+जबकि PowerPoint में इफ़ेक्ट्स का उपयोग किसी आकार को प्रमुख बनाने के लिए किया जा सकता है, वे [भराव](/slides/hi/nodejs-java/shape-formatting/#gradient-fill) या outlines से अलग हैं। PowerPoint इफ़ेक्ट्स का उपयोग करके आप एक आकार पर विश्वसनीय प्रतिबिंब बना सकते हैं, आकार की चमक फैल सकते हैं, आदि।
 
 ![आकार प्रभाव](shape-effect.png)
 
 PowerPoint छह इफ़ेक्ट्स प्रदान करता है जिन्हें आकारों पर लागू किया जा सकता है। आप एक आकार पर एक या अधिक इफ़ेक्ट्स लागू कर सकते हैं।
 
-कुछ इफ़ेक्ट्स के संयोजन दूसरों की तुलना में बेहतर दिखते हैं। इस कारण से, PowerPoint **Preset** के तहत विकल्प प्रदान करता है। प्रीसेट विकल्प दो या अधिक इफ़ेक्ट्स के ऐसे संयोजन होते हैं जो सामान्यतः अच्छा दिखते हैं। इस तरह, एक प्रीसेट चुनकर आपको विभिन्न इफ़ेक्ट्स का परीक्षण या संयोजन करने में समय बर्बाद नहीं करना पड़ेगा।
+कुछ इफ़ेक्ट संयोजन दूसरों की तुलना में बेहतर दिखते हैं। इस कारण से, PowerPoint **Preset** के तहत विकल्प प्रदान करता है। Preset विकल्प दो या अधिक इफ़ेक्ट्स के ऐसे संयोजन हैं जो अच्छे दिखने के लिए जाने जाते हैं। इस प्रकार, एक प्रीसेट चुनकर, आपको विभिन्न इफ़ेक्ट्स का परीक्षण या संयोजन करने में समय बर्बाद नहीं करना पड़ेगा।
 
-Aspose.Slides [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) क्लास के अंतर्गत प्रॉपर्टीज़ और मेथड्स प्रदान करता है जो आपको PowerPoint प्रस्तुतियों में आकारों पर समान इफ़ेक्ट्स लागू करने की अनुमति देते हैं।
+Aspose.Slides उन गुणों और विधियों को प्रदान करता है जो [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) क्लास के अंतर्गत हैं, जिससे आप PowerPoint प्रस्तुतियों में आकारों पर समान इफ़ेक्ट्स लागू कर सकते हैं।
 
-## **छाया प्रभाव लागू करें**
+## **छाया इफ़ेक्ट लागू करें**
 
-Aspose.Slides for Node.js via Java आकारों के लिए बाहरी और आंतरिक छाया का समर्थन करता है। आप उनके रंग, दिशा, दूरी, और ब्लर त्रिज्या को अपनी प्रस्तुति की डिज़ाइन के अनुसार अनुकूलित कर सकते हैं।
+Aspose.Slides for Node.js via Java आकारों के लिए बाहरी और अंतः छायाएँ समर्थन करता है। आप उनके रंग, दिशा, दूरी और धुंधलापन त्रिज्या को अपनी प्रस्तुति के डिजाइन से मिलाने के लिए अनुकूलित कर सकते हैं।
 
 ### **बाहरी छाया लागू करें**
 
-एक बाहरी छाया का उपयोग करके कार्ड या पैनल को स्लाइड पृष्ठभूमि के सामने प्रमुख बनाएँ। छाया आकार की किनारों से बाहर तक विस्तार करती है, जिससे ऐसा प्रभाव बनता है कि आकार स्लाइड के ऊपर उठाया गया हो। रंग, दिशा, दूरी, और ब्लर त्रिज्या को अपने टेम्पलेट की प्रकाश और शैली के अनुसार समायोजित करें।
+स्लाइड पृष्ठभूमि के खिलाफ कार्ड या पैनल को प्रमुख बनाने के लिए बाहरी छाया का उपयोग करें। छाया आकार के किनारों से परे फैलती है, जिससे ऐसा प्रभाव बनता है कि आकार स्लाइड के ऊपर उभरा हुआ है। अपनी टेम्प्लेट की रोशनी और शैली से मेल खाने के लिए इसका रंग, दिशा, दूरी और धुंधलापन त्रिज्या समायोजित करें।
 
-यह JavaScript कोड दिखाता है कि कैसे [बाहरी छाया प्रभाव](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) को एक आयत पर लागू किया जाए:
+यह JavaScript कोड दिखाता है कि कैसे [बाहरी छाया इफ़ेक्ट](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) को आयत पर लागू किया जाए:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -61,15 +61,64 @@ try {
 }
 ```
 
-![छाया प्रभाव](shadow_effect.png)
+![छाया इफ़ेक्ट](shadow_effect.png)
+
+#### **जब आकार घूमता है तो छाया दिशा नियंत्रित करें**
+
+डिफ़ॉल्ट रूप से, बाहरी छाया आकार के साथ घुमती है। विभिन्न घुमाव वाले आकारों को एक ही दिशा से प्रकाशित दिखाने के लिए, [setRotateShadowWithShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setRotateShadowWithShape) को `false` के साथ कॉल करें और अपनी छायाओं को समान दिशा देने के लिए [setDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setDirection) का उपयोग करें।
+
+उदाहरण दो नीली तीर बनाता है जिनकी ग्रे छायाएँ 42 पॉइंट्स दाईं ओर (0°) ऑफ़सेट होती हैं। फिर यह स्लाइड को डुप्लिकेट करता है और दोनों तीरों को 90° घड़ी की दिशा में घुमाता है।
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const before = presentation.getSlides().get_Item(0);
+    
+    const left = before.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    left.getFillFormat().getSolidFillColor().setColor(fillColor);
+    left.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    const shadow = left.getEffectFormat().getOuterShadowEffect();
+    const shadowColor = java.getStaticFieldValue("java.awt.Color", "GRAY");
+    shadow.getShadowColor().setColor(shadowColor);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    const right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    const after = presentation.getSlides().addClone(before);
+    const arrows = after.getShapes();
+    for (let i = 0; i < arrows.size(); i++) {
+        arrows.get_Item(i).setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+दूसरी स्लाइड पर, बाएँ तीर की छाया नीचे की ओर पड़ती है, जबकि दाएँ तीर की छाया अभी भी दाईं ओर पड़ती है। दोनों छायाओं के लिए कॉन्फ़िगर की गई दिशा 0° बनी रहती है।
+
+![90° घुमाव से पहले और बाद में PowerPoint रेंडरिंग। दोनों छायाएँ दाईं ओर शुरू होती हैं। घुमाव के बाद, छाया बाएँ तीर के नीचे चली जाती है और दाएँ तीर के दाईं ओर बनी रहती है।](arrow-shadow-rotation.png)
 
 ### **आंतरिक छाया लागू करें**
 
-टेम्पलेट की दृश्य शैली को पुन: उत्पन्न करते समय, एक आंतरिक छाया का उपयोग करके कार्ड या पैनल को अवतल दिखाएँ। बाहरी छाया आकार के बाहर तक विस्तार करती है और उसे उठे हुए दिखाती है, जबकि आंतरिक छाया उसके किनारों के भीतर छाया डालती है।
+टेम्प्लेट की दृश्य शैली को पुनः निर्मित करते समय, कार्ड या पैनल को गहरी दिखाने के लिए आंतरिक छाया का उपयोग करें। बाहरी छाया आकार के बाहर विस्तारित होती है और इसे उभरा हुआ बनाती है, जबकि आंतरिक छाया उसके किनारों के अंदर को शेड करती है।
 
-[enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect) को कॉल करें, फिर [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect) द्वारा लौटाई गई छाया को कॉन्फ़िगर करें। बड़ी ब्लर त्रिज्या मान नरम किनारे उत्पन्न करते हैं।
+[enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect) को कॉल करें, फिर [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect) द्वारा लौटाए गए छाया को कॉन्फ़िगर करें। बड़ी धुंधलापन त्रिज्या मान नरम किनारे उत्पन्न करती हैं।
 
-यह JavaScript उदाहरण हल्के नीले रंग का कार्ड बनाता है जिसमें गहरा ग्रे आंतरिक छाया है और इसे PPTX फाइल के रूप में सहेजता है। छाया की दिशा 225 डिग्री है, उसकी दूरी 7 पॉइंट है, और ब्लर त्रिज्या 6 पॉइंट है:
+यह JavaScript उदाहरण हल्के नीले कार्ड को गहरे ग्रे आंतरिक छाया के साथ बनाता है और इसे PPTX फ़ाइल के रूप में सहेजता है। छाया की दिशा 225 डिग्री, दूरी 7 पॉइंट, और धुंधलापन त्रिज्या 6 पॉइंट है:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,15 +148,15 @@ try {
 }
 ```
 
-![हल्का नीला आयताकार आंतरिक छाया के साथ](inner_shadow_effect.png)
+![हल्के नीले आयत में अंदर की छाया](inner_shadow_effect.png)
 
-आंतरिक छाया को हटाने के लिए, shape की effect format पर [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) को कॉल करें।
+आंतरिक छाया को हटाने के लिए, आकार की इफ़ेक्ट फॉर्मेट पर [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) को कॉल करें।
 
-### **प्रीसेट छाया लागू करें, बदलें और हटाएँ**
+### **प्रीसेट छाया लागू करें, बदलें, और हटाएँ**
 
-[enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) को कॉल करें और [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) का उपयोग करके एक [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/) चुनें। शैली बदलने के लिए, उसी आकार पर प्रीसेट बदलें। छाया को हटाने के लिए, fill और outline को संरक्षित रखते हुए [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) को कॉल करें।
+[enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) को कॉल करें और [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) का उपयोग करके [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/) चुनें। शैली बदलने के लिए, समान आकार पर प्रीसेट बदलें। छाया को हटाने के लिए लेकिन भराव और रूपरेखा को बनाए रखने के लिए, [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) को कॉल करें।
 
-यह उदाहरण एक स्लाइड पर चार चरणों को एक साथ दिखाता है। दोनों छायाएँ 10 पॉइंट से ऑफ़सेट हैं। 225° दिशा पहली छाया को आयत के ऊपर बाएँ रखती है, और 45° दिशा दूसरी को नीचे दाएँ रखती है।
+यह उदाहरण एक ही स्लाइड पर चार चरणों को साइड बाय साइड दिखाता है। दोनों छायाएँ 10 पॉइंट्स ऑफ़सेट हैं। 225° दिशा पहली छाया को आयत के ऊपर और बाएँ रखती है, और 45° दिशा दूसरी को नीचे और दाएँ रखती है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -156,13 +205,13 @@ try {
 
 | मूल | पहला प्रीसेट | दूसरा प्रीसेट | हटाने के बाद |
 | :---: | :---: | :---: | :---: |
-| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
+| ![कोई छाया नहीं](preset_shadow_original.png) | ![ऊपर-बाएँ ड्रॉप शैडो](preset_shadow_top_left.png) | ![नीचे-दाएँ ड्रॉप शैडो](preset_shadow_bottom_right.png) | ![हटाने के बाद कोई छाया नहीं](preset_shadow_removed.png) |
 
-## **परावर्तन प्रभाव लागू करें**
+## **परावर्तन इफ़ेक्ट लागू करें**
 
-Aspose.Slides for Node.js via Java में परावर्तन प्रभाव लागू करने के लिए, आप आकारों में दर्पण जैसी परावर्तन जोड़ सकते हैं, दूरी, पारदर्शिता और आकार जैसे पैरामीटर को समायोजित कर सकते हैं। यह प्रभाव आपके प्रस्तुतियों की सौंदर्यशास्त्र को बढ़ाता है, आकारों को अधिक परिष्कृत और आकर्षक बनाता है। यह सरल कोड के साथ आसानी से लागू किया जा सकता है, जिससे कई तत्वों पर तेज़ी से एकसमान डिज़ाइन लागू किया जा सके।
+Aspose.Slides for Node.js via Java में परावर्तन इफ़ेक्ट लागू करने के लिए, आप आकारों में दर्पण जैसी परावर्तन जोड़ सकते हैं, दूरी, पारदर्शिता और आकार जैसे पैरामीटर समायोजित कर सकते हैं। यह इफ़ेक्ट आपकी प्रस्तुतियों की सौंदर्यशास्त्र को बेहतर बनाता है, जिससे आकार अधिक परिष्कृत दिखते हैं। इसे सरल कोड के साथ लागू करना आसान है, जिससे कई तत्वों पर एकसमान डिज़ाइन तेज़ी से लागू हो सकता है।
 
-यह JavaScript कोड दिखाता है कि कैसे [परावर्तन प्रभाव](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) को किसी आकार पर लागू किया जाए:
+यह JavaScript कोड दिखाता है कि कैसे [परावर्तन इफ़ेक्ट](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) को आकार पर लागू किया जाए:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,13 +234,13 @@ try {
 }
 ```
 
-![परावर्तन प्रभाव](reflection_effect.png)
+![परावर्तन इफ़ेक्ट](reflection_effect.png)
 
-## **ग्लो प्रभाव लागू करें**
+## **ग्लो इफ़ेक्ट लागू करें**
 
-Aspose.Slides for Node.js via Java में किसी आकार पर ग्लो प्रभाव लागू करने के लिए, आप आकारों के चारों ओर एक मुलायम, प्रकाशमान आभा जोड़ सकते हैं, रंग और आकार जैसी प्रॉपर्टीज़ को समायोजित कर सकते हैं। यह प्रभाव आकारों को प्रमुख बनाता है और आपके प्रस्तुति में एक आकर्षक दृश्य तत्व जोड़ता है। न्यूनतम कोड के साथ इसे लागू करना आसान है, जिससे आपके स्लाइड्स की कुल लुक में सुधार होता है।
+Aspose.Slides for Node.js via Java में आकार पर ग्लो इफ़ेक्ट लागू करने के लिए, आप आकारों के आसपास एक नरम, चमकीला परिप्रेक्ष्य जोड़ सकते हैं, रंग और आकार जैसी गुणों को समायोजित कर सकते हैं। यह इफ़ेक्ट आकारों को प्रमुख बनाता है और आपके प्रस्तुति में आकर्षक दृश्य तत्व जोड़ता है। इसे न्यूनतम कोड के साथ लागू करना आसान है, जिससे आपकी स्लाइड्स का समग्र स्वरूप बेहतर होता है।
 
-यह JavaScript कोड दिखाता है कि कैसे [ग्लो प्रभाव](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) को किसी आकार पर लागू किया जाए:
+यह JavaScript कोड दिखाता है कि कैसे [ग्लो इफ़ेक्ट](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) को आकार पर लागू किया जाए:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -213,13 +262,13 @@ try {
 }
 ```
 
-![ग्लो प्रभाव](glow_effect.png)
+![ग्लो इफ़ेक्ट](glow_effect.png)
 
-## **नरम किनारों का प्रभाव लागू करें**
+## **सॉफ्ट एजेज इफ़ेक्ट लागू करें**
 
-Aspose.Slides for Node.js via Java में नरम किनारों का प्रभाव लागू करने के लिए, आप आकार के किनारों के आसपास एक सुगम, धुंधला संक्रमण बना सकते हैं। यह प्रभाव एक अधिक सूक्ष्म और परिष्कृत दिखावट जोड़ता है, जो उन डिजाइन के लिए उपयुक्त है जिन्हें कोमल, नरम उपस्थिति चाहिए। आप विभिन्न आकारों में वांछित प्रभाव प्राप्त करने के लिए त्रिज्या जैसे पैरामीटर को आसानी से समायोजित कर सकते हैं।
+Aspose.Slides for Node.js via Java में सॉफ्ट एजेज इफ़ेक्ट लागू करने के लिए, आप आकार के किनारों के आसपास एक सुगम, धुंधला संक्रमण बना सकते हैं। यह इफ़ेक्ट अधिक सूक्ष्म और परिष्कृत दिखावट जोड़ता है, जो उन डिज़ाइनों के लिए उपयुक्त है जिन्हें हल्का, नरम रूप चाहिए। आप विभिन्न आकारों में इच्छित प्रभाव प्राप्त करने के लिए त्रिज्या जैसे पैरामीटर को आसानी से समायोजित कर सकते हैं।
 
-यह JavaScript कोड दिखाता है कि कैसे [नरम किनारों का प्रभाव](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) को किसी आकार पर लागू किया जाए:
+यह JavaScript कोड दिखाता है कि कैसे [सॉफ्ट एजेज इफ़ेक्ट](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) को आकार पर लागू किया जाए:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -238,19 +287,19 @@ try {
 }
 ```
 
-![नरम किनारे प्रभाव](soft_edges_effect.png)
+![सॉफ्ट एजेज इफ़ेक्ट](soft_edges_effect.png)
 
-## **ब्लर प्रभाव लागू करें**
+## **ब्लर इफ़ेक्ट लागू करें**
 
-shape blur का उपयोग करके आप आकार की fill और outline दोनों को नरम बना सकते हैं जबकि आकार को संपादन योग्य रखते हैं। shape की effect format पर [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) को कॉल करें। त्रिज्या पॉइंट में मापी जाती है (1/72 इंच): नॉन‑नेगेटिव मान उपयोग करें, बड़ी मान अधिक तेज़ ब्लर उत्पन्न करेंगे। शून्य त्रिज्या रखे जाने पर रूप बदल नहींता।
+शेप ब्लर का उपयोग आकार की भराव और रूपरेखा को नरम करने के लिए किया जाता है जबकि आकार संपादनीय रहता है। आकार की इफ़ेक्ट फॉर्मेट पर [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) को कॉल करें। त्रिज्या पॉइंट्स (1/72 इंच) में मापी जाती है: एक गैर-नकारात्मक मान का उपयोग करें, बड़ा मान अधिक तेज़ ब्लर दर्शाता है। शून्य त्रिज्या होने पर दिखावट अपरिवर्तित रहती है।
 
-[getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) सेटिंग प्रभाव की दृश्य सीमाओं को नियंत्रित करती है। `false` होने पर, ब्लर मूल पेंट की सीमाओं तक ही सीमित रहता है, जिसमें outline भी शामिल है। `true` होने पर, ब्लर उन सीमाओं से बाहर भी जा सकता है। कोई भी सेटिंग shape की स्थिति या आयाम को नहीं बदलती।
+[getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) सेटिंग इफ़ेक्ट की दृश्यमान सीमाओं को नियंत्रित करती है। `false` होने पर, ब्लर मूल पेंटेड सीमाओं (रूपरेखा सहित) तक ही सीमित रहता है। `true` होने पर, ब्लर उन सीमाओं से बाहर भी जा सकता है। इन सेटिंग्स से आकार की स्थिति या आयाम नहीं बदलते।
 
-नीचे का तुलना समान fill, outline और shape आयामों का उपयोग करते हुए किया गया है। शीर्ष पंक्ति `grow = false` के साथ; निचली पंक्ति `grow = true` के साथ।
+नीचे का तुलना वही भराव, रूपरेखा और आकार आयामों का उपयोग करके बनाई गई है। शीर्ष पंक्ति में `grow = false` है; नीचे की पंक्ति में `grow = true`।
 
-![5 और 15 पॉइंट ब्लर रेडियस के साथ मूल आयत, ग्रो अक्षम और सक्षम अवस्था में](shape_blur_comparison.png)
+![मूल आयत का 5 और 15 पॉइंट ब्लर त्रिज्या के साथ तुलना, जहाँ grow निष्क्रिय और सक्रिय है](shape_blur_comparison.png)
 
-यह JavaScript उदाहरण नारंगी आयत को डार्क ब्लू outline के साथ बनाता है, 5‑पॉइंट ब्लर लागू करता है, फिर फिर से [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) को कॉल करके 15‑पॉइंट ब्लर में अपडेट करता है। यह दोनों ब्लर किए गए स्थितियों को सहेजता है, फिर [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) को कॉल करके बिना ब्लर के shape को सहेजता है।
+यह JavaScript उदाहरण एक नारंगी आयत को डार्क ब्लू रूपरेखा के साथ बनाता है, 5 पॉइंट ब्लर लागू करता है, फिर [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) को फिर से कॉल करके 15 पॉइंट ब्लर में अद्यतन करता है। दोनों ब्लर स्थितियों को सहेजता है, फिर [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) को कॉल करके ब्लर के बिना आकार को सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,18 +331,18 @@ try {
 }
 ```
 
-Shape blur fill और outline को साथ‑साथ प्रभावित करता है। नरम किनारों का प्रभाव shape के किनारों को फेड करता है, जबकि शैडो ब्लर केवल शैडो को नरम करता है। इमेज ट्रांसफ़ॉर्मेशन इफ़ेक्ट्स इमेज कंटेंट पर काम करते हैं; यह उदाहरण shape को इमेज में बदलें बिना सीधे shape की effect format पर ब्लर लागू करता है।
+शेप ब्लर भराव और रूपरेखा दोनों को साथ ही प्रभावित करता है। सॉफ्ट एजेज इफ़ेक्ट आकार के किनारों को फेड करता है, जबकि शैडो ब्लर केवल शैडो को नरम करता है। छवि रूपांतरण इफ़ेक्ट छवि सामग्री पर काम करते हैं; यह उदाहरण आकार को छवि में बदलें बिना सीधे उसके इफ़ेक्ट फॉर्मेट पर ब्लर लागू करता है।
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या मैं एक ही आकार पर कई इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-हां, आप विभिन्न इफ़ेक्ट्स जैसे शैडो, परावर्तन और ग्लो को एक ही आकार पर संयोजित करके अधिक गतिशील रूप दे सकते हैं।
+हां, आप एक ही आकार पर शैडो, परावर्तन और ग्लो जैसे विभिन्न इफ़ेक्ट्स को संयोजित कर अधिक गतिशील दिखावट बना सकते हैं।
 
 **मैं किन आकारों पर इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-आप विभिन्न आकारों पर इफ़ेक्ट्स लगा सकते हैं, जिनमें ऑटोक shape, चार्ट, तालिकाएँ, चित्र, SmartArt वस्तुएँ, OLE वस्तुएँ और अन्य शामिल हैं।
+आप विभिन्न आकारों पर इफ़ेक्ट्स लागू कर सकते हैं, जिसमें ऑटoshapes, चार्ट, टेबल, चित्र, SmartArt ऑब्जेक्ट, OLE ऑब्जेक्ट और अन्य शामिल हैं।
 
 **क्या मैं समूहित आकारों पर इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-हां, आप समूहित आकारों पर इफ़ेक्ट्स लागू कर सकते हैं। प्रभाव पूरी समूह पर लागू होगा।
+हां, आप समूहित आकारों पर इफ़ेक्ट्स लागू कर सकते हैं। इफ़ेक्ट पूरे समूह पर लागू होगा।

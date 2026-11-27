@@ -1,5 +1,5 @@
 ---
-title: Tillämpa formeffekter i presentationer med Python via Java
+title: Applicera formeffekter i presentationer med Python via Java
 linktitle: Formeffekt
 type: docs
 weight: 30
@@ -9,36 +9,36 @@ keywords:
 - skuggeffekt
 - reflektionseffekt
 - glödeffekt
-- mjukkanter-effekt
+- mjuk kantseffekt
 - effektformat
 - PowerPoint
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Omvandla dina PPT‑ och PPTX‑filer med avancerade formeffekter med Aspose.Slides för Python via Java—skapa slående, professionella bilder på sekunder."
+description: "Transformera dina PPT- och PPTX-filer med avancerade formeffekter med Aspose.Slides för Python via Java - skapa iögonfallande, professionella bilder på några sekunder."
 ---
 ## **Introduktion**
 
-Även om effekter i PowerPoint kan användas för att få en form att sticka ut, skiljer de sig från [fills](/slides/sv/python-java/shape-formatting/#gradient-fill) eller konturer. Genom att använda PowerPoint‑effekter kan du skapa övertygande reflektioner på en form, sprida en forms glöd, osv.
+Medan effekter i PowerPoint kan användas för att få en form att sticka ut, skiljer de sig från [fyllningar](/slides/sv/python-java/shape-formatting/#gradient-fill) eller konturer. Genom att använda PowerPoint‑effekter kan du skapa övertygande reflektioner på en form, sprida en forms glöd osv.
 
-![Formeffekt](shape-effect.png)
+![Formseffekt](shape-effect.png)
 
 PowerPoint erbjuder sex effekter som kan tillämpas på former. Du kan tillämpa en eller flera effekter på en form.
 
-Vissa kombinationer av effekter ser bättre ut än andra. Av den anledningen erbjuder PowerPoint alternativ under **Preset**. Preset‑alternativen är kombinationer av två eller fler effekter som är kända för att se bra ut. På så sätt, genom att välja en förinställning, behöver du inte slösa tid på att testa eller kombinera olika effekter för att hitta en fin kombination.
+Vissa kombinationer av effekter ser bättre ut än andra. Av den anledningen erbjuder PowerPoint alternativ under **Preset**. Preset‑alternativen är kombinationer av två eller fler effekter som är kända för att se bra ut. På så sätt, genom att välja ett förinställt värde, behöver du inte slösa tid på att testa eller kombinera olika effekter för att hitta en fin kombination.
 
 Aspose.Slides tillhandahåller egenskaper och metoder under klassen [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) som låter dig tillämpa samma effekter på former i PowerPoint‑presentationer.
 
 ## **Tillämpa en skuggeffekt**
 
-Aspose.Slides for Python via Java stöder yttre och inre skuggor för former. Du kan anpassa deras färg, riktning, avstånd och oskärpe‑radie för att matcha din presentations design.
+Aspose.Slides för Python via Java stöder yttre och inre skuggor för former. Du kan anpassa deras färg, riktning, avstånd och oskärpe‑radie för att matcha din presentations design.
 
 ### **Tillämpa en yttre skugga**
 
-Använd en yttre skugga för att få ett kort eller en panel att sticka ut mot bildens bakgrund. Skuggan sträcker sig utanför formens kanter och ger intrycket att formen lyfts över sliden. Justera dess färg, riktning, avstånd och oskärpe‑radie för att matcha belysning och stil i din mall.
+Använd en yttre skugga för att få ett kort eller en panel att sticka ut mot bildens bakgrund. Skuggan sträcker sig bortom formens kanter och skapar intrycket att formen är upphöjd över bilden. Justera dess färg, riktning, avstånd och oskärpe‑radie för att matcha belysningen och stilen i din mall.
 
-Denna Python‑kod visar hur du tillämpar [outer shadow effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) på en rektangel:
+Denna Python‑kod visar hur du tillämpar [yttre skuggeffekt](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) på en rektangel:
 
 ```python
 import jpype
@@ -67,16 +67,66 @@ finally:
 
 ![Skuggeffekt](shadow_effect.png)
 
-### **Tillämpa en inre skugga**
+#### **Kontrollera skuggans riktning när en form roterar**
 
-När du återger en mallens visuella stil, använd en inre skugga för att ge ett kort eller en panel ett nedsänkt utseende. En yttre skugga sträcker sig utanför formen och får den att se upphöjd ut, medan en inre skugga skuggar insidan av dess kanter.
+Som standard roterar den yttre skuggan tillsammans med formen. För att få former med olika rotationer att verka belysta från samma håll, anropa [setRotateShadowWithShape](https://reference.aspose.com/slides/python-java/aspose.slides/outershadow/#setRotateShadowWithShape) med `False` och använd [setDirection](https://reference.aspose.com/slides/python-java/aspose.slides/outershadow/#setDirection) för att ge deras skuggor samma riktning.
 
-Anropa [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), konfigurera sedan skuggan som returneras av [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Större värden för oskärpe‑radien ger mjukare kanter.
-
-Detta Python‑exempel skapar ett ljusblått kort med en mörkgrå inre skugga och sparar det som en PPTX‑fil. Skuggans riktning är 225 grader, avståndet 7 punkter och oskärpe‑radien 6 punkter:
+Exemplet skapar två blå pilar med grå skuggor förskjutna 42 punkter åt höger (0°). Det duplicerar sedan bilden och roterar båda pilarna 90° medurs.
 
 ```python
 import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    before = presentation.getSlides().get_Item(0)
+    
+    left = before.getShapes().addAutoShape(ShapeType.RightArrow, 55, 130, 110, 60)
+    left.getFillFormat().setFillType(FillType.Solid)
+    left.getFillFormat().getSolidFillColor().setColor(Color(70, 130, 180))
+    left.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    left.getEffectFormat().enableOuterShadowEffect()
+    shadow = left.getEffectFormat().getOuterShadowEffect()
+    shadow.getShadowColor().setColor(Color.GRAY)
+    shadow.setDirection(0)
+    shadow.setDistance(42)
+    shadow.setBlurRadius(0)
+    shadow.setRotateShadowWithShape(True)
+
+    right = before.getShapes().addClone(left)
+    right.setX(395)
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(False)
+
+    after = presentation.getSlides().addClone(before)
+    for arrow in after.getShapes():
+        arrow.setRotation(90)
+
+    presentation.save("arrow_shadows.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+På den andra bilden kastar den vänstra pilen sin skugga neråt, medan den högra pilen fortfarande kastar sin skugga åt höger. Den konfigurerade riktningen förblir 0° för båda skuggorna.
+
+![PowerPoint‑rendering före och efter en 90°‑rotation. Båda skuggorna startar till höger. Efter rotationen flyttas skuggan under den vänstra pilen och förblir till höger om den högra pilen.](arrow-shadow-rotation.png)
+
+### **Tillämpa en inre skugga**
+
+När du reproducerar en malls visuella stil, använd en inre skugga för att ge ett kort eller en panel ett nedsänkt utseende. En yttre skugga sträcker sig utanför formen och får den att se upphöjd ut, medan en inre skugga skuggar insidan av dess kanter.
+
+Anropa [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), och konfigurera sedan skuggan som returneras av [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Större värden på oskärpe‑radien ger mjukare kanter.
+
+Detta Python‑exempel skapar ett ljusblått kort med en mörkgrå inre skugga och sparar det som en PPTX‑fil. Skuggans riktning är 225 grader, dess avstånd är 7 punkter och dess oskärpe‑radie är 6 punkter:
+
+```python
+import jpile
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -112,9 +162,9 @@ För att ta bort den inre skuggan, anropa [disableInnerShadowEffect](https://ref
 
 ### **Tillämpa, ändra och ta bort en förinställd skugga**
 
-Anropa [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect), använd sedan [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) för att välja en [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/). För att byta stil, ändra förinställningen på samma form. Anropa [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) för att ta bort skuggan samtidigt som fyllning och kontur bevaras.
+Anropa [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect), och använd sedan [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) för att välja en [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/). För att byta stil, ändra förinställningen på samma form. Anropa [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) för att ta bort skuggan samtidigt som fyllning och kontur bevaras.
 
-Exemplet klonar rektangeln i varje steg så att du kan jämföra alla fyra tillstånd sida‑vid‑sida på en slide. Båda skuggorna är förskjutna med 10 punkter. En riktning på 225° placerar den första skuggan ovanför och till vänster om rektangeln. En riktning på 45° placerar den andra nedanför och till höger.
+Exemplet klonar rektangeln i varje steg så att du kan jämföra alla fyra tillstånd sida vid sida på en bild. Båda skuggorna är förskjutna med 10 punkter. En riktning på 225° placerar den första skuggan ovanför och åt vänster om rektangeln. En riktning på 45° placerar den andra nedanför och åt höger.
 
 ```python
 import jpype
@@ -166,15 +216,15 @@ finally:
     presentation.dispose()
 ```
 
-| Original | Första förinställning | Andra förinställning | Efter borttagning |
+| Original | First preset | Second preset | After removal |
 | :---: | :---: | :---: | :---: |
-| ![Ingen skugga](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![Ingen skugga efter borttagning](preset_shadow_removed.png) |
+| ![Ingen skugga](preset_shadow_original.png) | ![ÖvreVänsterSkugga](preset_shadow_top_left.png) | ![NedreHögerSkugga](preset_shadow_bottom_right.png) | ![Ingen skugga efter borttagning](preset_shadow_removed.png) |
 
 ## **Tillämpa en reflektionseffekt**
 
-För att tillämpa en reflektionseffekt i Aspose.Slides for Python via Java kan du lägga till en spegel‑liknande reflektion på former, justera parametrar som avstånd, transparens och storlek. Denna effekt förbättrar dina presentationers estetik genom att ge former ett mer polerat och sofistikerat utseende. Den är enkel att implementera med kort kod, vilket möjliggör snabb tillämpning över flera element för en enhetlig design.
+För att tillämpa en reflektionseffekt i Aspose.Slides för Python via Java kan du lägga till en spegelliknande reflektion på former och justera parametrar som avstånd, genomskinlighet och storlek. Denna effekt förbättrar estetiken i dina presentationer genom att ge former ett mer polerat och sofistikerat utseende. Den är enkel att implementera med enkel kod, vilket möjliggör snabb applicering på flera element för en enhetlig design.
 
-Denna Python‑kod visar hur du tillämpar [reflection effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) på en form:
+Denna Python‑kod visar hur du tillämpar [reflektionseffekt](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) på en form:
 
 ```python
 import jpype
@@ -203,11 +253,11 @@ finally:
 
 ![Reflektionseffekt](reflection_effect.png)
 
-## **Tillämpa en glöd‑effekt**
+## **Tillämpa en glödeffekt**
 
-För att tillämpa en glöd‑effekt på en form i Aspose.Slides for Python via Java kan du lägga till en mjuk, lysande aura runt former, justera egenskaper som färg och storlek. Denna effekt hjälper former att sticka ut och ger ett attraktivt, ögonfallande visuellt element till din presentation. Den är enkel att implementera med minimal kod och förbättrar det totala utseendet på dina slides.
+För att tillämpa en glödeffekt på en form i Aspose.Slides för Python via Java kan du lägga till en mjuk, lysande aura runt former, och justera egenskaper som färg och storlek. Denna effekt hjälper former att sticka ut och tillför ett attraktivt, iögonfallande visuellt element till din presentation. Den är enkel att implementera med minimal kod, vilket förbättrar det övergripande utseendet på dina bilder.
 
-Denna Python‑kod visar hur du tillämpar [glow effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) på en form:
+Denna Python‑kod visar hur du tillämpar [glödeffekt](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) på en form:
 
 ```python
 import jpype
@@ -233,13 +283,13 @@ finally:
     presentation.dispose()
 ```
 
-![Glöd‑effekt](glow_effect.png)
+![Glödeffekt](glow_effect.png)
 
-## **Tillämpa en mjuka kanter‑effekt**
+## **Tillämpa en mjuk kanter‑effekt**
 
-För att tillämpa en mjuka kanter‑effekt i Aspose.Slides for Python via Java kan du skapa en jämn, suddig övergång runt en forms kanter. Denna effekt ger ett mer subtilt och raffinerat intryck, perfekt för designer som behöver ett mjukt, skonsamt utseende. Du kan enkelt justera parametrar som radie för att uppnå önskad effekt på olika former i din presentation.
+För att tillämpa en mjuk kanter‑effekt i Aspose.Slides för Python via Java kan du skapa en jämn, suddig övergång runt en formes kanter. Denna effekt ger ett mer subtilt och raffinerat utseende, perfekt för designer som kräver en mjukare framtoning. Du kan enkelt justera parametrar som radie för att uppnå önskad effekt på olika former i din presentation.
 
-Denna Python‑kod visar hur du tillämpar [soft edges effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) på en form:
+Denna Python‑kod visar hur du tillämpar [mjuk kanter‑effekt](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) på en form:
 
 ```python
 import jpype
@@ -263,19 +313,19 @@ finally:
     presentation.dispose()
 ```
 
-![Mjuka kanter‑effekt](soft_edges_effect.png)
+![Mjuk kanter‑effekt](soft_edges_effect.png)
 
-## **Tillämpa en oskärpe‑effekt**
+## **Tillämpa en suddeffekt**
 
-Använd form‑oskärpa för att mjuka upp en forms fyllning och kontur samtidigt som formen förblir redigerbar. Anropa [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) på formens effektformat. Radien mäts i punkter (1/72 tum): använd ett icke‑negativt värde, där större värden ger starkare oskärpa. En radie på noll lämnar utseendet orört.
+Använd form‑suddning för att mjuka upp en formas fyllning och kontur samtidigt som formen förblir redigerbar. Anropa [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) på formens effektformat. Radien mäts i punkter (1/72 tum): använd ett icke‑negativt värde, där större värden ger starkare suddning. En radie på noll behåller utseendet oförändrat.
 
-Inställningen [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) styr de synliga gränserna för effekten. Med `False` klipps oskärpan till de ursprungligt målade gränserna, inklusive konturen. Med `True` kan oskärpan sträcka sig utanför dessa gränser. Ingen av inställningarna ändrar formens position eller dimensioner.
+Inställningen [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) styr de synliga gränserna för effekten. Med `False` klipps suddningen till de ursprungliga målade gränserna, inklusive konturen. Med `True` kan suddningen sträcka sig utanför dessa gränser. Ingen av inställningarna ändrar formens position eller dimensioner.
 
-Jämförelsen nedan använder samma fyllning, kontur och formdimensioner genomgående. Översta raden använder `grow = False`; nedersta raden använder `grow = True`.
+Jämförelsen nedan använder samma fyllning, kontur och formdimensioner genom hela exemplet. Den övre raden använder `grow = False`; den nedre raden använder `grow = True`.
 
-![Original rektangel jämfört med oskärper på 5 och 15 punkter, med grow inaktiverat och aktiverat](shape_blur_comparison.png)
+![Original rektangel jämfört med suddradier på 5 och 15 punkter, med grow inaktiverat och aktiverat](shape_blur_comparison.png)
 
-Detta Python‑exempel skapar en orange rektangel med en mörkblå kontur, tillämpar en 5‑punkts oskärpa och uppdaterar sedan till en 15‑punkts oskärpa genom att anropa [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) igen. Det sparar båda oskärpta tillstånden, anropar sedan [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) och sparar formen utan oskärpa.
+Detta Python‑exempel skapar en orange rektangel med en mörkblå kontur, applicerar en 5‑punkts suddning och uppdaterar sedan till en 15‑punkts suddning genom att anropa [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) igen. Det sparar båda suddiga tillstånden, anropar sedan [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) och sparar formen utan suddning.
 
 ```python
 import jpype
@@ -310,9 +360,9 @@ finally:
     presentation.dispose()
 ```
 
-Form‑oskärpa påverkar fyllning och kontur tillsammans. En mjuka kanter‑effekt tonar ner formens kanter, medan skuggoskärpa bara mjukar upp skuggan. Bild‑transformations‑effekter arbetar på bildinnehåll; detta exempel applicerar oskärpa direkt på formens effektformat utan att konvertera formen till en bild.
+Form‑suddning påverkar både fyllning och kontur tillsammans. En mjuk kanter‑effekt tonar ner formens kanter, medan skuggsuddning mjukar enbart upp skuggan. Bildtransformations‑effekter verkar på bildinnehåll; detta exempel applicerar suddning direkt på formens effektformat utan att konvertera formen till en bild.
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Kan jag tillämpa flera effekter på samma form?**
 
@@ -320,8 +370,8 @@ Ja, du kan kombinera olika effekter, såsom skugga, reflektion och glöd, på en
 
 **Vilka former kan jag tillämpa effekter på?**
 
-Du kan tillämpa effekter på olika former, inklusive autoshapes, diagram, tabeller, bilder, SmartArt‑objekt, OLE‑objekt och mer.
+Du kan applicera effekter på olika former, inklusive autogestaltade former, diagram, tabeller, bilder, SmartArt‑objekt, OLE‑objekt och mer.
 
 **Kan jag tillämpa effekter på grupperade former?**
 
-Ja, du kan tillämpa effekter på grupperade former. Effekten kommer att tillämpas på hela gruppen.
+Ja, du kan applicera effekter på grupperade former. Effekten kommer att tillämpas på hela gruppen.

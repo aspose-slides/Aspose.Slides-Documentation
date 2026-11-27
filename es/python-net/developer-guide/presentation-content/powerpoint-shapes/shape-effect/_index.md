@@ -16,23 +16,23 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Transforma tus archivos PPT, PPTX y ODP con efectos de forma avanzados usando Aspose.Slides for Python—crea diapositivas impactantes y profesionales en segundos."
+description: "Transforma tus archivos PPT, PPTX y ODP con efectos de forma avanzados usando Aspose.Slides para Python: crea diapositivas impactantes y profesionales en segundos."
 ---
 ## **Introducción**
 
-Aunque los efectos en PowerPoint pueden usarse para que una forma destaque, difieren de los [rellenos](/slides/es/python-net/shape-formatting/#gradient-fill) o contornos. Usando los efectos de PowerPoint, puedes crear reflejos convincentes en una forma, difundir el resplandor de una forma, etc.
+Mientras los efectos en PowerPoint pueden usarse para que una forma destaque, difieren de [rellenos](/slides/es/python-net/shape-formatting/#gradient-fill) o contornos. Usando los efectos de PowerPoint, puedes crear reflejos convincentes en una forma, difundir el resplandor de una forma, etc.
 
 ![Efecto de forma](shape-effect.png)
 
-PowerPoint proporciona seis efectos que pueden aplicarse a las formas. Puedes aplicar uno o varios efectos a una forma.
+PowerPoint ofrece seis efectos que pueden aplicarse a las formas. Puedes aplicar uno o más efectos a una forma.
 
-Algunas combinaciones de efectos lucen mejor que otras. Por este motivo, PowerPoint tiene opciones bajo **Preset**. Las opciones de **Preset** son esencialmente una combinación conocida y estética de dos o más efectos. De este modo, al seleccionar un preset, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
+Algunas combinaciones de efectos se ven mejor que otras. Por esta razón, PowerPoint tiene opciones bajo **Preset**. Las opciones Preset son esencialmente una combinación conocida de dos o más efectos que lucen bien. Así, al seleccionar un preset, no tendrás que perder tiempo probando o combinando diferentes efectos para encontrar una buena combinación.
 
-Aspose.Slides proporciona propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) que te permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
+Aspose.Slides ofrece propiedades y métodos bajo la clase [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/) que permiten aplicar los mismos efectos a las formas en presentaciones de PowerPoint.
 
 ## **Aplicar un efecto de sombra**
 
-Aspose.Slides for Python via .NET admite sombras externas e internas para las formas. Puedes personalizar su color, dirección, distancia y radio de desenfoque para que coincidan con el diseño de tu presentación.
+Aspose.Slides para Python a través de .NET admite sombras externas e internas para las formas. Puedes personalizar su color, dirección, distancia y radio de desenfoque para que coincidan con el diseño de tu presentación.
 
 ### **Aplicar una sombra externa**
 
@@ -57,13 +57,53 @@ with slides.Presentation() as presentation:
 
 ![Efecto de sombra](shadow_effect.png)
 
+#### **Controlar la dirección de la sombra cuando una forma gira**
+
+Por defecto, [OuterShadow.rotate_shadow_with_shape](https://reference.aspose.com/slides/python-net/aspose.slides.effects/outershadow/rotate_shadow_with_shape/) es `True`, por lo que la sombra gira con la forma. Para que las formas con rotaciones diferentes parezcan iluminadas desde la misma dirección, establece esta propiedad a `False` y da a sus sombras la misma [direction](https://reference.aspose.com/slides/python-net/aspose.slides.effects/outershadow/direction/).
+
+El ejemplo crea dos flechas con sombras grises desplazadas 42 puntos a la derecha (`direction = 0`). Luego duplica la diapositiva y gira ambas flechas 90° en sentido horario.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    before = presentation.slides[0]
+
+    left = before.shapes.add_auto_shape(slides.ShapeType.RIGHT_ARROW, 55, 130, 110, 60)
+    left.fill_format.fill_type = slides.FillType.SOLID
+    left.fill_format.solid_fill_color.color = slides.Color.steel_blue
+    left.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    left.effect_format.enable_outer_shadow_effect()
+    shadow = left.effect_format.outer_shadow_effect
+    shadow.shadow_color.color = slides.Color.gray
+    shadow.direction = 0
+    shadow.distance = 42
+    shadow.blur_radius = 0
+    shadow.rotate_shadow_with_shape = True
+
+    right = before.shapes.add_clone(left)
+    right.x = 395
+    right.effect_format.outer_shadow_effect.rotate_shadow_with_shape = False
+
+    after = presentation.slides.add_clone(before)
+    for arrow in after.shapes:
+        arrow.rotation = 90
+
+    presentation.save("arrow_shadows.pptx", slides.export.SaveFormat.PPTX)
+```
+
+En la segunda diapositiva, la flecha izquierda proyecta su sombra hacia abajo, mientras que la flecha derecha sigue proyectando su sombra a la derecha. La dirección configurada sigue siendo 0° para ambas sombras.
+
+![Representación de PowerPoint antes y después de una rotación de 90°. Ambas sombras comienzan a la derecha. Después de la rotación, la sombra se desplaza debajo de la flecha izquierda y permanece a la derecha de la flecha derecha.](arrow-shadow-rotation.png)
+
 ### **Aplicar una sombra interna**
 
 Al reproducir el estilo visual de una plantilla, usa una sombra interna para dar a una tarjeta o panel una apariencia hundida. Una sombra externa se extiende fuera de la forma y la hace parecer elevada, mientras que una sombra interna sombrea el interior de sus bordes.
 
-Llama a [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/), luego configura [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/). Los valores mayores de radio de desenfoque producen bordes más suaves.
+Llama a [enable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_inner_shadow_effect/), luego configura [inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/inner_shadow_effect/). Valores mayores de radio de desenfoque producen bordes más suaves.
 
-Este ejemplo Python crea una tarjeta azul claro con una sombra interna gris oscuro y la guarda como archivo PPTX:
+Este ejemplo Python crea una tarjeta azul clara con una sombra interna gris oscuro y la guarda como archivo PPTX:
 
 ```python
 import aspose.slides as slides
@@ -86,15 +126,15 @@ with slides.Presentation() as presentation:
     presentation.save("inner_shadow_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Rectángulo azul claro con una sombra interna](inner_shadow_effect.png)
+![Rectángulo azul claro con sombra interna](inner_shadow_effect.png)
 
 Para eliminar la sombra interna, llama a [disable_inner_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_inner_shadow_effect/) en el formato de efecto de la forma.
 
 ### **Aplicar, cambiar y eliminar una sombra predefinida**
 
-Llama a [enable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_preset_shadow_effect/) y establece la propiedad [preset](https://reference.aspose.com/slides/python-net/aspose.slides.effects/presetshadow/preset/) de la sombra a un valor de [PresetShadowType](https://reference.aspose.com/slides/python-net/aspose.slides/presetshadowtype/). Para cambiar de estilo, modifica el preset en la misma forma. Llama a [disable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_preset_shadow_effect/) para eliminar la sombra manteniendo el relleno y el contorno.
+Llama a [enable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/enable_preset_shadow_effect/) y establece la propiedad [preset](https://reference.aspose.com/slides/python-net/aspose.slides.effects/presetshadow/preset/) de la sombra a un valor de [PresetShadowType](https://reference.aspose.com/slides/python-net/aspose.slides/presetshadowtype/). Para cambiar estilos, modifica el preset en la misma forma. Llama a [disable_preset_shadow_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_preset_shadow_effect/) para eliminar la sombra manteniendo el relleno y el contorno.
 
-Este ejemplo muestra cuatro etapas lado a lado en una diapositiva. Clona el rectángulo antes de cada cambio para que puedas comparar los resultados. Ambas sombras se desplazan 10 puntos. Una dirección de 225° coloca la primera sombra arriba y a la izquierda del rectángulo, y 45° coloca la segunda abajo y a la derecha.
+Este ejemplo muestra cuatro etapas una al lado de la otra en una diapositiva. Clona el rectángulo antes de cada cambio para que puedas comparar los resultados. Ambas sombras están desplazadas 10 puntos. Una dirección de 225° coloca la primera sombra arriba y a la izquierda del rectángulo, y 45° coloca la segunda debajo y a la derecha.
 
 ```python
 import aspose.slides as slides
@@ -134,13 +174,13 @@ with slides.Presentation() as presentation:
     presentation.save("preset_shadows.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-| Original | Primer preset | Segundo preset | Después de eliminar |
+| Original | Primer predefinido | Segundo predefinido | Después de eliminar |
 | :---: | :---: | :---: | :---: |
-| ![Sin sombra](preset_shadow_original.png) | ![Sombra proyectada superior izquierda](preset_shadow_top_left.png) | ![Sombra proyectada inferior derecha](preset_shadow_bottom_right.png) | ![Sin sombra después de eliminar](preset_shadow_removed.png) |
+| ![No shadow](preset_shadow_original.png) | ![Top-left drop shadow](preset_shadow_top_left.png) | ![Bottom-right drop shadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
 
 ## **Aplicar un efecto de reflexión**
 
-Para aplicar un efecto de reflexión en Aspose.Slides for Python via .NET, puedes añadir una reflexión tipo espejo a las formas, ajustando parámetros como distancia, transparencia y tamaño. Este efecto realza la estética de tus presentaciones al dar a las formas un aspecto más pulido y sofisticado. Es fácil de implementar con código sencillo, lo que permite una aplicación rápida en varios elementos para un diseño coherente.
+Para aplicar un efecto de reflexión en Aspose.Slides para Python a través de .NET, puedes añadir una reflexión similar a un espejo a las formas, ajustando parámetros como distancia, transparencia y tamaño. Este efecto realza la estética de tus presentaciones al dar a las formas un aspecto más pulido y sofisticado. Es fácil de implementar con código simple, permitiendo una aplicación rápida en varios elementos para un diseño coherente.
 
 Este código Python muestra cómo aplicar el [reflection effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/reflection_effect/) a una forma:
 
@@ -164,7 +204,7 @@ with slides.Presentation() as presentation:
 
 ## **Aplicar un efecto de resplandor**
 
-Para aplicar un efecto de resplandor a una forma en Aspose.Slides for Python via .NET, puedes añadir una aura suave y luminosa alrededor de las formas, ajustando propiedades como el color y el tamaño. Este efecto ayuda a que las formas destaquen y añade un elemento visual atractivo y llamativo a tu presentación. Es fácil de implementar con código mínimo, mejorando el aspecto general de tus diapositivas.
+Para aplicar un efecto de resplandor a una forma en Aspose.Slides para Python a través de .NET, puedes añadir un aura suave y luminosa alrededor de las formas, ajustando propiedades como color y tamaño. Este efecto ayuda a que las formas destaquen y aporta un elemento visual atractivo a tu presentación. Es fácil de implementar con código mínimo, mejorando el aspecto general de tus diapositivas.
 
 Este código Python muestra cómo aplicar el [glow effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/glow_effect/) a una forma:
 
@@ -186,7 +226,7 @@ with slides.Presentation() as presentation:
 
 ## **Aplicar un efecto de bordes suaves**
 
-Para aplicar un efecto de bordes suaves en Aspose.Slides for Python via .NET, puedes crear una transición lisa y difuminada alrededor de los bordes de una forma. Este efecto aporta un aspecto más sutil y refinado, perfecto para diseños que requieren una apariencia delicada y más suave. Puedes ajustar fácilmente parámetros como el radio para lograr el efecto deseado en diversas formas de tu presentación.
+Para aplicar un efecto de bordes suaves en Aspose.Slides para Python a través de .NET, puedes crear una transición difusa y suave alrededor de los bordes de una forma. Este efecto añade un aspecto más sutil y refinado, perfecto para diseños que necesitan una apariencia delicada. Puedes ajustar fácilmente parámetros como el radio para lograr el efecto deseado en distintas formas de tu presentación.
 
 Este código Python muestra cómo aplicar los [soft edges](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/soft_edge_effect/) a una forma:
 
@@ -207,15 +247,15 @@ with slides.Presentation() as presentation:
 
 ## **Aplicar un efecto de desenfoque**
 
-Utiliza el desenfoque de forma para suavizar el relleno y el contorno de una forma mientras mantienes la forma editable. Llama a [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) en el formato de efecto de la forma. El radio se mide en puntos (1/72 de pulgada): usa un valor no negativo, con valores mayores que producen un desenfoque más fuerte. Un radio de cero deja la apariencia sin cambios.
+Usa desenfoque de forma para suavizar el relleno y el contorno de una forma manteniéndola editable. Llama a [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) en el formato de efecto de la forma. El radio se mide en puntos (1/72 de pulgada): usa un valor no negativo, con valores mayores que producen un desenfoque más fuerte. Un radio de cero deja el aspecto sin cambios.
 
-La configuración [grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) controla los límites visibles del efecto. Con `False`, el desenfoque se recorta a los límites pintados originales, incluido el contorno. Con `True`, el desenfoque puede extenderse más allá de esos límites. Ninguna de las dos configuraciones cambia la posición ni las dimensiones de la forma.
+La configuración [grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) controla los límites visibles del efecto. Con `False`, el desenfoque se recorta a los límites pintados originales, incluido el contorno. Con `True`, el desenfoque puede extenderse más allá de esos límites. Ninguna de las dos configuraciones modifica la posición o las dimensiones de la forma.
 
-La comparación a continuación utiliza el mismo relleno, contorno y dimensiones de forma en todo momento. La fila superior usa `grow = False`; la fila inferior usa `grow = True`.
+La comparación a continuación usa el mismo relleno, contorno y dimensiones de forma en todo momento. La fila superior usa `grow = False`; la fila inferior usa `grow = True`.
 
 ![Rectángulo original comparado con radios de desenfoque de 5 y 15 puntos, con grow desactivado y activado](shape_blur_comparison.png)
 
-Este ejemplo Python crea un rectángulo naranja con un contorno azul oscuro, aplica un desenfoque de 5 puntos y luego lo actualiza a un desenfoque de 15 puntos llamando de nuevo a [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/). Guarda ambos estados desenfocados, luego llama a [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) y guarda la forma sin desenfoque.
+Este ejemplo Python crea un rectángulo naranja con un contorno azul oscuro, aplica un desenfoque de 5 puntos y luego lo actualiza a un desenfoque de 15 puntos llamando nuevamente a [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/). Guarda ambos estados desenfocados, luego llama a [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) y guarda la forma sin desenfoque.
 
 ```python
 import aspose.slides as slides
@@ -240,7 +280,7 @@ with slides.Presentation() as presentation:
     presentation.save("shape_blur_removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-El desenfoque de forma afecta al relleno y al contorno juntos. Un efecto de bordes suaves difumina los bordes de la forma, mientras que el desenfoque de sombra suaviza solo la sombra. Los efectos de transformación de imagen operan sobre el contenido de la imagen; este ejemplo aplica desenfoque directamente al formato de efecto de la forma sin convertirla en una imagen.
+El desenfoque de forma afecta simultáneamente al relleno y al contorno. Un efecto de bordes suaves difumina los bordes de la forma, mientras que el desenfoque de sombra suaviza solo la sombra. Los efectos de transformación de imagen actúan sobre el contenido de la imagen; este ejemplo aplica desenfoque directamente al formato de efecto de la forma sin convertirla en una imagen.
 
 ## **Preguntas frecuentes**
 
@@ -250,7 +290,7 @@ Sí, puedes combinar diferentes efectos, como sombra, reflexión y resplandor, e
 
 **¿A qué formas puedo aplicar efectos?**
 
-Puedes aplicar efectos a diversas formas, incluidas formas automáticas, gráficos, tablas, imágenes, objetos SmartArt, objetos OLE y más.
+Puedes aplicar efectos a diversas formas, incluyendo autoshapes, gráficos, tablas, imágenes, objetos SmartArt, objetos OLE y más.
 
 **¿Puedo aplicar efectos a formas agrupadas?**
 

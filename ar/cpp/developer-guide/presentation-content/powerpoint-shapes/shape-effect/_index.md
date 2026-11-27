@@ -12,32 +12,32 @@ keywords:
 - تأثير الحواف الناعمة
 - تنسيق التأثير
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - C++
 - Aspose.Slides
-description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides لـ C++ — أنشئ شرائح جذابة ومهنية في ثوانٍ."
+description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides للـ C++ — أنشئ شرائح مميزة ومهنية في ثوانٍ."
 ---
-## **مقدمة**
+## **المقدمة**
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [ملء](/slides/ar/cpp/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، وما إلى ذلك.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [التعبئات](/slides/ar/cpp/shape-formatting/#gradient-fill) أو الخطوط الخارجية. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، وما إلى ذلك.
 
-![Shape effect](shape-effect.png)
+![تأثير الشكل](shape-effect.png)
 
-PowerPoint يوفر ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على شكل.
+يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل.
 
-بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يحتوي PowerPoint على خيارات تحت **Preset**. خيارات Prest عبارة عن مجموعة من تأثيرين أو أكثر معروفة بأنها تبدو جيدة معاً. بهذه الطريقة، عند اختيار إعداد مسبق، لن تحتاج إلى إضاعة الوقت في اختبار أو جمع تأثيرات مختلفة للعثور على تركيبة جميلة.
+بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يحتوي PowerPoint على خيارات تحت **المُعَد سلفًا**. خيارات المُعَد سلفًا هي أساساً تركيبة من تأثيرين أو أكثر معروفة بأنها تبدو جيدة معًا. بهذه الطريقة، عند اختيار مُعَد سلفًا، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة مناسبة.
 
-توفر Aspose.Slides الخصائص والطرق تحت فئة [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) التي تسمح لك بتطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
+توفر Aspose.Slides خصائص وطرق تحت فئة [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
 
 ## **تطبيق تأثير الظل**
 
-Aspose.Slides for C++ يدعم الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص لونها، اتجاهها، مسافتها، ونصف قطر الضبابية لتتناسب مع تصميم العرض التقديمي الخاص بك.
+يدعم Aspose.Slides للـ C++ الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص اللون والاتجاه والمسافة ونصف قطر الضباب لتتناسب مع تصميم عرضك.
 
 ### **تطبيق ظل خارجي**
 
-استخدم ظلًا خارجيًا لجعل بطاقة أو لوحة تبرز ضد خلفية الشريحة. يمتد الظل خارج حواف الشكل، مما يخلق انطباعًا بأن الشكل مرتفع فوق الشريحة. اضبط لونه، واتجاهه، ومسافته، ونصف قطر الضبابية ليتطابق مع إضاءة ونمط القالب الخاص بك.
+استخدم الظل الخارجي لجعل بطاقة أو لوحة تبرز ضد خلفية الشريحة. يمتد الظل خارج حواف الشكل، مما يخلق انطباعًا بأن الشكل مرتفع فوق الشريحة. اضبط لونه واتجاهه ومسافته ونصف قطر الضباب ليتناسب مع إضاءة ونمط القالب الخاص بك.
 
-يعرض هذا الكود C++ كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) على مستطيل:
+يظهر هذا الكود C++ كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) على مستطيل:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -71,13 +71,72 @@ presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 
 ![تأثير الظل](shadow_effect.png)
 
+#### **التحكم في اتجاه الظل عندما يدور الشكل**
+
+افتراضيًا، يدور الظل الخارجي مع الشكل. لجعل الأشكال ذات الدورات المختلفة تبدو مضاءة من نفس الاتجاه، استدعِ [set_RotateShadowWithShape](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_rotateshadowwithshape/) مع القيمة `false` واستخدم [set_Direction](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ioutershadow/set_direction/) لإعطاء الظلال نفس الزاوية.
+
+المثال يُنشئ سهمين بظلال رمادية مُزاحة إلى اليمين (0°). ثم يكرر الشريحة ويدور السهمين 90° باتجاه عقارب الساعة.
+
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto before = presentation->get_Slide(0);
+
+auto left = before->get_Shapes()->AddAutoShape(ShapeType::RightArrow, 55, 130, 110, 60);
+left->get_FillFormat()->set_FillType(FillType::Solid);
+left->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+left->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+left->get_EffectFormat()->EnableOuterShadowEffect();
+auto shadow = left->get_EffectFormat()->get_OuterShadowEffect();
+shadow->get_ShadowColor()->set_Color(Color::get_Gray());
+shadow->set_Direction(0);
+shadow->set_Distance(42);
+shadow->set_BlurRadius(0);
+shadow->set_RotateShadowWithShape(true);
+
+auto right = before->get_Shapes()->AddClone(left);
+right->set_X(395);
+right->get_EffectFormat()->get_OuterShadowEffect()->set_RotateShadowWithShape(false);
+
+auto after = presentation->get_Slides()->AddClone(before);
+for (auto i = 0; i < after->get_Shapes()->get_Count(); ++i)
+{
+    after->get_Shape(i)->set_Rotation(90);
+}
+
+presentation->Save(u"arrow_shadows.pptx", SaveFormat::Pptx);
+```
+
+في الشريحة الثانية، يُسقط السهم الأيسر ظله إلى الأسفل، بينما يظل السهم الأيمن يُسقط ظله إلى اليمين. يبقى الاتجاه المُعدّ 0° لكلا الظلين.
+
+![عرض PowerPoint قبل وبعد دوران 90°. كلا الظلين يبدأان على اليمين. بعد الدوران، يتحرك الظل أسفل السهم الأيسر ويبقى على يمين السهم الأيمن.](arrow-shadow-rotation.png)
+
 ### **تطبيق ظل داخلي**
 
-عند إعادة إنتاج النمط البصري للقالب، استخدم ظلًا داخليًا لإعطاء البطاقة أو اللوحة مظهرًا منغلقًا. يمتد الظل الخارجي خارج الشكل ويجعله يبدو مرتفعًا، بينما يظلل الظل الداخلي داخل حواف الشكل.
+عند إعادة إنتاج النمط البصري للقالب، استخدم الظل الداخلي لإعطاء بطاقة أو لوحة مظهرًا متراجعًا. الظل الخارجي يمتد خارج الشكل ويجعلها تبدو مرتفعة، بينما الظل الداخلي يظلل داخل حواف الشكل.
 
-استدعِ [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/)، ثم قم بتكوين [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). قيم نصف قطر الضبابية الأكبر تنتج حوافًا أكثر نعومة.
+استدعِ [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/)، ثم اضبط [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). القيم الأكبر لنصف قطر الضباب تُنتج حوافًا أكثر نعومة.
 
-هذا المثال C++ ينشئ بطاقة باللون الأزرق الفاتح مع ظل داخلي رمادي داكن ويحفظها كملف PPTX:
+يوضح هذا المثال C++ كيفية إنشاء بطاقة زرقاء فاتحة بظل داخلي رمادي غامق وحفظها كملف PPTX:
 
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
@@ -120,11 +179,11 @@ presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 
 لإزالة الظل الداخلي، استدعِ [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) على تنسيق تأثير الشكل.
 
-### **تطبيق وتغيير وإزالة ظل مُحدد مسبقًا**
+### **تطبيق، تغيير وإزالة ظل مُعَد سلفًا**
 
-استدعِ [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) واستخدم [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) لتحديد [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). لتبديل الأنماط، غير الإعداد المسبق على نفس الشكل. استدعِ [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) لإزالة الظل مع الحفاظ على التعبئة والحدود.
+استدعِ [EnablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/enablepresetshadoweffect/) واستخدم [set_Preset](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ipresetshadow/set_preset/) لاختيار [PresetShadowType](https://reference.aspose.com/slides/cpp/aspose.slides/presetshadowtype/). لتغيير الأنماط، غيّر المُعَد سلفًا على نفس الشكل. استدعِ [DisablePresetShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disablepresetshadoweffect/) لإزالة الظل مع الحفاظ على التعبئة والخط الخارجي.
 
-هذا المثال يحتفظ بنسخة من المستطيل في كل مرحلة. كلا الظلين مُزاحان بمقدار 10 نقاط. الاتجاه 225° يضع الظل الأول فوق وإلى اليسار من المستطيل، و45° يضع الثاني أسفل وإلى اليمين.
+يحافظ هذا المثال على نسخة من المستطيل في كل مرحلة. كلا الظلين مُزاحان بمقدار 10 نقاط. اتجاه 225° يضع الظل الأول فوق ويسار المستطيل، و45° يضع الظل الثاني أسفل ويسر المستطيل.
 
 ```cpp
 #include <DOM/Effects/IPresetShadow.h>
@@ -191,15 +250,15 @@ textFrame->set_Text(u"No shadow");
 presentation->Save(u"preset_shadows.pptx", SaveFormat::Pptx);
 ```
 
-| الأصلي | الإعداد المسبق الأول | الإعداد المسبق الثاني | بعد الإزالة |
+| الأصلي | الظل المُعَد الأول | الظل المُعَد الثاني | بعد الإزالة |
 | :---: | :---: | :---: | :---: |
-| ![No shadow](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![No shadow after removal](preset_shadow_removed.png) |
+| ![بدون ظل](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![بدون ظل بعد الإزالة](preset_shadow_removed.png) |
 
 ## **تطبيق تأثير الانعكاس**
 
-لتطبيق تأثير الانعكاس في Aspose.Slides for C++، يمكنك إضافة انعكاس شبيه بالمرآة إلى الأشكال، مع ضبط المعلمات مثل المسافة والشفافية والحجم. هذا التأثير يعزز جمالية عروضك التقديمية من خلال إعطاء الأشكال مظهرًا أكثر صقلًا وأناقة. من السهل تنفيذه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عناصر متعددة لتصميم متسق.
+لتطبيق تأثير الانعكاس في Aspose.Slides للـ C++، يمكنك إضافة انعكاس كالمرآة إلى الأشكال، مع ضبط المعلمات مثل المسافة والشفافية والحجم. يُحسن هذا التأثير جمالية العروض من خلال إضفاء مظهر أكثر صقلًا وتطورًا على الأشكال. من السهل تنفيذه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عناصر متعددة لتصميم متسق.
 
-يعرض هذا الكود C++ كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) على شكل:
+يظهر هذا الكود C++ كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) على شكل:
 
 ```cpp
 #include <DOM/Effects/IReflection.h>
@@ -234,9 +293,9 @@ presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 
 ## **تطبيق تأثير التوهج**
 
-لتطبيق تأثير التوهج على شكل في Aspose.Slides for C++، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، مع ضبط خصائص مثل اللون والحجم. يساعد هذا التأثير على إبراز الأشكال وإضافة عنصر بصري جذاب إلى عرضك التقديمي. إنه سهل التنفيذ مع حد أدنى من الكود، مما يعزز المظهر العام للشرائح.
+لتطبيق تأثير التوهج على شكل في Aspose.Slides للـ C++، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، مع ضبط الخصائص مثل اللون والحجم. يساعد هذا التأثير في إبراز الأشكال وإضافة عنصر بصري جذاب إلى عرضك. من السهل تنفيذ ذلك بكود محدود، مما يعزز المظهر العام للشرائح.
 
-يعرض هذا الكود C++ كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) على شكل:
+يظهر هذا الكود C++ كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) على شكل:
 
 ```cpp
 #include <DOM/Effects/IGlow.h>
@@ -271,9 +330,9 @@ presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 
 ## **تطبيق تأثير الحواف الناعمة**
 
-لتطبيق تأثير الحواف الناعمة في Aspose.Slides for C++، يمكنك إنشاء انتقال سلس ومُblur حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقة وتفصيلًا، مثاليًا للتصاميم التي تحتاج إلى مظهر ناعم. يمكنك بسهولة ضبط معلمات مثل نصف القطر لتحقيق التأثير المطلوب عبر أشكال متعددة في عرضك.
+لتطبيق تأثير الحواف الناعمة في Aspose.Slides للـ C++، يمكنك إنشاء انتقال سلس ومموه حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقةً وتفصيلًا، وهو مثالي للتصاميم التي تحتاج إلى مظهر ناعم. يمكنك بسهولة تعديل المعلمات مثل نصف القطر لتحقيق التأثير المطلوب عبر أشكال مختلفة في عرضك.
 
-يعرض هذا الكود C++ كيفية تطبيق [الحواف الناعمة](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) على شكل:
+يظهر هذا الكود C++ كيفية تطبيق [الحواف الناعمة](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) على شكل:
 
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
@@ -302,17 +361,17 @@ presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 
 ![تأثير الحواف الناعمة](soft_edges_effect.png)
 
-## **تطبيق تأثير الضبابية**
+## **تطبيق تأثير الضباب**
 
-استخدم ضبابية الشكل لتنعيم تعبئة الشكل وحدوده مع الحفاظ على إمكانية تحرير الشكل. استدعِ [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) على تنسيق تأثير الشكل. يُقاس نصف القطر بالنقاط (1/72 بوصة): استخدم قيمة غير سالبة، فالقيم الأكبر تُنتج ضبابية أقوى. نصف القطر صفر يترك المظهر دون تغيير.
+استخدم ضباب الشكل لتنعيم تعبئة الشكل وخطه الخارجي مع الحفاظ على قابلية تحرير الشكل. استدعِ [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) على تنسيق تأثير الشكل. يُقاس نصف القطر بالنقاط (1/72 بوصة): استخدم قيمة غير سالبة، حيث تُنتج القيم الأكبر ضبابًا أقوى. نصف القطر صفر يترك المظهر دون تغيير.
 
-إعداد [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) يتحكم في حدود التأثير المرئية. عندما يكون `false`، تُقص الضبابية على الحدود المرسومة الأصلية، بما في ذلك الحد. عندما يكون `true`، يمكن للضبابية أن تمتد خارج تلك الحدود. لا يغير أي من الإعدادين موضع أو أبعاد الشكل.
+الخاصية [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) تتحكم في حدود التأثير المرئية. مع `false`، يُقَص الضباب إلى الحدود المرسومة الأصلية، بما في ذلك الخط الخارجي. مع `true`، يمكن للضباب أن يمتد خارج تلك الحدود. لا يغيّر أي من الإعدادين موضع الشكل أو أبعاده.
 
-المقارنة أدناه تستخدم نفس التعبئة، والحد، وأبعاد الشكل طوال الوقت. الصف العلوي يستخدم `grow = false`؛ الصف السفلي يستخدم `grow = true`.
+المقارنة أدناه تستخدم نفس التعبئة والخط الخارجي وأبعاد الشكل طوال الوقت. الصف العلوي يستخدم `grow = false`؛ الصف السفلي يستخدم `grow = true`.
 
-![المستطيل الأصلي مقارنةً بأنصاف قطر الضبابية 5 و 15 نقطة، مع تعطيل وتمكين خاصية النمو](shape_blur_comparison.png)
+![مستطيل أصلي مقارنةً مع نصف قطر ضباب 5 و15 نقطة، مع تعطيل وتمكين النمو](shape_blur_comparison.png)
 
-هذا المثال C++ ينشئ مستطيلًا برتقاليًا بحد أزرق داكن، يطبق ضبابية 5 نقاط، ثم يحدّثه إلى ضبابية 15 نقطة باستدعاء [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) مرة أخرى. يحفظ كلا الحالتين الضبابيتين، ثم يستدعي [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) ويحفظ الشكل بدون ضبابية.
+يُظهر هذا المثال C++ كيفية إنشاء مستطيل برتقالي بخط خارجي أزرق داكن، وتطبيق ضباب بـ 5 نقاط، ثم تحديثه إلى ضباب بـ 15 نقطة عبر استدعاء [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) مرة أخرى. يحفظ كلا الحالتين الضبابيتين، ثم يستدعي [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) ويحفظ الشكل دون ضباب.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -352,18 +411,18 @@ shape->get_EffectFormat()->DisableBlurEffect();
 presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
 ```
 
-ضبابية الشكل تؤثر على التعبئة والحد معًا. تأثير الحواف الناعمة يبهت حواف الشكل، بينما ضبابية الظل تُنعّم الظل فقط. تؤثر تأثيرات تحويل الصورة على محتوى الصورة؛ هذا المثال يطبق الضبابية مباشرة على تنسيق تأثير الشكل دون تحويل الشكل إلى صورة.
+ضباب الشكل يؤثر على التعبئة والخط الخارجي معًا. تأثير الحواف الناعمة يخفف حواف الشكل، بينما يخفف ضباب الظل الظل فقط. تأثيرات تحويل الصورة تعمل على محتوى الصورة؛ يطبق هذا المثال الضباب مباشرةً على تنسيق تأثير الشكل دون تحويل الشكل إلى صورة.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تطبيق مؤثرات متعددة على الشكل نفسه؟**
+**هل يمكنني تطبيق تأثيرات متعددة على نفس الشكل؟**
 
-نعم، يمكنك دمج مؤثرات مختلفة، مثل الظل، الانعكاس، والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
+نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل والانعكاس والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
 
-**ما الأشكال التي يمكنني تطبيق المؤثرات عليها؟**
+**ما هي الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
 
-يمكنك تطبيق المؤثرات على مجموعة متنوعة من الأشكال، بما في ذلك الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وأكثر.
+يمكنك تطبيق التأثيرات على أشكال متنوعة، بما في ذلك الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وغير ذلك.
 
-**هل يمكنني تطبيق المؤثرات على الأشكال المجمعة؟**
+**هل يمكنني تطبيق التأثيرات على الأشكال المجمعة؟**
 
-نعم، يمكنك تطبيق المؤثرات على الأشكال المجمعة. سيُطبق التأثير على المجموعة بأكملها.
+نعم، يمكنك تطبيق التأثيرات على الأشكال المجمعة. سيُطبق التأثير على المجموعة بأكملها.

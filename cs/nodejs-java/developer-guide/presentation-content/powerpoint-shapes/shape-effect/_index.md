@@ -6,7 +6,7 @@ weight: 30
 url: /cs/nodejs-java/shape-effect/
 keywords:
 - efekt tvaru
-- efekt stínu
+- stínový efekt
 - efekt odrazu
 - efekt záře
 - efekt měkkých hran
@@ -16,29 +16,29 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Transformujte své soubory PPT a PPTX pomocí pokročilých efektů tvarů v JavaScriptu a Aspose.Slides pro Node.js—vytvořte působivé, profesionální snímky během několika sekund."
+description: "Transformujte své soubory PPT a PPTX pomocí pokročilých efektů tvarů v JavaScriptu a Aspose.Slides pro Node.js — vytvořte působivé, profesionální snímky během několika sekund."
 ---
 ## **Úvod**
 
-Zatímco efekty v PowerPointu lze použít k zvýraznění objektu, liší se od [výplní](/slides/cs/nodejs-java/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit záři tvaru atd.
+Zatímco efekty v PowerPointu lze použít k zvýraznění tvaru, liší se od [výplní](/slides/cs/nodejs-java/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů v PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit jeho záři atd.
 
 ![Efekt tvaru](shape-effect.png)
 
 PowerPoint poskytuje šest efektů, které lze použít na tvary. Na tvar můžete použít jeden nebo více efektů.
 
-Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu PowerPoint nabízí možnosti pod **Preset**. Předvolby jsou kombinacemi dvou nebo více efektů, které jsou známy tím, že vypadají dobře. Tím, že vyberete předvolbu, nebudete muset ztrácet čas testováním nebo kombinováním různých efektů, abyste našli pěknou kombinaci.
+Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu PowerPoint nabízí možnosti pod **Preset**. Přednastavené možnosti jsou kombinace dvou nebo více efektů, u kterých je známo, že vypadají dobře. Tímto způsobem výběrem přednastavení nebudete muset ztrácet čas testováním nebo kombinováním různých efektů, abyste našli vhodnou kombinaci.
 
-Aspose.Slides poskytuje vlastnosti a metody ve třídě [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/), které vám umožní použít stejné efekty na tvary v prezentacích PowerPointu.
+Aspose.Slides poskytuje vlastnosti a metody ve třídě [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/), které umožňují použít stejné efekty na tvary v prezentacích PowerPointu.
 
-## **Použít efekt stínu**
+## **Použití efektu stínu**
 
-Aspose.Slides pro Node.js via Java podporuje vnější a vnitřní stíny pro tvary. Můžete přizpůsobit jejich barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly designu vaší prezentace.
+Aspose.Slides for Node.js via Java podporuje vnější a vnitřní stíny pro tvary. Můžete přizpůsobit jejich barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly designu vaší prezentace.
 
-### **Použít vnější stín**
+### **Použití vnějšího stínu**
 
-Použijte vnější stín, aby karta nebo panel vynikl na pozadí snímku. Stín přesahuje okraje tvaru a vytváří dojem, že je tvar vyvýšený nad snímkem. Upravit jeho barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly osvětlení a stylu vaší šablony.
+Použijte vnější stín, aby karta nebo panel vynikly na pozadí snímku. Stín přesahuje okraje tvaru a vytváří dojem, že je tvar nad snímkem. Upravit jeho barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly osvětlení a stylu vaší šablony.
 
-Tento JavaScriptový kód ukazuje, jak aplikovat [vnější efekt stínu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) na obdélník:
+Tento JavaScriptový kód ukazuje, jak použít [outer shadow effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) na obdélník:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -63,13 +63,62 @@ try {
 
 ![Efekt stínu](shadow_effect.png)
 
-### **Použít vnitřní stín**
+#### **Ovládání směru stínu při otáčení tvaru**
 
-Při reprodukci vizuálního stylu šablony použijte vnitřní stín, aby karta nebo panel získaly zapuštěný vzhled. Vnější stín se rozprostírá mimo tvar a dává mu dojem vyvýšení, zatímco vnitřní stín stínuje vnitřek jeho okrajů.
+Ve výchozím nastavení se vnější stín otáčí spolu s tvarem. Aby se tvary s různými otočeními jevily osvětlené ze stejného směru, zavolejte [setRotateShadowWithShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setRotateShadowWithShape) s `false` a použijte [setDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/outershadow/#setDirection), aby měly jejich stíny stejný směr.
+
+Příklad vytvoří dvě modré šipky s šedými stíny posunutými o 42 bodů doprava (0°). Pak duplikuje snímek a otočí obě šipky o 90° po směru hodinových ručiček.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const before = presentation.getSlides().get_Item(0);
+    
+    const left = before.getShapes().addAutoShape(aspose.slides.ShapeType.RightArrow, 55, 130, 110, 60);
+    left.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 70, 130, 180);
+    left.getFillFormat().getSolidFillColor().setColor(fillColor);
+    left.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    left.getEffectFormat().enableOuterShadowEffect();
+    const shadow = left.getEffectFormat().getOuterShadowEffect();
+    const shadowColor = java.getStaticFieldValue("java.awt.Color", "GRAY");
+    shadow.getShadowColor().setColor(shadowColor);
+    shadow.setDirection(0);
+    shadow.setDistance(42);
+    shadow.setBlurRadius(0);
+    shadow.setRotateShadowWithShape(true);
+
+    const right = before.getShapes().addClone(left);
+    right.setX(395);
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(false);
+
+    const after = presentation.getSlides().addClone(before);
+    const arrows = after.getShapes();
+    for (let i = 0; i < arrows.size(); i++) {
+        arrows.get_Item(i).setRotation(90);
+    }
+
+    presentation.save("arrow_shadows.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Na druhém snímku vrhá levá šipka stín dolů, zatímco pravá šipka stále vrhá stín doprava. Nastavený směr zůstává 0° pro oba stíny.
+
+![Vykreslení PowerPointu před a po otočení o 90°. Oba stíny začínají vpravo. Po otočení se stín přesune pod levou šipku a zůstane vpravo od pravé šipky.](arrow-shadow-rotation.png)
+
+### **Použití vnitřního stínu**
+
+Když reprodukujete vizuální styl šablony, použijte vnitřní stín, aby karta nebo panel měly zapuštěný vzhled. Vnější stín přesahuje mimo tvar a činí jej zdviženým, zatímco vnitřní stín stínuje vnitřek jeho okrajů.
 
 Zavolejte [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect) a poté nakonfigurujte stín vrácený metodou [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Větší hodnoty poloměru rozostření produkují měkčí hrany.
 
-Tento JavaScriptový příklad vytváří světle modrou kartu s tmavě šedým vnitřním stínem a ukládá ji jako soubor PPTX. Směr stínu je 225 stupňů, jeho vzdálenost je 7 bodů a poloměr rozostření je 6 bodů:
+Tento JavaScriptový příklad vytvoří světle modrou kartu s tmavě šedým vnitřním stínem a uloží ji jako soubor PPTX. Směr stínu je 225 stupňů, vzdálenost 7 bodů a poloměr rozostření 6 bodů:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -103,9 +152,9 @@ try {
 
 Pro odebrání vnitřního stínu zavolejte [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) na formátu efektu tvaru.
 
-### **Použít, změnit a odebrat předdefinovaný stín**
+### **Použití, změna a odebrání přednastaveného stínu**
 
-Zavolejte [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) a použijte [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) k výběru [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Pro změnu stylu změňte předvolbu na stejném tvaru. Zavolejte [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect) pro odebrání stínu při zachování výplně a obrysu.
+Zavolejte [enablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enablePresetShadowEffect) a použijte [setPreset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadow/#setPreset) k výběru [PresetShadowType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presetshadowtype/). Pro přepínání stylů změňte přednastavení na stejném tvaru. Zavolejte [disablePresetShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disablePresetShadowEffect), abyste odebrali stín při zachování výplně a obrysu.
 
 Tento příklad ukazuje čtyři fáze vedle sebe na jednom snímku. Oba stíny jsou posunuty o 10 bodů. Směr 225° umístí první stín nad a vlevo od obdélníku, a 45° umístí druhý pod a vpravo.
 
@@ -154,15 +203,15 @@ try {
 }
 ```
 
-| Originál | První předvolba | Druhá předvolba | Po odebrání |
+| Originál | První přednastavení | Druhé přednastavení | Po odebrání |
 | :---: | :---: | :---: | :---: |
-| ![Žádný stín](preset_shadow_original.png) | ![Stín v levém horním rohu](preset_shadow_top_left.png) | ![Stín v pravém dolním rohu](preset_shadow_bottom_right.png) | ![Žádný stín po odebrání](preset_shadow_removed.png) |
+| ![Žádný stín](preset_shadow_original.png) | ![Stín horního levého rohu](preset_shadow_top_left.png) | ![Stín dolního pravého rohu](preset_shadow_bottom_right.png) | ![Žádný stín po odebrání](preset_shadow_removed.png) |
 
-## **Použít efekt odrazu**
+## **Použití efektu odrazu**
 
-Pro aplikaci efektu odrazu v Aspose.Slides pro Node.js via Java můžete přidat zrcadlový odraz na tvary a upravit parametry jako vzdálenost, průhlednost a velikost. Tento efekt zvyšuje estetiku vašich prezentací tím, že tvarům dodává uhlazenější a sofistikovanější vzhled. Je snadno implementovatelný pomocí jednoduchého kódu, což umožňuje rychlé použití napříč více prvky pro konzistentní design.
+Pro aplikaci efektu odrazu v Aspose.Slides for Node.js via Java můžete přidat zrcadlový odraz na tvary a upravit parametry jako vzdálenost, průhlednost a velikost. Tento efekt zvyšuje estetiku vašich prezentací tím, že tvarům dodává uhlazený a sofistikovaný vzhled. Je snadno implementovatelný pomocí jednoduchého kódu, což umožňuje rychlé použití na více prvcích pro konzistentní design.
 
-Tento JavaScriptový kód ukazuje, jak aplikovat [efekt odrazu](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) na tvar:
+Tento JavaScriptový kód ukazuje, jak použít [reflection effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) na tvar:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -187,11 +236,11 @@ try {
 
 ![Efekt odrazu](reflection_effect.png)
 
-## **Použít efekt záře**
+## **Použití efektu záře**
 
-Pro aplikaci efektu záře na tvar v Aspose.Slides pro Node.js via Java můžete přidat měkkou, zářivou auru kolem tvarů a upravit vlastnosti jako barvu a velikost. Tento efekt pomáhá zvýraznit tvary a přidává atraktivní, poutavý vizuální prvek vaší prezentaci. Je snadno implementovatelný s minimálním kódem, což vylepšuje celkový vzhled vašich snímků.
+Pro aplikaci efektu záře na tvar v Aspose.Slides for Node.js via Java můžete přidat jemnou, svítivou auru kolem tvarů, upravit vlastnosti jako barvu a velikost. Tento efekt pomáhá tvarům vyniknout a přidává atraktivní, poutavý vizuální prvek do vaší prezentace. Je snadno implementovatelný s minimálním kódem, čímž zlepšuje celkový vzhled vašich snímků.
 
-Tento JavaScriptový kód ukazuje, jak aplikovat [efekt záře](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) na tvar:
+Tento JavaScriptový kód ukazuje, jak použít [glow effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) na tvar:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -215,11 +264,11 @@ try {
 
 ![Efekt záře](glow_effect.png)
 
-## **Použít efekt měkkých hran**
+## **Použití efektu měkkých hran**
 
-Pro aplikaci efektu měkkých hran v Aspose.Slides pro Node.js via Java můžete vytvořit plynulý, rozmazaný přechod kolem okrajů tvaru. Tento efekt dodává jemnější a rafinovanější vzhled, ideální pro návrhy, které potřebují jemnější vzhled. Můžete snadno upravit parametry jako poloměr, abyste dosáhli požadovaného efektu napříč různými tvary ve vaší prezentaci.
+Pro aplikaci efektu měkkých hran v Aspose.Slides for Node.js via Java můžete vytvořit hladký, rozmazaný přechod kolem okrajů tvaru. Tento efekt přidává jemnější a rafinovanější vzhled, ideální pro návrhy, které vyžadují jemný, měkčí vzhled. Parametry, jako je poloměr, lze snadno upravit pro dosažení požadovaného efektu na různých tvarech ve vaší prezentaci.
 
-Tento JavaScriptový kód ukazuje, jak aplikovat [efekt měkkých hran](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) na tvar:
+Tento JavaScriptový kód ukazuje, jak použít [soft edges effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) na tvar:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -240,17 +289,17 @@ try {
 
 ![Efekt měkkých hran](soft_edges_effect.png)
 
-## **Použít efekt rozostření**
+## **Použití rozostření**
 
-Použijte rozostření tvaru k zeslabení výplně a obrysu tvaru při zachování editovatelnosti tvaru. Zavolejte [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) na formátu efektu tvaru. Poloměr se měří v bodech (1/72 palce): použijte nezápornou hodnotu, přičemž větší hodnoty produkují silnější rozostření. Poloměr nula ponechává vzhled nezměněný.
+Použijte rozostření tvaru k změkčení výplně a obrysu tvaru při zachování jeho editovatelnosti. Zavolejte [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) na formátu efektu tvaru. Poloměr se měří v bodech (1/72 palce): použijte nezápornou hodnotu, přičemž vyšší hodnoty způsobují silnější rozostření. Poloměr nula ponechá vzhled nezměněný.
 
-Nastavení [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) řídí viditelné hranice efektu. S `false` je rozostření oříznuto na původní namalované hranice, včetně obrysu. S `true` může rozostření přesahovat tyto hranice. Žádné z nastavení nemění pozici ani rozměry tvaru.
+Nastavení [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) řídí viditelné hranice efektu. S `false` je rozostření oříznuto na původní namalované hranice, včetně obrysu. S `true` může rozostření přesáhnout tyto hranice. Žádné nastavení nemění pozici ani rozměry tvaru.
 
-Níže uvedené srovnání používá stejnou výplň, obrys a rozměry tvaru po celou dobu. Horní řada používá `grow = false`; dolní řada používá `grow = true`.
+Porovnání níže používá stejnou výplň, obrys a rozměry tvaru v celém příkladu. Horní řádek používá `grow = false`; dolní řádek používá `grow = true`.
 
-![Originální obdélník s rozostřeními 5 a 15 bodů, s vypnutým a zapnutým růstem](shape_blur_comparison.png)
+![Originální obdélník porovnán s rozostřením 5 a 15 bodů, s vypnutým a zapnutým růstem](shape_blur_comparison.png)
 
-Tento JavaScriptový příklad vytváří oranžový obdélník s tmavě modrým obrysem, použije rozostření 5 bodů a poté jej aktualizuje na rozostření 15 bodů opětovným zavoláním [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect). Uloží oba rozostřené stavy, poté zavolá [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) a uloží tvar bez rozostření.
+Tento JavaScriptový příklad vytvoří oranžový obdélník s tmavě modrým obrysem, použije 5‑bodové rozostření a pak jej upraví na 15 bodů opětovným zavoláním [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect). Uloží oba rozostřené stavy, poté zavolá [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) a uloží tvar bez rozostření.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -282,18 +331,18 @@ try {
 }
 ```
 
-Rozostření tvaru ovlivňuje výplň a obrys společně. Efekt měkkých hran zeslabuje hrany tvaru, zatímco rozostření stínu měkčí pouze stín. Efekty transformace obrazu působí na obsah obrázku; tento příklad aplikuje rozostření přímo na formát efektu tvaru bez převodu tvaru na obrázek.
+Rozostření tvaru ovlivňuje výplň a obrys společně. Efekt měkkých hran rozostřuje hrany tvaru, zatímco rozostření stínu měkčí jen stín. Efekty transformace obrázku působí na obsah obrázku; tento příklad aplikuje rozostření přímo na formát efektu tvaru, aniž by se tvar převáděl na obrázek.
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
-**Mohu použít více efektů na stejný tvar?**
+**Mohu na stejný tvar aplikovat více efektů?**
 
-Ano, můžete kombinovat různé efekty, jako je stín, odraz a záře, na jednom tvaru a vytvořit tak dynamičtější vzhled.
+Ano, můžete kombinovat různé efekty, jako jsou stín, odraz a záře, na jediný tvar pro vytvoření dynamičtějšího vzhledu.
 
 **Na jaké tvary mohu aplikovat efekty?**
 
-Můžete aplikovat efekty na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
+Efekty lze použít na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
 
 **Mohu aplikovat efekty na seskupené tvary?**
 
-Ano, můžete aplikovat efekty na seskupené tvary. Efekt se použije na celou skupinu.
+Ano, efekty můžete aplikovat na seskupené tvary. Efekt se použije na celou skupinu.

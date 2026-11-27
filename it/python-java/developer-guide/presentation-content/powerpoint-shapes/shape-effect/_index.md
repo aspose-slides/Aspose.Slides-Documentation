@@ -1,5 +1,5 @@
 ---
-title: Applicare effetti forma nelle presentazioni utilizzando Python via Java
+title: Applicare effetti di forma nelle presentazioni usando Python tramite Java
 linktitle: Effetto Forma
 type: docs
 weight: 30
@@ -16,27 +16,27 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Trasforma i tuoi file PPT e PPTX con effetti forma avanzati usando Aspose.Slides per Python via Java—crea diapositive impressionanti e professionali in pochi secondi."
+description: "Trasforma i tuoi file PPT e PPTX con effetti di forma avanzati usando Aspose.Slides per Python tramite Java—crea diapositive sorprendenti e professionali in pochi secondi."
 ---
 ## **Introduzione**
 
-Mentre gli effetti in PowerPoint possono essere usati per far risaltare una forma, differiscono da [riempimenti](/slides/it/python-java/shape-formatting/#gradient-fill) o bordi. Utilizzando gli effetti di PowerPoint, è possibile creare riflessi convincenti su una forma, diffondere il bagliore di una forma, ecc.
+Mentre gli effetti in PowerPoint possono essere usati per far risaltare una forma, differiscono da [riempimenti](/slides/it/python-java/shape-formatting/#gradient-fill) o contorni. Utilizzando gli effetti di PowerPoint, puoi creare riflessi convincenti su una forma, diffondere il bagliore di una forma, ecc.
 
 ![Effetto forma](shape-effect.png)
 
-PowerPoint offre sei effetti che possono essere applicati alle forme. È possibile applicare uno o più effetti a una forma.
+PowerPoint offre sei effetti che possono essere applicati alle forme. Puoi applicare uno o più effetti a una forma.
 
 Alcune combinazioni di effetti hanno un aspetto migliore di altre. Per questo motivo, PowerPoint fornisce opzioni sotto **Preset**. Le opzioni Preset sono combinazioni di due o più effetti noti per avere un buon aspetto. In questo modo, selezionando un preset, non dovrai perdere tempo a testare o combinare effetti diversi per trovare una buona combinazione.
 
-Aspose.Slides fornisce proprietà e metodi nella classe [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) che consentono di applicare gli stessi effetti alle forme nelle presentazioni PowerPoint.
+Aspose.Slides fornisce proprietà e metodi nella classe [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) che ti consentono di applicare gli stessi effetti alle forme nelle presentazioni PowerPoint.
 
-## **Applica un effetto ombra**
+## **Applicare un effetto ombra**
 
-Aspose.Slides per Python tramite Java supporta ombre esterne e interne per le forme. È possibile personalizzare colore, direzione, distanza e raggio di sfocatura per adattarli al design della presentazione.
+Aspose.Slides per Python tramite Java supporta ombre esterne e interne per le forme. Puoi personalizzare colore, direzione, distanza e raggio di sfocatura per adattarli al design della tua presentazione.
 
-### **Applica un'ombra esterna**
+### **Applicare un'ombra esterna**
 
-Usa un'ombra esterna per far risaltare una scheda o un pannello rispetto allo sfondo della diapositiva. L'ombra si estende oltre i bordi della forma, creando l'impressione che la forma sia sollevata sopra la diapositiva. Regola colore, direzione, distanza e raggio di sfocatura per adattarli all'illuminazione e allo stile del tuo modello.
+Usa un'ombra esterna per far risaltare una scheda o un pannello sullo sfondo della diapositiva. L'ombra si estende oltre i bordi della forma, creando l'impressione che la forma sia sollevata sopra la diapositiva. Regola colore, direzione, distanza e raggio di sfocatura per adattarli all'illuminazione e allo stile del tuo modello.
 
 Questo codice Python mostra come applicare l'[effetto ombra esterna](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) a un rettangolo:
 
@@ -67,11 +67,61 @@ finally:
 
 ![Effetto ombra](shadow_effect.png)
 
-### **Applica un'ombra interna**
+#### **Controllare la direzione dell'ombra quando una forma ruota**
 
-Quando si riproduce lo stile visuale di un modello, usa un'ombra interna per dare a una scheda o a un pannello un aspetto incassato. Un'ombra esterna si estende all'esterno della forma e la fa apparire sollevata, mentre un'ombra interna ombreggia l'interno dei suoi bordi.
+Per impostazione predefinita, l'ombra esterna ruota con la forma. Per far sì che forme con rotazioni diverse sembrino illuminate dalla stessa direzione, chiama [setRotateShadowWithShape](https://reference.aspose.com/slides/python-java/aspose.slides/outershadow/#setRotateShadowWithShape) con `False` e usa [setDirection](https://reference.aspose.com/slides/python-java/aspose.slides/outershadow/#setDirection) per dare alle loro ombre la stessa direzione.
 
-Chiama [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), quindi configura l'ombra restituita da [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Valori di raggio di sfocatura più grandi producono bordi più morbidi.
+L'esempio crea due frecce blu con ombre grigie spostate di 42 punti verso destra (0°). Quindi duplica la diapositiva e ruota entrambe le frecce di 90° in senso orario.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    before = presentation.getSlides().get_Item(0)
+    
+    left = before.getShapes().addAutoShape(ShapeType.RightArrow, 55, 130, 110, 60)
+    left.getFillFormat().setFillType(FillType.Solid)
+    left.getFillFormat().getSolidFillColor().setColor(Color(70, 130, 180))
+    left.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    left.getEffectFormat().enableOuterShadowEffect()
+    shadow = left.getEffectFormat().getOuterShadowEffect()
+    shadow.getShadowColor().setColor(Color.GRAY)
+    shadow.setDirection(0)
+    shadow.setDistance(42)
+    shadow.setBlurRadius(0)
+    shadow.setRotateShadowWithShape(True)
+
+    right = before.getShapes().addClone(left)
+    right.setX(395)
+    right.getEffectFormat().getOuterShadowEffect().setRotateShadowWithShape(False)
+
+    after = presentation.getSlides().addClone(before)
+    for arrow in after.getShapes():
+        arrow.setRotation(90)
+
+    presentation.save("arrow_shadows.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Nella seconda diapositiva, la freccia sinistra proietta la sua ombra verso il basso, mentre la freccia destra proietta ancora la sua ombra verso destra. La direzione configurata rimane 0° per entrambe le ombre.
+
+![Rendering PowerPoint prima e dopo una rotazione di 90°. Entrambe le ombre partono da destra. Dopo la rotazione, l'ombra si sposta sotto la freccia sinistra e rimane a destra della freccia destra.](arrow-shadow-rotation.png)
+
+### **Applicare un'ombra interna**
+
+Quando ricrei lo stile visivo di un modello, usa un'ombra interna per dare a una scheda o a un pannello un aspetto incassato. Un'ombra esterna si estende al di fuori della forma e la fa apparire sollevata, mentre un'ombra interna ombreggia l'interno dei suoi bordi.
+
+Chiama [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect), quindi configura l'ombra restituita da [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Valori più alti del raggio di sfocatura producono bordi più morbidi.
 
 Questo esempio Python crea una scheda azzurro chiaro con un'ombra interna grigio scuro e la salva come file PPTX. La direzione dell'ombra è 225 gradi, la distanza è 7 punti e il raggio di sfocatura è 6 punti:
 
@@ -106,15 +156,15 @@ finally:
     presentation.dispose()
 ```
 
-![Rettangolo azzurro chiaro con ombra interna](inner_shadow_effect.png)
+![Rettangolo azzurro chiaro con un'ombra interna](inner_shadow_effect.png)
 
-Per rimuovere l'ombra interna, chiama [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) sul formato effetti della forma.
+Per rimuovere l'ombra interna, chiama [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) sul formato effetto della forma.
 
-### **Applica, modifica e rimuovi un'ombra predefinita**
+### **Applicare, modificare e rimuovere un'ombra predefinita**
 
 Chiama [enablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enablePresetShadowEffect), quindi usa [setPreset](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadow/#setPreset) per selezionare un [PresetShadowType](https://reference.aspose.com/slides/python-java/aspose.slides/presetshadowtype/). Per cambiare stile, modifica il preset sulla stessa forma. Chiama [disablePresetShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disablePresetShadowEffect) per rimuovere l'ombra mantenendo il riempimento e il contorno.
 
-L'esempio duplica il rettangolo in ciascuna fase così puoi confrontare tutti e quattro gli stati fianco a fianco su una diapositiva. Entrambe le ombre sono spostate di 10 punti. Una direzione di 225° posiziona la prima ombra sopra e a sinistra del rettangolo. Una direzione di 45° posiziona la seconda sotto e a destra.
+L'esempio clona il rettangolo ad ogni fase così puoi confrontare tutti e quattro gli stati affiancati su una diapositiva. Entrambe le ombre sono spostate di 10 punti. Una direzione di 225° posiziona la prima ombra sopra e a sinistra del rettangolo. Una direzione di 45° posiziona la seconda sotto e a destra.
 
 ```python
 import jpype
@@ -166,13 +216,13 @@ finally:
     presentation.dispose()
 ```
 
-| Originale | Primo preset | Secondo preset | Dopo rimozione |
+| Original | First preset | Second preset | After removal |
 | :---: | :---: | :---: | :---: |
-| ![Nessuna ombra](preset_shadow_original.png) | ![Ombra caduta alto sinistra](preset_shadow_top_left.png) | ![Ombra caduta in basso a destra](preset_shadow_bottom_right.png) | ![Nessuna ombra dopo la rimozione](preset_shadow_removed.png) |
+| ![Nessuna ombra](preset_shadow_original.png) | ![TopLeftDropShadow](preset_shadow_top_left.png) | ![BottomRightDropShadow](preset_shadow_bottom_right.png) | ![Nessuna ombra dopo la rimozione](preset_shadow_removed.png) |
 
-## **Applica un effetto riflessione**
+## **Applicare un effetto riflessione**
 
-Per applicare un effetto riflessione in Aspose.Slides per Python tramite Java, è possibile aggiungere una riflessione simile a uno specchio alle forme, regolando parametri come distanza, trasparenza e dimensione. Questo effetto migliora l'estetica delle presentazioni conferendo alle forme un aspetto più rifinito e sofisticato. È facile da implementare con codice semplice, permettendo un'applicazione rapida su più elementi per un design coerente.
+Per applicare un effetto di riflessione in Aspose.Slides per Python tramite Java, puoi aggiungere una riflessione simile a uno specchio alle forme, regolando parametri come distanza, trasparenza e dimensione. Questo effetto migliora l'estetica delle tue presentazioni conferendo alle forme un aspetto più raffinato e sofisticato. È facile da implementare con codice semplice, consentendo un'applicazione rapida su più elementi per un design coerente.
 
 Questo codice Python mostra come applicare l'[effetto riflessione](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) a una forma:
 
@@ -203,9 +253,9 @@ finally:
 
 ![Effetto riflessione](reflection_effect.png)
 
-## **Applica un effetto bagliore**
+## **Applicare un effetto bagliore**
 
-Per applicare un effetto bagliore a una forma in Aspose.Slides per Python tramite Java, è possibile aggiungere un'aura luminosa e soffusa intorno alle forme, regolando proprietà come colore e dimensione. Questo effetto aiuta a far risaltare le forme e aggiunge un elemento visivo attraente e accattivante alla presentazione. È facile da implementare con poco codice, migliorando l'aspetto complessivo delle diapositive.
+Per applicare un effetto bagliore a una forma in Aspose.Slides per Python tramite Java, puoi aggiungere un'aura morbida e luminosa attorno alle forme, regolando proprietà come colore e dimensione. Questo effetto aiuta a far risaltare le forme e aggiunge un elemento visivo attraente e accattivante alla tua presentazione. È facile da implementare con poco codice, migliorando l'aspetto complessivo delle tue diapositive.
 
 Questo codice Python mostra come applicare l'[effetto bagliore](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) a una forma:
 
@@ -235,9 +285,9 @@ finally:
 
 ![Effetto bagliore](glow_effect.png)
 
-## **Applica un effetto bordi morbidi**
+## **Applicare un effetto bordi morbidi**
 
-Per applicare un effetto bordi morbidi in Aspose.Slides per Python tramite Java, è possibile creare una transizione liscia e sfocata attorno ai bordi di una forma. Questo effetto aggiunge un aspetto più sottile e raffinato, perfetto per progetti che richiedono un aspetto delicato e più morbido. È possibile regolare facilmente parametri come il raggio per ottenere l'effetto desiderato su varie forme nella presentazione.
+Per applicare un effetto bordi morbidi in Aspose.Slides per Python tramite Java, puoi creare una transizione liscia e sfocata intorno ai bordi di una forma. Questo effetto aggiunge un aspetto più delicato e raffinato, perfetto per progetti che necessitano di un'apparenza gentile e più morbida. Puoi facilmente regolare parametri come il raggio per ottenere l'effetto desiderato su diverse forme nella tua presentazione.
 
 Questo codice Python mostra come applicare l'[effetto bordi morbidi](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) a una forma:
 
@@ -265,17 +315,17 @@ finally:
 
 ![Effetto bordi morbidi](soft_edges_effect.png)
 
-## **Applica un effetto sfocatura**
+## **Applicare un effetto sfocatura**
 
-Usa la sfocatura della forma per ammorbidire il riempimento e il contorno della forma mantenendola modificabile. Chiama [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) sul formato effetti della forma. Il raggio è misurato in punti (1/72 di pollice): usa un valore non negativo, con valori più grandi che producono una sfocatura più forte. Un raggio pari a zero mantiene inalterato l'aspetto.
+Usa la sfocatura della forma per ammorbidire il riempimento e il contorno di una forma mantenendola modificabile. Chiama [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) sul formato effetto della forma. Il raggio è misurato in punti (1/72 di pollice): usa un valore non negativo, con valori più alti che producono una sfocatura più forte. Un raggio di zero lascia l'aspetto invariato.
 
-La impostazione [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) controlla i limiti visibili dell'effetto. Con `False`, la sfocatura è ritagliata ai limiti originali dipinti, includendo il contorno. Con `True`, la sfocatura può estendersi oltre questi limiti. Nessuna impostazione cambia la posizione o le dimensioni della forma.
+L'impostazione [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) controlla i limiti visibili dell'effetto. Con `False`, la sfocatura è limitata ai limiti originali dipinti, incluso il contorno. Con `True`, la sfocatura può estendersi oltre tali limiti. Nessuna delle due impostazioni modifica la posizione o le dimensioni della forma.
 
-Il confronto sottostante utilizza lo stesso riempimento, contorno e dimensioni della forma in tutti i casi. La riga superiore usa `grow = False`; la riga inferiore usa `grow = True`.
+Il confronto qui sotto utilizza lo stesso riempimento, contorno e dimensioni della forma per tutti i casi. La riga superiore usa `grow = False`; la riga inferiore usa `grow = True`.
 
 ![Rettangolo originale confrontato con raggi di sfocatura di 5 e 15 punti, con grow disabilitato e abilitato](shape_blur_comparison.png)
 
-Questo esempio Python crea un rettangolo arancione con un contorno blu scuro, applica una sfocatura di 5 punti, poi lo aggiorna a una sfocatura di 15 punti chiamando nuovamente [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect). Salva entrambi gli stati sfocati, poi chiama [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) e salva la forma senza sfocatura.
+Questo esempio Python crea un rettangolo arancione con un contorno blu scuro, applica una sfocatura di 5 punti e poi la aggiorna a 15 punti chiamando nuovamente [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect). Salva entrambi gli stati sfocati, quindi chiama [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) e salva la forma senza sfocatura.
 
 ```python
 import jpype
@@ -310,18 +360,18 @@ finally:
     presentation.dispose()
 ```
 
-La sfocatura della forma influisce contemporaneamente sul riempimento e sul contorno. Un effetto bordi morbidi attenua i bordi della forma, mentre la sfocatura dell'ombra ammorbidisce solo l'ombra. Gli effetti di trasformazione delle immagini operano sul contenuto dell'immagine; questo esempio applica la sfocatura direttamente al formato effetti della forma senza convertire la forma in un'immagine.
+La sfocatura della forma influisce sul riempimento e sul contorno insieme. Un effetto bordi morbidi attenua i bordi della forma, mentre la sfocatura dell'ombra ammorbidisce solo l'ombra. Gli effetti di trasformazione immagine operano sul contenuto dell'immagine; questo esempio applica la sfocatura direttamente al formato effetto della forma senza convertire la forma in un'immagine.
 
 ## **FAQ**
 
 **Posso applicare più effetti alla stessa forma?**
 
-Sì, è possibile combinare diversi effetti, come ombra, riflessione e bagliore, su un'unica forma per creare un aspetto più dinamico.
+Sì, puoi combinare effetti diversi, come ombra, riflessione e bagliore, su una singola forma per creare un aspetto più dinamico.
 
 **Su quali forme posso applicare gli effetti?**
 
-È possibile applicare gli effetti a varie forme, incluse autoshape, grafici, tabelle, immagini, oggetti SmartArt, oggetti OLE e altro.
+Puoi applicare effetti a varie forme, incluse autoshape, grafici, tabelle, immagini, oggetti SmartArt, oggetti OLE e altro.
 
-**Posso applicare gli effetti a forme raggruppate?**
+**Posso applicare effetti a forme raggruppate?**
 
-Sì, è possibile applicare gli effetti a forme raggruppate. L'effetto verrà applicato a tutto il gruppo.
+Sì, puoi applicare effetti a forme raggruppate. L'effetto sarà applicato all'intero gruppo.
