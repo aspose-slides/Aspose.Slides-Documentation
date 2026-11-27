@@ -5,7 +5,7 @@ type: docs
 url: /nl/features/compress-presentations/
 weight: 250
 feature_id: compress-presentations
-feature_group: operaties
+feature_group: operations
 translationKey: slides-feature-compress-presentations
 feature_catalogue_version: 3
 feature_guides:
@@ -14,13 +14,13 @@ feature_guides:
 ---
 ## **Overzicht**
 
-Comprimeer afbeeldingen, verwijder bijgesneden afbeeldinggebieden wanneer ze niet meer nodig zijn, en kies compressie‑instellingen voor de presentatie vóór het opslaan. Dit is handig voor presentaties met grote foto’s of herhaald media. Het bespaarde aantal hangt af van de inhoud en de door u gekozen instellingen.
+Compress afbeeldingen, verwijder bijgesneden afbeeldingsterreinen wanneer ze niet meer nodig zijn, en kies compressie‑instellingen voor de presentatie voordat je opslaat. Dit is nuttig voor presentaties met grote foto’s of herhaald media. Het bespaarde bedrag hangt af van de inhoud en de door jou gekozen instellingen.
 
 ## **Voorbeeld van gebruik**
 
 Dit C#‑voorbeeld laadt `input.pptx`, comprimeert de presentatie en slaat deze op als `compressed.pptx`.
 
-Gebruik Aspose.Slides for .NET 26.11 of nieuwer. Voor de installatie, zie [Installeer Aspose.Slides for .NET](/slides/nl/net/installation/).
+Gebruik Aspose.Slides for .NET 26.11 of later. Voor installatie, zie [Installeer Aspose.Slides for .NET](/slides/nl/net/installation/).
 
 ```csharp
 using Aspose.Slides;
@@ -32,27 +32,34 @@ Compress.CompressPresentation(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
-## **Veelgestelde vragen**
 
-### **Is dit een enkele optimalisatieschakelaar voor het volledige bestand?**
+<!-- visual-explanation:compress-presentations:start -->
+[![Identiek geschaalde afbeeldingen vóór en na compressie, gevolgd door gemeten PPTX‑bestandgroottebalken en opgeslagen afbeeldingsdimensies.](visual-compress-presentations-1adbf86268a5.svg)](visual-compress-presentations-1adbf86268a5.svg)
 
-Aspose.Slides for .NET 26.11 voegt [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/) toe, dat het verwijderen van ongebruikte lay-outs/masters, het subsetten van ingesloten lettertypen en 150‑DPI afbeeldingscompressie combineert. Het verwijdert permanent bijgesneden afbeeldinggebieden. Voor alleen‑afbeeldingsverwerking, gebruik [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); voor fijnere controle, zie het [voorbeeld van individuele‑afbeeldingscompressie](/slides/nl/net/examples/optimization-batch/compression/). Deze nieuwe helpers zijn specifiek voor de genoemde .NET‑versie; raadpleeg de overeenkomstige gids voor andere SDK’s.
+*Gemeten op één synthetische detailroosterfixture: 584,030 → 128,323 bytes. Beide weergaven gebruiken dezelfde schaal en een frame van 252 × 336 punten. Compressie verwijdert de bijgesneden marges en reduceert de opgeslagen afbeelding tot 525 × 700 pixels; de besparing hangt af van de invoer.*  
+<!-- visual-explanation:compress-presentations:end -->
+
+## **FAQ**
+
+### **Is dit een enkele optimalisatie‑schakelaar voor het volledige bestand?**
+
+Aspose.Slides for .NET 26.11 voegt [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/) toe, die het verwijderen van ongebruikte lay‑out/master, ingesloten‑font‑subsetting en 150‑DPI‑afbeeldingscompressie combineert. Het verwijdert permanent bijgesneden afbeeldingsterreinen. Voor alleen‑afbeeldingsverwerking, gebruik [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); voor fijnere controle, zie het [voorbeeld van compressie per afbeelding](/slides/nl/net/examples/optimization-batch/compression/). Sinds versie 26.11 is dezelfde oproep voor de volledige presentatie ook beschikbaar in Java, Node.js via Java, Python via .NET en C++. Het voorbeeld en de links op deze pagina zijn voor .NET.
 
 ### **Verandert afbeeldingscompressie bewerkbare tekst of grafieken?**
 
-Afbeeldingscompressie richt zich op afbeeldingsgegevens, niet op bewerkbare tekst of diagramgegevens. Controleer de afbeeldingen omdat schalen of opnieuw comprimeren de details kan verminderen.
+Afbeeldingscompressie richt zich op afbeeldingsgegevens, niet op bewerkbare tekst of grafiekgegevens. Controleer de afbeeldingen omdat verkleinen of opnieuw comprimeren hun detail kan verminderen.
 
-### **Hoe kies ik een resolutie voor presentatie‑afbeeldingen?**
+### **Hoe moet ik een resolutie kiezen voor afbeeldingen in de presentatie?**
 
-Kies een doelresolutie op basis van de weergegeven afbeeldingsgrootte en het beoogde scherm‑ of afdrukgebruik. Behoud meer resolutie voor grote displays, afdrukken en gedetailleerde diagrammen, en vergelijk de gerenderde output voordat u het origineel verwijdert.
+Kies een doel op basis van de weergavegrootte van de afbeelding en het beoogde scherm‑ of afdrukgebruik. Houd meer resolutie voor grote schermen, afdrukken en gedetailleerde diagrammen, en vergelijk de gerenderde output voordat je het origineel verwijdert.
 
 ## **Gidsen**
 
-- [Comprimeer de volledige presentatie in .NET](/slides/nl/net/low-code-presentation-operations/#compress-the-whole-presentation)
-- [Optimaliseer afbeeldingbeheer in presentaties in .NET](/slides/nl/net/image/)
+- [Compress de volledige presentatie in .NET](/slides/nl/net/low-code-presentation-operations/#compress-the-whole-presentation)
+- [Optimaliseer beeldbeheer in presentaties in .NET](/slides/nl/net/image/)
 
-Gerelateerde functie: [Verwijder ongebruikte masters, lay-outs en media](/slides/nl/features/remove-unused-content/).
+Gerelateerde functie: [Verwijder ongebruikte masters, lay‑outs en media](/slides/nl/features/remove-unused-content/).
 
-## Uitvoerbare .NET‑voorbeelden
+## .NET‑voorbeelden die je kunt uitvoeren
 
-- [Presentatiegrootte verkleinen](/slides/nl/net/examples/optimization-batch/compression/)
+- [Verminder presentatiegrootte](/slides/nl/net/examples/optimization-batch/compression/)

@@ -1,5 +1,5 @@
 ---
-title: Nén các bản trình chiếu
+title: Nén bản trình chiếu
 description: Giảm kích thước bản trình chiếu bằng cách nén hình ảnh và loại bỏ nội dung không sử dụng.
 type: docs
 url: /vi/features/compress-presentations/
@@ -14,13 +14,13 @@ feature_guides:
 ---
 ## **Tổng quan**
 
-Nén hình ảnh, loại bỏ các khu vực hình đã cắt khi chúng không còn cần thiết và chọn cài đặt nén bản trình chiếu trước khi lưu. Điều này hữu ích cho các bộ slide có nhiều ảnh lớn hoặc phương tiện lặp lại. Lượng dữ liệu được tiết kiệm phụ thuộc vào nội dung và cài đặt bạn chọn.
+Nén hình ảnh, loại bỏ các khu vực hình đã cắt khi không còn cần thiết, và chọn các cài đặt nén bản trình chiếu trước khi lưu. Điều này hữu ích cho các bộ slide có ảnh lớn hoặc phương tiện lặp lại. Lượng tiết kiệm phụ thuộc vào nội dung và cài đặt bạn chọn.
 
 ## **Ví dụ sử dụng**
 
 Ví dụ C# này tải `input.pptx`, nén bản trình chiếu và lưu nó dưới dạng `compressed.pptx`.
 
-Sử dụng Aspose.Slides cho .NET 26.11 hoặc mới hơn. Để cài đặt, xem [Cài đặt Aspose.Slides cho .NET](/slides/vi/net/installation/).
+Sử dụng Aspose.Slides for .NET 26.11 hoặc cao hơn. Để thiết lập, xem [Cài đặt Aspose.Slides cho .NET](/slides/vi/net/installation/).
 
 ```csharp
 using Aspose.Slides;
@@ -32,26 +32,33 @@ Compress.CompressPresentation(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
+
+<!-- visual-explanation:compress-presentations:start -->
+[![Các hình ảnh được thu phóng đồng nhất trước và sau khi nén, đi kèm với các thanh kích thước tệp PPTX được đo và kích thước hình ảnh đã lưu.](visual-compress-presentations-1adbf86268a5.svg)](visual-compress-presentations-1adbf86268a5.svg)
+
+*Được đo trên một mẫu lưới chi tiết tổng hợp: 584.030 → 128.323 byte. Cả hai bản render đều sử dụng cùng tỷ lệ và khung 252 × 336 điểm. Nén loại bỏ các lề đã cắt và giảm hình ảnh lưu trữ xuống 525 × 700 pixel; mức tiết kiệm kích thước phụ thuộc vào dữ liệu đầu vào.* 
+<!-- visual-explanation:compress-presentations:end -->
+
 ## **Câu hỏi thường gặp**
 
 ### **Đây có phải là công tắc tối ưu hoá toàn bộ tệp không?**
 
-Aspose.Slides cho .NET 26.11 bổ sung [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/), kết hợp việc loại bỏ bố cục/mẫu không dùng, cắt tệp phông chữ nhúng và nén hình ảnh 150 DPI. Nó loại bỏ vĩnh viễn các khu vực ảnh đã cắt. Đối với xử lý chỉ ảnh, dùng [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); để kiểm soát chi tiết hơn, xem [ví dụ nén ảnh riêng lẻ](/slides/vi/net/examples/optimization-batch/compression/). Các công cụ mới này chỉ áp dụng cho phiên bản .NET đã nêu; hãy kiểm tra hướng dẫn tương ứng cho các SDK khác.
+Aspose.Slides for .NET 26.11 thêm [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/), kết hợp việc xóa bỏ layout/master không dùng, subsetting phông chữ nhúng và nén hình ảnh 150 DPI. Nó loại bỏ vĩnh viễn các khu vực hình đã cắt. Đối với xử lý chỉ hình ảnh, sử dụng [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); để kiểm soát chi tiết hơn, xem [ví dụ nén hình ảnh riêng lẻ](/slides/vi/net/examples/optimization-batch/compression/). Từ phiên bản 26.11, cùng một lời gọi toàn bộ bản trình chiếu cũng khả dụng trong Java, Node.js thông qua Java, Python qua .NET và C++. Ví dụ và các liên kết trên trang này dành cho .NET.
 
-### **Nén ảnh có thay đổi văn bản hoặc biểu đồ có thể chỉnh sửa không?**
+### **Nén hình ảnh có làm thay đổi văn bản có thể chỉnh sửa hoặc biểu đồ không?**
 
-Nén ảnh chỉ nhắm vào dữ liệu hình ảnh, không ảnh hưởng đến văn bản hoặc dữ liệu biểu đồ có thể chỉnh sửa. Kiểm tra các hình ảnh vì việc thay đổi kích thước hoặc nén lại có thể giảm chi tiết.
+Nén hình ảnh chỉ nhắm vào dữ liệu hình, không phải văn bản có thể chỉnh sửa hoặc dữ liệu biểu đồ. Hãy xem lại các hình ảnh vì việc thay đổi kích thước hoặc nén lại có thể giảm chi tiết.
 
 ### **Tôi nên chọn độ phân giải cho hình ảnh trong bản trình chiếu như thế nào?**
 
-Chọn độ phân giải mục tiêu dựa trên kích thước hình ảnh hiển thị và mục đích sử dụng trên màn hình hoặc in. Giữ độ phân giải cao hơn cho màn hình lớn, in ấn và sơ đồ chi tiết, và so sánh kết quả khi render trước khi loại bỏ bản gốc.
+Chọn mục tiêu dựa trên kích thước hình ảnh hiển thị và mục đích sử dụng trên màn hình hoặc in. Giữ lại độ phân giải cao hơn cho các màn hình lớn, in ấn và sơ đồ chi tiết, và so sánh kết quả render trước khi loại bỏ bản gốc.
 
 ## **Hướng dẫn**
 
 - [Nén toàn bộ bản trình chiếu trong .NET](/slides/vi/net/low-code-presentation-operations/#compress-the-whole-presentation)
-- [Tối ưu hóa quản lý hình ảnh trong bản trình chiếu trong .NET](/slides/vi/net/image/)
+- [Tối ưu quản lý hình ảnh trong bản trình chiếu trong .NET](/slides/vi/net/image/)
 
-Tính năng liên quan: [Xóa các mẫu, bố cục và phương tiện không sử dụng](/slides/vi/features/remove-unused-content/).
+Related feature: [Xóa các master, layout và phương tiện không dùng](/slides/vi/features/remove-unused-content/).
 
 ## Các ví dụ .NET có thể chạy
 
