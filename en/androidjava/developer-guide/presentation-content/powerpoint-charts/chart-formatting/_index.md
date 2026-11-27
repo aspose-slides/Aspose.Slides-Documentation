@@ -172,6 +172,60 @@ try {
 }
 ```
 
+## **Reuse Text Frame Formatting for a Chart Legend**
+
+To match a legend to a slide heading, set the heading's font through [getDefaultPortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) on the first paragraph. Call [copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyFrom-com.aspose.slides.ITextFrame-) on the format returned by the legend's [getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformattedtextcontainer/#getTextFormat--). It copies the text frame settings, the first paragraph's formatting, and that paragraph's default font properties. Formatting applied directly to individual portions or to later paragraphs stays local to the source.
+
+The example uses a bold, 26-point Calibri heading in navy as the template. After styling the legend, it calls [copyTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icharttextformat/#copyTo-com.aspose.slides.ITextFrame-) to apply the same formatting to a separate caption.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IAutoShape heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, false);
+    ITextFrame sourceTextFrame = heading.addTextFrame("Quarterly sales");
+    IPortionFormat font = sourceTextFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    font.setLatinFont(new FontData("Calibri"));
+    font.setFontHeight(26);
+    font.setFontBold(NullableBool.True);
+    font.getFillFormat().setFillType(FillType.Solid);
+    font.getFillFormat().getSolidFillColor().setColor(Color.rgb(32, 64, 96));
+
+    IChart chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360);
+    chart.setStyle(StyleType.Style3);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.getCell(0, 0, 1).setValue("Retail");
+    workbook.getCell(0, 0, 2).setValue("Online");
+    workbook.getCell(0, 0, 3).setValue("Wholesale");
+    for (int quarter = 1; quarter <= 4; quarter++) {
+        workbook.getCell(0, quarter, 0).setValue("Q" + quarter);
+    }
+
+    chart.setLegend(true);
+    chart.getLegend().setPosition(LegendPositionType.Bottom);
+    IChartTextFormat legendFormat = chart.getLegend().getTextFormat();
+    legendFormat.copyFrom(sourceTextFrame);
+
+    IAutoShape caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, false);
+    ITextFrame captionTextFrame = caption.addTextFrame("Sales in millions of dollars");
+    legendFormat.copyTo(captionTextFrame);
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+In the saved presentation, the legend and caption match the heading in size, weight, and color. The legend still displays the series names, and the caption keeps its own text. If a portion in the caption already has an explicit font size, that size takes precedence over the copied paragraph default.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **Set the Numeric Format**
 
 Use [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.

@@ -186,6 +186,66 @@ finally:
     presentation.dispose()
 ```
 
+## **Reuse Text Frame Formatting for a Chart Legend**
+
+To match a legend to a slide heading, set the heading's font through [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) on the first paragraph. Call [copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyFrom) on the format returned by the legend's [getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#getTextFormat). This copies the text frame settings, the first paragraph's formatting, and that paragraph's default font properties. Formatting applied directly to individual portions or to later paragraphs stays local to the source.
+
+The example uses a bold, 26-point Calibri heading in navy as the template. After styling the legend, it calls [copyTo](https://reference.aspose.com/slides/python-java/aspose.slides/charttextformat/#copyTo) to apply the same formatting to a separate caption.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, FontData, LegendPositionType, NullableBool, Presentation, SaveFormat, ShapeType, StyleType
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    heading = shapes.addAutoShape(ShapeType.Rectangle, 40, 20, 640, 40, False)
+    source_text_frame = heading.addTextFrame("Quarterly sales")
+    paragraph = source_text_frame.getParagraphs().get_Item(0)
+    font = paragraph.getParagraphFormat().getDefaultPortionFormat()
+    font.setLatinFont(FontData("Calibri"))
+    font.setFontHeight(26)
+    font.setFontBold(NullableBool.True_)
+    font.getFillFormat().setFillType(FillType.Solid)
+    font.getFillFormat().getSolidFillColor().setColor(Color(32, 64, 96))
+
+    chart = shapes.addChart(ChartType.ClusteredColumn, 40, 75, 640, 360)
+    chart.setStyle(StyleType.Style3)
+    workbook = chart.getChartData().getChartDataWorkbook()
+    for column, series_name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.getCell(0, 0, column).setValue(series_name)
+    for quarter in range(1, 5):
+        workbook.getCell(0, quarter, 0).setValue(f"Q{quarter}")
+
+    chart.setLegend(True)
+    legend = chart.getLegend()
+    legend.setPosition(LegendPositionType.Bottom)
+    legend_format = legend.getTextFormat()
+    legend_format.copyFrom(source_text_frame)
+
+    caption = shapes.addAutoShape(ShapeType.Rectangle, 40, 460, 640, 40, False)
+    caption_text_frame = caption.addTextFrame("Sales in millions of dollars")
+    legend_format.copyTo(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+In the saved presentation, the legend and caption match the heading in size, weight, and color. The legend still displays the series names, and the caption keeps its own text. If a portion in the caption already has an explicit font size, that size takes precedence over the copied paragraph default.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **Set the Numeric Format**
 
 Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.

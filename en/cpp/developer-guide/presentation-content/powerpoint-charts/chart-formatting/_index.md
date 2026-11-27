@@ -219,6 +219,88 @@ chart->get_ChartData()->get_Series()->idx_get(0)->get_Labels()->get_DefaultDataL
 presentation->Save(u"FontPropertiesForChart.pptx", SaveFormat::Pptx);
 ```
 
+## **Reuse Text Frame Formatting for a Chart Legend**
+
+To match a legend to a slide heading, set the font in the first paragraph's default portion format through [get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Use [get_TextFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformattedtextcontainer/get_textformat/) to access the legend's text format, then call [CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyfrom/) with the heading's text frame. This copies the text frame settings, the first paragraph's formatting, and that paragraph's default font properties. Formatting applied directly to individual portions or to later paragraphs stays local to the source.
+
+The example uses a bold, 26-point Calibri heading in navy as the template. After styling the legend, it uses [CopyTo](https://reference.aspose.com/slides/cpp/aspose.slides.charts/icharttextformat/copyto/) to apply the same formatting to a separate caption.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ShapeType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/NullableBool.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/StyleType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto heading = shapes->AddAutoShape(ShapeType::Rectangle, 40, 20, 640, 40, false);
+auto sourceTextFrame = heading->AddTextFrame(u"Quarterly sales");
+auto font = sourceTextFrame->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+font->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+font->set_FontHeight(26);
+font->set_FontBold(NullableBool::True);
+font->get_FillFormat()->set_FillType(FillType::Solid);
+font->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::FromArgb(32, 64, 96));
+
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, 40, 75, 640, 360);
+chart->set_Style(StyleType::Style3);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Retail"));
+workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Online"));
+workbook->GetCell(0, 0, 3, ObjectExt::Box<String>(u"Wholesale"));
+for (auto quarter = 1; quarter <= 4; ++quarter)
+{
+    auto label = String::Format(u"Q{0}", quarter);
+    workbook->GetCell(0, quarter, 0, ObjectExt::Box<String>(label));
+}
+
+chart->set_HasLegend(true);
+auto legend = chart->get_Legend();
+legend->set_Position(LegendPositionType::Bottom);
+auto legendTextFormat = legend->get_TextFormat();
+legendTextFormat->CopyFrom(sourceTextFrame);
+
+auto caption = shapes->AddAutoShape(ShapeType::Rectangle, 40, 460, 640, 40, false);
+auto captionTextFrame = caption->AddTextFrame(u"Sales in millions of dollars");
+legendTextFormat->CopyTo(captionTextFrame);
+
+presentation->Save(u"legend-formatting.pptx", SaveFormat::Pptx);
+```
+
+In the saved presentation, the legend and caption match the heading in size, weight, and color. The legend still displays the series names, and the caption keeps its own text. If a portion in the caption already has an explicit font size, that size takes precedence over the copied paragraph default.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **Set the Numeric Format**
 
 Use [IChartDataCell::set_PresetNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_presetnumberformat/) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.

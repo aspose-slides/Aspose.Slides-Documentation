@@ -166,6 +166,53 @@ with slides.Presentation() as presentation:
     presentation.save("ChartFontProperties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Reuse Text Frame Formatting for a Chart Legend**
+
+To match a legend to a slide heading, set the font through [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) on the heading's first paragraph. Call [copy_from](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_from/) on the legend's [text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/text_format/). It copies the text frame settings, the first paragraph's formatting, and that paragraph's default font properties. Formatting applied directly to individual portions or to later paragraphs stays local to the source.
+
+The example uses a heading in bold, navy, 26-point Calibri as the template. After styling the legend, it uses [copy_to](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttextformat/copy_to/) to apply the same formatting to a separate caption.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    shapes = presentation.slides[0].shapes
+
+    heading = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 20, 640, 40, False)
+    source_text_frame = heading.add_text_frame("Quarterly sales")
+    font = source_text_frame.paragraphs[0].paragraph_format.default_portion_format
+    font.latin_font = slides.FontData("Calibri")
+    font.font_height = 26
+    font.font_bold = slides.NullableBool.TRUE
+    font.fill_format.fill_type = slides.FillType.SOLID
+    font.fill_format.solid_fill_color.color = slides.Color.from_argb(32, 64, 96)
+
+    chart = shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 40, 75, 640, 360)
+    chart.style = charts.StyleType.STYLE3
+    workbook = chart.chart_data.chart_data_workbook
+    for column, name in enumerate(("Retail", "Online", "Wholesale"), start=1):
+        workbook.get_cell(0, 0, column).value = name
+    for quarter in range(1, 5):
+        workbook.get_cell(0, quarter, 0).value = f"Q{quarter}"
+
+    chart.has_legend = True
+    chart.legend.position = charts.LegendPositionType.BOTTOM
+    chart.legend.text_format.copy_from(source_text_frame)
+
+    caption = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 460, 640, 40, False)
+    caption_text_frame = caption.add_text_frame("Sales in millions of dollars")
+    chart.legend.text_format.copy_to(caption_text_frame)
+
+    presentation.save("legend-formatting.pptx", slides.export.SaveFormat.PPTX)
+```
+
+In the saved presentation, the legend and caption match the heading in size, weight, and color. The legend still displays the series names, and the caption keeps its own text. If a portion in the caption already has an explicit font size, that size takes precedence over the copied paragraph default.
+
+| Before copying | After copying |
+| --- | --- |
+| ![Quarterly sales chart with regular black legend labels and a black caption](legend-formatting-before.png) | ![The same chart with larger, bold navy legend labels and a matching caption](legend-formatting.png) |
+
 ## **Set the Numeric Format**
 
 Use [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
