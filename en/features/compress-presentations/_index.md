@@ -44,7 +44,7 @@ presentation.Save("compressed.pptx", SaveFormat.Pptx);
 
 ### **Is this a single whole-file optimization switch?**
 
-Aspose.Slides for .NET 26.11 adds [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/), which combines unused layout/master removal, embedded-font subsetting and 150-DPI picture compression. It permanently removes cropped picture areas. For picture-only processing, use [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); for finer control, see the [individual-picture compression example](/slides/net/examples/optimization-batch/compression/). These new helpers are specific to the stated .NET version; check the corresponding guide for other SDKs.
+Aspose.Slides for .NET 26.11 adds [Compress.CompressPresentation](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compresspresentation/), which combines unused layout/master removal, embedded-font subsetting and 150-DPI picture compression. It permanently removes cropped picture areas. For picture-only processing, use [Compress.CompressImages](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressimages/); for finer control, see the [individual-picture compression example](/slides/net/examples/optimization-batch/compression/). Since version 26.11, the same whole-presentation call is also available in Java, Node.js via Java, Python via .NET and C++. The example and the links on this page are for .NET.
 
 ### **Does image compression change editable text or charts?**
 
